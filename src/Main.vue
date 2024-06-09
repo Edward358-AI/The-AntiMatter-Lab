@@ -34,6 +34,22 @@ import Power from './components/energy/Power.vue'
 import Work from './components/energy/Work.vue'
 
 
+const htmlElement = document.documentElement
+
+function getTheme() {
+  if (localStorage.getItem("theme")) {
+    htmlElement.setAttribute("data-bs-theme", localStorage.getItem("theme"))
+  } else {
+    htmlElement.setAttribute("data-bs-theme", "dark")
+  }
+}
+getTheme()
+
+function updateTheme(newTheme) {
+  htmlElement.setAttribute("data-bs-theme", newTheme)
+  localStorage.setItem("theme", newTheme)
+}
+
 const user = reactive({ current: "landing", difficulty: 0 })
 
 const sidebar = ref(false)
@@ -59,13 +75,13 @@ const filteredLessons = computed(() => {
 <template>
   <div class="sidebar offcanvas-start offcanvas-md" id="menu"
     :style="sidebar ? 'animation: slideRight 1.5s forwards' : ''">
-    <div style="background-color:#181b1f" class="offcanvas-header border-bottom border-secondary border-opacity-25">
+    <div class="offcanvas-header border-bottom border-secondary border-opacity-25">
       <a class="sidebar-brand mx-auto" href="javascript:void(0);" @click="user.current = 'landing'">
         <img src="/public/favicon.png" width="24" height="24" class="d-inline-block align-text-top rounded">
         The AntiMatter Lab
       </a>
     </div>
-    <div class="offcanvas-header" style="background-color:#181b1f">
+    <div class="offcanvas-header">
       <input v-model="searchQuery" type="text" class="form-control" placeholder="Type here to find a lesson...">
     </div>
     <div class="offcanvas-body">
@@ -130,12 +146,17 @@ const filteredLessons = computed(() => {
 
       </ul>
     </div>
-    <div class="offcanvas-footer mb-2" style="background-color:#181b1f">
+    <div class="offcanvas-footer mb-2">
       <h6 class="sidebar-header">Adjust Math Level</h6>
-      <select class="mx-auto p-2 my-2 form-select">
+      <select style="width: 140px;" class="mx-auto p-2 my-2 form-select">
         <option default @click="user.difficulty = 0">Conceptual</option>
         <option @click="user.difficulty = 1">Algebra-Based</option>
         <option @click="user.difficulty = 2">Calculus-Based</option>
+      </select>
+      <h6 class="sidebar-header">Theme</h6>
+      <select style="width: 70px;" class="mx-auto p-2 my-2 form-select">
+        <option default @click="updateTheme('dark')">Dark</option>
+        <option @click="updateTheme('light')">Light</option>
       </select>
       <hr class="sidebar-divider opacity-50">
       <p class="text-secondary-emphasis">Made by Edward Jiang and Eric Niu</p>
@@ -156,9 +177,5 @@ const filteredLessons = computed(() => {
 <style scoped>
 #menu {
   left: -100%;
-}
-
-select {
-  width: fit-content;
 }
 </style>
