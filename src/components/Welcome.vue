@@ -5,7 +5,7 @@ defineProps(['sidebar'])
 
 <template>
     <div id="welcome" :style="sidebar ? '' : 'transform: translateX(-160px);'">
-        <img src="/public/logo.png" width="40%" class="rounded" />
+        <img src="/logo.png" width="40%" class="rounded" />
         <h1>Welcome to the AntiMatter Lab.</h1>
         <p style="animation: slideUp 5s forwards; animation-delay: 450ms; opacity: 0;">What is physics? It's the study
             of matter.<br>Why learn physics? Because it matters.</p>
