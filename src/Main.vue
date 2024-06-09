@@ -77,7 +77,7 @@ const filteredLessons = computed(() => {
     :style="sidebar ? 'animation: slideRight 1.5s forwards' : ''">
     <div class="offcanvas-header border-bottom border-secondary border-opacity-25">
       <a class="sidebar-brand mx-auto" href="javascript:void(0);" @click="user.current = 'landing'">
-        <img src="/favicon.png" width="24" height="24" class="d-inline-block align-text-top rounded">
+        <img src="/favicon.png" width="24" height="24" class="d-inline-block align-text-top rounded-1">
         The AntiMatter Lab
       </a>
     </div>
