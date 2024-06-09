@@ -1,5 +1,5 @@
 <script setup>
-import { ref, reactive, computed } from 'vue'
+import { ref, reactive, computed, watch } from 'vue'
 import Welcome from './components/Welcome.vue'
 import About from './components/About.vue'
 
@@ -35,22 +35,25 @@ import Work from './components/energy/Work.vue'
 
 
 const htmlElement = document.documentElement
+const user = reactive({ current: "landing", difficulty: 0, theme: "dark" })
 
-function getTheme() {
-  if (localStorage.getItem("theme")) {
-    htmlElement.setAttribute("data-bs-theme", localStorage.getItem("theme"))
-  } else {
-    htmlElement.setAttribute("data-bs-theme", "dark")
-  }
+if (localStorage.getItem("user")) {
+  user.theme = JSON.parse(localStorage.getItem("user")).theme
 }
-getTheme()
+
+function getUser() {
+  if (localStorage.getItem("user")) {
+    user.difficulty = JSON.parse(localStorage.getItem("user")).difficulty
+    user.current = JSON.parse(localStorage.getItem("user")).current
+  }
+  htmlElement.setAttribute("data-bs-theme", user.theme)
+}
+
 
 function updateTheme(newTheme) {
   htmlElement.setAttribute("data-bs-theme", newTheme)
-  localStorage.setItem("theme", newTheme)
+  user.theme = newTheme
 }
-
-const user = reactive({ current: "landing", difficulty: 0 })
 
 const sidebar = ref(false)
 
@@ -70,11 +73,13 @@ const filteredLessons = computed(() => {
   }
   
 })
+
+watch(user, () => {localStorage.setItem("user", JSON.stringify(user))})
 </script>
 
 <template>
   <div class="sidebar offcanvas-start offcanvas-md" id="menu"
-    :style="sidebar ? 'animation: slideRight 1.5s forwards' : ''">
+    :style="sidebar ? 'animation: slideRight 0.25s forwards' : ''">
     <div class="offcanvas-header border-bottom border-secondary border-opacity-25">
       <a class="sidebar-brand mx-auto" href="javascript:void(0);" @click="user.current = 'landing'">
         <img src="/favicon.png" width="24" height="24" class="d-inline-block align-text-top rounded-1">
@@ -149,14 +154,14 @@ const filteredLessons = computed(() => {
     <div class="offcanvas-footer mb-2">
       <h6 class="sidebar-header">Adjust Math Level</h6>
       <select style="width: 140px;" class="mx-auto p-2 my-2 form-select">
-        <option default @click="user.difficulty = 0">Conceptual</option>
-        <option @click="user.difficulty = 1">Algebra-Based</option>
-        <option @click="user.difficulty = 2">Calculus-Based</option>
+        <option :selected="user.difficulty === 0 ? true : false" @click="user.difficulty = 0">Conceptual</option>
+        <option :selected="user.difficulty === 1 ? true : false" @click="user.difficulty = 1">Algebra-Based</option>
+        <option :selected="user.difficulty === 2 ? true : false" @click="user.difficulty = 2">Calculus-Based</option>
       </select>
       <h6 class="sidebar-header">Theme</h6>
       <select style="width: 70px;" class="mx-auto p-2 my-2 form-select">
-        <option default @click="updateTheme('dark')">Dark</option>
-        <option @click="updateTheme('light')">Light</option>
+        <option :selected="user.theme === 'dark' ? true : false" @click="updateTheme('dark')">Dark</option>
+        <option :selected="user.theme === 'light' ? true : false" @click="updateTheme('light')">Light</option>
       </select>
       <hr class="sidebar-divider opacity-50">
       <p class="text-secondary-emphasis">Made by Edward Jiang and Eric Niu</p>
@@ -166,10 +171,10 @@ const filteredLessons = computed(() => {
     </div>
   </div>
 
-  <Welcome v-show="user.current === 'landing'" :sidebar="sidebar" @show-sidebar="sidebar = true" />
+  <Welcome v-show="user.current === 'landing'" :sidebar="sidebar" @show-sidebar="sidebar = true;getUser()" />
   <About v-show="user.current === 'about'" />
   
-
+  <Vectors v-show="user.current === 'vectors'" :level="user.difficulty" />
 </template>
 
 
