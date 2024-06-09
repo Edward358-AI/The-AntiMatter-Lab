@@ -23,7 +23,7 @@ defineProps(['sidebar'])
 #welcome {
     margin: auto;
     animation: fadein 1.5s;
-    transition: 0.7s;
+    transition: 0.5s;
 }
 
 #welcome img {

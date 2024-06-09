@@ -39,6 +39,7 @@ const user = reactive({ current: "landing", difficulty: 0, theme: "dark" })
 
 if (localStorage.getItem("user")) {
   user.theme = JSON.parse(localStorage.getItem("user")).theme
+  htmlElement.setAttribute("data-bs-theme", user.theme)
 }
 
 function getUser() {
@@ -46,7 +47,6 @@ function getUser() {
     user.difficulty = JSON.parse(localStorage.getItem("user")).difficulty
     user.current = JSON.parse(localStorage.getItem("user")).current
   }
-  htmlElement.setAttribute("data-bs-theme", user.theme)
 }
 
 
@@ -79,7 +79,7 @@ watch(user, () => {localStorage.setItem("user", JSON.stringify(user))})
 
 <template>
   <div class="sidebar offcanvas-start offcanvas-md" id="menu"
-    :style="sidebar ? 'animation: slideRight 0.25s forwards' : ''">
+    :style="sidebar ? 'animation: slideRight 0.3s forwards' : ''">
     <div class="offcanvas-header border-bottom border-secondary border-opacity-25">
       <a class="sidebar-brand mx-auto" href="javascript:void(0);" @click="user.current = 'landing'">
         <img src="/favicon.png" width="24" height="24" class="d-inline-block align-text-top rounded-1">
