@@ -39,12 +39,12 @@ const user = reactive({ current: "landing", difficulty: 0, theme: "dark" })
 
 if (localStorage.getItem("user")) {
   user.theme = JSON.parse(localStorage.getItem("user")).theme
-  htmlElement.setAttribute("data-bs-theme", user.theme)
+  user.difficulty = JSON.parse(localStorage.getItem("user")).difficulty
 }
+htmlElement.setAttribute("data-bs-theme", user.theme)
 
-function getUser() {
+function getCurrentPage() {
   if (localStorage.getItem("user")) {
-    user.difficulty = JSON.parse(localStorage.getItem("user")).difficulty
     user.current = JSON.parse(localStorage.getItem("user")).current
   }
 }
@@ -171,7 +171,7 @@ watch(user, () => {localStorage.setItem("user", JSON.stringify(user))})
     </div>
   </div>
 
-  <Welcome v-show="user.current === 'landing'" :sidebar="sidebar" @show-sidebar="sidebar = true;getUser()" />
+  <Welcome v-show="user.current === 'landing'" :sidebar="sidebar" @show-sidebar="sidebar = true;getCurrentPage()" />
   <About v-show="user.current === 'about'" />
   
   <Vectors v-show="user.current === 'vectors'" :level="user.difficulty" />
