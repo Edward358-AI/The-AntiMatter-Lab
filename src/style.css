@@ -19,6 +19,10 @@ p {
     line-height: 2rem;
 }
 
+.mw-1120 {
+    max-width: 1120px;
+}
+
 a {
     color: inherit;
 }
@@ -55,3 +59,4 @@ a {
     0% {opacity: 1}
     100%{ opacity: 0}
 }
+

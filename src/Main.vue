@@ -1,12 +1,10 @@
 <script setup>
-import { ref, reactive, computed, watch } from 'vue'
+import { ref, reactive, computed, watch, onMounted } from 'vue'
 import Welcome from './components/Welcome.vue'
 import About from './components/About.vue'
 
 import Vectors from './components/kinematics/Vectors.vue'
-import ProjMotion from './components/kinematics/ProjMotion.vue'
 import PosVelAcc from './components/kinematics/PosVelAcc.vue'
-import Freefall from './components/kinematics/Freefall.vue'
 import OneDMotion from './components/kinematics/OneDMotion.vue'
 import TwoDMotion from './components/kinematics/TwoDMotion.vue'
 
@@ -57,7 +55,7 @@ function updateTheme(newTheme) {
 
 const sidebar = ref(false)
 
-const lessons = reactive({ kinematics: ["Vectors", "Position, Velocity, Acceleration", "One-Dimensional Motion with Constant Acceleration", "Free Fall", "Two-Dimensional Motion with Constant Acceleration", "Projectile Motion"], dynamics: ["Newton's Laws", "F=ma", "Free-body Diagrams", "Friction", "Other forces", "Inclined Planes"], circularGravity: ["Centripetal Force/Acceleration", "Fictious Forces", "Newton's Laws of Gravitation", "Kepler's Laws"], energy: ["Dot Product", "Definition of \"Work\"", "Definition of Energy", "Conservation of Energy", "Definition of Power"], momentum: ["Impulse/Momentum Theorem", "Conservation of Linear Momentum", "Collisions", "Velocity of Approach"] })
+const lessons = reactive({ kinematics: ["Vectors", "Position, Velocity, Acceleration", "One-Dimensional Motion/Free fall", "Two-Dimensional Motion/Projectile Motion"], dynamics: ["Newton's Laws", "F=ma", "Free-body Diagrams", "Friction", "Other forces", "Inclined Planes"], circularGravity: ["Centripetal Force/Acceleration", "Fictious Forces", "Newton's Laws of Gravitation", "Kepler's Laws"], energy: ["Dot Product", "Definition of \"Work\"", "Definition of Energy", "Conservation of Energy", "Definition of Power"], momentum: ["Impulse/Momentum Theorem", "Conservation of Linear Momentum", "Collisions", "Velocity of Approach"] })
 
 const searchQuery = ref("")
 
@@ -75,6 +73,10 @@ const filteredLessons = computed(() => {
 })
 
 watch(user, () => {localStorage.setItem("user", JSON.stringify(user))})
+
+onMounted(() => {
+    window.MathJax.typeset()
+})
 </script>
 
 <template>
@@ -86,7 +88,7 @@ watch(user, () => {localStorage.setItem("user", JSON.stringify(user))})
         The AntiMatter Lab
       </a>
     </div>
-    <div class="offcanvas-header">
+    <div class="offcanvas-header border-bottom border-secondary border-opacity-25">
       <input v-model="searchQuery" type="text" class="form-control" placeholder="Type here to find a lesson...">
     </div>
     <div class="offcanvas-body">
@@ -151,7 +153,7 @@ watch(user, () => {localStorage.setItem("user", JSON.stringify(user))})
 
       </ul>
     </div>
-    <div class="offcanvas-footer mb-2">
+    <div class="offcanvas-footer mb-2 border-top border-secondary border-opacity-25">
       <h6 class="sidebar-header">Adjust Math Level</h6>
       <select style="width: 140px;" class="mx-auto p-2 my-2 form-select">
         <option :selected="user.difficulty === 0 ? true : false" @click="user.difficulty = 0">Conceptual</option>
@@ -163,7 +165,6 @@ watch(user, () => {localStorage.setItem("user", JSON.stringify(user))})
         <option :selected="user.theme === 'dark' ? true : false" @click="updateTheme('dark')">Dark</option>
         <option :selected="user.theme === 'light' ? true : false" @click="updateTheme('light')">Light</option>
       </select>
-      <hr class="sidebar-divider opacity-50">
       <p class="text-secondary-emphasis">Made by Edward Jiang and Eric Niu</p>
       <a href="javascript:void(0);" @click="user.current = 'about'" class="text-decoration-none">About</a>&nbsp;&nbsp;
       <a href="https://github.com/Edward358-AI/The-AntiMatter-Lab" target="_blank"

@@ -9,7 +9,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "vue": "^3.4.21"
+    "vue": "^3.4.21",
+    "vue-mathjax-next": "^0.0.6"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.0.4",
