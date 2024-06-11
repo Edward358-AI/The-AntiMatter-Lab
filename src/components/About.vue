@@ -27,18 +27,18 @@
         This is because some content may be overlapping (i.e. the content is the same regardless of what math level).</p><br><br>
 
         <h1>Technicalities</h1><br>
-        <p>This project was built using HTML, CSS and JS. The use of VueJS (<a href="https://vuejs.org"
+        <p>This project was built using HTML, CSS and JS.<br>The use of VueJS (<a href="https://vuejs.org"
                 target="_blank">https://vuejs.org</a>) was incorporated to allow dynamic rendering and much easier
-            implementation of certain functionalities over regular JS. A CSS framework, Halfmoon CSS (<a
+            implementation of certain functionalities over regular JS.<br>A CSS framework, Halfmoon CSS (<a
                 href="https://www.gethalfmoon.com" target="_blank">https://www.gethalfmoon.com</a>), was also used to
-            effortlessly create a (somewhat) nice looking layout and website. Vite (<a href="https://vitejs.dev"
+            effortlessly create a (somewhat) nice looking layout and website.<br>MathJax (<a href="https://mathjax.org" target="_blank">https://mathjax.org</a>) and Vue-MathJax-Next (<a href="https://github.com/justforuse/vue-mathjax-next" target="_blank">https://github.com/justforuse/vue-mathjax-next</a>) were implemented for clean looking equations and mathematical symbols.<br>Vite (<a href="https://vitejs.dev"
                 target="_blank">https://vitejs.dev</a>) was used during the development phase for convenience and is
             included in the production build as well.</p><br><br>
 
         <h1>Contact</h1><br>
         <p>If you have any questions, about physics or not, you can contact Edward via discord (edward.jiang_) or email
             (<a href="mailto:edward456jiang@gmail.com" target="_blank">edward456jiang@gmail.com</a>). If the question is
-            physics related, you are much better off asking Eric (discord: antimatter162, email: <a
+            physics related, you are most likely much better off asking Eric (discord: antimatter162, email: <a
                 href="mailto:antimatter5175@gmail.com" target="_blank">antimatter5175@gmail.com</a>).</p><br><br>
 
         <h1>License</h1><br>
