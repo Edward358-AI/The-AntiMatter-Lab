@@ -9,7 +9,8 @@
   <meta name="title" content="The AntiMatter Lab" />
   <meta name="description" content="What is physics? The study of matter.
 Why learn physics? Because it matters." />
-  <meta name="keywords" content="physics, learn physics, physics tutorial, how to do physics, how to learn physics, the antimatter lab">
+  <meta name="keywords"
+    content="physics, learn physics, physics tutorial, how to do physics, how to learn physics, the antimatter lab">
 
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website" />
@@ -30,34 +31,36 @@ Why learn physics? Because it matters." />
   <!-- Meta Tags Generated with https://metatags.io -->
 
   <link href="/favicon.png" rel="shortcut icon" />
+
   <link href="https://cdn.jsdelivr.net/npm/halfmoon@2.0.1/css/halfmoon.min.css" rel="stylesheet"
     integrity="sha256-SsJizWSIG9JT9Qxbiy8xnYJfjCAkhEQ0hihxRn7jt2M=" crossorigin="anonymous" />
+
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+    integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+    integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/matter-js@0.19.0/build/matter.min.js"></script>
+
+  <script>
+    window.MathJax = {
+      svg: {
+        fontCache: 'global'
+      },
+      loader: { load: ['[tex]/textmacros'] },
+      tex: { packages: { '[+]': ['textmacros'] }, inlineMath: [['$', '$'], ['\\(', '\\)']] }
+    }
+  </script>
   <script type="text/javascript" id="MathJax-script" async
     src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
     </script>
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 </head>
 
 <body id="app">
 
 </body>
 <script type="module" src="/src/main.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
-  integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
-  integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/matter-js@0.19.0/build/matter.min.js"></script>
-<script>
-  window.MathJax = {
-    svg: {
-      fontCache: 'global'
-    },
-    loader: {load: ['[tex]/textmacros']},
-    tex: {packages: {'[+]': ['textmacros']}, inlineMath: [['$', '$'], ['\\(', '\\)']]}
-  }
-  setTimeout(() => {
-    window.MathJax.typeset()
-  }, 500)
-  </script>
 
 </html>

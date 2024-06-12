@@ -74,6 +74,9 @@ const filteredLessons = computed(() => {
 
 watch(user, () => {localStorage.setItem("user", JSON.stringify(user))})
 
+onMounted(() => {
+    window.MathJax.typeset()
+})
 </script>
 
 <template>
