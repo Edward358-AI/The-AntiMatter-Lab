@@ -55,7 +55,9 @@ Why learn physics? Because it matters." />
     loader: {load: ['[tex]/textmacros']},
     tex: {packages: {'[+]': ['textmacros']}, inlineMath: [['$', '$'], ['\\(', '\\)']]}
   }
-  window.onload = () => {window.MathJax.typeset()}
+  setTimeout(() => {
+    window.MathJax.typeset()
+  }, 500)
   </script>
 
 </html>
