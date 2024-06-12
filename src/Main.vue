@@ -176,6 +176,7 @@ onMounted(() => {
   <About v-show="user.current === 'about'" />
   
   <Vectors v-show="user.current === 'vectors'" :level="user.difficulty" />
+  <PosVelAcc v-show="user.current === 'position, velocity, acceleration'" :level="user.difficulty" />
 </template>
 
 

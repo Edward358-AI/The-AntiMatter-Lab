@@ -11,9 +11,9 @@ defineProps(['sidebar'])
             of matter.<br>Why learn physics? Because it matters.</p>
         <button type="button" class="btn btn-primary" @click="$emit('show-sidebar')"
             :style="sidebar ? 'visibility:hidden;' : ''">Get Started</button>
-        <h6 :style="sidebar ? 'animation: slideUp 5s forwards 500ms;opacity:0;' : 'opacity:0;'">Pick a lesson to get
+        <h6 :style="sidebar ? 'animation: slideUp 5s forwards 400ms;opacity:0;' : 'opacity:0;'">Pick a lesson to get
             started!</h6>
-        <p :style="sidebar ? 'animation: slideUp 5s forwards 700ms;opacity:0;' : 'opacity:0;'">Don't know where to
+        <p :style="sidebar ? 'animation: slideUp 5s forwards 600ms;opacity:0;' : 'opacity:0;'">Don't know where to
             go? Visit our about page!</p>
     </div>
 </template>
