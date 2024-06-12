@@ -14,6 +14,10 @@ body {
     text-align: center;
 }
 
+img {
+    user-select: none;
+}
+
 p {
     font-size: 1rem;
     line-height: 2rem;

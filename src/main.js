@@ -6,3 +6,5 @@ import Main from './Main.vue'
 const app = createApp(Main)
 app.use(VueMathjax)
 app.mount('#app')
+
+window.addEventListener('dragstart',(e) => e.preventDefault())
