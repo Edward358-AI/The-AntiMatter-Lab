@@ -80,8 +80,8 @@ defineProps(["level"])
         </figure>
 
         <span v-show="level === 0">
-            And that's it! That's pretty much all there is to vectors! To close off the first lesson, we'll give you a
-            little sneak preview of something about vectors. Vectors can be defined via something called
+            And that's it! That's pretty much all there is to basic vectors, since we aren't dealing with algebra and more advanced math. To close off the first lesson, we'll give you a
+            little sneak preview of something about vectors.<br>Vectors can be defined via something called
             <i>components</i>. In a 2-dimensional plane, we have a horizontal component (a horizontal vector with
             magnitude) and a vertical component (vertical vector with magnitude). The reason why we do this is because
             horizontal and vertical vectors are super easy to add (remember we said vectors in same direction can be
