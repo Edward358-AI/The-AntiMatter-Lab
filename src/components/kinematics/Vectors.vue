@@ -36,7 +36,7 @@ defineProps(["level"])
             defined and named by a single letter. A vector is typically seen with an arrowhead on top, like shown:
             &nbsp;$\vec{a}$
             <br>In typed text, it is typically represented with a bold letter like this: &nbsp;$\mathbf{a}$<br>
-            Now you're probably thinking, can you perform basic operations on vectors? Well, you can! However, it isn't
+            We will be using the arrowhead notation since it is a bit more noticeable in the midst of the oceans of text we're pouring on you. However, we're putting both notations out there just so you know for your reference.<br>Now you're probably thinking, can you perform basic operations on vectors? Well, you can! However, it isn't
             as simple as $1+1=2$. There are times though, if two vectors point in the SAME direction, then you can add
             them like you would with normal numbers. (see below.)
             <figure>
@@ -59,8 +59,8 @@ defineProps(["level"])
             with a single letter, much like variables. While scalars are defined just by a single letter (like $a$), a
             vector is
             defined by a letter with an arrowhead across its top, like so: &nbsp;$\vec{a}$
-            <br>In typed text, it is typically represented with a bold letter like this: &nbsp;$\mathbf{a}$
-            <br>While scalar quantities can be added linearly, vector quantities require a bit more work to
+            <br>In typed text and many textbooks out there, it is typically represented with a bold letter like this: &nbsp;$\mathbf{a}$
+            <br>We will be using the arrowhead notation since it is a bit more noticeable in the midst of the oceans of text we're pouring on you. However, we're putting both notations out there just so you know for your reference.<br>While scalar quantities can be added linearly, vector quantities require a bit more work to
             manipulate. There are times, however, when you can add vectors linearly. That is when they are pointing in
             the same direction, as the diagram shows:
             <figure>
@@ -147,7 +147,7 @@ defineProps(["level"])
                 <img src="/src/assets/kinematics/Figure 5.png" style="width:170px;" />
                 <figcaption><i>Figure 6: A vector defined by its horizontal and vertical components</i></figcaption>
             </figure>
-            The method I will introduce here is the addition of vector components. NOTE: You can use the Law of Cosines as well, but we aren't covering that because it is more intensive on the calculation side and is not as useful in the context of vectors<br>
+            The method I will introduce here is the addition of vector components. NOTE: You can use the Law of Cosines as well, but we aren't covering that because it is more intensive on the calculation side and is not as useful in the context of vectors.<br>
             To add vectors algebraically, simply add their components. Yes, it is that simple! For instance, if $\vec{a} = \langle 3, 5 \rangle$ and $\vec{b} = \langle 4, 3 \rangle$ then $\vec{a} + \vec{b} = \langle 3+4,5+3 \rangle = \langle 7,8 \rangle$.<br>This, surprisingly, is actually nearly identical to graphically adding vectors,
             and here is a diagram as proof. I have excluded the coordinate axes to make the diagram less
             cluttered, but realize that we are still working in a coordinate plane:
