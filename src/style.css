@@ -12,6 +12,7 @@ body {
     padding: 0;
     min-height: 100vh;
     text-align: center;
+    overflow-x: hidden;
 }
 
 img {
