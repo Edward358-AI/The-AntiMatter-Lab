@@ -219,7 +219,7 @@ onMounted(() => {
   <Welcome v-show="user.current === 'landing'" :sidebar="sidebar" @show-sidebar="sidebar = true;getCurrentPage()" />
   <About v-show="user.current === 'about'" />
   
-  <Vectors v-show="user.current === lessons.kinematics[0]" :level="user.difficulty" @nextpage="user.current = 'lessons.kinematics[1]'" />
+  <Vectors v-show="user.current === lessons.kinematics[0]" :level="user.difficulty" @nextpage="user.current = lessons.kinematics[1]" />
   <PosVelAcc v-show="user.current === lessons.kinematics[1]" :level="user.difficulty" @nextpage="user.current = lessons.kinematics[2]" />
   <OneDMotion v-show="user.current === lessons.kinematics[2]" :level="user.difficulty" @nextpage="user.current = lessons.kinematics[3]" />
   <TwoDMotion v-show="user.current === lessons.kinematics[3]" :level="user.difficulty" @nextpage="user.current = lessons.dynamics[0]" />
