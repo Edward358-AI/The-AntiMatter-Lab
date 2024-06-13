@@ -35,6 +35,8 @@ import Work from './components/energy/Work.vue'
 const htmlElement = document.documentElement
 const user = reactive({ current: "landing", difficulty: 0, theme: "dark" })
 
+
+
 if (localStorage.getItem("user")) {
   user.theme = JSON.parse(localStorage.getItem("user")).theme
   user.difficulty = JSON.parse(localStorage.getItem("user")).difficulty
@@ -72,7 +74,10 @@ const filteredLessons = computed(() => {
   
 })
 
-watch(user, () => {localStorage.setItem("user", JSON.stringify(user))})
+watch(user, () => {
+  localStorage.setItem("user", JSON.stringify(user))
+  updateTheme(user.theme)
+})
 
 onMounted(() => {
     window.MathJax.typeset()
@@ -155,15 +160,15 @@ onMounted(() => {
     </div>
     <div class="offcanvas-footer mb-2 border-top border-secondary border-opacity-25">
       <h6 class="sidebar-header">Adjust Math Level</h6>
-      <select style="width: 140px;" class="mx-auto p-2 my-2 form-select">
-        <option :selected="user.difficulty === 0 ? true : false" @click="user.difficulty = 0">Conceptual</option>
-        <option :selected="user.difficulty === 1 ? true : false" @click="user.difficulty = 1">Algebra-Based</option>
-        <option :selected="user.difficulty === 2 ? true : false" @click="user.difficulty = 2">Calculus-Based</option>
+      <select style="width: 140px;" class="mx-auto p-2 my-2 form-select" id="levelSelect" v-model="user.difficulty">
+        <option value="0">Conceptual</option>
+        <option value="1">Algebra-Based</option>
+        <option value="2">Calculus-Based</option>
       </select>
       <h6 class="sidebar-header">Theme</h6>
-      <select style="width: 70px;" class="mx-auto p-2 my-2 form-select">
-        <option :selected="user.theme === 'dark' ? true : false" @click="updateTheme('dark')">Dark</option>
-        <option :selected="user.theme === 'light' ? true : false" @click="updateTheme('light')">Light</option>
+      <select style="width: 70px;" class="mx-auto p-2 my-2 form-select" id="themeSelect" v-model="user.theme">
+        <option value="dark">Dark</option>
+        <option value="light">Light</option>
       </select>
       <p class="text-secondary-emphasis">Made by Edward Jiang and Eric Niu</p>
       <a href="javascript:void(0);" @click="user.current = 'about'" class="text-decoration-none">About</a>&nbsp;&nbsp;

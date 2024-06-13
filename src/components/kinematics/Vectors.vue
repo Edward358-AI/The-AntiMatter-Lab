@@ -7,7 +7,7 @@ defineProps(["level"])
     <div class="container-fluid p-5 mw-1120">
         <h1>Vectors</h1><br>
         <p>
-            <span v-show="level === 0">Maybe you’ve heard somewhere that physics is heavily math based. And yes, while
+            <span v-show="level == 0">Maybe you’ve heard somewhere that physics is heavily math based. And yes, while
                 that is true, a basic understanding of simple mathematics is sufficient to learn physics conceptually.
                 It’s simply that most places don’t teach good conceptual physics anymore. The first thing we must
                 recognize when we learn physics is the vector. The vector looks like an arrow, but it doesn’t tell you
@@ -29,7 +29,7 @@ defineProps(["level"])
             <img src="/src/assets/kinematics/Figure 1.png" style="width:170px;" />
             <figcaption><i>Figure 1: A representation of a vector.</i></figcaption>
         </figure>
-        <span v-show="level === 0">
+        <span v-show="level == 0">
             It is important to note that the position of the vector on the coordinate grid does
             NOT actually matter, so we can move them around the grid to make things more convenient. As long as we
             maintain the same direction and magnitude, we can move the vector around however we like.<br>A vector is
@@ -79,7 +79,7 @@ defineProps(["level"])
             <figcaption><i>Figure 3: Tip-to-tail method </i></figcaption>
         </figure>
 
-        <span v-show="level === 0">
+        <span v-show="level == 0">
             And that's it! That's pretty much all there is to basic vectors, since we aren't dealing with algebra and more advanced math. To close off the first lesson, we'll give you a
             little sneak preview of something about vectors.<br>Vectors can be defined via something called
             <i>components</i>. In a 2-dimensional plane, we have a horizontal component (a horizontal vector with
