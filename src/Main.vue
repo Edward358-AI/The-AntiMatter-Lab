@@ -104,7 +104,7 @@ const filteredLessons = computed(() => {
   if (searchQuery.value) {
     let filteredLessons = reactive({})
     for (let unit of Object.keys(lessons)) {
-      filteredLessons[unit] = lessons[unit].filter(lesson => lesson.toLowerCase().includes(searchQuery.value))
+      filteredLessons[unit] = lessons[unit].filter(lesson => lesson.toLowerCase().includes(searchQuery.value.toLowerCase()))
     }
     return filteredLessons
   } else {
