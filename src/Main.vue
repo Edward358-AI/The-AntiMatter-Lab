@@ -57,7 +57,46 @@ function updateTheme(newTheme) {
 
 const sidebar = ref(false)
 
-const lessons = reactive({ kinematics: ["Vectors", "Position, Velocity, Acceleration", "One-Dimensional Motion/Free fall", "Two-Dimensional Motion/Projectile Motion"], dynamics: ["Newton's Laws", "F=ma", "Free-body Diagrams", "Friction", "Other forces", "Inclined Planes"], circularGravity: ["Centripetal Force/Acceleration", "Fictious Forces", "Newton's Laws of Gravitation", "Kepler's Laws"], energy: ["Dot Product", "Definition of \"Work\"", "Definition of Energy", "Conservation of Energy", "Definition of Power"], momentum: ["Impulse/Momentum Theorem", "Conservation of Linear Momentum", "Collisions", "Velocity of Approach"] })
+const lessons = reactive(
+  {
+    kinematics: [
+      "Vectors", 
+      "Position, Velocity, Acceleration", 
+      "One-Dimensional Motion/Free fall", 
+      "Two-Dimensional Motion/Projectile Motion"
+    ],
+
+    dynamics: [
+      "Newton's Laws", 
+      "F=ma", "Free-body Diagrams", 
+      "Friction", 
+      "Other forces", 
+      "Inclined Planes"
+    ],
+
+    circularGravity: [
+      "Centripetal Force/Acceleration", 
+      "Fictious Forces", 
+      "Newton's Laws of Gravitation", 
+      "Kepler's Laws"
+    ],
+
+    energy: [
+      "Dot Product", 
+      "Definition of \"Work\"", 
+      "Definition of Energy", 
+      "Conservation of Energy", 
+      "Definition of Power"
+    ],
+
+    momentum: [
+      "Impulse/Momentum Theorem", 
+      "Conservation of Linear Momentum", 
+      "Collisions", 
+      "Velocity of Approach"
+    ]
+}
+)
 
 const searchQuery = ref("")
 
@@ -105,7 +144,7 @@ onMounted(() => {
           <hr class="sidebar-divider">
         </li>
         <li v-for="lesson in filteredLessons.kinematics">
-          <a href="javascript:void(0);" class="nav-link" @click="user.current = lesson.toLowerCase()">{{ lesson }}</a>
+          <a href="javascript:void(0);" class="nav-link" @click="user.current = lesson">{{ lesson }}</a>
         </li>
 
 
@@ -117,7 +156,7 @@ onMounted(() => {
           <hr class="sidebar-divider">
         </li>
         <li v-for="lesson in filteredLessons.dynamics">
-          <a href="javascript:void(0);" class="nav-link" @click="user.current = lesson.toLowerCase()">{{ lesson }}</a>
+          <a href="javascript:void(0);" class="nav-link" @click="user.current = lesson">{{ lesson }}</a>
         </li>
 
 
@@ -129,7 +168,7 @@ onMounted(() => {
           <hr class="sidebar-divider">
         </li>
         <li v-for="lesson in filteredLessons.circularGravity">
-          <a href="javascript:void(0);" class="nav-link" @click="user.current = lesson.toLowerCase()">{{ lesson }}</a>
+          <a href="javascript:void(0);" class="nav-link" @click="user.current = lesson">{{ lesson }}</a>
         </li>
 
 
@@ -141,7 +180,7 @@ onMounted(() => {
           <hr class="sidebar-divider">
         </li>
         <li v-for="lesson in filteredLessons.energy">
-          <a href="javascript:void(0);" class="nav-link" @click="user.current = lesson.toLowerCase()">{{ lesson }}</a>
+          <a href="javascript:void(0);" class="nav-link" @click="user.current = lesson">{{ lesson }}</a>
         </li>
 
 
@@ -153,7 +192,7 @@ onMounted(() => {
           <hr class="sidebar-divider">
         </li>
         <li v-for="lesson in filteredLessons.momentum">
-          <a href="javascript:void(0);" class="nav-link" @click="user.current = lesson.toLowerCase()">{{ lesson }}</a>
+          <a href="javascript:void(0);" class="nav-link" @click="user.current = lesson">{{ lesson }}</a>
         </li>
 
       </ul>
@@ -180,8 +219,33 @@ onMounted(() => {
   <Welcome v-show="user.current === 'landing'" :sidebar="sidebar" @show-sidebar="sidebar = true;getCurrentPage()" />
   <About v-show="user.current === 'about'" />
   
-  <Vectors v-show="user.current === 'vectors'" :level="user.difficulty" @nextpage="user.current = 'position, velocity, acceleration'" />
-  <PosVelAcc v-show="user.current === 'position, velocity, acceleration'" :level="user.difficulty" @nextpage="user.current = 'one-dimensional motion/free fall'" />
+  <Vectors v-show="user.current === lessons.kinematics[0]" :level="user.difficulty" @nextpage="user.current = 'lessons.kinematics[1]'" />
+  <PosVelAcc v-show="user.current === lessons.kinematics[1]" :level="user.difficulty" @nextpage="user.current = lessons.kinematics[2]" />
+  <OneDMotion v-show="user.current === lessons.kinematics[2]" :level="user.difficulty" @nextpage="user.current = lessons.kinematics[3]" />
+  <TwoDMotion v-show="user.current === lessons.kinematics[3]" :level="user.difficulty" @nextpage="user.current = lessons.dynamics[0]" />
+
+  <Newton v-show="user.current === lessons.dynamics[0]" :level="user.difficulty" @nextpage="user.current = lessons.dynamics[1]" />
+  <Fma v-show="user.current === lessons.dynamics[1]" :level="user.difficulty" @nextpage="user.current = lessons.dynamics[2]" />
+  <FBD v-show="user.current === lessons.dynamics[2]" :level="user.difficulty" @nextpage="user.current = lessons.dynamics[3]" />
+  <Friction v-show="user.current === lessons.dynamics[3]" :level="user.difficulty" @nextpage="user.current = lessons.dynamics[4]" />
+  <OtherForces v-show="user.current === lessons.dynamics[4]" :level="user.difficulty" @nextpage="user.current = lessons.dynamics[5]" />
+  <InclinedPlanes v-show="user.current === lessons.dynamics[5]" :level="user.difficulty" @nextpage="user.current = lessons.circularGravity[0]" />
+
+  <Centripetal v-show="user.current === lessons.circularGravity[0]" :level="user.difficulty" @nextpage="user.current = lessons.circularGravity[1]" />
+  <Fictious v-show="user.current === lessons.circularGravity[1]" :level="user.difficulty" @nextpage="user.current = lessons.circularGravity[2]" />
+  <GravityLaws v-show="user.current === lessons.circularGravity[2]" :level="user.difficulty" @nextpage="user.current = lessons.circularGravity[3]" />
+  <Kepler v-show="user.current === lessons.circularGravity[3]" :level="user.difficulty" @nextpage="user.current = lessons.energy[0]" />
+
+  <DotProd v-show="user.current === lessons.energy[0]" :level="user.difficulty" @nextpage="user.current = lessons.energy[1]" />
+  <Work v-show="user.current === lessons.energy[1]" :level="user.difficulty" @nextpage="user.current = lessons.energy[2]" />
+  <Energy v-show="user.current === lessons.energy[2]" :level="user.difficulty" @nextpage="user.current = lessons.energy[3]" />
+  <EnergyConsrv v-show="user.current === lessons.energy[3]" :level="user.difficulty" @nextpage="user.current = lessons.energy[4]" />
+  <Power v-show="user.current === lessons.energy[4]" :level="user.difficulty" @nextpage="user.current = lessons.momentum[0]" />
+
+  <Impulse v-show="user.current === lessons.momentum[0]" :level="user.difficulty" @nextpage="user.current = lessons.momentum[1]" />
+  <LinMomConsrv v-show="user.current === lessons.momentum[1]" :level="user.difficulty" @nextpage="user.current = lessons.momentum[2]" />
+  <Collisions v-show="user.current === lessons.momentum[2]" :level="user.difficulty" @nextpage="user.current = lessons.momentum[3]" />
+  <VelApproach v-show="user.current === lessons.momentum[3]" :level="user.difficulty" @nextpage="user.current = 'landing'" />
 </template>
 
 
