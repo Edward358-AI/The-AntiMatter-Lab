@@ -1,5 +1,6 @@
 <script setup>
 defineProps(["level"])
+defineEmits(["nextpage"])
 </script>
 
 
@@ -158,6 +159,7 @@ defineProps(["level"])
             Now is it clear that the components add up to the resultant vector? The red components add up with the blue components to produce the white components, as shown on the horizontal and vertical axes. The smaller, dashed white arrow shows you can move the components of the blue vectors to do tip-to-tail addition!<br>However, we may occasionally run into an issue here. How do we get the components of a vector if we are not given them? Suppose we are given the magnitude and argument (angle), as we mentioned before, instead. Well, the components of a vector are $\langle |\vec{a}|\textrm{cos}(\theta),|\vec{a}|\textrm{sin}(\theta) \rangle$ for vector $\vec{a}$ at an angle $\theta$ to the positive x-axis. This is due to basic right triangle trigonometry, and if you want to investigate more about this, you will have to do so on your own, since it would take too much effort to try to explain it here.<br><br>
             Whew! You made it to the end of the lesson on vectors! Congratulations! Physics is not an easy science to grasp, but you made it through the most basic and fundamental of all of it. The rest will be more concepts and less math (hopefully)! Ready to move on? Let's go!
         </span>
+        <br><br><a href="javascript:void(0)" @click="$emit('nextpage')" style="animation: scale 2s infinite;display:block">Next Lesson!</a>
         </p>
     </div>
 </template>

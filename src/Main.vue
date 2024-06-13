@@ -180,8 +180,8 @@ onMounted(() => {
   <Welcome v-show="user.current === 'landing'" :sidebar="sidebar" @show-sidebar="sidebar = true;getCurrentPage()" />
   <About v-show="user.current === 'about'" />
   
-  <Vectors v-show="user.current === 'vectors'" :level="user.difficulty" />
-  <PosVelAcc v-show="user.current === 'position, velocity, acceleration'" :level="user.difficulty" />
+  <Vectors v-show="user.current === 'vectors'" :level="user.difficulty" @nextpage="user.current = 'position, velocity, acceleration'" />
+  <PosVelAcc v-show="user.current === 'position, velocity, acceleration'" :level="user.difficulty" @nextpage="user.current = 'one-dimensional motion/free fall'" />
 </template>
 
 
