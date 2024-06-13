@@ -144,7 +144,7 @@ onMounted(() => {
           <hr class="sidebar-divider">
         </li>
         <li v-for="lesson in filteredLessons.kinematics">
-          <a href="javascript:void(0);" class="nav-link" @click="user.current = lesson">{{ lesson }}</a>
+          <a href="javascript:void(0);" :class="user.current === lesson ? 'text-body-emphasis nav-link' : 'nav-link'" :style="user.current === lesson ? 'text-decoration: underline' : ''" @click="user.current = lesson">{{ lesson }}</a>
         </li>
 
 
@@ -156,7 +156,7 @@ onMounted(() => {
           <hr class="sidebar-divider">
         </li>
         <li v-for="lesson in filteredLessons.dynamics">
-          <a href="javascript:void(0);" class="nav-link" @click="user.current = lesson">{{ lesson }}</a>
+          <a href="javascript:void(0);" :class="user.current === lesson ? 'text-body-emphasis nav-link' : 'nav-link'" :style="user.current === lesson ? 'text-decoration: underline' : ''" @click="user.current = lesson">{{ lesson }}</a>
         </li>
 
 
@@ -168,7 +168,7 @@ onMounted(() => {
           <hr class="sidebar-divider">
         </li>
         <li v-for="lesson in filteredLessons.circularGravity">
-          <a href="javascript:void(0);" class="nav-link" @click="user.current = lesson">{{ lesson }}</a>
+          <a href="javascript:void(0);" :class="user.current === lesson ? 'text-body-emphasis nav-link' : 'nav-link'" :style="user.current === lesson ? 'text-decoration: underline' : ''" @click="user.current = lesson">{{ lesson }}</a>
         </li>
 
 
@@ -180,7 +180,7 @@ onMounted(() => {
           <hr class="sidebar-divider">
         </li>
         <li v-for="lesson in filteredLessons.energy">
-          <a href="javascript:void(0);" class="nav-link" @click="user.current = lesson">{{ lesson }}</a>
+          <a href="javascript:void(0);" :class="user.current === lesson ? 'text-body-emphasis nav-link' : 'nav-link'" :style="user.current === lesson ? 'text-decoration: underline' : ''" @click="user.current = lesson">{{ lesson }}</a>
         </li>
 
 
@@ -192,7 +192,7 @@ onMounted(() => {
           <hr class="sidebar-divider">
         </li>
         <li v-for="lesson in filteredLessons.momentum">
-          <a href="javascript:void(0);" class="nav-link" @click="user.current = lesson">{{ lesson }}</a>
+          <a href="javascript:void(0);" :class="user.current === lesson ? 'text-body-emphasis nav-link' : 'nav-link'" :style="user.current === lesson ? 'text-decoration: underline' : ''" @click="user.current = lesson">{{ lesson }}</a>
         </li>
 
       </ul>
