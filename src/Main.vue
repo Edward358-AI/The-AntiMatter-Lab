@@ -5,6 +5,7 @@ import About from './components/About.vue'
 
 import Vectors from './components/kinematics/Vectors.vue'
 import PosVelAcc from './components/kinematics/PosVelAcc.vue'
+import DimenAnalyz from './components/kinematics/DimenAnalyz.vue'
 import OneDMotion from './components/kinematics/OneDMotion.vue'
 import TwoDMotion from './components/kinematics/TwoDMotion.vue'
 
@@ -57,6 +58,7 @@ const lessons = reactive(
   {
     kinematics: [
       "Vectors",
+      "Dimensional Analysis",
       "Position, Velocity, Acceleration",
       "One-Dimensional Motion/Free fall",
       "Two-Dimensional Motion/Projectile Motion"
@@ -232,11 +234,13 @@ onMounted(() => {
 
   <Vectors v-show="user.current === lessons.kinematics[0]" :level="user.difficulty"
     @nextpage="user.current = lessons.kinematics[1]" />
-  <PosVelAcc v-show="user.current === lessons.kinematics[1]" :level="user.difficulty"
+  <DimenAnalyz v-show="user.current === lessons.kinematics[1]" :level="user.difficulty"
     @nextpage="user.current = lessons.kinematics[2]" />
-  <OneDMotion v-show="user.current === lessons.kinematics[2]" :level="user.difficulty"
+  <PosVelAcc v-show="user.current === lessons.kinematics[2]" :level="user.difficulty"
     @nextpage="user.current = lessons.kinematics[3]" />
-  <TwoDMotion v-show="user.current === lessons.kinematics[3]" :level="user.difficulty"
+  <OneDMotion v-show="user.current === lessons.kinematics[3]" :level="user.difficulty"
+    @nextpage="user.current = lessons.kinematics[4]" />
+  <TwoDMotion v-show="user.current === lessons.kinematics[4]" :level="user.difficulty"
     @nextpage="user.current = lessons.dynamics[0]" />
 
   <Newton v-show="user.current === lessons.dynamics[0]" :level="user.difficulty"

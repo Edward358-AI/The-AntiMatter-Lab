@@ -6,7 +6,7 @@ defineEmits(["nextpage"])
 
 <template>
     <div class="container-fluid p-5 mw-1120">
-        <h1>Position, Velocity, Acceleration</h1><br>
+        <h1>Dimensional Analysis</h1><br>
         <p>
             <span v-show="level == 0">
                 
