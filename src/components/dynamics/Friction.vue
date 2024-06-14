@@ -9,7 +9,7 @@ defineEmits(["nextpage"])
         <h1>Friction</h1><br>
         <p>
             
-            <br><br><a href="javascript:void(0)" @click="$emit('nextpage')" style="animation: scale 2s infinite;display:block">Next Lesson!</a>
+            <br><br><a href="javascript:void(0)" @click="$emit('nextpage')" style="animation: scale 2s infinite;display:block">Next Lesson! &rarr;</a>
         </p>
     </div>
 

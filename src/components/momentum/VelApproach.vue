@@ -9,7 +9,7 @@ defineEmits(["nextpage"])
         <h1>Velocity of Approach</h1><br>
         <p>
             
-            <br><br><a href="javascript:void(0)" @click="$emit('nextpage')" style="animation: scale 2s infinite;display:block">Return to homepage!</a>
+            <br><br><a href="javascript:void(0)" @click="$emit('nextpage')" style="animation: scale 2s infinite;display:block">Return to homepage! &rarr;</a>
         </p>
     </div>
 
