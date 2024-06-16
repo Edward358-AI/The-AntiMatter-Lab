@@ -75,11 +75,26 @@ Why learn physics? Because it matters." />
           }
         }
       },
+
       svg: {
         fontCache: 'global'
       },
-      loader: { load: ['[tex]/textmacros'] },
-      tex: { packages: { '[+]': ['textmacros'] }, inlineMath: [['$', '$'], ['\\(', '\\)']] }
+
+      loader: { load: [
+        '[tex]/textmacros', 
+        '[tex]/cancel',
+        '[tex]/physics'
+      ] },
+
+      tex: { 
+        packages: { 
+          '[+]': ['textmacros', 'cancel', 'physics']
+        }, 
+        inlineMath: [
+          ['$', '$'], 
+          ['\\(', '\\)']
+        ] 
+      }
     }
   </script>
   <script type="text/javascript" id="MathJax-script" async

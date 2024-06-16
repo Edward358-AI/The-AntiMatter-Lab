@@ -20,7 +20,7 @@ defineEmits(["nextpage"])
                 lesson in math. Scalar quantities, which are the quantities most are familiar with from math courses,
                 are prevalent in physics. These have a magnitude, which is the value of the quantity. Now, if you head
                 is smoking and spinning already, don't worry. Scalars are simply just the numbers you see and use in
-                your math course. For example, 3, is a scalar. However, in the
+                your math course. For example, $3$, is a scalar. However, in the
                 real world (which is the realm physics operates in), we realize that something called "direction"
                 exists. This is why we define vector quantities. They are quantities that have both magnitude and
                 direction. Graphically, the direction is the direction in which the arrow
