@@ -82,7 +82,7 @@ defineEmits(["nextpage"])
                 But... $$v_f = v_0 + at$$
                 So...
                $$x=\frac{2v_0+at}{2}t=v_0t+\frac{1}{2}at^2$$
-                Which is what we exactly just derived!! It is highly recommended (maybe almost required) that you memorize these equations, because you will likely be using them a lot for the next two lessons.
+                Which is what we exactly just derived!! It is highly recommended (maybe almost required) that you memorize these equations, because you will likely be using them a lot for the next two lessons.<br>Another interesting thing you can do is remember when we taught you dimensional analysis? You can go back to the equations we mentioned and double confirm with us, are the equations also <i>dimensionally</i> accurate? Just something for you to investigate upon.<br>
                 From this, we can graph an $x$-$t$ graph for constant acceleration scenarios. A desmos example is shown
                 below (you can play around with the sliders):
                 <iframe src="https://www.desmos.com/calculator/g1suzxzrsv" width="1000" height="500"
