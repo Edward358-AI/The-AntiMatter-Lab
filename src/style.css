@@ -21,7 +21,12 @@ img {
 
 p {
     font-size: 1rem;
-    line-height: 2rem;
+    line-height: 2.5rem;
+}
+
+.problem {
+    border: 0.5px solid white;
+    padding: 15px;
 }
 
 figcaption {

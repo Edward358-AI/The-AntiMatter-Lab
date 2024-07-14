@@ -222,7 +222,7 @@ onMounted(() => {
         <option value="dark">Dark</option>
         <option value="light">Light</option>
       </select>
-      <p class="text-secondary-emphasis">Made by Edward Jiang and Eric Niu</p>
+      <span class="text-secondary-emphasis">Made by Edward Jiang and Eric Niu</span><br style="margin-bottom:10px">
       <a href="javascript:void(0);" @click="user.current = 'about'" class="text-decoration-none">About</a>&nbsp;&nbsp;
       <a href="https://github.com/Edward358-AI/The-AntiMatter-Lab" target="_blank"
         class="text-decoration-none">Github</a>

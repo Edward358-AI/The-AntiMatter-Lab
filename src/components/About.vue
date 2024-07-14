@@ -11,7 +11,7 @@
             where current resources were lacking. The website design and programming was done by Edward Jiang, and the
             curriculum/teachings were carefully crafted by multiple-time USAPHO qualifier Eric Niu. Our aim continues to
             be to make physics accessible, because we believe gaining a better understanding physics allows you to gain
-            a better understanding of yourself and the world around you.</p><br><br>
+            a better understanding of yourself and the world around you.<br>This project is currently tending to lack in practice problems, you can find practice problems in this textbook, which also provides pretty good examples and demonstrations as well: <a href="https://drive.google.com/file/d/1hftVOFnduES1T_PrRzfTNhLNYu3OUSPc/view?usp=sharing">link here</a></p><br><br>
 
         <h1>Need Help?</h1><br>
         <p>If you just opened up this website or you're simply stuck on where to start, we recommend starting from the
