@@ -255,7 +255,7 @@ onMounted(() => {
     @nextlesson="Window.scrollTo(0, 0); user.current = lessons.kinematics[4]" />
   <TwoDMotion v-show="user.current === lessons.kinematics[4]" :level="user.difficulty" :page="user.page.TwoDMotion"
     @nextpage="Window.scrollTo(0, 0); user.page.TwoDMotion++" @prevpage="Window.scrollTo(0, 0); user.page.TwoDMotion--"
-    @nextlesson="Window.scrollTo(0, 0); user.current = lessons.dynamics[5]" />
+    @nextlesson="Window.scrollTo(0, 0); user.current = lessons.kinematics[5]" />
   <RelativeVel v-show="user.current === lessons.kinematics[5]" :level="user.difficulty" :page="user.page.RelativeVel"
     @nextpage="Window.scrollTo(0, 0); user.page.RelativeVel++"
     @prevpage="Window.scrollTo(0, 0); user.page.RelativeVel--"
