@@ -40,14 +40,14 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                 (in a straight line, since changing direction changes the velocity of an object). However, there is one small quirk that is not mentioned here. This only holds true when the <i>net</i>, total, or sum of all the external forces acting on an object is zero.<br><br>Looking at a real world example, the reason we see objects slow down as they move across surfaces is due to the frictional
                 force. A good way to demonstrate this principle is to use a near-frictionless surface like ice. An
                 object set into motion on ice will move in a straight line at basically constant velocity until it hits
-                something.<br><br>
+                something. This opposes the commonly perceived idea that force is directly responsible for causing motion, but rather, force changes motion. As seen in the ice example, a continuous force is not required to keep an object moving. This idea is super important and will come up later on.<br><br>
                 The resistance an object offers to being set into motion or being set to rest is its inertia, and it is
                 directly proportional to its mass. There is no numerical quantity corresponding to this, but just know
                 that more massive objects have greater inertia. Often times, an object's mass is called its <i>inertial mass</i>.
                 <br>
                 This law is not used in calculations, but it justifies the entirety of force analysis and gives us an
                 idea as to what forces do.<br><br>
-                Another important idea to mention here is that Newton's First Law also implies something very, very important about physics that is not mentioned. All these things that Newton stated are <i>only</i> valid in an inertial reference frame. 
+                All these things that Newton stated are <i>only</i> valid in an inertial reference frame. An inertial reference frame is a reference frame, or coordinate system, that which objects obey Newton's First Law. That means the frame itself is not accelerating, because if it was, the objects would accelerate without external forces, and since acceleration is defined as change in velocity, its velocity, or motion, is changing, and that is a violation of Newton's First Law. Furthermore, Newton's First Law does not also hold true for a frame that is constantly changing orientation, the more common form being rotating. A change in direction means acceleration, since acceleration is <i>change</i> in motion (remember the example of going around in a circle from position, velocity, acceleration). Again, Newton's First Law is invalid for a rotating frame, or frame that is constantly changing orientation. Thus, Newton's First Law must only be valid for reference frames that are still or moving at <i>constant velocity</i>. This is a CRUCIAL concept to understand and when selecting reference frames, you ensure that you at least pick a correct one.
                 <span v-show="level == 0">
                 </span>
                 <span v-show="level > 0">
