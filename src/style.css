@@ -24,6 +24,13 @@ img {
     position: relative;
 }
 
+.h100 p {
+    text-align: left;
+}
+
+figure {
+    text-align: center;
+}
 
 .btn-contain-left {
     left: 63px;

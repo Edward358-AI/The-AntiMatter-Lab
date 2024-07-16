@@ -134,7 +134,7 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                     $x$ it has traveled of its maximum range and vice versa. However, it is important to note, as with a
                     parabola, there are two points in the range where the height is the same. If the problem only asks
                     for one of them, use your best judgement and context to decide which is the answer. Having seen
-                    this, let's work on a problem together:
+                    this, let's work on a problem together:<br><br>
                     <div class="problem">
                         <i>Jebron Lames is shooting hoops. He throws the basketball at an angle of $60\degree$ with the
                             horizontal with an initial velocity of $5~\textrm m /\textrm s$ towards a hoop that is $0.5~\textrm m$ taller than he
@@ -151,9 +151,9 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                         $$y = 0.5~\textrm m$$
                         $$y=x\tan\theta-\frac{gx^2}{2v_0^2cos^{2}\theta}$$
                         Using the quadratic formula gives us a huge mess, but it can be simplified to look much nicer. The algebra in between is omitted for the sake of clarity. It is up to you to do the math and check yourself:
-                        $$x=\frac{\tan\theta±\sqrt{\tan^{2}\theta-\frac{2gy}{v_0^2}}}{\frac{g}{v_0^2\cos^{2}\theta}}=\frac{v_0^2\sin\theta\cos\theta±v_0^2\cos\theta\sqrt{\sin^{2}\theta-\frac{2gy}{v_0^2}}}{g}$$
-                        If you notice, the maximum range equation can be simplified from this, as the range equation is simply when $y=0$, so the square root term is reduced. Now if we plug in the values, we get:
-                        $$x=\frac{(5)^2\sin(60\degree)\cos60\degree±(5)^2\cos60\degree\sqrt{\sin^{2}60\degree-\frac{2(9.81)(0.5)}{(5)^2}}}{9.81}≈\bbox[3px, border: 0.5px solid
+                        $$x=\frac{\tan\theta+\sqrt{\tan^{2}\theta-\frac{2gy}{v_0^2}}}{\frac{g}{v_0^2\cos^{2}\theta}}=\frac{v_0^2\sin\theta\cos\theta+v_0^2\cos\theta\sqrt{\sin^{2}\theta-\frac{2gy}{v_0^2}}}{g}$$
+                        Now you might say the actual correct way to do it is using "$±$", but Jebron cannot be 2 different distances from the hoop at the same time. Eric was nice enough to give you a hint, the ball needs to enter the hoop from above. That means, the ball's vertical motion is downwards, which means it is farther in the parabolic trajectory. Since it is farther, we must use only "$+$". Also, as an aside, the maximum range equation can be simplified from this, as the range equation is simply when $y=0$, so the square root term is reduced. Now if we plug in the values, we get:
+                        $$x=\frac{(5)^2\sin(60\degree)\cos60\degree+(5)^2\cos60\degree\sqrt{\sin^{2}60\degree-\frac{2(9.81)(0.5)}{(5)^2}}}{9.81}≈\bbox[3px, border: 0.5px solid
                         white]{1.87~\textrm m}$$
                     </div><br><br>
                     <div class="problem">
