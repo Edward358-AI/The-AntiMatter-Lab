@@ -7,10 +7,7 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
 <template>
     <div class="container h100 p-5">
         <h1>Velocity of Approach</h1><br>
-        <p>
-            
-            <br><br><a href="javascript:void(0)" @click="$emit('nextlesson')" style="animation: scale 2s infinite;display:block">Return to homepage! &rarr;</a>
-        </p>
+        
     </div>
 
 </template>
