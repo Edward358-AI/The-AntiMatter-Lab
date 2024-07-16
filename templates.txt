@@ -1,18 +1,33 @@
-<div v-show="page===">
-    <p>
-        <span v-show="level==0">
-        
-        </span>
-        <span v-show="level>0">
-        
-        </span>
-    </p>
-    <div class="btn-contain-left">
-        <button class="btn btn-dark" style="animation: scale1 2s infinite;" @click="$emit('prevpage')">&larr;
-            Previous</button>
+<script setup>
+defineProps(["level", "page"])
+defineEmits(["nextlesson", "nextpage", "prevpage"])
+</script>
+
+
+<template>
+    <div class="container h100 p-5">
+        <h1></h1><br>
+        <div v-show="page ===">
+            <p>
+                <span v-show="level == 0">
+
+                </span>
+                <span v-show="level > 0">
+
+                </span>
+            </p>
+            <div class="btn-contain-left">
+                <button class="btn btn-dark" style="animation: scale1 2s infinite;" @click="$emit('prevpage')">&larr;
+                    Previous</button>
+            </div>
+            <div class="btn-contain-right">
+                <button class="btn btn-dark" style="animation: scale1 2s infinite;" @click="$emit('nextpage')">Next
+                    &rarr;</button>
+            </div>
+        </div>
     </div>
-    <div class="btn-contain-right">
-        <button class="btn btn-dark" style="animation: scale1 2s infinite;" @click="$emit('nextpage')">Next
-            &rarr;</button>
-    </div>
-</div>
+
+</template>
+
+
+<style scoped></style>

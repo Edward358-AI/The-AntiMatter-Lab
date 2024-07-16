@@ -90,16 +90,16 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                     $$R=v_{0x}t_{total}$$
                     We know the horizontal velocity and total time, so we substitute that in:
                     $$R=v_0\cos\theta \cdot
-                    \frac{2v_0\sin\theta}{g}=\frac{2v_0^2\sin\theta\cos\theta}{g}=\frac{v_0^2\sin{2\theta}]{g}$$
+                    \frac{2v_0\sin\theta}{g}=\frac{2v_0^2\sin\theta\cos\theta}{g}=\frac{v_0^2\sin{2\theta}}{g}$$
                     ...Since $\sin{2\theta}=2\sin\theta\cos\theta$. We recognize that this is a maximum for a particular
                     $v_0$ when $v_0 = 45\degree$. When this angle is achieved, the equation simplifies to just
                     $R=\frac{v_0^2}{g}$
                     <span v-show="level == 2">
                         <br>Additionally, using calculus, we can prove this is the case:<br>
-                        Use chain rule:$\frac{d}{d\theta}(\sin{2\theta})=2\cos{2\theta}$<br>
-                        Setting this to zero (to perform the first derivative test) yields:<br>
-                        $2\cos{2\theta}=0$
-                        <br>$\cos{2\theta}=0$<br>
+                        Use chain rule:$$\frac{d}{d\theta}(\sin{2\theta})=2\cos{2\theta}$$
+                        Setting this to zero (to perform the first derivative test) yields:
+                        $$2\cos{2\theta}=0$$
+                        $$\cos{2\theta}=0$$
                         We recognize that the solution for $0\degree≤\theta≤90\degree$ is
                         $45\degree$!
                     </span>
@@ -115,7 +115,26 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
         <div v-show="page === 1">
             <p>
                 <span v-show="level == 0">
-
+                    There are many cool concepts about projectile motion. Firstly, if you notice, there are always going
+                    to be two solutions of range, for any given height. For example, if you draw a straight line at any
+                    height less than the maximum, you'll notice that it intersects two points on the parabola. This is a
+                    basic concept that is important to notice and realize. However, there is only one solution for the
+                    maximum height.<br><br>Another really cool thing is that remember when we said it takes half the
+                    time to reach the peak and half to come back down? The same principles apply. So if we know that's
+                    true for the vertical velocity, and if we add a horizontal velocity that is constant throughout the
+                    trajectory (assuming no air resistance), the same rule applies: the object thrown at velocity $v$
+                    will impact the ground with the same magnitude!<br><br>If you are more interested in the
+                    calculations part, you can take a look at the Algebra-based level. But this is a more useful concept
+                    for calculating the grand scheme of things, so you might as well. You might be thinking, modeling
+                    the object's trajectory must be pretty hard to do. However, we don't have to model it with a graph.
+                    We can actually split up the velocity vector into its $x$ and $y$ components! And you know what
+                    else? These components can be treated individually. The horizontal velocity can be used completely
+                    separate from the vertical velocity. The key thing to note here is that these two components are
+                    linked by the quantity time, because if you think about it, the time that it takes the horizontal
+                    component to reach the final range is the same time it takes the vertical component to travel up and
+                    down, as if it were on its own.<br><br>Conceptually, this is pretty much all there is to projectile
+                    motion. Next up is a short and brief lesson that will talk you through some things that will be
+                    helpful to know, particular for unit 2.
                 </span>
                 <span v-show="level > 0">
                     In order to prove that the trajectory is parabolic, we need to relate x and y. To do this, we write
@@ -137,7 +156,8 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                     this, let's work on a problem together:<br><br>
                     <div class="problem">
                         <i>Jebron Lames is shooting hoops. He throws the basketball at an angle of $60\degree$ with the
-                            horizontal with an initial velocity of $5~\textrm m /\textrm s$ towards a hoop that is $0.5~\textrm m$ taller than he
+                            horizontal with an initial velocity of $5~\textrm m /\textrm s$ towards a hoop that is
+                            $0.5~\textrm m$ taller than he
                             is. How far away is he from the hoop, if he made a perfect swish on that shot? (Hint: The
                             ball has to enter the hoop from above.)</i>
                         <figure>
@@ -150,23 +170,42 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                         $$v_0= 5~\textrm m /\textrm s$$
                         $$y = 0.5~\textrm m$$
                         $$y=x\tan\theta-\frac{gx^2}{2v_0^2cos^{2}\theta}$$
-                        Using the quadratic formula gives us a huge mess, but it can be simplified to look much nicer. The algebra in between is omitted for the sake of clarity. It is up to you to do the math and check yourself:
+                        Using the quadratic formula gives us a huge mess, but it can be simplified to look much nicer.
+                        The algebra in between is omitted for the sake of clarity. It is up to you to do the math and
+                        check yourself:
                         $$x=\frac{\tan\theta+\sqrt{\tan^{2}\theta-\frac{2gy}{v_0^2}}}{\frac{g}{v_0^2\cos^{2}\theta}}=\frac{v_0^2\sin\theta\cos\theta+v_0^2\cos\theta\sqrt{\sin^{2}\theta-\frac{2gy}{v_0^2}}}{g}$$
-                        Now you might say the actual correct way to do it is using "$±$", but Jebron cannot be 2 different distances from the hoop at the same time. Eric was nice enough to give you a hint, the ball needs to enter the hoop from above. That means, the ball's vertical motion is downwards, which means it is farther in the parabolic trajectory. Since it is farther, we must use only "$+$". Also, as an aside, the maximum range equation can be simplified from this, as the range equation is simply when $y=0$, so the square root term is reduced. Now if we plug in the values, we get:
-                        $$x=\frac{(5)^2\sin(60\degree)\cos60\degree+(5)^2\cos60\degree\sqrt{\sin^{2}60\degree-\frac{2(9.81)(0.5)}{(5)^2}}}{9.81}≈\bbox[3px, border: 0.5px solid
+                        Now you might say the actual correct way to do it is using "$±$", but Jebron cannot be 2
+                        different distances from the hoop at the same time. Eric was nice enough to give you a hint, the
+                        ball needs to enter the hoop from above. That means, the ball's vertical motion is downwards,
+                        which means it is farther in the parabolic trajectory. Since it is farther, we must use only
+                        "$+$". Also, as an aside, the maximum range equation can be simplified from this, as the range
+                        equation is simply when $y=0$, so the square root term is reduced. Now if we plug in the values,
+                        we get:
+                        $$x=\frac{(5)^2\sin(60\degree)\cos60\degree+(5)^2\cos60\degree\sqrt{\sin^{2}60\degree-\frac{2(9.81)(0.5)}{(5)^2}}}{9.81}≈\bbox[3px,
+                        border: 0.5px solid
                         white]{1.87~\textrm m}$$
                     </div><br><br>
                     <div class="problem">
                         Another interesting problem is shown below:<br>
-                        <i>A ball is thrown an some initial velocity at an angle of $52\degree$ above the horizontal. It reaches a max height of $7.5~\textrm m$. How high would it go if it was instead launched directly upwards with the same magnitude of initial velocity?</i>
+                        <i>A ball is thrown an some initial velocity at an angle of $52\degree$ above the horizontal. It
+                            reaches a max height of $7.5~\textrm m$. How high would it go if it was instead launched
+                            directly upwards with the same magnitude of initial velocity?</i>
                         <br><br>
-                        To solve, we can use our knowledge of the maximum height in trajectory: $H_1=\frac{v_0^2sin^{2}\theta}{2g}$
+                        To solve, we can use our knowledge of the maximum height in trajectory:
+                        $H_1=\frac{v_0^2sin^{2}\theta}{2g}$
                         <br>Solving for $v_0$, we obtain: $v_0=\sqrt{\frac{2gH_1}{sin^{2}\theta}}$
                         <br>If it was thrown straight upwards, the max height equation reduces to $H_2=\frac{v_0^2}{2g}$
-                        <br>Plugging our value for $v_0$: $$H_2=\frac{(\sqrt{\frac{2gH_1}{sin^{2}\theta}})^2}{2g}=\frac{H_1}{sin^{2}\theta}=\frac{7.5}{\sin^{2}(52\degree)}≈\bbox[3px, border: 0.5px solid
+                        <br>Plugging our value for $v_0$:
+                        $$H_2=\frac{(\sqrt{\frac{2gH_1}{sin^{2}\theta}})^2}{2g}=\frac{H_1}{sin^{2}\theta}=\frac{7.5}{\sin^{2}(52\degree)}≈\bbox[3px,
+                        border: 0.5px solid
                         white]{12.08~\textrm m}$$
                     </div><br>
-                    Remember, the key to solving problems like these is to identify your known values and map out your problem solving strategy, then solve the equations algebraically, and then finally, last of all, plug in your values and obtain the final answer. Many physics problems in the future will not be simple and straightforward as plugging in values, which is why you should try to get in the habit of solving problems like this. Congratulations! You finished the first unit in your physics journey! But, don't give up now, because a whole world of physics awaits! You have only scratched the surface of it! Onward!
+                    Remember, the key to solving problems like these is to identify your known values and map out your
+                    problem solving strategy, then solve the equations algebraically, and then finally, last of all,
+                    plug in your values and obtain the final answer. Many physics problems in the future will not be
+                    simple and straightforward as plugging in values, which is why you should try to get in the habit of
+                    solving problems like this. Next up is a short and brief lesson that will prepare you for your next
+                    unit!
                 </span>
             </p>
             <div class="btn-contain-left">
