@@ -6,7 +6,7 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
 
 <template>
     <div class="container h100 p-5">
-        <h1>Centripetal Force/Acceleration</h1><br>
+        <h1>F=ma and Free-body Diagrams</h1><br>
         <p>
             
             <br><br><a href="javascript:void(0)" @click="$emit('nextlesson')" style="animation: scale 2s infinite;display:block">Next Lesson! &rarr;</a>

@@ -7,4 +7,7 @@ const app = createApp(Main)
 app.use(VueMathjax)
 app.mount('#app')
 
-window.addEventListener('dragstart',(e) => e.preventDefault())
+// Prevent dragging of images
+window.addEventListener('dragstart',(e) => {
+  if (e.target.nodeName === 'IMG') e.preventDefault()
+})

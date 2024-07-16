@@ -1,14 +1,16 @@
 <script setup>
-defineProps(["level"])
-defineEmits(["nextpage"])
+defineProps(["level", "page"])
+defineEmits(["nextlesson", "nextpage", "prevpage"])
 </script>
 
 
 <template>
-    <div class="container-fluid p-5 mw-1120">
+    <div class="container h100 p-5">
         <h1>Position, Velocity, Acceleration</h1><br>
-        <p>
-            <span v-show="level == 0">
+        <div v-show="page===0">
+            
+            <p>
+                <span v-show="level == 0">
                 Welcome to the start of a bunch of lessons on "real" physics! Are you excited?<br>Position is defined as
                 the vector (wake up call if you were dozing off in lesson 1!) from the origin to
                 the point where an object is on a coordinate plane.
@@ -23,21 +25,20 @@ defineEmits(["nextpage"])
                 is
                 constant. From my point of view, my friend is still $2$ meters from the object. This is true for ANY
                 point
-                of view in the room! (Well, only in Newtonian mechanics, which thankfully is what we're learning about
-                [you'll probably learn about this when you learn about relativity]).<br><br>
+                of view in the room!<br><br>
                 Position is typically defined with variables. Now if you haven't learned variables yet, don't worry! We
                 got your back! Remember how vectors were defined using letters with an arrow on the top? Variables are
                 just like that, except without the arrow! You can think of it as if a value/quantity was stored in the
-                letter, and we wanted to refer to it without actually saying the value/quantity, which is why we use
-                variables! The variable $x$ is primarily used, though $y$ and $d$ are sometimes used.<br>Do you remember
+                letter, and we wanted to refer to it without actually saying the value/quantity. The variable $x$ is
+                primarily used, though $y$ and $d$ are sometimes used.<br>Do you remember
                 when we just said that <i>displacement</i> is far more useful than just position by itself? Well, given
-                your original position and your final position as two seperate points, guess what we can do with them:
-                We can draw a vector! That vector is what is called displacement, and how it is calculated from your
+                your original position and your final position as two seperate points, we can draw a vector connecting
+                them. That vector is what is called displacement, and how it is calculated from your
                 original and final position. We can also do this mathematically, $$\Delta x = x_f-x_0$$Hold on! If you
                 didn't sign up for this complex mathematical brain torture, we won't put you through too much of it! I
                 promise! Remember when I said variables store values and quantities? That's what's in play here! $\Delta
                 x$ is just a math-y way to say "displacement", and $x_f$ stands for final position, while $x_0$ (also
-                sometimes seen as $x_i$) is, you guessed it, initial position! You can think of them like a super
+                sometimes seen as $x_i$) is initial position! You can think of them like a super
                 mathematical (and maybe nerdy) way to use abbreviations.<br><br>Now let's do some simple math.
                 Let's say you started at a dot on the floor, which let's call the origin (remember, we can define origin
                 however we like!), and walked $10$ meters to the right. Your initial position is $0$, since you started
@@ -63,124 +64,9 @@ defineEmits(["nextpage"])
                 as my initial (and displacement is calculated from your final position to your initial position).
                 Note that displacement is a vector quantity, but distance is a scalar (simply remember this as a term
                 for regular numbers, or non-vectors). These terms are not interchangeable and will come up
-                again!!<br><br>
-
-                <br>Now, velocity ($v$), in its formal definition, is defined as the instantaneous rate of change of
-                position. Wait wait wait what? Don't worry about what that means. We won't worry too much about that!
-                The units of velocity is meters per second, $\frac{\textrm{m}}{\textrm{s}}$<br>However, instantaneous
-                velocity is not the only way we can express velocity. Another useful definition is average velocity,
-                which is denoted by $\bar{v}$, and it is the displacement divided by the time interval in which it took
-                place. So, from that, we know that: $$\bar{v} = \frac{\Delta x}{\Delta t}$$Or using the previous
-                equation from the section on displacement, we know that: $$\Delta x = x_f-x_i$$So...$$\bar{v} =
-                \frac{x_f-x_i}{\Delta t}$$Apologies if the math is killing you right now! Physics is very math heavy, it
-                is hard to learn physics without some level of mathematical intervention. We will try to keep the
-                equations to a minimum and use only the very basic ones where necessary.<br>If your math is to that
-                level, you may have noticed we can directly related displacement ($\Delta x$) and average velocity
-                ($\bar{v}$), and in that regard, you would be right! Doing a bit of rearranging, we get: $$\bar{v} \cdot
-                \Delta t = \Delta x$$ Which tells us the average velocity multiplied by the change in time is the same
-                as your displacement! It is important to remember that a $v$ will always denote instantaneous velocity,
-                or velocity at a certain point in time, while $\bar{v}$ will always denote average velocity, or velocity
-                over a certain period of time.<br><br>Do note that while your instantaneous velocity could be equal to
-                zero, but your overall average velocity is not zero! For example, if I walk to my friend's house, but
-                stop temporarily at a traffic light, my average velocity is positive, since my displacement was
-                positive, but my velocity at the instant I was at the traffic light is zero!<br>Now the converse is also
-                true: my average velocity could be zero, but my instantaneous velocity could be nonzero. Let's say I run
-                a lap around a park and stop at where I started from. My average velocity is zero, since if you look at
-                the previous equation, $\bar{v} = \frac{x_f-x_i}{t}$, my final position and initial position are zero,
-                and zero divided by anything is zero! But let's take a look at my velocity at the instant I'm halfway
-                around the park, that is definitely not zero. I am running as fast as I can because I want to finish my
-                lap!<br>All this talk about instantaneous vs average velocity is very important to remember. Now if you
-                were super clever, you might say, hey! We never introduced how to calculate instantaneous velocity! And
-                with that, you are correct! The reason why we can't do that is because it requires higher level math. We
-                will give you one equation to calculate instantaneous velocity in the next chapter, but it is very
-                simple and only concerns acceleration and velocity. All the other equations require higher level
-                algebra, while we are trying to skim the surface! As you can see, it isn't super easy! We've left out a
-                lot of details and this is still largely simplified. Physics is hard, and you are a brave soul to try
-                and learn the basics of it!<br><br>As with distance and displacment, you may have heard of speed. Speed
-                and velocity are two non interchangeable terms, just like distance and displacement! You might be able
-                to predict, if velocity is displacement divided by time, then speed must be distance divided by time!
-                Let's go back to example of me running around the park. My average velocity is zero, since my final and
-                initial positions are the same, but my average speed is not zero, since my distance traveled is the
-                length of the path around the park!<br>However, unlike distance and displacement, speed can be
-                <i>more</i> confusing sometimes. Speed is often used as a word in physics texts to describe the
-                magnitude (or length) of the velocity vector (remember vectors?), so in a sense, speed is related to
-                velocity (do not make the same mistake for distance! Distance is almost NEVER used to refer to the
-                magnitude of the displacement vector). Thus, for the rest of this course, we will do our best to refer
-                to the magnitude of velocity as "the magnitude of velocity". There may be times though, where we mess
-                up, and there may be cases where you're working on physics from a separate source! It is up to you to
-                decide, using your best judgement and the context, whether "speed" in that scenario refers to its actual
-                definition or just a shorthand for the magnitude of the velocity vector. However, without any context,
-                speed and velocity are two noninterchangeable terms! Speed will always refer to $\frac{\Delta s}{\Delta
-                t}$ and is always a nonnegative scalar, while velocity is $\frac{\Delta x}{\Delta t}$ and a vector, a
-                quantity with a magnitude and direction! Remember that from now on!<br><br><br>Acceleration ($a$) is our
-                final kinematic quantity, and it is the rate of change of
-                velocity. As with velocity, there is instantaneous acceleration, and average acceleration. We will deal
-                with average acceleration, since it is more of use to us!<br>Likewise, average acceleration is equal to
-                the change in velocity divided by change in time: $$a=\frac{\Delta v}{\Delta t}$$ From the
-                equation, we can see the units acceleration is equal to
-                $\frac{\frac{\textrm{m}}{\textrm{s}}}{\textrm{s}}$, or simply $\frac{\textrm{m}}{\textrm{s}^2}$, or
-                meters per second squared (for those that don't know, it just means $\frac{\textrm{m}}{\textrm{s} \cdot
-                \textrm{s}}$.)<br>An aside: Have you noticed we use the multiplication dot to denote multiplication?
-                It's because the other symbol is an x-shape, and guess what variable that looks like! We don't want to
-                confuse ourselves!<br>Now you're probably thinking: Can we also write an equation with velocity and
-                acceleration, just like we did before with displacement and velocity? Well we certainly can! Thus, we
-                can get: $$a \cdot \Delta t = \Delta v$$ But wait! Now you're probably saying, change in velocity
-                is equal to final velocity minus initial! So we can plug this equation $\Delta v = v_f-v_i$ into that
-                equation to get: $a \cdot \Delta t = v_f-v_i$, and we can rearrange it to get: $$v_i + a
-                \cdot \Delta t = v_f$$ Isn't that amazing? We can now calculate instantaneous velocity using our simple
-                knowledge of math! However, given this equation, there is one pitfall of using this. This equation is
-                only valid under the circumstance that your acceleration is constant, or you are using the average
-                acceleration. If the acceleration is not constant, you would have to use the average acceleration, or
-                use more advanced calculus tools.<br><br>Now before we close off this lesson, there is something
-                conceptually that is
-                important to realize. <i>All these quantities listed are VECTOR quantities.</i> Need a refresher? A
-                vector is defined by its length and direction. Now, if a vector's length changes, then it is a different
-                vector! That's what the math above was dealing with. It dealt with the <i>length</i> of those vectors.
-                However, it is also important remember that if the vector's direction changes, then wouldn't it also be
-                a different vector? So now let's look at an example. Let's say you have a toy car moving at a constant
-                speed (not velocity!) around a circular track. Does the car have acceleration? Your intuition will
-                instantly jump to the answer, NO! The car isn't speeding up or slowing down, so it isn't accelerating!
-                However, that just isn't true. Remember that the definition of acceleration is the <i>change</i> in
-                velocity, and velocity is a vector. If you are moving around a circle, your direction is changing
-                basically every instant, if you think about it! Thus, the car DOES have acceleration, since the
-                <i>direction</i> of your velocity is changing, even though it may not be speeding up or slowing down!
-                This is a very important concept that you must know! (It will come up again)<br><br><br>
-                That's pretty much all there is to position, velocity, and acceleration. Like with the vectors chapter,
-                we're going to introduce something pretty cool that is a little beyond the scope of the lesson and this
-                math level, just to give you something to chew on. Warning! This section has fancy notation and symbols
-                and requires algebra skills! So if you don't want that, go ahead and skip to the next lesson! However, I
-                do recommend you try your best and read it and follow along. If it's not for you, great! Keep moving
-                forward. If you're interested, stic around!<br>Now
-                you're probably thinking, is there a way to
-                relate acceleration and displacement? Given the equations that we have, you'll see that we have $\bar{v}
-                \cdot \Delta t = \Delta x$, and $a \cdot \Delta t = \Delta v$. However, we can't directly plug
-                this equation into our first one! Notice that we need $\bar{v}$, and not $\Delta v$! Let's try and solve
-                this task at hand. First, we need to derive an equation for average velocity, $\bar{v}$. For those that
-                don't know, taking the average of some amount of quantities is to add all the quantities together, and
-                divide by the number of quantities there are. There are a few ways to calculate average velocity, but
-                how about we check out this one: $$\bar{v} = \frac{v_f+v_i}{2}$$ The average of your final velocity and
-                your initial velocity must be, well, your average velocity! So now we have this equation, right? Taking
-                an equation from the acceleration chapter, we know what $v_f$ is equal to! $v_f = v_i + a \cdot
-                \Delta t$! So if we plug this into that equation for $v_f$, we get: $$\bar{v} = \frac{v_i + v_i +
-                a \cdot \Delta t}{2} = \frac{2 \cdot v_i + a \cdot \Delta t}{2} = \frac{\cancel{2} \cdot
-                v_i}{\cancel{2}} + \frac{a \cdot \Delta t}{2} = v_i + \frac 1 2 a \cdot \Delta t$$ Wow, now
-                you can see that average velocity is equal to this! Now we can plug this into $\Delta x = \bar{v} \cdot
-                \Delta t$! Substituting this heap of variables and numbers for $\bar{v}$ gives us: $$\Delta x = (v_i +
-                \frac 1 2 a \cdot \Delta t) \cdot \Delta t = v_i \cdot \Delta t + \frac 1 2 a \cdot (\Delta t)^2$$ Wow, the final equation involving displacement and acceleration! Isn't that amazing?
-                Like with the previous equation, though, this is only valid under a constant acceleration. Another way
-                you could have done this is by rearranging the original equation to get $v_i=v_f-at$, and this would
-                have yielded something like this: $$\Delta x=v_f \cdot \Delta t-\frac 1 2 \cdot a \cdot (\Delta t)^2$$
-                Now if you haven't learned algebra yet, this could be difficult to grasp. However, I promise, for the
-                next few chapters, we will focus a little less on the equations. This was just a fun experiment to see
-                how we can come up with an equation for displacement and acceleration. If you genuinely are having a
-                hard time comprehending and understanding, we recommend you go to Khan Acadmey's Algebra course (link <a
-                    href="https://www.khanacademy.org/math/algebra-basics/alg-basics-algebraic-expressions"
-                    target="_blank">here</a>) and reviewing that lesson we just linked. After doing that, maybe come
-                back and review this lesson again!<br>OK! Are you ready to learn more about kinematics? Then let's go to
-                it!
-            </span>
-            <span v-show="level > 0">
-                Welcome to the start of a bunch of lessons on "real" physics! Are you excited?<br>Position is defined as
+                again!!</span>
+                <span v-show="level>0">
+                    Welcome to the start of a bunch of lessons on "real" physics! Are you excited?<br>Position is defined as
                 the vector (wake up call if you were dozing off in lesson 1!) from the origin to
                 the point where an object is on a coordinate plane.
                 Its SI unit is the meter ($\textrm{m}$).<br>We can actually define the origin however we wish and
@@ -208,7 +94,61 @@ defineEmits(["nextpage"])
                 traveled is $100$ kilometers but my displacement is $0$ kilometers, since my final position is the same
                 as my initial.
                 Note that displacement is a vector quantity, but distance is a scalar. These terms are not
-                interchangeable!!<br><br>
+                interchangeable!!
+                </span>
+
+            </p>
+            <div class="btn-contain-right">
+                <button class="btn btn-dark" style="animation: scale1 2s infinite;" @click="$emit('nextpage')">Next
+                    &rarr;</button>
+            </div>
+        </div>
+        <div v-show="page===1">
+            <p>
+                <span v-show="level==0">
+                    Now, velocity ($v$), in its formal definition, is defined as the instantaneous rate of change of
+                position (but we won't be dealing with the formal definition).
+                The units of velocity is meters per second, $\frac{\textrm{m}}{\textrm{s}}$<br>However, instantaneous
+                velocity is not the only way we can express velocity. Another useful definition is average velocity,
+                which is denoted by $\bar{v}$, and it is the displacement divided by the time interval in which it took
+                place. So, from that, we know that: $$\bar{v} = \frac{\Delta x}{\Delta t}$$Or using the previous
+                equation from the section on displacement, we know that: $$\Delta x = x_f-x_i$$So...$$\bar{v} =
+                \frac{x_f-x_i}{\Delta t}$$The math can be a bit confusing if you are new to this, but just try to read
+                and follow along.<br>If your math is to that
+                level, you may have noticed we can directly related displacement ($\Delta x$) and average velocity
+                ($\bar{v}$). Rearranging give us: $$\bar{v} \cdot
+                \Delta t = \Delta x$$ Which tells us the average velocity multiplied by the change in time is the same
+                as your displacement! It is important to remember that a $v$ will always denote instantaneous velocity,
+                or velocity at a certain point in time, while $\bar{v}$ will always denote average velocity, or velocity
+                over a certain period of time.<br><br>Do note that while your instantaneous velocity could be equal to
+                zero, but your overall average velocity is not zero! For example, if I walk to my friend's house, but
+                stop temporarily at a traffic light, my average velocity is positive, since my displacement was
+                positive, but my velocity at the instant I was at the traffic light is zero!<br>Now the converse is also
+                true: my average velocity could be zero, but my instantaneous velocity could be nonzero. Let's say I run
+                a lap around a park and stop at where I started from. My average velocity is zero, since if you look at
+                the previous equation, $\bar{v} = \frac{x_f-x_i}{t}$, my final position and initial position are zero,
+                and zero divided by any number will always result in zero. But let's take a look at my velocity at the
+                instant I'm halfway
+                around the park, that is definitely not zero. I am running as fast as I can because I want to finish my
+                lap!<br>All this talk about instantaneous vs average velocity is very important to remember. Calculating
+                the instantaneous velocity requires higher level math than what we expect that you have, but there is
+                one equation you can use to find the initial and final velocities, involving acceleration later
+                on.<br><br>As with distance and displacment, you may have heard of speed. Speed
+                and velocity are two non interchangeable terms as well. You might be able
+                to predict, if velocity is displacement divided by time, then speed must be distance divided by time!
+                Let's go back to example of me running around the park. My average velocity is zero, since my final and
+                initial positions are the same, but my average speed is not zero, since my distance traveled is the
+                length of the path around the park!<br>However, unlike distance and displacement, speed can be
+                <i>more</i> confusing sometimes. Speed is often used as a word in physics texts to describe the
+                magnitude (or length) of the velocity vector (remember vectors?), so in a sense, speed is related to
+                velocity. Thus, for the rest of this course, we will do our best to refer
+                to the magnitude of velocity as "the magnitude of velocity". That's just what we will do, though. Use
+                your best judgement in scenarios outside of this course. But remember, without context, speed will
+                always refer to $\frac{\Delta s}{\Delta
+                t}$ and is always a nonnegative scalar, while velocity is $\frac{\Delta x}{\Delta t}$ and a vector, a
+                quantity with a magnitude and direction!
+                </span>
+                <span v-show="level>0">
                 Now, velocity ($v$) is defined as the instantaneous rate of change of position. <span
                     v-show="level == 1">This typically requires calculus to calculate, so we won’t worry too much about
                     that definition.</span> Another useful definition is average velocity, denoted by $\bar{v}$, the
@@ -242,9 +182,58 @@ defineEmits(["nextpage"])
                 definition or just a shorthand for the magnitude of the velocity vector. However, without any context,
                 speed and velocity are two noninterchangeable terms! Speed will always refer to $\frac{\Delta s}{\Delta
                 t}$ and is always a nonnegative scalar, while velocity is $\frac{\Delta x}{\Delta t}$ and a vector, a
-                quantity with a magnitude and direction! Remember that from now on!<br><br>
-
-                Acceleration is our final kinematic quantity, and it is the instantaneous rate of change of velocity.
+                quantity with a magnitude and direction! Remember that from now on!
+                </span>
+            </p>
+            <div class="btn-contain-left">
+                <button class="btn btn-dark" style="animation: scale1 2s infinite;" @click="$emit('prevpage')">&larr;
+                    Previous</button>
+            </div>
+            <div class="btn-contain-right">
+                <button class="btn btn-dark" style="animation: scale1 2s infinite;" @click="$emit('nextpage')">Next
+                    &rarr;</button>
+            </div>
+        </div>
+        <div v-show="page===3">
+            <p>
+                <span v-show="level==0">
+                    Acceleration ($a$) is our
+                final kinematic quantity, and it is the rate of change of
+                velocity. As with velocity, there is instantaneous acceleration, and average acceleration. We will deal
+                with average acceleration, since it is more of use to us!<br>Likewise, average acceleration is equal to
+                the change in velocity divided by change in time: $$a=\frac{\Delta v}{\Delta t}$$ From the
+                equation, we can see the units acceleration is equal to
+                $\frac{\frac{\textrm{m}}{\textrm{s}}}{\textrm{s}}$, or simply $\frac{\textrm{m}}{\textrm{s}^2}$, or
+                meters per second squared (for those that don't know, it just means $\frac{\textrm{m}}{\textrm{s} \cdot
+                \textrm{s}}$.)<br>An aside: Have you noticed we use the multiplication dot to denote multiplication?
+                It's because the other symbol is an x-shape, and guess what variable that looks like! We don't want to
+                confuse ourselves!<br>We can also write an equation with velocity and
+                acceleration, just like we did before with displacement and velocity, like shown: $$a \cdot \Delta t =
+                \Delta v$$ But wait! Change in velocity
+                is equal to final velocity minus initial! So we can plug this equation $\Delta v = v_f-v_i$ into that
+                equation to get: $a \cdot \Delta t = v_f-v_i$, and we can rearrange it to get: $$v_i + a
+                \cdot \Delta t = v_f$$ We now have means of calculating your initial and final velocity, which are
+                instantaneous velocities! However, given this equation, there is one pitfall of using this. This
+                equation is
+                only valid under the circumstance that your acceleration is constant, or you are using the average
+                acceleration. If the acceleration is not constant, you would have to use the average acceleration, or
+                use more advanced calculus tools.<br><br>Now before we close off this lesson, there is something
+                conceptually that is
+                important to realize. <i>All these quantities listed are VECTOR quantities.</i> Need a refresher? A
+                vector is defined by its length and direction. Now, if a vector's length changes, then it is a different
+                vector! That's what the math above was dealing with. It dealt with the <i>length</i> of those vectors.
+                However, it is also important remember that if the vector's direction changes, then wouldn't it also be
+                a different vector? So now let's look at an example. Let's say you have a toy car moving at a constant
+                speed (not velocity!) around a circular track. Does the car have acceleration? Your intuition will
+                instantly jump to the answer, NO! The car isn't speeding up or slowing down, so it isn't accelerating!
+                However, that just isn't true. Remember that the definition of acceleration is the <i>change</i> in
+                velocity, and velocity is a vector. If you are moving around a circle, your direction is changing
+                basically every instant, if you think about it! Thus, the car DOES have acceleration, since the
+                <i>direction</i> of your velocity is changing, even though it may not be speeding up or slowing down!
+                This is a very important concept that you must know! (It will come up again)
+                </span>
+                <span v-show="level>0">
+                    Acceleration is our final kinematic quantity, and it is the instantaneous rate of change of velocity.
                 Likewise, average acceleration is equal to the change in velocity over time ($a=\frac{\Delta v}{\Delta
                 t}$). From the equation, we can see the units acceleration is equal to
                 $\frac{\frac{\textrm{m}}{\textrm{s}}}{\textrm{s}}$, or simply $\frac{\textrm{m}}{\textrm{s}^2}$<br><br>
@@ -265,10 +254,61 @@ defineEmits(["nextpage"])
                 hold on! What is $v_f$? If you remember from just a few paragraphs ago, $v_f$ is equal to $v_i + at$! So
                 when we plug this in, we get: $$\bar{v} = \frac{v_0 + at + v_0}{2} = \frac{2v_0 + at}{2} = v_0 +
                 \frac{1}{2}at$$ So, now we have an equation that we can plug into $x=\bar{v}t$! Plugging this in will
-                give us: $$x = (v_0 + \frac{1}{2}at) \cdot t = v_0 t + \frac{1}{2}at^2$$ 
+                give us: $$x = (v_0 + \frac{1}{2}at) \cdot t = v_0 t + \frac{1}{2}at^2$$
                 So this is the equation that
                 involves acceleration! We'll show examples of more equations later on, but this is
-                part of five equations that you MUST memorize.<br><br>Now let's take a look at the same thing but via
+                part of five equations that you MUST memorize.
+                </span>
+            </p>
+            <div class="btn-contain-left">
+                <button class="btn btn-dark" style="animation: scale1 2s infinite;" @click="$emit('prevpage')">&larr;
+                    Previous</button>
+            </div>
+            <div class="btn-contain-right">
+                <button class="btn btn-dark" style="animation: scale1 2s infinite;" @click="$emit('nextpage')">Next
+                    &rarr;</button>
+            </div>
+        </div>
+        <div v-show="page===2">
+            <p>
+                <span v-show="level==0">
+                    That's pretty much all there is to position, velocity, and acceleration. Like with the vectors chapter,
+                we're going to introduce something pretty cool that is a little beyond the scope of the lesson and this
+                math level, just to give you something to chew on. Warning! This section has fancy notation and symbols
+                and requires algebra skills! So if you don't want that, go ahead and skip to the next lesson! However, I
+                do recommend you try your best and read it and follow along. If it's not for you, great! Keep moving
+                forward. If you're interested, stic around!<br>Now
+                you're probably thinking, is there a way to
+                relate acceleration and displacement? Given the equations that we have, you'll see that we have $\bar{v}
+                \cdot \Delta t = \Delta x$, and $a \cdot \Delta t = \Delta v$. However, we can't directly plug
+                this equation into our first one! Notice that we need $\bar{v}$, and not $\Delta v$! Let's try and solve
+                this task at hand. First, we need to derive an equation for average velocity, $\bar{v}$. For those that
+                don't know, taking the average of some amount of quantities is to add all the quantities together, and
+                divide by the number of quantities there are. There are a few ways to calculate average velocity, but
+                how about we check out this one: $$\bar{v} = \frac{v_f+v_i}{2}$$ The average of your final velocity and
+                your initial velocity must be, well, your average velocity! So now we have this equation, right? Taking
+                an equation from the acceleration chapter, we know what $v_f$ is equal to! $v_f = v_i + a \cdot
+                \Delta t$! So if we plug this into that equation for $v_f$, we get: $$\bar{v} = \frac{v_i + v_i +
+                a \cdot \Delta t}{2} = \frac{2 \cdot v_i + a \cdot \Delta t}{2} = \frac{\cancel{2} \cdot
+                v_i}{\cancel{2}} + \frac{a \cdot \Delta t}{2} = v_i + \frac 1 2 a \cdot \Delta t$$ Wow, now
+                you can see that average velocity is equal to this! Now we can plug this into $\Delta x = \bar{v} \cdot
+                \Delta t$! Substituting this heap of variables and numbers for $\bar{v}$ gives us: $$\Delta x = (v_i +
+                \frac 1 2 a \cdot \Delta t) \cdot \Delta t = v_i \cdot \Delta t + \frac 1 2 a \cdot (\Delta t)^2$$ Wow,
+                the final equation involving displacement and acceleration! Isn't that amazing?
+                Like with the previous equation, though, this is only valid under a constant acceleration. Another way
+                you could have done this is by rearranging the original equation to get $v_i=v_f-at$, and this would
+                have yielded something like this: $$\Delta x=v_f \cdot \Delta t-\frac 1 2 \cdot a \cdot (\Delta t)^2$$
+                Now if you haven't learned algebra yet, this could be difficult to grasp. However, I promise, for the
+                next few chapters, we will focus a little less on the equations. This was just a fun experiment to see
+                how we can come up with an equation for displacement and acceleration. If you genuinely are having a
+                hard time comprehending and understanding, we recommend you go to Khan Acadmey's Algebra course (link <a
+                    href="https://www.khanacademy.org/math/algebra-basics/alg-basics-algebraic-expressions"
+                    target="_blank">here</a>) and reviewing that lesson we just linked. After doing that, maybe come
+                back and review this lesson again!<br>OK! Are you ready to learn more about kinematics? Then let's go to
+                it!
+                </span>
+                <span v-show="level>0">
+                    Now let's take a look at the same thing but via
                 graphical analysis. We know that acceleration is the slope of the velocity versus time (v-t) graph. The
                 area under the curve is displacement, since it is computed by multiplying velocity and time interval
                 (the axes) which gives the units of displacement (what is $\frac{\textrm{m}}{\textrm{s}} \cdot
@@ -318,10 +358,17 @@ defineEmits(["nextpage"])
                 velocity is the (instantaneous) rate of change of displacement, and acceleration is the (instantaneous)
                 rate of change of velocity.<br>Are you ready to learn how to use what you just learned to do some cool
                 calculations? Let's go to it!
-            </span>
-            <br><br><a href="javascript:void(0)" @click="$emit('nextpage')"
-                style="animation: scale 2s infinite;display:block">Next Lesson! &rarr;</a>
-        </p>
+                </span>
+            </p>
+            <div class="btn-contain-left">
+                <button class="btn btn-dark" style="animation: scale1 2s infinite;" @click="$emit('prevpage')">&larr;
+                    Previous</button>
+            </div>
+            <div class="btn-contain-right">
+                <button class="btn btn-dark" style="animation: scale 2s infinite;" @click="$emit('nextlesson')">Next
+                    Lesson! &rarr;</button>
+            </div>
+        </div>
     </div>
 
 </template>

@@ -19,6 +19,24 @@ img {
     user-select: none;
 }
 
+.h100 {
+    height: 100%;
+    position: relative;
+}
+
+
+.btn-contain-left {
+    left: 63px;
+    position: absolute;
+    padding-bottom: 48px;
+}
+
+.btn-contain-right {
+    right: 63px;
+    position: absolute;
+    padding-bottom: 48px;
+}
+
 p {
     font-size: 1rem;
     line-height: 2.5rem;
@@ -33,9 +51,6 @@ figcaption {
     font-size: 0.9rem;
 }
 
-.mw-1120 {
-    max-width: 1120px;
-}
 
 a {
     color: inherit;
@@ -75,7 +90,13 @@ a {
 }
 
 @keyframes scale {
-    0% {transform: scale(1.02)}
-    50% {transform: scale(1.1)}
-    100%{transform: scale(1.02)}
+    0% {transform: scale(1.1)}
+    50% {transform: scale(1.18)}
+    100%{transform: scale(1.1)}
+}
+
+@keyframes scale1 {
+    0% {transform: scale(1)}
+    50% {transform: scale(1.05)}
+    100%{transform: scale(1)}
 }
