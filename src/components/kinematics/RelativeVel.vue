@@ -79,6 +79,9 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                     border: 0.5px solid
                     white]{13~\textrm m /\textrm s}$$</span>
             </div>
+            Sometimes, it may be easier to shorthand the equation like so, especially when $C$ is not needed: $$v_{AB} = v_A-v_B$$
+            And vice versa. Essentially, what this equation states is that the velocity of A relative to B is the velocity of A minus the velocity of B. However use this only when the velocity of A and B are given to be relative to the same reference frame C.
+            <br>
             <br>
             Congratulations! You finished the first unit in your physics journey. But, don't give up now, because a
             whole world of physics awaits! You have only scratched the surface of it. Next unit is probably the one of
