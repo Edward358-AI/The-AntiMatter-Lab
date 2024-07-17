@@ -3,7 +3,7 @@
 </script>
 
 <template>
-    <div class="container-fluid p-5 m-auto mw-1120">
+    <div class="container p-5">
         <h1>About</h1><br>
         <p>This project was created originally in the summer of 2024 as a passion project to give the world a better
             understanding of what physics really is (it was also originally designed to get more people to join a local

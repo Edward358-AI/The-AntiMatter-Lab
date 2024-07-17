@@ -436,11 +436,11 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                 </span>
                 <span v-show="level > 0">
                     Now let's take a look at the same thing but via
-                    graphical analysis. We know that acceleration is the slope of the velocity versus time (v-t) graph.
+                    graphical analysis. <span v-show="level==1">We know that acceleration is the slope of the velocity versus time (v-t) graph.
                     The
                     area under the curve is displacement, since it is computed by multiplying velocity and time interval
                     (the axes) which gives the units of displacement (what is $\frac{\textrm{m}}{\textrm{s}} \cdot
-                    \textrm{s}$). <span v-show="level == 1">Don't worry! If you don't know what area under the curve is,
+                    \textrm{s}$). Don't worry! If you don't know what area under the curve is,
                         it is exactly what it sounds
                         like. You calculate the area under the line of the graph for a certain interval. The reason why
                         this
@@ -472,20 +472,19 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                     $$x=\frac{2v_0+at}{2}t=v_0t+\frac{1}{2}at^2$$
                     Which is what we exactly just derived!! It is highly recommended (maybe almost required) that you
                     memorize these equations, because you will likely be using them a lot for the next two
-                    lessons.<br>Another interesting thing you can do is remember when we taught you dimensional
+                    lessons. <br><span v-show="level == 2">This is much easier to derive from a calculus perspective: $$v = v_0 +
+                        at$$
+                        $$\frac{dx}{dt} = v_0 + at$$ $$dx = (v_0 + at)dt$$ $$\int_{x_0}^{x_f}dx =
+                        \int_{0}^{t}(v_0+at)dt$$
+                        $$x_f-x_0 = \Delta x = v_0 t + \frac{1}{2}at^2$$</span>Another interesting thing you can do is remember when we taught you dimensional
                     analysis?
                     You can go back to the equations we mentioned and double confirm with us, are the equations also
                     <i>dimensionally</i> accurate? Just something for you to investigate upon.<br>
                     From this, we can graph an $x$-$t$ graph for constant acceleration scenarios. A desmos example is
                     shown
                     below (you can play around with the sliders):
-                    <iframe src="https://www.desmos.com/calculator/g1suzxzrsv" width="1000" height="500"
+                    <iframe src="https://www.desmos.com/calculator/g1suzxzrsv" width="1000" height="500" style="margin:auto;display:block;"
                         frameborder=0></iframe><br>
-                    <span v-show="level == 2">This is much easier to derive from a calculus perspective: $$v = v_0 +
-                        at$$
-                        $$\frac{dx}{dt} = v_0 + at$$ $$dx = (v_0 + at)dt$$ $$\int_{x_0}^{x_f}dx =
-                        \int_{0}^{t}(v_0+at)dt$$
-                        $$x_f-x_0 = \Delta x = v_0 t + \frac{1}{2}at^2$$</span>
                     That's pretty much all there is to position, velocity, and acceleration. Usually, when we say $x$,
                     we do
                     mean displacement, but occasionally, if you see $x$ denoted with subscripts $f$ or $i$ or $0$, it
