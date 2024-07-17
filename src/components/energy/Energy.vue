@@ -6,7 +6,7 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
 
 <template>
     <div class="container h100 p-5">
-        <h1>Definition of Energy</h1><br>
+        <h1>Definition of Energy and Energy Conservation</h1><br>
         <p>
             
             

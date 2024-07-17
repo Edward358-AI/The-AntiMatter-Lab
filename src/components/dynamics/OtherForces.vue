@@ -6,7 +6,7 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
 
 <template>
     <div class="container h100-fluid p-5 mw-1120">
-        <h1>Other Forces</h1><br>
+        <h1>Forces</h1><br>
         <p>
             
             

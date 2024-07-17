@@ -10,7 +10,6 @@ import OneDMotion from './components/kinematics/OneDMotion.vue'
 import TwoDMotion from './components/kinematics/TwoDMotion.vue'
 import RelativeVel from './components/kinematics/RelativeVel.vue'
 
-import Friction from './components/dynamics/Friction.vue'
 import InclinedPlanes from './components/dynamics/InclinedPlanes.vue'
 import Newton from './components/dynamics/Newton.vue'
 import OtherForces from './components/dynamics/OtherForces.vue'
@@ -24,18 +23,16 @@ import Kepler from './components/circularGravity/Kepler.vue'
 import Collisions from './components/momentum/Collisions.vue'
 import Impulse from './components/momentum/Impulse.vue'
 import LinMomConsrv from './components/momentum/LinMomConsrv.vue'
-import VelApproach from './components/momentum/VelApproach.vue'
 
 import DotProd from './components/energy/DotProd.vue'
 import Energy from './components/energy/Energy.vue'
-import EnergyConsrv from './components/energy/EnergyConsrv.vue'
 import Power from './components/energy/Power.vue'
 import Work from './components/energy/Work.vue'
 
 
 const htmlElement = document.documentElement
 const Window = window
-const user = reactive({ current: "landing", difficulty: 0, theme: "dark", page: { Vectors: 0, DimenAnalyz: 0, PosVelAcc: 0, OneDMotion: 0, TwoDMotion: 0, RelativeVel: 0, FmaFBD: 0, Friction: 0, InclinedPlanes: 0, OtherForces: 0, Newton: 0, Kepler: 0, GravityLaws: 0, Centripetal: 0, Fictious: 0, DotProd: 0, Energy: 0, EnergyConsrv: 0, Power: 0, Work: 0, Collisions: 0, Impulse: 0, LinMomConsrv: 0, VelApproach: 0 } })
+const user = reactive({ current: "landing", difficulty: 0, theme: "dark", page: { Vectors: 0, DimenAnalyz: 0, PosVelAcc: 0, OneDMotion: 0, TwoDMotion: 0, RelativeVel: 0, FmaFBD: 0, InclinedPlanes: 0, OtherForces: 0, Newton: 0, Kepler: 0, GravityLaws: 0, Centripetal: 0, Fictious: 0, DotProd: 0, Energy: 0, Power: 0, Work: 0, Collisions: 0, Impulse: 0, LinMomConsrv: 0 } })
 
 // Theme must be loaded first, but the current page is loaded later after the user clicks get started
 user.theme = localStorage.getItem("user") ? JSON.parse(localStorage.getItem("user")).theme : user.theme
@@ -74,10 +71,9 @@ const lessons = reactive(
 
     dynamics: [
       "Newton's Laws",
+      "Forces",
       "F=ma and Free-body Diagrams",
-      "Friction",
-      "Other forces",
-      "Inclined Planes"
+      "Inclined Planes and Pulleys"
     ],
 
     circularGravity: [
@@ -90,16 +86,14 @@ const lessons = reactive(
     energy: [
       "Dot Product",
       "Definition of \"Work\"",
-      "Definition of Energy",
-      "Conservation of Energy",
+      "Definition of Energy and Energy Conservation",
       "Definition of Power"
     ],
 
     momentum: [
       "Impulse/Momentum Theorem",
       "Conservation of Linear Momentum",
-      "Collisions",
-      "Velocity of Approach"
+      "Collisions"
     ]
   }
 )
@@ -264,17 +258,14 @@ onMounted(() => {
   <Newton v-show="user.current === lessons.dynamics[0]" :level="user.difficulty" :page="user.page.Newton"
     @nextpage="Window.scrollTo(0, 0); user.page.Newton++" @prevpage="Window.scrollTo(0, 0); user.page.Newton--"
     @nextlesson="Window.scrollTo(0, 0); user.current = lessons.dynamics[1]" />
-  <FmaFBD v-show="user.current === lessons.dynamics[1]" :level="user.difficulty" :page="user.page.FmaFBD"
-    @nextpage="Window.scrollTo(0, 0); user.page.FmaFBD++" @prevpage="Window.scrollTo(0, 0); user.page.FmaFBD--"
-    @nextlesson="Window.scrollTo(0, 0); user.current = lessons.dynamics[2]" />
-  <Friction v-show="user.current === lessons.dynamics[2]" :level="user.difficulty" :page="user.page.Friction"
-    @nextpage="Window.scrollTo(0, 0); user.page.Friction++" @prevpage="Window.scrollTo(0, 0); user.page.Friction--"
-    @nextlesson="Window.scrollTo(0, 0); user.current = lessons.dynamics[3]" />
-  <OtherForces v-show="user.current === lessons.dynamics[3]" :level="user.difficulty" :page="user.page.OtherForces"
+  <OtherForces v-show="user.current === lessons.dynamics[1]" :level="user.difficulty" :page="user.page.OtherForces"
     @nextpage="Window.scrollTo(0, 0); user.page.OtherForces++"
     @prevpage="Window.scrollTo(0, 0); user.page.OtherForces--"
-    @nextlesson="Window.scrollTo(0, 0); user.current = lessons.dynamics[4]" />
-  <InclinedPlanes v-show="user.current === lessons.dynamics[4]" :level="user.difficulty"
+    @nextlesson="Window.scrollTo(0, 0); user.current = lessons.dynamics[2]" />
+    <FmaFBD v-show="user.current === lessons.dynamics[2]" :level="user.difficulty" :page="user.page.FmaFBD"
+    @nextpage="Window.scrollTo(0, 0); user.page.FmaFBD++" @prevpage="Window.scrollTo(0, 0); user.page.FmaFBD--"
+    @nextlesson="Window.scrollTo(0, 0); user.current = lessons.dynamics[3]" />
+  <InclinedPlanes v-show="user.current === lessons.dynamics[3]" :level="user.difficulty"
     :page="user.page.InclinedPlanes" @nextpage="Window.scrollTo(0, 0); user.page.InclinedPlanes++"
     @prevpage="Window.scrollTo(0, 0); user.page.InclinedPlanes--"
     @nextlesson="Window.scrollTo(0, 0); user.current = lessons.circularGravity[0]" />
@@ -303,11 +294,7 @@ onMounted(() => {
   <Energy v-show="user.current === lessons.energy[2]" :level="user.difficulty" :page="user.page.Energy"
     @nextpage="Window.scrollTo(0, 0); user.page.Energy++" @prevpage="Window.scrollTo(0, 0); user.page.Energy--"
     @nextlesson="Window.scrollTo(0, 0); user.current = lessons.energy[3]" />
-  <EnergyConsrv v-show="user.current === lessons.energy[3]" :level="user.difficulty" :page="user.page.EnergyConsrv"
-    @nextpage="Window.scrollTo(0, 0); user.page.EnergyConsrv++"
-    @prevpage="Window.scrollTo(0, 0); user.page.EnergyConsrv--"
-    @nextlesson="Window.scrollTo(0, 0); user.current = lessons.energy[4]" />
-  <Power v-show="user.current === lessons.energy[4]" :level="user.difficulty" :page="user.page.Power"
+  <Power v-show="user.current === lessons.energy[3]" :level="user.difficulty" :page="user.page.Power"
     @nextpage="Window.scrollTo(0, 0); user.page.Power++" @prevpage="Window.scrollTo(0, 0); user.page.Power--"
     @nextlesson="Window.scrollTo(0, 0); user.current = lessons.momentum[0]" />
 
@@ -320,10 +307,6 @@ onMounted(() => {
     @nextlesson="Window.scrollTo(0, 0); user.current = lessons.momentum[2]" />
   <Collisions v-show="user.current === lessons.momentum[2]" :level="user.difficulty" :page="user.page.Collisions"
     @nextpage="Window.scrollTo(0, 0); user.page.Collisions++" @prevpage="Window.scrollTo(0, 0); user.page.Collisions--"
-    @nextlesson="Window.scrollTo(0, 0); user.current = lessons.momentum[3]" />
-  <VelApproach v-show="user.current === lessons.momentum[3]" :level="user.difficulty" :page="user.page.VelApproach"
-    @nextpage="Window.scrollTo(0, 0); user.page.VelApproach++"
-    @prevpage="Window.scrollTo(0, 0); user.page.VelApproach--"
     @nextlesson="Window.scrollTo(0, 0); user.current = 'landing'" />
 </template>
 

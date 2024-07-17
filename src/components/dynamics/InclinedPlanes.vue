@@ -6,7 +6,7 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
 
 <template>
     <div class="container h100 p-5">
-        <h1>Inclined Planes</h1><br>
+        <h1>Inclined Planes and Pulleys</h1><br>
         <p>
             
             
