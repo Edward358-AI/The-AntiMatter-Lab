@@ -166,7 +166,7 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                 
                 So far, these are all the forces you will encounter. This chapter was not particularly problem-heavy, but more on concepts. There are most definitely more forces that we will add to our
                 collection as we progress. <span v-show="level==2">As for you calculus students, we know you're itching to pull our your calculus tools. Unfortunately, this isn't your chapter just yet. Calculus will begin to play a more important role with the chapters to come!</span> Remember, all these forces are not “new” types of forces, they all will fall
-                under the category of one of the four fundamental forces in nature. We stress this importance because it's crucial that you realize the difference. But simply knowing these forces is
+                under the category of one of the four fundamental forces in nature. We stress this importance because it's crucial that you realize the difference. In your journey through Newtonian mechanics, for the most part, if the force not is gravitational, then it must be electromagnetic.<br>But simply knowing these forces is
                 not enough. You will learn how to use this knowledge to solve problems and draw free-body diagrams,
                 which is arguably one of the most important things you will ever learn in mechanics. 
             </p>
