@@ -53,7 +53,7 @@ const showAnswer5 = ref(false)
                 <button class="btn btn-dark" style="animation: scale1 2s infinite;" @click="$emit('nextpage')">Next
                     &rarr;</button>
             </div>
-        </div>
+            </div>
         <div v-show="page ===1">
             <p>
             <span v-show="level > 0">
@@ -385,7 +385,7 @@ const showAnswer5 = ref(false)
                     Previous</button>
             </div>
             <div class="btn-contain-right">
-                <button class="btn btn-dark" style="animation: scale1 2s infinite;" @click="$emit('nextlesson')">Next Lesson
+                <button class="btn btn-dark" style="animation: scale 2s infinite;" @click="$emit('nextlesson')">Next Lesson
                     &rarr;</button>
             </div>
         </div>
