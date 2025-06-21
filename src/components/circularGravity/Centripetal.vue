@@ -151,7 +151,7 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                 <br><br>
                 <figure>
                     <img src="/src/assets/dynamics/Figure 31.png" width = "500px">
-                    <figcaption>Figure 3: A banked curve, turned into a force-vector diagram. Beware this transformation phenomenon.</figcaption>
+                    <figcaption>Figure 3: A banked curve, turned into a force-vector diagram. Make sure this doesn't happen to your children.</figcaption>
                 </figure>
                 <br><br>
                 You should recall that the angle between $mg$ and the axis perpendicular to the plane (which $F_n$ lies on) is $\theta$. By the vertical angles theorem, the angle between $F_n$ and the vertical axis is also $\theta$. See, geometry isn’t completely useless.
@@ -245,7 +245,7 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                     <br><br>
                 <figure>
                     <img src="/src/assets/dynamics/Figure 31.png" width = "500px">
-                    <figcaption>Figure 3: A banked curve, turned into a force-vector diagram. Beware this transformation phenomenon.</figcaption>
+                    <figcaption>Figure 3: A banked curve, turned into a force-vector diagram. Make sure this doesn't happen to your children.</figcaption>
                 </figure>
                     Now, the calculations for the results of this scenario will not be carried out here, but you should be able
                     to see that in this case there is only a single speed that enables circular motion for a certain radius. First off, you
