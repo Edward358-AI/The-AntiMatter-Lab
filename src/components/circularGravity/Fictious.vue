@@ -132,7 +132,26 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
             </div>
             </div>
             <div v-show="page===1">
-
+                I'd like to start off with an xkcd comic because I find it mildly amusing and educational.
+                <br><br>
+                <figure>
+                    <img src="/src/assets/dynamics/EVIL FILE DO NOT OPEN.png" width = "300px">
+                    <figcaption>Figure 3: The consequences of centrifugal force. Made by xkcd.</figcaption>
+                </figure>
+                <br><br>
+                Hopefully you understood that. Please review this lesson if you didn't. I am no longer asking.
+                <br><br>
+                Now, back to our regularly scheduled program. We have a car cresting a circular hill, which can be approximated as
+                a portion of a circle with radius $R$. What is the maximum velocity it can have at any point, and what happens if it
+                exceeds that velocity? Assume it transits the hill with constant velocity for simplicity.
+                <br><br>
+                <figure>
+                    <img src="/src/assets/dynamics/Figure 38.png" width = "500px">
+                    <figcaption> Figure 4: A truck driving over a hill. No comments about the paint job allowed.</figcaption>
+                </figure>
+                <div v-show="level>0">
+                    Now, the first part of this question is simple to answer.
+                </div>
             <div class="btn-contain-left">
                 <button class="btn btn-dark" style="animation: scale1 2s infinite;" @click="$emit('prevpage')">&larr;
                     Previous</button>
