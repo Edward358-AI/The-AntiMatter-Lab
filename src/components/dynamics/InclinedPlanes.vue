@@ -429,7 +429,7 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                 With that little rant out of the way, we will now move onto an entirely new topic: the idea of work, energy, and power. So, let's 
                 go onto the next lesson and begin this new concept!
             </div>
-            <div v-show="level===0">
+            <div v-show="level==0">
                 The astute observer will notice that the pulley on the right is not fixed, but rather is allowed to move vertically.
                 This is a very important distinction, as it allows us to lift heavy objects with a much smaller force than the weight of the object.
                 Take a close look at the exact setup of the pulley. It has two segments of string on either side of it, meaning experiences
