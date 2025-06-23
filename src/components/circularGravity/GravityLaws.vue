@@ -139,7 +139,7 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                     <br><br>
                     Using this theorem, we can actually figure out what the gravity inside of a planet is.
                 </div>
-                <div class="btn-contain-right">
+            <div class="btn-contain-right">
                 <button class="btn btn-dark" style="animation: scale1 2s infinite;" @click="$emit('nextpage')">Next
                     &rarr;</button>
             </div>
