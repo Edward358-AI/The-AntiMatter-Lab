@@ -79,7 +79,7 @@ const lessons = reactive(
     circularGravity: [
       "Centripetal Force/Acceleration",
       "Fictitious Forces",
-      "Newton's Laws of Gravitation",
+      "Newton's Law of Universal Gravitation",
       "Kepler's Laws"
     ],
 
