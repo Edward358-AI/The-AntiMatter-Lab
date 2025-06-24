@@ -143,7 +143,7 @@ onMounted(() => {
     <div class="offcanvas-body">
       <ul class="sidebar-nav">
         <li>
-          <h6 class="sidebar-header">Kinematics</h6>
+          <h6 class="sidebar-header"><b>Kinematics</b></h6>
         </li>
         <li>
           <hr class="sidebar-divider">
@@ -157,7 +157,7 @@ onMounted(() => {
 
         <br class="mb-5">
         <li>
-          <h6 class="sidebar-header">Dynamics</h6>
+          <h6 class="sidebar-header"><b>Dynamics</b></h6>
         </li>
         <li>
           <hr class="sidebar-divider">
@@ -171,7 +171,7 @@ onMounted(() => {
 
         <br class="mb-5">
         <li>
-          <h6 class="sidebar-header">Circular Motion and Gravitation</h6>
+          <h6 class="sidebar-header"><b>Circular Motion and Gravitation</b></h6>
         </li>
         <li>
           <hr class="sidebar-divider">
@@ -185,7 +185,7 @@ onMounted(() => {
 
         <br class="mb-5">
         <li>
-          <h6 class="sidebar-header">Energy</h6>
+          <h6 class="sidebar-header"><b>Energy</b></h6>
         </li>
         <li>
           <hr class="sidebar-divider">
@@ -199,7 +199,7 @@ onMounted(() => {
 
         <br class="mb-5">
         <li>
-          <h6 class="sidebar-header">Momentum</h6>
+          <h6 class="sidebar-header"><b>Momentum</b></h6>
         </li>
         <li>
           <hr class="sidebar-divider">

@@ -74,11 +74,26 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                 While it is possible to use this law for calculations, it's not easy to do so without an understanding of energy. We will come
                 back to gravitation after we learn about energy and use it to derive many more interesting results. However, for now we're stuck with a
                 conceptual understanding of this topic.
-                
+                <div class="btn-contain-right">
+                <button class="btn btn-dark" style="animation: scale1 2s infinite;" @click="$emit('nextpage')">Next
+                    &rarr;</button>
+            </div>
+            </div>
+            <div v-show="page===1">
+                <div class="problem" style="text-align:center;font-size:1.05rem;width:fit-content;margin:auto;">
+                    <strong>Kepler's Second Law:</strong> <i> The imaginary line connecting the planet and the star sweeps out equal areas in equal times as the planet orbits.</i>
+                </div>
+                <br><br>
+                This law is a bit unorthodox, to say the least. It's certainly a bit verbose and can be hard to understand without 
+                a v
+                <div class="btn-contain-left">
+                <button class="btn btn-dark" style="animation: scale1 2s infinite;" @click="$emit('prevpage')">&larr;
+                    Previous</button>
             </div>
             <div class="btn-contain-right">
                 <button class="btn btn-dark" style="animation: scale1 2s infinite;" @click="$emit('nextpage')">Next
                     &rarr;</button>
+            </div>
             </div>
         </p>
     </div>
