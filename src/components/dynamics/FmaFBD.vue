@@ -57,6 +57,7 @@ const showAnswer5 = ref(false)
         <div v-show="page ===1">
             <p>
             <span v-show="level > 0">
+                <div class="problem">
                 Now we will analyze the following scenario. Bob pushes on a 15 kg cart horizontally with a force of 50 N. What is the cart’s acceleration?
                 <br><br>
                 Hopefully, we recognize that there are three forces present: the gravitational force, the normal force from the ground, and the applied force (also technically a normal force) from Bob.
@@ -121,6 +122,7 @@ const showAnswer5 = ref(false)
                 If you want to get fancy, this principle is called Galilean Relativity, which states that it is impossible to determine absolute velocity of any given inertial reference frame. 
                 Another key tenet of the idea is that the laws of physics are the exact same in all inertial reference frames, which turns out to be true. Galilean Relativity is very important in Newtonian physics, and is the reason why we can only determine acceleration through force analysis. But it also turns out to be
                 incorrect in its assumption that time is independent of velocity, which is a key tenet of Einstein's Special Relativity. But that's something that's way too advanced for right now. (Eric wrote this part, so if you have any questions about it, ask him.)
+                </div>
                 <br><br>
             </span> 
 
@@ -129,6 +131,7 @@ const showAnswer5 = ref(false)
                     Instead, we can simply focus on the conceptual understanding of how to draw a proper free-body diagram of this problem, as well
                     as qualitative analysis of it.
                     <br><br>
+                    <div class="problem">
                     Consider the following scenario: Bob pushes on a cart horizontally to the right with some applied force. Assume there is no friction.
                     How does the cart behave? Make a free-body diagram. Take a moment to think and work on it before continuing.
                     <br><br>
@@ -191,7 +194,7 @@ const showAnswer5 = ref(false)
                     See? This unit isn't so bad, right? You can do it! Just remember to always draw the free-body diagram first, and then analyze the forces. If you feel
                     confident, you can move up to one of our more advanced levels, where we will do quantitaive analysis of this problem and many more. If you don't feel
                     prepared, don't worry! You can always come back to this lesson later when you feel ready to tackle the math.
-
+                    </div>
             </span>
                 <span v-show="level > 0">
 
@@ -212,6 +215,7 @@ const showAnswer5 = ref(false)
                 Now that we have a good understanding of how to draw free-body diagrams, we can start throwing more complex things into
                 the mix. Here, we will introduce an old friend all the way back from the last lesson, the frictional force. We'll start simple:
                 <br><br>
+                <div class="problem">
                 1. What is the minimum required force to be applied to begin to move an object of mass $m$ with coefficient of static friction $\mu_s$ across a horizontal tabletop?
                 <br><br>
                 The key is to understand that the static frictional force will equal the applied force up until a certain
@@ -220,7 +224,9 @@ const showAnswer5 = ref(false)
                 We also have to consider the normal force, but since the object is on a horizontal surface, the normal force is equal to the weight of the object, $F_n = mg$.
                 <br><br>
                 Therefore, our final answer is $F = \mu_s mg$. This is a pretty clean and neat result!
+                </div>
                 <br><br>
+                <div class="problem">
                 2. An object is moving at $10 ~\textrm{m/s}$ across a frictionless surface when it encounters a surface with coefficient of kinetic friction $\mu_k=0.3$. How long will it take for the object to be brought to rest, and how far does it travel?
                 <br><br>
                 This one is definitley slightly more complex. Seeing as this unit is about forces and mass is literally one of the three
@@ -246,11 +252,15 @@ const showAnswer5 = ref(false)
                 $v_f=v_0-at$<br>
                 $v_0=at$<br>
                 $t=\frac{v_0}{\mu_k g} = 3.40 ~\textrm{s}$<br>
+                </div>
                 <br><br>
-                Simple enough. Now, we'll move on to another friction example, this time showing something that might not be immediately obvious.
+                Those two problems were simple enough. Now, we'll move on to another friction example, this time showing something that might not be immediately obvious.
             </span>
             <span v-show="level==0">
-                Now we should consider a slightly more complex problem involving friction. Consider an object of mass $m$ on
+                Now we should consider a slightly more complex problem involving friction. 
+                <br><br>
+                <div class="problem">
+                Consider an object of mass $m$ on
                 a tabletop, where it has a coefficient of static friction $\mu_s$ with the table. How hard do you have
                 to push on the object to get it to start to move?
                 <br><br>
@@ -279,6 +289,7 @@ const showAnswer5 = ref(false)
                 in the horizontal direciton is constant because kinetic friction takes a constant value, and the mass is constant as well. 
                 Therefore, according to Newton's Second Law the acceleration of the system is constant and directed in the opposite direction
                 as the direction of motion, tending to slow down the object until it comes to rest relative to whatever surface it is sliding on.
+                </div>
                 <br><br>
                 Now, what would happen if the surface it was on was also moving? This is where things get interesting.
             </span>
@@ -298,6 +309,7 @@ const showAnswer5 = ref(false)
                 We have gone over two friction examples already, but we now should consider friction for a body in motion. See, friction doesn’t always oppose motion, just relative motion between two surfaces. 
                 Friction can actually cause something to start moving.We will consider the following scenario in order to have a better understanding of this.
                 <br><br>
+                <div class="problem">
                 Consider a simple scenario of a penguin sitting on a sled, which is in turn sitting on a frozen lake.
                 The penguin is on ice, so we can neglect friction between the sled and ice (since the coefficient of both static and kinetic friction are essentially zero for ice, which is why it’s difficult for your shoes to grip!). 
                 We’ll take the coefficient of static friction between the penguin and sled to be $\mu_s$. 
@@ -344,13 +356,15 @@ const showAnswer5 = ref(false)
                 $F_k=\mu_k m_pg$
                 <br><br>
                 Since the two bodies are now no longer moving together, we only consider the body we want the acceleration of: the sled. <br>
-                $F_{net}=F-\mu_sm_pg=m_sa$ <br>
+                $F_{net}=F-\mu_sm_pg=m_sa$ <br><br>
                 $a=\dfrac{F-\mu_sm_pg}{m_s}$, which is a lot less elegant than the no-slip solution!
+                </div>
                 <br><br>
                 Now that we've covered the types of force-analysis problems requiring FBDs briefly, we can 
                 talk more in-depth about two common special types of force-analysis problem in the next lesson.
                 </span>
             <span v-show="level==0">
+                <div class="problem">
                 Now, let's take a look at a more interesting example, involving our favorite Antarctic flightless avian.
                 We place a penguin on top of a sled, which is sitting on a frozen lake. The penguin and sled have friction
                 with each other, but the sled does not have friction with the lake (since ice is close to frictionless, as you'll
@@ -374,6 +388,7 @@ const showAnswer5 = ref(false)
                 that the static frictional force can provide. This example perfectly illustrates
                 how important carefully reading the exact definitions are, as they can lead to very interesting and unexpected conclusions. Physics
                 is not always intuitive, and some discoveries can come as welcome surprises.
+                </div>
                 <br><br>
                 Now, we have a good conceptual grasp on how to analyze the forces in a system. In the next lesson, we will go over two very
                 common key examples and general scenarios in forces and beyond. So, without further ado, let's get to it!

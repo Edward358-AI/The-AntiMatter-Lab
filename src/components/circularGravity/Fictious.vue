@@ -33,6 +33,7 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                 </figure>
                 <div v-show="level>0">
                     <br><br>
+                    <div class="problem">
                     Consider an elevator accelerating upward at $5.0~\textrm{m/s}^2$. 
                     What is the apparent gravitational acceleration inside this elevator, 
                     and how much would a scale read when a man of mass 50 kg stands on it 
@@ -44,11 +45,13 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                     $g+a = 14.8 ~\textrm{m/s}^2$. The man’s effective weight, then, is:
                     <br>
                     $F_n=mg+ma=740 ~\textrm{N}$
+                    </div>
                     <br><br>
                     This method can also be applied to FBDs. In our previous scenario, we had two downward forces, being the
                     gravitational and ficticious forces. Thus, the normal force (which is directed upward) must be equal to
                     these two combined. (Which is sort of what we did with the calculation.)
                     <br><br>
+                    <div class="problem">
                     Now what if the elevator was accelerating downward? <br><br>
                     <figure>
                     <img src="/src/assets/dynamics/Figure 37.png" width = "500px">
@@ -61,6 +64,7 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                     This translates to a weight of:
                     <br>
                     $F_n=mg-ma=240 ~\textrm{N}$
+                    </div>
                     <br><br>
                     This explains why you feel a force pushing down when the elevator begins to move upward and 
                     a force upward as it slows down when you reach your floor. Note that these results are independent 
@@ -93,7 +97,8 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                     <br><br>
                 </div>
                 <div v-show="level==0">
-                    Now, consider this elevator that is accelerating upwards. Can you think of what the scale will read (not
+                    <div class="problem">
+                    I'll pose a little problem. Now, consider this elevator that is accelerating upwards. Can you think of what the scale will read (not
                     as an exact value, but as just a general idea or comparison to what it would "normally" read. I'm being
                     ambiguous on purpose so I don't give anything away.)
                     <br><br>
@@ -103,6 +108,7 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                     actually feeling your weight, which is the percieved gravitational force, change. This is because you experience a downwards
                     ficticious force that allies itself with gravity to make you heavier (if only for a little bit). The scale will also read a
                     greater value because it needs to support that extra weight.
+                    
                     <br><br>
                     Now we should consider the obvious other case: elevator accelerating down.
                     <br><br>
@@ -115,6 +121,7 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                     The inverse is true if you're accelerating down. The ficticious force is instead upwards and opposed to gravity, so you feel lighter.
                     There is an interesting bit to be said here. In free fall, you're essentially weightless because in your reference frame (where you fall with the
                     gravitational acceleration $g$ downwards), there is a ficticious force upwards that is equal to the gravitational force exerted on you.
+                    </div>
                     <br><br>
                 </div>
                     Now you know what fictitious forces are, but you’re probably wondering why this section is here. Well, now that I address it you either realize that I’m going to
@@ -146,7 +153,10 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                     <figcaption> Figure 4: A truck driving over a hill. No comments about the paint job allowed.</figcaption>
                 </figure>
                 <div v-show="level>0">
-                    Now, back to our regularly scheduled program. We have a car cresting a circular hill, which can be approximated as
+                    Now, back to our regularly scheduled program. 
+                    <br><br>
+                    <div class="problem">
+                    We have a car cresting a circular hill, which can be approximated as
                     a portion of a circle with radius $R$. What is the maximum velocity it can have at the top, and what happens if it
                     exceeds that velocity?
                     <br><br>
@@ -173,10 +183,14 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                     directed upwards and exactly equal in magnitude to the gravitational force. Exceeding this "speed limit" would make it
                     such that the centrifugal force is greater than the gravitational, and the car would lift off the ground. This makes sense, 
                     as if you travel over a bump in the road too fast you feel the car become airborne momentarily.
+                    </div>
                     <br><br>
                 </div>
                 <div v-show="level==0">
-                    Now, back to our regularly scheduled program. We have a car cresting a circular hill, which can be approximated as
+                    Now, back to our regularly scheduled program. 
+                    <br><br>
+                    <div class="problem">
+                    We have a car cresting a circular hill, which can be approximated as
                     a portion of a circle with radius $R$. What forces are causing circular motion, and what happens if it goes too fast? Consider
                     only the point where the car is at the top.
                     <br><br>
@@ -199,6 +213,7 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                     think of going over a speed bump really fast. Your car will go airborne momentarily. This happens because the ficticious
                     centrifugal force upward is larger than gravity, which causes the car to lift off the ground from your perspective. In reality,
                     you're really just experiencing inertia as your car fails to accelerate enough to go on its previous path and goes into a free-fall state, albeit only for a few fractions of a second.
+                    </div>
                     <br><br>
                 </div>
                  Next, we will go over a few difficult force-balance problems that are easier with the addition of ficticious forces. They
@@ -214,6 +229,7 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
             </div>
             <div v-show="page===2">
             <div v-show="level>0">
+                <div class="problem">
                 Consider the scenario depicted in the figure below. What must the force $F$ be to hold all the blocks stationary
                 relative to each other? Assume there is no friction between all surfaces. The red circle is a pulley, in case
                 it wasn't clear. (It probably wasn't, considering how it looks.)
@@ -268,9 +284,11 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                 The pulley is the answer to our question. We know (or assume logically) that the pulley is attached to the cart. The pulley
                 experiences tensional forces from either side as a consequence of Newton's third law, so the cart experiences those forces as well.
                 This is how the blocks can affect the cart despite being unable to interact with it through friction.
+                </div>
                 <br><br>
             </div>
             <div v-show="level==0">
+                <div class="problem">
                  We are going to consider a relatively complex arrangement of blocks, pulleys, and a cart. Everything is frictionless
                 in this scenario. The red circle is a pulley.
                 <br><br>
@@ -301,6 +319,7 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                 See, block 2 feels a tension force from the rope, which is constant throughout the rope. The pulley, which is attached to the 
                 cart, also feels this same tension force. This allows block 2 to "interact" with the cart and affect its motion, which enables us
                 to explain how block 2 would even affect the cart.
+                </div>
                 <br><br>
             </div>
                 I hope I've shown you how working in an accelerated reference frame can be useful. Next, we're going to

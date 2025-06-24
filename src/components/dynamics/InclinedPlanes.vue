@@ -146,6 +146,7 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                     <figcaption>Figure 5: Friction can no longer be neglected. This is not a drill.</figcaption>
                 </figure>
                 <br><br>
+                <div class="problem">
                 Now here’s a simple problem: if we assume the coefficient of friction (static and kinetic) is $\mu$, what is the frictional force $F_f$?
                 <br><br>
                 You might think it’s $\mu mg$. After all, that was its value for all previous examples. However, this is an incorrect hasty generalization! 
@@ -154,8 +155,10 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                 $f=\mu F_n=\mu mg\cos\theta$ <br>
 
                 where we established that $F_n=mg\cos\theta$ for an inclined plane.
+                </div>
                 <br><br>
-                Now, I will pose a problem. What is the minimum coefficient of (static) friction such that the block will remain at rest on the plane when placed there? 
+                <div class="problem">
+                Now, I will pose a slightly more difficult problem. What is the minimum coefficient of (static) friction such that the block will remain at rest on the plane when placed there? 
                 Try to solve it yourself before looking at the solution. Keep the assumption that the incline has an angle $\theta$ and the mass of the block is $m$. (And that
                 we're still on Earth, so $g$ is the gravitational acceleration.)
                 <br><br>
@@ -168,12 +171,15 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                 Dividing both sides by $\cos\theta$ gives us (remember your trig identities!): <br>
                 $\mu=\tan\theta$ <br>
                 <br>
-                This is the minimum coefficient of static friction required to keep the block at rest on the incline. This is a neat result, and it’s quite useful at times as well. To top it off, the derivation isn’t too complex either (you’ll see some very messy derivations later on). That’s about it for inclined planes right now. It’s really just force analysis transposed onto a sloped surface.
+                This is the minimum coefficient of static friction required to keep the block at rest on the incline. This is a neat result, and it’s quite useful at times as well. To top it off, the derivation isn’t too complex either (you’ll see some very messy derivations later on). T
+                hat’s about it for inclined planes right now. It’s really just force analysis transposed onto a sloped surface.
+                </div>
                 <br><br>
             <div v-show="level==2">
                 Now, this is a special part for you calculus students. Calculus can be used to break a curved plane down into infinitesimally small inclined planes by finding the slope of the plane at each point; however, this
                 generally isn’t very useful and rarely used. I will still give a problem though:
                 <br><br>
+                <div class="problem">
                 Consider a surface defined as $y=Cx^2$. Assume the block remains in contact with the surface. Find the equivalent incline 
                 angle at each value of $x$, and the magnitude of the acceleration as a function of $x$.
                 <br><br>
@@ -222,9 +228,11 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                 Since the incline is curved, the direction of the acceleration will always be changing, so if you want to integrate
                 this you need to take into account the changing direction of the acceleration. This is far beyond the scope of this lesson, and it is not worth the effort because 
                 we will show that there is a much easier way to solve for velocity at any point with energy conservation. But that's later on.
+                </div>
                 <br><br>
             </div>
-                Now, we'll start to talk about pulleys. Pulleys are a bit more complex, but they’re not too bad once you get the hang of them.
+                Now, we'll start to talk about pulleys. Pulleys are a bit more complex, but they’re not too bad once you get the hang of them. Their complexity
+                only really arises if they configuration of pulleys is very complex or messy, which isn't all too common.
             </div>
             <div v-show="level==0">
                 Consider the exact same scenario, but now with friction thrown in. The force-vector diagram now looks like this:
@@ -297,14 +305,17 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                     <figcaption>Figure 10: The quintessential Atwood's machine.</figcaption>
                 </figure>
                 <div v-show="level>0">
-                    We will assume $m_2 > m_1$ for this problem. Intuitively, what does this mean about the motion of the blocks?
+                    We will assume $m_2 > m_1$ for this problem. We want to think intuitively about how the block will move once released.
                     <br><br>
                     From experience, you should know that the more massive block will move downward and the 
                     less massive one will rise. This is useful to keep in mind. Even if you assume the directions 
                     of acceleration incorrectly, the answer will be correct except for a sign error
                     (which is often not important in physics) provided you keep the same assumptions throughout your calculations. 
                     <br><br>
-                    We will do quantitative force analysis on this scenario now. Try to find the acceleration of each block.
+                    We will do quantitative force analysis on this scenario now. 
+                    <br><br>
+                    <div class="problem">
+                    Find the acceleration of each block.
                     <br><br>
                     To do this problem, we set the tension at an arbitrary value $T$ since we cannot gauge it directly from the diagram. 
                     For the first block, we know that $T>m_1g$ since the block accelerates upward. Therefore, we write:
@@ -337,8 +348,10 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                     You can verify this result by plugging into the other equation and seeing that 
                     it comes up with an equivalent result, or by eliminating $a$ in the initial system of 
                     equations to solve for $T$.
+                    </div>
                     <br><br>
-                    Now you may wonder what the force on the pulley is. Well, if we look at the pulley, there is a force $T$ pulling downward on each side, so it is simply $2T$. We didn’t consider this in the above scenario since the pulley was fixed, but this has some very useful implications.
+                    Now you may wonder what the force on the pulley is. Well, if we look at the pulley, there is a force $T$ pulling downward on each side, so it is simply $2T$. 
+                    We didn’t consider this in the above scenario since the pulley was fixed, but this has some very useful implications later on.
                     <br><br>
                     Next, we will consider a system of many pulleys, often used to lift heavy objects.
                 </div>
@@ -348,7 +361,7 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                     experience, we know that the system will tend to accelerate in the direction of the heavier object. That is, 
                     the heavier block will move down while the lighter one moves up.
                     <br><br>
-                    In this scenario, we will assume that $m_2 > m_1$ fr simplicity. Since we are not concerned with the
+                    In this scenario, we will assume that $m_2 > m_1$ for simplicity. Since we are not concerned with the
                     mathematics of the problem, we can analyze the scenario qualitatively. First, we should note that the two 
                     masses must move together since they are connected by a string. This means the acceleration of both blocks is the same!
                     <br><br>
@@ -389,6 +402,7 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                 closely, the pulley is actually acted upon by two tension forces, one from each side of the string.
                 Thus an applied force of only $mg/2$ is needed.
                 <br><br>
+                <div class="problem">
                 Now suppose we attach a second block of mass $M$ to the free end of the string, where $M>m$. What is the acceleration of each block? Suppose all strings are vertical (I know it doesn’t look like that on the diagram).
                 <br><br>
                 Mass $m$ is connected to the pulley, so we can essentially treat them as one object and write:
@@ -419,6 +433,7 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                 $a_2=\frac {2M-m}{2M+m/2}g$
                 <br><br>
                 Solving for $a_2$ first is also a completely valid way to solve this problem, and you should arrive at the same answer.
+                </div>
                 <br><br>
                 This is one of the more difficult scenarios involving pulleys and is not entirely too common, but it is 
                 the entire reason why pulleys are so useful in the real world. Additionally (Eric speaking), you should be

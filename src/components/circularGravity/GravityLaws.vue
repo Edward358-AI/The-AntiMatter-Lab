@@ -42,12 +42,14 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                 </figure>
                 <br><br>
                 <div v-show="level>0">
+                    <div class="problem">
                     I'm going to throw a conceptual question at you here. If the Earth exerts a force $F_g$ on a marble, what force does the 
                     marble exert on the Earth? Think carefully before you answer, since your intuition might not serve you perfectly!
                     <br><br>
                     The answer is that the marble exerts a force $F$ on the Earth as well! You can thank Newton's third law for that. The Earth is
                     simply too massive to feel any noticeable acceleration from the marble, so we usually don't think of objects exerting a gravitaional pull 
                     on the Earth.
+                    </div>
                     <br><br>
                     Now, these formulas technically only works for point masses. However, Newton was also kind enough to generalize this to
                     spheres, which are the most common shape for celestial bodies. It is called the shell theorem. This theorem

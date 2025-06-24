@@ -85,6 +85,7 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                     a slower speed to see this.) We also see that it inversely depends on the radius, meaning the required acceleration
                     is less if the circle travelled is larger. You can also easily prove this to yourself. 
                     <br><br>
+                    <div class="problem">
                     With that, we are ready for some very basic problems. Here is a very simple example to get us started. What is the required centripetal acceleration to move a ball 
                     at $5 ~\textrm{m/s}$ in a circle of diameter $4~\textrm{m}$?
                     <br><br>
@@ -92,6 +93,7 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                     <br><br>
                     Answer:
                     $a_c=\dfrac{v^2}{r}=\dfrac{25}{2}=12.5 \textrm{m/s}^2$
+                    </div>
                     <br><br>
                     Now, we are ready for more complex scenarios.
                   </div>
@@ -122,7 +124,8 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
             </div>
             <div v-show="page===1">
                 <div v-show="level>0">
-                    We're going to start immediately with a few problems that I (Eric) believe are good to introduce key knowledge about this unit.
+                    <div class="problem">
+                    We're going to start immediately with a few problems/scenarios that I (Eric) believe are good to introduce key knowledge about this unit.
                     <br><br>
                     Consider a bicycle going around a circular track of radius $15 ~\textrm{m}$ at $12 ~\textrm{m/s}$. The bicycle and rider have a combined mass of $70 ~\textrm{kg}$. <br>
                     a) What is the centripetal force that must be acting on the system? <br>
@@ -133,12 +136,16 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                 $F_c= m\frac{v^2}{r}=672 ~\textrm{N}$
                 <br><br>
                 Part b) is more conceptual. Consider the forces acting on the bicycle. The normal force and gravitational acceleration are both directed vertically, so there can be no contribution from them. The only force that can act parallel to the surface is the force of friction! In fact, static friction is what propels a wheeled vehicle forward regardless of whether it is executing a turn or not. The friction is static since the bottom of the wheel is momentarily at rest with the ground and always tends to accelerate backwards with respect to the ground, so the force of static friction is forward! Friction back at it again, doing unexpected things.
+                </div>
                 <br><br>
-                Now, we should consder the special case of a banked curve.
+                Now, we should consder the special case of a banked curve. This isn't an easy calculation, so instead of making 
+                this a problem I'll walk you through it.
+                <br><br>
                 <figure>
                     <img src="/src/assets/dynamics/Figure 30.png" width = "500px">
                     <figcaption>Figure 2: A banked curve. The cross-section is marked in dark blue.</figcaption>
                 </figure>
+                <br><br>
                 This is essentially just a curved inclined plane, so we can really just treat it the same way. Do note, however, that the centripetal force is directed horizontally with respect to the ground and not directed down the incline. 
                 In a case like this, it is possible for UCM to occur without any frictional forces, unlike with a flat circle. 
                 This is why many road engineers bank their curves to make them safe to drive across at higher speeds. (Or so I've heard, I'm not a road engineer.)
