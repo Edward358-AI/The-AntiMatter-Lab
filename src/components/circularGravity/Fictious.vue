@@ -31,7 +31,7 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                     <img src="/src/assets/dynamics/Figure 36.png" width = "500px">
                     <figcaption>Figure 1: An extremely normal and fun elevator.</figcaption>
                 </figure>
-                <div v-show="level>0">
+                <span v-show="level>0">
                     <br><br>
                     <div class="problem">
                     Consider an elevator accelerating upward at $5.0~\textrm{m/s}^2$. 
@@ -95,8 +95,8 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                     <br>
                     Similar logic can be used for the downwards elevator case. 
                     <br><br>
-                </div>
-                <div v-show="level==0">
+                </span>
+                <span v-show="level==0">
                     <div class="problem">
                     I'll pose a little problem. Now, consider this elevator that is accelerating upwards. Can you think of what the scale will read (not
                     as an exact value, but as just a general idea or comparison to what it would "normally" read. I'm being
@@ -123,7 +123,7 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                     gravitational acceleration $g$ downwards), there is a ficticious force upwards that is equal to the gravitational force exerted on you.
                     </div>
                     <br><br>
-                </div>
+                </span>
                     Now you know what fictitious forces are, but you’re probably wondering why this section is here. Well, now that I address it you either realize that I’m going to
                     explain why this is helpful or (tsk tsk) you haven’t thought that it was out of place at all.
                     <br><br>
@@ -152,7 +152,7 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                     <img src="/src/assets/dynamics/Figure 38.png" width = "500px">
                     <figcaption> Figure 4: A truck driving over a hill. No comments about the paint job allowed.</figcaption>
                 </figure>
-                <div v-show="level>0">
+                <span v-show="level>0">
                     Now, back to our regularly scheduled program. 
                     <br><br>
                     <div class="problem">
@@ -185,8 +185,8 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                     as if you travel over a bump in the road too fast you feel the car become airborne momentarily.
                     </div>
                     <br><br>
-                </div>
-                <div v-show="level==0">
+                </span>
+                <span v-show="level==0">
                     Now, back to our regularly scheduled program. 
                     <br><br>
                     <div class="problem">
@@ -215,7 +215,7 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                     you're really just experiencing inertia as your car fails to accelerate enough to go on its previous path and goes into a free-fall state, albeit only for a few fractions of a second.
                     </div>
                     <br><br>
-                </div>
+                </span>
                  Next, we will go over a few difficult force-balance problems that are easier with the addition of ficticious forces. They
                     will not be solely focused on centripetal forces, but I still believe they are good to know.
             <div class="btn-contain-left">
@@ -228,7 +228,7 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
             </div>
             </div>
             <div v-show="page===2">
-            <div v-show="level>0">
+            <span v-show="level>0">
                 <div class="problem">
                 Consider the scenario depicted in the figure below. What must the force $F$ be to hold all the blocks stationary
                 relative to each other? Assume there is no friction between all surfaces. The red circle is a pulley, in case
@@ -286,8 +286,8 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                 This is how the blocks can affect the cart despite being unable to interact with it through friction.
                 </div>
                 <br><br>
-            </div>
-            <div v-show="level==0">
+            </span>
+            <span v-show="level==0">
                 <div class="problem">
                  We are going to consider a relatively complex arrangement of blocks, pulleys, and a cart. Everything is frictionless
                 in this scenario. The red circle is a pulley.
@@ -321,7 +321,7 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                 to explain how block 2 would even affect the cart.
                 </div>
                 <br><br>
-            </div>
+            </span>
                 I hope I've shown you how working in an accelerated reference frame can be useful. Next, we're going to
                 pivot and begin to talk about gravity between celestial objects like the planets. This is quite different
                 from the gravitational forces we've dealt with previously.

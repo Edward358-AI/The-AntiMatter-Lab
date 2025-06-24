@@ -14,7 +14,7 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                 In this section, I hope to teach how to solve these types of problems. We&apos;re also going to talk about pulleys, but I don&apos;t think there&apos;s a good story about that.
             
                 <br><br>
-            <div v-show="level > 0">
+            <span v-show="level > 0">
                 First, we consider the quintessential object on an inclined plane with incline angle $\theta$.
                 <br><br>
             <figure>
@@ -70,8 +70,8 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                 This fact is common to pretty much all force analysis. If your trigonometry is not great, now would be a 
                 good time to brush up on it. We will now add friction into the mix, which will make things a bit more complicated.
                 <br><br>
-            </div>
-                <div v-show="level == 0">
+            </span>
+                <span v-show="level == 0">
                     We will consider a quintessential inclined plane, a wedge-shaped object that has an incline angle $\theta$.
                     <br><br>
                     <figure>
@@ -128,7 +128,7 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                     believe your trigonometry skills are up to the task, you can see the full solution in our higher difficulties. In any case,
                     we will now consider the same scenario, but with friction.
                     <br><br>
-                </div>
+                </span>
             </p>
                     <div class="btn-contain-right">
                     <button class="btn btn-dark" style="animation: scale1 2s infinite;" @click="$emit('nextpage')">Next&rarr;
@@ -138,7 +138,7 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
         <div v-show="page === 1">
 
             <p>
-            <div v-show="level>0">
+            <span v-show="level>0">
                 Consider the same scenario, but with friction. Now there’s going to be a frictional force directed parallel to the plane.
                 <br><br>
                 <figure>
@@ -233,8 +233,8 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
             </div>
                 Now, we'll start to talk about pulleys. Pulleys are a bit more complex, but they’re not too bad once you get the hang of them. Their complexity
                 only really arises if they configuration of pulleys is very complex or messy, which isn't all too common.
-            </div>
-            <div v-show="level==0">
+        </span>
+            <span v-show="level==0">
                 Consider the exact same scenario, but now with friction thrown in. The force-vector diagram now looks like this:
                 <br><br>
                 <figure>
@@ -263,7 +263,7 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                 In any case, this is all there really is to inclined planes. It’s just force analysis on a sloped surface, and it’s not too complex once you get the hang of it.
                 Now, we'll move on to pulleys, which are a bit more complex but still not horrible.
                 <br><br>
-            </div>
+            </span>
             </p>
             <div class="btn-contain-left">
                 <button class="btn btn-dark" style="animation: scale1 2s infinite;" @click="$emit('prevpage')">&larr;Previous</button>
@@ -304,7 +304,7 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                     <img src="/src/assets/dynamics/Figure 27.png" width="500px" />
                     <figcaption>Figure 10: The quintessential Atwood's machine.</figcaption>
                 </figure>
-                <div v-show="level>0">
+                <span v-show="level>0">
                     We will assume $m_2 > m_1$ for this problem. We want to think intuitively about how the block will move once released.
                     <br><br>
                     From experience, you should know that the more massive block will move downward and the 
@@ -354,8 +354,8 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                     We didn’t consider this in the above scenario since the pulley was fixed, but this has some very useful implications later on.
                     <br><br>
                     Next, we will consider a system of many pulleys, often used to lift heavy objects.
-                </div>
-                <div v-show="level==0">
+                </span>
+                <span v-show="level==0">
                     Since we are dealing with things conceptually here, we will not do a full mathematical force analysis of 
                     the scenario. Instead, we will try to develop our intuition for these kinds of problems. From our everyday
                     experience, we know that the system will tend to accelerate in the direction of the heavier object. That is, 
@@ -369,7 +369,7 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                     check out our higher difficulties.
                     <br><br>
                     Now, we will move on to talk about a more complex system of pulleys, often used to lift heavy objects.
-                </div>
+                </span>
                     
             </p>
             <div class="btn-contain-left">
@@ -392,7 +392,7 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
             This kind of device is called a block and tackle, and it is often used to lift heavy objects. Take a good look at 
             the diagram and see if you can figure out why it is so useful.
             <br><br>
-            <div v-show="level>0">
+            <span v-show="level>0">
                 The top left pulley is not allowed to move, but the bottom right one is allowed to move vertically. What is the force needed to lift the block of mass $m$?
                 <br><br>
                 This problem introduces the concept of conservation of string. If one pulls the string down a small length $l$, how far does the pulley rise? 
@@ -443,8 +443,8 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                 <br><br>
                 With that little rant out of the way, we will now move onto an entirely new topic: the idea of work, energy, and power. So, let's 
                 go onto the next lesson and begin this new concept!
-            </div>
-            <div v-show="level==0">
+            </span>
+            <span v-show="level==0">
                 The astute observer will notice that the pulley on the right is not fixed, but rather is allowed to move vertically.
                 This is a very important distinction, as it allows us to lift heavy objects with a much smaller force than the weight of the object.
                 Take a close look at the exact setup of the pulley. It has two segments of string on either side of it, meaning experiences
@@ -463,7 +463,7 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                 Now that we have discussed the two most common types of setups in physics, we can move on to an entirely new topic: circular motion and gravity. This 
                 will allow us to solve new kinds of problems, but still relies heavily on force analysis concepts.
                 <br><br>
-            </div>
+            </span>
             </p>        
             <div class="btn-contain-left">
                 <button class="btn btn-dark" style="animation: scale1 2s infinite;" @click="$emit('prevpage')">&larr;Previous</button>

@@ -29,9 +29,9 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                   <br><br>
                   $r$ is the radius and $v$ is the velocity of the ball, which is constant in uniform circular motion (hence the name).
                   <br><br>
-                  <div v-show="level>0">
+                  <span v-show="level>0">
                     There’s a good and neat proof for the formula for centripetal acceleration.
-                    <div v-show="level == 2">
+                    <span v-show="level == 2">
                         Consider an infinitesimal time interval $dt$. In that interval, the ball displaces $ds=v dt$ along the circle. But, $ds =r d\theta$ due to how circles work. (We’re using s since arc length is not displacement.)
                         <br><br>
                         So we write down:
@@ -51,8 +51,8 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                         Substituting (1) and (2) into (3), we obtain:
                         <br><br>
                         $a=\dfrac{v^2}{r}$
-                    </div>
-                    <div v-show="level==1">
+                    </span>
+                    <span v-show="level==1">
                         Consider a small time interval $\Delta t$. In that interval, the ball roughly displaces $\Delta x=v\Delta t$ along the circle. There is also a small change in the angle $\Delta \theta$, allowing us to write $\Delta x=rsin\Delta\theta \approx r\Delta\theta$ by the small angle approximation $sin\theta \approx \theta$.
                         <br><br>
                         We can write:
@@ -73,7 +73,7 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                         <br><br>
                         $a=\dfrac{v^2}{r}$
                         <br><br>
-                    </div>
+                    </span>
                     Centripetal acceleration is more commonly denoted $a_c$ instead of just $a$.
                     <br><br>
                     By extension, we can write the centripetal force (really the centripetal force requirement) as:
@@ -96,8 +96,8 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                     </div>
                     <br><br>
                     Now, we are ready for more complex scenarios.
-                  </div>
-                <div v-show="level==0">
+                </span>
+                <span v-show="level==0">
                     The derivation for the centripetal acceleration is too complex for a conceptual level, but I will show its
                     results Headers. The centripetal acceleration required to keep an object moving at speed $v$ in a circle of radius
                     $r$ is:
@@ -116,14 +116,14 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                     Unfortunately, the majority of uniform circular motion is calculation-based and there is not too much conceptual content.
                     Therefore, this lesson may seem short in comparison to some others, but you can check out our higher levels if you're interested 
                     in the mathematics behind circular motion. We are now going to briefly discuss some more scenarios.
-                </div>
+                </span>
                 <div class="btn-contain-right">
                 <button class="btn btn-dark" style="animation: scale1 2s infinite;" @click="$emit('nextpage')">Next
                     &rarr;</button>
                 </div>
             </div>
             <div v-show="page===1">
-                <div v-show="level>0">
+                <span v-show="level>0">
                     <div class="problem">
                     We're going to start immediately with a few problems/scenarios that I (Eric) believe are good to introduce key knowledge about this unit.
                     <br><br>
@@ -225,8 +225,8 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                 A quite complex result.
                 <br><br>
                 Now there is the case of non-uniform circular motion, most simply in the case of a vertical circle.
-                </div>
-                <div v-show="level==0">
+            </span>
+                <span v-show="level==0">
                     Conceptually, there is one special type of circular motion scenario that is important to consider. If you've 
                     ever paid attention while driving or being driven, you'll notice that sometimes, a turn on the freeway will be tilted at an angle. This 
                     actually has a physical reason behind it, helping to keep the cars from sliding off the road and allowing them to navigate the 
@@ -268,7 +268,7 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                     speed is low, as a smaller centripetal force is needed in that case. The inverse is true as well; if speeds are high friction 
                     will be directed down the incline to provide additional centripetal force. If you've been in or driven a car (or just know how
                     a thing with wheels behaves on a slope), you might have some intuition for this.
-                </div>
+            </span>
                 <div class="btn-contain-left">
                 <button class="btn btn-dark" style="animation: scale1 2s infinite;" @click="$emit('prevpage')">&larr;
                     Previous</button>

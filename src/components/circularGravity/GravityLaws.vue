@@ -41,7 +41,7 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                     <figcaption> Figure 1: Gravity is what keeps the moon in orbit around the Earth.</figcaption>
                 </figure>
                 <br><br>
-                <div v-show="level>0">
+                <span v-show="level>0">
                     <div class="problem">
                     I'm going to throw a conceptual question at you here. If the Earth exerts a force $F_g$ on a marble, what force does the 
                     marble exert on the Earth? Think carefully before you answer, since your intuition might not serve you perfectly!
@@ -123,8 +123,8 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                     <br><br>
                     However, there is one interesting case. While gravity outside the planet varies inversely as the
                     square of the distance, inside the planet things are different. We will go over this in the next section.
-                </div>
-                <div v-show="level==0">
+                </span>
+                <span v-show="level==0">
                     Remember Newton's third law? Well, it still applies here! The Earth exerts a force on you, and you exert that
                     same force back on the Earth. However, the Earth has too much mass to really care, so we usually don't think of ourselves
                     as exerting a gravitaional force on the Earth. It's important to remember this fact (which applies to any two objects that have mass), however.
@@ -140,7 +140,7 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                     cancels everthing out.
                     <br><br>
                     Using this theorem, we can actually figure out what the gravity inside of a planet is.
-                </div>
+                </span>
             <div class="btn-contain-right">
                 <button class="btn btn-dark" style="animation: scale1 2s infinite;" @click="$emit('nextpage')">Next
                     &rarr;</button>
@@ -155,7 +155,7 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                     <figcaption> Figure 3: A not-so-fortunate soul gets to experience what it's like inside a planet.</figcaption>
                 </figure>
                 <br><br>
-                <div v-show="level>0">
+                <span v-show="level>0">
                     Now, what we want to realize is that any part of the planet above you can be considered a series of spherical shells.
                     However, if they're above you, that means you are inside the shells and therefore they exert no gravitational force on you.
                     The only part of the planet that matters, then, is the mass contained within a radius $r < R$, where $R$ is the radius of the
@@ -196,8 +196,8 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                 <br><br>
                 Talking about just one object is boring, so next we're going to ramp it up to two objects. That is, we're going to talk about
                 orbits.
-                </div>
-                <div v-show="level==0">
+            </span>
+                <span v-show="level==0">
                     Gravity inside a planet (which is really just a solid sphere in this case) requires quite a few calculations, so we're just going
                     to conceptually go over the subject without getting into the calculations. First, we have to realize that the sphere is really
                     just a bunch of spherical shells nested inside each other. This means that inside the planet, you have two different parts of the planet
@@ -242,7 +242,7 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                     We've only talked about the gravity from single objects, but if you're familiar with the solar system you know that there's multiple
                     objects at play. Next, we're going to talk about how the moon and our artifical satellites stay in motion around the Earth due to its
                     gravity, along with many other scenarios for orbits.
-                </div>
+                </span>
             <div class="btn-contain-left">
                 <button class="btn btn-dark" style="animation: scale1 2s infinite;" @click="$emit('prevpage')">&larr;
                     Previous</button>
@@ -260,7 +260,7 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                 For our first case, we'll consider a small object like a satellite in a circular orbit around a much larger body such as the Earth. This
                 allows us to essentially ignore the effects of the satellite on the planet because of how much more massive the planet is.
                 <br><br>
-                <div v-show="level>0">
+                <span v-show="level>0">
                     Now, we're going to assume that the satellite has a mass $m$, the planet a mass $M$, and the orbital radius is $R$. This should allow
                     us to write force equations relatively simply. The only force acting on the satellite is the gravitational force from the Earth, and so it
                     must contribute the centripetal force.
@@ -325,8 +325,8 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                     <br><br>
                     Next, we will talk about real planetary motion, which differs quite a bit from the circular orbits we have talked about
                     here. So without futher ado, let's jump into the world of Kepler's laws, which have astronomical importance.
-                </div>
-                <div v-show="level==0">
+                </span>
+                <span v-show="level==0">
                     There is math behind this, but we won't be too concerned with it here. Instead, we will reason through the
                     results with qualitative analysis. First, we know that gravity gets weaker as the inverse of the square of 
                     separation $1/R^2$. Since the orbit is circular and gravity is the only force on the satellite, it must provide the centripetal
@@ -367,7 +367,7 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                     Now, we've discusssed only circular orbits, but a certain German man actually discovered that this wasn't the case for
                     real planets. He formulated three laws of planetary motion, which are the key focus of our next lesson. So if you're ready,
                     let's jump right in.
-                </div>
+                </span>
             <div class="btn-contain-left">
                 <button class="btn btn-dark" style="animation: scale1 2s infinite;" @click="$emit('prevpage')">&larr;
                     Previous</button>
