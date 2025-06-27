@@ -140,7 +140,7 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                     it is sufficient to know it as a proportionality. This makes the relation a lot less messy and much
                     less daunting. In its most basic terms, Kepler's Third Law states:
                     <br><br>
-                    $T^2 \propto a^3$
+                    $$T^2 \propto a^3$$
                     <br><br>
                     Here, $a$ is the length of the semimajor axis of orbit. In the cases where the orbit is circular, we can simply
                     replace $a$ with the orbital radius $r$. The mass of the star is also a factor that isn't seen here, but that doesn't matter
@@ -183,7 +183,7 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                     <br><br>
                     And in the generalized form, $R$ is replaced with the semimajor axis length $a$:
                     <br><br>
-                    $T^2 = \dfrac{4 \pi^2}{GM_s} a^3$
+                    $$T^2 = \dfrac{4 \pi^2}{GM_s} a^3$$
                     <br><br>
                     With the mathematical results established, let's try a simple practice problem.
                     <br><br>

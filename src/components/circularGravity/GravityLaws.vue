@@ -26,13 +26,13 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                 <br><br>
                 From some data he borrowed, Newton was able to formulate his Law of Universal Gravitation:
                 <br><br>
-                <b>$F_g = G \dfrac{m_1m_2}{r^2}$</b>
+                <b>$$F_g = G \dfrac{m_1m_2}{r^2}$$</b>
                 <br><br>
                 $G$ is a new constant, the universal gravitation constant, given by $G = 6.67 \times 10^{-11}$. This is a very small value, which
                 explains why it takes something the size of a planet to produce a noticeable gravitational pull. The law is often called the inverse-square law because it depends inversely on the square of the separation between
                 the two bodies. We also introduce a quasi-new quantity, the gravitational field strength:
                 <br><br>
-                $g = G \dfrac{M}{R^2}$
+                $$g = G \dfrac{M}{R^2}$$
                 <br><br>
                 This measures the gravitational field at a particular distance from an object.
                 <br><br>

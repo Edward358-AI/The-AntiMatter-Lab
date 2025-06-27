@@ -33,7 +33,7 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                     is to use the magnitudes of the two vectors, which we'll call $\vec{a}$ and $\vec{b}$ as well as the angle $\theta$ between
                     the two. In that case, the dot product is defined as:
                     <br><br>
-                    $\vec{a} \cdot \vec{b} = |\vec{a}|~|\vec{b}| \cos \theta$
+                    $$\vec{a} \cdot \vec{b} = |\vec{a}|~|\vec{b}| \cos \theta$$
                     <br><br>
                     Let's break this down a little bit. I'm mainly just interested in the cosine part, since the two vectors 
                     are arbitrary. Now, we know that cosine takes a range of values $-1 ~\leq \cos \theta ~\leq 1$. The cosine is equal to
@@ -69,7 +69,7 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                     To get the component of any of the two vectors on the other, the fucntion we want to use is the cosine. This allows us
                     to have an intuitive understanding of why the dot product formula is what it is. Enough suspense, here it is:
                     <br><br>
-                    $\vec{a} \cdot \vec{b} = |\vec{a}|~|\vec{b}| \cos \theta$
+                    $$\vec{a} \cdot \vec{b} = |\vec{a}|~|\vec{b}| \cos \theta$$
                     <br><br>
                     The dot between the two vectors denotes the dot product. (It's called <b>dot</b> product for a reason.)
                     <br><br>
@@ -95,11 +95,11 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
             This form of the dot product is arguably simpler than the first. I'm going to use the standard notation for componenets
             with subscripts that designate the dimension. In a 2D form, it can be written as:
             <br><br>
-            $\vec{a} \cdot \vec{b} = a_xb_x+a_yb_y$
+            $$\vec{a} \cdot \vec{b} = a_xb_x+a_yb_y$$
             <br><br>
             In 3D, it takes a very similar form:
             <br><br>
-            $\vec{a} \cdot \vec{b} = a_xb_x+a_yb_y+a_zb_z$
+            $$\vec{a} \cdot \vec{b} = a_xb_x+a_yb_y+a_zb_z$$
             <br><br>
             This isn't too complex, is it? This method of computing the dot product is far more convenient when you're given the 
             components, and is widely used for problems in 3D because vectors in those cases are most often expressed in terms 
@@ -110,7 +110,7 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                 in a convenient plane (finding the angle would otherwise be hard). I'm not even sure if it would work in 4D or higher, since those
                 dimensions are impossible to visualize. In any case, this new form can be generalized to any number of dimensions:
                 <br><br>
-                $\vec{a} \cdot \vec{b} = \sum a_i b_i$ 
+                $$\vec{a} \cdot \vec{b} = \sum a_i b_i$$
                 <br><br>
                 The letter $i$ denotes each individual dimension, and we simply sum the product over the total number of dimensions. While in
                 the physical world there are only three dimensions (actually, there might be 11, but that's WAY out of the scope of what we're

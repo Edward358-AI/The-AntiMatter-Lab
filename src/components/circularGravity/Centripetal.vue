@@ -50,7 +50,8 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                         <br><br>
                         Substituting (1) and (2) into (3), we obtain:
                         <br><br>
-                        $a=\dfrac{v^2}{r}$
+                        $$a=\dfrac{v^2}{r}$$
+                        <br><br>
                     </span>
                     <span v-show="level==1">
                         Consider a small time interval $\Delta t$. In that interval, the ball roughly displaces $\Delta x=v\Delta t$ along the circle. There is also a small change in the angle $\Delta \theta$, allowing us to write $\Delta x=rsin\Delta\theta \approx r\Delta\theta$ by the small angle approximation $sin\theta \approx \theta$.
@@ -71,14 +72,20 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                         <br><br>
                         Substituting (1) and (2) into (3), we obtain:
                         <br><br>
-                        $a=\dfrac{v^2}{r}$
+                        $$a=\dfrac{v^2}{r}$$
+                        <br><br>
+                    </span>
+                    <span v-show="level==0">
+                        The proof for this formula requires some advanced math and reasoning, so we'll just give you the formula here.
+                        <br><br>
+                        $$a=\dfrac{v^2}{r}$$
                         <br><br>
                     </span>
                     Centripetal acceleration is more commonly denoted $a_c$ instead of just $a$.
                     <br><br>
                     By extension, we can write the centripetal force (really the centripetal force requirement) as:
                     <br><br>
-                    $F_c=m a_c=m\dfrac{v^2}{r}$
+                    $$F_c=m a_c=m\dfrac{v^2}{r}$$
                     <br><br>
                     Now, we should analyze this formula. We see that the centripetal acceleration required
                     is higher if the speed is greater, which makes sense. (Try spinning a ball around your head at a high speed versus
