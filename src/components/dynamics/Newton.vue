@@ -185,7 +185,7 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
             </div>
             <div class="btn-contain-right">
                 <button class="btn btn-dark" style="animation: scale 2s infinite;" @click="$emit('nextlesson')">Next
-                    Lesson &rarr;</button>
+                    Lesson! &rarr;</button>
             </div>
         </div>
     </div>
