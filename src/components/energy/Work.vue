@@ -87,10 +87,143 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                 </div>
             </div> 
             <div v-show="page===1">
-                Technically, we have already covered the definition of work in detail. However, in practice just Knowing
-                the definition isn't all too helpful in the beginning, and examples are required in order to demonstrate
-                exactly how work is calculated with this definition.
+                Technically, we have already covered the definition of work in detail. However, there is a lot of nuance
+                to this, and there are other things that we need to cover in order to have a complete understanding of work. The first
+                is how to find the work done on an object given a graph of force vs. displacement, almost always for an object moving in
+                one dimension. (Calculus students, you might
+                already know how to do this just from that!)
+                <br><br>
+                The key is that the work done is the area under the force vs. displacement graph! 
+                <span v-show="level<2">
+                The exact explanation requires calculus, but a more basic explanation is to look at the axes. You have force and displacement as your axes, and since there's only
+                one dimension involved you can simply multiply them. Multiplying them gives you the area under the graph! This isn't really
+                a full definition, but it's as good as I can get without going into calculus details.
+                </span>
+                <span v-show="level==2">
+                    You might remeber the previous work formula as a differential equation. Well, we can simply integrate this to find
+                    the work, which explains why the work done is the area under the curve for a force vs. displacement graph. This
+                    explanation is simple and elegant, but it requires knowledge of calculus. In fact, since you're calculus students, you
+                    can easily apply this principle to graphs that have irregular areas; that is, areas that can't be calculated with
+                    geometric formulas. 
+                </span>
+                <br><br>
+                This might seem like a random addition to this section, and for the sake of real physics you'd probably be right. However, a large number of problems have force vs. displacement graphs and require
+                you to find the work done by that varying force. The graphs are mostly geometric in shape and the area under the curve 
+                can be calculated exactly with geometry knowledge. I'll show one as a very basic example, just to make sure we're clear on the concept.
+                <br><br>
+                <div class="problem">
+                    What is the work done on the object by the force shown in the diagram below as it moves from $x=0$ to $x=6 ~\textrm{m}$?
+                    <br><br>
+                    <figure>
+                    <img src="/src/assets/energy/Figure 51.png" width="500px">
+                    </figure>
+                    This is quite simple. You find the area under the graph from $x=0$ to $x=6$, which is just simple geometry. However,
+                    there are two common errors that I've seen with this kind of graph. The first is to assume that the area is measured to the 
+                    bottom of the graph. However, area under a curve refers to the area between that curve and the x-axis, not the bottom of the
+                    graph. You'll notice that the x-axis is not at the very bottom of the graph, so be careful here! The next is a more elementary mistake.
+                    Area that is below the x-axis is counted as negative in calculations. Some people may neglect this, which leads to incorrect
+                    answers. But that's enough yapping, I'll get to the solution.
+                    <br><br>
+                    Using basic geometry, we can analyze the graph. Remembering that area below the x-axis is negative, we can come 
+                    to the conclusion that:
+                    <br><br>
+                    $$W = \textrm{Area under the graph} = 6 + (-2) = \bbox[3px,
+                        border: 0.5px solid
+                        white]{4 ~\textrm{J}}$$
+                </div>
+                <div class="btn-contain-left">
+                <button class="btn btn-dark" style="animation: scale1 2s infinite;" @click="$emit('prevpage')">&larr;
+                    Previous</button>
+            </div>
+            <div class="btn-contain-right">
+                <button class="btn btn-dark" style="animation: scale1 2s infinite;" @click="$emit('nextpage')">Next
+                    &rarr;</button>
             </div>   
+            </div>
+            <div v-show="page===2">
+                I've talked about the force part behind the work formula, so it's now time to talk about the displacement part.
+                Actually, we're not talking about directly, but rather talking about conservative and nonconservative forces. These
+                are the two types of forces in general when it comes to work.
+                <br><br>
+                <span v-show="level>0">
+                    The key is to focus on the different possible paths that an object can take to go from one point to another, and
+                    whether the choice of those paths affects the work done. There are technically an infinite number of paths from one 
+                    point to another, but here I'll illustrate three just to show you the possible variety.
+                    <br><br>
+                    <figure>
+                    <img src="/src/assets/energy/Figure 52.png" width="500px">
+                    <figcaption>Figure 3: A work of modern art, or a representation of three different possible paths between two points? It's the latter.</figcaption>
+                    </figure>
+                    <br><br>
+                    The <b>conservative</b> force is one that is path-independent. What that means is that the work it does
+                    only depends on its displacement, not the exact path it traveled on. It doesn't matter if you took any number of fancy
+                    turns or maneuvers during on your path. The work done by this force on you will be the same as someone who travelled in a 
+                    straight line between the start and end points. Good examples of this are spring forces and gravitational forces.
+                    <br><br>
+                    This naturally leads to the idea of a <b>nonconservative</b> force. This kind of force is path-dependent, meaning the work done 
+                    by it will vary on the path you took, even if the start and end points don't change. The most common of these nonconservative 
+                    forces is friction. Now, let's take a moment to think about why friction is nonconservative. 
+                    <br><br>
+                    One of friction's key features is that it always 
+                    opposes the direction of relative motion, which means that it'll be oppositely directed to the object along its entire path.
+                    <span v-show="level==2">
+                        Thinking back to the differential formula for work, we realize that it's oppositely directed to the tangent to the path
+                        everywhere. This means that even though the  vector differential $d\vec{x}$ is constantly changing over the path, the dot product is still 
+                        the same because the direction of friction changes with this. Thus, we arrive at a formula for work done by friction:
+                    </span>
+                    <span v-show="level==1">
+                        The exact reasoning here requires calculus, but just know that it has something to do with having to compute the dot product constantly because
+                        the direction of friction changes constantly. Since the direction of friction is always oppositely directed to the momentary change in position, we can
+                        write a formula for the work done by friction:
+                    </span>
+                    <br><br>
+                    $$ W_{friction} = - F_f d \cos \theta $$
+                    <br><br>
+                    The letter $d$ here represents <b>distance</b>, not displacement. The cosine is there because the frictional force and the
+                    momentary displacement vector might not be exactly opposite to each other at any given moment (but they usually are). I'd say don't
+                    worry about it too much, since it doesn't show up often or even at all, since I can't think of a meaningful scenario where the 
+                    cosine is actually in use. 
+                    <br><br>
+                    Of course, this
+                    formula is really only applicable for kinetic friction because static friction causes no relative motion. While static friction
+                    can do work (it does work in our old penguin and sled example), most of the time we're concerned with dissipative effects due to friction, and 
+                    static friction does not dissipate energy.
+                    <br><br>
+                    Speaking of energy, work and energy are actually inextricably tied. But, this is a lesson on work, so you'll
+                    have to go to the next lesson to learn about energy. So, if you're ready, hit that <del>subscribe button</del> next lesson
+                    button on the bottom right!
+                </span>
+                <span v-show="level==0">
+                    The two classifications of forces depend on the idea of path independence, which is when something doesn't care 
+                    about the path it took, just the start and end points. This might sound familiar, and you'd be right! The idea of 
+                    displacement is path-independent, since it only considers start and end points.
+                    <br><br>
+                    <figure>
+                    <img src="/src/assets/energy/Figure 52.png" width="500px">
+                    <figcaption>Figure 3: A work of modern art, or a representation of three different possible paths between two points? It's the latter.</figcaption>
+                    </figure>
+                    <br><br>
+                    The first type of force is a <b>conservative</b> force, which does the same amount of work regardless of the path taken. It doesn't matter if you took any number of fancy
+                    turns or maneuvers during on your path. This includes most field forces like gravity, as well as a few others. It's the easier of the two 
+                     to deal with, since you don't have to worry about complications caused by taking a complicated path. (See what I did there?)
+                    <br><br>
+                    The other type of force is a <b>nonconservative</b> force that does different 
+                    amounts of work depending on the path taken. These are usually forces like friction and air resistance. Now for these forces, while it is possible to calculate the work
+                    done by them, if the path is complex you either need scary calculus or just simply can't solve the problem exactly. If you want the formula for friction, you 
+                    can look at it in our Algebra-based and Caclulus-based levels, but no worries if you don't feel confident. We won't be seeing these too much, so rest assured.
+                    <br><br>
+                    These two concepts conclude our discussion of work, but they lead perfectly into our discussion of energy in the next lesson. So if you're ready, just hit that 
+                    button over there and let's move on!
+                </span>
+                <div class="btn-contain-left">
+                <button class="btn btn-dark" style="animation: scale1 2s infinite;" @click="$emit('prevpage')">&larr;
+                    Previous</button>
+            </div>
+            <div class="btn-contain-right">
+                <button class="btn btn-dark" style="animation: scale 2s infinite;" @click="$emit('nextlesson')">Next Lesson!
+                    &rarr;</button>
+            </div>   
+            </div>
         </p>
     </div>
 
