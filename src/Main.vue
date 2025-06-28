@@ -14,6 +14,7 @@ import InclinedPlanes from './components/dynamics/InclinedPlanes.vue'
 import Newton from './components/dynamics/Newton.vue'
 import OtherForces from './components/dynamics/OtherForces.vue'
 import FmaFBD from './components/dynamics/FmaFBD.vue'
+import Spring from './components/dynamics/Spring.vue'
 
 import Centripetal from './components/circularGravity/Centripetal.vue'
 import Fictious from './components/circularGravity/Fictious.vue'
@@ -32,7 +33,7 @@ import Work from './components/energy/Work.vue'
 
 const htmlElement = document.documentElement
 const Window = window
-const user = reactive({ current: "landing", difficulty: 0, theme: "dark", page: { Vectors: 0, DimenAnalyz: 0, PosVelAcc: 0, OneDMotion: 0, TwoDMotion: 0, RelativeVel: 0, FmaFBD: 0, InclinedPlanes: 0, OtherForces: 0, Newton: 0, Kepler: 0, GravityLaws: 0, Centripetal: 0, Fictious: 0, DotProd: 0, Energy: 0, Power: 0, Work: 0, Collisions: 0, Impulse: 0, LinMomConsrv: 0 } })
+const user = reactive({ current: "landing", difficulty: 0, theme: "dark", page: { Vectors: 0, DimenAnalyz: 0, PosVelAcc: 0, OneDMotion: 0, TwoDMotion: 0, RelativeVel: 0, FmaFBD: 0, Spring: 0, InclinedPlanes: 0, OtherForces: 0, Newton: 0, Kepler: 0, GravityLaws: 0, Centripetal: 0, Fictious: 0, DotProd: 0, Energy: 0, Power: 0, Work: 0, Collisions: 0, Impulse: 0, LinMomConsrv: 0 } })
 
 // Theme must be loaded first, but the current page is loaded later after the user clicks get started
 user.theme = localStorage.getItem("user") ? JSON.parse(localStorage.getItem("user")).theme : user.theme
@@ -73,7 +74,8 @@ const lessons = reactive(
       "Newton's Laws",
       "Forces",
       "F=ma and Free-body Diagrams",
-      "Inclined Planes and Pulleys"
+      "Inclined Planes and Pulleys",
+      "Spring Forces"
     ],
 
     circularGravity: [
@@ -268,6 +270,10 @@ onMounted(() => {
   <InclinedPlanes v-show="user.current === lessons.dynamics[3]" :level="user.difficulty"
     :page="user.page.InclinedPlanes" @nextpage="Window.scrollTo(0, 0); user.page.InclinedPlanes++"
     @prevpage="Window.scrollTo(0, 0); user.page.InclinedPlanes--"
+    @nextlesson="Window.scrollTo(0, 0); user.current = lessons.dynamics[4]" />
+  <Spring v-show="user.current === lessons.dynamics[4]" :level="user.difficulty"
+    :page="user.page.Spring" @nextpage="Window.scrollTo(0, 0); user.page.Spring++"
+    @prevpage="Window.scrollTo(0, 0); user.page.Spring--"
     @nextlesson="Window.scrollTo(0, 0); user.current = lessons.circularGravity[0]" />
 
   <Centripetal v-show="user.current === lessons.circularGravity[0]" :level="user.difficulty"
