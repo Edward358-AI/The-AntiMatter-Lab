@@ -183,8 +183,37 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                 </b>
                 <br><br>
                 Similar reasoning can be used for the case of springs in series. However, this time the stretch of each spring isn't the same, but 
-                something else is. What this constant quanitity is often isn't immediately obvious.
+                something else is. What this constant quanitity is often isn't immediately obvious. However, consider that each point of the entire
+                combination is in equilibrium. This means the spring force of each spring is the same, since at the contact points between any two 
+                springs equilibrium conditions must be satisfied. Therefore, we can write:
+                <br><br>
+                $$F_s = ~\textrm{const.}= k_1x_1 = k_2x_2 = k_3x_3 = ...$$
+                <br>
+                Recall that each springs individually stretches some amount, so the total stretch $x$ is their sum.
+                <br><br>
+                $$ x = x_1 + x_2 + x_3 + ...$$
+                <br>
+                $$x = \dfrac{F_s}{k_1} + \dfrac{F_s}{k_2} +\dfrac{F_s}{k_3} +...$$
+                <br><br>
+                Since $F_s = k_{eff} x$, we can now write:
+                <br><br>
+                $$\dfrac{F_s}{k_{eff}} = \dfrac{F_s}{k_1} + \dfrac{F_s}{k_2} +\dfrac{F_s}{k_3} +...$$
+                <br>
+                $$ \dfrac{1}{k_{eff}} = \dfrac{1}{k_1} + \dfrac{1}{k_2} +\dfrac{1}{k_3}+...$$
+                <br><br>
+                This tells us that the <b>reciprocal of the equivalent spring constant for springs connected in series is the sum of the 
+                    reciprocals of the individual spring constants.
+                </b> (What a mouthful!)
+                <br><br>
+                <div class="problem">
+                    What happens when you cut a spring of spring constant $k$ in half?
+                    <br><br>
+                </div>
             </span>
+                Now, with springs fully covered, we can move on from this long (but important!) unit and finally begin to talk 
+                about something new. The second unit, which is also considered one of the hardest and most crucial units in all 
+                of mechanics, is now finally complete, but the next unit is still centered around forces, albeit very special 
+                ones. So, if you're ready, let's jump right into circular motion and gravitation!
             <div class="btn-contain-left">
                 <button class="btn btn-dark" style="animation: scale1 2s infinite;" @click="$emit('prevpage')">&larr;
                     Previous</button>
