@@ -24,7 +24,8 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                 entirely obvious since you and I cannot easily go far away from the Earth. (Assuming you don't have access to a rocket.) These
                 are quantitatively summed up by Newton.
                 <br><br>
-                From some data he borrowed, Newton was able to formulate his Law of Universal Gravitation:
+                From some data he borrowed from Robert Hooke (who later got into an argument with Newton over this exact issue of
+                who deserved the recognition), Newton was able to formulate his Law of Universal Gravitation:
                 <br><br>
                 <b>$$F_g = G \dfrac{m_1m_2}{r^2}$$</b>
                 <br><br>
