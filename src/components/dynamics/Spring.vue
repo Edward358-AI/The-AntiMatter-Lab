@@ -168,7 +168,7 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                 look at what happens to the connected springs when they are stretched. The parallel case is much simpler, but 
                 I <b>will</b> be showing you both. You cannot stop me.
                 <br><br>
-                The parallel case involves the <b>same stretch</b> for all the springs. If you look closely at how parallel springs are connected, 
+                The parallel case involves the <b>same stretch</b> for all the springs. If you look closely at how parallel springs are connected (side-by-side), 
                 this should be obvious. (We are assuming the stretch on the rod connecting all the springs is uniform, meaning the rod stays perpendicular
                 to all the springs.) Since the stretch is constant, the total force exerted by all the springs is:
                 <br><br>
@@ -206,10 +206,58 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                 </b> (What a mouthful!)
                 <br><br>
                 <div class="problem">
-                    What happens when you cut a spring of spring constant $k$ in half?
+                    You cut a spring of spring constant $k$ in half. What is the spring constant 
+                    of each of the two half-springs? (Think about what this is equivalent to!)
                     <br><br>
+                <figure>
+                    <img src="/src/assets/dynamics/springcut.png" width="500px" />
+                    <figcaption>Figure 4: Cutting a spring in half.</figcaption>
+                </figure>
+                <br><br>
+                Cutting a spring in half produces two identical half-springs. We can reverse this logic to conclude that the 
+                original spring is a series combination of two of these half-springs, which we'll say have a spring constant of 
+                $k_h$. Therefore:
+                <br><br>
+                $$\dfrac{1}{k} = \dfrac{1}{k_h} + \dfrac{1}{k_h}$$
+                $$\dfrac{1}{k} = \dfrac{2}{k_h}$$
+                $$\bbox[3px,
+                    border: 0.5px solid
+                    white]{k_h = 2k}$$
+                <br>
+                This means that cutting a spring in half doubles its effective spring constant!
                 </div>
             </span>
+
+            <span v-show="level==0">
+                Deriving the equations for how to treat combinations of springs in series or parallel requires rigorous logic 
+                and mathematical reasoning, which is a little beyond the scope of our conceptual understanding. Nevertheless, I will
+                walk through the basics of the logic behind each result.
+                <br><br>
+                For springs in <b>parallel</b>,
+                each spring exerts a force directly on the object because they're all directly connected to it (refer to the diagram above), meaning 
+                adding springs should make the force stronger. The exact reasoning to derive the effective spring constant for parallel springs uses 
+                the fact that all the springs stretch the same amount since they're side by side, but we won't be going into the math. The result we get is:
+                <br><br>
+                $$k_{eff} = k_1 + k_2 + k_3 +...$$
+                <br>
+                In other words, the <b>effective spring constant of springs in parallel is the sum of the individual spring constants.</b>
+                <br><br>
+                The result for springs in <b>series</b> is a little more complicated. See, for springs in series only one spring is connected to and directly acts on the 
+                object. However, throughout the entire series of springs the force has to remain the same because of equilibrium conditions, meaning each 
+                spring exerts the same force. 
+                <br><br>
+                The total stretch $x$ is the sum of <u>all</u> of the individual stretches and the effective spring constant is 
+                defined such that $k_{eff} x = F_s$, and since $x$ is large due to it being a sum $k_{eff}$ is smaller than any 
+                individual spring constant. Also, it tends to get smaller the more springs you add because that increases the total
+                stretch $x$. The relation that we end up getting is complex, but it follows this rule.
+                <br><br>
+                $$ \dfrac{1}{k_{eff}} = \dfrac{1}{k_1} + \dfrac{1}{k_2} +\dfrac{1}{k_3}+...$$
+                <br><br>
+                This relation is complicated. It tells us that the <b>reciprocal of the equivalent spring constant for springs connected in series is the sum of the 
+                    reciprocals of the individual spring constants.
+                </b> (What a mouthful!) It's probably easier just to look at the equation than try to put it into words.
+            </span>
+            <br><br>
                 Now, with springs fully covered, we can move on from this long (but important!) unit and finally begin to talk 
                 about something new. The second unit, which is also considered one of the hardest and most crucial units in all 
                 of mechanics, is now finally complete, but the next unit is still centered around forces, albeit very special 
