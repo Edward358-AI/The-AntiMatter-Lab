@@ -441,8 +441,8 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                 nothing less than the best from you. It doesn't matter if you get the answer wrong, as long as you try your best and learn from your mistakes.
                 Effort is practically required for this course.
                 <br><br>
-                With that little rant out of the way, we will now move onto an entirely new topic: the idea of work, energy, and power. So, let's 
-                go onto the next lesson and begin this new concept!
+                With that little rant out of the way, we will now move onto adding more complexity to this scenario with the introduction 
+                of a new force that can change, the spring force! This is our first variable force and will expand our horizons for force analysis significantly.
             </span>
             <span v-show="level==0">
                 The astute observer will notice that the pulley on the right is not fixed, but rather is allowed to move vertically.
@@ -460,8 +460,9 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                 machines that involve pulleys that are allowed to move, but they all follow the same principles. At a conceptual level, it is sufficient
                 to know where the forces are acting and qualitatively how the objects move.
                 <br><br>
-                Now that we have discussed the two most common types of setups in physics, we can move on to an entirely new topic: circular motion and gravity. This 
-                will allow us to solve new kinds of problems, but still relies heavily on force analysis concepts.
+                Now that we have discussed the two most common types of setups in physics, we can add another kind of force to it: that from a spring, which is a
+                coil of metal that is bouncy. (But you already knew that.)
+                You're almost at the end of this unit, so let's keep going!
                 <br><br>
             </span>
             </p>        
@@ -470,7 +471,7 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
             </div>
 
             <div class="btn-contain-right">
-                <button class="btn btn-dark" style="animation: scale 2s infinite;" @click="$emit('nextlesson')">Next Unit!&rarr;</button>
+                <button class="btn btn-dark" style="animation: scale 2s infinite;" @click="$emit('nextlesson')">Next Lesson!&rarr;</button>
             </div>
         </div>
     </div>

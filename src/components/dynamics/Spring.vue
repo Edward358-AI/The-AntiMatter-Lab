@@ -148,6 +148,52 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                     &rarr;</button>
             </div>
         </div>
+        <div v-show="page===2">
+            I want to introduce the idea of combinations of springs. For any combination of springs, we can replace 
+            the combination with a single spring that has the same effect as the whole combination. This single spring 
+            must have a spring constant equal to the <b>effective spring constant</b> $k_{eff}$ of the combination. The
+            manner of calculating this constant is what we'll explore here.
+            <br><br>
+            First, we have to define the two kinds of possible combinations. The first is a <b>parallel</b> combinations, which
+            simply involves springs placed side-by-side. The other is the <b>series</b> combination, which involves springs connected 
+            end-to-end. The visual should help hammer home this idea.
+            <br><br>
+            <figure>
+                <img src="/src/assets/dynamics/springseriesparallel.png" width="750px" />
+                <figcaption>Figure 3: Series versus parallel.</figcaption>
+            </figure>
+            <br><br>
+            <span v-show="level>0">
+                To derive the formulas for the effective spring constant of springs in series or parallel, we have to take a 
+                look at what happens to the connected springs when they are stretched. The parallel case is much simpler, but 
+                I <b>will</b> be showing you both. You cannot stop me.
+                <br><br>
+                The parallel case involves the <b>same stretch</b> for all the springs. If you look closely at how parallel springs are connected, 
+                this should be obvious. (We are assuming the stretch on the rod connecting all the springs is uniform, meaning the rod stays perpendicular
+                to all the springs.) Since the stretch is constant, the total force exerted by all the springs is:
+                <br><br>
+                $$F = k_1x+k_2x+k_3x+...$$
+                <br>
+                This is equivalent to one spring stretched $x$ with effective spring constant:
+                <br><br>
+                $$k_{eff} = k_1 + k_2 + k_3 +...$$
+                <br>
+                This leads us to conclude that <b>the effective spring constant for springs connected in parallel is the sum of their 
+                    individual spring constants.
+                </b>
+                <br><br>
+                Similar reasoning can be used for the case of springs in series. However, this time the stretch of each spring isn't the same, but 
+                something else is. What this constant quanitity is often isn't immediately obvious.
+            </span>
+            <div class="btn-contain-left">
+                <button class="btn btn-dark" style="animation: scale1 2s infinite;" @click="$emit('prevpage')">&larr;
+                    Previous</button>
+            </div>
+            <div class="btn-contain-right">
+                <button class="btn btn-dark" style="animation: scale 2s infinite;" @click="$emit('nextlesson')">Next Unit!
+                    &rarr;</button>
+            </div>
+        </div>
         </p>
     </div>
 
