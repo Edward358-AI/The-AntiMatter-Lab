@@ -29,11 +29,12 @@ import DotProd from './components/energy/DotProd.vue'
 import Energy from './components/energy/Energy.vue'
 import Power from './components/energy/Power.vue'
 import Work from './components/energy/Work.vue'
+import GravEnergy from './components/energy/GravEnergy.vue'
 
 
 const htmlElement = document.documentElement
 const Window = window
-const user = reactive({ current: "landing", difficulty: 0, theme: "dark", page: { Vectors: 0, DimenAnalyz: 0, PosVelAcc: 0, OneDMotion: 0, TwoDMotion: 0, RelativeVel: 0, FmaFBD: 0, Spring: 0, InclinedPlanes: 0, OtherForces: 0, Newton: 0, Kepler: 0, GravityLaws: 0, Centripetal: 0, Fictious: 0, DotProd: 0, Energy: 0, Power: 0, Work: 0, Collisions: 0, Impulse: 0, LinMomConsrv: 0 } })
+const user = reactive({ current: "landing", difficulty: 0, theme: "dark", page: { Vectors: 0, DimenAnalyz: 0, PosVelAcc: 0, OneDMotion: 0, TwoDMotion: 0, RelativeVel: 0, FmaFBD: 0, Spring: 0, InclinedPlanes: 0, OtherForces: 0, Newton: 0, Kepler: 0, GravityLaws: 0, Centripetal: 0, Fictious: 0, DotProd: 0, Energy: 0, GravEnergy:0, Power: 0, Work: 0, Collisions: 0, Impulse: 0, LinMomConsrv: 0 } })
 
 // Theme must be loaded first, but the current page is loaded later after the user clicks get started
 user.theme = localStorage.getItem("user") ? JSON.parse(localStorage.getItem("user")).theme : user.theme
@@ -89,6 +90,7 @@ const lessons = reactive(
       "Dot Product",
       "Definition of \"Work\"",
       "Definition of Energy and Energy Conservation",
+      "Universal Gravitational Potential Energy",
       "Definition of Power"
     ],
 
@@ -300,7 +302,10 @@ onMounted(() => {
   <Energy v-show="user.current === lessons.energy[2]" :level="user.difficulty" :page="user.page.Energy"
     @nextpage="Window.scrollTo(0, 0); user.page.Energy++" @prevpage="Window.scrollTo(0, 0); user.page.Energy--"
     @nextlesson="Window.scrollTo(0, 0); user.current = lessons.energy[3]" />
-  <Power v-show="user.current === lessons.energy[3]" :level="user.difficulty" :page="user.page.Power"
+  <GravEnergy v-show="user.current === lessons.energy[3]" :level="user.difficulty" :page="user.page.GravEnergy"
+    @nextpage="Window.scrollTo(0, 0); user.page.GravEnergy++" @prevpage="Window.scrollTo(0, 0); user.page.GravEnergy--"
+    @nextlesson="Window.scrollTo(0, 0); user.current = lessons.energy[4]" /> 
+  <Power v-show="user.current === lessons.energy[4]" :level="user.difficulty" :page="user.page.Power"
     @nextpage="Window.scrollTo(0, 0); user.page.Power++" @prevpage="Window.scrollTo(0, 0); user.page.Power--"
     @nextlesson="Window.scrollTo(0, 0); user.current = lessons.momentum[0]" />
 
