@@ -54,6 +54,11 @@ p {
     padding: 15px;
 }
 
+.answer {
+    border: 0.5px solid white;
+    padding: 0px 10px;
+}
+
 figcaption {
     font-size: 0.9rem;
 }

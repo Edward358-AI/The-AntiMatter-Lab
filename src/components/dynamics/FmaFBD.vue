@@ -63,17 +63,17 @@ const showAnswer5 = ref(false)
                 Hopefully, we recognize that there are three forces present: the gravitational force, the normal force from the ground, and the applied force (also technically a normal force) from Bob.
                 It can be easy sometimes to forget that the normal and gravitational forces are going to be present in the FBD, even though they are not mentioned in the problem.
                 <br><br>
-                <template v-if="showAnswer4">   
+                <div v-show="showAnswer4">   
                     This, or something close to it, is the correct FBD for the problem.     
                     <figure>
                         <img src="/src/assets/dynamics/Figure 16.png" width="500px" />
                         <figcaption>Figure 3: A free-body diagram of the cart.</figcaption> 
                     </figure>
-                </template>
-                <template v-else>
-                    <button class="btn btn-outline-primary btn-sm" @click="showAnswer4 = true">Show FBD</button>
-                </template>
-                <br><br>
+                </div>
+                <div>
+                    <button class="btn btn-outline-primary" @click="showAnswer4=!showAnswer4">{{ !showAnswer4 ? "Show" : "Hide" }} FBD</button>
+                </div>
+                <br>
                 Now I know just talked about how the normal and gravitational forces are present, but in this case they
                 are not actually important for the problem. Intuitively, we know that the cart doesn't accelerate vertically,
                 so the normal and gravitational forces must be balanced. Therefore, we only need to apply Newton's Second Law in the
@@ -92,32 +92,32 @@ const showAnswer5 = ref(false)
                 <br><br>
                 What if another person pushes the box in the same direction? Qualitatively, how will the acceleration compare? 
                 <br>
-                <template v-if="showAnswer3">
+                <div v-show="showAnswer3" class="answer" style="width:fit-content">
                     <strong>Answer:</strong> It will be greater, since the net force is greater.
-                </template>
-                <template v-else>
-                    <button class="btn btn-outline-primary btn-sm" @click="showAnswer3 = true">Show Answer</button>
-                </template>
-                <br><br>
+                </div>
+                <div>
+                    <button class="btn btn-outline-primary" @click="showAnswer3=!showAnswer3">{{ !showAnswer3 ? "Show" : "Hide" }} Answer</button>
+                </div>
+                <br>
                  What about in the opposite direction? 
 
                 <br>
-                <template v-if="showAnswer2">
+                <div v-show="showAnswer2" class="answer" style="width:fit-content">
                     <strong>Answer:</strong> It will be less or in the opposite direction, depending on the strength of the force.
-                </template>
-                <template v-else>
-                    <button class="btn btn-outline-primary btn-sm" @click="showAnswer2 = true">Show Answer</button>
-                </template>
-                <br><br>
+                </div>
+                <div>
+                    <button class="btn btn-outline-primary" @click="showAnswer2=!showAnswer2">{{ !showAnswer2 ? "Show" : "Hide" }} Answer</button>
+                </div>
+                <br>
                 What is the magnitude of the normal force in the above scenario? 
                 <br>
-                <template v-if="showAnswer">
+                <div v-show="showAnswer" class="answer" style="width:fit-content">
                     <strong>Answer:</strong> By considering forces in the y-direction, we have $F_n=mg=147 ~\textrm{N}$ since $F_{net,y}=0$. Do not assume that this is always going to be true, since there will be many scenarios where $F_n\neq mg$.
-                </template>
-                <template v-else>
-                    <button class="btn btn-outline-primary btn-sm" @click="showAnswer = true">Show Answer</button>
-                </template>
-                <br><br>
+                </div>
+                <div>
+                    <button class="btn btn-outline-primary" @click="showAnswer=!showAnswer">{{ !showAnswer ? "Show" : "Hide" }} Answer</button>
+                </div>
+                <br>
                 Note that there is no way for us to know the velocity of an object through force analysis, just acceleration. We have to be given the velocity at some point in time in order to solve for velocity at any other point. 
                 If you want to get fancy, this principle is called Galilean Relativity, which states that it is impossible to determine absolute velocity of any given inertial reference frame. 
                 Another key tenet of the idea is that the laws of physics are the exact same in all inertial reference frames, which turns out to be true. Galilean Relativity is very important in Newtonian physics, and is the reason why we can only determine acceleration through force analysis. But it also turns out to be
@@ -135,17 +135,17 @@ const showAnswer5 = ref(false)
                     Consider the following scenario: Bob pushes on a cart horizontally to the right with some applied force. Assume there is no friction.
                     How does the cart behave? Make a free-body diagram. Take a moment to think and work on it before continuing.
                     <br><br>
-                    <template v-if="showAnswer4">   
+                    <div v-show="showAnswer4">   
                         This, or something close to it, is the correct FBD for the problem.
                         <figure>
                             <img src="/src/assets/dynamics/Figure 16.png" width="500px" />
                             <figcaption>Figure 3: A free-body diagram of the cart.</figcaption>
                         </figure>
-                    </template>
-                    <template v-else>
-                        <button class="btn btn-outline-primary btn-sm" @click="showAnswer4 = true">Show FBD</button>
-                    </template>
-                    <br><br>
+                    </div>
+                    <div>
+                        <button class="btn btn-outline-primary" @click="showAnswer4=!showAnswer4">{{ !showAnswer4 ? "Show" : "Hide" }} FBD</button>
+                    </div>
+                    <br>
 
                     Now, conceptually we should understand why each force is present, and their relative magnitudes.
                     You may have forgotten to include the normal and gravitational forces, a common mistake when motion
@@ -165,32 +165,32 @@ const showAnswer5 = ref(false)
 
                     Now, for a some conceptual questions. What if another person pushes the box in the same direction? Qualitatively, how will the acceleration compare?
                     <br>
-                    <template v-if="showAnswer3">
+                    <div v-show="showAnswer3" class="answer" style="width:fit-content">
                         <strong>Answer:</strong> It will be greater, since the net force is greater.
-                    </template>
-                    <template v-else>
-                        <button class="btn btn-outline-primary btn-sm" @click="showAnswer3 = true">Show Answer</button>
-                    </template>
-                    <br><br>
+                    </div>
+                    <div>
+                        <button class="btn btn-outline-primary" @click="showAnswer3=!showAnswer3">{{ !showAnswer3 ? "Show" : "Hide" }} Answer</button>
+                    </div>
+                    <br>
                     What about in the opposite direction?
                     <br>
-                    <template v-if="showAnswer2">
+                    <div v-show="showAnswer2" class="answer" style="width:fit-content">
                         <strong>Answer:</strong> It will be less or in the opposite direction, depending on the strength of the force.
-                    </template>
-                    <template v-else>
-                        <button class="btn btn-outline-primary btn-sm" @click="showAnswer2 = true">Show Answer</button>
-                    </template>
-                    <br><br>
+                    </div>
+                    <div>
+                        <button class="btn btn-outline-primary" @click="showAnswer2=!showAnswer2">{{ !showAnswer2 ? "Show" : "Hide" }} Answer</button>
+                    </div>
+                    <br>
                     What is the magnitude of the normal force in the above scenario? Give a conceptual answer, not a numerical one.
                     <br>
-                    <template v-if="showAnswer">
+                    <div v-show="showAnswer" class="answer" style="width:fit-content">
                         <strong>Answer:</strong> The normal force is equal to the weight of the cart, which is equal the mass times the acceleration due to gravity. You might be
                         tempted to generalize this to say that the normal force is always equal to the weight, but this is not true in all cases. I'll illustrate this later.
-                    </template>
-                    <template v-else>
-                        <button class="btn btn-outline-primary btn-sm" @click="showAnswer = true">Show Answer</button>
-                    </template>
-                    <br><br>
+                    </div>
+                    <div>
+                        <button class="btn btn-outline-primary" @click="showAnswer=!showAnswer">{{ !showAnswer ? "Show" : "Hide" }} Answer</button>
+                    </div>
+                    <br>
                     See? This unit isn't so bad, right? You can do it! Just remember to always draw the free-body diagram first, and then analyze the forces. If you feel
                     confident, you can move up to one of our more advanced levels, where we will do quantitaive analysis of this problem and many more. If you don't feel
                     prepared, don't worry! You can always come back to this lesson later when you feel ready to tackle the math.
