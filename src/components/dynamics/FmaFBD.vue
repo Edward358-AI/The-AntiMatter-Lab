@@ -7,7 +7,6 @@ const showAnswer = ref(false)
 const showAnswer2 = ref(false)
 const showAnswer3 = ref(false)
 const showAnswer4 = ref(false)
-const showAnswer5 = ref(false)
 </script>
 
 
