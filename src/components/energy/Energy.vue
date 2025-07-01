@@ -1,6 +1,12 @@
 <script setup>
+import{ref} from 'vue'
 defineProps(["level", "page"])
 defineEmits(["nextlesson", "nextpage", "prevpage"])
+const show = ref(false)
+const show1 = ref(false)
+const show2 = ref(false)
+const show3 = ref(false)
+const show4 = ref(false)
 </script>
 
 
@@ -96,6 +102,11 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
             the potential to turn into another type of energy, usually kinetic. It arises due to the configuration of the system. I know 
             that wording sounds vague and weird, but it'll make sense soon. Generally, it is referred to as $U$.
             <br><br>
+            It is also crucial to note that the idea of potential energy is tied to the idea of a conservative force. In fact, 
+            only forces that are conservative can result in energy being stored in this form, as nonconservtive forces dissipate energy 
+            into a form like heat that is not completely recoverable. (Second Law of Thermodynamics!) Thus, you'll notice that all the 
+            potential energies we talk about are tied to some conservative force.
+            <br><br>
             There are actually many subcategories of potential energy, each denoted with a subscript. The first is <b>gravitational potential energy</b>, which arises from 
             positioning of an object relative to the Earth. Essentially, the higher up an object is, the more gravitational potential 
             energy it will have. However, since there is not a clearly defined "zero potential energy" point (you might be tempted to think the ground 
@@ -122,20 +133,196 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                 With that, let's test your conceptual understanding of the concept of gravitational potential energy.
                 <br><br>
                 <div class="problem">
-                    For each of the scenarios described below, what is the change in potential energy of the object?
+                    For each of the scenarios described below, what is the change in potential energy of the object: positive, negative, or 
+                    zero?
                     <br><br>
                     A box is raised via a rope elevator from the first floor to the seventh floor of a building.
-                    <div v-show="showAnswer">
-                        <button class="btn btn-outline-primary" @click="showAnswer=!showAnswer">{{ !showAnswer ? "Show" : "Hide" }} Answer</button>
+                    <span>
+                    
+                    <div v-show="show" class = 'answer' style="width:fit-content">
+                        <strong>Answer:</strong> The change in gravitational potential energy is positive, since the object's height from the Earth increases.
+                        <br>
                     </div>
+                    <button class="btn btn-outline-primary" @click="show = !show">{{ show ? 'Hide' : 'Show' }} Answer
+                    </button>
+                </span>
+                    <br><br>
+                    An athlete lifts a barbell once. (That means they lifted it up and put it back down.)
+                <span>
+                    
+                    <div v-show="show1" class = 'answer' style="width:fit-content">
+                        <strong>Answer:</strong> The change in gravitational potential energy is zero, since the barbell ends up at the same height it started at.
+                        <br>
+                    </div>
+                    <button class="btn btn-outline-primary" @click="show1 = !show1">{{ show1 ? 'Hide' : 'Show' }} Answer
+                    </button>
+                </span>
+                <br><br>
+                    A rock is thrown off of a cliff into a lake.
+                    <span>
+                    
+                    <div v-show="show2" class = 'answer' style="width:fit-content">
+                        <strong>Answer:</strong> The change in gravitational potential energy is negative, since the object goes from a higher point to a lower one.
+                        <br>
+                    </div>
+                    <button class="btn btn-outline-primary" @click="show2 = !show2">{{ show2 ? 'Hide' : 'Show' }} Answer
+                    </button>
+                </span>
                 </div>
+                <br><br>
+                Congratulations, you've understood gravitational potential energy! Now, I'll make a very cursory introduction of the other 
+                type of potential energy that's commonly seen, <b>spring potential energy.</b> As the name suggests, it is the potential energy 
+                stored in a spring, and is defined by:
+                <br><br>
+                $$U_s = \dfrac12 kx^2$$
+                <br>
+                With that, now we can talk about the second part of the title of this unit: the conservation of energy. This will let 
+                us solve many problems that force analysis cannot tackle.
             </span>
             <span v-show="level>0">
                 It's more common to deal with the change in gravitational potential energy $\Delta U_g$. 
                 <br><br>
                 The other type of potential energy I should mention for this unit is the <b>spring potential energy</b>, the potential 
-                energy stored in a compressed or stretched spring.
+                energy stored in a compressed or stretched Hookean spring. This is described by the equation:
+                <br><br>
+                $$U_s = \dfrac 12 kx^2$$
+                <br>
+                The more the spring is stretched or compressed, the more energy it stores. Note that the energy is 
+                positive regardless of whether you stretch or compress it because of that quadratic. This is a pretty simple and intuitive result.
+                <span v-show="level==2">
+                <br><br>
+                I did say that we would mostly deal with Hookean springs which would follow the spring potential energy formula shown above, but there 
+                is actually a generalized formula that can relate force to potential energy. It involves a derivative:
+                <br><br>
+                $$ F = - \dfrac{dU}{dx} $$
+                <br>
+                This tells us that the force can be determined as the negative of the derivative of potential energy with respect to position. 
+                Try this for a Hookean spring, and you'll see that Hooke's law and our previous expression for the spring potential energy do indeed 
+                follow this formula.
+                <br><br>
+                <div class="problem">
+                    What is the spring potential energy of a non-Hookean spring that follows the relation shown below?
+                    <br>
+                    $$ F_s = - k_q x^2 $$
+                    <br>
+                    We need to apply the formula given above on this equation. We are given the force and asked for potential 
+                    energy, so we must put the relation into the form of a differential equation:
+                    <br><br>
+                    $$ dU = - F dx $$
+                    <br>
+                    Doing some simple integration gives us:
+                    <br><br>
+                    $$\bbox[3px,
+                    border: 0.5px solid
+                    white]{U = \dfrac13 k_q x^3}$$
+                </div>
+                </span>
+                <br><br>
+                It is now time for a few conceptual questions to test your understanding of potential energy. We will incorporate 
+                both the gravitational and spring potential energies into this little quiz.
+                <br><br>
+                <div class="problem">
+                    For each of the scenarios described below, what is the change in potential energy of the object: positive, negative, or 
+                    zero?
+                    <br><br>
+                    A box is raised via a rope elevator from the first floor to the seventh floor of a building.
+                    <span>
+                    
+                    <div v-show="show" class = 'answer' style="width:fit-content">
+                        <strong>Answer:</strong> The change in gravitational potential energy is positive, since the object's height from the Earth increases.
+                        <br>
+                    </div>
+                    <button class="btn btn-outline-primary" @click="show = !show">{{ show ? 'Hide' : 'Show' }} Answer
+                    </button>
+                </span>
+                    <br><br>
+                    An athlete lifts a barbell once. (That means they lifted it up and put it back down.)
+                <span>
+                    
+                    <div v-show="show1" class = 'answer' style="width:fit-content">
+                        <strong>Answer:</strong> The change in gravitational potential energy is zero, since the barbell ends up at the same height it started at.
+                        <br>
+                    </div>
+                    <button class="btn btn-outline-primary" @click="show1 = !show1">{{ show1 ? 'Hide' : 'Show' }} Answer
+                    </button>
+                </span>
+                <br><br>
+                    A rock is thrown off of a cliff into a lake.
+                    <span>
+                    
+                    <div v-show="show2" class = 'answer' style="width:fit-content">
+                        <strong>Answer:</strong> The change in gravitational potential energy is negative, since the object goes from a higher point to a lower one.
+                        <br>
+                    </div>
+                    <button class="btn btn-outline-primary" @click="show2 = !show2">{{ show2 ? 'Hide' : 'Show' }} Answer
+                    </button>
+                </span>
+                <br><br>
+                    A person sits on a spring-loaded mattress.
+                <span>
+                    
+                    <div v-show="show3" class = 'answer' style="width:fit-content">
+                        <strong>Answer:</strong> The change in spring potential energy is positive, since the springs in the mattress get compressed from equilibrium.
+                        <br>
+                    </div>
+                    <button class="btn btn-outline-primary" @click="show3 = !show3">{{ show3 ? 'Hide' : 'Show' }} Answer
+                    </button>
+                </span>
+                <br><br>
+                You pull hard on a spring until it snaps.
+                <span>
+                    
+                    <div v-show="show4" class = 'answer' style="width:fit-content">
+                        <strong>Answer:</strong> The change in spring potential energy is zero. A broken spring will snap back to its relaxed state, which stores no potential energy. Moreover, if you pulled hard 
+                        enough on the spring to deform it, it would no longer be able to store any energy.
+                        <br>
+                    </div>
+                    <button class="btn btn-outline-primary" @click="show4 = !show4">{{ show4 ? 'Hide' : 'Show' }} Answer
+                    </button>
+                </span>
+                </div>
+                <br><br>
+                With that, we've completed our discussion of potential energy for the time being. Now, it's time to unite the two 
+                kinds of energy we've learned about and talk about the conservation of energy, which is, after all, the second part of this lesson's 
+                title. This technique will let us solve many problems that force analysis could not.
             </span>
+                <div class="btn-contain-left">
+                <button class="btn btn-dark" style="animation: scale1 2s infinite;" @click="$emit('prevpage')">&larr;
+                    Previous</button>
+            </div>
+            <div class="btn-contain-right">
+                <button class="btn btn-dark" style="animation: scale1 2s infinite;" @click="$emit('nextpage')">Next
+                    &rarr;</button>
+            </div>
+            </div>
+            <div v-show="page===2">
+                We are often asked to conserve energy. But, according to the law of conservation of energy, energy is always 
+                conserved.
+                <br><br>
+                <div class="problem"style="text-align:center;font-size:1.05rem;width:fit-content;margin:auto;">
+                    <b>The Law of Conservation of Energy:</b> 
+                    <br><i>The total amount of energy in the universe is constant. Energy 
+                        can change forms, but can never be created or destroyed.
+                    </i>
+                </div>
+                <br>
+                How does one conserve energy then? Well, the statememnt is often used not to reference conserving all kinds of energy, but 
+                rather to prevent energy from being dissipated. Due to the Second Law of Thermodynamics, this isn't actually possible, but we can 
+                be more efficient with our energy consumption. Energy that is dissipated as heat, sound, or light cannot easily be 
+                recovered.
+                <br><br>
+                Under the specific conditions that <b>there are no dissipative forces in the system</b> and <b>no net external force acts on the system</b>, 
+                we can turn the generalized form of the conservation of energy into the <b>conservation of mechanical energy</b>.
+                <div class="problem"style="text-align:center;font-size:1.05rem;width:fit-content;margin:auto;">
+                    <b>The Law of Conservation of Mechanical Energy:</b> 
+                    <br><i>If no nonconservative forces and no net external force act within a system, total mechanical energy will 
+                        be conserved in all interactions.
+                    </i>
+                </div>
+                <br>
+                Mechanical energy is simply the combination of potential and kinetic energy. Now, this can be a difficult result to 
+                apply due to how abstract the concept of energy is, but having a concrete handle on the concepts of potential and kinetic 
+                energy can help significantly. 
                 <div class="btn-contain-left">
                 <button class="btn btn-dark" style="animation: scale1 2s infinite;" @click="$emit('prevpage')">&larr;
                     Previous</button>
