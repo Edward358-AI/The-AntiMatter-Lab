@@ -320,9 +320,73 @@ const show4 = ref(false)
                     </i>
                 </div>
                 <br>
-                Mechanical energy is simply the combination of potential and kinetic energy. Now, this can be a difficult result to 
+                Mechanical energy is simply the combination of potential and kinetic energy. <span v-show="level==0">Now, this can be a difficult result to 
                 apply due to how abstract the concept of energy is, but having a concrete handle on the concepts of potential and kinetic 
-                energy can help significantly. 
+                energy can help significantly. Perhaps a diagram would not be out of place here.
+                <br><br>
+                    <figure>
+                        <img src="/src/assets/energy/Figure 54.png" width="500px" />
+                        <figcaption>Figure 2: A diagram with bars to show conservation of mechanical energy.</figcaption>
+                    </figure>
+                <br>
+                The deep blue bar represents the total amount of potential energy at each point where we analyze the system, while the 
+                purple bar represents the total kinetic energy of the system at those points. As you can see, the sum of the two stays 
+                constant. We can think of this as potential energy turning into kinetic energy as time progresses (but never being lost!).
+                <br><br>
+                For this particular scenario of a ball rolling down the ramp, we will assume the ball starts at rest at the 
+                top of the ramp. Initially, all of the energy in the system is potential because the ball has zero velocity. If we define 
+                the point of zero potential energy to be at the bottom of the ramp, then we end with zero potential energy. Thus, all of the initial 
+                potential energy is converted to kinetic energy through the process of the ball moving down the ramp.
+                <br><br>
+                You might have noticed that the ramp is not uniformly inclined; in other words, it's a curved ramp. This means that we can't use 
+                the result for an inclined plane we talked about earlier! However, the energy approach has no such weaknesses; we only care about 
+                the start and end positions' heights. This is a consequence of the conservative forces we talked about earlier!
+            </span>
+            <span v-show="level>0">
+                At each point throughout an object's motion, it has both potential and kinetic energy (either of which can be zero). However, the sum of the 
+                two energies at any given point is equal to the total mechanical energy, denoted $E_{mech}$ or just simply $E$. There is a popular method 
+                of visually displaying the amount of energy for an object, involving the use of different-length bars to denote the magnitude of 
+                energy at any point. 
+                <br><br>
+                <figure>
+                        <img src="/src/assets/energy/Figure 54.png" width="500px" />
+                        <figcaption>Figure 2: A diagram with bars to show conservation of mechanical energy.</figcaption>
+                    </figure>
+                <br>
+                This diagram illustrates what I was talking about. The deep blue bars represent potential energy of the object at each position, while 
+                the purple bars represent kinetic energy. The sum of the two energies at any point is constant, which illustrates the idea 
+                of conservation of energy. 
+                <br><br>
+                The specific scenario involves a ball rolling from rest down a ramp. You might be thinking to yourself how I determined the potential energy, since I said earlier it was relative. (If you 
+                weren't thinking this, pay close attention now!) Well, I defined the point of zero potential energy at the most convenient location: the bottom 
+                of the ramp. The ball will never go below the ramp, so it's a good spot and allows the potential energy term to go to zero when the ball reaches that position.
+                <br><br>
+                Now, a good way to think about what happens is to think of potential energy being 
+                converted to kinetic energy. As the ball rolls down the ramp, the gravitational force causes the ball to accelerate while also 
+                causing it to fall to a lower height; this is essentially trading potential energy into kinetic energy. Since we defined our zero 
+                at the bottom of the ramp, in this case all of the kinetic energy turns into potential energy.
+                <br><br>
+                Do you notice anything special about the ramp? That's right. In all of our previous examples, we've dealt with an inclined plane, which
+                is flat and has a constant incline angle $\theta$. This one, however, is curved. We cannot easily deal with a curved 
+                surface using force-analysis techniques because the direction of the normal force and the acceleration change constantly. However, energy 
+                conservation solves this issue, allowing us to just consider the final and initial heights because gravitational potential energy only cares
+                about the change in height. Conservative forces at it again!
+                <br><br>
+                We can actually deal with dissipative forces like friction. See, friction is relatively simple to deal with because 
+                it has a formula it invariably follows. The work done by friction always tends to take mechanical energy away from the system in the 
+                form of heat and sound, so we know that this work is equal to the change in mechanical energy. We call this lost energy 
+                $\Delta E_{mech}$.
+                <br><br>
+                Frictional forces only dissipate energy if they are kinetic, and kinetic friction doesn't vary like static friction does. This 
+                simplifies the formula significantly, allowing us to write:
+                <br><br>
+                $$\Delta E_{mech} = -F_f d \cos \theta $$
+                <br>
+                You might notice that this is the same formula we introduced in the work lesson! Indeed, the work done by friction 
+                is just equal to the energy loss. This value is negative in the formula, and the idea behind this is that 
+                work done by friction always tends to decrease the total mechanical energy of a system. Now, we should be ready to 
+                do some practice problems.
+            </span>
                 <div class="btn-contain-left">
                 <button class="btn btn-dark" style="animation: scale1 2s infinite;" @click="$emit('prevpage')">&larr;
                     Previous</button>
@@ -331,6 +395,11 @@ const show4 = ref(false)
                 <button class="btn btn-dark" style="animation: scale1 2s infinite;" @click="$emit('nextpage')">Next
                     &rarr;</button>
             </div>
+            </div>
+            <div v-show="page===3">
+                <div class="problem">
+                    
+                </div>
             </div>
             
         </p>
