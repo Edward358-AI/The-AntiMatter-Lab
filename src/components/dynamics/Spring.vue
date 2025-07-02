@@ -10,7 +10,7 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
         <p>
         <div v-show="page === 0">
             The spring has been around for quite a while. It's used in all sorts of things like scales, shock dampeners,
-            cars, etc. It's 8seful because it applies a larger force the more it's stretched or compressed, which gives it
+            cars, etc. It's useful because it applies a larger force the more it's stretched or compressed, which gives it
             flexibility as well as allowing it to store energy. Engineers would tell you more, but this is a physics lesson and we'll
             mostly go over the physics of springs rather than the applications.
             <br><br>
