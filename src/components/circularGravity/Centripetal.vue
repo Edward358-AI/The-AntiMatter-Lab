@@ -92,14 +92,23 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                     a slower speed to see this.) We also see that it inversely depends on the radius, meaning the required acceleration
                     is less if the circle travelled is larger. You can also easily prove this to yourself. 
                     <br><br>
+                    You might ask yourself, "What happens if the speed isn't uniform?" Well, the centripetal acceleration has 
+                    a counterpart, named the tangential acceleration, which is in a direction perpendicular to the centripetal acceleration and tangential 
+                    to the circle, in the same direction as or antiparallel to the velocity. This is a good concept to know, but doesn't 
+                    require as much introduction as the centripetal acceleration.
+                    <br><br>
+                    With that, we are ready for some very basic problems. Here is a very simple example to get us started. 
+                    <br><br>
                     <div class="problem">
-                    With that, we are ready for some very basic problems. Here is a very simple example to get us started. What is the required centripetal acceleration to move a ball 
+                    What is the required centripetal acceleration to move a ball 
                     at $5 ~\textrm{m/s}$ in a circle of diameter $4~\textrm{m}$?
                     <br><br>
                     This is just direct substitution. 
                     <br><br>
                     Answer:
-                    $a_c=\dfrac{v^2}{r}=\dfrac{25}{2}=12.5 \textrm{m/s}^2$
+                    $$a_c=\dfrac{v^2}{r}=\dfrac{25}{2}=\bbox[3px,
+                    border: 0.5px solid
+                    white]{12.5 \textrm{m/s}^2}$$
                     </div>
                     <br><br>
                     Now, we are ready for more complex scenarios.
@@ -277,6 +286,127 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                     a thing with wheels behaves on a slope), you might have some intuition for this.
             </span>
                 <div class="btn-contain-left">
+                <button class="btn btn-dark" style="animation: scale1 2s infinite;" @click="$emit('prevpage')">&larr;
+                    Previous</button>
+            </div>
+            <div class="btn-contain-right">
+                <button class="btn btn-dark" style="animation: scale1 2s infinite;" @click="$emit('nextpage')">Next
+                    &rarr;</button>
+            </div>
+        </div>
+        <div v-show="page===2">
+            We've dealt with horizontal circular motion and even the banked curve, but there is one more case: that of 
+            vertical circular motion. A simple example of this is when you swing a ball on a string in a vertical circle, or 
+            when a roller coaster goes through a loop-de-loop.
+            <br><br>
+            This kind of circular motion is <b>not</b> uniform, as the speed of the object changes throughout the motion.
+            The gravitational force is always directed downwards, but the centripetal force must always be towards the 
+            center of the circle. This means that while you travel upwards, your speed will decreaase due to the gravitational force, and 
+            when you travel downwards, your speed will increase due to the gravitational force.
+            <br><br>
+            Most of the time, only a select few points in the motion are considered, such as the top and bottom of the circle.
+            The top of the circle is the most interesting point, as it is the point where the ball is moving the slowest and thus 
+            the centripetal force required is the least. The ball, however, must still be moving with enough velocity to not fall 
+            out of the vertical circle. We are going to analyze this result, but first a diagram:
+            <br><br>
+            <figure>
+                <img src="/src/assets/dynamics/verticalcircle.png" width = "500px">
+                <figcaption>Figure 4: A vertical circle, with the points of interest labelled.</figcaption>
+            </figure>
+            <br>
+            <span v-show="level>0">
+                We are going to analyze every point labelled, but the top and bottom points are the most important. We'll 
+                first start with the bottom point, labelled A. This is the simplest point to analyze. We'll say the circle has a 
+                radius of $R$ and the object a mass $m$.
+                <br><br>
+                The object must enter the circle with some velocity $v_0$ at the bottom point. At this point, only the gravitational 
+                and normal forces are acting on the object. The centripetal force must be upwards, so the normal force must be 
+                greater than the gravitational force. Their difference must equal the centripetal force.
+                <br><br>
+                $$F_n - mg = m\dfrac{ {v_0}^2}{R}$$
+                <br>
+                This means that the normal force is:
+                <br><br>
+                $$F_n = mg + m\dfrac{ {v_0}^2}{R}$$
+                <br>
+                This is the only piece of information we can analyze at this point. While it is possible to find the minimum 
+                possible velocity to successfully complete the circle, that approach requires the concept of energy.
+                <br><br>
+                Now, we will analyze the top point, labelled C. This is the most interesting point
+                since it is the point where the object is moving the slowest and is the critical point 
+                for the object to not fall out of the circle. If it doesn't fall out here, it won't fall out anywhere else.
+                <br><br>
+                At this point, the gravitational force can contribute to the centripetal force since it's in the correct direction. 
+                The normal force may also contribute, but <i>it is not required to!</i> At velocities above the critical velocity, there 
+                will be some normal force, but at the critical velocity the object is about to fall out of the circle. Therefore, 
+                we can conclude that the normal force will be zero at the critical velocity.
+                <br><br>
+                This allows us to solve for the critical velocity $v_c$. When the normal force is zero, the centripetal force is entirely
+                provided by the gravitational force. We can write:
+                <br><br>
+                $$mg = m\dfrac{ {v_c}^2}{R}$$
+                $$ v_c = \sqrt{gR}$$
+                <br>
+                This is the minimum velocity that the object must have at the top of the circle in order not to fall out. 
+                <br><br>
+                The points B and D are pretty similar and not worth mathematically analyzing in depth. In these cases,
+                gravity is completely tangential and cannot provide any centripetal force, which means all centripetal force is 
+                provided by the normal force. The nornal force can vary pretty much infinitely in our theoretical cases (though in real life 
+                the material has stress limits), so we can just conclude that the normal force is equal to the required centripetal force at these points.
+                <br><br>
+                However, since gravity is directed tangentially to the circle at both points, it 
+                produces a tangential acceleration equal to $g$ downwards at both points. This has varying results 
+                depending on which stage of the motion the object is in. It acts to slow down the object at point B, while 
+                it speeds it up at point D. However, due to a neat quirk that will be explained in the energy unit, the speeds 
+                at these two points are equal.
+                <br><br>
+                I'll bet all this talk has your head going around in circles (ha ha, get it?). Now, let's slightly pivot 
+                our angle on these problems and introduce a new method of analyzing them. You will be reunited with a force 
+                that I said wasn't real at the beginning of this unit, and learn about mysterious forces that aren't 
+                actually real but somehow still exist (in calculations). If you're ready to dive into the world of 
+                fiction, go on to the next lesson!
+                
+            </span>
+            <span v-show="level==0">
+                We are only going to analyze the top and bottom points of the circle, as they are the most important. These 
+                are marked as A and C on the diagram, respectively. Let's start with the bottom point A since it's the simplest.
+                <br><br>
+                At this point, the object enters the circle with some velocity $v_0$. Only the gravitational and normal forces are acting on the object. 
+                The centripetal force must be upwards, and only the normal force is upwards while the gravitational is downwards. Therefore, 
+                the normal force has to be greater than the gravitational force in order for circular motion to occur. Since they are the only 
+                two forces, the difference of the two is the required centripetal force.
+                <br><br>
+                $$F_n - mg = m\dfrac{ {v_0}^2}{R}$$
+                <br>
+                This means that the normal force is:
+                <br><br>
+                $$F_n = mg + m\dfrac{ {v_0}^2}{R}$$
+                <br>
+                This is result that's pretty simple to derive, but don't worry if the math intimidates you. Knowing the things I said 
+                in the previous paragraph is enough to understand this result and the concepts behind it.
+                <br><br>
+                Now, we'll deal with the pesky top point C. This is actually the most interesting point, since it's 
+                a critical point for the object to not fall out of the circle. If it doesn't fall out here, it can't fall out anywhere else.
+                <br><br>
+                At this point, the gravitational force can contribute to the centripetal force since it's in the correct direction. 
+                The normal force may also contribute, but <i>it is not required to!</i> At velocities above the critical velocity, there 
+                will be some normal force, but at the critical velocity the object is about to fall out of the circle, meaning it's 
+                just barely losing contact with the surface of the loop. Therefore,
+                we can conclude that the normal force will be zero at the critical velocity.
+                <br><br>
+                This critical velocity can be derived quite easily by setting the normal force to zero. 
+                When the normal force is zero, the centripetal force is entirely provided by the gravitational force. We can write:
+                <br><br>
+                $$mg = m\dfrac{ {v_c}^2}{R}$$
+                $$ v_c = \sqrt{gR}$$
+                <br>
+                This result is important to know, as it is the minimum velocity that the object must have at the top of the circle in order not to fall out.
+                <br><br>
+                With that, we're done with circular motion! Actually, that's a lie. The next lesson is not entirely focused on circular motion, but it
+                is included because of how closely it ties in to circular motion. You'll see what I mean when you get there. If you're curious to know,
+                just hit the button and move on to the next lesson!
+            </span>
+            <div class="btn-contain-left">
                 <button class="btn btn-dark" style="animation: scale1 2s infinite;" @click="$emit('prevpage')">&larr;
                     Previous</button>
             </div>
