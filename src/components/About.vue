@@ -20,10 +20,13 @@
             is that this is built to cover three different levels of physics, which makes it suitable for all ages and
             all kinds of people.<br><br>
             <span><strong>Conceptual:</strong> Simple as possible, avoiding using complex mathematical calculations/representations when possible. Prior experience using basic algebra is recommended, but not required. If you're brave, you could jump right in! However, it could a little more difficult to understand, however, if you don't have that background. If you don't, don't worry! Simple go to this link: <a href="https://www.khanacademy.org/math/algebra-basics/alg-basics-algebraic-expressions" target="_blank">https://www.khanacademy.org/math/algebra-basics/alg-basics-algebraic-expressions</a> and finish the whole thing, and then come back and start learning!</span><br>
+            <br><br>
             <span><strong>Algebra-Based:</strong> Takes it up a notch by using algebra-level skills, which introduces a lot of new things like equations and graphs. Knowledge of Algebra 1 and Geometry is required, although we very strongly recommend studying Algebra 2 (either previously taken or concurrently learning) as it will make learning orders of magnitude easier.</span><br>
+            <br><br>
             <span><strong>Calculus-Based:</strong> The purest form of physics, which expands on algebra-based physics with calculus concepts. Concurrent learning or previously taken AP® Calculus AB (or of similar material) is required for sufficient understanding.</span><br><br>
+            <br><br>
             We also have interactive examples and not just wordy explanations, which overall can greatly improve
-        your learning experience. Enjoy!<br>Note: Sometimes when you switch the difficulty, the content on a page may not change.
+        your learning experience. We've also sprinkled in a bit of light humor when I (Eric) deemed it necessary. Enjoy! <br>Note: Sometimes when you switch the difficulty, the content on a page may not change.
         This is because some content may be overlapping (i.e. the content is the same regardless of what math level).</p><br><br>
 
         <h1>Technicalities</h1><br>
