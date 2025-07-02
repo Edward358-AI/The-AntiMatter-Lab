@@ -415,7 +415,15 @@ const show4 = ref(false)
                     </figure>
                     <br>
                     <span v-show="level>0">
-                        This problem is going to have a lot of parts, so be ready. The first thing I will ask for is the velocity of the cart at point
+                        This problem is going to have a lot of parts, so be ready. 
+                        <br><br>
+                        Before we start, we should define the system we are dealing with. We 
+                        can consider the car and the Earth to be the system even though only the car is really being analyzed. This is because the mass 
+                        of the Earth is so large that none of its energies (potential or kinetic) change significantly as the car moves, meaning we can include 
+                        it in our system without considering its energy. This is a common technique and is the only way to solve these problems, since 
+                        we can't deal with gravitational potential energy if we don't include the Earth in our system.
+                        <br><br>
+                        Now we're ready to actually begin calculations. The first thing I will ask for is the velocity of the cart at point
                         B, C, and E. Point D is kind of a special case that we'll get to next. Use the technique of the conservation of mechanical energy!
                         <br><br>
                         Ready? The car at point A has zero kinetic energy and some amount of potential energy. Since the lowest the car ever goes is to 
@@ -427,7 +435,7 @@ const show4 = ref(false)
                         $$ v_b = \sqrt{2gH} = \bbox[3px,
                     border: 0.5px solid
                     white]{10.8 ~\textrm{m/s}} $$
-                    <br><br>
+                    <br>
                     You might have noticed that the first line looks a bit new. It's really just a more practical way to write the conservation 
                     of mechanical energy, however: we have terms representing initial and final potential and kinetic energies.
                     <br><br>
@@ -626,7 +634,7 @@ const show4 = ref(false)
                     formula takes a similar form, but is more general.
                     <br><br>
                     $$ W_{net, ext} = \Delta E_{mech} = E_{mech,f} - E_{mech,i} $$
-                    <br><br>
+                    <br>
                     We only consider the <b>net external work</b> done on a system to find the change in mechanical energy.
                     This brings us back to the idea of internal versus external forces. While internal forces can still 
                     dissipate energy within a system, they must be nonconservative forces to do so. Conservative interaction between a 
@@ -636,7 +644,33 @@ const show4 = ref(false)
                     Regardless, if the net external force on a system does work, then the mechanical energy of the system will change.
                     It doesn't matter if this net external force is conservative or nonconservative, as long as it does work on the system.
                     <br><br>
+                    If you've been paying attention, you might have noticed that this is very similar to the formula we used earlier 
+                    to calculate the change in kinetic energy. Indeed, this is just a more general form of the work-energy theorem, replacing 
+                    kinetic energy with mechanical energy to allow it to be applied more generally.
+                    <br><br>
                 </span>
+                <span v-show="level==0">
+                    Recall our old friend, the work-energy theorem. I introduced it by stating that the work done on a system 
+                    is equal to the change in kinetic energy of the system. This is a very specific case of a more general 
+                    formula that we can use to find the change in mechanical energy of a system.
+                    <br><br>
+                    $$ W_{net, ext} = \Delta E_{mech} = E_{mech,f} - E_{mech,i} $$
+                    <br>
+                    You might notice that this formula is just the work-energy theorem generalized to mechanical energy. Indeed, 
+                    that is exactly what it is. The net external force will change the mechanical energy of a system by doing 
+                    a net work on it. It doesn't matter if this net external force is conservative or nonconservative, as long as it does work on the system.
+                    <br><br>
+                    Dissipative forces can also change the energy of a system even if they are internal, but these are always 
+                    nonconservative in nature. If a conservative force is an internal force, it will not act to change the 
+                    total mechanical energy of the system.
+                    <br><br>
+                </span>
+                That's all there is to energy and energy conservation! We can use this technique to solve many 
+                problems that we previously couldn't, saving ourselves a good amount of time and effort along the 
+                way as well. Next, we're going to sort of pivot to a topic that might seem unrelated, but is actually
+                tied closely into the idea of potential energy. Equilibrium is a concept that has been discussed before, but 
+                we will expand significantly on it in the next lesson.
+
                 <div class="btn-contain-left">
                 <button class="btn btn-dark" style="animation: scale1 2s infinite;" @click="$emit('prevpage')">&larr;
                     Previous</button>
