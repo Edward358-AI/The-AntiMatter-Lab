@@ -491,7 +491,114 @@ const show4 = ref(false)
                     <br><br>
                     That spring at point E looks like it could use some attention. This leads into the last part of 
                     our very lengthy problem. We want to find the maximum compression of the spring $x$ when the car hits it.
+                    <br><br>
+                    We can use conservation of mechanical energy again, but this time we need to consider that the
+                    spring has some potential energy as well. When it is fully compressed, the car will be momentarily stopped, which 
+                    means that it has zero kinetic energy. As an added bonus, point E is at the point of zero potential energy, allowing 
+                    us to drop yet another term! See how convenient being smart about your choice of the zero point can be? Thus, we can write:
+                    <br><br>
+                    $$ mgH = \dfrac12 kx^2 $$
+                    <br>
+                    $$ x = \sqrt{\dfrac{2mgH}{k}} = \bbox[3px,
+                    border: 0.5px solid
+                    white]{2.53 ~\textrm{m}} $$
+                    <br><br>
+                    After the spring compresses, it would push the car back up the track, converting the spring potential energy back into kinetic energy.
+                    However, in the real world this isn't exactly desirable. In any case, we're not really concerned with all of this 
+                    practical application stuff, just the physics behind it.
+                    <br><br>
+                    Phew! That was a long problem, but we got through it. We used conservation of mechanical energy to find the velocities at
+                    points B, C, and E, the maximum radius of the loop at point D, and the maximum compression of the spring at point E. Even saying that 
+                    now makes me want to take a nap. But what happens if we add friction to the problem?
+                    <br><br>
+                    Obviously, we can't solve this exactly for many reasons. First off, the track is curved, so the frictional 
+                    force will vary because the normal force will vary. Second, we don't know the exact length of the track, which 
+                    makes it impossible to calculate the energy dissipated by friction.
+                    <br><br>
+                    What we can know, however, is that the cart will slow down and possibly even stop due to energy dissipated by friction. Whereas 
+                    the velocities at point B and E were both $10.8 ~\textrm{m/s}$, they will now be less than that, and the velocity at point E will 
+                    be less (if the car even reaches point E) because more energy is dissipated by friction by the time the car reaches that point.
+                    <br><br>
+                    In all honestly, the car would probably not even reach the spring at point E because of the loop-de-loop. Recall that the car 
+                    needs some minimum velocity at the top of the loop to stay in it, which we calculated to be $v_d = \sqrt{gR}$.
+                    If friction was in play, the car would likely not have this critical velocity at the top of the loop. 
+                    This would be pretty bad for the roller coaster, as it would mean that the car would not be able to complete the loop and... 
+                    <br><br>
+                    Well, let's just 
+                    say gravity would do its thing.
+                    <br><br>
+                        <figure>
+                        <img src="/src/assets/energy/LawsuitMachine.png" width="1000px" />
+                        <figcaption>Figure 4: The disastrous results of failing to account for friction in a real ride. The coaster has been aptly renamed.</figcaption>
 
+                        </figure>
+                    </span>
+                    <span v-show="level==0">
+                        We'll deal with this problem in a conceptual way. The car starts at point A with zero velocity and is gently pushed off the starting
+                        platform, which we interpret to mean that it gains no velocity or negligible velocity when starting out. Thus, the total 
+                        mechanical energy at point A is just the potential energy, which is $mgH$.
+                        <br><br>
+                        But hold on! Gravitational potential energy is relative, so we need to define a point of zero potential energy. A convenient
+                        point is at the bottom of the ramp, which is labelled point B. This means that the potential energy at point B (and point E) 
+                        is zero, which justifies our previous expression of the potential energy at point A as $mgH$.
+                        <br><br>
+                        At points B and E, the velocity should be the same, since they are at the same height. In fact, the velocity is the same 
+                        at both points and equal to $v_b = v_e = \sqrt{2gH}$. This result is a consequence of the conservation of mechanical energy.
+                        If you want to see the full derivation, you can check out the algebra-based or calculus-based difficulties. 
+                        <br><br>
+                        Point C also exists, but is rather simple to deal with. It is at a height $h$ above point B, which means that the potential energy at point C is $mgh$.
+                        This allows us to again write energy conservation. You might be thinking that we have to use the expression for total mechanical energy 
+                        at point B, but in fact we can just use the total mechanical energy at point A again, since energy is conserved throughout the entire motion of the car.
+                        <br><br>
+                        Doing the calculations yields us a result of $v_c = \sqrt{2g(H-h)}$.
+                        <br><br>
+                        Now, the next point of interest is point D. This point is at the top of a loop-de-loop, which means that the car is undergoing circular motion.
+                        This means that the car must have some centripetal acceleration, which is provided by the gravitational force and the normal force. 
+                        We are going to look for the maximum radius of the loop $R$ such that the car does not fall out of the loop.
+                        <br><br>
+                        Recall our circular motion lesson back in the last unit, where we dealt with a vertical circle. The same results we got there apply here.
+                        Since we are analyzing the critical condition where the car is just barely able to stay in the loop, we can assume that the normal force is zero. 
+                        This means that the gravitational force must be the only force providing the centripetal acceleration.
+                        <br><br>
+                        This allows us to write:
+                        $$ mg = m\dfrac{ {v_d}^2}{R} $$
+                        <br>
+                        This yields the result (which should look somewhat familiar!):
+                        <br><br>
+                        $$ R = \dfrac{ {v_d}^2}{g} $$
+                        <br>
+                        $$ v_d = \sqrt{gR} $$
+                        <br>
+                        These two results are equivalent, just in different forms. Now, we know the potential energy at point D is $mg(2R)$, since it is at a height of $2R$ above the bottom of the ramp.
+                        This allows us to use conservation of mechanical energy to find the value of R, which we find to be $R = \dfrac{2H}{5}$.
+                        <br><br>
+                        Now, think about what happens to the car at point E, where a spring is located. The spring has a spring constant $k$, but we're 
+                        not concerned with numbers in this part. This is a conceptual question for a conceptual difficulty. What happens to the car's 
+                        energy at point E?
+                        <br><br>
+                        The car will have some kinetic energy as it reaches point E, which we've shown to be true before. However, 
+                        at point E there is a spring that will compress when the car hits it, eventually stopping the car momentarily. At this point,
+                        the car has zero kinetic energy, but the spring has some potential energy. This means that all of the car's kinetic energy is converted into
+                        spring potential energy!
+                        <br><br>
+                        Since spring potential energy is completely recoverable, this means that theoretically the spring could push 
+                        the car all the way back up the ramp to point A, converting the spring potential energy back into kinetic energy. I'm 
+                        not sure how practical or fun this is, since you'd be travelling backwards along the track.
+                        <br><br>
+                        That was a long problem, huh? We're almost done, but I can still pose another conceptual question for you to think 
+                        about. What happens if we add friction to the problem?
+                        <br><br>
+                        Well, the car will slow down and possibly even stop due to energy dissipated by friction. The further along the track it goes, 
+                        the more energy is dissipated by friction. The car would probably not even reach the spring at point E because of the loop-de-loop.
+                        Recall that the car needs some minimum velocity at the top of the loop to stay in it, which we found. Friction would likely dissipate 
+                        away enough energy that the car would not have this critical velocity at the top of the loop, causing the car (and passengers) to 
+                        fall out of the loop and crash to the ground.
+                        <br><br>
+                        <figure>
+                        <img src="/src/assets/energy/LawsuitMachine.png" width="1000px" />
+                        <figcaption>Figure 4: The disastrous results of failing to account for friction in
+                        a real ride. The coaster has been aptly renamed.</figcaption>
+                        </figure>
                     </span>
                 </div>
                 <div class="btn-contain-left">
@@ -501,9 +608,44 @@ const show4 = ref(false)
             <div class="btn-contain-right">
                 <button class="btn btn-dark" style="animation: scale1 2s infinite;" @click="$emit('nextpage')">Next
                     &rarr;</button>
+                </div>
             </div>
+            <div v-show="page===4">
+                We are so close to being done with this lesson! The last thing we need to talk about is how to
+                add or remove energy from a system by doing work on it. This allows us to deal with situations 
+                where mechanical energy isn't conserved, but we know the work done on the system. 
+                <br><br>
+                The work-energy theorem states that the work done on a system is equal to the change in
+                <b>mechanical energy</b> of the system. (Previously, I introduced this 
+                as just the change in kinetic energy!) This means that if we know the work done on a system, 
+                we can find its change in mechanical energy.
+                <br><br>
+                <span v-show="level>0">
+                    You might recall our formula for the change in mechanical energy caused by friction, which 
+                    stated that the net work done by friction is equal to the change in mechanical energy. Well, this 
+                    formula takes a similar form, but is more general.
+                    <br><br>
+                    $$ W_{net, ext} = \Delta E_{mech} = E_{mech,f} - E_{mech,i} $$
+                    <br><br>
+                    We only consider the <b>net external work</b> done on a system to find the change in mechanical energy.
+                    This brings us back to the idea of internal versus external forces. While internal forces can still 
+                    dissipate energy within a system, they must be nonconservative forces to do so. Conservative interaction between a 
+                    system, such as when the Earth exerted a force of gravity on our roller coaster car, do not change the 
+                    total mechanical energy of the system.
+                    <br><br>
+                    Regardless, if the net external force on a system does work, then the mechanical energy of the system will change.
+                    It doesn't matter if this net external force is conservative or nonconservative, as long as it does work on the system.
+                    <br><br>
+                </span>
+                <div class="btn-contain-left">
+                <button class="btn btn-dark" style="animation: scale1 2s infinite;" @click="$emit('prevpage')">&larr;
+                    Previous</button>
             </div>
-            
+            <div class="btn-contain-right">
+                <button class="btn btn-dark" style="animation: scale 2s infinite;" @click="$emit('nextlesson')">Next Lesson!
+                    &rarr;</button>
+                </div>
+            </div>
         </p>
     </div>
 
