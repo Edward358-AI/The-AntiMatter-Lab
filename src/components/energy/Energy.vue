@@ -398,8 +398,110 @@ const show4 = ref(false)
             </div>
             <div v-show="page===3">
                 <div class="problem">
-                    
+                    <span v-show="level>0">
+                        Consider the roller coaster shown below. The car (mass $m = 65 ~\textrm{kg}$) starts with zero velocity and is gently pushed off the starting 
+                        platform, which is $H = 6.0 ~\textrm{m}$ above point B. Points B and E are at the same height, while point C is located $h = 3.5 ~\textrm{m}$ above them. The spring is located 
+                        immediately after point E and has a spring constant $k = 1200 ~\textrm{N/m}$. All surafces are frictionless, and air resistance can be neglected.
+                    </span>
+                    <span v-show="level==0">
+                        Consider the roller coaster shown below. I'm going to throw a lot of information at you, so be ready! The car starts with zero velocity and is gently pushed off the starting 
+                        platform. Points B and E are at the same height. The spring is located 
+                        immediately after point E and has a spring constant. There is no friction or air resistance.
+                    </span>
+                    <br><br>
+                    <figure>
+                        <img src="/src/assets/energy/The Yoinkity Sploinkity.png" width="1000px" />
+                        <figcaption>Figure 3: Our newest roller coaster, The Yoinkity Sploinkity.</figcaption>
+                    </figure>
+                    <br>
+                    <span v-show="level>0">
+                        This problem is going to have a lot of parts, so be ready. The first thing I will ask for is the velocity of the cart at point
+                        B, C, and E. Point D is kind of a special case that we'll get to next. Use the technique of the conservation of mechanical energy!
+                        <br><br>
+                        Ready? The car at point A has zero kinetic energy and some amount of potential energy. Since the lowest the car ever goes is to 
+                        point B a height $H$ below the starting position, we can say points B and E have zero potential energy. This lets us solve for the velocity 
+                        at point B $v_b$ now:
+                        <br><br>
+                        $$ U_i + K_i = U_f + K_f $$
+                        $$ mgH = \dfrac12 m{v_b}^2 $$
+                        $$ v_b = \sqrt{2gH} = \bbox[3px,
+                    border: 0.5px solid
+                    white]{10.8 ~\textrm{m/s}} $$
+                    <br><br>
+                    You might have noticed that the first line looks a bit new. It's really just a more practical way to write the conservation 
+                    of mechanical energy, however: we have terms representing initial and final potential and kinetic energies.
+                    <br><br>
+                    Next, we can do the same approach for point C, which is $h$ above point B. We compare this with the initial state at point A again. We can do this 
+                    because energy is conserved throughout the entire motion of the car!
+                    <br><br>
+                    $$ mgH = \dfrac12 m{v_c}^2 + mgh $$
+                    $$ v_c = \sqrt{2g (H-h)} = \bbox[3px,
+                    border: 0.5px solid
+                    white]{7.00 ~\textrm{m/s}}$$
+                    <br>
+                    We could move on to do the same calculations for point E, but we can recognize something that will save us this work. See, points B and 
+                    E are at the same height, and potential energy only depends on the height and not the path of an object. This means that the 
+                    potential energy at point E is zero just like in point B, allowing us to conclude that the velocity at point E $v_e$ must 
+                    be equal to $v_b$. 
+                    <br><br>
+                    $$ v_e = v_b = \bbox[3px,
+                    border: 0.5px solid
+                    white]{10.8 ~\textrm{m/s}} $$
+                    <br>
+                    First part of the question down! Next, we're going to deal with the circular loop-de-loop at point D. Let's find the 
+                    maximum possible radius of the loop $R$ such that the car doesn't fall out of the loop.
+                    <br><br>
+                    Since the car is going in a circle, it's not as simple as just using conservation of energy. We need to
+                    consider that the car is undergoing circular motion, which means that it must have some centripetal acceleration.
+                    The two forces that could supply this at the top of the loop are the normal force and gravitational force. The normal 
+                    force can vary, but gravity is constant. 
+                    <br><br>
+                    You want to recall from our centripetal force/acceleration lesson that at the critical velocity where the 
+                    car is just barely able to stay in the loop, the normal force is zero. This means that the gravitational force must be
+                    the only force providing the centripetal acceleration. This means that we can write:
+                    <br><br>
+                    $$ mg = \dfrac{m{v_d}^2}{R} $$
+                    <br>
+                    This yields the result (which should look somewhat familiar!):
+                    <br><br>
+                    $$ R = \dfrac{ {v_d}^2}{g} $$
+                    <br>
+                    We should also write this in another form:
+                    <br><br>
+                    $$ v_d = \sqrt{gR} $$
+                    <br>
+                    Now, we need to find the velocity at point D $v_d$. We can use the previously shown method that 
+                    we used for points B, C, and E, being conservation of mechanical energy. Point D is at the top of the loop, 
+                    which is a height $2R$ above "ground level" (zero potential energy). Thus, we can write:
+                    <br><br>
+                    $$ mgH = \dfrac12 m{v_d}^2 + mg(2R) $$
+                    <br>
+                    We next want to substitute the expression we found for $R$ into this equation, which gives us:
+                    <br><br>
+                    $$ mgH = \dfrac12 m (gR) + 2mgR) $$
+                    <br>
+                    $$ H = \dfrac{5}{2} R $$
+                    <br>
+                    $$ R = \dfrac{2H}{5} = \bbox[3px,
+                    border: 0.5px solid
+                    white]{2.4 ~\textrm{m}} $$
+                    <br>
+                    We just found the maximum radius of the loop! If the radius is any larger, the car will not be able to stay in the loop.
+                    And we would get a lot of lawsuits if that happened.
+                    <br><br>
+                    That spring at point E looks like it could use some attention. This leads into the last part of 
+                    our very lengthy problem. We want to find the maximum compression of the spring $x$ when the car hits it.
+
+                    </span>
                 </div>
+                <div class="btn-contain-left">
+                <button class="btn btn-dark" style="animation: scale1 2s infinite;" @click="$emit('prevpage')">&larr;
+                    Previous</button>
+            </div>
+            <div class="btn-contain-right">
+                <button class="btn btn-dark" style="animation: scale1 2s infinite;" @click="$emit('nextpage')">Next
+                    &rarr;</button>
+            </div>
             </div>
             
         </p>
