@@ -304,7 +304,7 @@ onMounted(() => {
   <Energy v-show="user.current === lessons.energy[2]" :level="user.difficulty" :page="user.page.Energy"
     @nextpage="Window.scrollTo(0, 0); user.page.Energy++" @prevpage="Window.scrollTo(0, 0); user.page.Energy--"
     @nextlesson="Window.scrollTo(0, 0); user.current = lessons.energy[3]" />
-  <EqTypes v-show="user.current === lessons.energy[3]" :level="user.difficulty" :page="user.page.GravEnergy"
+  <EqTypes v-show="user.current === lessons.energy[3]" :level="user.difficulty" :page="user.page.EqTypes"
     @nextpage="Window.scrollTo(0, 0); user.page.EqTypes++" @prevpage="Window.scrollTo(0, 0); user.page.EqTypes--"
     @nextlesson="Window.scrollTo(0, 0); user.current = lessons.energy[4]" /> 
   <Power v-show="user.current === lessons.energy[4]" :level="user.difficulty" :page="user.page.Power"
