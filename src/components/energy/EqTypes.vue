@@ -135,7 +135,7 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                     <b>restoring forces</b>, since they tend to restore the system to the equilibrium point. This term will come up again later, so remember it.
                     <br><br>
                     A stable equilibrium is a point that has the lowest potential energy in a small region around it. This explains why the system will tend to return to this point, since 
-                    objects and systems tend to go towards points of lower potential energy. In math terms, this is a local minimum in the potential energy graph.
+                    objects and systems tend to go towards points of lower potential energy. In math terms, this is a local minimum in the potential energy versus position graph.
                 </span>
                 <div class="btn-contain-left">
                 <button class="btn btn-dark" style="animation: scale1 2s infinite;" @click="$emit('prevpage')">&larr;
@@ -150,7 +150,7 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                 <br>
             <figure><h4>Unstable Equilibrium</h4></figure>
                 <span v-show="level>0">
-                    The unstable equilibrium is, well, unstable. It's characterized by a local maximum rather than minimum in the potential energy graph. Even though 
+                    The <b>unstable equilibrium</b> is, well, unstable. It's characterized by a local maximum rather than minimum in the potential energy graph. Even though 
                     the shapes of the graphs are similar, the unstable equilibrium is literally the antithesis of the stable equilibrium. If we displace the system from this point, 
                     it will not return to the equilibrium point. Actually, even that's putting it lightly.
                     <br><br>
@@ -167,7 +167,7 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                     as interesting as a restoring force.
                     <br><br>
                     In certain cases, the object's distance from the equilibrium point will increase exponentially. A simple case that causes this 
-                    is the anti-Hooke's law, which is a force that is directed in the same direction as the displacement from equilibrium that follows 
+                    is the anti-Hooke's law (not the official name), which is a force that is directed in the same direction as the displacement from equilibrium that follows 
                     Hooke's Law.
                     <br><br>
                     $$F = kx$$
@@ -194,7 +194,29 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                     We typically interchange equilibrium and stability, but this case shows how different the two can be. While at the unstable equilibrium forces are technically balanced, any disturbance will prompt the system to move away from the equilibrium point in 
                     a very unstable manner. The term "unstable equilibrium" is therefore not an oxymoron (at least in physics), but rather something that describes everyday scenarios.
                     Thus, equilibrium and stability are not the same thing in physics!
-
+                </span>
+                <span v-show="level==0">
+                    What's the opposite of stability? Instability! The <b>unstable equilibrium</b> is in many ways the 
+                    opposite of the stable equilibrium, exhibiting the opposite behavior. The object will "fall" away 
+                    from equilibrium rather than tending to return to it. A good example of this scenario is the ball on 
+                    the very top of a hill.
+                    <br><br>
+                    <figure>
+                    <img src="/src/assets/energy/Figure 57.png" width="500px">
+                    <figcaption>
+                        Figure 3: A typical unstable equilibrium. The ball is at the top of a hill and will roll down the hill if displaced.
+                    </figcaption>
+                    </figure>
+                    <br>
+                    Because the ball is at a very high point relative to everything around it, it has a lot 
+                    of potential energy. This is called a local maximum in the potential energy graph. We said before that systems sort of dislike having potential energy, trying 
+                    to get themselves into the lowest possible potential energy state. This is why the ball will roll away from the 
+                    equilibrium at the top of the mountain if disturbed: it will seek a position of lower potential energy elsewhere. 
+                    <br><br>
+                    This is why this kind of equilibrium is <b>unstable</b>: because the object or system doesn't like to stay at such a point. 
+                    Most unstable equilibria decay rapidly, since any small external disturbance can cause the fragile state of equilibrium to 
+                    collapse. Note that equilibrium and stability are not the same thing in physics, even though we sometimes interchange them. 
+                    It's not true that a system in equilibrium has to be stable, and we've just shown why!
                 </span>
                 <div class="btn-contain-left">
                 <button class="btn btn-dark" style="animation: scale1 2s infinite;" @click="$emit('prevpage')">&larr;
@@ -202,6 +224,94 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
             </div>
             <div class="btn-contain-right">
                 <button class="btn btn-dark" style="animation: scale1 2s infinite;" @click="$emit('nextpage')">Next
+                    &rarr;</button>
+            </div>
+            </div>
+            <div v-show="page===3">
+                <br>
+            <figure><h4>Neutral Equilibrium</h4></figure>
+            <span v-show="level>0">
+                This is kind of a weird one. You might think that stable and unstable cover all the types of equilibriums since 
+                they're opposites of each other, but there is a third, more dull kind of equilibrium. This case pretty much covers 
+                all equilibria that are not stable or unstable. <span v-show="level==2">Technically, this is an inflection 
+                    point ($\frac{d^2U}{dx^2}=0$) where concavity changes, but I've found that this definition is a bit misleading.
+                </span>
+                In a <b>neutral equilibrium</b>, the system will remain in its new position if disturbed. Let me explain what I mean.
+                <figure>
+                    <img src="/src/assets/energy/Figure 58.png" width="500px">
+                    <figcaption>
+                        Figure 4: A typical neutral equilibrium. The ball will still be in equilibrium if displaced.
+                    </figcaption>
+                </figure>
+                <br>
+                The system will move to a new equilibrium if displaced slightly. It might go back to being at rest, or it could continue on at constant 
+                velocity if there are no dissipative forces. For the case of the ball on the table, small displacements will cause it to move around on 
+                the table. But, the ball will be at equilibrium at any point on the table, so it will neither accelerate away from nor return to 
+                its original position. See what I meant when I said this covers any cases that unstable and stable equilibrium do not?
+                <br><br>
+                This kind of equilibrium is characterized by a flat section in the potential energy versus position graph. In the flat section, 
+                potential energy doesn't change with position, displacing the object will still result in zero net force being exerted on it. 
+                Additionally, there is no tendency for the object to move, as all points around it are at the same potential energy.
+                <br><br>
+                <span v-show="level==2">While this can be defined as an inflection point, at inflection points 
+                    the concavity is simply changing, which does not automatically produce a neutral equilibrium. Think of the arbitrarily defined function 
+                    $U(x) = x^3$, which has an inflection point at $x=0$. If we displace an object at this point to the right, it will eventually end up 
+                    sliding to the left to negative infinity; the same applies if we displace it to the left. This is not really a neutral equilibrium then!
+                    <br><br>
+                    Moreover, we typically don't think of flat sections as inflection points, but this is what 
+                    a neutral equilibrium is typically characterized by. Therefore, do not rely on the calculus definition too closely and 
+                    opt for analyzing the scenario instead.
+                    <br><br>
+                </span>
+                While this kind of equilibrium is quite common (think of books on a table, boxes placed on the ground, etc.), it is 
+                not interesting in the slightest. After all, nothing happens (more precisely, $a=0$) after you displace the object, so 
+                the scenario is easy to analyze. It is much more interesting to analyze whether systems are in stable or unstable equilibrium.
+
+            </span>
+            <span v-show="level==0">
+                The <b>neutral equilibrium</b> is <b>NOT</b> a middle point between stable and unstable equilibriums, but something 
+                quite different. We can think of it as a ball sitting on a table. If we move it slightly, it will neither roll away from nor 
+                return to its original position. Instead, it stays in its new position.
+                <br><br>
+                <figure>
+                    <img src="/src/assets/energy/Figure 58.png" width="500px">
+                    <figcaption>
+                        Figure 4: A typical neutral equilibrium. The ball will still be in equilibrium if displaced.
+                    </figcaption>
+                </figure>
+                <br>
+                The ball will have the same potential energy at all points close to it, which means that it has no tendency to move or to return. 
+                To it, all the position you could displace it to are the same (in terms of energy). This kind of equilibrium is actually 
+                pretty common if you think about it. A book placed on its side on a table is in neutral equilibrium. 
+                <br><br>
+                If a stable equilibrium is a ball wishing to stay and unstable is a ball wishing to leave, then a neutral equilibrium is a 
+                ball that is completely indifferent to its predicament. This kind of equilibrium is characterized by flat, horizontal sections in the 
+                potential energy graph.
+            </span>
+                <div class="btn-contain-left">
+                <button class="btn btn-dark" style="animation: scale1 2s infinite;" @click="$emit('prevpage')">&larr;
+                    Previous</button>
+            </div>
+            <div class="btn-contain-right">
+                <button class="btn btn-dark" style="animation: scale1 2s infinite;" @click="$emit('nextpage')">Next
+                    &rarr;</button>
+            </div>
+            </div>
+            <div v-show="page===4">
+                <span v-show="level<2">
+                    While it is very easy to qualitatively tell what kind of equilibrium a system is in, mathematically 
+                    the exact analysis unfortunately requires calculus. <span v-show="level==1">It's unavoidable, so we will have to deal 
+                    with this issue by testing your knowledge with conceptual questions.</span> With that said, let's 
+                    move on to doing a conceptual practice problem where you tell me whether each scenario is a stable, unstable, or 
+                    neutral equilibrium.
+
+                </span>
+                <div class="btn-contain-left">
+                <button class="btn btn-dark" style="animation: scale1 2s infinite;" @click="$emit('prevpage')">&larr;
+                    Previous</button>
+            </div>
+            <div class="btn-contain-right">
+                <button class="btn btn-dark" style="animation: scale 2s infinite;" @click="$emit('nextlesson')">Next Lesson!
                     &rarr;</button>
             </div>
             </div>
