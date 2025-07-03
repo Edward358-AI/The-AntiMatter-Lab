@@ -459,7 +459,50 @@ const show4 = ref(false)
                     leads us to our calculation problem.
                     <br><br>
                     <div class="problem">
-
+                        Show that a block of mass $m$ attached to a vertical spring of spring constant $k$ hung from a ceiling is in stable equilibrium.
+                        <br><br>
+                        This might sound easy, but it's actually a little tricky! I'll give a hint. First off, we want to write a general form for the total potential energy
+                        in the system. This means that we have to set some point as our zero gravitational potential energy point. Before we do that, however, 
+                        we should find where this point should be set in order to minimize the amount of calculation we should do. 
+                        <br><br>
+                        Did you get it? There are many approaches, so I'll start with the one that's the easiest 
+                        to understand. For this we'll want to set the zero gravitational potential energy point at the point where the spring is not stretched. Next, we want 
+                        to find how far the spring would stretch at equilibrium, a quantity which we'll call $x_0$. This involves a bit of force analysis, but it's just setting the 
+                        gravitational force equal to the spring force.
+                        <br><br>
+                        $$ mg = kx_0 $$
+                        $$ x_0 = \frac{mg}{k} $$
+                        <br>
+                        Now, we can proceed to write the total potential energy of the system at this point, taking into consideration that the body
+                        sits at rest a distance $x_0$ <b>below</b> the point where the the spring is unstretched.
+                        <br><br>
+                        $$ U_0 = \dfrac12 k{x_0}^2 - mg x_0 $$ 
+                        <br>
+                        To verify that we've found the correct equilibrium, we can use the relation $F = -\frac{dU}{dx}$ on this to see if 
+                        $x_0$ is really a equilibrium.
+                        <br><br>
+                        $$ -\frac {dU}{dx} \big |_{x = x_0} = mg - k x_0 = 0$$
+                        <br>
+                        Now, we need to find out what kind of equilibrium this is. This means converting the potential energy in a more 
+                        general form in terms of just $x$, which can simply be done by replacing $x_0$ with $x$.
+                        <br><br>
+                        $$ U = \dfrac12 kx^2 - mgx $$
+                        <br>
+                        Differentiate this twice to get:
+                        <br><br>
+                        $$ \frac{d^2 U}{dx^2} = 2k > 0$$
+                        <br>
+                        This value is always positive since $k$ is a positive constant, indicating that the equilibrium at $x= x_0$ is, in fact, 
+                        a stable equilibrium. 
+                        <br><br>
+                        <div class = 'answer' style="width:fit-content">
+                        <strong>Solution:</strong> A mass hung from a vertical spring will be in a state of stable equilibrium at $x=x_0$. 
+                        
+                        </div>
+                        <br>
+                        An alternative approach is to define the total potential energy at $x=x_0$ to be zero, allowing us to essentially 
+                        convert this into a horizontal spring problem. If you could see this, you could've skipped a lot of the work 
+                        I showed and directly arrived at the answer, but this method is certainly not immediately obvious.
                     </div>
                 </span>
                 <br>
