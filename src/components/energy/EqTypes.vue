@@ -1,6 +1,12 @@
 <script setup>
+import{ref} from 'vue'
 defineProps(["level", "page"])
 defineEmits(["nextlesson", "nextpage", "prevpage"])
+const show = ref(false)
+const show1 = ref(false)
+const show2 = ref(false)
+const show3 = ref(false)
+const show4 = ref(false)
 </script>
 
 
@@ -304,8 +310,163 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                     with this issue by testing your knowledge with conceptual questions.</span> With that said, let's 
                     move on to doing a conceptual practice problem where you tell me whether each scenario is a stable, unstable, or 
                     neutral equilibrium.
-
+                    <br><br>
+                    <div class="problem">
+                        Classify each of the following scenarios as a stable, unstable, or neutral equilibrium. Give reasoning for your answers.
+                        <br><br>
+                        A spacecraft glides through outer space, very far away from any planets or stars. 
+                    <span>
+                    
+                    <div v-show="show" class = 'answer' style="width:fit-content">
+                        <strong>Answer:</strong> This is a neutral equilibrium, since the spacecraft's potential energy will not change if it is displaced due to it 
+                        being very far from any celestial bodies. In other words, it's not really affected by gravitational potential energy.
+                        <br>
+                    </div>
+                    
+                        <button class="btn btn-outline-primary" @click="show = !show">{{ show ? 'Hide' : 'Show' }} Answer
+                        </button>
+                    </span>
+                    <br><br>
+                    You stand a coin up on its edge. (Analyze the coin, not yourself!)
+                    <span>
+                    
+                    <div v-show="show1" class = 'answer' style="width:fit-content">
+                        <strong>Answer:</strong> This is an unstable equilibrium. The coin will easily fall over if disturbed, tending to "leave" this equilibrium.
+                        <br>
+                    </div>
+                    
+                        <button class="btn btn-outline-primary" @click="show1 = !show1">{{ show1 ? 'Hide' : 'Show' }} Answer
+                        </button>
+                    </span>
+                    <br><br>
+                    A smooth hemisphere is placed on a flat table, with the round face on the table.
+                    <span>
+                    <div v-show="show2" class = 'answer' style="width:fit-content">
+                        <strong>Answer:</strong> This is a stable equilibrium. If you slightly push down on the edge of the bowl, it will start rocking back and forth. This indicates
+                        that the bowl is attempting to return to equilibrium, as it would move in only one direction if it was leaving the equilibrium. It may even settle back down to its original state
+                        if there is friction.
+                        <br>
+                    </div>
+                    
+                        <button class="btn btn-outline-primary" @click="show2 = !show2">{{ show2 ? 'Hide' : 'Show' }} Answer
+                        </button>
+                    </span>
+                    <br><br>
+                    A cone tipped onto its side is placed on a flat surface.
+                    <span>
+                    <div v-show="show3" class = 'answer' style="width:fit-content">
+                        <strong>Answer:</strong> This is a neutral equilibrium. A cone on its side can be rolled around 
+                        and it will stay in its new position.
+                        <br>
+                    </div>
+                    
+                        <button class="btn btn-outline-primary" @click="show3 = !show3">{{ show3 ? 'Hide' : 'Show' }} Answer
+                        </button>
+                    </span>
+                    <br><br>
+                    A block is attached to a horizontal spring and pulled back slightly.
+                    <span>
+                    <div v-show="show4" class = 'answer' style="width:fit-content">
+                        <strong>Answer:</strong> This is a stable equilibrium. The always spring tends to pull the block towards
+                        equilibrium, even though it may not actually achieve equilibrium because the energy put into the system by pulling the block can't simply dissapear.
+                        <br>
+                    </div>
+                    
+                        <button class="btn btn-outline-primary" @click="show4 = !show4">{{ show4 ? 'Hide' : 'Show' }} Answer
+                        </button>
+                    </span>
+                    </div>
                 </span>
+                <span v-show="level==2">
+                    Calculus is key to calculating whether a particular equilibrium is stable, unstable, or neutral, though in most cases 
+                    qualitative analysis is good enough. We'll have two practice problems here: one to practice your conceptual understanding 
+                    of the topic, and one that requires calculus to get through. The conceptual questions are shared between all difficulties (because it would honestly 
+                    be a waste if I didn't give them to you), but the 
+                    calculation problem is just for you calculus students. (I bet you feel so special.) We'll start with the conceptual questions to get 
+                    your neurons firing.
+                    <br><br>
+                    <div class="problem">
+                        Classify each of the following scenarios as a stable, unstable, or neutral equilibrium. Give reasoning for your answers.
+                        <br><br>
+                        A spacecraft glides through outer space, very far away from any planets or stars. 
+                    <span>
+                    
+                    <div v-show="show" class = 'answer' style="width:fit-content">
+                        <strong>Answer:</strong> This is a neutral equilibrium, since the spacecraft's potential energy will not change if it is displaced due to it 
+                        being very far from any celestial bodies. In other words, it's not really affected by gravitational potential energy.
+                        <br>
+                    </div>
+                    
+                        <button class="btn btn-outline-primary" @click="show = !show">{{ show ? 'Hide' : 'Show' }} Answer
+                        </button>
+                    </span>
+                    <br><br>
+                    You stand a coin up on its edge. (Analyze the coin, not yourself!)
+                    <span>
+                    
+                    <div v-show="show1" class = 'answer' style="width:fit-content">
+                        <strong>Answer:</strong> This is an unstable equilibrium. The coin will easily fall over if disturbed, tending to "leave" this equilibrium.
+                        <br>
+                    </div>
+                    
+                        <button class="btn btn-outline-primary" @click="show1 = !show1">{{ show1 ? 'Hide' : 'Show' }} Answer
+                        </button>
+                    </span>
+                    <br><br>
+                    A smooth hemisphere is placed on a flat table, with the round face on the table.
+                    <span>
+                    <div v-show="show2" class = 'answer' style="width:fit-content">
+                        <strong>Answer:</strong> This is a stable equilibrium. If you slightly push down on the edge of the bowl, it will start rocking back and forth. This indicates
+                        that the bowl is attempting to return to equilibrium, as it would move in only one direction if it was leaving the equilibrium. It may even settle back down to its original state
+                        if there is friction.
+                        <br>
+                    </div>
+                    
+                        <button class="btn btn-outline-primary" @click="show2 = !show2">{{ show2 ? 'Hide' : 'Show' }} Answer
+                        </button>
+                    </span>
+                    <br><br>
+                    A cone tipped onto its side is placed on a flat surface.
+                    <span>
+                    <div v-show="show3" class = 'answer' style="width:fit-content">
+                        <strong>Answer:</strong> This is a neutral equilibrium. A cone on its side can be rolled around 
+                        and it will stay in its new position.
+                        <br>
+                    </div>
+                    
+                        <button class="btn btn-outline-primary" @click="show3 = !show3">{{ show3 ? 'Hide' : 'Show' }} Answer
+                        </button>
+                    </span>
+                    <br><br>
+                    A block is attached to a horizontal spring and pulled back slightly.
+                    <span>
+                    <div v-show="show4" class = 'answer' style="width:fit-content">
+                        <strong>Answer:</strong> This is a stable equilibrium. The always spring tends to pull the block towards
+                        equilibrium, even though it may not actually achieve equilibrium because the energy put into the system by pulling the block can't simply dissapear.
+                        <br>
+                    </div>
+                    
+                        <button class="btn btn-outline-primary" @click="show4 = !show4">{{ show4 ? 'Hide' : 'Show' }} Answer
+                        </button>
+                    </span>
+                    
+                    </div>
+                    <br>
+                    Hopefully, you have a good grasp on how to quickly analyze which type of equilibrium a scenario is. Most of the time
+                    mathematical analysis is not necessary, but to actually prove that a scenario is a particular type of 
+                    equilibrium it is necessary to use calculus to show that its potential energy satisfies the necessary conditions. This 
+                    leads us to our calculation problem.
+                    <br><br>
+                    <div class="problem">
+
+                    </div>
+                </span>
+                <br>
+                That's it for types of equilibrium! You might have gone into this thinking it should have been in the forces 
+                unit, but hopefully you now understand how much it has to do with potential energy. This unit isn't too long 
+                or content-heavy, but is important nevertheless. Knowing how to identify each type of equilibrium is an 
+                important skill to have in physics, and the topic is pretty interesting. Next, we're going to pivot 
+                back to a more familiar concept that most people have heard of: Power. If you're ready, let's move forward!
                 <div class="btn-contain-left">
                 <button class="btn btn-dark" style="animation: scale1 2s infinite;" @click="$emit('prevpage')">&larr;
                     Previous</button>
