@@ -243,6 +243,7 @@ const show4 = ref(false)
                     point ($\frac{d^2U}{dx^2}=0$) where concavity changes, but I've found that this definition is a bit misleading.
                 </span>
                 In a <b>neutral equilibrium</b>, the system will remain in its new position if disturbed. Let me explain what I mean.
+                <br><br>
                 <figure>
                     <img src="/src/assets/energy/Figure 58.png" width="500px">
                     <figcaption>
