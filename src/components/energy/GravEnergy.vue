@@ -311,19 +311,38 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                     This formula is very cluttered and difficult to understand. A concrete example of a system of three objects should help. 
                     For this system, the total gravitational potential energy can be written as:
                     <br><br>
-                    $$ U = - G \dfrac{m_1 m_2 }{ {r_{12} }^2 } - G \dfrac{m_2m_3}{ {r_{23} }^2} - G \dfrac{m_1m_3}{ {r_{13} }^2 } $$
+                    $$ U = - G \dfrac{m_1 m_2 }{ {r_{12} } } - G \dfrac{m_2m_3}{ {r_{23} } } - G \dfrac{m_1m_3}{ {r_{13} } } $$
                     <br>
                     The notation uses the two numbers of the two bodies in question as subscripts. For more bodies, you simply do the same thing 
                     as this, but for each <b>unique</b> pair of bodies. You don't want to double count, since the expression is the gravitational potential 
                     energy of the whole pair!
-
                 </span>
+                <span v-show="level==0">
+                    Note that we only have to deal with each unique pair once, since the formula for gravitational potential 
+                    energy accounts for the energy between <b>two</b> objects. Here's an example for what the gravitational potential 
+                    energy would look like if there were three objects.
+                    <br><br>
+                    $$ U = - G \dfrac{m_1 m_2 }{ {r_{12} } } - G \dfrac{m_2m_3}{ {r_{23} } } - G \dfrac{m_1m_3}{ {r_{13} } } $$
+                    <br>
+                    The notation with two subscripts denotes the separation between the two bodies mentioned in the subscripts. It's a 
+                    more general way of writing things. Overall, this concept isn't too hard, as you just add together individual potential 
+                    energies to find the total.
+                </span>
+                <br><br>
+                That was the last thing I wanted to talk about for this unit! Universal gravitational potential energy is a concept 
+                that many find confusing at first, but hopefully after that lesson you find that it makes a lot more sense now. Energy 
+                as a whole relies more on conceptual skills than mathematical ones, so if you get the concepts down the problems should be 
+                a piece of cake. 
+                <br><br>
+                Next, we're moving on to a mathematically heavy unit, though it also contains important concepts. Momentum is not a very 
+                difficult concept to cover, but it is important nonetheless because it, like energy, is a quanitity that is conserved 
+                in our universe. (It also describes car crashes and bombs.) Wondering what I'm talking about? Move on to find out!
             <div class="btn-contain-left">
                 <button class="btn btn-dark" style="animation: scale1 2s infinite;" @click="$emit('prevpage')">&larr;
                     Previous</button>
             </div>
             <div class="btn-contain-right">
-                <button class="btn btn-dark" style="animation: scale1 2s infinite;" @click="$emit('nextlesson')">Next Lesson!
+                <button class="btn btn-dark" style="animation: scale 2s infinite;" @click="$emit('nextlesson')">Next Unit!
                     &rarr;</button>
             </div>
             </div>
