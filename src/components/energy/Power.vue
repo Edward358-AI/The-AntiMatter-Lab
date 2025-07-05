@@ -152,8 +152,9 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                 <br>
                 This is a short lesson because there is not too much to cover on power. You'll likely see this concept pop up 
                 again in the future whenever we have discussions of systems with changing amounts of energy, but overall it's 
-                a really simple concept that just requires understanding and applying simple formulas. However, the next section can 
-                be admittedly quite difficult and lengthy, but you will definitely get through it. If you're ready to dive back into 
+                a really simple concept that just requires understanding and applying simple formulas. The next section also only 
+                contains one concept, but that's where the similarities end. It's a bit of an abstract concept, but with some 
+                effort you'll definitely understand it. If you're ready to dive back into 
                 gravitation, move on to the next lesson!
                 <div class="btn-contain-left">
                 <button class="btn btn-dark" style="animation: scale1 2s infinite;" @click="$emit('prevpage')">&larr;
