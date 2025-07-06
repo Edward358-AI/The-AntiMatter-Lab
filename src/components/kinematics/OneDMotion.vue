@@ -1,7 +1,10 @@
 <script setup>
-import {onMounted} from 'vue'
+import {onMounted, ref} from 'vue'
 defineProps(["level", "page"])
 defineEmits(["nextlesson", "nextpage", "prevpage"])
+
+const inputValue = ref('')
+
 function runConstAcc() {
 document.getElementById("constAcc").innerHTML = ""
 // module aliases
@@ -9,6 +12,8 @@ var Engine = Matter.Engine,
     Render = Matter.Render,
     Runner = Matter.Runner,
     Bodies = Matter.Bodies,
+    MouseConstraint = Matter.MouseConstraint,
+    Mouse = Matter.Mouse,
     Composite = Matter.Composite;
 
 // create an engine
@@ -30,33 +35,48 @@ var render = Render.create({
 Render.run(render);
 
 // create two boxes and a ground
-var boxA = Bodies.rectangle(350, 100, 40, 80,
+var boxA = Bodies.rectangle(350, 80, 40, 80,
     { render: {fillStyle: '#27ae60'} } // green
 );
-var boxB = Bodies.rectangle(200, 100, 80, 80, {
+var boxB = Bodies.rectangle(200, 80, 80, 80, {
     render: { fillStyle: '#3498db' } // blue
 });
-var boxC = Bodies.rectangle(500, 120, 80, 40, {
+var boxC = Bodies.rectangle(500, 100, 80, 40, {
     render: { fillStyle: '#ff4a4a' } // red
 });
-var boxD = Bodies.rectangle(650, 120, 40, 40, {
+var boxD = Bodies.rectangle(650, 100, 40, 40, {
     render: { fillStyle: '#eb53ff' } // pink
 });
-var boxE = Bodies.rectangle(800, 60, 80, 160, {
+var boxE = Bodies.rectangle(800, 40, 80, 160, {
     render: { fillStyle: '#f3a53c' } // orange
 });
 var ground = Bodies.rectangle(500, 400, 1000, 60, {
     isStatic: true,
     render: { fillStyle: '#929292' }
 });
-var wall1 = Bodies.rectangle(0, 200, 60, 500, {isStatic : true, 
-render: { fillStyle: '#929292' } });
-var wall2 = Bodies.rectangle(1000, 200, 60, 500, {isStatic : true, 
-render: { fillStyle: '#929292' } } );
+var wall1 = Bodies.rectangle(0, 200, 60, 500, {
+    isStatic: true,
+    render: { fillStyle: '#929292' }
+});
+var wall2 = Bodies.rectangle(1000, 200, 60, 500, {
+    isStatic: true,
+    render: { fillStyle: '#929292' }
+});
+// Ensure inputValue is a number between 0 and 1
+const restitution = parseFloat(inputValue.value)/10;
+
+// Set coefficient of restitution for all bodies
+boxA.restitution = restitution;
+boxB.restitution = restitution;
+boxC.restitution = restitution;
+boxD.restitution = restitution;
+boxE.restitution = restitution;
+ground.restitution = restitution;
+wall1.restitution = restitution;
+wall2.restitution = restitution;
 
 // add all of the bodies to the world
 Composite.add(engine.world, [boxA, boxB, boxC, boxD, boxE, ground, wall1, wall2]);
-
 
 
 // create runner
@@ -92,11 +112,25 @@ onMounted(() => {
                 <figure>
                 <div id = "constAcc"></div>
                 <button class="btn btn-outline-primary" @click="runConstAcc()">Reset</button>
-                <br>
+                <br><br>
+                    Input how "bouncy" you want the blocks to be. Values over 10 may result in some odd and unrealistic behaviors.
+                    <br>
+                <div class="d-flex justify-content-center">
+                    <div class="input-group mb-3" style="max-width: 50px; background-color: #ffffff; border-radius: 4px;">
+                        <input
+                        v-model="inputValue"
+                        type="number"
+                        class="form-control"
+                        placeholder=" "
+                        >
+                
+                    </div>
+                </div>
                 </figure>
                 <br>
                 Notice how the objects that are falling hit the ground at the same time, even though their masses and shapes are 
-                different? This is generally true: the gravitational acceleration of an object <b>is independent of its mass</b>. The 
+                different? They may bounce around differently after hitting the ground, but the time they first hit the ground 
+                is the same for all of the objects! This is generally true: the gravitational acceleration of an object <b>is independent of its mass</b>. The 
                 reason we see some things fall slower than others is because of air resistance. Now, with that little observation 
                 out of the way, we may begin.
                 <br><br>
