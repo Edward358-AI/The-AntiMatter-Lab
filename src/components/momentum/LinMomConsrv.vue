@@ -120,7 +120,7 @@ function newtonsCradle(xx, yy, number, size, length) {
         Input number of balls you want to move (hit reset after inputting). Invalid values will default to 1.
         <br><br>
         <div class="d-flex justify-content-center">
-            <div class="input-group mb-3" style="max-width: 50px;">
+            <div class="input-group mb-3" style="max-width: 50px; background-color: #ffffff; border-radius: 4px;">
                 <input
                     v-model="inputValue"
                     type="number"

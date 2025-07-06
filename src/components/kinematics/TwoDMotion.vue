@@ -1,6 +1,93 @@
 <script setup>
+import Matter, { Body } from 'matter-js';
+import {onMounted, ref} from 'vue'
 defineProps(["level", "page"])
 defineEmits(["nextlesson", "nextpage", "prevpage"])
+
+const inputAngle = ref('')
+const initVelocity = ref('')
+
+function degreesToRadians(degrees) {
+  return degrees * (Math.PI / 180);
+}
+
+
+function runProjMotion() {
+    document.getElementById("projMotion").innerHTML = ""
+// module aliases
+var Engine = Matter.Engine,
+    Render = Matter.Render,
+    Runner = Matter.Runner,
+    Bodies = Matter.Bodies,
+    Composite = Matter.Composite;
+
+// create an engine
+var engine = Engine.create();
+
+    // create a renderer
+var render = Render.create({
+    element: document.getElementById('projMotion'),
+    engine: engine,
+    options: {
+        width: 1000,
+        height: 600,
+        wireframes: false,
+        background: "#000"
+    }
+});
+// run the renderer
+Render.run(render);
+
+var ground = Bodies.rectangle(500,600,1000,50, 
+    {isStatic: true, 
+    render: { fillStyle: '#929292' },
+    restitution: 1
+})
+var ball = Bodies.circle(100, 570, 30, { 
+    render: { fillStyle: '#18e9ff' },
+    mass: 10,
+    restitution:1
+})
+var wall1 = Bodies.rectangle(0, 200, 60, 1000, {
+    isStatic: true,
+    render: { fillStyle: '#929292' },
+    restitution: 1
+})
+var wall2 = Bodies.rectangle(1000, 200, 60, 1000, {
+    isStatic: true,
+    render: { fillStyle: '#929292' },
+    restitution: 1
+});
+
+var angle = parseFloat(inputAngle.value);
+
+let v_x = parseFloat(initVelocity.value)/20 * Math.cos(degreesToRadians(angle));
+if (isNaN(v_x)) {
+    v_x = 0.5;
+}
+let v_y = parseFloat(initVelocity.value)/20 * Math.sin(degreesToRadians(angle));
+if (isNaN(v_y)) {
+    v_y = 0.5
+}
+
+setTimeout(() => {
+    Body.applyForce(ball, ball.position, {x: v_x, y: -v_y});
+}, 500); // 500ms delay before applying the force
+
+
+Composite.add(engine.world, [ground, ball, wall1, wall2]);
+
+// create runner
+var runner = Runner.create();
+
+// run the engine
+Runner.run(runner, engine);
+
+}
+
+onMounted(() => {
+    runProjMotion()
+})
 </script>
 
 
@@ -18,8 +105,8 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                     projectile at
                     with an intitial velocity, at a certain angle, and it will yield this:
                     <figure>
-                        <img src="/src/assets/kinematics/Figure 12.png" height="170px" />
-                        <figcaption>Figure 1: Different modes (types) of projectile motion</figcaption>
+                        <img src="/src/assets/kinematics/Figure 12.png" height="200px" />
+                        <figcaption>Figure 1: Different modes (examples) of projectile motion</figcaption>
                     </figure>
                     Ah yes, the beautiful, projectile motion! You may have noticed that all objects you throw will
                     follow this
@@ -27,26 +114,8 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                     really
                     need to worry about. We will use this term from time to time to refer to the nature of the
                     trajectory, or
-                    flight path the object follows.<br>You may have noticed that in the drawing, there are two
-                    projectiles that
-                    are launched at completely different angles yield the same range. The reason for this is more
-                    mathemathically intense than we can handle, but conceptually, all you need to know is that if you
-                    shoot an
-                    object at an angle, say $10$ degrees, then if you shoot it at $90$ minus that angle (in degrees), it
-                    will also land
-                    at the exact same range. So for $10\degree$, the angle $80\degree$ will yield the same range. Now,
-                    just by doing basic
-                    arithmetic, we can see that $45\degree$ does not actually have
-                    another counterpart angle! What does this mean? Launching it at $45\degree$ will give you the
-                    maximum
-                    range a
-                    projectile can go (still neglecting air resistance, in real life, this is more like $22\degree$,
-                    since air
-                    resistance exists). However, this actually only holds for when your change in vertical displacement
-                    is zero. So if I threw a rock off a cliff, the maximum angle of range without air resistance is NOT
-                    $45\degree$. If you are curious to know, it's somewhere around $35.3\degree$. But that's going off
-                    topic. There are
-                    other important concepts to know and realize about projectile motion that await!
+                    flight path the object follows. Now, instead of a static picture, we'll put an interactive demo to show 
+                    how this kind of motion plays out in real time.<br><br>
                 </span>
                 <span v-show="level > 0">
                     This is what many people consider to be the most useful application of kinematics, and many
@@ -57,7 +126,7 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                     $v_0$, at a
                     certain angle $\theta$, and it will yield this:
                     <figure>
-                        <img src="/src/assets/kinematics/Figure 12.png" height="170px" />
+                        <img src="/src/assets/kinematics/Figure 12.png" height="200px" />
                         <figcaption>Figure 1: Different modes of projectile motion</figcaption>
                     </figure>
                     Most likely, you have seen the parabolic trajectory that the object follows. This has a very simple
@@ -73,8 +142,60 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                     maximum range is the same time it takes for the object's vertical component to travel up and down.
                     They are linked by a single quantity, time, but otherwise you can treat them as separate in their
                     own respect.<br><br>IMPORTANT! This concept (above) is the key to working in kinematics in 2
-                    dimensions!<br>
-                    <br>Then, we recognize that velocity is a vector that can be split into its components,
+                    dimensions!<br><br>
+                    Here's a demo so you can get a feel for projectile motion:
+                    <br><br>
+                </span>
+                    <figure>
+                        <div id="projMotion"></div><br>
+                        <button class="btn btn-outline-primary" @click="runProjMotion()">Reset</button><br>
+                        Input the velocity and angle from horizontal:
+                        <div class="d-flex justify-content-center">
+                            <div class="input-group mb-3" style="max-width: 50px; background-color: #ffffff; border-radius: 4px;">
+                                <input
+                                    v-model="initVelocity"
+                                    type="number"
+                                    class="form-control"
+                                    placeholder=" "
+                                >
+                            </div> &emsp; <b>at</b> &emsp;
+                            <div class="input-group mb-3" style="max-width: 50px; background-color: #ffffff; border-radius: 4px;">
+                                <input
+                                    v-model="inputAngle"
+                                    type="number"
+                                    class="form-control"
+                                    placeholder=" "
+                                >
+                            </div> &emsp; <b>degrees</b>
+                        </div>
+                    </figure>
+                    
+                <span v-show="level==0">
+                    Look away from the demo for now and back at the picture. You may have noticed that in the drawing, there are two
+                    projectiles that
+                    are launched at completely different angles yield the same range. The reason for this is more
+                    mathemathically intense than we can handle, but conceptually, all you need to know is that if you
+                    shoot an
+                    object at an angle, say $10$ degrees, then if you shoot it at $90$ minus that angle (in degrees), it
+                    will also land
+                    at the exact same range. So for $10\degree$, the angle $80\degree$ will yield the same range. Now,
+                    just by doing basic
+                    arithmetic, we can see that $45\degree$ does not actually have
+                    another counterpart angle! What does this mean? Launching it at $45\degree$ will give you the
+                    maximum
+                    range a
+                    projectile can go (still neglecting air resistance, in real life, this is more like $22\degree$,
+                    since air
+                    resistance exists). 
+                    <br><br>
+                    However, this actually only holds for when your change in vertical displacement
+                    is zero. So if I threw a rock off a cliff, the maximum angle of range without air resistance is NOT
+                    $45\degree$. If you are curious to know, it's somewhere around $35.3\degree$. But that's going off
+                    topic. There are
+                    other important concepts to know and realize about projectile motion that await!
+                </span>
+                <span v-show="level>0">
+                    Then, we recognize that velocity is a vector that can be split into its components,
                     $v_{0x}=v_0\cos \theta$ and $v_{0y}= v_0\sin \theta$.
                     Considering the accelerations along each axis, we see that $v_{0x}=v_{fx}$ because the horizontal
                     velocity is constant, since there is no
