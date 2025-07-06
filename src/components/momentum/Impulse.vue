@@ -37,7 +37,71 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                     For a force that changes with time, the impulse can still be found as the area under the force versus time graph.
                 </span>
                 <br><br>
-                Now, this formula isn't very useful without 
+                Now, this formula isn't very useful. After all, what even is impulse? What does it do? Why do we even care?
+                <br><br>
+                <figure>
+                    <img src="/src/assets/momentum/minosprime.png" width="750px">
+                    <figcaption>
+                        Figure 1: You are very cool if you get the reference.
+                    </figcaption>
+                </figure>
+                <br><br>
+                Well, Minos Prime (that's the guy's name) isn't exactly correct here. You see, there's something called the 
+                <b>impulse-momentum theorem</b> that connects the concepts of impulse and momentum. It's actually an extremely simple 
+                relation.
+                <br><br>
+                <div class="problem" style="text-align:center;font-size:1.05rem;width:fit-content;margin:auto;">
+                    The <b>impulse-momentum theorem</b>:
+                    <br>
+                    $$ J = \Delta p $$
+                </div>
+                <br>
+                Yep. That's all there is to it. Impulse is merely the change in momentum. <span v-show="level>0">Of course,
+                    when calculating, it is good to note that this is the impulse exerted by the net force. Also, the change 
+                    in momentum is usually $m\Delta v$, but not always. You'll see what I mean.
+                </span>
+                <span v-show="level>0">
+                    <br><br>
+                Now we can do a short practice problem to hammer home the concept.
+                <br><br>
+                <div class="problem">
+                   How much impulse does gravity exert on a 2.0 kg object as it slides down a 30 degree inclined plane 
+                   in three seconds? Using this, how much does the velocity change?
+                   <br><br>
+                   Hopefully, you realize that only the portion of gravity pointed down the incline is exerting an impulse.
+                    This gives us a force of $F = mg\sin \theta = \frac{mg}{2}$. We can now easily find the impulse.
+                    <br><br>
+                    $$ J = F t = \dfrac{mg}{2}t = \bbox[3px,
+                    border: 0.5px solid
+                    white]{29.4 ~\textrm{N} \cdot \textrm{s} }$$
+                    <br>
+                    After we have found this, we can use the impulse-momentum theorem to calculate the velocity change:
+                    <br><br>
+                    $$ J = \Delta p = m \Delta v $$
+                    $$ \Delta v = \dfrac{J}{m} = \bbox[3px,
+                    border: 0.5px solid
+                    white] {14.7 ~\textrm{m/s} } $$
+                    <br>
+                    We get the same result if we use kinematics techniques, letting us know that our answer is correct.
+                </div>
+                </span>
+                <div class="btn-contain-right">
+                <button class="btn btn-dark" style="animation: scale1 2s infinite;" @click="$emit('nextpage')">Next
+                    &rarr;</button>
+            </div>
+            </div>
+            <div v-show="page===1">
+                The second thing I'd like to talk about here is Newton's Second Law. You might think that was a typo or that I've 
+                completely gone insane, but that was intentional. (I'm not going to comment about insanity.) The form we gave for Newton's 
+                Second Law is a generalized form for the cases where mass is constant.
+                <div class="btn-contain-left">
+                <button class="btn btn-dark" style="animation: scale1 2s infinite;" @click="$emit('prevpage')">&larr;
+                    Previous</button>
+            </div>
+            <div class="btn-contain-right">
+                <button class="btn btn-dark" style="animation: scale1 2s infinite;" @click="$emit('nextpage')">Next
+                    &rarr;</button>
+            </div>
             </div>
         </p>
     </div>
