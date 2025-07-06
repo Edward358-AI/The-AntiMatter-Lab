@@ -117,7 +117,7 @@ function newtonsCradle(xx, yy, number, size, length) {
         <div id="newtoncradle"></div><br>
         <button class="btn btn-outline-primary" @click="runNewtonsCradle()">Reset</button>
         <br><br>
-        Input number of balls you want to move (hit reset after inputting). Values over 6 will default to 1.
+        Input number of balls you want to move (hit reset after inputting). Invalid values will default to 1.
         <br><br>
         <div class="d-flex justify-content-center">
             <div class="input-group mb-3" style="max-width: 50px;">

@@ -1,6 +1,73 @@
 <script setup>
+import {onMounted} from 'vue'
 defineProps(["level", "page"])
 defineEmits(["nextlesson", "nextpage", "prevpage"])
+function runConstAcc() {
+document.getElementById("constAcc").innerHTML = ""
+// module aliases
+var Engine = Matter.Engine,
+    Render = Matter.Render,
+    Runner = Matter.Runner,
+    Bodies = Matter.Bodies,
+    Composite = Matter.Composite;
+
+// create an engine
+var engine = Engine.create();
+
+// create a renderer
+var render = Render.create({
+    element: document.getElementById('constAcc'),
+    engine: engine,
+    options: {
+             width: 1000,
+             height: 400,
+             showVelocity: false,
+             wireframes: false,
+             background: "#000"
+         }
+});
+// run the renderer
+Render.run(render);
+
+// create two boxes and a ground
+var boxA = Bodies.rectangle(350, 100, 40, 80,
+    { render: {fillStyle: '#27ae60'} } // green
+);
+var boxB = Bodies.rectangle(200, 100, 80, 80, {
+    render: { fillStyle: '#3498db' } // blue
+});
+var boxC = Bodies.rectangle(500, 120, 80, 40, {
+    render: { fillStyle: '#ff4a4a' } // red
+});
+var boxD = Bodies.rectangle(650, 120, 40, 40, {
+    render: { fillStyle: '#eb53ff' } // pink
+});
+var boxE = Bodies.rectangle(800, 60, 80, 160, {
+    render: { fillStyle: '#f3a53c' } // orange
+});
+var ground = Bodies.rectangle(500, 400, 1000, 60, {
+    isStatic: true,
+    render: { fillStyle: '#929292' }
+});
+var wall1 = Bodies.rectangle(0, 200, 60, 500, {isStatic : true, 
+render: { fillStyle: '#929292' } });
+var wall2 = Bodies.rectangle(1000, 200, 60, 500, {isStatic : true, 
+render: { fillStyle: '#929292' } } );
+
+// add all of the bodies to the world
+Composite.add(engine.world, [boxA, boxB, boxC, boxD, boxE, ground, wall1, wall2]);
+
+
+
+// create runner
+var runner = Runner.create();
+
+// run the engine
+Runner.run(runner, engine);
+}
+onMounted(() => {
+    runConstAcc()
+})
 </script>
 
 
@@ -20,7 +87,19 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                 Now,
                 this chapter and the next chapter will be understanding some important concepts, but still mostly
                 problem
-                solving.<br><br>
+                solving. As such, I've made a very simple interactive demo with matter.js for you to play around with that illustrates 
+                the concept of free fall.<br><br>
+                <figure>
+                <div id = "constAcc"></div>
+                <button class="btn btn-outline-primary" @click="runConstAcc()">Reset</button>
+                <br>
+                </figure>
+                <br>
+                Notice how the objects that are falling hit the ground at the same time, even though their masses and shapes are 
+                different? This is generally true: the gravitational acceleration of an object <b>is independent of its mass</b>. The 
+                reason we see some things fall slower than others is because of air resistance. Now, with that little observation 
+                out of the way, we may begin.
+                <br><br>
                 <span v-show="level == 0">
                     Since we are dealing more with physics concepts, there will be some important things to clarify and
                     brush up on, and guess what: ZERO problems to solve in this chapter! It's just 100% concepts. One
