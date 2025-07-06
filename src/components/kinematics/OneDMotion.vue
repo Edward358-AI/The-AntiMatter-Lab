@@ -63,7 +63,14 @@ var wall2 = Bodies.rectangle(1000, 200, 60, 500, {
     render: { fillStyle: '#929292' }
 });
 // Ensure inputValue is a number between 0 and 1
-const restitution = parseFloat(inputValue.value)/10;
+let restitution = parseFloat(inputValue.value) / 10;
+if (isNaN(restitution)) {
+    restitution = 0.5;
+}
+if (restitution < 0) {
+    restitution = 0;
+}
+
 
 // Set coefficient of restitution for all bodies
 boxA.restitution = restitution;
@@ -113,7 +120,8 @@ onMounted(() => {
                 <div id = "constAcc"></div>
                 <button class="btn btn-outline-primary" @click="runConstAcc()">Reset</button>
                 <br><br>
-                    Input how "bouncy" you want the blocks to be. Values over 10 may result in some odd and unrealistic behaviors.
+                    Input how "bouncy" you want the blocks to be, from 1 to 10. 
+                    <br>Values over 10 may result in some odd and unrealistic behaviors.
                     <br>
                 <div class="d-flex justify-content-center">
                     <div class="input-group mb-3" style="max-width: 50px; background-color: #ffffff; border-radius: 4px;">
