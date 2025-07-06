@@ -242,12 +242,10 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                         All of these look very similar. The point of this question was to have you see similarities between these equations. I've 
                         codified them below:
                         <br><br>
-                            $$\bbox[8px,
-                            border: 0.5px solid
-                            white]{ K = - \dfrac12 U }$$
-                        $$ \bbox[8px,
-                            border: 0.5px solid
-                            white]{E = \dfrac12 U = - K} $$
+                        <div class="problem" style="text-align:center;font-size:1.05rem;width:fit-content;margin:auto;">
+                            $${ K = - \dfrac12 U }$$
+                        $$ {E = \dfrac12 U = - K} $$
+                        </div>
                         <br>
                         These results in general are true for a satellite in a circular orbit. In fact, the result for the total energy is also true 
                         for an elliptical orbit (after you replace $r$ with $a$), but this proof requires the use of angular momentum concepts.
