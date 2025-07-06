@@ -65,7 +65,7 @@ var wall2 = Bodies.rectangle(1000, 200, 60, 500, {
 // Ensure inputValue is a number between 0 and 1
 let restitution = parseFloat(inputValue.value) * 0.17;
 if (isNaN(restitution)) {
-    restitution = 0.5;
+    restitution = 0.7;
 }
 if (restitution < 0) {
     restitution = 0;
