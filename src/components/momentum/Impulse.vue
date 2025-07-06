@@ -94,6 +94,18 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                 The second thing I'd like to talk about here is Newton's Second Law. You might think that was a typo or that I've 
                 completely gone insane, but that was intentional. (I'm not going to comment about insanity.) The form we gave for Newton's 
                 Second Law is a generalized form for the cases where mass is constant.
+                <br><br>
+                <span v-show="level==2">
+                    The form of this new second-law variant involves a derivative, as well as the concept of momentum.
+                    <br><br>
+                    $$ F = \dfrac{dp}{dt} $$
+                    <br>
+                    This was actually Newton's preferred form of his second law, since it's more general and can deal with more 
+                    cases. We can also write this as an average force:
+                    <br><br>
+                    $$ F_{av} = \dfrac{\Delta p}{\Delta t} $$
+                    <br>
+                </span>
                 <div class="btn-contain-left">
                 <button class="btn btn-dark" style="animation: scale1 2s infinite;" @click="$emit('prevpage')">&larr;
                     Previous</button>

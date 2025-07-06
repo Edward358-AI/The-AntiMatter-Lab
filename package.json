@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "matter-js": "^0.20.0",
     "vue": "^3.4.21",
     "vue-mathjax-next": "^0.0.6"
   },
