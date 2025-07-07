@@ -1,6 +1,121 @@
 <script setup>
+import Matter, { Constraint } from 'matter-js';
+import { ref, vShow, onMounted, vModelDynamic } from 'vue'
+
 defineProps(["level", "page"])
 defineEmits(["nextlesson", "nextpage", "prevpage"])
+
+const stiffness = ref('0.1')
+
+
+function runSpring() {
+    document.getElementById("spring").innerHTML = ""
+// module aliases
+var Engine = Matter.Engine,
+    Render = Matter.Render,
+    Runner = Matter.Runner,
+    Bodies = Matter.Bodies,
+    Composite = Matter.Composite,
+    Constraint = Matter.Constraint,
+    Mouse = Matter.Mouse,
+    MouseConstraint = Matter.MouseConstraint;
+
+// create an engine
+var engine = Engine.create();
+
+    // create a renderer
+var render = Render.create({
+    element: document.getElementById('spring'),
+    engine: engine,
+    options: {
+        width: 800,
+        height: 600,
+        wireframes: false,
+        background: "#000"
+    }
+});
+// run the renderer
+Render.run(render);
+
+var vertX = 200
+var horY = 300
+
+var block1 = Bodies.rectangle (vertX, 200, 80, 80, { render: { fillStyle: '#f55' } })
+
+var securePoint1 = Bodies.rectangle (vertX, 20, 120, 40, { 
+    isStatic: true, 
+    render: { fillStyle: '#929292' } 
+});
+
+var block2 = Bodies.rectangle (400, horY, 80, 80, {
+    render: {fillStyle: '#1995ff'}
+});
+var securePoint2 = Bodies.rectangle (780, horY, 40, 120, {
+    isStatic: true,
+    render: {fillStyle: '#929292'}
+})
+
+var ground = Bodies.rectangle(500, 600, 1000, 60, {
+    isStatic: true,
+    render: { fillStyle: '#929292' }
+});
+
+var horBarrier = Bodies.rectangle(600, 360, 500, 30, {
+    isStatic:true,
+    render: {fillStyle: '#929292'}
+})
+
+var constraint1 = Constraint.create({
+    bodyA: block1,
+    bodyB: securePoint1,
+    stiffness: parseFloat(stiffness.value)/10,
+    length: 300,
+    damping: 0,
+    render: { strokeStyle: '#fff', lineWidth: 3 }
+});
+
+var constraint2 = Constraint.create({
+    bodyA: block2,
+    bodyB: securePoint2,
+    stiffness: parseFloat(stiffness.value)/10,
+    length: 200,
+    damping: 0,
+    render: {strokeStyle: '#fff', lineWidth: 3}
+})
+
+engine.constraintIterations = 1; 
+
+Composite.add(engine.world, [block1, block2, securePoint2, securePoint1, constraint1, constraint2, ground, horBarrier])
+
+// create runner
+var runner = Runner.create();
+
+// run the engine
+Runner.run(runner, engine);
+
+// add mouse control
+    var mouse = Mouse.create(render.canvas),
+        mouseConstraint = MouseConstraint.create(engine, {
+            mouse: mouse,
+            constraint: {
+                stiffness: 0.2,
+                render: {
+                    visible: false
+                }
+            }
+        })
+
+    Composite.add(engine.world, mouseConstraint)
+
+    // keep the mouse in sync with rendering
+    render.mouse = mouse
+
+}
+
+onMounted(() => {
+    runSpring()
+})
+
 </script>
 
 
@@ -19,13 +134,26 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
             in physics this rarely happens and the intended use of the spring is usually to compress or stretch it. We will only be dealing with these 
             two cases. In our cases, they are also always massless.
             <br><br>
+            In the demo below, you can play with a few systems of springs. These springs look good and realistic, but they are not 
+            really what we're going to deal with. Our springs are always going to be ideal and not lose energy over time; these springs seem like 
+            they lose energy as the blocks oscillate. You can easily see this on your own, which is what I'll let you do. It is interactive, 
+            after all.
+            <br><br>
+            <figure>
+                <div id="spring"></div>
+                <button class="btn btn-outline-primary" @click="runSpring()">Reset</button><br><br>
+                <div>
+                    <span class="problem" style="text-align:center;font-size:0.95rem;width:fit-content;margin:auto;"><label>Spring Strength: {{ stiffness }}</label></span><br>
+                    <input type="range" v-model="stiffness" min="0.01" max="1" step="0.01" style="outline: 4px solid #c3c3c3"/>
+                </div>
+            </figure>
             <span v-show="level>0">
                 The most common type of spring you'll see is a Hookean spring, named after English polymath Robert Hooke. It involves a spring 
                 that exerts a force that linearly increases with the displacement of the spring from its equilibrium position. The formula for such a spring
                 takes the form:
                 <br><br>
                 $$\vec{F_s} = -k \Delta \vec{x} $$
-                <br><br>
+                <br>
                 This does share the same notation with static friction, so we need to be careful to distinguish them. The relationships has been bestowed the name 
                 of <b>Hooke's Law</b>. The first thing you might 
                 notice is the negative sign. This actually just denotes the direction of the spring force, which is oppositely directed to the 
