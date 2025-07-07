@@ -65,6 +65,18 @@ var horBarrier = Bodies.rectangle(600, 360, 500, 30, {
     render: {fillStyle: '#929292'}
 })
 
+var topBound = Bodies.rectangle(400, -50, 1000, 100, {
+    isStatic:true
+})
+
+var leftBound = Bodies.rectangle(-50, 300, 100, 1000,
+    {isStatic: true 
+})
+
+var rightBound = Bodies.rectangle(850, 300, 100, 1000,
+    {isStatic: true 
+})
+
 var constraint1 = Constraint.create({
     bodyA: block1,
     bodyB: securePoint1,
@@ -85,7 +97,7 @@ var constraint2 = Constraint.create({
 
 engine.constraintIterations = 1; 
 
-Composite.add(engine.world, [block1, block2, securePoint2, securePoint1, constraint1, constraint2, ground, horBarrier])
+Composite.add(engine.world, [block1, block2, securePoint2, securePoint1, constraint1, constraint2, ground, horBarrier, topBound, leftBound, rightBound])
 
 // create runner
 var runner = Runner.create();
