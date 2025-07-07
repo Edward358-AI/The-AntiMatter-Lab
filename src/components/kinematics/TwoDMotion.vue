@@ -46,7 +46,6 @@ var ground = Bodies.rectangle(500,600,1000,50,
 })
 var ball = Bodies.circle(100, 570, 30, { 
     render: { fillStyle: '#18e9ff' },
-    mass: 10,
     restitution:1
 })
 var wall1 = Bodies.rectangle(0, 200, 60, 1000, {
