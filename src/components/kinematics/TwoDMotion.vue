@@ -61,17 +61,17 @@ var wall2 = Bodies.rectangle(1000, 200, 60, 1000, {
 
 var angle = parseFloat(inputAngle.value);
 
-let v_x = parseFloat(initVelocity.value)/20 * Math.cos(degreesToRadians(angle));
+let v_x = parseFloat(initVelocity.value) * Math.cos(degreesToRadians(angle));
 if (isNaN(v_x)) {
-    v_x = 0.5;
+    v_x = 14;
 }
-let v_y = parseFloat(initVelocity.value)/20 * Math.sin(degreesToRadians(angle));
+let v_y = parseFloat(initVelocity.value) * Math.sin(degreesToRadians(angle));
 if (isNaN(v_y)) {
-    v_y = 0.5
+    v_y = 14
 }
 
 setTimeout(() => {
-    Body.applyForce(ball, ball.position, {x: v_x, y: -v_y});
+    Body.setVelocity(ball, {x: v_x, y: -v_y});
 }, 500); // 500ms delay before applying the force
 
 
@@ -129,20 +129,10 @@ onMounted(() => {
                         <img src="/src/assets/kinematics/Figure 12.png" height="200px" />
                         <figcaption>Figure 1: Different modes of projectile motion</figcaption>
                     </figure>
-                    Most likely, you have seen the parabolic trajectory that the object follows. This has a very simple
-                    proof
-                    and will be explained later on. First, if you remember the formulas for total flight time, and the
-                    maximum
-                    height, you might be wondering: Can we derive some form of them here as well? Well yes! Actually,
-                    the trick to
-                    working with kinematics in two dimensions is the fact that you can simply split up $v_0$ into its
-                    horizontal
-                    ($x$) and vertical ($y$) components, and we realize that the time for the horizontal component to
-                    travel the
-                    maximum range is the same time it takes for the object's vertical component to travel up and down.
-                    They are linked by a single quantity, time, but otherwise you can treat them as separate in their
-                    own respect.<br><br>IMPORTANT! This concept (above) is the key to working in kinematics in 2
-                    dimensions!<br><br>
+                    Now that you've seen our diagram, it's time to experience it. Or at least, experience it the best you can in an 
+                    online setting. We have made a projectile motion demonstration with adjustable paramenters for launch speed and angle. 
+                    Do note that the projectile will bounce because we thought it would look better, but the thing we're concerned with here is 
+                    the initial motion before the first bounce. Anyway, enough said.
                     Here's a demo so you can get a feel for projectile motion:
                     <br><br>
                 </span>
@@ -195,6 +185,20 @@ onMounted(() => {
                     other important concepts to know and realize about projectile motion that await!
                 </span>
                 <span v-show="level>0">
+                    Most likely, you have seen or are seeing the parabolic trajectory that the object follows. This has a very simple
+                    proof
+                    and will be explained later on. First, if you remember the formulas for total flight time, and the
+                    maximum
+                    height, you might be wondering: Can we derive some form of them here as well? Well yes! Actually,
+                    the trick to
+                    working with kinematics in two dimensions is the fact that you can simply split up $v_0$ into its
+                    horizontal
+                    ($x$) and vertical ($y$) components, and we realize that the time for the horizontal component to
+                    travel the
+                    maximum range is the same time it takes for the object's vertical component to travel up and down.
+                    They are linked by a single quantity, time, but otherwise you can treat them as separate in their
+                    own respect.<br><br>IMPORTANT! This concept (above) is the key to working in kinematics in 2
+                    dimensions!<br><br>
                     Then, we recognize that velocity is a vector that can be split into its components,
                     $v_{0x}=v_0\cos \theta$ and $v_{0y}= v_0\sin \theta$.
                     Considering the accelerations along each axis, we see that $v_{0x}=v_{fx}$ because the horizontal
