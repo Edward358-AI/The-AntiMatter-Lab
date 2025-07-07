@@ -1,7 +1,104 @@
 <script setup>
-import { ref, vShow } from 'vue'
+import { ref, vShow, onMounted } from 'vue'
 defineProps(["level", "page"])
 defineEmits(["nextlesson", "nextpage", "prevpage"])
+
+const inputAngle = ref('')
+const friction = ref('')
+const errorMessage = ref('')
+
+function degreesToRadians(degrees) {
+  return degrees * (Math.PI / 180);
+}
+
+function runInclinedPlane() {
+    document.getElementById("inclined").innerHTML = ""
+// module aliases
+var Engine = Matter.Engine,
+    Render = Matter.Render,
+    Runner = Matter.Runner,
+    Bodies = Matter.Bodies,
+    Composite = Matter.Composite,
+    Body = Matter.Body;
+
+// create an engine
+var engine = Engine.create();
+
+    // create a renderer
+var render = Render.create({
+    element: document.getElementById('inclined'),
+    engine: engine,
+    options: {
+        width: 800,
+        height: 550,
+        wireframes: false,
+        background: "#000"
+    }
+});
+// run the renderer
+Render.run(render);
+
+
+
+// create an inclined plane using a rectangle and rotate it
+var angle = degreesToRadians( parseFloat(inputAngle.value)) 
+    if (isNaN(angle)) {
+        angle = Math.PI/6 // defaults to 30 degrees for invalid values
+        errorMessage.value = ''
+    }
+    else if (angle >= Math.PI/2) {
+        errorMessage.value = "Angle is invalid! Please enter a value less than 90 degrees."
+        angle = Math.PI/6
+    } else {
+        errorMessage.value = ''
+    }
+
+// Position the block horizontally so it starts above the plane for most angles.
+// For steeper inclines (angle >= 55 degrees), move the block left to prevent it from missing the plane visually.
+// 55 degrees was chosen based on visual testing; 600 and 400 are x-coordinates that keep the block on the plane in the Matter.js canvas.
+var rectPosX = 600;
+if (parseFloat(inputAngle.value) >= 55) {
+    rectPosX = 400;
+}
+
+var valFriction = parseFloat(friction.value)
+    if (isNaN(valFriction)) {
+        valFriction = 0.05
+    }
+
+var plane = Bodies.rectangle(400, 300, 1200, 20, { 
+    isStatic: true, 
+    angle: -angle, 
+    render: { fillStyle: '#888' }
+});
+
+// add a block on the plane
+var block = Bodies.rectangle(rectPosX, 0, 80, 80, {
+    angle: -angle,
+    friction: valFriction,
+    restitution: 0,
+    frictionStatic: 1.15*valFriction,
+    render: { fillStyle: '#f55' }
+});
+
+// Prevent block from rotating by resetting angular speed every tick
+Matter.Events.on(engine, 'beforeUpdate', function() {
+    Body.setAngularSpeed(block, 0)
+})
+
+Composite.add(engine.world, [block, plane]);
+
+// create runner
+var runner = Runner.create();
+
+// run the engine
+Runner.run(runner, engine);
+
+}
+
+onMounted(() => {
+    runInclinedPlane()
+})
 </script>
 
 <template>
@@ -232,7 +329,8 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                 <br><br>
             </div>
                 Now, we'll start to talk about pulleys. Pulleys are a bit more complex, but they’re not too bad once you get the hang of them. Their complexity
-                only really arises if they configuration of pulleys is very complex or messy, which isn't all too common.
+                only really arises if they configuration of pulleys is very complex or messy, which isn't all too common. But before we do that, let's have an 
+                interactive element!
         </span>
             <span v-show="level==0">
                 Consider the exact same scenario, but now with friction thrown in. The force-vector diagram now looks like this:
@@ -261,7 +359,7 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                 $\mu=\tan\theta$.
                 <br><br>
                 In any case, this is all there really is to inclined planes. It’s just force analysis on a sloped surface, and it’s not too complex once you get the hang of it.
-                Now, we'll move on to pulleys, which are a bit more complex but still not horrible.
+                Now, we'll move on to pulleys, which are a bit more complex but still not horrible. But first, something interactive.
                 <br><br>
             </span>
             </p>
@@ -274,6 +372,53 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
             </div>
         </div>
         <div v-show="page===2">
+            <p>
+            We've already talked about the inclined plane with and without friction, which covers most of the cases that we need to know. 
+            Therefore, now would be a good time to get some "hands-on" experience with how inclined planes work, in order to build 
+            intuition and confidence in our results. Here's an inclined plane demo you can play around with. See if you can reproduce all the results and behaviors 
+            we've talked about previously!<br><br>
+            <figure>
+            <div id="inclined"></div>
+            <button class="btn btn-outline-primary" @click="runInclinedPlane()">Reset</button><br>
+            <br>
+            <div v-show="errorMessage" class="alert alert-danger" role="alert">
+                
+                {{ errorMessage }}
+            </div>
+            Input incline angle:
+            <div class="d-flex justify-content-center">
+                <div class="input-group mb-3" style="max-width: 50px; background-color: #ffffff; border-radius: 4px;">
+                    <input
+                        v-model="inputAngle"
+                        type="number"
+                        class="form-control"
+                        placeholder=" "
+                    >
+                </div>
+            </div>
+            
+                Input friction coefficient:
+            <div class="d-flex justify-content-center">
+                <div class="input-group mb-3" style="max-width: 50px; background-color: #ffffff; border-radius: 4px;">
+                    <input
+                        v-model="friction"
+                        type="number"
+                        class="form-control"
+                        placeholder=" "
+                    >
+                </div>
+            </div>
+            </figure>
+            </p>
+            <div class="btn-contain-left">
+                <button class="btn btn-dark" style="animation: scale1 2s infinite;" @click="$emit('prevpage')">&larr;Previous</button>
+            </div>
+
+            <div class="btn-contain-right">
+                <button class="btn btn-dark" style="animation: scale1 2s infinite;" @click="$emit('nextpage')">Next&rarr;</button>
+            </div>
+        </div>
+        <div v-show="page===3">
             <p>
                 The pulley is a simple device often used to lift heavy objects. It dates back from ancient times, being one of the early simple machines.
                 But since this is a physics lesson and not a history or engineering lesson, we don't care about that. I'm here to show you 
@@ -380,7 +525,7 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                 <button class="btn btn-dark" style="animation: scale1 2s infinite;" @click="$emit('nextpage')">Next&rarr;</button>
             </div>
         </div>
-        <div v-show="page===3">
+        <div v-show="page===4">
             <p>
             Something more interesting happens when there is more than one pulley involved, specifically when that second pulley is allowed to move. For instance, take this scenario:
             <br><br>

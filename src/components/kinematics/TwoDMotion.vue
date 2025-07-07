@@ -38,6 +38,7 @@ var render = Render.create({
 // run the renderer
 Render.run(render);
 
+// create bodies
 var ground = Bodies.rectangle(500,600,1000,50, 
     {isStatic: true, 
     render: { fillStyle: '#929292' },
