@@ -35,7 +35,7 @@ function runCentripetal() {
      })
      Render.run(render)
 
-     var ball = Bodies.circle(300,500,20, 
+     var ball = Bodies.circle(300,550,40, 
      {  frictionAir: 0,
         friction: 0,
         render: { fillStyle: "#f55" }})
@@ -109,6 +109,7 @@ onMounted(() => {
                  <figure>
                 <button class="btn btn-outline-primary" onclick="toggleGravity(true)">Gravity ON</button>
                 <button class="btn btn-outline-primary" onclick="toggleGravity(false)">Gravity OFF</button>
+                <br><br>
                  <div id="spin"></div>
                 <button class="btn btn-outline-primary" @click="runCentripetal()">Reset</button>
                  </figure>
