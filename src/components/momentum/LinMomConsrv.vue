@@ -4,7 +4,7 @@ defineProps(["level", "page"])
 defineEmits(["nextlesson", "nextpage", "prevpage"])
 
 
-const inputValue = ref('')
+const inputValue = ref('1')
 
  function runNewtonsCradle() {
      document.getElementById("newtoncradle").innerHTML = ""
@@ -114,26 +114,19 @@ function newtonsCradle(xx, yy, number, size, length) {
 <template>
     <div class="container h100 p-5">
         <h1>Conservation of Linear Momentum</h1><br>
+        <p>
+        <figure>
         <div id="newtoncradle"></div><br>
         <button class="btn btn-outline-primary" @click="runNewtonsCradle()">Reset</button>
-        <br><br>
-        Input number of balls you want to move (hit reset after inputting). Invalid values will default to 1.
-        <br><br>
-        <div class="d-flex justify-content-center">
-            <div class="input-group mb-3" style="max-width: 50px; background-color: #ffffff; border-radius: 4px;">
-                <input
-                    v-model="inputValue"
-                    type="number"
-                    class="form-control"
-                    placeholder=" "
-                >
-                
-            </div>
-        </div>
+        <br>
         
-        <p>
+            <span><label>Number of balls: {{ inputValue }}</label></span><br>
+            <input type="range" v-model="inputValue" min="1" max="6" step="1" style="outline: 4px solid #c3c3c3"/>
+
+        </figure>
 
         </p>
+       
     </div>
 
 </template>
