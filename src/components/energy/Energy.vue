@@ -1,5 +1,5 @@
 <script setup>
-import{ref} from 'vue'
+import{ref, onMounted} from 'vue'
 defineProps(["level", "page"])
 defineEmits(["nextlesson", "nextpage", "prevpage"])
 const show = ref(false)
@@ -7,6 +7,127 @@ const show1 = ref(false)
 const show2 = ref(false)
 const show3 = ref(false)
 const show4 = ref(false)
+
+// module aliases
+var Engine = Matter.Engine,
+    Render = Matter.Render,
+    Runner = Matter.Runner,
+    Bodies = Matter.Bodies,
+    Composite = Matter.Composite,
+    Body = Matter.Body,
+    Mouse = Matter.Mouse,
+    MouseConstraint = Matter.MouseConstraint;
+
+
+function runCurvedRamp() {
+    // Clear previous content
+    const container = document.getElementById("curvedramp");
+    container.innerHTML = "";
+
+    // Create engine with gravity
+    const engine = Engine.create({
+        gravity: { x: 0, y: 1 }
+    });
+
+    // Create renderer
+    const render = Render.create({
+        element: container,
+        engine: engine,
+        options: {
+            width: 800,
+            height: 400,
+            wireframes: false,
+            background: "#000",
+            showAngleIndicator: false
+        }
+    });
+
+    // Create a simple U-shaped ramp using 3 parts: left wall, curve, right wall
+    const rampWidth = 30; // Thickness of ramp walls
+    const rampHeight = 200; // Height of straight sections
+    const curveRadius = 150; // How wide the U-shape is
+
+    // Left vertical wall
+    const leftWall = Bodies.rectangle(
+        115, 200, 
+        300, 30, 
+        { isStatic: true, render: { fillStyle: "#777" }, friction: 0 }
+    );
+
+    // Right vertical wall
+    const rightWall = Bodies.rectangle(
+        700, 200, 
+        300, 30, 
+        { isStatic: true, render: { fillStyle: "#777" }, friction: 0 }
+    );
+
+    // Bottom curve (semi-circle made of small segments)
+    const curveSegments = 100; // More segments = smoother curve
+    const curveParts = [];
+    for (let i = 0; i < curveSegments; i++) {
+        const angle = Math.PI * (i / curveSegments); // 0 to π (180 degrees)
+        const x = 400 + curveRadius * Math.cos(angle);
+        const y = 200 + curveRadius * Math.sin(angle);
+        
+        const segment = Matter.Bodies.rectangle(
+            x, y,
+            rampWidth, 30,
+            { 
+                isStatic: true,
+                angle: angle + Math.PI / 2, // Rotate to follow curve
+                render: { fillStyle: "#777" },
+                friction: 0
+            }
+        );
+        curveParts.push(segment);
+    }
+        // Create boundaries (invisible)
+    var walls = [
+        Bodies.rectangle(-50, 400, 100, 800, { isStatic: true, render: { visible: false } }),
+        Bodies.rectangle(850, 400, 100, 800, { isStatic: true, render: { visible: false } }),
+        Bodies.rectangle(400, -50, 800, 100, { isStatic: true, render: { visible: false } }),
+        Bodies.rectangle(400, 850, 800, 100, { isStatic: true, render: { visible: false } })
+    ];
+
+    // Add everything to the world
+    Composite.add(engine.world, [leftWall, rightWall, ...curveParts,...walls]);
+
+    // Add a ball to test the ramp
+    const ball = Matter.Bodies.circle(400, 100, 30, {
+        render: { fillStyle: "#f00" },
+        friction: 0,
+        frictionAir:0
+    });
+    Composite.add(engine.world, ball);
+
+    // Run the engine & renderer
+    Render.run(render);
+    Runner.run(Matter.Runner.create(), engine);
+
+    // add mouse control
+    var mouse = Mouse.create(render.canvas),
+        mouseConstraint = MouseConstraint.create(engine, {
+            mouse: mouse,
+            constraint: {
+                stiffness: 0.2,
+                render: {
+                    visible: false
+                }
+            }
+        })
+
+    Composite.add(engine.world, mouseConstraint)
+
+    // keep the mouse in sync with rendering
+    render.mouse = mouse
+
+}
+
+
+
+onMounted(() => {
+    runCurvedRamp()
+})
 </script>
 
 
@@ -336,12 +457,11 @@ const show4 = ref(false)
                 For this particular scenario of a ball rolling down the ramp, we will assume the ball starts at rest at the 
                 top of the ramp. Initially, all of the energy in the system is potential because the ball has zero velocity. If we define 
                 the point of zero potential energy to be at the bottom of the ramp, then we end with zero potential energy. Thus, all of the initial 
-                potential energy is converted to kinetic energy through the process of the ball moving down the ramp.
+                potential energy is converted to kinetic energy through the process of the ball moving down the ramp. Here's a demo so you can get a feel
+                for what I mean:
                 <br><br>
-                You might have noticed that the ramp is not uniformly inclined; in other words, it's a curved ramp. This means that we can't use 
-                the result for an inclined plane we talked about earlier! However, the energy approach has no such weaknesses; we only care about 
-                the start and end positions' heights. This is a consequence of the conservative forces we talked about earlier!
-            </span>
+                </span>
+
             <span v-show="level>0">
                 At each point throughout an object's motion, it has both potential and kinetic energy (either of which can be zero). However, the sum of the 
                 two energies at any given point is equal to the total mechanical energy, denoted $E_{mech}$ or just simply $E$. There is a popular method 
@@ -364,7 +484,22 @@ const show4 = ref(false)
                 Now, a good way to think about what happens is to think of potential energy being 
                 converted to kinetic energy. As the ball rolls down the ramp, the gravitational force causes the ball to accelerate while also 
                 causing it to fall to a lower height; this is essentially trading potential energy into kinetic energy. Since we defined our zero 
-                at the bottom of the ramp, in this case all of the kinetic energy turns into potential energy.
+                at the bottom of the ramp, in this case all of the kinetic energy turns into potential energy. Here's a similar thing, but interactive:
+                <br><br>
+                </span>
+
+                <figure>
+                    <div id="curvedramp"></div>
+                    <button class="btn btn-outline-primary" @click="runCurvedRamp()">Reset</button>
+                </figure>
+
+                <span v-show="level==0">
+                <br><br>
+                You might have noticed that the ramp is not uniformly inclined; in other words, it's a curved ramp. This means that we can't use 
+                the result for an inclined plane we talked about earlier! However, the energy approach has no such weaknesses; we only care about 
+                the start and end positions' heights. This is a consequence of the conservative forces we talked about earlier!
+            </span>
+                <span v-show="level>0">
                 <br><br>
                 Do you notice anything special about the ramp? That's right. In all of our previous examples, we've dealt with an inclined plane, which
                 is flat and has a constant incline angle $\theta$. This one, however, is curved. We cannot easily deal with a curved 

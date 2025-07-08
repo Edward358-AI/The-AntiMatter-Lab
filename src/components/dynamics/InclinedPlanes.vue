@@ -38,8 +38,6 @@ var render = Render.create({
 // run the renderer
 Render.run(render);
 
-
-
 // create an inclined plane using a rectangle and rotate it
 var angle = degreesToRadians( parseFloat(inputAngle.value)) 
     if (isNaN(angle)) {
