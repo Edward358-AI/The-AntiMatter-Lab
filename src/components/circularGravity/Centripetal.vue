@@ -1,6 +1,94 @@
 <script setup>
+import Matter from 'matter-js'
+import {ref, onMounted} from 'vue'
 defineProps(["level", "page"])
 defineEmits(["nextlesson", "nextpage", "prevpage"])
+
+
+function runCentripetal() {
+     document.getElementById("spin").innerHTML = ""
+     var Engine = Matter.Engine,
+         Render = Matter.Render,
+         Runner = Matter.Runner,
+         Bodies = Matter.Bodies,
+         Body = Matter.Body,
+         Constraint = Matter.Constraint,
+         Composite = Matter.Composite,
+         Mouse = Matter.Mouse,
+         MouseConstraint = Matter.MouseConstraint;
+     // create engine
+     var engine = Engine.create();
+
+    engine.gravity.y = 0;
+    engine.constraintIterations = 10;
+
+     // create renderer
+     var render = Render.create({
+         element: document.getElementById("spin"),
+         engine: engine,
+         options: {
+             width: 600,
+             height: 600,
+             wireframes: false,
+             background: "#000"
+         }
+     })
+     Render.run(render)
+
+     var ball = Bodies.circle(300,500,20, 
+     {  frictionAir: 0,
+        friction: 0,
+        render: { fillStyle: "#f55" }})
+
+    var tether = Constraint.create({
+        pointA: {x:300, y:300},       // fixed center
+        bodyB: ball,
+        length: 200,          // initial distance from center
+        stiffness: 1,         // rigid rod
+        render: {
+            strokeStyle: '#fff',
+            lineWidth: 2
+    }
+});
+
+     Composite.add(engine.world, [ball, tether])
+
+     Body.setVelocity(ball, { x: 5, y: 0 });  
+
+
+     // create runner
+     var runner = Runner.create()
+
+     //run engine
+     Runner.run(runner, engine)
+
+     // add mouse control
+    var mouse = Mouse.create(render.canvas),
+        mouseConstraint = MouseConstraint.create(engine, {
+            mouse: mouse,
+            constraint: {
+                stiffness: 0.2,
+                render: {
+                    visible: false
+                }
+            }
+        })
+
+    Composite.add(engine.world, mouseConstraint)
+
+    // keep the mouse in sync with rendering
+    render.mouse = mouse
+
+    //enables dynamic gravity toggling
+    window.toggleGravity = function(enable) {
+        engine.gravity.y = enable ? 1 : 0;
+    
+}
+}
+onMounted(() => {
+    runCentripetal()
+}) 
+
 </script>
 
 
@@ -15,6 +103,16 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                  Finally, some English that makes sense. Note that <strong><u>this is NOT a new force</u></strong>, but really a required force for circular motion to occur. 
                  Some have suggested calling this the centripetal force requirement, but I believe that’s a mouthful.
                  <br><br>
+                 Here's a visual demonstration of what I mean by circular motion. Try giving the ball a shove to make it go faster or slower, or try 
+                 enabling and disabling gravity. There's even a way to make a particle accelerator if you toggle gravity right.
+                 <br><br>
+                 <figure>
+                <button class="btn btn-outline-primary" onclick="toggleGravity(true)">Gravity ON</button>
+                <button class="btn btn-outline-primary" onclick="toggleGravity(false)">Gravity OFF</button>
+                 <div id="spin"></div>
+                <button class="btn btn-outline-primary" @click="runCentripetal()">Reset</button>
+                 </figure>
+                 <br>
                  Centripetal acceleration is directed inward toward the center of the circle that the object traces out as it moves.
                   At every point in its motion, the object’s velocity is tangential to the circle, which is why when you suddenly let 
                   go of a ball swinging in a circle above your head, it flies off in a straight line.

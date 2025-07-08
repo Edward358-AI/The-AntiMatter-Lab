@@ -1,6 +1,8 @@
 <script setup>
 defineProps(["level", "page"])
 defineEmits(["nextlesson", "nextpage", "prevpage"])
+
+
 </script>
 
 
