@@ -1,7 +1,166 @@
 <script setup>
+import {onMounted, ref} from 'vue'
 defineProps(["level", "page"])
 defineEmits(["nextlesson", "nextpage", "prevpage"])
 
+var Engine = Matter.Engine,
+        Render = Matter.Render,
+        Runner = Matter.Runner,
+        Bodies = Matter.Bodies,
+        Body = Matter.Body,
+        Composite = Matter.Composite,
+        Vector = Matter.Vector,
+        Mouse = Matter.Mouse,
+        MouseConstraint = Matter.MouseConstraint;
+
+
+var planet3 = null;
+
+const planet3Active = ref(false)
+
+
+function runGrav() {
+    document.getElementById("Gravitation").innerHTML = "";
+
+
+    // Create engine with zero gravity (we'll handle gravity manually)
+    var engine = Engine.create({
+        gravity: { x: 0, y: 0 },
+        enableSleeping: false // Important to prevent bodies from sleeping
+    });
+
+    // Create renderer
+    var render = Render.create({
+        element: document.getElementById("Gravitation"),
+        engine: engine,
+        options: {
+            width: 800,
+            height: 800,
+            wireframes: false,
+            background: "#000",
+            showSleeping: false
+        }
+    });
+    Render.run(render);
+
+    // Create planets with initial velocities
+    var planet1 = Bodies.circle(200, 400, 30, {
+        render: { fillStyle: '#3de4ff' },
+        restitution: 0.9,
+        friction: 0,
+        frictionAir: 0,
+        mass: 5000,
+        sleepThreshold: Infinity // Prevent sleeping
+    });
+
+    var planet2 = Bodies.circle(600, 200, 35, {
+        render: { fillStyle: '#ff3d3d' },
+        restitution: 0.9,
+        friction: 0,
+        frictionAir: 0,
+        mass: 8000,
+        sleepThreshold: Infinity
+    });
+
+    Body.setVelocity(planet1, {x:0, y:4})
+    Body.setVelocity(planet2, {x:0, y:-3})
+
+var planets = [planet1, planet2]
+
+// Then in your toggle logic:
+if (planet3Active.value === true) {
+    // Create new planet3
+    planet3 = Bodies.circle(700, 600, 40, {
+        render: { fillStyle: '#c62fff' },
+        restitution: 0.9,
+        friction: 0,
+        frictionAir: 0,
+        mass: 12000,
+        sleepThreshold: Infinity
+    });
+
+    Body.setVelocity(planet3, {x: 0, y: 0});
+    Composite.add(engine.world, planet3);
+    
+    // Update planets array
+    planets.length = 2; // Clear any existing planet3
+    planets.push(planet3);
+
+} else {
+    // Remove planet3 if it exists
+    if (planet3) {
+        Composite.remove(engine.world, planet3);
+        planet3 = null;
+        planets.length = 2; // Reset to just planet1 and planet2
+    }
+}
+
+    // Create boundaries (invisible)
+    var walls = [
+        Bodies.rectangle(-50, 400, 100, 800, { isStatic: true, render: { visible: false } }),
+        Bodies.rectangle(850, 400, 100, 800, { isStatic: true, render: { visible: false } }),
+        Bodies.rectangle(400, -50, 800, 100, { isStatic: true, render: { visible: false } }),
+        Bodies.rectangle(400, 850, 800, 100, { isStatic: true, render: { visible: false } })
+    ];
+
+    Composite.add(engine.world, [...walls, ...planets]);
+
+    // Universal Gravitation Constants
+    const G = 50; // Gravitational constant (tuned for this scale)
+    const minDistance = 30; // Minimum distance to apply force
+
+    // Apply gravitational forces
+    Matter.Events.on(engine, "beforeUpdate", function() {
+
+        
+        for (let i = 0; i < planets.length; i++) {
+            for (let j = i + 1; j < planets.length; j++) {
+                const bodyA = planets[i];
+                const bodyB = planets[j];
+                
+                // Calculate distance vector
+                const diff = Vector.sub(bodyB.position, bodyA.position);
+                const distance = Vector.magnitude(diff);
+                
+                // Skip if too close
+                if (distance < minDistance) continue;
+                
+                // Calculate force magnitude (F = G*(m1*m2)/r^2)
+                const forceMagnitude = G * (bodyA.mass * bodyB.mass) / (distance * distance);
+                
+                // Calculate force direction (unit vector)
+                const forceDirection = Vector.normalise(diff);
+                
+                // Apply forces (equal and opposite)
+                Body.applyForce(bodyA, bodyA.position, Vector.mult(forceDirection, forceMagnitude/bodyA.mass));
+                Body.applyForce(bodyB, bodyB.position, Vector.mult(forceDirection, -forceMagnitude/bodyB.mass));
+            }
+        }
+    });
+
+    // Create and run runner
+    var runner = Runner.create();
+    Runner.run(runner, engine);
+
+    // Add mouse control
+    var mouse = Mouse.create(render.canvas);
+    var mouseConstraint = MouseConstraint.create(engine, {
+        mouse: mouse,
+        constraint: {
+            stiffness: 0.2,
+            render: { visible: false }
+        }
+    });
+    Composite.add(engine.world, mouseConstraint);
+    render.mouse = mouse;
+
+}
+
+
+
+onMounted(() => {
+    runGrav()
+})
 
 </script>
 
@@ -18,8 +177,16 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                 <br><br>
                 The Newton apple story is often cited as an instance of Newton "discovering" gravity, but this couldn't be further from the truth.
                 Do you really think people didn't know that objects tended to fall down before then? No, Newton realized that the gravity
-                that causes an apple to fall is the same that causes the moon remain in orbit around the Earth. 
+                that causes an apple to fall is the same that causes the moon remain in orbit around the Earth. Take a look at this demo. You can 
+                use your mouse to manipulate the "planets", but good luck catching them! Also, do NOT let the bodies clip into each other. They will disappear, and you 
+                will have to reset.
                 <br><br>
+                <figure>
+                    <button class="btn btn-outline-primary" @click = 'planet3Active = ! planet3Active, runGrav()' > Toggle Purple Planet</button><br>
+                    <div id="Gravitation"></div>
+                    <button class="btn btn-outline-primary" @click="runGrav()">Reset</button>
+
+                </figure>
                 But first, a more rigorous discussion of what gravity really is. We know gravity causes things to fall, so let's start there.
                 Gravity tends to pull bodies closer to each other. This leads us to our first conclusion, that as far as we know gravity
                 is always attractive, tending to pull bodies closer to each other. It also gets weaker with distance, though this might not be
