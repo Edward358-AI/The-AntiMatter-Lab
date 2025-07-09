@@ -1,5 +1,6 @@
 <script setup>
-import{ref} from 'vue'
+import Matter, { Body } from 'matter-js'
+import{ref, onMounted} from 'vue'
 defineProps(["level", "page"])
 defineEmits(["nextlesson", "nextpage", "prevpage"])
 const show = ref(false)
@@ -7,6 +8,96 @@ const show1 = ref(false)
 const show2 = ref(false)
 const show3 = ref(false)
 const show4 = ref(false)
+
+function runUnstableEq() {
+    document.getElementById("unstable").innerHTML = ""
+// module aliases
+var Engine = Matter.Engine,
+    Render = Matter.Render,
+    Runner = Matter.Runner,
+    Bodies = Matter.Bodies,
+    Composite = Matter.Composite,
+    Composites = Matter.Composites,
+    Mouse = Matter.Mouse,
+    MouseConstraint = Matter.MouseConstraint;
+
+// create an engine
+var engine = Engine.create();
+
+    // create a renderer
+var render = Render.create({
+    element: document.getElementById('unstable'),
+    engine: engine,
+    options: {
+        width: 600,
+        height: 400,
+        wireframes: false,
+        background: "#000"
+    }
+});
+// run the renderer
+Render.run(render);
+
+// create runner
+var runner = Runner.create();
+
+// run the engine
+Runner.run(runner, engine);
+
+var pencilTip = Bodies.polygon(300,300, 3, 11.54, {
+    render: {fillStyle: '#ffa11b'},
+    angle: Math.PI/6,
+})
+
+var pencilBody = Bodies.rectangle(300, 169.46, 20, 250, {
+    render:{fillStyle: '#ffa11b'}
+})
+
+var pencilEraser = Bodies.rectangle(300, 50, 20, 25, {
+    render: {fillStyle: 'pink'}
+})
+
+var pencilLead = Bodies.polygon(300,308.54, 3, 3,{
+    render: {fillStyle:'#fff'},
+    angle: Math.PI/6,
+})
+
+var pencil = Body.create({
+    parts: [pencilBody, pencilTip, pencilEraser, pencilLead],
+    friction: 0.2
+})
+
+var walls = 
+    [Bodies.rectangle(700,200,200,600, { isStatic: true, render: { visible: false } }),
+     Bodies.rectangle(-100, 200, 200, 600, { isStatic: true, render: { visible: false } }),
+     Bodies.rectangle(300, -100, 600, 200, { isStatic: true, render: { visible: false } }),
+     Bodies.rectangle(300, 500, 600, 300, { isStatic: true, render: { visible: true, fillStyle:"#888" } })
+    ]
+Composite.add(engine.world, [pencil, ...walls])
+
+// add mouse control
+    var mouse = Mouse.create(render.canvas),
+        mouseConstraint = MouseConstraint.create(engine, {
+            mouse: mouse,
+            constraint: {
+                stiffness: 0.2,
+                render: {
+                    visible: false
+                }
+                
+            }
+        })
+    mouseConstraint.constraint.angularStiffness = 0; // 0 = free rotation
+
+    Composite.add(engine.world, mouseConstraint)
+
+    // keep the mouse in sync with rendering
+    render.mouse = mouse
+}
+
+onMounted(()=>{
+    runUnstableEq()
+})
 </script>
 
 
@@ -199,7 +290,7 @@ const show4 = ref(false)
                     <br><br>
                     We typically interchange equilibrium and stability, but this case shows how different the two can be. While at the unstable equilibrium forces are technically balanced, any disturbance will prompt the system to move away from the equilibrium point in 
                     a very unstable manner. The term "unstable equilibrium" is therefore not an oxymoron (at least in physics), but rather something that describes everyday scenarios.
-                    Thus, equilibrium and stability are not the same thing in physics!
+                    Thus, equilibrium and stability are not the same thing in physics!<br><br>
                 </span>
                 <span v-show="level==0">
                     What's the opposite of stability? Instability! The <b>unstable equilibrium</b> is in many ways the 
@@ -222,8 +313,16 @@ const show4 = ref(false)
                     This is why this kind of equilibrium is <b>unstable</b>: because the object or system doesn't like to stay at such a point. 
                     Most unstable equilibria decay rapidly, since any small external disturbance can cause the fragile state of equilibrium to 
                     collapse. Note that equilibrium and stability are not the same thing in physics, even though we sometimes interchange them. 
-                    It's not true that a system in equilibrium has to be stable, and we've just shown why!
+                    It's not true that a system in equilibrium has to be stable, and we've just shown why!<br><br>
                 </span>
+                <figure>
+                    <div id="unstable"></div>
+                    <button class="btn btn-outline-primary" @click="runUnstableEq()">Reset</button>
+                </figure>
+                <br>
+                Try balancing the pencil on its tip. That's an unstable equilibrium. If you reset the simulation, the pencil 
+                will be able to stand on its tip for a short time because the initial conditions are perfect, but eventually even slight calculational approximations done by 
+                Matter.js will cause it to slip over and fall. I'll venture to say that it's virtually impossible to stand the pencil back up once it has fallen. Prove me wrong!
                 <div class="btn-contain-left">
                 <button class="btn btn-dark" style="animation: scale1 2s infinite;" @click="$emit('prevpage')">&larr;
                     Previous</button>
