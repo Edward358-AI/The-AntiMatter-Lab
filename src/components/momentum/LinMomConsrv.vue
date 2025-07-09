@@ -121,7 +121,8 @@ function newtonsCradle(xx, yy, number, size, length) {
         <br>
         
             <span><label>Number of balls: {{ inputValue }}</label></span><br>
-            <input type="range" v-model="inputValue" min="1" max="6" step="1" style="outline: 4px solid #c3c3c3"/>
+            <input type="range" v-model="inputValue" min="1" max="6" step="1" style="outline: 4px solid #0078d7; border-radius: 8px;
+    background: #e0e0e0"/>
 
         </figure>
 

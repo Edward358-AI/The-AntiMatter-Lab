@@ -156,7 +156,8 @@ onMounted(() => {
                 <button class="btn btn-outline-primary" @click="runSpring()">Reset</button><br><br>
                 <div>
                     <span class="problem" style="text-align:center;font-size:0.95rem;width:fit-content;margin:auto;"><label>Spring Strength: {{ stiffness }}</label></span><br>
-                    <input type="range" v-model="stiffness" min="0.01" max="1" step="0.01" style="outline: 4px solid #c3c3c3"/>
+                    <input type="range" v-model="stiffness" min="0.01" max="1" step="0.01" style="outline: 4px solid #0078d7; border-radius: 8px;
+    background: #e0e0e0"/>
                 </div>
             </figure>
             <span v-show="level>0">
