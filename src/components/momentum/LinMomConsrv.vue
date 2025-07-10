@@ -26,7 +26,7 @@ const inputValue = ref('1')
          element: document.getElementById("newtoncradle"),
          engine: engine,
          options: {
-             width: 600,
+             width: 700,
              height: 400,
              showVelocity: true,
              wireframes: false,
@@ -42,7 +42,7 @@ const inputValue = ref('1')
      // allow for customization
 
      // see newtonsCradle function defined later in this file
-     var cradle = newtonsCradle(180, 100, 6, 30, 200)
+     var cradle = newtonsCradle(160, 100, 6, 30, 200)
      Composite.add(world, cradle)
      Body.translate(cradle.bodies[0], { x: -150, y: -100 })
      if (inputValue.value >= 2 && inputValue.value <=6) {
@@ -115,17 +115,22 @@ function newtonsCradle(xx, yy, number, size, length) {
     <div class="container h100 p-5">
         <h1>Conservation of Linear Momentum</h1><br>
         <p>
+        <div v-show="page===0">
+            Have you ever heard of the Newton's Cradle? It's that one physics "toy" that many executives and businessmen 
+            have lying on their office desks, with metal balls hitting each other. Yeah, you know what I'm talking about. Even 
+            if you didn't, here's an interactive demonstration anyways. You can move the balls around, but try not to break anything. (Not that 
+            it really matters if you do, there's a reset button.)
+            <br><br>
         <figure>
         <div id="newtoncradle"></div><br>
         <button class="btn btn-outline-primary" @click="runNewtonsCradle()">Reset</button>
         <br>
-        
             <span><label>Number of balls: {{ inputValue }}</label></span><br>
             <input type="range" v-model="inputValue" min="1" max="6" step="1" style="outline: 4px solid #0078d7; border-radius: 8px;
-    background: #e0e0e0"/>
+            background: #e0e0e0"/>
 
         </figure>
-
+        </div>
         </p>
        
     </div>
