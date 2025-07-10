@@ -236,6 +236,103 @@ function newtonsCradle(xx, yy, number, size, length) {
             We will be talking more in-depth about the two most common types of momentum problems, but here I'm going to present 
             a very generalized problem on momentum just to get you started.
             <br><br>
+            <div class="problem">
+                <span v-show="level>0">
+                    An astronaut floating in outer space has a mass $ M = 60 ~\textrm{kg} $ and is carrying a box of tools 
+                    of mass $m = 15 ~\textrm{kg}$. She has run out of propulsion power on her backpack and must return to her 
+                    spacecraft by other means. First, how would she achieve this?
+                    <br><br>
+                    <figure>
+                        <img src="/src/assets/momentum/Figure 66.png" width="500px">
+                    <figcaption>
+                        Figure 1: The astronaut's predicament.
+                    </figcaption>
+                    </figure>
+                    <br>
+                    Well, in the vacuum of outer space there are no forces acting on the astronaut. Therefore, the total 
+                    momentum of the system has to be conserved. So, if one of the bodies was to be given some momentum, the other 
+                    one would also gain an equal amount of momentum in the other direction! 
+                    <br><br>
+                    This is the key: she must throw 
+                    the box of tools away from the spacecraft such that she gains some momentum and begins to drift towards her 
+                    spaceship. Like I mentioned in the last lesson, this is also sort of how rockets work. 
+                    <br><br>
+                    Now that we have the mechanism of action established, let's add in a few more factors so we can make this a solvable 
+                    problem. 
+                    <br><br>
+                    The astronaut, unfortunately, was not conservative with her oxygen and now only has 5 minutes worth of it left. 
+                    She is stranded a distance of 3 kilometers from the spaceship. How fast must she throw the tool of boxes such 
+                    that she can make it back in time? She is stationary relative to the ship.
+                    <br><br>
+                    First, we can do the easy step and find the required velocity for the astronaut to just be able to drift back in time. We know
+                    the amount of time she has left as well as the distance to the spacecraft, so this is an easy kinematics calculation.
+                    <br><br>
+                    $$ v_{a} = \dfrac{x}{t} = 10 ~\textrm{m/s} $$
+                    <br>
+                    Next, we can use this velocity along with the fact that total linear momentum must be conserved in order to solve the problem.
+                    <br><br>
+                    $$ p_{tot} = 0 $$
+                    <br>
+                    $$ Mv_{a} = m v_{b} $$
+                    <br>
+                    The subscripts $a$ and $b$ denote the astronaut and box, respectively. We are able to write the second equation because the 
+                    two momenta are directly oppositely directed (momentum is a vector!).  With this, we can solve the problem:
+                    <br><br>
+                    $$ v_b = \dfrac{M}{m} v_a = \bbox[3px,
+                        border: 0.5px solid
+                        white] {40 ~\textrm{m/s} } $$
+                    <br>
+                    This is around 89.4 miles per hour. We better hope our astronaut hits the gym frequently.
+                </span>
+                <span v-show="level==0">
+                    An astronaut is stranded in outer space after her propulsion runs out. She is only carrying a box of tools and nothing else.
+                    Is there any way she could return to the spacecraft before her oxygen runs out?
+                    <br><br>
+                    <figure>
+                        <img src="/src/assets/momentum/Figure 66.png" width="500px">
+                    <figcaption>
+                        Figure 1: The astronaut's predicament.
+                    </figcaption>
+                    </figure>
+                    <br>
+                    First off, you might think that just flailing your arms around (in a methodical way) might get you moving. After all, this 
+                    is what swimmers do, and even skydivers can somewhat control their movement and maneuver in the air this way. However, space is 
+                    a vacuum where there is literally nothing.
+                    <br><br>
+                     On Earth, you can push against water or even air because they have some mass, and redirecting 
+                    them will cause you to move and control your movements. Swimmers push water behind them in order to propel themselves forward. In the 
+                    vacuum of space, there is nothing for you to push against, so moving your arms won't do anything.
+                    <br><br>
+                    We can have one key takeaway here, however. When you push on a fluid, you are redirecting it away from you, which 
+                    causes you to move in the opposite direction of where you pushed it. Are you seeing a connection? It doesn't have to 
+                    be a fluid!
+                    <br><br>
+                    We can asume the total momentum of the combination of astronaut and toolbox is zero, and it will remain zero no matter what 
+                    the astronaut does to the toolbox because there are no external forces in the vacuum of space. Therefore, she can simply 
+                    throw the toolbox away from the spacecraft to propel herself towards the spacecraft.
+                    <br><br>
+                    The reason for this is simple. The total momentum of the system must remain zero, so her giving the toolbox some 
+                    momentum away from the spaceship must mean that she gains an equal but oppositely directed momentum (technically due to Newton's Third Law) towards the spaceship, which 
+                    translates to velocity directed back towards the ship!
+                    <br><br>
+                    How fast she moves, however, depends on how hard she can throw the tools (how much speed she can impart to them), because the momentum she gives to 
+                    the toolbox is the same as the momentum that she gains.
+                </span>
+            </div>
+            <br>
+            Now, this lesson may not have been the longest, but its results will be the focal point of a lot of the later lessons in this unit. Remember 
+            the results we have derived here, because they will be useful later on! With that said, we can move on to talking about center of 
+            mass, which is also a key concept that leads itself well into our discussion of more specific momentum topics later on. Enough said, hit that 
+            button to move on!
+            <br>
+            <div class="btn-contain-left">
+                <button class="btn btn-dark" style="animation: scale1 2s infinite;" @click="$emit('prevpage')">&larr;
+                    Previous</button>
+            </div>
+            <div class="btn-contain-right">
+                <button class="btn btn-dark" style="animation: scale 2s infinite;" @click="$emit('nextpage')">Next Lesson!
+                    &rarr;</button>
+            </div>
         </div>
         </p>
        
