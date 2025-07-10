@@ -24,6 +24,8 @@ import Kepler from './components/circularGravity/Kepler.vue'
 import Collisions from './components/momentum/Collisions.vue'
 import Impulse from './components/momentum/Impulse.vue'
 import LinMomConsrv from './components/momentum/LinMomConsrv.vue'
+import Explosions from './components/momentum/Explosions.vue'
+import CenterOfMass from './components/momentum/CenterOfMass.vue'
 
 import DotProd from './components/energy/DotProd.vue'
 import Energy from './components/energy/Energy.vue'
@@ -35,7 +37,7 @@ import EqTypes from './components/energy/EqTypes.vue'
 
 const htmlElement = document.documentElement
 const Window = window
-const user = reactive({ current: "landing", difficulty: 0, theme: "dark", page: { Vectors: 0, DimenAnalyz: 0, PosVelAcc: 0, OneDMotion: 0, TwoDMotion: 0, RelativeVel: 0, FmaFBD: 0, Spring: 0, InclinedPlanes: 0, OtherForces: 0, Newton: 0, Kepler: 0, GravityLaws: 0, Centripetal: 0, Fictious: 0, DotProd: 0, Energy: 0, GravEnergy:0, Power: 0, Work: 0, EqTypes: 0, Collisions: 0, Impulse: 0, LinMomConsrv: 0 } })
+const user = reactive({ current: "landing", difficulty: 0, theme: "dark", page: { Vectors: 0, DimenAnalyz: 0, PosVelAcc: 0, OneDMotion: 0, TwoDMotion: 0, RelativeVel: 0, FmaFBD: 0, Spring: 0, InclinedPlanes: 0, OtherForces: 0, Newton: 0, Kepler: 0, GravityLaws: 0, Centripetal: 0, Fictious: 0, DotProd: 0, Energy: 0, GravEnergy:0, Power: 0, Work: 0, EqTypes: 0, Collisions: 0, Impulse: 0, LinMomConsrv: 0, CenterOfMass: 0, Explosions: 0 } })
 
 // Theme must be loaded first, but the current page is loaded later after the user clicks get started
 user.theme = localStorage.getItem("user") ? JSON.parse(localStorage.getItem("user")).theme : user.theme
@@ -99,7 +101,9 @@ const lessons = reactive(
     momentum: [
       "Impulse/Momentum Theorem",
       "Conservation of Linear Momentum",
-      "Collisions"
+      "Center of Mass",
+      "Collisions",
+      "Explosions"
     ]
   }
 )
@@ -321,8 +325,15 @@ onMounted(() => {
     @nextpage="Window.scrollTo(0, 0); user.page.LinMomConsrv++"
     @prevpage="Window.scrollTo(0, 0); user.page.LinMomConsrv--"
     @nextlesson="Window.scrollTo(0, 0); user.current = lessons.momentum[2]" />
-  <Collisions v-show="user.current === lessons.momentum[2]" :level="user.difficulty" :page="user.page.Collisions"
+  <CenterOfMass v-show="user.current === lessons.momentum[2]" :level="user.difficulty" :page="user.page.CenterOfMass"
+    @nextpage="Window.scrollTo(0, 0); user.page.CenterOfMass++"
+    @prevpage="Window.scrollTo(0, 0); user.page.CenterOfMass--"
+    @nextlesson="Window.scrollTo(0, 0); user.current = lessons.momentum[3]" />
+  <Collisions v-show="user.current === lessons.momentum[3]" :level="user.difficulty" :page="user.page.Collisions"
     @nextpage="Window.scrollTo(0, 0); user.page.Collisions++" @prevpage="Window.scrollTo(0, 0); user.page.Collisions--"
+    @nextlesson="Window.scrollTo(0, 0); user.current = lessons.momentum[4]" />
+  <Explosions v-show="user.current === lessons.momentum[4]" :level="user.difficulty" :page="user.page.Explosions"
+    @nextpage="Window.scrollTo(0, 0); user.page.Explosions++" @prevpage="Window.scrollTo(0, 0); user.page.Explosions--"
     @nextlesson="Window.scrollTo(0, 0); user.current = 'landing'" />
 </template>
 
