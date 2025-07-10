@@ -65,7 +65,12 @@ var ball2 = Bodies.circle(600,320, 30, {
     restitution: restitution
 })
 
-Composite.add(engine.world, [ground, ball1, ball2],
+var walls = [
+    Bodies.rectangle(-50, 200, 100, 400, {isStatic:true, render: {visible: false}, friction:0, restitution: 1 }),
+    Bodies.rectangle(850, 200, 100, 400, {isStatic:true, render: {visible: false}, friction:0, restitution:1 })
+]
+
+Composite.add(engine.world, [ground, ball1, ball2, ...walls],
 )
 // run the renderer
 Render.run(render);
