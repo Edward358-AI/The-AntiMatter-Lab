@@ -14,7 +14,6 @@ var Engine = Matter.Engine,
     Runner = Matter.Runner,
     Bodies = Matter.Bodies,
     Composite = Matter.Composite,
-    Body = Matter.Body,
     Mouse = Matter.Mouse,
     MouseConstraint = Matter.MouseConstraint;
 
@@ -56,7 +55,7 @@ function runCurvedRamp() {
 
     // Right vertical wall
     const rightWall = Bodies.rectangle(
-        700, 200, 
+        685, 200, 
         300, 30, 
         { isStatic: true, render: { fillStyle: "#777" }, friction: 0 }
     );
