@@ -106,12 +106,195 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                     $$ F_{av} = \dfrac{\Delta p}{\Delta t} $$
                     <br>
                 </span>
-                <div class="btn-contain-left">
+                <span v-show="level<2">The exact form is one that uses calculus, but essentially it states that the force on an object 
+                    is equal to the rate of change of its momentum. We can write this as an average value instead to avoid the calculus
+                    here:
+                    <br><br>
+                    $$ F_{av} = \dfrac{\Delta p}{\Delta t} $$
+                    <br>
+                </span>
+                <span v-show="level>0">
+                    Now, think about how this translates back to the regular form of Newton's Second Law. I said that the form we used 
+                    earlier assumed that mass was constant, so we can simply put this assumption back in and see if we can make any 
+                    substititions. (Hint, hint: we can.)
+                    <br><br>
+                    Since mass is constant, we can rewrite $\Delta p$ as $m \Delta v$. This lets us substitute this into our equation for 
+                    average force:
+                    <br><br>
+                    $$ F_{av} = \dfrac{m \Delta v}{\Delta t} $$
+                    <br>
+                    Now, something should look familiar here. The term $\Delta v / \Delta t$ is equal to the average acceleration!
+                    <br><br>
+                    $$ F_{av} = m a_{av} $$
+                    <br>
+                    We can drop the average symbols. The exact reasoning here is a little sketchy, but my idea is that both values are averages, so you 
+                    can make them both instantaneous. In any case, the calculus version of this proof makes much more sense and is much more 
+                    logically rigorous. However, this is probably good enough for a basic understanding. Now, we can go back to our familiar form of 
+                    the Second Law:
+                    <br><br>
+                    $$ F = ma $$
+                    <br>
+                    <span v-show="level==2">
+                        We can prove this more rigorously using calculus, by following similar logic. We first start by defining $dp = m dv$ and then 
+                        use identical logic to arrive back at the same result. I'll leave the exact details for you to do.
+                        <br><br>
+                    </span>
+                    In any case, the result has significance in that it's not restricted to the case where mass is constant. This allows 
+                    us to handle problems we previously were not able to. I'll give you one very common and illustrative example on the next page.
+                </span>
+                <span v-show="level==0">
+                    This can be easily shown to be equivalent to our previous statement of Newton's Second Law. If you're interested in all the details of the
+                    math, you can see our Algebra-based level. The basic idea behind it is that if we assume that mass is constant, then the 
+                    formula simplifies to the familiar $F=ma$ result. First, we can write:
+                    <br><br>
+                    $$\Delta p = m \Delta v$$
+                    <br>
+                    This is <b>only</b> true if mass is constant. The term for change in momentum can technically have both a change in mass 
+                    and a change in velocity, so we have to know mass is constant in order to write it in this form. Most of the time, we've 
+                    dealt solely with unchanging mass, but this can change.
+                    <br><br>
+                    After plugging this into our previous equations, we can simplifiy our result using the basic kinematics relation that 
+                    $a = \Delta v/ \Delta t$ to arrive at our familiar form of Newton's Second Law:
+                    <br><br>
+                    $$F = ma $$
+                    <br>
+                    This new expression is not really all that useful for most cases since 90% of the time, mass will be constant. However, it 
+                    is more versatile and allows us to tackle problems involving a changing mass.
+                </span>
+            <div class="btn-contain-left">
                 <button class="btn btn-dark" style="animation: scale1 2s infinite;" @click="$emit('prevpage')">&larr;
                     Previous</button>
             </div>
             <div class="btn-contain-right">
                 <button class="btn btn-dark" style="animation: scale1 2s infinite;" @click="$emit('nextpage')">Next
+                    &rarr;</button>
+            </div>
+            </div>
+
+            <div v-show="page==2">
+                <div class="problem">
+                    <span v-show="level>0">
+                        A cart of mass $m$ slides along a frictionless rail with some velocity $v$. At a certain point in the track, the cart starts being 
+                        filled up with sand that falls vertically into the cart at a constant rate $R$, where $R$ describes the mass of the sand that is added to the cart per time interval.
+                        What is the force that must be exerted on the cart to keep it going at a constant velocity?
+                        <br><br>
+                        <figure>
+                            <img src="/src/assets/momentum/Figure 65.png" width="750px">
+                            <figcaption>
+                                Figure 2: Magic pocket sand!
+                            </figcaption>
+                        </figure>
+                        <br>
+                        Now, you might be confused why we would need to exert a force to keep the cart moving, since there's no 
+                        friction. Doesn't Newton's First Law state that an object will remain in its state of motion if no net force acts on it?
+                        Therefore, we wouldn't need to exert any force...right?
+                        <br><br>
+                        Well, no. First off, the cart remaining at the same speed would violate the conservation of energy, since the mass is increasing 
+                        which means the kinetic energy is increasing without anything else changing. Therefore, we would need to exert a net force to maintain
+                        the cart's motion. The cart also does experience a net force in the form of the sand hitting the back of the cart since it falls in 
+                        without any horizontal velocity. We need to use the new form of Newton's Second Law to solve.
+                        <br><br>
+                        There is no velocity change, but there is a mass change. Therefore, we can write the change in momentum as:
+                        <br><br>
+                        $$ \Delta p = \Delta m v$$
+                        <br>
+                        Now, we can use our force formula, which we don't have to take the average of because the force required is constant.
+                        <br><br>
+                        $$ F = \dfrac{\Delta p} {\Delta t} = \dfrac{\Delta m} {\Delta t} v $$
+                        <br>
+                        Now, we recognize that the rate of change of mass $R$ is equal to $\Delta m/ \Delta t $, which lets us write our final 
+                        answer:
+                        <br><br>
+                        $$\bbox[3px,
+                        border: 0.5px solid
+                        white]{F = R v} $$
+                        <br>
+                        There we go! The logic and reasoning required can be a bit tricky at first, but the actual calculations are very easy once 
+                        you understand what's going on. Mass isn't always constant, and knowing this technique lets you expand your horizons.
+                        <br><br>
+                        Here's an interesting follow-up question for you. Now, what would happen if sand was leaking from the cart instead? 
+                        <br><br>
+                        Well, you might jump to conclude that the opposite would just be true, that the cart would speed up. However, this isn't the 
+                        case, as you might have realized by thinking of real-life examples! A car leaking oil doesn't suddenly go faster. 
+                        <br><br>
+                        The sand is
+                        <b>leaking</b> from the cart, which means that it will fall out with <b>zero relative velocity</b> to the cart. This means 
+                        it takes kinetic energy away from the cart, causing it to remain at the same speed despite its mass having 
+                        decreased. It would just continue forward at the same speed as before.
+                        <br><br>
+                        That being said, it is possible for this to speed up the cart. The sand would have to be expelled from the cart with some relative velocity 
+                        to the cart, meaning we would do something like launching it out the back. This is the principle of action of rocket engines, which launch 
+                        hot gases at high velocities in order to propel themselves forward. Who knew we would glimpse into rocket science here?
+                        </span>
+                        <span v-show="level==0">
+                            Let's keep it conceptual here. A cart slides along a frictionless rail in a straight line. At a certain point, sand begins to fall 
+                            vertically into the box at some constant rate. What would happen to the cart?
+                            <br><br>
+                            <figure>
+                            <img src="/src/assets/momentum/Figure 65.png" width="750px">
+                            <figcaption>
+                                Figure 2: Magic pocket sand!
+                            </figcaption>
+                        </figure>
+                        <br>
+                        You might assume that nothing would happen, since according to Newton's First Law an object will tend to remain in its state of motion 
+                        unless acted on by a net force, and there seems to be no obvious net force here. However, consider it this way. The cart would be gaining 
+                        kinetic energy out of nowhere if it kept moving at the same speed, since its mass is increasing. Therefore, something has to be happening.
+                        <br><br>
+                        The key is to analyze the following equation to see what would happen. Since all rates and such are constant, we can assume the force would be
+                        constant too.
+                        <br><br>
+                        $$ F = \dfrac{\Delta p}{\Delta t} $$
+                        <br>
+                        What exactly does this do? Well, it tells us that some net force is being exerted on the cart because its momentum is changing. More accurately, 
+                        its mass is changing, which means a change in momentum. We can combine this result with the fact that the total energy of the cart must remain constant 
+                        to conclude that the cart experiences a backward force and will slow down if nothing else is done to it. This result is not entirely 
+                        unexpected, since if you weigh something down it's harder to move!
+                        <br><br>
+                        This result is quite useful. We can actually modify the problem to solve for the required force such that the cart remains 
+                        at a constant velocity, which is what we've done in the higher difficulty levels. Knowing this result helps you deal with problems 
+                        where mass is not constant, which admittedly are not numerous but still definitely present. And, it's an interesting result!
+                        </span>
+                </div>
+                <br>
+                <span v-show="level==2">
+                    What happens if <b>both</b> mass and velocity change? Well, this requires some tricky calculus and isn't common, but can be 
+                    dealt with. You are not strictly required to know this method, but it can come in handy if you're aiming to do 
+                    physics at a higher level.
+                    <br><br>
+                    Take a look back at our new expression for Newton's Second Law.
+                    <br>
+                    $$ F = \dfrac{dP}{dt}$$ 
+                    <br>
+                    Where:
+                    <br><br>
+                    $$ p = mv $$
+                    <br>
+                    In all previous scenarios, either mass or velocity was constant, so we could have treated them as such and didn't have 
+                    to differentiate them. However, if both are changing, then we have to write a more general form. The key is to use the product rule.
+                    <br><br>
+                    $$F = \dfrac{dp}{dt} = m \dfrac{dv}{dt} + \dfrac{dm}{dt} v $$
+                    <br>
+                    This might not look exactly like the product rule you're used to, but if you take a closer look you will 
+                    find that this indeed does follow the formula. Indeed, this method can be applied generally and not just to 
+                    this formula if necessary. 
+                    <br><br>
+                    Now, you have a way to find the net force on any object at any point in time, provided you know 
+                    certain pieces of information.
+                    <br><br>
+                </span>
+                This lesson was short because it was introductory. The next few lessons will cover more serious and difficult topics relating to 
+                conservation and problems involving momentum. They are really the representative lessons of momentum, and this one usually 
+                gets left in the dust as an unappealing addendum to the unit. However, this lesson is important in its own right, and you'll do 
+                well to remeber its results, especially our brand-new form of Newton's Second Law.
+                <br><br>
+                If you're ready to face the concept of conservation again after not talking about it for one whole lesson, let's move on!
+                <div class="btn-contain-left">
+                <button class="btn btn-dark" style="animation: scale1 2s infinite;" @click="$emit('prevpage')">&larr;
+                    Previous</button>
+            </div>
+            <div class="btn-contain-right">
+                <button class="btn btn-dark" style="animation: scale 2s infinite;" @click="$emit('nextlesson')">Next Lesson!
                     &rarr;</button>
             </div>
             </div>
