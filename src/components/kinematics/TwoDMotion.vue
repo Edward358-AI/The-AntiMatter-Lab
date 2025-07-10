@@ -72,7 +72,7 @@ if (isNaN(v_y)) {
 
 setTimeout(() => {
     Body.setVelocity(ball, {x: v_x, y: -v_y});
-}, 500); // 500ms delay before applying the force
+}, 500); // 500ms delay before movement
 
 
 Composite.add(engine.world, [ground, ball, wall1, wall2]);
