@@ -156,7 +156,7 @@ onMounted(() => {
                     <figure>
                         <img src="/src/assets/momentum/Figure 70.png" width="750px">
                             <figcaption>
-                                Figure 2: Mild railway incident.
+                                Figure 1: Mild railway incident.
                             </figcaption>
                     </figure>
                     <br>
@@ -239,6 +239,65 @@ onMounted(() => {
                     respective sides, we can see that both sides of the equation are expressions of relative velocity! To be specific, 
                     the equation states that <b>the relative velocity of approach</b> is equal to <b>the relative velocity of recession</b> 
                     between two objects undergoing an elastic collision!
+                    <br><br>
+                    This equation is actually a consequence of the fact that the center-of-mass velocity is constant in these scenarios. We can 
+                    work in the center-of-mass frame, in which the total momentum must be zero because in that frame $ v_{cm} = 0 $$, and center of mass 
+                    velocity is directly related to momentum. This is a different technique for these problems and a valid one, though it's not one I 
+                    tend to use or talk about often.
+                    <br><br>
+                    The formula talks about relative velocity, so the signs that you see there are not set in stone. Just keep in mind
+                    the idea of relative velocity, and you'll be all good to use this equation for all your elastic-collision needs. Here's 
+                    an exericse to test exactly that.
+                    <br><br>
+                    <div class="problem">
+                        A tungsten bullet with a mass of 30 grams is fired at a metal cube that has a mass of 4.0 kg with a muzzle velocity 
+                        of 1200 m/s. The bullet ricochets off the cube in a perfectly elastic one-dimensional collision. What are the final velocities of the bullet and cube?
+                        <br><br>
+                        <figure>
+                        <img src="/src/assets/momentum/Figure 71.png" width="750px">
+                            <figcaption>
+                                Figure 2: This feels so incomprehensible without context.
+                            </figcaption>
+                        </figure>
+                        <br>
+                        This is just an elastic collision scenario. We know the initial masses and velocities of the objects, and we need 
+                        to find their final velocities using our equations. First, we want to "guess" at the directions of motion of the 
+                        objects after the collision. I'll say the bullet is going to the left, and the block will be going to the right.
+                        With this, we now have defined directions for our momentum vectors.
+                        <br><br>
+                        Here is our momentum conservation equation. I've defind bullet mass as $m$, block mass as $M$, and initial bullet velocity as $v_0$.
+                        <br><br>
+                        $$ mv_0 = M v_{Mf} - mv_{mf} $$
+                        <br>
+                        Now, we can write our second equation using the relative velocity relation.
+                        <br><br>
+                        $$ v_0 = v_{Mf} + v_{mf} $$
+                        <br>
+                        We add the velocities on the right side because both objects are receding from each other, meaning their relative velocity 
+                        is the sum of their speeds. Now, we just need to do some simple algebra.
+                        <br><br>
+                        $$ mv_0 = M (v_0 - v_{mf}) - m v_{mf} $$
+                        <br>
+                        $$ (m+M) v_{mf} = (M-m) v_0 $$
+                        <br><br>
+                        This gives us the speed of the bullet after collision:
+                        <br><br>
+                        $$ v_{mf} = \bbox[3px,
+                        border: 0.5px solid
+                        white] {1182 ~\textrm{m/s} }$$
+                        <br>
+                        With this, we can find the speed of the block with a minimal amount of extra effort.
+                        <br><br>
+                        $$ v_{Mf} = v_0 - v{mf} = \bbox[3px,
+                        border: 0.5px solid
+                        white]{17.9 ~\textrm{m/s} }$$
+                        <br>
+                        That's the general gist of it!
+                    </div>
+                </span>
+                <span v-show="level==0">
+                    If you want to strictly follow the definition, then you would set initial kinetic energies equal to 
+                    final kinetic energies as well as setting 
                 </span>
                 <div class="btn-contain-left">
                 <button class="btn btn-dark" style="animation: scale1 2s infinite;" @click="$emit('prevpage')">&larr;
