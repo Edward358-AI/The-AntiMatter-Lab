@@ -297,7 +297,33 @@ onMounted(() => {
                 </span>
                 <span v-show="level==0">
                     If you want to strictly follow the definition, then you would set initial kinetic energies equal to 
-                    final kinetic energies as well as setting 
+                    final kinetic energies as well as setting final momentum equal to initial momentum. This is 
+                    admittedly tedious, however. However, there is a easier way!
+                    <br><br>
+                    The proof of the new formula I'm about to show you requires some pretty tedious algebra, so I'll just 
+                    display the result here.
+                    <br><br>
+                    $$ v_{1i} - v_{2i} = v_{2f} - v_{1f} $$
+                    <br>
+                    This formula looks pretty simple, but you have to be careful with it! The strict definition is that this 
+                    states that <b>the relative velocity of approach</b> of two objects undergoing an elastic collision <b>is equal 
+                        to the relative velocity of recession
+                    </b> (moving apart). Now, since this is a relative velocity, the signs are not 
+                    set in stone. 
+                    <br><br>
+                    You want to choose the signs in the way that would make sense. If the objects move head-on before 
+                    colliding, the relative velocity would be their two velocities added together. If one object is 
+                    "chasing" another before colliding with it, it would instead be the difference of the velocities.
+                    <br><br>
+                    Sometimes, it's not immediately obvious how objects will move after a collision. That's completely 
+                    fine, we can "guess"! As long as your guess stays consistent throughout your entire process, the final 
+                    answer should be correct except for a sign error or you will see an obvious contradiction that tells you 
+                    that your guess was incorrect.
+                    <br><br>
+                    Elastic collisions are definitely trickier than inelastic ones because they require much more calculation, but 
+                    at the end of the day it's still just momentum balance. If you want to see a problem involving these formulas, you 
+                    can bump the difficulty up to our algebra-based level and look at the example problem we've provided there. It is 
+                    a bit algebraically heavy, though.
                 </span>
                 <div class="btn-contain-left">
                 <button class="btn btn-dark" style="animation: scale1 2s infinite;" @click="$emit('prevpage')">&larr;
@@ -305,6 +331,60 @@ onMounted(() => {
             </div>
             <div class="btn-contain-right">
                 <button class="btn btn-dark" style="animation: scale1 2s infinite;" @click="$emit('nextpage')">Next
+                    &rarr;</button>
+            </div>
+            </div>
+            <div v-show="page===2">
+                I'm just going to wrap up any loose ends and special things I think should be mentioned in this unit. First off, 
+                for collisions sometimes you are given more information than is strictly necessary. In those cases (such as when you 
+                are given both initial velocities and one final velocity) do not overthink the problem, just do your momentum balance 
+                as always. <span v-show='level>0'>I won't go over such problems 
+                because they are much simpler than what I've discussed previously.</span>
+                <br><br>
+                With that little tidbit out of the way, I want to discuss a few special cases in the wild world of one-dimensional collisions before we go on to
+                2D. These results
+                can be found with the conventional momentum-conservation methods, but I think they're quite interesting and worth dedicating 
+                a few extra words to.
+                <br><br>
+                <span v-show="level>0">
+                    We're going to mathematically derive all of the results here, so hang tight and be ready for some algebra! First, we'll 
+                    see what happens when a small object of mass $m$ moving at some speed $v$ hits a very massive object of mass $M >> m$. This is 
+                    basically like something hitting a brick wall.
+                    <br><br>
+                    <figure>
+                        <img src="/src/assets/momentum/Figure 72.png" width="750px">
+                            <figcaption>
+                                Figure 2: In actuality, when you hit the brick wall you're hitting the Earth that the wall is anchored in.
+                            </figcaption>
+                    </figure>
+                    <br>
+                    First, let's talk about the totally inelastic case. This is analogous to a blob of clay hitting the brick wall. Common sense 
+                    tells us that it should just impact and stop, so let's see if the math tells us the same.
+                    <br><br>
+                    We can write our generic equations for the inelastic collison case:
+                    <br><br>
+                    $$ mv = (M+m) v_{f} $$
+                    <br>
+                    The special thing here is that $M >> m$. Keep this in mind. Now we solve for $v_f$:
+                    <br><br>
+                    $$ v_f = \dfrac{m}{M+m} v $$
+                    <br>
+                    This is the answer, but we can reduce it a little more. Since $ M >> m$, the denominator is 
+                    much larger than the numerator. This means that we can approximate this as zero, since a very small 
+                    number over a very large one is very close to zero!
+                    <br><br>
+                    $$ v_f \approx 0 $$
+                    <br>
+                    This is the expected result: when something hits and sticks to the brick wall, it stops moving. What about 
+                    the elastic case?
+                    <br><br>
+                </span>
+                <div class="btn-contain-left">
+                <button class="btn btn-dark" style="animation: scale1 2s infinite;" @click="$emit('prevpage')">&larr;
+                    Previous</button>
+            </div>
+            <div class="btn-contain-right">
+                <button class="btn btn-dark" style="animation: scale 2s infinite;" @click="$emit('nextLesson')">Next Lesson!
                     &rarr;</button>
             </div>
             </div>
