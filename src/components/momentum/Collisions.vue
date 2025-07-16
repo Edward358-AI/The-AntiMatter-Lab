@@ -378,7 +378,246 @@ onMounted(() => {
                     This is the expected result: when something hits and sticks to the brick wall, it stops moving. What about 
                     the elastic case?
                     <br><br>
+                    In this case, we would expect the ball to rebound with the same speed, but in the opposite direction. Let's see 
+                    if this is what we arrive at. We first still want to write our generic equations:
+                    <br><br>
+                    $$ mv = Mv_M - mv_m $$
+                    $$ v = v_M + v_m $$
+                    <br>
+                    Now, we solve this just like we've done before.
+                    <br><br>
+                    $$ mv = M (v - v_m) - m v_m $$
+                    $$ v_m = \dfrac{M-m}{M+m} v $$
+                    <br>
+                    Since $ M >> m$, we can see that the fraction should simplify to one. This is because the value of $m$ has 
+                    a negligible effect on the actual value of the fraction, since $M$ is so much larger in this case. Therefore, we 
+                    can write:
+                    <br><br>
+                    $$ v_m \approx v $$
+                    <br>
+                    This is what we expected! As a bonus, we can also see that the wall will have essentially no velocity after the 
+                    collision, which is also the expected result. Physics wins again! (Wins over or against what, I have no idea. It just wins because 
+                    it works. No mortal dares challenge the laws of physics.)
+                    <br><br>
+                    Now, I want to talk about a similar but likely less familiar case: the brick wall moving to hit the ball. Now, the ball 
+                    is at rest initially, and the brick wall comes in and slams into it. The closest analogy I can think of for 
+                    this is getting hit by an 18-wheeler truck.
+                    <br><br>
+                    First, let's do this mathematically. We're only going to consider the elastic case, because the inelastic case 
+                    is quite easy to see: the object sticks to and moves with the "truck", moving at the same velocity 
+                    the truck was initialyl going at. I'll leave the details of the reasoning for you to figure out, since we've done similar things in the past.
+                    <br><br>
+                    $$ Mv = mv_m + Mv_M$$
+                    $$ v = v_m - v_M $$
+                    $$ v_m = \frac{2M}{M+m} v $$
+                    <br>
+                    If we take the limiting case as we did before where $ M >> m$, we see that:
+                    <br><br>
+                    $$ v_m \approx 2v $$
+                    <br>
+                    Well, we can actually do some clever frame-of-reference tricks to arrive at the answer without having to do math. And, it 
+                    explains why the answer is what it is in a much more natural way than numbers and equations. Let's work in the 
+                    frame of reference moving with the mass $M$.
+                    <br><br>
+                    In this reference frame, we essentially have the case of the ball elastically bouncing off the brick wall. This means 
+                    the final velocity of the ball in the frame moving with the large mass is $v_m' \approx v$.
+                    <br><br>
+                    We need to transform back into the original frame now, which means we move in the opposite direction of the mass $M$ at 
+                    a speed of $v$. This means we need to add $v$ to the speed of $v_m'$ due to the transformation, letting us 
+                    arrive at the aforementioned result:
+                    <br><br>
+                    $$ v_m \approx 2v$$
                 </span>
+                <span v-show="level==0">
+                    The interesting stuff happens when one object is much larger than another, sort of like a ball and a 
+                    brick wall. That's not a perfect analogy, but it's good enough. First, we consider what happens if the smaller 
+                    object is thrown at the wall.
+                    <br><br>
+                    <figure>
+                        <img src="/src/assets/momentum/Figure 72.png" width="750px">
+                            <figcaption>
+                                Figure 2: In actuality, when you hit the brick wall you're hitting the Earth that the wall is anchored in.
+                            </figcaption>
+                    </figure>
+                    <br>
+                    There are two such cases: a totally inelastic collision with the wall, and a totally elastic one. Common sense 
+                    should tell us what happens in each case, and I'll be relying more on intuition and general analysis rather than 
+                    using momentum balance to prove the results. If you want to see the math, just head over to our algebra-based level.
+                    <br><br>
+                    In the totally inelastic case, we would expect the ball to stick to the wall and not move again. And that is indeed 
+                    what momentum balance tells us would happen. The small and large objects stick together and move, but since the 
+                    mass of the small object is so much less than that of the larger one, they would move so little we can just 
+                    say they aren't moving.
+                    <br><br>
+                    What about the elastic case? Well, we should expect the ball to bounce off the wall with the same speed. This 
+                    might not seem to conserve momentum because direction of motion is flipped, but remember that the wall would technically move forward with some very miniscule speed 
+                    after the collision, which is enough to compensate for the disparity becaue mass is so large. Energy is also conserved 
+                    for obvious reasons, since initial and final speeds are the same.
+                    <br><br>
+                    The most interesting case is when the large object moves and collides elastically with the small object. In this case, it's 
+                    probably a better analogy to use an 18-wheeler truck as the large object. The elastic case is an interesting one, because 
+                    we can see what happens just by using reference frame techniques.
+                    <br><br>
+                    If we transform into the frame where we move with the truck, which I'll say means we move to the left. Thus, we 
+                    see the truck as stationary and the ball as moving to the right to hit it. Using the result from before, we know
+                    the ball will rebound with the same speed in the opposite direction. Now here comes the interesting part.
+                    <br><br>
+                    We transform back to the original reference frame, going from moving to the left with the truck to sitting "stationary". This means 
+                    we effectively are moving to the right with some speed (the same speed as the truck), meaning we have to <b>add</b> that speed 
+                    to the speed of the ball. Thus, the ball moves off with <b>twice</b> the velocity of the truck that approaches it 
+                    after impact! Did you expect that?
+                </span>
+            <div class="btn-contain-left">
+                <button class="btn btn-dark" style="animation: scale1 2s infinite;" @click="$emit('prevpage')">&larr;
+                    Previous</button>
+            </div>
+            <div class="btn-contain-right">
+                <button class="btn btn-dark" style="animation: scale1 2s infinite;" @click="$emit('nextpage')">Next
+                    &rarr;</button>
+            </div>
+            </div>
+            <div v-show="page==3">
+                We know how to deal with collisions in one dimension, but what if we up that to two? (Or maybe even three?)
+                It's actually not as bad as you would expect. Like many times before, we simply <b>treat each dimension 
+                    separately
+                </b>. Yes, this should remind you of force analysis and projectile motion.
+                <br><br>
+                <span v-show="level>0">
+                    There's not too much to say here. In general, for multiple dimensions, we can write the statements of momentum conservation 
+                    for each dimension. It's important to remember that momentum is a vector quantity, and you can usually find the 
+                    components by using trigonometry.
+                    <br><br>
+                    $$ p_x = \textrm{const.} $$
+                    $$ p_y = \textrm{const.} $$
+                    $$ p_z = \textrm{const.} $$
+                    <br>
+                    The only notable distinction that you should know is that the formula we gave for the relative 
+                    velocities of approach and recession does not work for two-dimensional or three-dimensional collisions. The equation is 
+                    a result of the center-of-mass velocity remaining constant, and in multiple dimensions the individual velocities typically 
+                    do not lie in the same direction as the center-of-mass velocity.
+                    <br><br>
+                    With that, we can jump straight into a problem. For whatever reason, most of the time objects are represented 
+                    with disks.
+                    <br><br>
+                    <div class="problem">
+                        Two identical disks that hit each other elastically will always move off in directions that are pependicular to each other. 
+                        Show this for the case of one disk moving off at 60° above the horizontal after the collision.
+                        <br><br>
+                        <figure>
+                            <img src="/src/assets/momentum/Figure 73.png" width="750px">
+                            <figcaption>
+                                Figure 3: A general sketch of the scenario.
+                            </figcaption>
+                        </figure>
+                        <br>
+                        Okay. So what do we do here? Well, first off we should define some things that aren't defined in the initial problem. 
+                        We want to recognize that it's essentially asking for a scenario where one disk moves in with some velocity $v$ to hit 
+                        another identical one. Afterwards, one of them (we'll call this object 1) moves off at 60° above the horizontal. How does the other one (object 2) move?
+                        <br><br>
+                        Let's do some momentum balance. First, we'll deal with the x-direction, where initally we have a momentum of $mv$ from the 
+                        first disk moving in. We'll use trig and the angle $\theta$ to represent the angle we don't yet know.
+                        <br><br>
+                        $$ mv = m v_1\cos 60° + m v_2\cos \theta $$
+                        <br>
+                        This alone is not enough, since we have too many unknowns. But, we can also write momentum balance for the y-direction. This direction 
+                        has zero momentum initially.
+                        <br><br>
+                        $$ m v_1 \sin 60° = m v_2 sin \sin \theta $$
+                        <br>
+                        We have three unknowns ($v_1$, $v_2$, and $\theta$) but only two equations. We just need one more! Think for a moment for what the third 
+                        equation we need to use is. Did you say energy conservation? Well, regardless, that's what we need to write!
+                        <br><br>
+                        $$ \dfrac 12 mv^2 = \dfrac12 m {v_1}^2 + \dfrac12 m {v_2}^2 $$
+                        <br>
+                        We can next divide out $m$ from each equation to arrive at our three equations.
+                        <br><br>
+                        $$ v = v_1\cos 60° + v_2\cos \theta $$
+                        $$ v_1 \sin 60° = v_2 \sin \theta $$
+                        $$ v^2 = {v_1}^2 + {v_2}^2 $$
+                        <br>
+                        Algebra time! You can tell I'm really excited by the way I'm repeatedly smashing my head into the wall. But in all seriousness, the 
+                        only difficult part of multi-dimensional collisions is the math. The concepts are really similar, but the algebra...
+                        <br><br>
+                        First, we combine the first two equations, eliminating $v_2$. You can eliminate $v_1$ as well, it makes no difference. Oh, and we evaluate
+                        the trig to the exact expressions. Hope you remember your common angles!
+                        <br><br>
+                        $$ v = \dfrac12 v_1 + \dfrac{\sqrt{3} }{2} v_1 \dfrac{1}{\tan \theta} $$
+                        $$ 2v = v_1 (1 + \dfrac{\sqrt{3} }{\tan \theta}) $$
+                        <br>
+                        We now eliminate $v_2$ from the third equation as well, using the same method.
+                        <br><br>
+                        $$ v^2 = {v_1}^2 + {v_1}^2 \frac{3}{4 \sin^2 \theta} $$
+                        $$ v = v_1 \sqrt{1+ \dfrac{3}{4 \sin^2 \theta} } $$
+                        <br>
+                        Now, we divide both equations to elminate both $v$ and $v_1$ in one fell swoop. Although, the result is messy...
+                        <br><br>
+                        $$ 2 = \dfrac{1 + \dfrac{\sqrt{3} }{\tan \theta} }{\sqrt{1+ \dfrac{3}{4 \sin^2 \theta} } } $$
+                        <br>
+                        Extreme algebra up ahead! Try to follow me. We algebraically simplify by cross-multiplying, then squaring both sides.
+                        <br><br>
+                        $$ 4 + \dfrac{3}{sin^2 \theta} = 1 + \dfrac{2\sqrt3}{\tan \theta} + \dfrac{3\cos^2 \theta} {\sin^2 \theta} $$
+                        <br>
+                        Combine like terms and divide both sides by three:
+                        <br><br>
+                        $$ 1 + \dfrac{1}{sin^2 \theta} = \dfrac{2}{\sqrt3 \tan \theta} + \dfrac{\cos^2 \theta} {\sin^2 \theta} $$
+                        <br>
+                        Now, there's a trick here. Combine both terms with $sin^2 \theta$ and you will see a trig identity.
+                        <br><br>
+                        $$ 1 = \dfrac{2}{\sqrt3 \tan \theta} + \dfrac{\cos^2 \theta - 1 } {\sin^2 \theta} $$
+                        <br>
+                        The latter term on the right side simplifies to $-1$ because of the Pythagorean Identitity. This simplifies 
+                        the problem.
+                        <br><br>
+                        $$ 2 = \dfrac {2}{\sqrt 3 \tan \theta} $$
+                        $$ \tan \theta = \dfrac{1}{\sqrt3} $$
+                        <br>
+                        Therefore, we can conclude that:
+                        <br><br>
+                        $$ \theta = \bbox[3px,
+                        border: 0.5px solid
+                        white]{ 30°  }$$
+                        <br>
+                        Think back to what the problem originally asked: to show that a 2D elastic collision between two identical objects resulted in their 
+                        final velocities being at right angles to each other. And we've just shown that, since the other angle is 60°!
+                        <br><br>
+                        There's a way to generally prove this, but the algebra for that is probably going to overload your brains after that one. So, 
+                        we'll refrain from proving it here. You can give it a shot, though! Just generalize the problem to have $\theta_1$ and $\theta_2$ 
+                        and try to algebraically manipulate the equations until you show they add to 90°, if you dare.
+                    </div>
+                </span>
+                <span v-show="level==0">
+                    We can use the idea of vector components to split each momentum vector into its components. The total sum of final momenta in 
+                    each direction must equal the initial momentum in that direction. It's much like one-dimensional collisions, but with an extra dimension 
+                    or two thrown in that you need to worry about.
+                    <br><br>
+                    A word of caution. You cannot use the relative velocity formula I gave before; it only works for a one-dimensional elastic collision. The reason 
+                    behind this has to do with center-of-mass velocity, which the formula depends on. In 1D, both the final velocities must lie on the same line as the 
+                    direction of the center-of-mass velocity, but this constraint isn't true when we have two or more dimensions. The objects can move any which 
+                    way they want, and are not constrained to a line.
+                    <br><br>
+                    With that said, I do want to emphasize that while conceptually two-dimensional and three-dimensional collisions are very simple, 
+                    mathematically they can be an absolute nightmare. For an inelastic collision, things are simple as always, but the 
+                    elastic collison requires you to solve a system of <b>three</b> equations, with trigonometry thrown in as well just for "fun". 
+                    <br><br>
+                    If you want to glimpse into the maw of the beast, you can peek at our algebra-based level and look at the practice problem there.
+                    <br><br>
+                    One interesting result (that you don't need to derive because it's mathematically complex) is that if one object elastically hits an identical 
+                    one, their final velocities will be at right angles to each other. A neat result that can be used to solve certain problems 
+                    very quickly. Here's the scenario I'm talking about, drawn out:
+                    <br><br>
+                    <figure>
+                            <img src="/src/assets/momentum/Figure 73.png" width="750px">
+                            <figcaption>
+                                Figure 3: A general sketch of the scenario.
+                            </figcaption>
+                    </figure>
+                    <br>
+                </span>
+                <br>
+                With that, a <span v-show="level>0">long </span>lesson is concluded. Collisions are a very common type of momentum problem that 
+                you should be familiar with, as they have numerous variations on a basic archetype revolving around 
+                the conservation of linear momentum. The next specific scenario we'll talk about is much more 
+                limited in scope, but would hold a little more... appeal for some. Let's talk about explosions!
                 <div class="btn-contain-left">
                 <button class="btn btn-dark" style="animation: scale1 2s infinite;" @click="$emit('prevpage')">&larr;
                     Previous</button>
