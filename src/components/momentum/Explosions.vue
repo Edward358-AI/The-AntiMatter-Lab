@@ -1,6 +1,99 @@
 <script setup>
 defineProps(["level", "page"])
 defineEmits(["nextlesson", "nextpage", "prevpage"])
+import {onMounted, ref} from 'vue'
+// module aliases
+var Engine = Matter.Engine,
+    Render = Matter.Render,
+    Runner = Matter.Runner,
+    Bodies = Matter.Bodies,
+    Body = Matter.Body,
+    Composite = Matter.Composite;
+
+const strength = ref(1.0)
+
+var particles = [];
+
+function runExplosion() {
+    document.getElementById("explosion").innerHTML = ""
+
+// create an engine
+var engine = Engine.create();
+    engine.gravity.y = 0;
+
+    // create a renderer
+var render = Render.create({
+    element: document.getElementById('explosion'),
+    engine: engine,
+    options: {
+        width: 800,
+        height: 800,
+        wireframes: false,
+        background: "#000"
+    }
+});
+// run the renderer
+Render.run(render);
+// create runner
+
+var walls = [
+        Bodies.rectangle(-50, 400, 100, 800, { isStatic: true, render: { visible: true }, restitution: 1 }),
+        Bodies.rectangle(850, 400, 100, 800, { isStatic: true, render: { visible: true }, restitution: 1 }),
+        Bodies.rectangle(400, -50, 800, 100, { isStatic: true, render: { visible: true }, restitution: 1 }),
+        Bodies.rectangle(400, 850, 800, 100, { isStatic: true, render: { visible: true }, restitution: 1 })
+    ];
+
+  particles.length = 0; // reset
+  const cols = 10;
+  const rows = 10;
+  const spacing = 30;
+  const startX = 400 - (cols * spacing) / 2;
+  const startY = 400 - (rows * spacing) / 2;
+
+  for (let i = 0; i < cols; i++) {
+    for (let j = 0; j < rows; j++) {
+      const circle = Bodies.circle(startX + i * spacing, startY + j * spacing, 8, {
+        restitution: 1,
+        friction: 0,
+        frictionAir: 0,
+        render: {
+          fillStyle: '#f39c12'
+        }
+      });
+      particles.push(circle);
+    }
+  }
+
+Composite.add(engine.world, [...walls, ...particles])
+    var runner = Runner.create();
+
+// run the engine
+Runner.run(runner, engine);
+
+}
+
+function Explode() {
+    const center = { x: 400, y: 400 };
+
+    particles.forEach(body => {
+      const dx = body.position.x - center.x;
+      const dy = body.position.y - center.y;
+      const distance = Math.sqrt(dx * dx + dy * dy) || 1;
+      const forceMagnitude = strength.value * body.mass;
+
+      Body.applyForce(body, body.position, {
+        x: (dx / (distance * distance)) * forceMagnitude,
+        y: (dy / (distance * distance)) * forceMagnitude
+      });
+    });
+
+
+  }
+
+onMounted(()=>{
+    runExplosion()
+})
+
 </script>
 
 
@@ -111,6 +204,35 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
             </div>
             </div>
             <div v-show="page===1">
+                I couldn't have a lesson on literal explosions without having a demo you can play with. It's not the kind 
+                of flashy, loud, and bright phenomenon you're used to, but it should suffice. Have fun, and also try to get 
+                some intuition for two-dimensional explosions out of this as well!
+                <br><br>
+                <figure>
+                <button class="btn btn-outline-primary" @click="Explode">💥</button>
+                <div id="explosion"></div>
+                <button class="btn btn-outline-primary" @click="runExplosion()">Reset</button><br>
+                <label> Explosion Strength: {{ strength }} </label>&ensp;<input type="range" v-model="strength" min="0.5" max="20" step="0.01" style="outline: 4px solid #0078d7; border-radius: 8px;
+                background: #e0e0e0"/>
+                </figure>
+                <br>
+                A few technical details for the interested here. The explosion gets weaker with the square of the distance from the 
+                point of origin of the explosion (like gravity!), which happens to be the exact center of the viewport. It's also radially directed from there. The middle 
+                ball never moves because it is exactly at the center, so the explosion pushes on it equally in all directions, leading to 
+                force balance.
+                <br><br>
+                When you're done playing with this (you can trigger the explosion multiple times, by the way), just go on to the 
+                next page, where we're going to discuss two-dimensional explosions. This is probably more fun, though. 
+                <div class="btn-contain-left">
+                <button class="btn btn-dark" style="animation: scale1 2s infinite;" @click="$emit('prevpage')">&larr;
+                    Previous</button>
+            </div>
+            <div class="btn-contain-right">
+                <button class="btn btn-dark" style="animation: scale1 2s infinite;" @click="$emit('nextpage')">Next
+                    &rarr;</button>
+            </div>
+            </div>
+            <div v-show="page===2">
                 Now, we bump it up to two dimensions. The approach here is very similar. You just 
                 employ the conservation of linear momentum for each dimension separately. This is 
                 actually much easier than doing two-dimensional collisions because the algebra works out much more 
