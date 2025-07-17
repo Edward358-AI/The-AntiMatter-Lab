@@ -34,10 +34,25 @@ import Work from './components/energy/Work.vue'
 import GravEnergy from './components/energy/GravEnergy.vue'
 import EqTypes from './components/energy/EqTypes.vue'
 
+import RotationalKinematics from './components/rotation/RotationalKinematics.vue'
+import Torque from './components/rotation/Torque.vue'
+import MomentInertia from './components/rotation/MomentInertia.vue'
+import RotationalDynamics from './components/rotation/RotationalDynamics.vue'
+import RotationalEnergy from './components/rotation/RotationalEnergy.vue'
+import Rolling from './components/rotation/Rolling.vue'
+import AngMomentum from './components/rotation/AngMomentum.vue'
+
 
 const htmlElement = document.documentElement
 const Window = window
-const user = reactive({ current: "landing", difficulty: 0, theme: "dark", page: { Vectors: 0, DimenAnalyz: 0, PosVelAcc: 0, OneDMotion: 0, TwoDMotion: 0, RelativeVel: 0, FmaFBD: 0, Spring: 0, InclinedPlanes: 0, OtherForces: 0, Newton: 0, Kepler: 0, GravityLaws: 0, Centripetal: 0, Fictious: 0, DotProd: 0, Energy: 0, GravEnergy:0, Power: 0, Work: 0, EqTypes: 0, Collisions: 0, Impulse: 0, LinMomConsrv: 0, CenterOfMass: 0, Explosions: 0 } })
+const user = reactive({ current: "landing", difficulty: 0, theme: "dark", page: {
+  Vectors: 0, DimenAnalyz: 0, PosVelAcc: 0, OneDMotion: 0, TwoDMotion: 0, RelativeVel: 0,
+  FmaFBD: 0, Spring: 0, InclinedPlanes: 0, OtherForces: 0, Newton: 0,
+  Kepler: 0, GravityLaws: 0, Centripetal: 0, Fictious: 0,
+  DotProd: 0, Energy: 0, GravEnergy:0, Power: 0, Work: 0, EqTypes: 0, 
+  Collisions: 0, Impulse: 0, LinMomConsrv: 0, CenterOfMass: 0, Explosions: 0,
+  RotationalKinematics: 0, Torque:0, MomentInertia:0, RotationalDynamics:0, RotationalEnergy:0, Rolling:0, AngMomentum:0
+  } })
 
 // Theme must be loaded first, but the current page is loaded later after the user clicks get started
 user.theme = localStorage.getItem("user") ? JSON.parse(localStorage.getItem("user")).theme : user.theme
@@ -104,7 +119,17 @@ const lessons = reactive(
       "Center of Mass",
       "Collisions",
       "Explosions"
-    ]
+    ],
+
+    rotation: [
+      "Rotational Kinematics",
+      "Torque",
+      "Moment of Inertia",
+      "Rotational Dynamics",
+      "Rolling Without Slipping", 
+      "Energy of Rotation",
+      "Angular Momentum"
+    ],
   }
 )
 
@@ -215,6 +240,20 @@ onMounted(() => {
           <hr class="sidebar-divider">
         </li>
         <li v-for="lesson in filteredLessons.momentum">
+          <a href="javascript:void(0);" :class="user.current === lesson ? 'text-body-emphasis nav-link' : 'nav-link'"
+            :style="user.current === lesson ? 'text-decoration: underline' : ''" @click="user.current = lesson">{{
+              lesson }}</a>
+        </li>
+
+
+        <br class="mb-5">
+        <li>
+          <h6 class="sidebar-header"><b>Rotation</b></h6>
+        </li>
+        <li>
+          <hr class="sidebar-divider">
+        </li>
+        <li v-for="lesson in filteredLessons.rotation">
           <a href="javascript:void(0);" :class="user.current === lesson ? 'text-body-emphasis nav-link' : 'nav-link'"
             :style="user.current === lesson ? 'text-decoration: underline' : ''" @click="user.current = lesson">{{
               lesson }}</a>
@@ -336,7 +375,37 @@ onMounted(() => {
   <Explosions v-show="user.current === lessons.momentum[4]" :level="user.difficulty" :page="user.page.Explosions"
     @nextpage="Window.scrollTo(0, 0); user.page.Explosions++"
     @prevpage="Window.scrollTo(0, 0); user.page.Explosions--"
-    @nextlesson="Window.scrollTo(0, 0); user.current = 'landing'" />
+    @nextlesson="Window.scrollTo(0, 0); user.current = lessons.rotation[0]" />
+
+  <RotationalKinematics v-show="user.current === lessons.rotation[0]" :level="user.difficulty" :page="user.page.RotationalKinematics"
+    @nextpage="Window.scrollTo(0, 0); user.page.RotationalKinematics++"
+    @prevpage="Window.scrollTo(0, 0); user.page.RotationalKinematics--"
+    @nextlesson="Window.scrollTo(0, 0); user.current = lessons.rotation[1]"/>
+  <Torque v-show="user.current === lessons.rotation[1]" :level="user.difficulty" :page="user.page.Torque"
+    @nextpage="Window.scrollTo(0, 0); user.page.Torque++"
+    @prevpage="Window.scrollTo(0, 0); user.page.Torque--"
+    @nextlesson="Window.scrollTo(0, 0); user.current = lessons.rotation[2]"/>
+  <MomentInertia v-show="user.current === lessons.rotation[2]" :level="user.difficulty" :page="user.page.MomentInertia"
+    @nextpage="Window.scrollTo(0, 0); user.page.MomentInertia++"
+    @prevpage="Window.scrollTo(0, 0); user.page.MomentInertia--"
+    @nextlesson="Window.scrollTo(0, 0); user.current = lessons.rotation[3]"/>
+  <RotationalDynamics v-show="user.current === lessons.rotation[3]" :level="user.difficulty" :page="user.page.RotationalDynamics"
+    @nextpage="Window.scrollTo(0, 0); user.page.RotationalDynamics++"
+    @prevpage="Window.scrollTo(0, 0); user.page.RotationalDynamics--"
+    @nextlesson="Window.scrollTo(0, 0); user.current = lessons.rotation[4]"/>
+  <Rolling v-show="user.current === lessons.rotation[4]" :level="user.difficulty" :page="user.page.Rolling"
+    @nextpage="Window.scrollTo(0, 0); user.page.Rolling++"
+    @prevpage="Window.scrollTo(0, 0); user.page.Rolling--"
+    @nextlesson="Window.scrollTo(0, 0); user.current = lessons.rotation[5]"/>
+  <RotationalEnergy v-show="user.current === lessons.rotation[5]" :level="user.difficulty" :page="user.page.RotationalEnergy"
+    @nextpage="Window.scrollTo(0, 0); user.page.RotationalEnergy++"
+    @prevpage="Window.scrollTo(0, 0); user.page.RotationalEnergy--"
+    @nextlesson="Window.scrollTo(0, 0); user.current = lessons.rotation[6]"/>
+  <AngMomentum v-show="user.current === lessons.rotation[6]" :level="user.difficulty" :page="user.page.AngMomentum"
+    @nextpage="Window.scrollTo(0, 0); user.page.AngMomentum++"
+    @prevpage="Window.scrollTo(0, 0); user.page.AngMomentum--"
+    @nextlesson="Window.scrollTo(0, 0); user.current = 'landing'"/>
+  
 </template>
 
 

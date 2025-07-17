@@ -1,7 +1,9 @@
 <script setup>
 defineProps(["level", "page"])
 defineEmits(["nextlesson", "nextpage", "prevpage"])
+
 import {onMounted, ref} from 'vue'
+
 // module aliases
 var Engine = Matter.Engine,
     Render = Matter.Render,
@@ -306,7 +308,12 @@ onMounted(()=>{
                 <div class="btn-contain-left">
                     <button class="btn btn-dark" style="animation: scale1 2s infinite;" @click="$emit('prevpage')">&larr;
                     Previous</button>
-                    </div>                
+                    </div>   
+
+                <div class="btn-contain-right">
+                <button class="btn btn-dark" style="animation: scale 2s infinite;" @click="$emit('nextlesson')">Next Unit!
+                    &rarr;</button>
+            </div>      
             </div>
             
         </p>
