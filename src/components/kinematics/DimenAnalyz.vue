@@ -25,14 +25,16 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                     like maybe what you see as a unit. If you've ever measured something, you know that you need to
                     specify
                     what units it is in. For example, if you measure length, you might use centimeters or inches, and if
-                    you're measuring volume, you might use liters, or gallons.<br>Something important to note is that
+                    you're measuring volume, you might use liters, or gallons.<br><br>
+                    Something important to note is that
                     there
                     are so many different units you can use to measure something like length, or time. In the world of
                     science, we have standardized a set of three basic units that we use to express everything. This is
                     called the International System of Units, or just the SI unit system for short. These three units
                     include meters for length, kilograms for mass, and seconds for time. Keep these in mind because we
                     will
-                    be using them from now on!<br>These are all examples of dimensions, and
+                    be using them from now on!<br><br>
+                    These are all examples of dimensions, and
                     they give meaning to a number. What do we mean by this? Take the number $6$, for example. While it
                     might
                     be useful in your math class or your everyday arithmetic, in the world of science, it is utterly
@@ -48,7 +50,8 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                     physics. Assuming you have been taught something similar or taken a science class that has utilized
                     this, you may simply skip over this lesson. However, if you haven't learned this before, this is
                     going
-                    to be interesting for you.<br>Before we get into what dimensional analysis is, we must understand
+                    to be interesting for you.<br><br>
+                    Before we get into what dimensional analysis is, we must understand
                     what
                     we're dealing with here. If you look at the two words separately, you get "Dimensional" and
                     "Analysis".
@@ -57,14 +60,16 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                     like maybe what you see as a unit. If you've ever measured something, you know that you need to
                     specify
                     what units it is in. For example, if you measure length, you might use centimeters or inches, and if
-                    you're measuring volume, you might use liters, or gallons.<br>Something important to note is that
+                    you're measuring volume, you might use liters, or gallons.<br><br>
+                    Something important to note is that
                     there
                     are so many different units you can use to measure something like length, or time. In the world of
                     science, we have standardized a set of three basic units that we use to express everything. This is
                     called the International System of Units, or just the SI unit system for short. These three units
                     include meters for length, kilograms for mass, and seconds for time. Keep these in mind because we
                     will
-                    be using them from now on!<br>These are all examples of dimensions, and
+                    be using them from now on!<br><br>
+                    These are all examples of dimensions, and
                     they give meaning to a number. What do we mean by this? Take the number $6$, for example. While it
                     might
                     be useful in your math class or your everyday arithmetic, in the world of science, it is utterly
@@ -106,7 +111,9 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                     are
                     units that are usually made through a combination of multiple units. For example, the unit for
                     velocity
-                    is meters per second, or $\frac{\textrm{m}}{\textrm{s}}$. What does this mean? This tells you that
+                    is meters per second, or $\frac{\textrm{m}}{\textrm{s}}$. What does this mean? 
+                    <br><br>
+                    This tells you that
                     something is traveling $1$ meter per $1$ second (when I say $1$, even though there isn't any place
                     that
                     explicitly puts a "$1$" in front of the $\textrm{m}$ and the $\textrm{s}$, it is implied, because
@@ -134,18 +141,19 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                     dimensional analysis to convert units, or because you're solving an equation. This is the
                     algebra-based
                     version, so we assume you know anything divided by itself is equal to one. The same goes for units.
+                    <br><br>
                     So
                     if we want to convert $1 ~ \textrm{L}$ to $\textrm{mL}$, and we know $1 ~ \textrm{L} = 1000 ~
                     \textrm{mL}$, we can do something like this: $$1 ~ \cancel{\textrm{L}} ~ \cdot ~ 1000 ~
                     \frac{\textrm{mL}}{\cancel{\textrm{L}}}$$ You notice how units are able to cancel out, just like you
-                    would do with variables or numbers!<br>Now let's see this in an equation. A simple equation you may
+                    would do with variables or numbers!<br><br>Now let's see this in an equation. A simple equation you may
                     already know is $\textrm{speed} \cdot \textrm{time} = \textrm{distance}$. Speed is measured in
                     $\frac{\textrm{meters}}{\textrm{second}}$, and time is measured in $\textrm{seconds}$. Thus, let's
                     use
                     some arbitrary numbers and see it in action! $$3 ~ \frac{\textrm{m}}{\cancel{\textrm{s}}} ~ \cdot ~
                     9 ~
                     \cancel{\textrm{s}} = 27 ~ \textrm{m}$$ Do we see how this works? Hopefully you understand how to do
-                    math with units now!<br>Now, there are many other practical uses and applications of dimensional
+                    math with units now!<br><br>>Now, there are many other practical uses and applications of dimensional
                     analysis. One important use is to establish a relationship between two quantities. This is going a
                     little beyond the scope of this lesson, but say we wanted to relate displacement (unit:
                     $\textrm{m}$)
@@ -153,15 +161,17 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                     cancelling
                     units, if we multiply acceleration by $\textrm{s}^2$, you can get our desired result.<br>IMPORTANT!
                     These letters are not referring to variables, but units! Don't forget that when you do math with
-                    units!<br>Time has the dimension of $\textrm{s}$, so multiplying by time squared will give us
-                    displacement!<br>Thus we craft an equation like so: ($\Delta x$ = displacement, $\Delta t$ = time,
+                    units!<br><br>Time has the dimension of $\textrm{s}$, so multiplying by time squared will give us
+                    displacement!Thus we craft an equation like so: 
+                    <br>($\Delta x$ = displacement, $\Delta t$ = time,
                     $a$ =
-                    acceleration) $$\Delta x \sim a \Delta t^2$$ By realizing we can create relationships between two
+                    acceleration) <br><br>$$\Delta x \sim a \Delta t^2$$ <br>By realizing we can create relationships between two
                     quantities via equations is a powerful tool. The funning wavy looking symbol in the middle is simply
                     used to denote that the <i>dimensions</i> are equal, minus the possibility of extra constants, or
                     coefficients. If we used an equal sign instead, it could potentially be an incorrect statement since
                     we may have missed out on some constants or coefficients. Speaking of constants,
-                    some constants will have dimensions. Again, you will learn these equations much later on, but this
+                    some constants will have dimensions. 
+                    <br><br>Again, you will learn these equations much later on, but this
                     is
                     just for reference. We know the force that gravity exerts on you can be given through this equation:
                     $$F_g = mg$$ Where $g$ is a constant (its the acceleration due to gravity, again, you'll learn about
@@ -170,7 +180,8 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                     solve
                     for this constant's units: $$\frac{\frac{\cancel{\textrm{kg}} \cdot
                     \textrm{m}}{\textrm{s}^2}}{\cancel{\textrm{kg}}}$$ This leaves us with
-                    $\frac{\textrm{m}}{\textrm{s}^2}$, which is the exact same as acceleration! Now you see how the
+                    $\frac{\textrm{m}}{\textrm{s}^2}$, which is the exact same as acceleration!
+                    <br><br> Now you see how the
                     exact
                     same concept can be used to apply to constants because not all constants are dimensionless
                     scalars!<br><br>As you get more and more familiar or experienced with the math being done, you can
@@ -182,7 +193,7 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                     when
                     you input values into an equation, and not just inputting them because you were told to do so or
                     blindly
-                    doing so.<br>Now after reading that lesson, can you see why it is important to understand how the
+                    doing so.<br><br>Now after reading that lesson, can you see why it is important to understand how the
                     unit
                     gives meaning to a number? Throughout lessons, we will introduce to you many
                     different units and derived units, which are all important to know. Are you ready for some "real"

@@ -34,10 +34,12 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                     exists. This is why we define vector quantities. They are quantities that have both magnitude and
                     direction. Graphically, the direction is the direction in which the arrow
                     points, and the magnitude is the length of the arrow.</span>
+                    <br><br>
             <figure>
-                <img src="/src/assets/kinematics/Figure 1.png" style="width:170px;" />
+                <img src="/src/assets/kinematics/Figure 1.png" style="width:500px;" />
                 <figcaption><i>Figure 1: A representation of a vector.</i></figcaption>
             </figure>
+            <br>
             <span v-show="level == 0">
                 It is important to note that the position of the vector on the coordinate grid does
                 NOT actually matter, so we can move them around the grid to make things more convenient. As long as we
@@ -84,10 +86,12 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                     as simple as $1+1=2$. There are times though, if two vectors point in the SAME direction, then you
                     can add
                     them like you would with normal numbers. (see below.)
+                    <br><br>
                     <figure>
-                        <img src="/src/assets/kinematics/Figure 11.png" style="width:170px;" />
+                        <img src="/src/assets/kinematics/Figure 11.png" style="width:500px;" />
                         <figcaption><i>Figure 2: Two vectors being added linearly.</i></figcaption>
                     </figure>
+                    <br>
                     Other than that, there are two primary methods to adding vectors, one being algebraically and the
                     other
                     being graphically. We will focus on the latter since we aren't doing the algebra-based
@@ -106,11 +110,14 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                     manipulate. There are times, however, when you can add vectors linearly. That is when they are
                     pointing in
                     the same direction, as the diagram shows:
+                    <br><br>
                     <figure>
-                        <img src="/src/assets/kinematics/Figure 11.png" style="width:170px;" />
+                        <img src="/src/assets/kinematics/Figure 11.png" style="width:500;" />
                         <figcaption><i>Figure 2: Two vectors being added linearly.</i></figcaption>
                     </figure>
-                    Besides that, you can either add them graphically or algebraically.<br>
+                    <br>
+                    Besides that, you can either add them graphically or algebraically.
+                    <br><br>
                     Graphically, there are two main methods, tip-to-tail and parallelogram. We will utilize the ability
                     to
                     reposition vectors anywhere on
@@ -119,20 +126,24 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                     the
                     tail of the latter to the tip of the former. Perhaps a diagram will be more enlightening...
                 </span>
+                <br><br>
             <figure>
-                <img src="/src/assets/kinematics/Figure 2.png" style="width:170px;" />
+                <img src="/src/assets/kinematics/Figure 2.png" style="width:500px;" />
                 <figcaption><i>Figure 3: Tip-to-tail method </i></figcaption>
             </figure>
+            <br>
             <span v-show="level > 0">In the parallelogram method, both vectors are placed at the origin, and a
                 parallelogram
                 is drawn with the two vectors as adjacent sides. The resultant vector runs from the origin to the
                 opposite
                 vertex of the parallelogram. It is very similar to the tip-to-tail method, as you can see via the dashed
                 lines.
+                <br><br>
                 <figure>
-                    <img src="/src/assets/kinematics/Figure 3.png" style="width:170px;" />
+                    <img src="/src/assets/kinematics/Figure 3.png" style="width:500px;" />
                     <figcaption><i>Figure 4: Parallelogram method </i></figcaption>
                 </figure>
+                <br>
             </span>
             </p>
             <div class="btn-contain-left">
@@ -168,10 +179,12 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                     \rangle$, the resultant vector of $\vec{a} + \vec{b} = \langle 4+2,5+1 \rangle = \langle 6,6
                     \rangle$. If
                     you want a diagram, see the one below:
+                    <br><br>
                     <figure>
-                        <img src="/src/assets/kinematics/Figure 6.png" style="width:170px;" />
+                        <img src="/src/assets/kinematics/Figure 6.png" style="width:500px;" />
                         <figcaption><i>Figure 4: Vector addition (component method)</i></figcaption>
                     </figure>
+                    <br>
                     The diagram may be a little cluttered and difficult to understand, but you see the horizontal
                     component of
                     the RED vector plus the horizontal component of the BLUE vector is equal to the white vector's
@@ -200,15 +213,18 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                     of
                     algebraically representing vectors. Being able to represent them algebraically is key for doing any
                     sort of
-                    computation with them. The first is to express a vector as a magnitude (length) and an angle,
+                    computation with them. 
+                    <br><br>
+                    The first is to express a vector as a magnitude (length) and an angle,
                     usually
                     measured from the positive x-axis. The notation $|\vec{a}|$ represents the magnitude of vector
                     $\vec{a}$.
                     The angle $\theta$, or the argument of a vector, denoted as $\textrm{arg}(\vec{a}$), is the angle
                     the vector
                     makes with the positive x-axis. A figure is drawn below to show what we mean:
+                    <br><br>
                     <figure>
-                        <img src="/src/assets/kinematics/Figure 4.png" style="width:170px;" />
+                        <img src="/src/assets/kinematics/Figure 4.png" style="width:500px;" />
                         <figcaption><i>Figure 5: A vector defined by its magnitude and argument (angle)</i></figcaption>
                     </figure>
                 </span>
@@ -226,7 +242,9 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                     is in
                     the negative direction. If you actually consider the $x$ component as a horizontal vector, and the
                     $y$
-                    component as a vertical vector, they will sum up to the original vector. The unit vector notation
+                    component as a vertical vector, they will sum up to the original vector. 
+                    <br><br>
+                    The unit vector notation
                     directly
                     demonstrates this. A unit vector is a vector in a particular direction that has a magnitude of 1.
                     The unit
@@ -236,35 +254,40 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                     $3\hat{i}+4\hat{j}$. The $\hat{k}$ vector is also introduced in 3D, but we won’t worry about that. A
                     diagram
                     is provided below:
+                    <br><br>
                     <figure>
-                        <img src="/src/assets/kinematics/Figure 5.png" style="width:170px;" />
+                        <img src="/src/assets/kinematics/Figure 5.png" style="width:500px;" />
                         <figcaption><i>Figure 6: A vector defined by its horizontal and vertical components</i>
                         </figcaption>
                     </figure>
+                    <br>
                     The method I will introduce here is the addition of vector components. NOTE: You can use the Law of
                     Cosines
                     as well, but we aren't covering that because it is more intensive on the calculation side and is not
                     as
-                    useful in the context of vectors.<br>
+                    useful in the context of vectors.<br><br>
                     To add vectors algebraically, simply add their components. Yes, it is that simple! For instance, if
                     $\vec{a}
                     = \langle 3, 5 \rangle$ and $\vec{b} = \langle 4, 3 \rangle$ then $\vec{a} + \vec{b} = \langle
                     3+4,5+3
-                    \rangle = \langle 7,8 \rangle$.<br>This, surprisingly, is actually nearly identical to graphically
+                    \rangle = \langle 7,8 \rangle$.<br>
+                    <br>This, surprisingly, is actually nearly identical to graphically
                     adding
                     vectors,
                     and here is a diagram as proof. I have excluded the coordinate axes to make the diagram less
                     cluttered, but realize that we are still working in a coordinate plane:
+                    <br><br>
                     <figure>
-                        <img src="/src/assets/kinematics/Figure 6.png" style="width:170px;" />
+                        <img src="/src/assets/kinematics/Figure 6.png" style="width:500px;" />
                         <figcaption><i>Figure 7: Vector addition via component method</i></figcaption>
                     </figure>
+                    <br>
                     Now is it clear that the components add up to the resultant vector? The red components add up with
                     the blue
                     components to produce the white components, as shown on the horizontal and vertical axes. The
                     smaller,
                     dashed white arrow shows you can move the components of the blue vectors to do tip-to-tail
-                    addition!<br>However, we may occasionally run into an issue here. How do we get the components of a
+                    addition!<br><br>However, we may occasionally run into an issue here. How do we get the components of a
                     vector
                     if we are not given them? Suppose we are given the magnitude and argument (angle), as we mentioned
                     before,
