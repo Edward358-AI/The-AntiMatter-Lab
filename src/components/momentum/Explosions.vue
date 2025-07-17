@@ -246,8 +246,8 @@ onMounted(()=>{
                     you know their masses, total momentum, and even the energy given to them by the explosion, there isn't enough 
                     info. You <b>must</b> know the direction of motion of at least one object. This is part of the reason 
                     why explosions are so unpredictable in the real world.
+                    <br><br>
                 </span>
-                <br><br>
                 We're usually going to deal with more than two objects, because the case with two objects can sometimes just 
                 be simplified into a 1-D problem. Think about it this way: the explosion will exert the same impulse on each object and in 
                 opposite directions, so their momentum changes are along the same line. <span v-show="level>0">using 
