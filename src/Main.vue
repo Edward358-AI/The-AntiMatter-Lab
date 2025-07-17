@@ -330,10 +330,12 @@ onMounted(() => {
     @prevpage="Window.scrollTo(0, 0); user.page.CenterOfMass--"
     @nextlesson="Window.scrollTo(0, 0); user.current = lessons.momentum[3]" />
   <Collisions v-show="user.current === lessons.momentum[3]" :level="user.difficulty" :page="user.page.Collisions"
-    @nextpage="Window.scrollTo(0, 0); user.page.Collisions++" @prevpage="Window.scrollTo(0, 0); user.page.Collisions--"
+    @nextpage="Window.scrollTo(0, 0); user.page.Collisions++" 
+    @prevpage="Window.scrollTo(0, 0); user.page.Collisions--"
     @nextlesson="Window.scrollTo(0, 0); user.current = lessons.momentum[4]" />
   <Explosions v-show="user.current === lessons.momentum[4]" :level="user.difficulty" :page="user.page.Explosions"
-    @nextpage="Window.scrollTo(0, 0); user.page.Explosions++" @prevpage="Window.scrollTo(0, 0); user.page.Explosions--"
+    @nextpage="Window.scrollTo(0, 0); user.page.Explosions++"
+    @prevpage="Window.scrollTo(0, 0); user.page.Explosions--"
     @nextlesson="Window.scrollTo(0, 0); user.current = 'landing'" />
 </template>
 
