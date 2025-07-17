@@ -208,7 +208,13 @@ onMounted(() => {
                     constant.
                     Without constant acceleration, all these wouldn't work, and we would have to resort to calculus
                     tools to
-                    help us solve those problems.<br><br>Another really cool thing about all those kinematics equations
+                    help us solve those problems.<br><br>
+                    There's a final equation that's useful sometimes. It's very similar to the second equation, but uses 
+                    final velocity rather than initial. I'll lay it out for you here. You might (correctly) assume that this is only 
+                    useful when you're given final velocity rather than initial.
+                    $$\underline{\textrm{\#5:}~~x=
+                    v_f t - \dfrac12 at^2}$$
+                    Another really cool thing about all those kinematics equations
                     is that
                     we have five quantities: $x$, $v_f$, $v_0$, $a$, and $t$. Each of the five kinematics equations that
                     we
