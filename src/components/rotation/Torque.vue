@@ -1,6 +1,132 @@
 <script setup>
 defineProps(["level", "page"])
 defineEmits(["nextlesson", "nextpage", "prevpage"])
+import {onMounted} from 'vue'
+
+// module aliases
+var Engine = Matter.Engine,
+    Render = Matter.Render,
+    Runner = Matter.Runner,
+    Bodies = Matter.Bodies,
+    Constraint = Matter.Constraint,
+    Body = Matter.Body,
+    Composite = Matter.Composite,
+    MouseConstraint = Matter.MouseConstraint,
+    Mouse = Matter.Mouse;
+
+
+function runWrench() {
+    document.getElementById("wrench").innerHTML = ""
+
+// create an engine
+var engine = Engine.create();
+
+engine.gravity.y = 0;
+
+    // create a renderer
+var render = Render.create({
+    element: document.getElementById('wrench'),
+    engine: engine,
+    options: {
+        width: 600,
+        height: 600,
+        wireframes: false,
+        background: "#000"
+    }
+});
+
+// run the renderer
+Render.run(render);
+
+var wrenchBody = Bodies.rectangle(400, 300, 200, 30, {
+    render:{fillStyle: 'cyan'}
+})
+
+var wrenchHead = Bodies.rectangle(300,300,50,50,{
+    render:{fillStyle:'cyan'},
+})
+
+var wrench = Body.create({
+    parts: [wrenchBody, wrenchHead],
+    frictionAir: 0.05,
+    mass: 10
+})
+var pivot = Bodies.circle(300,300,10,{
+    render:{ visible:false },
+    isStatic: true,
+    collisionFilter: {
+        mask: 0
+    }
+})
+
+var hand = Bodies.rectangle (500, 400, 40, 40,
+    {
+    render:{fillStyle:'red'},
+    mass: 0.1
+}
+)
+
+
+var constraint1 = Constraint.create({
+    bodyA: wrench,
+    pointA: {x:-70, y:0},
+    bodyB: pivot,
+    stiffness: 1,
+    length: 0,
+    damping: 1.2,
+    render: { strokeStyle: '#fff', lineWidth: 3 }
+});
+
+var constraint2 = Constraint.create({
+    bodyB: hand,
+    bodyA: wrench,
+    pointA: {x:100, y:0},
+    stiffness: 0.5,
+    length: 100,
+    damping: 0,
+    render: { strokeStyle: '#fff', lineWidth: 3 }
+})
+
+Composite.add(engine.world, [wrench, pivot, hand, constraint1, constraint2])
+
+//only wrench feels gravity
+Matter.Events.on(engine, 'beforeUpdate', () => {
+Body.applyForce(wrench, wrench.position, {
+    x: 0,
+    y: 0.005 * wrench.mass
+  });
+});
+
+// create runner
+var runner = Runner.create()
+
+Runner.run(runner, engine)
+// run the engine
+Runner.run(runner, engine);
+
+// add mouse control
+    var mouse = Mouse.create(render.canvas),
+        mouseConstraint = MouseConstraint.create(engine, {
+            mouse: mouse,
+            constraint: {
+                stiffness: 0.2,
+                render: {
+                    visible: false
+                }
+            }
+        })
+
+    Composite.add(engine.world, mouseConstraint)
+
+    // keep the mouse in sync with rendering
+    render.mouse = mouse
+
+}
+
+onMounted(()=>{
+    runWrench()
+})
+
 </script>
 
 
@@ -107,8 +233,19 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
             vector $\vec{r}$ is greatest at that point! And, it should go without saying that if we push harder the bolt will turn 
             faster, since force is the other part of torque.
             <br><br>
+            Here's a simple demonstration of the wrench made in Matter.js for you to play wiht and to get a feel of how it works. The red 
+            square is for you to pull on and see how pulling at an angle affects the rotation of the virtual wrench. This is 
+            important for building intuition if you don't handle wrenches often, and you can come back to this to verify the results I'm 
+            presenting later.
+            <br><br>
+            <figure>
+                <div id="wrench"></div>
+                <button class="btn btn-outline-primary" @click="runWrench()">Reset</button>
+            </figure>
+            <br>
             <span v-show="level>0">
-                What if we push at an angle instead of directly downwards? Well, if you've worked with a wrench you know that we
+                What if we push at an angle instead of directly downwards? Well, if you've worked with a wrench (if not in real life, at least 
+                with the simulation) you know that we
                 don't tend to do this. But why? A problem that hinges on the definition of the cross product should 
                 explain this.
                 <br><br>
