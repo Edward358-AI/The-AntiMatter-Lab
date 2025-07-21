@@ -483,6 +483,154 @@ onMounted(() => {
                 <button class="btn btn-dark" style="animation: scale1 2s infinite;" @click="$emit('nextpage')">Next
                     &rarr;</button>
             </div>
+            </div>
+            <div v-show="page===3">
+                We're not quite done just yet. See, we need to talk about how moment of inertia changes with a choice of rotation 
+                axis. There are a few different results that are useful for finding moment of inertia through an axis that isn't the 
+                conventional one.
+                <br><br>
+                <span v-show="level>0">
+                    The first of these is the <b>parallel axis theorem</b>. This allows us to find the moment of inertia of an object about 
+                    an axis that is parallel to the one through the center of mass. It is relatively simple. We'll define the center-of-mass inertia as 
+                    $ I_{cm} $, the new moment of inertia as $ I$, the mass as $M$ and the distance that the new axis is from the center of mass 
+                    as $d$.
+                    <br><br>
+                    $$ I = I_{cm} + M d^2 $$
+                    <br>
+                    <figure>
+                        <img src='/src/assets/rotation/Figure 85.png' width = '500px'/>
+                        <figcaption>Figure 3: The parallel axis theorem.</figcaption>
+                    </figure>
+                    <br>
+                    This theorem implies that the axis through the center of mass is the axis where the moment of inertia is least, since 
+                    an additional term of $Md^2$ is added for any other axis. We can then conclude that objects that are sent spinning without any 
+                    constraints on their rotation will rotate about their center of mass since in that case the moment of inertia will be the least through 
+                    that axis. Nature 
+                    tends to want to minimize things (think back to potential energy), and this is no exception.
+                    <br><br>
+                    <span v-show="level==2">
+                        There is a way to derive this theorem using a bit of basic calculus combined with some clever logic. We can write the moment of inertia through an arbitrary axis parallel 
+                        to the center-of-mass axis as an integral. We will define the distance to the axis as $r'$, distance to the center of mass as $r_{cm}$, and 
+                        distance between the axes as $d$.
+                        <br><br>
+                        $$ I' = \int {r'}^2 dm $$
+                        <br>
+                        We can re-write $r'$ in terms of other variables. Everything is technically a vector here, but I have just neglected to put 
+                        vector arrows on them. According to vector addition rules, $r' = r_{cm} + d$, so we put this into our equation, remembering that $d$ is 
+                        a constant.
+                        <br><br>
+                        $$ I' = \int (r_{cm} + d)^2 dm = \int {r_{cm} }^2 dm + 2d\int r_{cm} dm + d^2 \int dm $$
+                        <br>
+                        Now, it's time for analysis. The first integral is actually just the center of mass moment of inertia $I_{cm}$ if you 
+                        look at it, since it only accounts for distance from the center of mass. The second term is an integral for center of mass, but we're 
+                        considering distance from the center of mass to it, which means it will inevitably evaluate to zero. The final integral is just the 
+                        total mass of the object. Thus, we have:
+                        <br><br>
+                        $$ I' = I_{cm} + Md^2 $$
+                        <br>
+                        We just proved the result!
+                        <br><br>
+                    </span>
+                    This theorem is quite commonly seen and used in quite a variety of cases. It's mostly applied to the six objects that we already know the 
+                    moments of inertia of, in situations where the axis of rotation is slightly deflected off-center. 
+                    <br><br>
+                </span>
+                <span v-show="level==0">
+                    We first have the parallel-axis theorem, which does exactly what it sounds like. It lets us find moments of inertia 
+                    through axes that are parallel to the center-of-mass rotational axis. This is actually incredibly useful, as it means 
+                    we don't have to "derive" the moment of inertia for every new rotational axis.
+                    <br><br>
+                    The moment of inertia $I'$ through the new axis is expressed in terms of the center-of-mass inertia $I_{cm}$, the object's mass $M$, and 
+                    the distance of the new axis from the center of mass $d$. The relation is pretty simple:
+                    <br><br>
+                    $$ I' = I_{cm} + Md^2 $$
+                    <br>
+                    <figure>
+                        <img src='/src/assets/rotation/Figure 85.png' width = '500px'/>
+                        <figcaption>Figure 3: The parallel axis theorem.</figcaption>
+                    </figure>
+                    <br>
+                    The theorem mostly applied to the six objects that we already know the 
+                    moments of inertia of, in situations where the axis of rotation is not where it usually is. A simple example is 
+                    coming right up.
+                    <br><br>
+                </span>
+                <div class="problem">
+                    Show that the moment of inertia for a uniform rod of mass $M$ and length $L$ rotated about its end is $I = \frac{1}{3}ML^2$, given that 
+                    the moment of inertia for the rod about its center is $I = \frac{1}{12}ML^2$. (I gave you the moments so you don't just write down the 
+                    answer. You need to <b>show</b> that this is true!)
+                    <br><br>
+                    What we essentially have here is an application of the parallel-axis theorem. The distance between the axis through the center of mass 
+                    and the axis through one end is half the length of the rod, $d = L/2$. We can then just plug this into the formula.
+                    <br><br>
+                    $$ I = \dfrac{1}{12} ML^2 + M \left( \dfrac{L}{2}\right)^2 = \dfrac{1}{12} ML^2 + \dfrac14 ML^2$$
+                    <br>
+                    $$ \bbox[3px,
+                        border: 0.5px solid
+                        white] {I = \dfrac13 ML^2} $$
+                        <br>
+                    That's all you need to do!
+                </div>
+                <br>
+                
+                <span v-show="level>0">
+                    There is one small thing to keep in mind. If you want to find the moment of inertia about an axis not through the center of mass 
+                but are given the moment of inertia through another axis that is parallel to it but doesn't pass through the center of mass, then you 
+                need to find the center of mass inertia $I_{cm}$ <b>first</b> by using the theorem, then use the theorem <b>again</b> to find the new inertia. You cannot 
+                just directly use the distance between the two axes, because neither of them is the center-of-mass axis in that case.
+                <br><br>
+                There is another theorem, but it is a bit more advanced and much less common. It takes the name of <b>perpendicular axis theorem</b>, and as 
+                you might expect it describes axes that are perpendicular to each other.
+                <br><br>
+                The axis hinges on the idea of three moments of inertia about three axes: the x-direction axis $I_x$, y-direction axis $I_y$, and z-direction 
+                axis $I_z$. These directions are defined with the z-direction being perpendicular to the plane of the object in question, while the 
+                other two follow standard coordinate axis rules. The object must also be planar (flat) for us to apply the theorem.
+                <br><br>
+                The relationship between the three inertias is as follows:
+                <br><br>
+                $$ I_z = I_x + I_y $$
+                <br>
+                <figure>
+                    <img src="/src/assets/rotation/Figure 86.png" width = '500px'/>
+                    <figcaption>Figure 4: The perpendicular axis theorem.</figcaption>
+                </figure>
+                <br>
+                This theorem is relatively simple, so we'll jump straight into a short example problem to demonstrate how it works.
+                <br><br>
+                <div class="problem">
+                    What is the moment of inertia of a disk through an axis that lies <b>in the plane of the disk</b> and runs through its 
+                    center of mass?
+                    <br><br>
+                    This problem requires some of your imagination, as well as our old friend symmetry. The axis is in the plane of the disk, meaning it runs 
+                    through its middle lengthwise. This makes it either $I_x$ or $I_y$ in our formula, and we know that $I_z = \dfrac12 MR^2$. But which 
+                    one is it?
+                    <br><br>
+                    Symmetry comes to save the day. It can be either, because the circle has a very high degree of symmetry! If we draw an axis in the same plane of the circle 
+                    but perpendicular to our original one, it will essentially be the same as our original axis. Therefore, $I_x = I_y$, and we can write:
+                    <br><br>
+                    $$ I_z = \dfrac12 MR^2 = 2I_x $$
+                    <br>
+                    $$ I_x = \bbox[3px,
+                        border: 0.5px solid
+                        white]{\dfrac14MR^2} $$
+                </div>
+                <br>
+                </span>
+                The moment of inertia should not be a foreign concept to us anymore. You might not have thought of it before, but with some 
+                experimentation and explanation it becomes obvious that it does exist and affects rotation. For instance, if you've ever tried to swing 
+                a stick about its end, you know it's harder than swinging it around its middle. Now you know why!
+                <br><br>
+                Next, we need to unify the ideas we've learned in the past few lessons into the rotational equivalent of a Newton's Laws unit, where 
+                we convert the laws of motion into the laws of rotational motion. It's the place where everything I've talked about falls into place and 
+                we can start to actually tackle complex problems involving rotation. Without further ado, get ready to get rotated off your feet! (Bad joke, I know.)
+                <div class="btn-contain-left">
+                <button class="btn btn-dark" style="animation: scale1 2s infinite;" @click="$emit('prevpage')">&larr;
+                    Previous</button>
+            </div>
+            <div class="btn-contain-right">
+                <button class="btn btn-dark" style="animation: scale 2s infinite;" @click="$emit('nextlesson')">Next Lesson!
+                    &rarr;</button>
+            </div>
             </div>  
         </p>
     </div>
