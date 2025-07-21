@@ -13,16 +13,19 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                 introductions: Isaac Newton is a name well known in physics and mathematics for his breakthroughs and
                 innovations in both fields. In this section, we will begin our study of dynamics starting with his three
                 laws of motion. It is good to first define what forces are: a push or pull that may result in motion.
+                <br><br>
                 However, you will see later that a force may not necessarily directly <i>cause</i> motion, but rather it
                 directly <i>changes</i> motion, which is an important concept to recognize. The unit of force is the
                 newton, represented by $\textrm N$. This actually a derived unit, with units $\frac{\textrm{kg} \cdot
                 \textrm m}{\textrm{s}^2}$. We will show how this is derived later on. Force is a vector quantity,
                 meaning it has a direction and magnitude. This will become especially important more later on, when we
                 introduce the idea of a free-body diagram.
+                <br><br>
             <figure>
-                <img src="/src/assets/dynamics/Figure 13.png" width="200px" />
+                <img src="/src/assets/dynamics/Figure 13.png" width="500px" />
                 <figcaption>Figure 1: A force vector acting on a box.</figcaption>
             </figure>
+            <br>
             Thus, we begin the lesson by introducing Newton's Laws. Let's go to it!
             </p>
 
@@ -160,24 +163,30 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                 net force and mass. So, the two objects will have different accelerations assuming their masses are
                 different, which reconciles this law with our observation and experience.
             </p>
+            <br><br>
             <figure>
-                <img src="/src/assets/dynamics/Figure 14.png" width="170px" />
+                <img src="/src/assets/dynamics/Figure 14.png" width="500px" />
                 <figcaption>Figure 2: A gun being fired, with force vectors indicating Newton's Third Law in action.</figcaption>
             </figure>
+            <br>
             <p>
             Let’s take a look at why Newton's Third Law is misunderstood sometimes. For example, say I asked you this question. What is the
             opposite and reaction force of the gravitational force the Earth exerts on you?<br><br>Maybe you would say it is
             the force that the ground exerts on you. However, this is actually incorrect. It is important to mention
             that Newton’s Third Law only applies to pairs of forces that belong to the same interaction.
             The interaction between you and Earth is completely different from the interaction between you and the
-            ground.The magnitude of the gravitational force that Earth exerts on you just happens to be of the same
-            magnitude, but they are of different interactions. The Newton’s Third Law equivalent for the force the
+            ground. The magnitude of the gravitational force that Earth exerts on you just happens to be of the same
+            magnitude, but they are of different interactions. 
+            <br><br>The Newton’s Third Law equivalent for the force the
             ground exerts on you is the force you exert on the ground. Furthermore, you could have also reasoned that
             the two forces both act on the same object (you, the person), so they cannot be part of an action-reaction
-            pair.<br><br>
+            pair. An action-reaction force pair <b>always</b> acts on two different objects.
+            <br><br>
             Surprisingly, Newton’s Third Law is not the most difficult to understand, it’s just that the way it is
             interpreted and presented often times is incorrect. Newton states "action" and "reaction", but in truth, there is no action and reaction. From now on, we will call these pairs "Third Law Pairs", because that's what they are. Finally, as an ending note, intuitively, you can think of it this way: Newton’s
-            Third Law is like if I punch you in the face, I break my wrist, and not if I punch you, you punch me back. But all these are just concepts. Now let's put them to use with free-body diagrams!
+            Third Law is like if I punch you in the face, I break my wrist, and not if I punch you, you punch me back. 
+            <br><br>
+            But all these are just concepts. (Except maybe the Second Law.) Now let's put them to use with free-body diagrams!
             </p>
             <div class="btn-contain-left">
                 <button class="btn btn-dark" style="animation: scale1 2s infinite;" @click="$emit('prevpage')">&larr;
