@@ -214,7 +214,7 @@ onMounted(()=>{
                 <button class="btn btn-outline-primary" @click="Explode">💥</button>
                 <div id="explosion"></div>
                 <button class="btn btn-outline-primary" @click="runExplosion()">Reset</button><br>
-                <label> Explosion Strength: {{ strength }} </label>&ensp;<input type="range" v-model="strength" min="0.5" max="20" step="0.01" style="outline: 4px solid #0078d7; border-radius: 8px;
+                <label> Explosion Strength: {{ strength }} </label>&ensp;<input type="range" v-model="strength" min="0.5" max="20" step="0.01" style="outline: 2px solid #0078d7; border-radius: 8px;
                 background: #e0e0e0"/>
                 </figure>
                 <br>

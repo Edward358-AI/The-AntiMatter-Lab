@@ -110,7 +110,7 @@ onMounted(() => {
                 <figure>
                 <div id="inertia"></div>
                 <button class="btn btn-outline-primary" @click="runMoInertia()">Reset</button><br>
-                <label>Moment of Inertia: {{ inputInertia }}</label>&ensp;<input type="range" v-model="inputInertia" min="1" max="500" step="1" style="outline: 4px solid #0078d7; border-radius: 8px;
+                <label>Moment of Inertia: {{ inputInertia }}</label>&ensp;<input type="range" v-model="inputInertia" min="1" max="500" step="1" style="outline: 2px solid #0078d7; border-radius: 8px;
                 background: #e0e0e0"/>
                 </figure>
                 <br>

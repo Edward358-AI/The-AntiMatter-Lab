@@ -3,9 +3,8 @@ import { ref, vShow, onMounted } from 'vue'
 defineProps(["level", "page"])
 defineEmits(["nextlesson", "nextpage", "prevpage"])
 
-const inputAngle = ref('')
-const friction = ref('')
-const errorMessage = ref('')
+const inputAngle = ref(30)
+const friction = ref(0.05)
 
 function degreesToRadians(degrees) {
   return degrees * (Math.PI / 180);
@@ -44,11 +43,8 @@ var angle = degreesToRadians( parseFloat(inputAngle.value))
         angle = Math.PI/6 // defaults to 30 degrees for invalid values
         errorMessage.value = ''
     }
-    else if (angle >= Math.PI/2) {
-        errorMessage.value = "Angle is invalid! Please enter a value less than 90 degrees."
+    else if (angle > Math.PI/2) {
         angle = Math.PI/6
-    } else {
-        errorMessage.value = ''
     }
 
 // Position the block horizontally so it starts above the plane for most angles.
@@ -379,33 +375,13 @@ onMounted(() => {
             <div id="inclined"></div>
             <button class="btn btn-outline-primary" @click="runInclinedPlane()">Reset</button><br>
             <br>
-            <div v-show="errorMessage" class="alert alert-danger" role="alert">
-                
-                {{ errorMessage }}
-            </div>
-            Input incline angle:
-            <div class="d-flex justify-content-center">
-                <div class="input-group mb-3" style="max-width: 50px; background-color: #ffffff; border-radius: 4px;">
-                    <input
-                        v-model="inputAngle"
-                        type="number"
-                        class="form-control"
-                        placeholder=" "
-                    >
-                </div>
-            </div>
-            
-                Input friction coefficient:
-            <div class="d-flex justify-content-center">
-                <div class="input-group mb-3" style="max-width: 50px; background-color: #ffffff; border-radius: 4px;">
-                    <input
-                        v-model="friction"
-                        type="number"
-                        class="form-control"
-                        placeholder=" "
-                    >
-                </div>
-            </div>
+                <label>Incline Angle: {{ inputAngle }}</label>&emsp;
+                <input type="range" v-model="inputAngle" min="0" max="90" step="1" style="outline: 2px solid #0078d7; border-radius: 8px;
+            background: #e0e0e0"/>
+            <br>
+            <label>Friction Coefficient: {{ friction }}</label> &emsp;
+                <input type="range" v-model="friction" min="0" max="1" step="0.01" style="outline: 2px solid #0078d7; border-radius: 8px;
+            background: #e0e0e0"/>
             </figure>
             </p>
             <div class="btn-contain-left">
