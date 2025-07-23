@@ -233,7 +233,7 @@ onMounted(()=>{
             vector $\vec{r}$ is greatest at that point! And, it should go without saying that if we push harder the bolt will turn 
             faster, since force is the other part of torque.
             <br><br>
-            Here's a simple demonstration of the wrench made in Matter.js for you to play wiht and to get a feel of how it works. The red 
+            Here's a simple demonstration of the wrench made in Matter.js for you to play with and to get a feel of how it works. The red 
             square is for you to pull on and see how pulling at an angle affects the rotation of the virtual wrench. This is 
             important for building intuition if you don't handle wrenches often, and you can come back to this to verify the results I'm 
             presenting later.
