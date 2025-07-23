@@ -308,7 +308,7 @@ function hideMobileBar() {
         </li>
         <li v-for="lesson in filteredLessons.oscillations">
           <a href="javascript:void(0);" :class="user.current === lesson ? 'text-body-emphasis nav-link' : 'nav-link'"
-            :style="user.current === lesson ? 'text-decoration: underline' : ''" @click="user.current = lesson">{{
+            :style="user.current === lesson ? 'text-decoration: underline' : ''" @click="user.current = lesson;hideMobileBar()">{{
               lesson }}</a>
         </li>
 
@@ -327,7 +327,7 @@ function hideMobileBar() {
         <option value="light">Light</option>
       </select>
       <span class="text-secondary-emphasis">Made by Edward Jiang and Eric Niu</span><br style="margin-bottom:10px">
-      <a href="javascript:void(0);" @click="user.current = 'about;hideMobileBar()'" class="text-decoration-none">About</a>&nbsp;&nbsp;
+      <a href="javascript:void(0);" @click="user.current = 'about';hideMobileBar()" class="text-decoration-none">About</a>&nbsp;&nbsp;
       <a href="https://github.com/Edward358-AI/The-AntiMatter-Lab" target="_blank"
         class="text-decoration-none" @click="hideMobileBar()">Github</a>
     </div>
