@@ -40,7 +40,7 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                 Now, this formula isn't very useful. After all, what even is impulse? What does it do? Why do we even care?
                 <br><br>
                 <figure>
-                    <img src="/src/assets/momentum/minosprime.png" width="750px">
+                    <img src="/src/assets/momentum/minosprime.png" style="max-width:750px">
                     <figcaption>
                         Figure 1: You are very cool if you get the reference.
                     </figcaption>
@@ -179,7 +179,7 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                         What is the force that must be exerted on the cart to keep it going at a constant velocity?
                         <br><br>
                         <figure>
-                            <img src="/src/assets/momentum/Figure 65.png" width="750px">
+                            <img src="/src/assets/momentum/Figure 65.png" style="max-width:750px">
                             <figcaption>
                                 Figure 2: Magic pocket sand!
                             </figcaption>
@@ -231,7 +231,7 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                             vertically into the box at some constant rate. What would happen to the cart?
                             <br><br>
                             <figure>
-                            <img src="/src/assets/momentum/Figure 65.png" width="750px">
+                            <img src="/src/assets/momentum/Figure 65.png" style="max-width:750px">
                             <figcaption>
                                 Figure 2: Magic pocket sand!
                             </figcaption>

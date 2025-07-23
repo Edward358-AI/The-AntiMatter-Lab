@@ -236,7 +236,7 @@ watch(elasticity, (newVal) => {
                 that you might expect! Instead of being in the plane of rotation, it points <b>out</b> of the plane of rotation!
                 <br><br>
                 <figure>
-                    <img src='/src/assets/rotation/Figure 95.png' max-width='700px' width="90%;"/>
+                    <img src='/src/assets/rotation/Figure 95.png' style="max-width:700px"/>
                     <figcaption>Figure 1: The direction of angular momentum.</figcaption>
                 </figure>
                 <br>

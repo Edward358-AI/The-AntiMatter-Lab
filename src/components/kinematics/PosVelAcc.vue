@@ -508,7 +508,7 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                     $a$, we have a graph that looks like this:
                     <br><br>
                     <figure>
-                        <img src="/src/assets/kinematics/Figure 8.png" width="500px" />
+                        <img src="/src/assets/kinematics/Figure 8.png"  />
                         <figcaption>Figure 1: Graphical derivation of the position equation involving acceleration
                         </figcaption>
                     </figure>

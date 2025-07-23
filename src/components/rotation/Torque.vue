@@ -165,7 +165,7 @@ onMounted(()=>{
                 <br>
                 Of course, I've left out the direction, but it's perpendicular to both vectors. Now's the proper time to show you what that actually means.
                 <figure>
-                    <img src="/src/assets/rotation/Figure 79.png" width="500px"/>
+                    <img src="/src/assets/rotation/Figure 79.png" />
                     <figcaption>Figure 1: The cross product in green.</figcaption>
                 </figure>
                 There is a plane at the bottom of the page to indicate perspective. You see now that the cross product is inherently three-dimensional 
@@ -190,7 +190,7 @@ onMounted(()=>{
                 possible? In three, dimensions, of course!
                 <br><br>
                 <figure>
-                    <img src="/src/assets/rotation/Figure 79.png" width="500px"/>
+                    <img src="/src/assets/rotation/Figure 79.png" />
                     <figcaption>Figure 1: The cross product in green.</figcaption>
                 </figure>
                 <br>
@@ -224,7 +224,7 @@ onMounted(()=>{
             applied. It points from the axis of rotation to the point of force application, and comes <b>first</b> in the cross product.
             <br><br>
             <figure>
-                <img src="/src/assets/rotation/Figure 80.png" width="500px"/>
+                <img src="/src/assets/rotation/Figure 80.png" />
                 <figcaption>Figure 2: The components of torque on a wrench.</figcaption>
             </figure>
             <br>
@@ -254,7 +254,7 @@ onMounted(()=>{
                     How much torque is being exerted on the bolt if the man pushes with a force of 100 N?
                     <br><br>
                     <figure>
-                        <img src="/src/assets/rotation/Figure 81.png" width="500px"/>
+                        <img src="/src/assets/rotation/Figure 81.png" />
                         <figcaption>Figure 3: Pushing at an angle.</figcaption>
                     </figure>
                     <br>
@@ -286,7 +286,7 @@ onMounted(()=>{
                 at an angle of 30° to the vertical.
                 <br><br>
                 <figure>
-                    <img src="/src/assets/rotation/Figure 81.png" width="500px"/>
+                    <img src="/src/assets/rotation/Figure 81.png" />
                     <figcaption>Figure 3: Pushing at an angle.</figcaption>
                 </figure>
                 <br>
@@ -333,7 +333,7 @@ onMounted(()=>{
             Okay, now I'll show you the lever arm and line of action method with a labelled diagram to help with my explanation.
             <br><br>
             <figure>
-                <img src="/src/assets/rotation/Figure 82.png" width="500px"/>
+                <img src="/src/assets/rotation/Figure 82.png" />
                 <figcaption> Figure 4: Contrary to popular belief, the lever arm is not the arm of a lever.
                     <br>
                     Oh, and the device in the picture is called a torque wrench. It's a pretty neat tool.

@@ -143,7 +143,7 @@ onMounted(() => {
                         What is the moment of inertia of a thin hoop (mass $m$, radius $r$) about an axis through its center of mass and perpendicular to it?
                         <br><br>
                         <figure>
-                            <img src="/src/assets/rotation/Figure 83.png" width = '500px'/>
+                            <img src="/src/assets/rotation/Figure 83.png" />
                             <figcaption>Figure 1: The hoop, a very simple object.</figcaption>
                         </figure>
                         <br>
@@ -191,7 +191,7 @@ onMounted(() => {
                         can assume the hoop is just made up of a ring of point masses.
                         <br><br>
                         <figure>
-                            <img src="/src/assets/rotation/Figure 83.png" width = '500px'/>
+                            <img src="/src/assets/rotation/Figure 83.png" />
                             <figcaption>Figure 1: The hoop, a very simple object.</figcaption>
                         </figure>
                         <br>
@@ -322,7 +322,7 @@ onMounted(() => {
                 that we care about.
                 <br><br>
                 <figure>
-                    <img src="/src/assets/rotation/Figure 84.png" width="750px"/>
+                    <img src="/src/assets/rotation/Figure 84.png" style="max-width:750px"/>
                     <figcaption>Figure 2: The most important objects for rotation.</figcaption>
                 </figure>
                 <br>
@@ -498,7 +498,7 @@ onMounted(() => {
                     $$ I = I_{cm} + M d^2 $$
                     <br>
                     <figure>
-                        <img src='/src/assets/rotation/Figure 85.png' width = '500px'/>
+                        <img src='/src/assets/rotation/Figure 85.png' />
                         <figcaption>Figure 3: The parallel axis theorem.</figcaption>
                     </figure>
                     <br>
@@ -546,7 +546,7 @@ onMounted(() => {
                     $$ I' = I_{cm} + Md^2 $$
                     <br>
                     <figure>
-                        <img src='/src/assets/rotation/Figure 85.png' width = '500px'/>
+                        <img src='/src/assets/rotation/Figure 85.png' />
                         <figcaption>Figure 3: The parallel axis theorem.</figcaption>
                     </figure>
                     <br>
@@ -591,7 +591,7 @@ onMounted(() => {
                 $$ I_z = I_x + I_y $$
                 <br>
                 <figure>
-                    <img src="/src/assets/rotation/Figure 86.png" width = '500px'/>
+                    <img src="/src/assets/rotation/Figure 86.png" />
                     <figcaption>Figure 4: The perpendicular axis theorem.</figcaption>
                 </figure>
                 <br>

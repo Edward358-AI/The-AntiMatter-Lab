@@ -157,7 +157,7 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                 <span v-show="level>0">
                 A graph here to show what we mean:
                 <figure>
-                    <img src="/src/assets/dynamics/Figure 17.png" width="250px" />
+                    <img src="/src/assets/dynamics/Figure 17.png" style="max-width:250px" />
                     <figcaption>Figure 1: A graph that shows the magnitude of frictional force over time, in accordance with the applied force.</figcaption>
                 </figure>
                 You are probably wondering, is it possible for $\mu_k$ instead to be <i>greater</i> than $\mu_s$? Let's take a closer look. Remember, once we apply a force $F$ that less than or equal to $\mu_s F_N$, the object will not move because the static friction can counteract this force. However, once the force exceeds the value of $\mu_s F_N$, the object will begin to slide. That is the standard for how friction operates. When it begins sliding, it switches to kinetic friction, $\mu_k F_N$. Now if $\mu_k$ is greater than $\mu_s$, then the magnitude of the kinetic frictional force will automatically be greater than the static frictional force, which means as soon as it switches to kinetic friction, the block will not move. But that contradicts our earlier statement of it will begin to slide when the applied force exceeds $\mu_s F_N$ in magnitude. So thus, the statement that $\mu_s≥\mu_k$ must hold.

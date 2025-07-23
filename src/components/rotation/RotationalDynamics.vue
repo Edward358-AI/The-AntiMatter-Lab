@@ -39,7 +39,7 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                 case where we hit a pendulum that hangs from the cieling.
                 <br><br>
                 <figure>
-                    <img src="/src/assets/rotation/Figure 87.png" width="500px"/>
+                    <img src="/src/assets/rotation/Figure 87.png"/>
                     <figcaption>Figure 1: Do we have equal and opposite torque pairs?</figcaption>
                 </figure>
                 <br>
@@ -211,7 +211,7 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                 This is what we call a <b>force-vector diagram</b>.
                 <br><br>
                 <figure>
-                    <img src="/src/assets/rotation/Figure 88.png" width="500px"/>
+                    <img src="/src/assets/rotation/Figure 88.png"/>
                     <figcaption>Figure 2: A complete force-vector diagram for a wheel being pushed along a frictionless surface.</figcaption>
                 </figure>
                 <br>
@@ -241,7 +241,7 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                     fall over?
                     <br><br>
                     <figure>
-                        <img src="/src/assets/rotation/Figure 89.png" width="500px"/>
+                        <img src="/src/assets/rotation/Figure 89.png"/>
                         <figcaption>Figure 3: The elusive (to solve) ladder.</figcaption>
                     </figure>
                     <br>
@@ -250,7 +250,7 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                     well, since the ladder leans on it! Thus, we can make our force-vector diagram.
                     <br><br>
                     <figure>
-                        <img src="/src/assets/rotation/Figure 90.png" width="500px"/>
+                        <img src="/src/assets/rotation/Figure 90.png"/>
                         <figcaption>Figure 4: We have now solved the ladder by adding a whole lot of vectors.</figcaption>
                     </figure>
                     <br>
@@ -302,7 +302,7 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                     upright stably.)
                     <br><br>
                     <figure>
-                        <img src="/src/assets/rotation/Figure 89.png" width="500px"/>
+                        <img src="/src/assets/rotation/Figure 89.png"/>
                         <figcaption>Figure 3: The elusive (to solve) ladder.</figcaption>
                     </figure>
                     <br>
@@ -326,7 +326,7 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                     point to the right. Here's our completed diagram:
                     <br><br>
                     <figure>
-                        <img src="/src/assets/rotation/Figure 90.png" width="500px"/>
+                        <img src="/src/assets/rotation/Figure 90.png"/>
                         <figcaption>Figure 4: We have now solved the ladder by adding a whole lot of vectors.</figcaption>
                     </figure>
                     <br>

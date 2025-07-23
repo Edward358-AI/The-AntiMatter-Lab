@@ -109,7 +109,7 @@ onMounted(()=>{
                 that being said, let's define what an explosion really is in physics.
                 <br><br>
                 <figure>
-                    <img src="/src/assets/momentum/Figure 74.png" width="500px">
+                    <img src="/src/assets/momentum/Figure 74.png" >
                             <figcaption>
                                 Figure 1: KA-BOOOOOOM! - Tavish Finnegan DeGroot
                             </figcaption>
@@ -268,7 +268,7 @@ onMounted(()=>{
                     What shape do the pieces make as they fall?
                     <br><br>
                     <figure>
-                        <img src="/src/assets/momentum/Figure 75.png" width="500px">
+                        <img src="/src/assets/momentum/Figure 75.png" >
                         <figcaption>
                             Figure 2: What happens after the loud boom?
                         </figcaption>
@@ -283,7 +283,7 @@ onMounted(()=>{
                     six fragments will comprise a regular hexagon right after explosion. But that's not what we're asked!
                     <br><br>
                     <figure>
-                        <img src="/src/assets/momentum/Figure 76.png" width="500px">
+                        <img src="/src/assets/momentum/Figure 76.png" >
                         <figcaption>
                             Figure 3: This is what happens.
                         </figcaption>

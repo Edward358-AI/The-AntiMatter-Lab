@@ -36,7 +36,7 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                     points, and the magnitude is the length of the arrow.</span>
                     <br><br>
             <figure>
-                <img src="/src/assets/kinematics/Figure 1.png" style="width:500px;" />
+                <img src="/src/assets/kinematics/Figure 1.png" />
                 <figcaption><i>Figure 1: A representation of a vector.</i></figcaption>
             </figure>
             <br>
@@ -88,7 +88,7 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                     them like you would with normal numbers. (see below.)
                     <br><br>
                     <figure>
-                        <img src="/src/assets/kinematics/Figure 11.png" style="width:500px;" />
+                        <img src="/src/assets/kinematics/Figure 11.png" />
                         <figcaption><i>Figure 2: Two vectors being added linearly.</i></figcaption>
                     </figure>
                     <br>
@@ -112,7 +112,7 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                     the same direction, as the diagram shows:
                     <br><br>
                     <figure>
-                        <img src="/src/assets/kinematics/Figure 11.png" style="width:500;" />
+                        <img src="/src/assets/kinematics/Figure 11.png" />
                         <figcaption><i>Figure 2: Two vectors being added linearly.</i></figcaption>
                     </figure>
                     <br>
@@ -128,7 +128,7 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                 </span>
                 <br><br>
             <figure>
-                <img src="/src/assets/kinematics/Figure 2.png" style="width:500px;" />
+                <img src="/src/assets/kinematics/Figure 2.png" />
                 <figcaption><i>Figure 3: Tip-to-tail method </i></figcaption>
             </figure>
             <br>
@@ -140,7 +140,7 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                 lines.
                 <br><br>
                 <figure>
-                    <img src="/src/assets/kinematics/Figure 3.png" style="width:500px;" />
+                    <img src="/src/assets/kinematics/Figure 3.png" />
                     <figcaption><i>Figure 4: Parallelogram method </i></figcaption>
                 </figure>
                 <br>
@@ -181,7 +181,7 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                     you want a diagram, see the one below:
                     <br><br>
                     <figure>
-                        <img src="/src/assets/kinematics/Figure 6.png" style="width:500px;" />
+                        <img src="/src/assets/kinematics/Figure 6.png" />
                         <figcaption><i>Figure 4: Vector addition (component method)</i></figcaption>
                     </figure>
                     <br>
@@ -224,7 +224,7 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                     makes with the positive x-axis. A figure is drawn below to show what we mean:
                     <br><br>
                     <figure>
-                        <img src="/src/assets/kinematics/Figure 4.png" style="width:500px;" />
+                        <img src="/src/assets/kinematics/Figure 4.png" />
                         <figcaption><i>Figure 5: A vector defined by its magnitude and argument (angle)</i></figcaption>
                     </figure>
                 </span>
@@ -256,7 +256,7 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                     is provided below:
                     <br><br>
                     <figure>
-                        <img src="/src/assets/kinematics/Figure 5.png" style="width:500px;" />
+                        <img src="/src/assets/kinematics/Figure 5.png" />
                         <figcaption><i>Figure 6: A vector defined by its horizontal and vertical components</i>
                         </figcaption>
                     </figure>
@@ -278,7 +278,7 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                     cluttered, but realize that we are still working in a coordinate plane:
                     <br><br>
                     <figure>
-                        <img src="/src/assets/kinematics/Figure 6.png" style="width:500px;" />
+                        <img src="/src/assets/kinematics/Figure 6.png" />
                         <figcaption><i>Figure 7: Vector addition via component method</i></figcaption>
                     </figure>
                     <br>

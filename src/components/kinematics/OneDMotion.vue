@@ -367,7 +367,7 @@ onMounted(() => {
                     One-dimensional motion, all in all, seems pretty boring. However, there is a case where you can
                     virtually immediately apply it to your everyday lives. Well, what is that? It's free fall!
                     <figure>
-                        <img src="/src/assets/kinematics/Figure 9.png" width="170px" />
+                        <img src="/src/assets/kinematics/Figure 9.png" style="max-width:250px" />
                         <figcaption>Figure 1: A guy pushing his friend off a cliff.<br>(Note: I do not officially
                             condone
                             pushing people off of cliff faces, it is very dangerous. But what you do is ultimately up to
@@ -483,7 +483,7 @@ onMounted(() => {
                     free
                     fall!
                     <figure>
-                        <img src="/src/assets/kinematics/Figure 9.png" width="170px" />
+                        <img src="/src/assets/kinematics/Figure 9.png" style="max-width:250px" />
                         <figcaption>Figure 1: A guy pushing his friend off a cliff.<br>(Note: I do not officially
                             condone
                             pushing people off of cliff faces, it is very dangerous. But what you do is ultimately up to
@@ -635,7 +635,7 @@ onMounted(() => {
                             $3~\textrm
                             m$. How long does the poor guy have to get out of the way?</i>
                         <figure>
-                            <img src="/src/assets/kinematics/Figure 10.png" width="170px" />
+                            <img src="/src/assets/kinematics/Figure 10.png" style="max-width:250px" />
                             <figcaption>Figure 2: An innocent passerby that will soon be flattened (*Not drawn to
                                 scale).
                             </figcaption>

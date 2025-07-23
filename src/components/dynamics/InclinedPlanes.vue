@@ -109,14 +109,14 @@ onMounted(() => {
                 First, we consider the quintessential object on an inclined plane with incline angle $\theta$.
                 <br><br>
             <figure>
-                <img src="/src/assets/dynamics/Figure 18.png" width="500px" />
+                <img src="/src/assets/dynamics/Figure 18.png" />
                 <figcaption>Figure 1: The inclined plane.</figcaption>
             </figure>
                 This diagram is visually simple, but it is not very useful for force analysis purposes. Thus, we should make an FBD of this diagram (ignoring friction for now). For simplicity and better visualizing, I have attached the vectors directly to the illustration. This kind of 
                 diagram is called a <em>force-vector diagram</em>.
                 <br><br>
                 <figure>
-                    <img src="/src/assets/dynamics/Figure 19.png" width="500px" />
+                    <img src="/src/assets/dynamics/Figure 19.png" />
                     <figcaption>Figure 2: A force-vector diagram of the scenario.</figcaption>                   
                 </figure>
                 <br><br>
@@ -126,7 +126,7 @@ onMounted(() => {
                 Newton&apos;s second law.
                 <br><br>
                 <figure>
-                    <img src="/src/assets/dynamics/Figure 20.png" width="500px" />
+                    <img src="/src/assets/dynamics/Figure 20.png" />
                     <figcaption>Figure 3: A force-vector diagram with axes. But are these the right axes to use?</figcaption>
                 </figure>
                 <br><br>
@@ -137,7 +137,7 @@ onMounted(() => {
                 We can instead define axes perpendicular to and along the incline then:
                 <br><br>
                 <figure>
-                    <img src="/src/assets/dynamics/Figure 21.png" width="500px" />
+                    <img src="/src/assets/dynamics/Figure 21.png" />
                     <figcaption>Figure 4: A force-vector diagram with axes that are aligned with the incline. Much better.</figcaption>
                 </figure>
                 <br><br>
@@ -166,7 +166,7 @@ onMounted(() => {
                     We will consider a quintessential inclined plane, a wedge-shaped object that has an incline angle $\theta$.
                     <br><br>
                     <figure>
-                        <img src="/src/assets/dynamics/Figure 18.png" width="500px" />
+                        <img src="/src/assets/dynamics/Figure 18.png" />
                         <figcaption>Figure 1: The inclined plane.</figcaption>
                     </figure>
                     <br><br>
@@ -176,7 +176,7 @@ onMounted(() => {
                     since it would be more visually appealing and connect better to the previous figure.
                     <br><br>
                     <figure>
-                        <img src="/src/assets/dynamics/Figure 19.png" width="500px" />
+                        <img src="/src/assets/dynamics/Figure 19.png" />
                         <figcaption>Figure 2: A force-vector diagram of the scenario.</figcaption>
                     </figure>
                     <br><br>
@@ -188,7 +188,7 @@ onMounted(() => {
                     Now, this diagram is technically accurate, but not very useful. Drawing axes will be helpful to tell us how to look at the forces.
                     <br><br>
                     <figure>
-                        <img src="/src/assets/dynamics/Figure 20.png" width="500px" />
+                        <img src="/src/assets/dynamics/Figure 20.png" />
                         <figcaption>Figure 3: A force-vector diagram with axes. But are these the right axes to use?</figcaption>
                     </figure>
                     <br><br>
@@ -197,7 +197,7 @@ onMounted(() => {
                     We should then look at the motion of the block along the incline and perpendicular to it, and define our axes that way instead.
                     <br><br>
                     <figure>
-                        <img src="/src/assets/dynamics/Figure 21.png" width="500px" />
+                        <img src="/src/assets/dynamics/Figure 21.png" />
                         <figcaption>Figure 4: A force-vector diagram with axes that are aligned with the incline. Much better.</figcaption>
                     </figure>
                     <br><br>
@@ -233,7 +233,7 @@ onMounted(() => {
                 Consider the same scenario, but with friction. Now there’s going to be a frictional force directed parallel to the plane.
                 <br><br>
                 <figure>
-                    <img src="/src/assets/dynamics/Figure 22.png" width="500px" />
+                    <img src="/src/assets/dynamics/Figure 22.png" />
                     <figcaption>Figure 5: Friction can no longer be neglected. This is not a drill.</figcaption>
                 </figure>
                 <br><br>
@@ -275,7 +275,7 @@ onMounted(() => {
                 angle at each value of $x$, and the magnitude of the acceleration as a function of $x$.
                 <br><br>
                 <figure>
-                    <img src="/src/assets/dynamics/Figure 23.png" width="500px" />
+                    <img src="/src/assets/dynamics/Figure 23.png" />
                     <figcaption>Figure 6: A curved incline. This one's parabolic.</figcaption>
                 </figure>
                 <br><br>
@@ -300,7 +300,7 @@ onMounted(() => {
                 This is a common trigonometric technique and I assume you know it if you know calculus.
                 <br><br>
                 <figure>
-                    <img src="/src/assets/dynamics/Figure 24.png" width="500px" />
+                    <img src="/src/assets/dynamics/Figure 24.png" />
                     <figcaption>Figure 7: A triangle with a tangent of $2Cx$, solving for the sine. (Note from Eric: I had to manually construct that square root symbol out of lines. If it looks slightly awkward, blame Canva for not having mathprint.)</figcaption>
                 </figure>
                 From this, we see that the sine is equal to <br>
@@ -330,7 +330,7 @@ onMounted(() => {
                 Consider the exact same scenario, but now with friction thrown in. The force-vector diagram now looks like this:
                 <br><br>
                 <figure>
-                    <img src="/src/assets/dynamics/Figure 22.png" width="500px" />
+                    <img src="/src/assets/dynamics/Figure 22.png" />
                     <figcaption>Figure 5: Friction can no longer be neglected. This is not a drill.</figcaption>
                 </figure>
                 <br><br>
@@ -401,14 +401,14 @@ onMounted(() => {
                 For now, we only consider massless, frictionless pulleys and massless strings. Let’s use a simple one-pulley system to demonstrate the mechanics behind the pulley.
                 <br><br>
                 <figure>
-                    <img src="/src/assets/dynamics/Figure 25.png" width="500px" />
+                    <img src="/src/assets/dynamics/Figure 25.png" />
                     <figcaption>Figure 8: A simple one-pulley system, with a very enthusiastic stick figure.</figcaption>
                 </figure>
                 <br><br>
                 Suppose the stick figure pulls down with force F. Then we draw some forces directly onto the diagram:
                 <br><br>
                 <figure>
-                    <img src="/src/assets/dynamics/Figure 26.png" width="500px" />
+                    <img src="/src/assets/dynamics/Figure 26.png" />
                     <figcaption>Figure 9: A simple force-vector diagram of the pulley system. The stick figure has been executed for his-I mean omitted for clarity.</figcaption>
                 </figure>
                 <br><br>
@@ -420,7 +420,7 @@ onMounted(() => {
                 Now I’d like to consider the Atwood machine where two differently-massed objects hang from either side of a pulley.
                 <br><br>
                 <figure>
-                    <img src="/src/assets/dynamics/Figure 27.png" width="500px" />
+                    <img src="/src/assets/dynamics/Figure 27.png" />
                     <figcaption>Figure 10: The quintessential Atwood's machine.</figcaption>
                 </figure>
                 <span v-show="level>0">
@@ -504,7 +504,7 @@ onMounted(() => {
             Something more interesting happens when there is more than one pulley involved, specifically when that second pulley is allowed to move. For instance, take this scenario:
             <br><br>
             <figure>
-                <img src="/src/assets/dynamics/Figure 28.png" width="500px" />
+                <img src="/src/assets/dynamics/Figure 28.png" />
                 <figcaption>Figure 11: A two-pulley system.</figcaption>
             </figure>
             <br><br>

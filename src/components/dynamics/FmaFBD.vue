@@ -31,13 +31,13 @@ const showAnswer4 = ref(false)
                 consider
                 the case of a book on a table. Remember that forces are vectors, so their magnitude and direction matters! A free-body diagram is essentially just a diagram of a singular body, or system, and all the <i>EXTERNAL</i> forces.<br>Here is an example:
                 <figure>
-                    <img src="/src/assets/dynamics/Figure 32.png" width="500px" />
+                    <img src="/src/assets/dynamics/Figure 32.png" />
                     <figcaption>Figure 1: An incomplete (unlabeled) free-body diagram.</figcaption>
                 </figure>
                 Using the forces you know from the previous lesson, see if you can try and work out what to label. for the diagram.<br>
                 Did you get it? The force down should be gravity, but the book is not moving, so there is an upward force, and that is the normal force from the table!
                 <figure>
-                    <img src="/src/assets/dynamics/FIgure 35.png" width="500px" />
+                    <img src="/src/assets/dynamics/FIgure 35.png"/>
                     <figcaption>Figure 2: A complete free-body diagram.</figcaption>
                 </figure>
                 There are a few things regarding this image that we will explain.<br>Now seeing after how to NOT draw an FBD, we will give you a (mostly) foolproof recipe on how to build a correct FBD that will help you solve even the most difficult of problems!
@@ -65,7 +65,7 @@ const showAnswer4 = ref(false)
                 <div v-show="showAnswer4">   
                     This, or something close to it, is the correct FBD for the problem.     
                     <figure>
-                        <img src="/src/assets/dynamics/Figure 16.png" width="500px" />
+                        <img src="/src/assets/dynamics/Figure 16.png" />
                         <figcaption>Figure 3: A free-body diagram of the cart.</figcaption> 
                     </figure>
                 </div>
@@ -137,7 +137,7 @@ const showAnswer4 = ref(false)
                     <div v-show="showAnswer4">   
                         This, or something close to it, is the correct FBD for the problem.
                         <figure>
-                            <img src="/src/assets/dynamics/Figure 16.png" width="500px" />
+                            <img src="/src/assets/dynamics/Figure 16.png"  />
                             <figcaption>Figure 3: A free-body diagram of the cart.</figcaption>
                         </figure>
                     </div>
@@ -315,7 +315,7 @@ const showAnswer4 = ref(false)
                 Now, we ask, what is the maximum acceleration of the sled such that the penguin does not slip, and (assuming masses of penguin and sled to be $m_p$ and $m_s$ respectively) 
                 what acceleration does a force F pulling in front of the sled impart on the sled?
                 <figure>
-                    <img src="/src/assets/dynamics/Figure 34.png" width="500px" />
+                    <img src="/src/assets/dynamics/Figure 34.png" />
                     <figcaption>Figure 4: A (spherical) penguin on a sled.</figcaption> 
                 </figure>
                 The key here is to consider the sled and penguin as one object since the penguin doesn’t slip. 
@@ -370,7 +370,7 @@ const showAnswer4 = ref(false)
                 know if you've tried to walk on it!). 
                 <br><br>
                 <figure>
-                    <img src="/src/assets/dynamics/Figure 34.png" width="500px" />
+                    <img src="/src/assets/dynamics/Figure 34.png"  />
                     <figcaption>Figure 4: A (spherical) penguin on a sled.</figcaption> 
                 </figure>
                 <br><br> 

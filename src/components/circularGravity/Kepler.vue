@@ -20,7 +20,7 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                 </div>
                 <br><br>
                 <figure>
-                    <img src="/src/assets/dynamics/Figure 46.png" width = "500px">
+                    <img src="/src/assets/dynamics/Figure 46.png" >
                     <figcaption> Figure 1: (Exaggerated for effect) An elliptical orbit around a star. But while it looks right, it's actually not.</figcaption>
                 </figure>
                 <br><br>
@@ -45,7 +45,7 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                 </span>
                 <br><br>
                 <figure>
-                    <img src="/src/assets/dynamics/Figure 47.png" width = "500px">
+                    <img src="/src/assets/dynamics/Figure 47.png" >
                     <figcaption> Figure 2: The updated diagram of elliptical orbits.</figcaption>
                 </figure>
                 
@@ -89,7 +89,7 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                 a visual guide. Here is a basic visual to explain what I'm talking about:
                 <br><br>
                 <figure>
-                    <img src="/src/assets/dynamics/Figure 48.png" width = "500px">
+                    <img src="/src/assets/dynamics/Figure 48.png" >
                     <figcaption> Figure 3: A visual guide for Kepler's Second Law.</figcaption>
                 </figure>
                 <br><br>

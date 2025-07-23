@@ -33,7 +33,7 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                     <br><br>
                 </span>
                 <figure>
-                    <img src="/src/assets/energy/Figure 50.png" width="750px" />
+                    <img src="/src/assets/energy/Figure 50.png"style="max-width:750px" />
                     <figcaption>Figure 1: Work in daily life versus work in physics. </figcaption>
                     </figure>
                 <br><br>
@@ -56,7 +56,7 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                     $$W = \vec{F} \cdot \vec{x}$$
                     <br><br>
                     <figure>
-                    <img src="/src/assets/energy/Figure 50.png" width="750px" />
+                    <img src="/src/assets/energy/Figure 50.png"style="max-width:750px" />
                     <figcaption>Figure 1: Work in daily life versus work in physics. </figcaption>
                     </figure>
                     Basically, the work is both dependent on the displacement of an object as well as the force exerted on it. This formula
@@ -69,7 +69,7 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                     is $F = 0.5 ~\textrm{N}$ directly downwards?
                     <br><br>
                     <figure>
-                    <img src="/src/assets/energy/sheldoncomputer.png" width="500px" />
+                    <img src="/src/assets/energy/sheldoncomputer.png"  />
                     <figcaption>Figure 2: An accurate representation of the scenario. </figcaption>
                     </figure>
                     <br><br>
@@ -115,7 +115,7 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                     What is the work done on the object by the force shown in the diagram below as it moves from $x=0$ to $x=6 ~\textrm{m}$?
                     <br><br>
                     <figure>
-                    <img src="/src/assets/energy/Figure 51.png" width="500px">
+                    <img src="/src/assets/energy/Figure 51.png">
                     </figure>
                     This is quite simple. You find the area under the graph from $x=0$ to $x=6$, which is just simple geometry. However,
                     there are two common errors that I've seen with this kind of graph. The first is to assume that the area is measured to the 
@@ -151,7 +151,7 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                     point to another, but here I'll illustrate three just to show you the possible variety.
                     <br><br>
                     <figure>
-                    <img src="/src/assets/energy/Figure 52.png" width="500px">
+                    <img src="/src/assets/energy/Figure 52.png" >
                     <figcaption>Figure 3: A work of modern art, or a representation of three different possible paths between two points? It's the latter.</figcaption>
                     </figure>
                     <br><br>
@@ -199,7 +199,7 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                     displacement is path-independent, since it only considers start and end points.
                     <br><br>
                     <figure>
-                    <img src="/src/assets/energy/Figure 52.png" width="500px">
+                    <img src="/src/assets/energy/Figure 52.png">
                     <figcaption>Figure 3: A work of modern art, or a representation of three different possible paths between two points? It's the latter.</figcaption>
                     </figure>
                     <br><br>

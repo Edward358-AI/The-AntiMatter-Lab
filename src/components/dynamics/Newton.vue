@@ -22,7 +22,7 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                 introduce the idea of a free-body diagram.
                 <br><br>
             <figure>
-                <img src="/src/assets/dynamics/Figure 13.png" width="500px" />
+                <img src="/src/assets/dynamics/Figure 13.png" />
                 <figcaption>Figure 1: A force vector acting on a box.</figcaption>
             </figure>
             <br>
@@ -165,7 +165,7 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
             </p>
             <br><br>
             <figure>
-                <img src="/src/assets/dynamics/Figure 14.png" width="500px" />
+                <img src="/src/assets/dynamics/Figure 14.png" />
                 <figcaption>Figure 2: A gun being fired, with force vectors indicating Newton's Third Law in action.</figcaption>
             </figure>
             <br>

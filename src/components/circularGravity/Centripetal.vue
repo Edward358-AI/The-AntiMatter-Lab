@@ -122,7 +122,7 @@ onMounted(() => {
                   but that case is much more complicated. Here’s a little diagram to sum up this block of text:
                   <br><br>
                   <figure>
-                    <img src="/src/assets/dynamics/Figure 29.png" width = "500px">
+                    <img src="/src/assets/dynamics/Figure 29.png" >
                     <figcaption>Figure 1: A labelled diagram of the simplest kind of circular motion.</figcaption>
                   </figure>
                   <br><br>
@@ -257,7 +257,7 @@ onMounted(() => {
                 this a problem I'll walk you through it.
                 <br><br>
                 <figure>
-                    <img src="/src/assets/dynamics/Figure 30.png" width = "500px">
+                    <img src="/src/assets/dynamics/Figure 30.png" >
                     <figcaption>Figure 2: A banked curve. The cross-section is marked in dark blue.</figcaption>
                 </figure>
                 <br><br>
@@ -272,7 +272,7 @@ onMounted(() => {
                 The weight of the object cannot contribute to the centripetal acceleration since it is always perpendicular to the radius of the imaginary horizontal circle the object traces out as it moves along its path. The only other force in this case, then, is $F_n$. In this scenario, it is easier to work with the horizontal and vertical axes rather than the axes along the plane since the only acceleration is in the horizontal direction.
                 <br><br>
                 <figure>
-                    <img src="/src/assets/dynamics/Figure 31.png" width = "500px">
+                    <img src="/src/assets/dynamics/Figure 31.png" >
                     <figcaption>Figure 3: A banked curve, turned into a force-vector diagram. Make sure this doesn't happen to your children.</figcaption>
                 </figure>
                 <br><br>
@@ -357,7 +357,7 @@ onMounted(() => {
                     Now, we're going to show a diagram of the banked turn to drive home what it really is:
                     <br><br>
                     <figure>
-                        <img src="/src/assets/dynamics/Figure 30.png" width = "500px">
+                        <img src="/src/assets/dynamics/Figure 30.png" >
                         <figcaption>Figure 2: A banked curve. The cross-section is marked in dark blue.</figcaption>
                     </figure>
                     This is essentially just a curved inclined plane, so we can really just treat it the same way. Do note, however, that the centripetal force is directed horizontally with respect to the ground and not directed down the plane. In a case like this, it is possible for UCM to occur without any frictional forces, unlike with a flat circle. 
@@ -366,7 +366,7 @@ onMounted(() => {
                     radius of the imaginary horizontal circle the object traces out as it moves along its path. The only other force in this case, then, is $F_n$. In this scenario, it is easier to work with the horizontal and vertical axes rather than the axes along the plane since the only acceleration is in the horizontal direction.
                     <br><br>
                 <figure>
-                    <img src="/src/assets/dynamics/Figure 31.png" width = "500px">
+                    <img src="/src/assets/dynamics/Figure 31.png" >
                     <figcaption>Figure 3: A banked curve, turned into a force-vector diagram. Make sure this doesn't happen to your children.</figcaption>
                 </figure>
                     Now, the calculations for the results of this scenario will not be carried out here, but you should be able
@@ -409,7 +409,7 @@ onMounted(() => {
             out of the vertical circle. We are going to analyze this result, but first a diagram:
             <br><br>
             <figure>
-                <img src="/src/assets/dynamics/verticalcircle.png" width = "500px">
+                <img src="/src/assets/dynamics/verticalcircle.png" >
                 <figcaption>Figure 4: A vertical circle, with the points of interest labelled.</figcaption>
             </figure>
             <br>

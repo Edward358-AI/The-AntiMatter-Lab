@@ -178,7 +178,7 @@ onMounted(() => {
                 across its entire length, a result we'll use later on to deduce what happens if you put multiple springs together.
                 <br><br>
                 <figure>
-                <img src="/src/assets/dynamics/spring1.png" width="750px" />
+                <img src="/src/assets/dynamics/spring1.png" style="max-width:750px"/>
                 <figcaption>Figure 1: A spring exerting an equal force from each end when stretched or compressed.</figcaption>
                 </figure>
                 <br><br>
@@ -200,7 +200,7 @@ onMounted(() => {
                 Analysis can lead to some complex results, but with proper reasoning it's not too difficult to understand how to get there.
                 <br><br>
                 <figure>
-                <img src="/src/assets/dynamics/spring1.png" width="750px" />
+                <img src="/src/assets/dynamics/spring1.png"style="max-width:750px" />
                 <figcaption>Figure 1: A spring exerting an equal force from each end when stretched or compressed.</figcaption>
                 </figure>
                 <br><br>
@@ -224,7 +224,7 @@ onMounted(() => {
                     there is no friction.
                     <br><br>
                 <figure>
-                <img src="/src/assets/dynamics/springincline.png" width="750px" />
+                <img src="/src/assets/dynamics/springincline.png"style="max-width:750px"/>
                 <figcaption>Figure 2: Mr. Greenfin's devious plan.</figcaption>
                 </figure>
                     <br><br>
@@ -254,7 +254,7 @@ onMounted(() => {
                      considered as an inclined plane with an incline angle of $\theta$ and a length as measured along the diagonal. What is the weakest spring he can use? Assume the spring's natural length is very short.
                      <br><br>
                 <figure>
-                <img src="/src/assets/dynamics/springincline.png" width="750px" />
+                <img src="/src/assets/dynamics/springincline.png" style="max-width:750px" />
                 <figcaption>Figure 2: Mr. Greenfin's devious plan.</figcaption>
                 </figure>
                 <br><br>
@@ -300,7 +300,7 @@ onMounted(() => {
             end-to-end. The visual should help hammer home this idea.
             <br><br>
             <figure>
-                <img src="/src/assets/dynamics/springseriesparallel.png" width="750px" />
+                <img src="/src/assets/dynamics/springseriesparallel.png" style="max-width:750px" />
                 <figcaption>Figure 3: Series versus parallel.</figcaption>
             </figure>
             <br><br>
@@ -351,7 +351,7 @@ onMounted(() => {
                     of each of the two half-springs? (Think about what this is equivalent to!)
                     <br><br>
                 <figure>
-                    <img src="/src/assets/dynamics/springcut.png" width="500px" />
+                    <img src="/src/assets/dynamics/springcut.png" />
                     <figcaption>Figure 4: Cutting a spring in half.</figcaption>
                 </figure>
                 <br><br>

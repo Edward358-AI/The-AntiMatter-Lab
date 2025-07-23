@@ -28,7 +28,7 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                  problems.
                 <br><br>
                 <figure>
-                    <img src="/src/assets/dynamics/Figure 36.png" width = "500px">
+                    <img src="/src/assets/dynamics/Figure 36.png" >
                     <figcaption>Figure 1: An extremely normal and fun elevator.</figcaption>
                 </figure>
                 <span v-show="level>0">
@@ -54,7 +54,7 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                     <div class="problem">
                     Now what if the elevator was accelerating downward? <br><br>
                     <figure>
-                    <img src="/src/assets/dynamics/Figure 37.png" width = "500px">
+                    <img src="/src/assets/dynamics/Figure 37.png" >
                     <figcaption>Figure 2: Electric boogaloo. It's not called being lazy, it's called being smart with your time.<br>
                     (I'm being lazy.)</figcaption>
                     </figure>
@@ -113,7 +113,7 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                     Now we should consider the obvious other case: elevator accelerating down.
                     <br><br>
                     <figure>
-                    <img src="/src/assets/dynamics/Figure 37.png" width = "500px">
+                    <img src="/src/assets/dynamics/Figure 37.png" >
                     <figcaption>Figure 2: Electric boogaloo. It's not called being lazy, it's called being smart with your time.<br>
                     (I'm being lazy.)</figcaption>
                     </figure>
@@ -142,14 +142,14 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                 I'd like to start off with an xkcd comic because I find it mildly amusing and educational.
                 <br><br>
                 <figure>
-                    <img src="/src/assets/dynamics/EVIL FILE DO NOT OPEN.png" width = "300px">
+                    <img src="/src/assets/dynamics/EVIL FILE DO NOT OPEN.png" style="max-width:300px">
                     <figcaption>Figure 3: The consequences of centrifugal force. Made by xkcd.</figcaption>
                 </figure>
                 <br><br>
                 Hopefully you understood that. Please review this lesson if you didn't. I am no longer asking.
                 <br><br>
                 <figure>
-                    <img src="/src/assets/dynamics/Figure 38.png" width = "500px">
+                    <img src="/src/assets/dynamics/Figure 38.png" >
                     <figcaption> Figure 4: A truck driving over a hill. No comments about the paint job allowed.</figcaption>
                 </figure>
                 <span v-show="level>0">
@@ -235,7 +235,7 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                 it wasn't clear. (It probably wasn't, considering how it looks.)
                 <br><br>
                 <figure>
-                    <img src="/src/assets/dynamics/Figure 39.png" width = "500px">
+                    <img src="/src/assets/dynamics/Figure 39.png" >
                     <figcaption> Figure 5: The cart. I tried out a new aesthetic style.</figcaption>
                 </figure>
                 <br><br>
@@ -293,7 +293,7 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                 in this scenario. The red circle is a pulley.
                 <br><br>
                 <figure>
-                    <img src="/src/assets/dynamics/Figure 39.png" width = "500px">
+                    <img src="/src/assets/dynamics/Figure 39.png" >
                     <figcaption> Figure 5: The cart. I tried out a new aesthetic style.</figcaption>
                 </figure>
                 <br><br>

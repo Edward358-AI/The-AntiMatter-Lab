@@ -14,7 +14,7 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                 age of 30, so I'll break it down into much simpler terms.
                 <br><br>
                 <figure>
-                    <img src="/src/assets/momentum/centerOfGravity.jpg" width = '500px'>
+                    <img src="/src/assets/momentum/centerOfGravity.jpg" >
                     <figcaption>
                                 Figure 1: A Wikipedia image that illustrates the concept of center of mass (technically center of gravity).
                     </figcaption>
@@ -168,7 +168,7 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                             you selected your approach correctly.
                             <br><br>
                             <figure>
-                                <img src="/src/assets/momentum/Figure 67.png" width = '500px'>
+                                <img src="/src/assets/momentum/Figure 67.png" >
                                 <figcaption>
                                 Figure 2: The method.
                                 </figcaption>
@@ -297,7 +297,7 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                         has a length $L = 2.0 ~\textrm{m}$. How far does the boat move?
                         <br><br>
                         <figure>
-                                <img src="/src/assets/momentum/Figure 68.png" width = '500px'>
+                                <img src="/src/assets/momentum/Figure 68.png" >
                                 <figcaption>
                                 Figure 3: He do be walking though.
                                 </figcaption>
@@ -314,7 +314,7 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                         A diagram could help:
                         <br><br>
                         <figure>
-                                <img src="/src/assets/momentum/Figure 69.png" width = '500px'>
+                                <img src="/src/assets/momentum/Figure 69.png" >
                                 <figcaption>
                                 Figure 4: The red dot marks the center of the boat, and the cyan dot marks the center of mass position. Now can you see it?
                                 </figcaption>

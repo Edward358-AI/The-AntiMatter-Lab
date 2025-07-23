@@ -24,7 +24,7 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                 to this, so we have to use a new formula.
                 <br><br>
                 <figure>
-                    <img src="/src/assets/energy/Figure 61.png" width="500px">
+                    <img src="/src/assets/energy/Figure 61.png" />
                     <figcaption>
                         Figure 1: We typically only use this formula when talking about large, celestial objects.
                     </figcaption>
@@ -110,7 +110,7 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                         and $R_E = 6.37 \times 10^6 ~\textrm{m}$. 
                         <br><br>
                         <figure>
-                    <img src="/src/assets/energy/Figure 62.png" width="500px">
+                    <img src="/src/assets/energy/Figure 62.png" />
                     <figcaption>
                         Figure 2: Fire in the hole- I mean blastoff!
                     </figcaption>
@@ -151,7 +151,7 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                     from the surface.
                     <br><br>
                     <figure>
-                    <img src="/src/assets/energy/Figure 62.png" width="500px">
+                    <img src="/src/assets/energy/Figure 62.png" />
                     <figcaption>
                         Figure 2: Fire in the hole- I mean blastoff!
                     </figcaption>
@@ -200,7 +200,7 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                     a circular orbit.
                         <br><br>
                         <figure>
-                    <img src="/src/assets/energy/Figure 64.png" width="500px">
+                    <img src="/src/assets/energy/Figure 64.png" />
                     <figcaption>
                         Figure 3: A labelled diagram of the scenario. Yes, I was finally nice enough to label it.
                     </figcaption>
@@ -290,7 +290,7 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                 we have only been dealing with systems that have two objects. What happens when there are more than two bodies in a system?
                 <br><br>
                 <figure>
-                    <img src="/src/assets/energy/Figure 63.png" width="500px">
+                    <img src="/src/assets/energy/Figure 63.png" />
                     <figcaption>
                         Figure 4: A system of three bodies, the inspiration for the hit 2008 Sci-Fi novel <i>The Three-Body Problem</i>.
                     </figcaption>

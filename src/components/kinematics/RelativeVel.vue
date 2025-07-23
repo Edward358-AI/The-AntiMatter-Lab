@@ -60,7 +60,7 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                 Perhaps a diagram will help us solve this problem:
                 <br><br>
                 <figure>
-                    <img src="/src/assets/kinematics/Figure 14.png" width="500px" />
+                    <img src="/src/assets/kinematics/Figure 14.png"/>
                     <figcaption>Figure 1: A boat traveling across a river, with vectors labeled.</figcaption>
                 </figure>
                 <br>

@@ -243,7 +243,7 @@ function newtonsCradle(xx, yy, number, size, length) {
                     spacecraft by other means. First, how would she achieve this?
                     <br><br>
                     <figure>
-                        <img src="/src/assets/momentum/Figure 66.png" width="500px">
+                        <img src="/src/assets/momentum/Figure 66.png" >
                     <figcaption>
                         Figure 1: The astronaut's predicament.
                     </figcaption>
@@ -289,7 +289,7 @@ function newtonsCradle(xx, yy, number, size, length) {
                     Is there any way she could return to the spacecraft before her oxygen runs out?
                     <br><br>
                     <figure>
-                        <img src="/src/assets/momentum/Figure 66.png" width="500px">
+                        <img src="/src/assets/momentum/Figure 66.png" >
                     <figcaption>
                         Figure 1: The astronaut's predicament.
                     </figcaption>

@@ -106,7 +106,7 @@ onMounted(() => {
                     with an intitial velocity, at a certain angle, and it will yield this:
                     <br><br>
                     <figure>
-                        <img src="/src/assets/kinematics/Figure 12.png" height="300px" />
+                        <img src="/src/assets/kinematics/Figure 12.png" />
                         <figcaption>Figure 1: Different modes (examples) of projectile motion</figcaption>
                     </figure>
                     <br>
@@ -128,7 +128,7 @@ onMounted(() => {
                     $v_0$, at a
                     certain angle $\theta$, and it will yield this:
                     <figure>
-                        <img src="/src/assets/kinematics/Figure 12.png" height="300px" />
+                        <img src="/src/assets/kinematics/Figure 12.png"  />
                         <figcaption>Figure 1: Different modes of projectile motion</figcaption>
                     </figure>
                     Now that you've seen our diagram, it's time to experience it. Or at least, experience it the best you can in an 
@@ -316,7 +316,7 @@ onMounted(() => {
                             ball has to enter the hoop from above.)</i>
                             <br><br>
                         <figure>
-                            <img src="/src/assets/kinematics/Figure 13.png" width="200px" />
+                            <img src="/src/assets/kinematics/Figure 13.png" style="max-width:200px;" />
                             <figcaption>Figure 2: He shoots (he calculates), he scores!</figcaption>
                         </figure>
                         <br>

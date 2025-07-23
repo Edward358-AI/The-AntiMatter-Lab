@@ -154,7 +154,7 @@ onMounted(() => {
                     towards the coal car. The cars couple together when they touch. What is their final velocity?
                     <br><br>
                     <figure>
-                        <img src="/src/assets/momentum/Figure 70.png" width="750px">
+                        <img src="/src/assets/momentum/Figure 70.png" style="max-width:750px">
                             <figcaption>
                                 Figure 1: Mild railway incident.
                             </figcaption>
@@ -254,7 +254,7 @@ onMounted(() => {
                         of 1200 m/s. The bullet ricochets off the cube in a perfectly elastic one-dimensional collision. What are the final velocities of the bullet and cube?
                         <br><br>
                         <figure>
-                        <img src="/src/assets/momentum/Figure 71.png" width="750px">
+                        <img src="/src/assets/momentum/Figure 71.png" style="max-width:750px">
                             <figcaption>
                                 Figure 2: This feels so incomprehensible without context.
                             </figcaption>
@@ -352,7 +352,7 @@ onMounted(() => {
                     basically like something hitting a brick wall.
                     <br><br>
                     <figure>
-                        <img src="/src/assets/momentum/Figure 72.png" width="750px">
+                        <img src="/src/assets/momentum/Figure 72.png" style="max-width:750px">
                             <figcaption>
                                 Figure 2: In actuality, when you hit the brick wall you're hitting the Earth that the wall is anchored in.
                             </figcaption>
@@ -434,7 +434,7 @@ onMounted(() => {
                     object is thrown at the wall.
                     <br><br>
                     <figure>
-                        <img src="/src/assets/momentum/Figure 72.png" width="750px">
+                        <img src="/src/assets/momentum/Figure 72.png" style="max-width:750px">
                             <figcaption>
                                 Figure 2: In actuality, when you hit the brick wall you're hitting the Earth that the wall is anchored in.
                             </figcaption>
@@ -504,7 +504,7 @@ onMounted(() => {
                         Show this for the case of one disk moving off at 60° above the horizontal after the collision.
                         <br><br>
                         <figure>
-                            <img src="/src/assets/momentum/Figure 73.png" width="750px">
+                            <img src="/src/assets/momentum/Figure 73.png" style="max-width:750px">
                             <figcaption>
                                 Figure 3: A general sketch of the scenario.
                             </figcaption>
@@ -606,7 +606,7 @@ onMounted(() => {
                     very quickly. Here's the scenario I'm talking about, drawn out:
                     <br><br>
                     <figure>
-                            <img src="/src/assets/momentum/Figure 73.png" width="750px">
+                            <img src="/src/assets/momentum/Figure 73.png" style="max-width:750px">
                             <figcaption>
                                 Figure 3: A general sketch of the scenario.
                             </figcaption>

@@ -24,7 +24,7 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                     quantity. I'll take two arbitrary vectors to show you how this operator works.
                     <br><br>
                     <figure>
-                    <img src="/src/assets/energy/Figure 49.png" width="500px" />
+                    <img src="/src/assets/energy/Figure 49.png"  />
                     <figcaption>Figure 1: Two unsuspecting vectors we'll use as our test subjects.</figcaption>
                     </figure>
                     <br><br>
@@ -61,7 +61,7 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                     basic math about this operator:
                     <br><br>
                     <figure>
-                    <img src="/src/assets/energy/Figure 49.png" width="500px" />
+                    <img src="/src/assets/energy/Figure 49.png" />
                     <figcaption>Figure 1: Two unsuspecting vectors we'll use as our test subjects.</figcaption>
                     </figure>
                     <br><br>

@@ -207,7 +207,7 @@ onMounted(() => {
                 This measures the gravitational field at a particular distance from an object.
                 <br><br>
                 <figure>
-                    <img src="/src/assets/dynamics/Figure 40.png" width = "500px">
+                    <img src="/src/assets/dynamics/Figure 40.png" >
                     <figcaption> Figure 1: Gravity is what keeps the moon in orbit around the Earth.</figcaption>
                 </figure>
                 <br><br>
@@ -235,7 +235,7 @@ onMounted(() => {
                         Split the shell into infinitessmally small rings. Consider the gravitational force from rings on the shell 
                         with thickness $dy$.
                         <figure>
-                            <img src="/src/assets/dynamics/Figure 41.png" width = "500px">
+                            <img src="/src/assets/dynamics/Figure 41.png" >
                             <figcaption> Figure 2: A visual representation of what I mean.</figcaption>
                         </figure>
                         Now, consider these rings as made up of point particles. Due to symmetry, we know that the net force
@@ -321,7 +321,7 @@ onMounted(() => {
                 requires the use of the shell theorem, and gives rise to a pretty interesting mathematical result.
                 <br><br>
                 <figure>
-                    <img src="/src/assets/dynamics/Figure 43.png" width = "500px">
+                    <img src="/src/assets/dynamics/Figure 43.png" >
                     <figcaption> Figure 3: A not-so-fortunate soul gets to experience what it's like inside a planet.</figcaption>
                 </figure>
                 <br><br>
@@ -333,7 +333,7 @@ onMounted(() => {
                     anything outside exerts zero net force on any object and contributes zero gravitational field.
                     <br><br>
                 <figure>
-                    <img src="/src/assets/dynamics/Figure 42.png" width = "500px">
+                    <img src="/src/assets/dynamics/Figure 42.png" >
                     <figcaption> Figure 4: The effective mass acting when considering gravity at a distance $r$ from the center of a planet.</figcaption>
                 </figure>
                 <br><br>
@@ -360,7 +360,7 @@ onMounted(() => {
                 of $r$ from the center of the solid sphere:
                 <br><br>
                 <figure>
-                    <img src="/src/assets/dynamics/Figure 44.png" width = "500px">
+                    <img src="/src/assets/dynamics/Figure 44.png" >
                     <figcaption> Figure 5: The graph of $g$ vs. $r$ for a uniform solid sphere.</figcaption>
                 </figure>
                 <br><br>
@@ -375,7 +375,7 @@ onMounted(() => {
                     can contribute to the gravitational field you experience. Here's a diagram to show what I mean by "above" and "below".
                     <br><br>
                     <figure>
-                    <img src="/src/assets/dynamics/Figure 42.png" width = "500px">
+                    <img src="/src/assets/dynamics/Figure 42.png" >
                     <figcaption> Figure 4: Everthing inside the black sphere is "below" and everything outside is "above". I wish I had better words
                         to explain it.
                     </figcaption>
@@ -406,7 +406,7 @@ onMounted(() => {
                     center of the sphere:
                     <br><br>
                     <figure>
-                    <img src="/src/assets/dynamics/Figure 44.png" width = "500px">
+                    <img src="/src/assets/dynamics/Figure 44.png" >
                     <figcaption> Figure 5: The graph of $g$ vs. $r$ for a uniform solid sphere.</figcaption>
                     </figure>
                     We've only talked about the gravity from single objects, but if you're familiar with the solar system you know that there's multiple
@@ -461,7 +461,7 @@ onMounted(() => {
                     to deal with is a binary system, with two identically massed objects orbiting each other.
                     <br><br>
                     <figure>
-                        <img src="/src/assets/dynamics/Figure 45.png" width = "500px">
+                        <img src="/src/assets/dynamics/Figure 45.png" >
                         <figcaption> Figure 6: A binary system of two identical bodies.</figcaption>
                     </figure>
                     <br><br>
@@ -489,7 +489,7 @@ onMounted(() => {
                     there are numerous variations on the scenario.
                     <br><br>
                     <figure>
-                    <img src="/src/assets/dynamics/threebody.gif" width = "500px">
+                    <img src="/src/assets/dynamics/threebody.gif" >
                     <figcaption> Figure 7: One specific "solution" to the three body problem given certain initial conditions. Credit to Wikimedia.</figcaption>
                     </figure>
                     <br><br>
@@ -518,7 +518,7 @@ onMounted(() => {
                     system. However, for our purposes, it is sufficient to deal with two objects that have the same mass.
                     <br><br>
                     <figure>
-                        <img src="/src/assets/dynamics/Figure 45.png" width = "500px">
+                        <img src="/src/assets/dynamics/Figure 45.png" >
                         <figcaption> Figure 6: A binary system of two identical bodies.</figcaption>
                     </figure>
                     <br><br>

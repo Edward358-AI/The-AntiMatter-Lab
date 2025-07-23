@@ -234,7 +234,7 @@ onMounted(() => {
             point we want to have zero gravitational potential energy. We usually just pick the most convenient point.
             <br><br>
             <figure>
-                <img src="/src/assets/energy/Figure 53.png" width="750px" />
+                <img src="/src/assets/energy/Figure 53.png" style="max-width:750px" />
                 <figcaption>Figure 1: Purple Guy has more gravitational potential energy than the red guy lying down.</figcaption>
             </figure>
             <br><br>
@@ -445,7 +445,7 @@ onMounted(() => {
                 energy can help significantly. Perhaps a diagram would not be out of place here.
                 <br><br>
                     <figure>
-                        <img src="/src/assets/energy/Figure 54.png" width="500px" />
+                        <img src="/src/assets/energy/Figure 54.png" />
                         <figcaption>Figure 2: A diagram with bars to show conservation of mechanical energy.</figcaption>
                     </figure>
                 <br>
@@ -468,7 +468,7 @@ onMounted(() => {
                 energy at any point. 
                 <br><br>
                 <figure>
-                        <img src="/src/assets/energy/Figure 54.png" width="500px" />
+                        <img src="/src/assets/energy/Figure 54.png" />
                         <figcaption>Figure 2: A diagram with bars to show conservation of mechanical energy.</figcaption>
                     </figure>
                 <br>
@@ -544,7 +544,7 @@ onMounted(() => {
                     </span>
                     <br><br>
                     <figure>
-                        <img src="/src/assets/energy/The Yoinkity Sploinkity.png" width="1000px" />
+                        <img src="/src/assets/energy/The Yoinkity Sploinkity.png" style="max-width:1000px" />
                         <figcaption>Figure 3: Our newest roller coaster, The Yoinkity Sploinkity.</figcaption>
                     </figure>
                     <br>
@@ -670,7 +670,7 @@ onMounted(() => {
                     say gravity would do its thing.
                     <br><br>
                         <figure>
-                        <img src="/src/assets/energy/LawsuitMachine.png" width="1000px" />
+                        <img src="/src/assets/energy/LawsuitMachine.png" style="max-width:1000px" />
                         <figcaption>Figure 4: The disastrous results of failing to account for friction in a real ride. The coaster has been aptly renamed.</figcaption>
 
                         </figure>
@@ -737,7 +737,7 @@ onMounted(() => {
                         fall out of the loop and crash to the ground.
                         <br><br>
                         <figure>
-                        <img src="/src/assets/energy/LawsuitMachine.png" width="1000px" />
+                        <img src="/src/assets/energy/LawsuitMachine.png" style="max-width:1000px" />
                         <figcaption>Figure 4: The disastrous results of failing to account for friction in
                         a real ride. The coaster has been aptly renamed.</figcaption>
                         </figure>

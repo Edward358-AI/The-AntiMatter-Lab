@@ -133,7 +133,7 @@ onMounted(()=>{
                 ground: the length of the string on the ground is related to how many times the spool has spun.
                 <br><br>
                 <figure>
-                    <img src="/src/assets/rotation/Figure 91.png" width="500px"/>
+                    <img src="/src/assets/rotation/Figure 91.png" style="max-width:750px"/>
                     <figcaption>Figure 1: The distance traced along the ground is the same as the arc length.</figcaption>
                 </figure>
                 <br>
@@ -172,7 +172,7 @@ onMounted(()=>{
                 explain what that means:
                 <br><br>
                 <figure>
-                    <img src="/src/assets/rotation/Figure 91.png" width="500px"/>
+                    <img src="/src/assets/rotation/Figure 91.png" style="max-width:750px"/>
                     <figcaption>Figure 1: The distance traced along the ground is the same as the arc length.</figcaption>
                 </figure>
                 <br>
@@ -204,7 +204,7 @@ onMounted(()=>{
                 real world, so it should be familiar to you.
                 <br><br>
                 <figure>
-                    <img src="/src/assets/rotation/Figure 92.png" width="500px"/>
+                    <img src="/src/assets/rotation/Figure 92.png" style="max-width:750px"/>
                     <figcaption>Figure 2: So the ball rolls.</figcaption>
                 </figure>
                 <br>
@@ -224,7 +224,7 @@ onMounted(()=>{
                 deal with it.
                 <br><br>
                 <figure>
-                    <img src="/src/assets/rotation/Figure 93.png" width="500px"/>
+                    <img src="/src/assets/rotation/Figure 93.png" style="max-width:750px"/>
                     <figcaption>Figure 3: It's really spinning. Really.</figcaption>
                 </figure>
                 <br>
@@ -281,7 +281,7 @@ onMounted(()=>{
                     Here's a diagram to sum things up nicely:
                     <br><br>
                     <figure>
-                    <img src="/src/assets/rotation/Figure 94.png" width="500px"/>
+                    <img src="/src/assets/rotation/Figure 94.png" style="max-width:750px"/>
                     <figcaption>Figure 4: Double the radius, double the speed!</figcaption>
                 </figure>
                 </div>

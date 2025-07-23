@@ -23,7 +23,7 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                 Greek letters.
                 <br><br>
                 <figure>
-                    <img src="/src/assets/rotation/Figure 77.png" width="500px"/>
+                    <img src="/src/assets/rotation/Figure 77.png" />
                     <figcaption>Figure 1: A representation of angular position and angular velocity.</figcaption>
                 </figure>
                 <br>
@@ -223,7 +223,7 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                         angular velocity $\omega$ for the ring to generate an effective gravity equal to $g$?
                         <br><br>
                         <figure>
-                            <img src="/src/assets/rotation/Figure 78.png" width="500px"/>
+                            <img src="/src/assets/rotation/Figure 78.png" />
                             <figcaption>Figure 2: The One Ring.</figcaption>
                         </figure>
                         <br>
@@ -268,7 +268,7 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                     ringworld or ring-station.
                     <br><br>
                     <figure>
-                        <img src="/src/assets/rotation/Figure 78.png" width="500px"/>
+                        <img src="/src/assets/rotation/Figure 78.png" />
                             <figcaption>Figure 2: The One Ring.</figcaption>
                     </figure>
                     <br>

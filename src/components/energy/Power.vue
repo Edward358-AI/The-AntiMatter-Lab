@@ -19,7 +19,7 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                 power is the watt, after the "inventor" of the steam engine, James Watt.
                 <br><br>
                 <figure>
-                    <img src="/src/assets/energy/Figure 59.png" width="750px">
+                    <img src="/src/assets/energy/Figure 59.png"style="max-width:750px">
                     <figcaption>
                         Figure 1: Which one has more power? (Hint: A person produces around $100 ~\textrm{W}$, while the car produces around $100 ~\textrm{kW}$.)
                     </figcaption>
@@ -78,7 +78,7 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                         is equivalent to around $P = 1100 ~\textrm{kW}$ of power, and has a mass of $M = 66800 ~\textrm{kg}$. <i>Watt</i> is the maximum speed it can climb this slope at (Edward made me put this pun in)? 
                         <br><br>
                         <figure>
-                            <img src="/src/assets/energy/Figure 60.png" width="750px">
+                            <img src="/src/assets/energy/Figure 60.png"style="max-width:750px">
                     <figcaption>
                         Figure 2: Several tons of raw freedom gaining elevation.
                     </figcaption>
@@ -117,7 +117,7 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                         me to write in this joke)?
                         <br><br>
                         <figure>
-                            <img src="/src/assets/energy/Figure 60.png" width="750px">
+                            <img src="/src/assets/energy/Figure 60.png"style="max-width:750px">
                     <figcaption>
                         Figure 2: Several tons of raw freedom gaining elevation.
                     </figcaption>

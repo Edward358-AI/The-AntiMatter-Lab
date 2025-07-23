@@ -135,7 +135,7 @@ onMounted(()=>{
                 define three types of equilibrium: stable, unstable, and neutral.
                 <br><br>
                 <figure>
-                    <img src="/src/assets/energy/Figure 55.png" width="750px">
+                    <img src="/src/assets/energy/Figure 55.png" style="max-width:750px" />
                     <figcaption>
                         Figure 1: The types of equilibrium. Not sure what compelled me to add a title.
                     </figcaption>
@@ -161,7 +161,7 @@ onMounted(()=>{
                     <b>critical points</b>. This allows us to define three types of equilibrium.
                     <br><br>
                     <figure>
-                    <img src="/src/assets/energy/Figure 55.png" width="750px">
+                    <img src="/src/assets/energy/Figure 55.png" style="max-width:750px" />
                     <figcaption>
                         Figure 1: The types of equilibrium. Not sure what compelled me to add a title.
                     </figcaption>
@@ -185,7 +185,7 @@ onMounted(()=>{
                 potential energy depends directly on height.
                 <br><br>
                 <figure>
-                    <img src="/src/assets/energy/Figure 56.png" width="500px">
+                    <img src="/src/assets/energy/Figure 56.png" />
                     <figcaption>
                         Figure 2: A typical stable equilibrium. The ball is at the bottom of a bowl and will roll back down to the bottom if displaced.
                     </figcaption>
@@ -221,7 +221,7 @@ onMounted(()=>{
                     Of course, this isn't the only example, but it is a good one to visualize and covers the concept well.
                     <br><br>
                     <figure>
-                    <img src="/src/assets/energy/Figure 56.png" width="500px">
+                    <img src="/src/assets/energy/Figure 56.png" />
                     <figcaption>
                         Figure 2: A typical stable equilibrium. The ball is at the bottom of a bowl and will roll back down to the bottom if displaced.
                     </figcaption>
@@ -252,7 +252,7 @@ onMounted(()=>{
                     it will not return to the equilibrium point. Actually, even that's putting it lightly.
                     <br><br>
                     <figure>
-                    <img src="/src/assets/energy/Figure 57.png" width="500px">
+                    <img src="/src/assets/energy/Figure 57.png" />
                     <figcaption>
                         Figure 3: A typical unstable equilibrium. The ball is at the top of a hill and will roll down the hill if displaced.
                     </figcaption>
@@ -299,7 +299,7 @@ onMounted(()=>{
                     the very top of a hill.
                     <br><br>
                     <figure>
-                    <img src="/src/assets/energy/Figure 57.png" width="500px">
+                    <img src="/src/assets/energy/Figure 57.png" />
                     <figcaption>
                         Figure 3: A typical unstable equilibrium. The ball is at the top of a hill and will roll down the hill if displaced.
                     </figcaption>
@@ -344,7 +344,7 @@ onMounted(()=>{
                 In a <b>neutral equilibrium</b>, the system will remain in its new position if disturbed. Let me explain what I mean.
                 <br><br>
                 <figure>
-                    <img src="/src/assets/energy/Figure 58.png" width="500px">
+                    <img src="/src/assets/energy/Figure 58.png" />
                     <figcaption>
                         Figure 4: A typical neutral equilibrium. The ball will still be in equilibrium if displaced.
                     </figcaption>
@@ -380,7 +380,7 @@ onMounted(()=>{
                 return to its original position. Instead, it stays in its new position.
                 <br><br>
                 <figure>
-                    <img src="/src/assets/energy/Figure 58.png" width="500px">
+                    <img src="/src/assets/energy/Figure 58.png" />
                     <figcaption>
                         Figure 4: A typical neutral equilibrium. The ball will still be in equilibrium if displaced.
                     </figcaption>
