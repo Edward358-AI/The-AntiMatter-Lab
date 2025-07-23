@@ -41,7 +41,8 @@ function runAngCollision() {
   rod = Bodies.rectangle(300, 300, 50, 400, {
     render: { fillStyle: "#888" },
     inertia: 1000 * Math.pow(inputInertia.value, 2),
-    frictionAir: 0
+    frictionAir: 0,
+    restitution: 1
   })
 
   const pivot = Constraint.create({
@@ -235,7 +236,7 @@ watch(elasticity, (newVal) => {
                 that you might expect! Instead of being in the plane of rotation, it points <b>out</b> of the plane of rotation!
                 <br><br>
                 <figure>
-                    <img src='/src/assets/rotation/Figure 95.png' width='700px'/>
+                    <img src='/src/assets/rotation/Figure 95.png' max-width='700px' width="90%;"/>
                     <figcaption>Figure 1: The direction of angular momentum.</figcaption>
                 </figure>
                 <br>
@@ -266,6 +267,128 @@ watch(elasticity, (newVal) => {
             </div>
             <div class="btn-contain-right">
                 <button class="btn btn-dark" style="animation: scale1 2s infinite;" @click="$emit('nextpage')">Next
+                    &rarr;</button>
+            </div>
+            </div>
+            <div v-show="page===2">
+                Let's test our knowledge of angular momentum with a few practice problems. The concept can seem pretty abstract until 
+                we actually apply it. We start off by actually analyzing the situation we saw in the demo earlier.
+                <br><br>
+                <div class="problem">
+                    A blob of clay with a mass of 0.5 kg is launched at a rigid rod that is free to rotate around its center with a
+                    velocity of 3.5 m/s. The rod has a mass of 2.0 kg and a length of 1.0 meters. If the blob impacts at a distance of 
+                    0.3 meters from the center of the rod, what is the angular velocity of the blob-rod system after the collision?
+                    <br><br>
+                    If we analyze the system's angular velocity around the pivot point, there is no net external torque. However, if we use any other 
+                    point as a reference, there <b>will</b> be some net external torque because the pivot point has to exert some force to keep the 
+                    rod in place. Pivots can't exert torque about themselves, but they do exert quite a significant amount of force. (Think about it 
+                    this way: if the pivot weren't there, the blob and rod would move off together to the right.)
+                    <br><br>
+                    With this realization in place, we can calculate the amount of initial angular momentum around the pivot. We are calling the clay's 
+                    mass $m$, the distance it hits at $h$, and its initial velocity $v$. We will also define the rod's mass to be $M$ and its length 
+                    as $L$.
+                    <br><br>
+                    $$ L = mvh$$
+                    <br>
+                    This should equal the total final momentum. This involves not only the rod rotating around the pivot, but also the clay stuck to the rod's 
+                    rotation. This means that we have the rod's moment of inertia, along with the moment of inertia of the clay rotating a distance $h$ from the pivot 
+                    point. You can assume this collision is inelastic because clay tends to stick to things.
+                    <br><br>
+                    $$ L = \left( \dfrac{1}{12}ML^2 + mh^2 \right) \omega = mvh $$
+                    <br>
+                    Now, we solve for $\omega$. You can plug in every known value beforehand so you don't have to deal with so many variables.
+                    <br><br>
+                    $$ \omega =  \bbox[3px,
+                        border: 0.5px solid
+                        white] {2.48~\textrm{rad/s} } $$
+                </div>
+                <br>
+                I also want to talk about a famous angular momentum example: the ice skater. Conjure in your mind the image of an ice skater spinning with their 
+                arms extended on an ice rink. When they pull their arms inward, their angular velocity increases. Why is this? Well, angular momentum 
+                provides us with the answer. 
+                <br><br>
+                The ice skater's total angular momentum cannot change, because there is no net external torque. Recall that angular momentum is 
+                defined as $L = I \omega$. If they pull their arms 
+                inwards, their moment of inertia decreases ($r$ decreases), so their angular velocity must increase to compensate. 
+                <span v-show="level>0">
+                    <br><br>
+                    Sometimes, there is no obvious axis of rotation, which can allow us to conclude that the angular momentum will be conserved in 
+                    all interactions. In these cases, we can actually neglect to define a singular axis of rotation and instead compute the 
+                    angular momentum about the center of mass. It's difficult to explain this with words, so I'll use an example.
+                    <br><br>
+                    <div class="problem">
+                        A disk of mass $m$ and radius $r$ spins with some angular velocity $\omega_0$. A point object of mass $m$ is placed 
+                        on the edge of the disk and eventually comes to rest relative to the disk. What is the final angular velocity of the 
+                        system, in terms of $omega$?
+                        <br><br>
+                        Did you say $\omega_0 / 3$? If so, you fell into a very common pitfall! See, the disk isn't constrained to rotate around its center. It can 
+                        rotate any way it wants! If the disk and mass spin together, <b>they will spin around their center of mass</b>! The moment of inertia 
+                        must then be calculated relative to that point, not the center of the disk.
+                        <br><br>
+                        The center of mass is located $r/2$ from the center of the disk. Thus, we can write the moments of inertia of the disk and point mass:
+                        <br><br>
+                        $$ I_{disk} = \dfrac 12 mr^2 + m \left( \dfrac{r}{2} \right)^2 = \dfrac34 mr^2 $$
+                        $$ I_{mass} = m \left( \dfrac{r}{2} \right)^2 = \dfrac14 mr^2 $$
+                        <br>
+                        Therefore, the total moment of inertia is:
+                        <br><br>
+                        $$ I = mr^2 $$
+                        <br>
+                        We can then write our conservation of angular momentum. We <b>still</b> calculate initial angular momentum of the disk 
+                        in the normal way, because it rotates around its center initially. We can change the axis of reference later on because there is 
+                        no net external torque anywhere, and we've chosen the system such that angular momentum will be conserved.
+                        <br><br>
+                        $$ \dfrac 12 mr^2 \omega_0 = mr^2 \omega_f $$
+                        $$ \omega_f = \bbox[3px,
+                        border: 0.5px solid
+                        white] {\omega_0 /2} $$
+                    </div>
+                </span>
+                <div class="btn-contain-left">
+                <button class="btn btn-dark" style="animation: scale1 2s infinite;" @click="$emit('prevpage')">&larr;
+                    Previous</button>
+            </div>
+            <div class="btn-contain-right">
+                <button class="btn btn-dark" style="animation: scale1 2s infinite;" @click="$emit('nextpage')">Next
+                    &rarr;</button>
+            </div>
+            </div>
+            <div v-show="page===3">
+                One more short concept to talk about, then we're done with this lesson. You might recall that when we talked about 
+                linear momentum, we also talked about impulse. Well, there is such a thing as angular impulse, but it is rather 
+                less commonly discussed.
+                <br><br>
+                Angular impulse is defined as the change in angular momentum, and is calculated by multiplying (average) torque 
+                by time. <span v-show="level==2">The precise definition involves an integral.</span>
+                <br><br>
+                $$ \tau_{av} \cdot t = \Delta L $$
+                <br>
+                <span v-show="level==2">
+                    $$ \int_{t_0}^{t_f} \tau ~dt = \Delta L $$
+                </span>
+                Angular impulse isn't important enough to get its own letter. It's not a concept that is explored very often, because it is 
+                so similar to regular impulse (which was already unimpressive, in my eyes). It even takes an analogous form.
+                <br><br>
+                One last thing before I end this lesson. Angular impulse can be found as the area under the torque versus time graph, just like 
+                impulse could be found as the area under the force versus time graph. 
+                <br><br>
+                I wish there was more to say about this topic, but this is really it. Angular impulse is a concept you should know, but it isn't 
+                radically different from regular impulse. If it ever appears, you should be able to deal with it in the same 
+                way you dealt with impulse in the past. Conservation of angular momentum is a much more interesting and nuanced 
+                topic.
+                <br><br>
+                That concludes our lesson on angular momentum (and rotational kinetic energy, I guess). This concept is actually a bit different 
+                from regular momentum and is a separate idea. Conservation of angular momentum is definitely more nuanced and difficult at times 
+                than conservation of linear momentum, but it can still definitely be conquered.
+                <br><br>
+                This is also the end of our rotation unit. We now have the framework to deal with rotating objects, which expands our problem-solving 
+                capability greatly. We're going to put everything we've learned so far to use in the next unit.
+                <div class="btn-contain-left">
+                <button class="btn btn-dark" style="animation: scale1 2s infinite;" @click="$emit('prevpage')">&larr;
+                    Previous</button>
+            </div>
+            <div class="btn-contain-right">
+                <button class="btn btn-dark" style="animation: scale 2s infinite;" @click="$emit('nextlesson')">Next Unit!
                     &rarr;</button>
             </div>
             </div>
