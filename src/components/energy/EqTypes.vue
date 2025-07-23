@@ -316,6 +316,7 @@ onMounted(()=>{
                     It's not true that a system in equilibrium has to be stable, and we've just shown why!<br><br>
                 </span>
                 <figure>
+                    <h3>Unstable Equilibrium Demo</h3><br>
                     <div id="unstable"></div>
                     <button class="btn btn-outline-primary" @click="runUnstableEq()">Reset</button>
                 </figure>

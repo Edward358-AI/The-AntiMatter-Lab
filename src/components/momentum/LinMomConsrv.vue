@@ -122,12 +122,12 @@ function newtonsCradle(xx, yy, number, size, length) {
             it really matters if you do, there's a reset button.)
             <br><br>
         <figure>
-        <div id="newtoncradle"></div><br>
+            <h3>Newton's Cradle Demo</h3><br>
+        <div id="newtoncradle"></div>
         <button class="btn btn-outline-primary" @click="runNewtonsCradle()">Reset</button>
         <br>
-            <span><label>Number of balls: {{ inputValue }}</label></span><br>
-            <input type="range" v-model="inputValue" min="1" max="6" step="1" style="outline: 2px solid #0078d7; border-radius: 8px;
-            background: #e0e0e0"/>
+            <label>Number of balls: {{ inputValue }}</label><br>
+            <input type="range" class="form-range" v-model="inputValue" min="1" max="6" step="1" style="width:fit-content;"/>
 
         </figure>
         <br>

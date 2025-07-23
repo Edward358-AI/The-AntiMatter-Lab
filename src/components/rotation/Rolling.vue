@@ -110,12 +110,16 @@ onMounted(()=>{
             what the factors that affect rolling are.
             <br><br>
             <figure>
+                <h3>Rolling Motion Demo</h3><br>
             <div id="roll"></div>
             <button class="btn btn-outline-primary" @click="runRolling()">Reset</button><br>
-            <label>Moment of Inertia: {{ inputInertia }}</label>&ensp;<input type="range" v-model="inputInertia" min="10" max="75" step="1" style="outline: 2px solid #0078d7; border-radius: 8px;
-                background: #e0e0e0"/><br>
-            <label>Coefficient of Friction: {{ inputFriction }}</label>&ensp;<input type="range" v-model="inputFriction" min="0" max="1" step=".01" style="outline: 2px solid #0078d7; border-radius: 8px;
-                background: #e0e0e0"/>
+             <div class="row justify-content-center">
+
+                    <div class="col-4"> <label>Moment of Inertia: {{ inputInertia }}</label><br><input type="range" class="form-range" v-model="inputInertia" min="10" max="75" step="1" style="width:fit-content"/></div>
+
+                    <div class="col-4"><label>Coefficient of Friction: {{ inputFriction }}</label><br><input type="range" class="form-range" v-model="inputFriction" min="0" max="1" step=".01" style="width:fit-content"/></div>
+
+                </div>
             </figure>
             <br>
             You might have noticed that sometimes the wheel rolled very smoothly, while at other times it would slip while rotating. There is an obvious 

@@ -372,17 +372,20 @@ onMounted(() => {
             intuition and confidence in our results. Here's an inclined plane demo you can play around with. See if you can reproduce all the results and behaviors 
             we've talked about previously!<br><br>
             <figure>
+                <h3>Inclined Plane Demo</h3><br>
             <div id="inclined"></div>
             <button class="btn btn-outline-primary" @click="runInclinedPlane()">Reset</button><br>
-            <br>
-                <label>Incline Angle: {{ inputAngle }}</label>&emsp;
-                <input type="range" v-model="inputAngle" min="0" max="90" step="1" style="outline: 2px solid #0078d7; border-radius: 8px;
-            background: #e0e0e0"/>
-            <br>
-            <label>Friction Coefficient: {{ friction }}</label> &emsp;
-                <input type="range" v-model="friction" min="0" max="1" step="0.01" style="outline: 2px solid #0078d7; border-radius: 8px;
-            background: #e0e0e0"/>
-            </figure>
+            
+            <div class="row justify-content-center">
+
+                    <div class="col-4"> <label>Incline Angle: {{ inputAngle }}</label><br>
+                <input type="range" class="form-range" v-model="inputAngle" min="0" max="90" step="1" style="width:fit-content;"/></div>
+
+                    <div class="col-4"><label>Friction Coefficient: {{ friction }}</label><br>
+                <input type="range" class="form-range" v-model="friction" min="0" max="1" step="0.01" style="width:fit-content"/></div>
+
+                </div>
+            </figure><br>
             </p>
             <div class="btn-contain-left">
                 <button class="btn btn-dark" style="animation: scale1 2s infinite;" @click="$emit('prevpage')">&larr;Previous</button>

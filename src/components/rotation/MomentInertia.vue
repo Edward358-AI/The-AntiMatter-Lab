@@ -108,10 +108,10 @@ onMounted(() => {
                 putting the slider at a new value.
                 <br><br>
                 <figure>
+                    <h3>Moment of Inertia Demo</h3><br>
                 <div id="inertia"></div>
                 <button class="btn btn-outline-primary" @click="runMoInertia()">Reset</button><br>
-                <label>Moment of Inertia: {{ inputInertia }}</label>&ensp;<input type="range" v-model="inputInertia" min="1" max="500" step="1" style="outline: 2px solid #0078d7; border-radius: 8px;
-                background: #e0e0e0"/>
+                <label>Moment of Inertia: {{ inputInertia }}</label><br><input type="range" v-model="inputInertia" class="form-range" min="1" max="500" step="1" style="width:fit-content"/>
                 </figure>
                 <br>
                 You might have seen that the higher the moment of inertia, the harder it is to rotate the object. This makes the moment of inertia 

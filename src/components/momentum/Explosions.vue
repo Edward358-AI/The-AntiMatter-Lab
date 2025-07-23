@@ -211,11 +211,11 @@ onMounted(()=>{
                 some intuition for two-dimensional explosions out of this as well!
                 <br><br>
                 <figure>
-                <button class="btn btn-outline-primary" @click="Explode">💥</button>
+                    <h3 class="mb-4">Explosion Demo</h3>
+                <button class="btn btn-outline-primary mb-3" @click="Explode">&nbsp;💥&nbsp;</button>
                 <div id="explosion"></div>
                 <button class="btn btn-outline-primary" @click="runExplosion()">Reset</button><br>
-                <label> Explosion Strength: {{ strength }} </label>&ensp;<input type="range" v-model="strength" min="0.5" max="20" step="0.01" style="outline: 2px solid #0078d7; border-radius: 8px;
-                background: #e0e0e0"/>
+                <label> Explosion Strength: {{ strength }} </label><br><input type="range" class="form-range" v-model="strength" min="0.5" max="20" step="0.01" style="width:fit-content"/>
                 </figure>
                 <br>
                 A few technical details for the interested here. The explosion gets weaker with the square of the distance from the 

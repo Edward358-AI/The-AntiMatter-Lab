@@ -115,14 +115,15 @@ onMounted(() => {
                 solving. As such, I've made a very simple interactive demo with matter.js for you to play around with that illustrates 
                 the concept of free fall.<br><br>
                 <figure>
+                    <h3>Free Fall Demo</h3><br>
                 <div id = "constAcc"></div>
                 <button class="btn btn-outline-primary" @click="runConstAcc()">Reset</button>
-                <br><br>
+                <br>
                     Input how "bouncy" you want the blocks to be, from 1 to 10. 
                     <br>Values over 10 may result in some odd and unrealistic behaviors.
-                    <br>
+                    
                 <div class="d-flex justify-content-center">
-                    <div class="input-group mb-3" style="max-width: 50px; background-color: #ffffff; border-radius: 4px;">
+                    <div class="input-group mb-3" style="max-width: 60px;">
                         <input
                         v-model="inputValue"
                         type="number"
@@ -133,7 +134,7 @@ onMounted(() => {
                     </div>
                 </div>
                 </figure>
-                <br>
+                
                 Notice how the objects that are falling hit the ground at the same time, even though their masses and shapes are 
                 different? They may bounce around differently after hitting the ground, but the time they first hit the ground 
                 is the same for all of the objects! This is generally true: the gravitational acceleration of an object <b>is independent of its mass</b>. The 

@@ -139,26 +139,27 @@ onMounted(() => {
                     <br><br>
                 </span>
                     <figure>
-                        <div id="projMotion"></div><br>
+                        <h3>Two-Dimensional Motion Demo</h3><br>
+                        <div id="projMotion"></div>
                         <button class="btn btn-outline-primary" @click="runProjMotion()">Reset</button><br>
                         Input the velocity and angle from horizontal:
                         <div class="d-flex justify-content-center">
-                            <div class="input-group mb-3" style="max-width: 50px; background-color: #ffffff; border-radius: 4px;">
+                            <div class="input-group mb-3" style="max-width: 50px;">
                                 <input
                                     v-model="initVelocity"
                                     type="number"
                                     class="form-control"
                                     placeholder=" "
                                 >
-                            </div> &emsp; <b>at</b> &emsp;
-                            <div class="input-group mb-3" style="max-width: 50px; background-color: #ffffff; border-radius: 4px;">
+                            </div> &nbsp; at &nbsp;
+                            <div class="input-group mb-3" style="max-width: 50px;">
                                 <input
                                     v-model="inputAngle"
                                     type="number"
                                     class="form-control"
                                     placeholder=" "
                                 >
-                            </div> &emsp; <b>degrees</b>
+                            </div>&nbsp; degrees
                         </div>
                     </figure>
                     

@@ -152,12 +152,12 @@ onMounted(() => {
             after all.
             <br><br>
             <figure>
+                <h3>Spring Forces Demo</h3><br>
                 <div id="spring"></div>
-                <button class="btn btn-outline-primary" @click="runSpring()">Reset</button><br><br>
+                <button class="btn btn-outline-primary" @click="runSpring()">Reset</button><br>
                 <div>
-                    <span class="problem" style="text-align:center;font-size:0.95rem;width:fit-content;margin:auto;"><label>Spring Strength: {{ stiffness }}</label></span><br>
-                    <input type="range" v-model="stiffness" min="0.01" max="1" step="0.01" style="outline: 4px solid #0078d7; border-radius: 8px;
-    background: #e0e0e0"/>
+                    <label>Spring Strength: {{ stiffness }}</label><br>
+                    <input type="range" class="form-range" v-model="stiffness" min="0.01" max="1" step="0.01" style="width:fit-content"/>
                 </div>
             </figure>
             <span v-show="level>0">

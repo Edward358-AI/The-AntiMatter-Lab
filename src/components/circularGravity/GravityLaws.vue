@@ -182,7 +182,8 @@ onMounted(() => {
                 will have to reset.
                 <br><br>
                 <figure>
-                    <button class="btn btn-outline-primary" @click = 'planet3Active = ! planet3Active, runGrav()' > Toggle Purple Planet</button><br>
+                    <h3 class="mb-4">Gravity Demo</h3>
+                    <button class="btn btn-outline-primary mb-3" @click = 'planet3Active = ! planet3Active, runGrav()' > Toggle Purple Planet</button><br>
                     <div id="Gravitation"></div>
                     <button class="btn btn-outline-primary" @click="runGrav()">Reset</button>
 

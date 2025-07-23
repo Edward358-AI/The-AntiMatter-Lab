@@ -107,7 +107,8 @@ onMounted(() => {
                  enabling and disabling gravity. There's even a way to make a particle accelerator if you toggle gravity right.
                  <br><br>
                  <figure>
-                <button class="btn btn-outline-primary" onclick="toggleGravity(true)">Gravity ON</button>
+                    <h3>Circular Motion Demo</h3>
+                <button class="btn btn-outline-primary" onclick="toggleGravity(true)">Gravity ON</button>&nbsp;
                 <button class="btn btn-outline-primary" onclick="toggleGravity(false)">Gravity OFF</button>
                 <br><br>
                  <div id="spin"></div>

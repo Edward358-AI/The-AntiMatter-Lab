@@ -488,6 +488,7 @@ onMounted(() => {
                 </span>
 
                 <figure>
+                    <h3>Potential Energy Demo</h3><br>
                     <div id="curvedramp"></div>
                     <button class="btn btn-outline-primary" @click="runCurvedRamp()">Reset</button>
                 </figure>
