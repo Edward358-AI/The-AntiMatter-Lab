@@ -2,6 +2,7 @@
 defineProps(["level", "page"])
 defineEmits(["nextlesson", "nextpage", "prevpage"])
 import {onMounted, ref} from 'vue'
+import Matter, { Body } from 'matter-js'
 
 const inputFriction = ref(0.05)
 const inputInertia = ref(20)
@@ -12,7 +13,6 @@ var Engine = Matter.Engine,
     Runner = Matter.Runner,
     Bodies = Matter.Bodies,
     Constraint = Matter.Constraint,
-    Body = Matter.Body,
     Composite = Matter.Composite,
     MouseConstraint = Matter.MouseConstraint,
     Mouse = Matter.Mouse;
@@ -53,7 +53,7 @@ var wheel = Body.create({
     restitution: 0.5,
     frictionAir: 0,
     friction: inputFriction.value,
-    frictionStatic: InputDeviceInfo.value * 15,
+    frictionStatic: inputFriction * 15,
     inertia: 3000 * Math.pow(10, inputInertia.value/20)
 })
 

@@ -43,15 +43,18 @@ import AngMomentum from './components/rotation/AngMomentumEnergy.vue'
 
 
 const htmlElement = document.documentElement
+const doc = document
 const Window = window
-const user = reactive({ current: "landing", difficulty: 0, theme: "dark", page: {
-  Vectors: 0, DimenAnalyz: 0, PosVelAcc: 0, OneDMotion: 0, TwoDMotion: 0, RelativeVel: 0,
-  FmaFBD: 0, Spring: 0, InclinedPlanes: 0, OtherForces: 0, Newton: 0,
-  Kepler: 0, GravityLaws: 0, Centripetal: 0, Fictious: 0,
-  DotProd: 0, Energy: 0, GravEnergy:0, Power: 0, Work: 0, EqTypes: 0, 
-  Collisions: 0, Impulse: 0, LinMomConsrv: 0, CenterOfMass: 0, Explosions: 0,
-  RotationalKinematics: 0, Torque:0, MomentInertia:0, RotationalDynamics:0, Rolling:0, AngMomentum:0
-  } })
+const user = reactive({
+  current: "landing", difficulty: 0, theme: "dark", page: {
+    Vectors: 0, DimenAnalyz: 0, PosVelAcc: 0, OneDMotion: 0, TwoDMotion: 0, RelativeVel: 0,
+    FmaFBD: 0, Spring: 0, InclinedPlanes: 0, OtherForces: 0, Newton: 0,
+    Kepler: 0, GravityLaws: 0, Centripetal: 0, Fictious: 0,
+    DotProd: 0, Energy: 0, GravEnergy: 0, Power: 0, Work: 0, EqTypes: 0,
+    Collisions: 0, Impulse: 0, LinMomConsrv: 0, CenterOfMass: 0, Explosions: 0,
+    RotationalKinematics: 0, Torque: 0, MomentInertia: 0, RotationalDynamics: 0, Rolling: 0, AngMomentum: 0
+  }
+})
 
 // Theme must be loaded first, but the current page is loaded later after the user clicks get started
 user.theme = localStorage.getItem("user") ? JSON.parse(localStorage.getItem("user")).theme : user.theme
@@ -159,9 +162,151 @@ watch(user, () => {
 onMounted(() => {
   window.MathJax.typeset()
 })
+
+function hideMobileBar() {
+  if (Window.innerWidth <= 768) {
+    doc.getElementById("closeMenu").click()
+  }
+}
 </script>
 
 <template>
+  <nav class="navbar" id="mobile-nav"
+    :style="!sidebar ? 'display:none;' : 'z-index:1;animation:fadein 1s forwards;position:fixed;width:100%;left:0;background-color: var(--bs-content-bg); border-bottom: var(--bs-border-width) solid var(--bs-content-border-color);'">
+    
+    <div class="container-fluid justify-content-center">
+      <a href="#mobile-menu" role="button" data-bs-toggle="offcanvas">
+
+      <span class="navbar-toggler-icon"></span>
+
+    </a>
+      
+      <a class="sidebar-brand mx-auto" href="javascript:void(0);" @click="user.current = 'landing'">
+        <img src="/favicon.png" width="24" height="24" class="d-inline-block align-text-top rounded-1">
+        The AntiMatter Lab
+      </a>
+
+    </div>
+
+  </nav>
+
+  <div class="sidebar offcanvas offcanvas-start" id="mobile-menu">
+    <div class="offcanvas-header border-bottom border-secondary border-opacity-25">
+      <a class="sidebar-brand mx-auto" href="javascript:void(0);" @click="user.current = 'landing';hideMobileBar()">
+        <img src="/favicon.png" width="24" height="24" class="d-inline-block align-text-top rounded-1">
+        The AntiMatter Lab
+      </a>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close" id="closeMenu"></button>
+    </div>
+    <div class="offcanvas-header border-bottom border-secondary border-opacity-25">
+      <input v-model="searchQuery" type="text" class="form-control" placeholder="Type here to find a lesson...">
+    </div>
+    <div class="offcanvas-body">
+      <ul class="sidebar-nav">
+        <li>
+          <h6 class="sidebar-header"><b>Kinematics</b></h6>
+        </li>
+        <li>
+          <hr class="sidebar-divider">
+        </li>
+        <li v-for="lesson in filteredLessons.kinematics">
+          <a href="javascript:void(0);" :class="user.current === lesson ? 'text-body-emphasis nav-link' : 'nav-link'"
+            :style="user.current === lesson ? 'text-decoration: underline' : ''" @click="user.current = lesson;hideMobileBar()">{{
+              lesson }}</a>
+        </li>
+
+
+        <br class="mb-5">
+        <li>
+          <h6 class="sidebar-header"><b>Dynamics</b></h6>
+        </li>
+        <li>
+          <hr class="sidebar-divider">
+        </li>
+        <li v-for="lesson in filteredLessons.dynamics">
+          <a href="javascript:void(0);" :class="user.current === lesson ? 'text-body-emphasis nav-link' : 'nav-link'"
+            :style="user.current === lesson ? 'text-decoration: underline' : ''" @click="user.current = lesson;hideMobileBar()">{{
+              lesson }}</a>
+        </li>
+
+
+        <br class="mb-5">
+        <li>
+          <h6 class="sidebar-header"><b>Circular Motion and Gravitation</b></h6>
+        </li>
+        <li>
+          <hr class="sidebar-divider">
+        </li>
+        <li v-for="lesson in filteredLessons.circularGravity">
+          <a href="javascript:void(0);" :class="user.current === lesson ? 'text-body-emphasis nav-link' : 'nav-link'"
+            :style="user.current === lesson ? 'text-decoration: underline' : ''" @click="user.current = lesson;hideMobileBar()">{{
+              lesson }}</a>
+        </li>
+
+
+        <br class="mb-5">
+        <li>
+          <h6 class="sidebar-header"><b>Energy</b></h6>
+        </li>
+        <li>
+          <hr class="sidebar-divider">
+        </li>
+        <li v-for="lesson in filteredLessons.energy">
+          <a href="javascript:void(0);" :class="user.current === lesson ? 'text-body-emphasis nav-link' : 'nav-link'"
+            :style="user.current === lesson ? 'text-decoration: underline' : ''" @click="user.current = lesson;hideMobileBar()">{{
+              lesson }}</a>
+        </li>
+
+
+        <br class="mb-5">
+        <li>
+          <h6 class="sidebar-header"><b>Momentum</b></h6>
+        </li>
+        <li>
+          <hr class="sidebar-divider">
+        </li>
+        <li v-for="lesson in filteredLessons.momentum">
+          <a href="javascript:void(0);" :class="user.current === lesson ? 'text-body-emphasis nav-link' : 'nav-link'"
+            :style="user.current === lesson ? 'text-decoration: underline' : ''" @click="user.current = lesson;hideMobileBar()">{{
+              lesson }}</a>
+        </li>
+
+
+        <br class="mb-5">
+        <li>
+          <h6 class="sidebar-header"><b>Rotation</b></h6>
+        </li>
+        <li>
+          <hr class="sidebar-divider">
+        </li>
+        <li v-for="lesson in filteredLessons.rotation">
+          <a href="javascript:void(0);" :class="user.current === lesson ? 'text-body-emphasis nav-link' : 'nav-link'"
+            :style="user.current === lesson ? 'text-decoration: underline' : ''" @click="user.current = lesson;hideMobileBar()">{{
+              lesson }}</a>
+        </li>
+
+      </ul>
+    </div>
+    <div class="offcanvas-footer mb-2 border-top border-secondary border-opacity-25">
+      <h6 class="sidebar-header">Adjust Math Level</h6>
+      <select style="width: 140px;" class="mx-auto p-2 my-2 form-select" id="levelSelect" v-model="user.difficulty">
+        <option value="0">Conceptual</option>
+        <option value="1">Algebra-Based</option>
+        <option value="2">Calculus-Based</option>
+      </select>
+      <h6 class="sidebar-header">Theme</h6>
+      <select style="width: 70px;" class="mx-auto p-2 my-2 form-select" id="themeSelect" v-model="user.theme">
+        <option value="dark">Dark</option>
+        <option value="light">Light</option>
+      </select>
+      <span class="text-secondary-emphasis">Made by Edward Jiang and Eric Niu</span><br style="margin-bottom:10px">
+      <a href="javascript:void(0);" @click="user.current = 'about;hideMobileBar()'" class="text-decoration-none">About</a>&nbsp;&nbsp;
+      <a href="https://github.com/Edward358-AI/The-AntiMatter-Lab" target="_blank"
+        class="text-decoration-none" @click="hideMobileBar()">Github</a>
+    </div>
+  </div>
+
+
   <div class="sidebar offcanvas-start offcanvas-md" id="menu"
     :style="sidebar ? 'animation: slideRight 0.3s forwards' : ''">
     <div class="offcanvas-header border-bottom border-secondary border-opacity-25">
@@ -309,16 +454,15 @@ onMounted(() => {
     @nextpage="Window.scrollTo(0, 0); user.page.OtherForces++"
     @prevpage="Window.scrollTo(0, 0); user.page.OtherForces--"
     @nextlesson="Window.scrollTo(0, 0); user.current = lessons.dynamics[2]" />
-    <FmaFBD v-show="user.current === lessons.dynamics[2]" :level="user.difficulty" :page="user.page.FmaFBD"
+  <FmaFBD v-show="user.current === lessons.dynamics[2]" :level="user.difficulty" :page="user.page.FmaFBD"
     @nextpage="Window.scrollTo(0, 0); user.page.FmaFBD++" @prevpage="Window.scrollTo(0, 0); user.page.FmaFBD--"
     @nextlesson="Window.scrollTo(0, 0); user.current = lessons.dynamics[3]" />
   <InclinedPlanes v-show="user.current === lessons.dynamics[3]" :level="user.difficulty"
     :page="user.page.InclinedPlanes" @nextpage="Window.scrollTo(0, 0); user.page.InclinedPlanes++"
     @prevpage="Window.scrollTo(0, 0); user.page.InclinedPlanes--"
     @nextlesson="Window.scrollTo(0, 0); user.current = lessons.dynamics[4]" />
-  <Spring v-show="user.current === lessons.dynamics[4]" :level="user.difficulty"
-    :page="user.page.Spring" @nextpage="Window.scrollTo(0, 0); user.page.Spring++"
-    @prevpage="Window.scrollTo(0, 0); user.page.Spring--"
+  <Spring v-show="user.current === lessons.dynamics[4]" :level="user.difficulty" :page="user.page.Spring"
+    @nextpage="Window.scrollTo(0, 0); user.page.Spring++" @prevpage="Window.scrollTo(0, 0); user.page.Spring--"
     @nextlesson="Window.scrollTo(0, 0); user.current = lessons.circularGravity[0]" />
 
   <Centripetal v-show="user.current === lessons.circularGravity[0]" :level="user.difficulty"
@@ -347,13 +491,13 @@ onMounted(() => {
     @nextlesson="Window.scrollTo(0, 0); user.current = lessons.energy[3]" />
   <EqTypes v-show="user.current === lessons.energy[3]" :level="user.difficulty" :page="user.page.EqTypes"
     @nextpage="Window.scrollTo(0, 0); user.page.EqTypes++" @prevpage="Window.scrollTo(0, 0); user.page.EqTypes--"
-    @nextlesson="Window.scrollTo(0, 0); user.current = lessons.energy[4]" /> 
+    @nextlesson="Window.scrollTo(0, 0); user.current = lessons.energy[4]" />
   <Power v-show="user.current === lessons.energy[4]" :level="user.difficulty" :page="user.page.Power"
     @nextpage="Window.scrollTo(0, 0); user.page.Power++" @prevpage="Window.scrollTo(0, 0); user.page.Power--"
     @nextlesson="Window.scrollTo(0, 0); user.current = lessons.energy[5]" />
   <GravEnergy v-show="user.current === lessons.energy[5]" :level="user.difficulty" :page="user.page.GravEnergy"
     @nextpage="Window.scrollTo(0, 0); user.page.GravEnergy++" @prevpage="Window.scrollTo(0, 0); user.page.GravEnergy--"
-    @nextlesson="Window.scrollTo(0, 0); user.current = lessons.momentum[0]" /> 
+    @nextlesson="Window.scrollTo(0, 0); user.current = lessons.momentum[0]" />
 
   <Impulse v-show="user.current === lessons.momentum[0]" :level="user.difficulty" :page="user.page.Impulse"
     @nextpage="Window.scrollTo(0, 0); user.page.Impulse++" @prevpage="Window.scrollTo(0, 0); user.page.Impulse--"
@@ -367,39 +511,35 @@ onMounted(() => {
     @prevpage="Window.scrollTo(0, 0); user.page.CenterOfMass--"
     @nextlesson="Window.scrollTo(0, 0); user.current = lessons.momentum[3]" />
   <Collisions v-show="user.current === lessons.momentum[3]" :level="user.difficulty" :page="user.page.Collisions"
-    @nextpage="Window.scrollTo(0, 0); user.page.Collisions++" 
-    @prevpage="Window.scrollTo(0, 0); user.page.Collisions--"
+    @nextpage="Window.scrollTo(0, 0); user.page.Collisions++" @prevpage="Window.scrollTo(0, 0); user.page.Collisions--"
     @nextlesson="Window.scrollTo(0, 0); user.current = lessons.momentum[4]" />
   <Explosions v-show="user.current === lessons.momentum[4]" :level="user.difficulty" :page="user.page.Explosions"
-    @nextpage="Window.scrollTo(0, 0); user.page.Explosions++"
-    @prevpage="Window.scrollTo(0, 0); user.page.Explosions--"
+    @nextpage="Window.scrollTo(0, 0); user.page.Explosions++" @prevpage="Window.scrollTo(0, 0); user.page.Explosions--"
     @nextlesson="Window.scrollTo(0, 0); user.current = lessons.rotation[0]" />
 
-  <RotationalKinematics v-show="user.current === lessons.rotation[0]" :level="user.difficulty" :page="user.page.RotationalKinematics"
-    @nextpage="Window.scrollTo(0, 0); user.page.RotationalKinematics++"
+  <RotationalKinematics v-show="user.current === lessons.rotation[0]" :level="user.difficulty"
+    :page="user.page.RotationalKinematics" @nextpage="Window.scrollTo(0, 0); user.page.RotationalKinematics++"
     @prevpage="Window.scrollTo(0, 0); user.page.RotationalKinematics--"
-    @nextlesson="Window.scrollTo(0, 0); user.current = lessons.rotation[1]"/>
+    @nextlesson="Window.scrollTo(0, 0); user.current = lessons.rotation[1]" />
   <Torque v-show="user.current === lessons.rotation[1]" :level="user.difficulty" :page="user.page.Torque"
-    @nextpage="Window.scrollTo(0, 0); user.page.Torque++"
-    @prevpage="Window.scrollTo(0, 0); user.page.Torque--"
-    @nextlesson="Window.scrollTo(0, 0); user.current = lessons.rotation[2]"/>
+    @nextpage="Window.scrollTo(0, 0); user.page.Torque++" @prevpage="Window.scrollTo(0, 0); user.page.Torque--"
+    @nextlesson="Window.scrollTo(0, 0); user.current = lessons.rotation[2]" />
   <MomentInertia v-show="user.current === lessons.rotation[2]" :level="user.difficulty" :page="user.page.MomentInertia"
     @nextpage="Window.scrollTo(0, 0); user.page.MomentInertia++"
     @prevpage="Window.scrollTo(0, 0); user.page.MomentInertia--"
-    @nextlesson="Window.scrollTo(0, 0); user.current = lessons.rotation[3]"/>
-  <RotationalDynamics v-show="user.current === lessons.rotation[3]" :level="user.difficulty" :page="user.page.RotationalDynamics"
-    @nextpage="Window.scrollTo(0, 0); user.page.RotationalDynamics++"
+    @nextlesson="Window.scrollTo(0, 0); user.current = lessons.rotation[3]" />
+  <RotationalDynamics v-show="user.current === lessons.rotation[3]" :level="user.difficulty"
+    :page="user.page.RotationalDynamics" @nextpage="Window.scrollTo(0, 0); user.page.RotationalDynamics++"
     @prevpage="Window.scrollTo(0, 0); user.page.RotationalDynamics--"
-    @nextlesson="Window.scrollTo(0, 0); user.current = lessons.rotation[4]"/>
+    @nextlesson="Window.scrollTo(0, 0); user.current = lessons.rotation[4]" />
   <Rolling v-show="user.current === lessons.rotation[4]" :level="user.difficulty" :page="user.page.Rolling"
-    @nextpage="Window.scrollTo(0, 0); user.page.Rolling++"
-    @prevpage="Window.scrollTo(0, 0); user.page.Rolling--"
-    @nextlesson="Window.scrollTo(0, 0); user.current = lessons.rotation[5]"/>
+    @nextpage="Window.scrollTo(0, 0); user.page.Rolling++" @prevpage="Window.scrollTo(0, 0); user.page.Rolling--"
+    @nextlesson="Window.scrollTo(0, 0); user.current = lessons.rotation[5]" />
   <AngMomentum v-show="user.current === lessons.rotation[5]" :level="user.difficulty" :page="user.page.AngMomentum"
     @nextpage="Window.scrollTo(0, 0); user.page.AngMomentum++"
     @prevpage="Window.scrollTo(0, 0); user.page.AngMomentum--"
-    @nextlesson="Window.scrollTo(0, 0); user.current = 'landing'"/>
-  
+    @nextlesson="Window.scrollTo(0, 0); user.current = 'landing'" />
+
 </template>
 
 
@@ -407,5 +547,21 @@ onMounted(() => {
 <style scoped>
 #menu {
   left: -100%;
+}
+
+#mobile-nav {
+  display: none;
+}
+
+@media only screen and (min-width:768px) {
+  #mobile-menu {
+    display: none;
+  }
+}
+
+@media only screen and (max-width:768px) {
+  #mobile-nav {
+    display: flex;
+  }
 }
 </style>
