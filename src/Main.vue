@@ -183,6 +183,7 @@ function hideMobileBar() {
 </script>
 
 <template>
+  <!-- MOBILE NAVBAR -->
   <nav class="navbar" id="mobile-nav"
     :style="!sidebar ? 'display:none;' : 'z-index:1;animation:fadein 1s forwards;position:fixed;width:100%;left:0;background-color: var(--bs-content-bg); border-bottom: var(--bs-border-width) solid var(--bs-content-border-color);'">
     
@@ -202,6 +203,7 @@ function hideMobileBar() {
 
   </nav>
 
+<!-- START OF MOBILE SIDEBAR -->
   <div class="sidebar offcanvas offcanvas-start" id="mobile-menu">
     <div class="offcanvas-header border-bottom border-secondary border-opacity-25">
       <a class="sidebar-brand mx-auto" href="javascript:void(0);" @click="user.current = 'landing';hideMobileBar()">
@@ -297,6 +299,19 @@ function hideMobileBar() {
               lesson }}</a>
         </li>
 
+         <br class="mb-5">
+        <li>
+          <h6 class="sidebar-header"><b>Oscillations</b></h6>
+        </li>
+        <li>
+          <hr class="sidebar-divider">
+        </li>
+        <li v-for="lesson in filteredLessons.oscillations">
+          <a href="javascript:void(0);" :class="user.current === lesson ? 'text-body-emphasis nav-link' : 'nav-link'"
+            :style="user.current === lesson ? 'text-decoration: underline' : ''" @click="user.current = lesson">{{
+              lesson }}</a>
+        </li>
+
       </ul>
     </div>
     <div class="offcanvas-footer mb-2 border-top border-secondary border-opacity-25">
@@ -318,7 +333,7 @@ function hideMobileBar() {
     </div>
   </div>
 
-
+<!-- START OF NORMAL SIDEBAR -->
   <div class="sidebar offcanvas-start offcanvas-md" id="menu"
     :style="sidebar ? 'animation: slideRight 0.3s forwards' : ''">
     <div class="offcanvas-header border-bottom border-secondary border-opacity-25">
