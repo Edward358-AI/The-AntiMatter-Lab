@@ -41,6 +41,10 @@ import RotationalDynamics from './components/rotation/RotationalDynamics.vue'
 import Rolling from './components/rotation/Rolling.vue'
 import AngMomentum from './components/rotation/AngMomentumEnergy.vue'
 
+import SHM from './components/oscillations/SHM.vue'
+import SpringOsc from './components/oscillations/SpringOsc.vue'
+import Pendulum from './components/oscillations/Pendulum.vue'
+import OtherOsc from './components/oscillations/OtherOsc.vue'
 
 const htmlElement = document.documentElement
 const doc = document
@@ -52,7 +56,8 @@ const user = reactive({
     Kepler: 0, GravityLaws: 0, Centripetal: 0, Fictious: 0,
     DotProd: 0, Energy: 0, GravEnergy: 0, Power: 0, Work: 0, EqTypes: 0,
     Collisions: 0, Impulse: 0, LinMomConsrv: 0, CenterOfMass: 0, Explosions: 0,
-    RotationalKinematics: 0, Torque: 0, MomentInertia: 0, RotationalDynamics: 0, Rolling: 0, AngMomentum: 0
+    RotationalKinematics: 0, Torque: 0, MomentInertia: 0, RotationalDynamics: 0, Rolling: 0, AngMomentum: 0,
+    SHM: 0, SpringOsc: 0, Pendulum: 0, OtherOsc: 0
   }
 })
 
@@ -131,6 +136,13 @@ const lessons = reactive(
       "Rolling Without Slipping",
       "Rotational Kinetic Energy and Angular Momentum"
     ],
+
+    oscillations: [
+      "Simple Harmonic Motion",
+      "Spring-Block Oscillators", 
+      "Pendulums",
+      "Other Oscillators"
+    ]
   }
 )
 
@@ -402,6 +414,19 @@ function hideMobileBar() {
               lesson }}</a>
         </li>
 
+        <br class="mb-5">
+        <li>
+          <h6 class="sidebar-header"><b>Oscillations</b></h6>
+        </li>
+        <li>
+          <hr class="sidebar-divider">
+        </li>
+        <li v-for="lesson in filteredLessons.oscillations">
+          <a href="javascript:void(0);" :class="user.current === lesson ? 'text-body-emphasis nav-link' : 'nav-link'"
+            :style="user.current === lesson ? 'text-decoration: underline' : ''" @click="user.current = lesson">{{
+              lesson }}</a>
+        </li>
+
       </ul>
     </div>
     <div class="offcanvas-footer mb-2 border-top border-secondary border-opacity-25">
@@ -538,6 +563,23 @@ function hideMobileBar() {
   <AngMomentum v-show="user.current === lessons.rotation[5]" :level="user.difficulty" :page="user.page.AngMomentum"
     @nextpage="Window.scrollTo(0, 0); user.page.AngMomentum++"
     @prevpage="Window.scrollTo(0, 0); user.page.AngMomentum--"
+    @nextlesson="Window.scrollTo(0, 0); user.current = lessons.oscillations[0]" />
+
+  <SHM v-show="user.current === lessons.oscillations[0]" :level="user.difficulty" :page="user.page.SHM"
+    @nextpage="Window.scrollTo(0, 0); user.page.SHM++"
+    @prevpage="Window.scrollTo(0, 0); user.page.SHM--"
+    @nextlesson="Window.scrollTo(0, 0); user.current = lessons.oscillations[1]" />
+  <SpringOsc v-show="user.current === lessons.oscillations[1]" :level="user.difficulty" :page="user.page.SpringOsc"
+    @nextpage="Window.scrollTo(0, 0); user.page.SpringOsc++"
+    @prevpage="Window.scrollTo(0, 0); user.page.SpringOsc--"
+    @nextlesson="Window.scrollTo(0, 0); user.current = lessons.oscillations[2]" />
+  <Pendulum v-show="user.current === lessons.oscillations[2]" :level="user.difficulty" :page="user.page.Pendulum"
+    @nextpage="Window.scrollTo(0, 0); user.page.Pendulum++"
+    @prevpage="Window.scrollTo(0, 0); user.page.Pendulum--"
+    @nextlesson="Window.scrollTo(0, 0); user.current = lessons.oscillations[3]" />
+  <OtherOsc v-show="user.current === lessons.oscillations[3]" :level="user.difficulty" :page="user.page.OtherOsc"
+    @nextpage="Window.scrollTo(0, 0); user.page.OtherOsc++"
+    @prevpage="Window.scrollTo(0, 0); user.page.OtherOsc--"
     @nextlesson="Window.scrollTo(0, 0); user.current = 'landing'" />
 
 </template>
