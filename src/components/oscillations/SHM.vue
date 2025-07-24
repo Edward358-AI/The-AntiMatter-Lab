@@ -126,7 +126,60 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                 </figcaption>
                 </figure>
                 <br>
-                This simply tells us 
+                The colored circles in the diagram correspond to the positions of the object on the circle as well as the positions on the sine wave.
+                <br><br>
+                This can tell us that if we only look at one dimension of circular motion, we have motion that varies sinusoidally with time. This is why 
+                angular frequency and angular velocity are so closely interconnected: circular motion is actually just SHM that 
+                occurs simultaneously in two different dimensions! This is also why you might have noticed the formula for the period to be somewhat familiar.
+                <br><br>
+                In fact, we can draw even more mathematical parallels between the two. We said that the period for SHM is given by $ T = \frac{2\pi}{\omega}$. For 
+                circular motion, we can find the angular velocity with the equation $ \omega = v/r $. This means that applying the SHM formula gives us:
+                <br><br>
+                $$ T = \dfrac {2\pi r}{v} $$
+                <br>
+                The above result is what we stated to be true during our circular motion lesson!
+                <span v-show="level>0">
+                    <br><br>
+                    We also can mathematically show that the motion for each dimension of circular motion is sinusoidal in nature. We begin by writing each 
+                    component of the velocity as a function of $\theta$, measured from the positive x-axis, being sure to take direction into account. We can say that the 
+                    particle has a speed of $v_0$.
+                    <br><br>
+                    $$ v_x = - v_0 \sin \theta $$ 
+                    $$ v_y = v_0 \cos \theta $$
+                    <br>
+                    Why is $v_x$ negative? Well, that's because it's directed leftwards whenever the angle is less than $180 \degree$ and directed rightwards 
+                    when it's between $180 \degree$ and $360 \degree$. This is the opposite of the behavior that $\sin \theta$ produces, so we need a negative sign.
+                    <br><br>
+                    Moreover, because the motion is uniform, we know that $\theta = \omega t$, indicating that the velocities are sinusoidal functions with respect to
+                    time. We can re-write the formulas as:
+                    <br><br>
+                    $$ v_x = - v_0 \sin (\omega t) $$
+                    $$ v_y = v_0 \cos (\omega t) $$
+                    <br>
+                    If we show that the velocity varies with time sinusoidally and averages to zero over the entire period of time, we can assume that the position varies 
+                    sinusoidally with time as well. (It has to average to zero, else the object doesn't repeat its motion.) <span v-show="level==2">However, 
+                        with a little calculus, we can actually find the exact expressions for each. We simply integrate each expression.
+                        <br><br>
+                        $$ x = r \cos (\omega t) $$ 
+                        $$ y = r \sin (\omega t) $$
+                        <br>
+                        This means that the position of the object in circular motion is sinusoidal with respect to time, which is exactly what we wanted to show. See, circular 
+                        motion and SHM are very closely related. Some would say circular motion is just SHM in disguise, but I think they're different enough to warrant 
+                        different classifications.
+                    </span>
+                </span>
+                <br><br>
+                This is all there is behind SHM! It's a relatively simple definition that hinges on ideas we've talked about before. Now, we'll move to 
+                talking about the various different specific kinds of SHM, starting with the most simple. While we've only really talked about forces and kinematics 
+                here, do note that we are going to delve into other areas such as energy with each specific type of SHM.
+                           <div class="btn-contain-left">
+                <button class="btn btn-dark" style="animation: scale1 2s infinite;" @click="$emit('prevpage')">&larr;
+                    Previous</button>
+            </div>
+            <div class="btn-contain-right">
+                <button class="btn btn-dark" style="animation: scale 2s infinite;" @click="$emit('nextlesson')">Next Lesson!
+                    &rarr;</button>
+            </div>
             </div>
         </p>
     </div>
