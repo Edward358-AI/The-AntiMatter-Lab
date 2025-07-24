@@ -402,7 +402,7 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                     at$! So
                     when we plug this in, we get:
                     <br><br>
-                    $$\bar{v} = \frac{v_0 + at + v_0}{2} = \frac{2v_0 + at}{2} = v_0 +
+                    $$\bar{v} = \frac{v_0 + at + v_0}{2} =$$ $$ \frac{2v_0 + at}{2} = v_0 +
                     \frac{1}{2}at$$ So, now we have an equation that we can plug into $x=\bar{v}t$! Plugging this in
                     will
                     give us:
@@ -456,8 +456,8 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                     Taking
                     an equation from the acceleration chapter, we know what $v_f$ is equal to! $v_f = v_i + a \cdot
                     \Delta t$! So if we plug this into that equation for $v_f$, we get: $$\bar{v} = \frac{v_i + v_i +
-                    a \cdot \Delta t}{2} = \frac{2 \cdot v_i + a \cdot \Delta t}{2} = \frac{\cancel{2} \cdot
-                    v_i}{\cancel{2}} + \frac{a \cdot \Delta t}{2} = v_i + \frac 1 2 a \cdot \Delta t$$ Wow, now
+                    a \cdot \Delta t}{2}$$ $$ = \frac{2 \cdot v_i + a \cdot \Delta t}{2}$$$$ = \frac{\cancel{2} \cdot
+                    v_i}{\cancel{2}} + \frac{a \cdot \Delta t}{2}$$$$ = v_i + \frac 1 2 a \cdot \Delta t$$ Wow, now
                     you can see that average velocity is equal to this! Now we can plug this into $\Delta x = \bar{v}
                     \cdot
                     \Delta t$!
@@ -466,7 +466,7 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                     <br><br>
                     $$\Delta x = (v_i
                     +
-                    \frac 1 2 a \cdot \Delta t) \cdot \Delta t = v_i \cdot \Delta t + \frac 1 2 a \cdot (\Delta
+                    \frac 1 2 a \cdot \Delta t) \cdot \Delta t $$$$= v_i \cdot \Delta t + \frac 1 2 a \cdot (\Delta
                     t)^2$$<br>
                     Wow,
                     the final equation involving displacement and acceleration! Isn't that amazing?
@@ -555,8 +555,8 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                     From this, we can graph an $x$-$t$ graph for constant acceleration scenarios. A desmos example is
                     shown
                     below (you can play around with the sliders):
-                    <iframe src="https://www.desmos.com/calculator/g1suzxzrsv" width="1000" height="500"
-                        style="margin:auto;display:block;" frameborder=0></iframe><br>
+                    <iframe src="https://www.desmos.com/calculator/g1suzxzrsv"
+                        style="margin:auto;display:block;width:100%; max-width:1000px;aspect-ratio:1 / 1;max-height:500px;" frameborder=0></iframe><br>
                     That's pretty much all there is to position, velocity, and acceleration. Usually, when we say $x$,
                     we do
                     mean displacement, but occasionally, if you see $x$ denoted with subscripts $f$ or $i$ or $0$, it

@@ -171,9 +171,6 @@ watch(user, () => {
 })
 
 // Parses MathJax after content has been loaded to ensure the math is rendered properly
-onMounted(() => {
-  window.MathJax.typeset()
-})
 
 function hideMobileBar() {
   if (Window.innerWidth <= 768) {

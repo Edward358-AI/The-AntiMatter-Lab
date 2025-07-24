@@ -11,3 +11,5 @@ app.mount('#app')
 window.addEventListener('dragstart',(e) => {
   if (e.target.nodeName === 'IMG') e.preventDefault()
 })
+
+window.MathJax.typeset()
