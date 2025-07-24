@@ -184,22 +184,14 @@ function hideMobileBar() {
 
 <template>
   <!-- MOBILE NAVBAR -->
-  <nav class="navbar" id="mobile-nav"
+  <nav class="navbar d-flex" id="mobile-nav"
     :style="!sidebar ? 'display:none;' : 'z-index:1;animation:fadein 1s forwards;position:fixed;width:100%;left:0;background-color: var(--bs-content-bg); border-bottom: var(--bs-border-width) solid var(--bs-content-border-color);'">
-
-    <div class="container-fluid justify-content-center">
-      <a href="#mobile-menu" role="button" data-bs-toggle="offcanvas">
-
+      <a href="#mobile-menu" role="button" style="margin-left:15px;" data-bs-toggle="offcanvas">
         <span class="navbar-toggler-icon"></span>
-
       </a>
 
-      <a class="sidebar-brand mx-auto" href="javascript:void(0);" @click="user.current = 'landing'">
-        <img src="/favicon.png" width="24" height="24" class="d-inline-block align-text-top rounded-1">
-        The AntiMatter Lab
-      </a>
-
-    </div>
+      <span style="font-size:0.98rem;margin-right:auto;margin-left:20px;">The AntiMatter Lab</span>
+      <img src="/favicon.png" width="25" height="25" class="d-inline-block me-3 rounded-1">
 
   </nav>
 
