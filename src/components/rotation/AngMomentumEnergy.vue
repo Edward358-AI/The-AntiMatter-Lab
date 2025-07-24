@@ -5,6 +5,7 @@ import { ref, onMounted, watch } from 'vue'
 
 const inputInertia = ref(30)
 const elasticity = ref(1)
+const viewportMsg = ref('')
 
 var Engine = Matter.Engine,
     Render = Matter.Render,
@@ -20,17 +21,23 @@ let rod, ball
 let engine, render, runner
 
 function runAngCollision() {
+    if (window.innerWidth < 1000) {
+        viewportMsg.value = "Warning. Some demos may not work as intended/as well on smaller viewports. Consider using a larger viewing window for best results."
+    } else {
+        viewportMsg.value = ""
+    }
     document.getElementById("angularcollision").innerHTML = ""
 
     engine = Engine.create()
     engine.gravity.y = 0
-
+var width = 0.5 * window.innerWidth > 600 ? 600 : window.innerWidth < 768 ? 0.65 * window.innerWidth : 0.5 * window.innerWidth;
+var height = width;
     render = Render.create({
         element: document.getElementById("angularcollision"),
         engine: engine,
         options: {
-            width: 600,
-            height: 600,
+            width: width,
+            height: height,
             wireframes: false,
             background: "#000"
         }
@@ -38,23 +45,23 @@ function runAngCollision() {
 
     Render.run(render)
 
-    rod = Bodies.rectangle(300, 300, 50, 400, {
+    rod = Bodies.rectangle(300/600*width, 300/600*width, 50/600*width, 400/600*width, {
         render: { fillStyle: "#888" },
-        inertia: 1000 * Math.pow(inputInertia.value, 2),
+        inertia: 1000 * Math.pow(inputInertia.value, 2)/600*width,
         frictionAir: 0,
         restitution: 1
     })
 
     const pivot = Constraint.create({
         bodyA: rod,
-        pointB: { x: 300, y: 300 },
+        pointB: { x: 300/600*width, y: 300/600*width },
         stiffness: 1,
         length: 0,
         damping: 0,
         render: { strokeStyle: "#fff", lineWidth: 3 }
     })
 
-    ball = Bodies.circle(100, 400, 40, {
+    ball = Bodies.circle(100/600*width, 400/600*width, 40/600*width, {
         render: { fillStyle: "cyan" },
         restitution: Math.abs(elasticity.value),
         frictionAir: 0,
@@ -62,10 +69,10 @@ function runAngCollision() {
     })
 
     const walls = [
-        Bodies.rectangle(-50, 300, 100, 800, { isStatic: true }),
-        Bodies.rectangle(650, 300, 100, 800, { isStatic: true }),
-        Bodies.rectangle(300, -50, 800, 100, { isStatic: true }),
-        Bodies.rectangle(300, 650, 800, 100, { isStatic: true })
+        Bodies.rectangle(-50/600*width, 300/600*width, 100/600*width, 800/600*width, { isStatic: true }),
+        Bodies.rectangle(650/600*width, 300/600*width, 100/600*width, 800/600*width, { isStatic: true }),
+        Bodies.rectangle(300/600*width, -50/600*width, 800/600*width, 100/600*width, { isStatic: true }),
+        Bodies.rectangle(300/600*width, 650/600*width, 800/600*width, 100/600*width, { isStatic: true })
     ]
 
     Composite.add(engine.world, [rod, pivot, ball, ...walls])
@@ -94,7 +101,7 @@ onMounted(() => {
 // Watch inertia changes and update the body
 watch(inputInertia, (newVal) => {
     if (rod) {
-        const newInertia = 1000 * Math.pow(newVal, 2)
+        const newInertia = 1000 * Math.pow(newVal, 2)/600*width
         Body.setInertia(rod, newInertia)
     }
 })
@@ -115,7 +122,8 @@ watch(elasticity, (newVal) => {
         <div v-show="page === 0">
             Believe it or not, rotating objects have kinetic energy as well. This is the rotating counterpart to
             translational kinetic energy
-            ($K = \frac12 mv^2$) <span v-show='level > 0'>and arises due to the kinetic energy of each individual point on
+            ($K = \frac12 mv^2$) <span v-show='level > 0'>and arises due to the kinetic energy of each individual point
+                on
                 a rotating object. This is
                 often hard to calculate however, so we just use a catch-all formula to describe the kinetic energy of
                 rotation.
@@ -227,17 +235,16 @@ watch(elasticity, (newVal) => {
                 <h3>Angular Momentum Demo</h3><br>
                 <div id="angularcollision"></div>
                 <button class="btn btn-outline-primary" @click="runAngCollision()">Reset</button><br>
-                <div class="row justify-content-center">
 
-                    <div class="col-4"> <label>Moment of Inertia: {{ inputInertia }}</label><br><input type="range"
-                            class="form-range" v-model="inputInertia" min="1" max="100" step="1"
-                            style="width:fit-content;" /></div>
+                <div class="row justify-content-center"> <label>Moment of Inertia: {{ inputInertia }}</label><br><input
+                        type="range" class="form-range" v-model="inputInertia" min="1" max="100" step="1"
+                        style="width:fit-content;" /></div>
 
-                    <div class="col-4"><label>Elasticity: {{ elasticity }}</label><br><input type="range"
-                            class="form-range" v-model="elasticity" min="0" max="1" step="0.1"
-                            style="width:fit-content;" /></div>
-
-                </div>
+                <div class="row justify-content-center"><label>Elasticity: {{ elasticity }}</label><br><input
+                        type="range" class="form-range" v-model="elasticity" min="0" max="1" step="0.1"
+                        style="width:fit-content;" /></div>
+            <span class="warn">{{viewportMsg}}</span>   
+            
             </figure>
             <br>
             You're also able to dynamically change the moment of inertia, but that can lead to some wacky results (as

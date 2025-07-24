@@ -1,94 +1,103 @@
 <script setup>
-import {onMounted, ref} from 'vue'
+import { onMounted, ref } from 'vue'
 defineProps(["level", "page"])
 defineEmits(["nextlesson", "nextpage", "prevpage"])
 
 const inputValue = ref('')
+const viewportMsg = ref('')
 
 function runConstAcc() {
-document.getElementById("constAcc").innerHTML = ""
-// module aliases
-var Engine = Matter.Engine,
-    Render = Matter.Render,
-    Runner = Matter.Runner,
-    Bodies = Matter.Bodies,
-    Composite = Matter.Composite;
+    if (window.innerWidth < 1000) {
+        viewportMsg.value = "Warning. Some demos may not work as intended/as well on smaller viewports. Consider using a larger viewing window for best results."
+    } else {
+        viewportMsg.value = ""
+    }
+    document.getElementById("constAcc").innerHTML = ""
+    // module aliases
+    var Engine = Matter.Engine,
+        Render = Matter.Render,
+        Runner = Matter.Runner,
+        Bodies = Matter.Bodies,
+        Composite = Matter.Composite;
 
-// create an engine
-var engine = Engine.create();
+    // create an engine
+    var engine = Engine.create();
 
-// create a renderer
-var render = Render.create({
-    element: document.getElementById('constAcc'),
-    engine: engine,
-    options: {
-             width: 1000,
-             height: 400,
-             showVelocity: false,
-             wireframes: false,
-             background: "#000"
-         }
-});
-// run the renderer
-Render.run(render);
+    var width = 0.5 * window.innerWidth > 1000 ? 1000 : window.innerWidth < 768 ? 0.65 * window.innerWidth : 0.5 * window.innerWidth;
+    var height = 400 / 1000 * width;
 
-// create two boxes and a ground
-var boxA = Bodies.rectangle(350, 80, 40, 80,
-    { render: {fillStyle: '#27ae60'} } // green
-);
-var boxB = Bodies.rectangle(200, 80, 80, 80, {
-    render: { fillStyle: '#3498db' } // blue
-});
-var boxC = Bodies.rectangle(500, 100, 80, 40, {
-    render: { fillStyle: '#ff4a4a' } // red
-});
-var boxD = Bodies.rectangle(650, 100, 40, 40, {
-    render: { fillStyle: '#eb53ff' } // pink
-});
-var boxE = Bodies.rectangle(800, 40, 80, 160, {
-    render: { fillStyle: '#f3a53c' } // orange
-});
-var ground = Bodies.rectangle(500, 400, 1000, 60, {
-    isStatic: true,
-    render: { fillStyle: '#929292' }
-});
-var wall1 = Bodies.rectangle(0, 200, 60, 500, {
-    isStatic: true,
-    render: { fillStyle: '#929292' }
-});
-var wall2 = Bodies.rectangle(1000, 200, 60, 500, {
-    isStatic: true,
-    render: { fillStyle: '#929292' }
-});
-// Ensure inputValue is a number between 0 and 1
-let restitution = parseFloat(inputValue.value) * 0.17;
-if (isNaN(restitution)) {
-    restitution = 0.7;
-}
-if (restitution < 0) {
-    restitution = 0;
-}
+    // create a renderer
+    var render = Render.create({
+        element: document.getElementById('constAcc'),
+        engine: engine,
+        options: {
+            width: width,
+            height: height,
+            showVelocity: false,
+            wireframes: false,
+            background: "#000"
+        }
+    });
+    // run the renderer
+    Render.run(render);
 
-
-// Set coefficient of restitution for all bodies
-boxA.restitution = restitution;
-boxB.restitution = restitution;
-boxC.restitution = restitution;
-boxD.restitution = restitution;
-boxE.restitution = restitution;
-ground.restitution = restitution;
-wall1.restitution = restitution;
-wall2.restitution = restitution;
-
-// add all of the bodies to the world
-Composite.add(engine.world, [boxA, boxB, boxC, boxD, boxE, ground, wall1, wall2]);
+    // create two boxes and a ground
+    var boxA = Bodies.rectangle(350 / 1000 * width, 80 / 1000 * width, 40 / 1000 * width, 80 / 1000 * width,
+        { render: { fillStyle: '#27ae60' } } // green
+    );
+    var boxB = Bodies.rectangle(200 / 1000 * width, 80 / 1000 * width, 80 / 1000 * width, 80 / 1000 * width, {
+        render: { fillStyle: '#3498db' } // blue
+    });
+    var boxC = Bodies.rectangle(500 / 1000 * width, 100 / 1000 * width, 80 / 1000 * width, 40 / 1000 * width, {
+        render: { fillStyle: '#ff4a4a' } // red
+    });
+    var boxD = Bodies.rectangle(650 / 1000 * width, 100 / 1000 * width, 40 / 1000 * width, 40 / 1000 * width, {
+        render: { fillStyle: '#eb53ff' } // pink
+    });
+    var boxE = Bodies.rectangle(800 / 1000 * width, 40 / 1000 * width, 80 / 1000 * width, 160 / 1000 * width, {
+        render: { fillStyle: '#f3a53c' } // orange
+    });
+    var ground = Bodies.rectangle(500 / 1000 * width, 400 / 1000 * width, 1000 / 1000 * width, 60 / 1000 * width, {
+        isStatic: true,
+        render: { fillStyle: '#929292' }
+    });
+    var wall1 = Bodies.rectangle(0, 200 / 1000 * width, 60 / 1000 * width, 500 / 1000 * width, {
+        isStatic: true,
+        render: { fillStyle: '#929292' }
+    });
+    var wall2 = Bodies.rectangle(1000 / 1000 * width, 200 / 1000 * width, 60 / 1000 * width, 500 / 1000 * width, {
+        isStatic: true,
+        render: { fillStyle: '#929292' }
+    });
+    // Ensure inputValue is a number between 0 and 1
+    let restitution = parseFloat(inputValue.value) * 0.17;
+    if (isNaN(restitution)) {
+        restitution = 0.7;
+    }
+    if (restitution < 0) {
+        restitution = 0;
+    }
 
 
-// create runner
-var runner = Runner.create();
+    // Set coefficient of restitution for all bodies
+    boxA.restitution = restitution;
+    boxB.restitution = restitution;
+    boxC.restitution = restitution;
+    boxD.restitution = restitution;
+    boxE.restitution = restitution;
+    ground.restitution = restitution;
+    wall1.restitution = restitution;
+    wall2.restitution = restitution;
 
-// run the engine
-Runner.run(runner, engine);
+    // add all of the bodies to the world
+    Composite.add(engine.world, [boxA, boxB, boxC, boxD, boxE, ground, wall1, wall2]);
+
+
+    // create runner
+    var runner = Runner.create();
+
+    // run the engine
+    Runner.run(runner, engine);
 }
 onMounted(() => {
     runConstAcc()
@@ -112,121 +121,123 @@ onMounted(() => {
                 Now,
                 this chapter and the next chapter will be understanding some important concepts, but still mostly
                 problem
-                solving. As such, I've made a very simple interactive demo with matter.js for you to play around with that illustrates 
+                solving. As such, I've made a very simple interactive demo with matter.js for you to play around with
+                that illustrates
                 the concept of free fall.<br><br>
-                <figure>
-                    <h3>Free Fall Demo</h3><br>
-                <div id = "constAcc"></div>
+            <figure>
+                <h3>Free Fall Demo</h3><br>
+                <div id="constAcc"></div>
                 <button class="btn btn-outline-primary" @click="runConstAcc()">Reset</button>
                 <br>
-                    Input how "bouncy" you want the blocks to be, from 1 to 10. 
-                    <br>Values over 10 may result in some odd and unrealistic behaviors.
-                    
+                Input how "bouncy" you want the blocks to be, from 1 to 10.
+                <br>Values over 10 may result in some odd and unrealistic behaviors.
+
                 <div class="d-flex justify-content-center">
                     <div class="input-group mb-3" style="max-width: 60px;">
-                        <input
-                        v-model="inputValue"
-                        type="number"
-                        class="form-control"
-                        placeholder=" "
-                        >
-                
+                        <input v-model="inputValue" type="number" class="form-control" placeholder=" ">
+
                     </div>
                 </div>
-                </figure>
-                
-                Notice how the objects that are falling hit the ground at the same time, even though their masses and shapes are 
-                different? They may bounce around differently after hitting the ground, but the time they first hit the ground 
-                is the same for all of the objects! This is generally true: the gravitational acceleration of an object <b>is independent of its mass</b>. The 
-                reason we see some things fall slower than others is because of air resistance. Now, with that little observation 
-                out of the way, we may begin.
-                <br><br>
-                <span v-show="level == 0">
-                    Since we are dealing more with physics concepts, there will be some important things to clarify and
-                    brush up on, and guess what: ZERO problems to solve in this chapter! It's just 100% concepts. One
-                    generally important thing that we kindly avoided mentioning was the fact that, air resistance and
-                    friction, in the real world, indeed does exist. However, for the sake of simplicity in our
-                    calculations,
-                    most of these entry level kinematics will ignore air resistance and friction, and assume all the
-                    objects
-                    that we deal with are ideal in the sense that they don't generate a lot of air resistance nor
-                    friction.<br><br>We generally will be less focused on doing calculations, but here are the equations
-                    that we
-                    will be needing anyways (the Khan Academy course for algebra would be quite helpful right now if you
-                    need it! It's linked in the About page and the previous lesson.):
-                    $$\underline{\textrm{\#1:}~~v_f=v_0+at}$$ $$\underline{\textrm{\#2:}~~x=v_0t+\frac 1 2 at^2}$$
-                    $$\underline{\textrm{\#3:}~~x=v_ft-\frac 1 2 at^2}$$ I know I've omitted the "$\Delta$" symbol for
-                    displacement ($x$) and time ($t$), but just know that it means "change in". It just becomes a lot
-                    simpler to write things that way.<br><br>Furthermore, in the previous chapter, we used $v_i$ to
-                    denote
-                    initial velocity, but we used $v_0$ here. Just make a mental note that both refer to initial
-                    velocity,
-                    it just depends on the naming convention you prefer. If you were reading the previous lesson, you
-                    know
-                    exactly how we derived these two equations. If not, there's no harm in going back for a refresher!
-                    Now
-                    there are some other cool equations that we didn't show you how to derive waiting for you on the
-                    next page!
-                </span>
-                <span v-show="level > 0">
-                    Before we get into solving problems (fun!), one generally important thing that we kindly avoided
-                    mentioning was the fact that, air resistance and friction, in the real world, indeed does exist.
-                    However, for the sake of simplicity in our calculations, most of these entry level kinematics will
-                    ignore air resistance and friction, and assume all the objects that we deal with are ideal in the
-                    sense
-                    that they don't generate a lot of air resistance nor friction.<br><br>If you have already forgotten
-                    (which I
-                    hope you haven't), here are the equations we derived from the previous chapter:
-                    $$\underline{\textrm{\#1:}~~v_f=v_0+at}$$ $$\underline{\textrm{\#2:}~~x=v_0t+\frac 1 2 at^2}$$ I
-                    know
-                    I've omitted the "$\Delta$" symbol for displacement ($x$) and time ($t$), but just know that it
-                    means
-                    "change in". It just becomes a lot simpler to write things that way.<br><br>Furthermore, in the
-                    previous
-                    chapter, we used $v_i$ to denote initial velocity, but we used $v_0$ here. Just make a mental note
-                    that
-                    both refer to initial velocity, it just depends on the naming convention you prefer. If you were
-                    reading
-                    the previous lesson, you know exactly how we derived these two equations. If not, there's no harm in
-                    going back for a refresher! Now there are some other cool equations (and yes that you probably
-                    should
-                    memorize) that we didn't show you how to derive. Here they are now: $$\bar{v} = \frac{v_f+v_0}{2}$$
-                    The
-                    average velocity is calculated from taking the average of starting and end velocities. But we know
-                    that
-                    $x=\bar{v}t$, so if we multiply both sides by $t$, we get: $$\underline{\textrm{\#3:}~~x=
-                    \frac{v_f+v_0}{2}\cdot t}$$ Now lets focus on deriving arguably one of the more common equations
-                    that
-                    you will come across. Now we just derived an equation that looks pretty handy. So let's start from
-                    there. Now, one of the most basic equations is $v_f=v_0+at$. If we solve for $t$, we get:
-                    $$t=\frac{v_f-v_0}{a}$$ So now we can plug this into the equation we just derived: $$x=
-                    \frac{v_f+v_0}{2}\cdot \frac{v_f-v_0}{a} = \frac{(v_f+v_0)(v_f-v_0)}{2a}=\frac{v_f^2-v_0^2}{2a}$$
-                    Deriving this shows us that we do not necessarily need to know the time period in order to calculate
-                    other quantities! Rearranging the equation a little bit will give us the final result:
-                    $$\underline{\textrm{\#4:}~~v_f^2=v_0^2+2ax}$$ Now, all these four equations that we just listed are
-                    super useful. You can use them to solve various kinematics problems! However, there is one small
-                    important detail that I have left out. All these equations are ONLY valid when acceleration is
-                    constant.
-                    Without constant acceleration, all these wouldn't work, and we would have to resort to calculus
-                    tools to
-                    help us solve those problems.<br><br>
-                    There's a final equation that's useful sometimes. It's very similar to the second equation, but uses 
-                    final velocity rather than initial. I'll lay it out for you here. You might (correctly) assume that this is only 
-                    useful when you're given final velocity rather than initial.
-                    $$\underline{\textrm{\#5:}~~x=
-                    v_f t - \dfrac12 at^2}$$
-                    Another really cool thing about all those kinematics equations
-                    is that
-                    we have five quantities: $x$, $v_f$, $v_0$, $a$, and $t$. Each of the five kinematics equations that
-                    we
-                    have laid out (scroll up if you need to see them again, they're numbered!) has exactly four
-                    quantities
-                    in them, which means each equation is not using one of the five quanitites! Can you spot in each
-                    equation which quantity is missing? Realizing the dependency on one another that each of these five
-                    quantities exhibits is crucial and knowing this can really level up your game and make you better at
-                    deciding what equation to use to solve a problem. And because we are doing algebra-based physics, we
-                    want you to solve problems! So let's get into it.
-                </span>
+                <span class="warn">{{ viewportMsg }}</span>
+            </figure>
+
+            Notice how the objects that are falling hit the ground at the same time, even though their masses and shapes
+            are
+            different? They may bounce around differently after hitting the ground, but the time they first hit the
+            ground
+            is the same for all of the objects! This is generally true: the gravitational acceleration of an object
+            <b>is independent of its mass</b>. The
+            reason we see some things fall slower than others is because of air resistance. Now, with that little
+            observation
+            out of the way, we may begin.
+            <br><br>
+            <span v-show="level == 0">
+                Since we are dealing more with physics concepts, there will be some important things to clarify and
+                brush up on, and guess what: ZERO problems to solve in this chapter! It's just 100% concepts. One
+                generally important thing that we kindly avoided mentioning was the fact that, air resistance and
+                friction, in the real world, indeed does exist. However, for the sake of simplicity in our
+                calculations,
+                most of these entry level kinematics will ignore air resistance and friction, and assume all the
+                objects
+                that we deal with are ideal in the sense that they don't generate a lot of air resistance nor
+                friction.<br><br>We generally will be less focused on doing calculations, but here are the equations
+                that we
+                will be needing anyways (the Khan Academy course for algebra would be quite helpful right now if you
+                need it! It's linked in the About page and the previous lesson.):
+                $$\underline{\textrm{\#1:}~~v_f=v_0+at}$$ $$\underline{\textrm{\#2:}~~x=v_0t+\frac 1 2 at^2}$$
+                $$\underline{\textrm{\#3:}~~x=v_ft-\frac 1 2 at^2}$$ I know I've omitted the "$\Delta$" symbol for
+                displacement ($x$) and time ($t$), but just know that it means "change in". It just becomes a lot
+                simpler to write things that way.<br><br>Furthermore, in the previous chapter, we used $v_i$ to
+                denote
+                initial velocity, but we used $v_0$ here. Just make a mental note that both refer to initial
+                velocity,
+                it just depends on the naming convention you prefer. If you were reading the previous lesson, you
+                know
+                exactly how we derived these two equations. If not, there's no harm in going back for a refresher!
+                Now
+                there are some other cool equations that we didn't show you how to derive waiting for you on the
+                next page!
+            </span>
+            <span v-show="level > 0">
+                Before we get into solving problems (fun!), one generally important thing that we kindly avoided
+                mentioning was the fact that, air resistance and friction, in the real world, indeed does exist.
+                However, for the sake of simplicity in our calculations, most of these entry level kinematics will
+                ignore air resistance and friction, and assume all the objects that we deal with are ideal in the
+                sense
+                that they don't generate a lot of air resistance nor friction.<br><br>If you have already forgotten
+                (which I
+                hope you haven't), here are the equations we derived from the previous chapter:
+                $$\underline{\textrm{\#1:}~~v_f=v_0+at}$$ $$\underline{\textrm{\#2:}~~x=v_0t+\frac 1 2 at^2}$$ I
+                know
+                I've omitted the "$\Delta$" symbol for displacement ($x$) and time ($t$), but just know that it
+                means
+                "change in". It just becomes a lot simpler to write things that way.<br><br>Furthermore, in the
+                previous
+                chapter, we used $v_i$ to denote initial velocity, but we used $v_0$ here. Just make a mental note
+                that
+                both refer to initial velocity, it just depends on the naming convention you prefer. If you were
+                reading
+                the previous lesson, you know exactly how we derived these two equations. If not, there's no harm in
+                going back for a refresher! Now there are some other cool equations (and yes that you probably
+                should
+                memorize) that we didn't show you how to derive. Here they are now: $$\bar{v} = \frac{v_f+v_0}{2}$$
+                The
+                average velocity is calculated from taking the average of starting and end velocities. But we know
+                that
+                $x=\bar{v}t$, so if we multiply both sides by $t$, we get: $$\underline{\textrm{\#3:}~~x=
+                \frac{v_f+v_0}{2}\cdot t}$$ Now lets focus on deriving arguably one of the more common equations
+                that
+                you will come across. Now we just derived an equation that looks pretty handy. So let's start from
+                there. Now, one of the most basic equations is $v_f=v_0+at$. If we solve for $t$, we get:
+                $$t=\frac{v_f-v_0}{a}$$ So now we can plug this into the equation we just derived: $$x=
+                \frac{v_f+v_0}{2}\cdot \frac{v_f-v_0}{a} = \frac{(v_f+v_0)(v_f-v_0)}{2a}=\frac{v_f^2-v_0^2}{2a}$$
+                Deriving this shows us that we do not necessarily need to know the time period in order to calculate
+                other quantities! Rearranging the equation a little bit will give us the final result:
+                $$\underline{\textrm{\#4:}~~v_f^2=v_0^2+2ax}$$ Now, all these four equations that we just listed are
+                super useful. You can use them to solve various kinematics problems! However, there is one small
+                important detail that I have left out. All these equations are ONLY valid when acceleration is
+                constant.
+                Without constant acceleration, all these wouldn't work, and we would have to resort to calculus
+                tools to
+                help us solve those problems.<br><br>
+                There's a final equation that's useful sometimes. It's very similar to the second equation, but uses
+                final velocity rather than initial. I'll lay it out for you here. You might (correctly) assume that this
+                is only
+                useful when you're given final velocity rather than initial.
+                $$\underline{\textrm{\#5:}~~x=
+                v_f t - \dfrac12 at^2}$$
+                Another really cool thing about all those kinematics equations
+                is that
+                we have five quantities: $x$, $v_f$, $v_0$, $a$, and $t$. Each of the five kinematics equations that
+                we
+                have laid out (scroll up if you need to see them again, they're numbered!) has exactly four
+                quantities
+                in them, which means each equation is not using one of the five quanitites! Can you spot in each
+                equation which quantity is missing? Realizing the dependency on one another that each of these five
+                quantities exhibits is crucial and knowing this can really level up your game and make you better at
+                deciding what equation to use to solve a problem. And because we are doing algebra-based physics, we
+                want you to solve problems! So let's get into it.
+            </span>
 
             </p>
             <div class="btn-contain-right">
@@ -719,7 +730,8 @@ onMounted(() => {
                     such
                     elegant and simple results. <br>And sometimes, simple is beautiful.
                 </span>
-                <span v-show="level > 0">Before we continue on to 2-dimensional motion, there is an important concept that
+                <span v-show="level > 0">Before we continue on to 2-dimensional motion, there is an important concept
+                    that
                     needs to
                     be covered. What if, instead of dropping something, you threw it upwards? You would see the object
                     rise

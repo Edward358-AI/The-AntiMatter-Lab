@@ -6,6 +6,7 @@ const show = ref(false)
 const show1 = ref(false)
 const show2 = ref(false)
 const show3 = ref(false)
+const viewportMsg = ref('')
 
 const inputInertia = ref(15)
 // module aliases
@@ -22,6 +23,11 @@ var Engine = Matter.Engine,
 
 
 function runMoInertia() {
+    if (window.innerWidth < 1000) {
+        viewportMsg.value = "Warning. Some demos may not work as intended/as well on smaller viewports. Consider using a larger viewing window for best results."
+    } else {
+        viewportMsg.value = ""
+    }
     document.getElementById("inertia").innerHTML = ""
 
 // create an engine
@@ -29,13 +35,15 @@ var engine = Engine.create();
 
 engine.gravity.y = 0
 
+var width = 0.5 * window.innerWidth > 600 ? 600 : window.innerWidth < 768 ? 0.65 * window.innerWidth : 0.5 * window.innerWidth;
+var height= width;
     // create a renderer
 var render = Render.create({
     element: document.getElementById('inertia'),
     engine: engine,
     options: {
-        width: 600,
-        height: 600,
+        width: width,
+        height: height,
         wireframes: false,
         background: "#000"
     }
@@ -44,16 +52,16 @@ var render = Render.create({
 // run the renderer
 Render.run(render);
 
-var yoyoCircle = Bodies.circle(300, 300, 200, {render: {fillStyle: '#f39c12'}});
+var yoyoCircle = Bodies.circle(300/600*width, 300/600*width, 200/600*width, {render: {fillStyle: '#f39c12'}});
 
-var yoyoOverlay = Bodies.circle(300,300, 150, {render: {fillStyle: '#e67e22'}})
+var yoyoOverlay = Bodies.circle(300/600*width,300/600*width, 150/600*width, {render: {fillStyle: '#e67e22'}})
 
-var yoyoCenter = Bodies.circle(300,300,50, {render: {fillStyle: '#e74f00'}});
+var yoyoCenter = Bodies.circle(300/600*width,300/600*width,50/600*width, {render: {fillStyle: '#e74f00'}});
 
-var spoke1 = Bodies.rectangle(300,300, 400, 10, {render: {fillStyle: '#ff5151'}});
-var spoke2 = Bodies.rectangle(300,300, 400, 10, {render: {fillStyle: '#ff5151'}, angle: Math.PI/2});
+var spoke1 = Bodies.rectangle(300/600*width,300/600*width, 400/600*width, 10/600*width, {render: {fillStyle: '#ff5151'}});
+var spoke2 = Bodies.rectangle(300/600*width,300/600*width, 400/600*width, 10/600*width, {render: {fillStyle: '#ff5151'}, angle: Math.PI/2});
 
-var inertia = inputInertia.value * 1000
+var inertia = inputInertia.value * 1000/600*width
 var yoyo = Body.create({
     parts:[yoyoCircle, yoyoOverlay, spoke1, spoke2, yoyoCenter],
     mass: 2,
@@ -70,7 +78,7 @@ Events.on(engine, 'beforeUpdate', function() {
     var stringForce1 = { x: 0, y: 0.0001 };
     var stringForce2 = { x: 0, y: -0.0001 };
 
-    var offset = { x: 20, y: 0 };
+    var offset = { x: 20/600*width, y: 0 };
     var point1 = { 
       x: yoyo.position.x + offset.x,
       y: yoyo.position.y + offset.y
@@ -111,7 +119,8 @@ onMounted(() => {
                     <h3>Moment of Inertia Demo</h3><br>
                 <div id="inertia"></div>
                 <button class="btn btn-outline-primary" @click="runMoInertia()">Reset</button><br>
-                <label>Moment of Inertia: {{ inputInertia }}</label><br><input type="range" v-model="inputInertia" class="form-range" min="1" max="500" step="1" style="width:fit-content"/>
+                <label>Moment of Inertia: {{ inputInertia }}</label><br><input type="range" v-model="inputInertia" class="form-range" min="1" max="500" step="1" style="width:fit-content"/><br>
+                <span class="warn">{{ viewportMsg }}</span>
                 </figure>
                 <br>
                 You might have seen that the higher the moment of inertia, the harder it is to rotate the object. This makes the moment of inertia 

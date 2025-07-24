@@ -6,6 +6,7 @@ import Matter, { Body } from 'matter-js'
 
 const inputFriction = ref(0.05)
 const inputInertia = ref(20)
+const viewportMsg = ref('')
 
 // module aliases
 var Engine = Matter.Engine,
@@ -17,18 +18,26 @@ var Engine = Matter.Engine,
     MouseConstraint = Matter.MouseConstraint,
     Mouse = Matter.Mouse;
 function runRolling() {
+    if (window.innerWidth < 1000) {
+        viewportMsg.value = "Warning. Some demos may not work as intended/as well on smaller viewports. Consider using a larger viewing window for best results."
+    } else {
+        viewportMsg.value = ""
+    }
     document.getElementById("roll").innerHTML = ""
 
 // create an engine
 var engine = Engine.create();
+
+var width = 0.5 * window.innerWidth > 1000 ? 1000 : window.innerWidth < 768 ? 0.65 * window.innerWidth : 0.5 * window.innerWidth;
+var height = 600/1000*width
 
     // create a renderer
 var render = Render.create({
     element: document.getElementById('roll'),
     engine: engine,
     options: {
-        width: 1000,
-        height: 600,
+        width: width,
+        height: height,
         wireframes: false,
         background: "#000"
     }
@@ -37,15 +46,15 @@ var render = Render.create({
 // run the renderer
 Render.run(render);
 
-var wheelrim = Bodies.circle(500,450,50, {
+var wheelrim = Bodies.circle(500/1000*width,450/1000*width,50/1000*width, {
     render: {fillStyle: 'cyan'}
 });
-var wheelcenter = Bodies.circle(500,450,45, {
+var wheelcenter = Bodies.circle(500/1000*width,450/1000*width,45/1000*width, {
     render:{fillStyle: 'black'}
 });
 var spokes = [
-    Bodies.rectangle(500,450, 100, 5, {render: {fillStyle: 'cyan'}}),
-    Bodies.rectangle(500,450, 5, 100, {render: {fillStyle: 'cyan'}}),
+    Bodies.rectangle(500/1000*width,450/1000*width, 100/1000*width, 5/1000*width, {render: {fillStyle: 'cyan'}}),
+    Bodies.rectangle(500/1000*width,450/1000*width, 5/1000*width, 100/1000*width, {render: {fillStyle: 'cyan'}}),
 ]
 
 var wheel = Body.create({
@@ -54,19 +63,19 @@ var wheel = Body.create({
     frictionAir: 0,
     friction: inputFriction.value,
     frictionStatic: inputFriction * 15,
-    inertia: 3000 * Math.pow(10, inputInertia.value/20)
+    inertia: 3000 * Math.pow(10, inputInertia.value/20)/1000*width
 })
 
 var walls = [
-    Bodies.rectangle(-100, 300, 200, 600, {render: {isVisible: false}, isStatic:true}),
-    Bodies.rectangle(1100, 300, 200, 600, {render: {isVisible: false}, isStatic: true}),
-    Bodies.rectangle(500, -100, 1000, 200, {render: {isVisible: false}, isStatic: true}),
-    Bodies.rectangle(500, 700, 1000, 200, {render: {isVisible: false}, isStatic: true})
+    Bodies.rectangle(-100/1000*width, 300/1000*width, 200/1000*width, 600/1000*width, {render: {isVisible: false}, isStatic:true}),
+    Bodies.rectangle(1100/1000*width, 300/1000*width, 200/1000*width, 600/1000*width, {render: {isVisible: false}, isStatic: true}),
+    Bodies.rectangle(500/1000*width, -100/1000*width, 1000/1000*width, 200/1000*width, {render: {isVisible: false}, isStatic: true}),
+    Bodies.rectangle(500/1000*width, 700/1000*width, 1000/1000*width, 200/1000*width, {render: {isVisible: false}, isStatic: true})
 ]
 
-var ground = Bodies.rectangle(500,600, 1000, 100, {render:{fillStyle: '#888'}, isStatic:true})
-var leftramp = Bodies.polygon(0, 400, 3, 300, {render:{fillStyle: '#888'}, isStatic:true, angle: -Math.PI/6})
-var rightramp = Bodies.polygon(1000, 550, 3, 350, {render:{fillStyle: '#888'}, isStatic:true, angle: 2*Math.PI/3})
+var ground = Bodies.rectangle(500/1000*width,600/1000*width, 1000/1000*width, 100/1000*width, {render:{fillStyle: '#888'}, isStatic:true})
+var leftramp = Bodies.polygon(0, 400/1000*width, 3, 300/1000*width, {render:{fillStyle: '#888'}, isStatic:true, angle: -Math.PI/6})
+var rightramp = Bodies.polygon(1000/1000*width, 550/1000*width, 3, 350/1000*width, {render:{fillStyle: '#888'}, isStatic:true, angle: 2*Math.PI/3})
 
 Composite.add(engine.world, [wheel, ...walls, ground, leftramp, rightramp])
 // create runner
@@ -113,13 +122,11 @@ onMounted(()=>{
                 <h3>Rolling Motion Demo</h3><br>
             <div id="roll"></div>
             <button class="btn btn-outline-primary" @click="runRolling()">Reset</button><br>
-             <div class="row justify-content-center">
 
-                    <div class="col-4"> <label>Moment of Inertia: {{ inputInertia }}</label><br><input type="range" class="form-range" v-model="inputInertia" min="10" max="75" step="1" style="width:fit-content"/></div>
+                    <div class="row justify-content-center"> <label>Moment of Inertia: {{ inputInertia }}</label><br><input type="range" class="form-range" v-model="inputInertia" min="10" max="75" step="1" style="width:fit-content"/></div>
 
-                    <div class="col-4"><label>Coefficient of Friction: {{ inputFriction }}</label><br><input type="range" class="form-range" v-model="inputFriction" min="0" max="1" step=".01" style="width:fit-content"/></div>
-
-                </div>
+                    <div class="row justify-content-center"><label>Coefficient of Friction: {{ inputFriction }}</label><br><input type="range" class="form-range" v-model="inputFriction" min="0" max="1" step=".01" style="width:fit-content"/></div>
+                    <span class="warn">{{ viewportMsg}}</span>
             </figure>
             <br>
             You might have noticed that sometimes the wheel rolled very smoothly, while at other times it would slip while rotating. There is an obvious 

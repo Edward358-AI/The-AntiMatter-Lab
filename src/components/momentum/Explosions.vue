@@ -13,23 +13,30 @@ var Engine = Matter.Engine,
     Composite = Matter.Composite;
 
 const strength = ref(1.0)
+const viewportMsg = ref('')
 
 var particles = [];
 
 function runExplosion() {
+    if (window.innerWidth < 1000) {
+        viewportMsg.value = "Warning. Some demos may not work as intended/as well on smaller viewports. Consider using a larger viewing window for best results."
+    } else {
+        viewportMsg.value = ""
+    }
     document.getElementById("explosion").innerHTML = ""
 
 // create an engine
 var engine = Engine.create();
     engine.gravity.y = 0;
-
+var width = 0.5 * window.innerWidth > 800 ? 800 : window.innerWidth < 768 ? 0.65 * window.innerWidth : 0.5 * window.innerWidth;
+var height= width;
     // create a renderer
 var render = Render.create({
     element: document.getElementById('explosion'),
     engine: engine,
     options: {
-        width: 800,
-        height: 800,
+        width: width,
+        height: height,
         wireframes: false,
         background: "#000"
     }
@@ -39,22 +46,22 @@ Render.run(render);
 // create runner
 
 var walls = [
-        Bodies.rectangle(-50, 400, 100, 800, { isStatic: true, render: { visible: true }, restitution: 1 }),
-        Bodies.rectangle(850, 400, 100, 800, { isStatic: true, render: { visible: true }, restitution: 1 }),
-        Bodies.rectangle(400, -50, 800, 100, { isStatic: true, render: { visible: true }, restitution: 1 }),
-        Bodies.rectangle(400, 850, 800, 100, { isStatic: true, render: { visible: true }, restitution: 1 })
+        Bodies.rectangle(-50/800*width, 400/800*width, 100/800*width, 800/800*width, { isStatic: true, render: { visible: true }, restitution: 1 }),
+        Bodies.rectangle(850/800*width, 400/800*width, 100/800*width, 800/800*width, { isStatic: true, render: { visible: true }, restitution: 1 }),
+        Bodies.rectangle(400/800*width, -50/800*width, 800/800*width, 100/800*width, { isStatic: true, render: { visible: true }, restitution: 1 }),
+        Bodies.rectangle(400/800*width, 850/800*width, 800/800*width, 100/800*width, { isStatic: true, render: { visible: true }, restitution: 1 })
     ];
 
   particles.length = 0; // reset
   const cols = 10;
   const rows = 10;
-  const spacing = 30;
-  const startX = 400 - (cols * spacing) / 2;
-  const startY = 400 - (rows * spacing) / 2;
+  const spacing = 30/800*width;
+  const startX = (400/800*width - (cols * spacing) / 2);
+  const startY = (400/800*width - (rows * spacing) / 2);
 
   for (let i = 0; i < cols; i++) {
     for (let j = 0; j < rows; j++) {
-      const circle = Bodies.circle(startX + i * spacing, startY + j * spacing, 8, {
+      const circle = Bodies.circle(startX + i * spacing, startY + j * spacing, 8/800*width, {
         restitution: 1,
         friction: 0,
         frictionAir: 0,
@@ -75,7 +82,8 @@ Runner.run(runner, engine);
 }
 
 function Explode() {
-    const center = { x: 400, y: 400 };
+    var width = 0.5 * window.innerWidth > 800 ? 800 : window.innerWidth < 768 ? 0.65 * window.innerWidth : 0.5 * window.innerWidth;
+    const center = { x: 400/800*width, y: 400/800*width };
 
     particles.forEach(body => {
       const dx = body.position.x - center.x;
@@ -84,8 +92,8 @@ function Explode() {
       const forceMagnitude = strength.value * body.mass;
 
       Body.applyForce(body, body.position, {
-        x: (dx / (distance * distance)) * forceMagnitude,
-        y: (dy / (distance * distance)) * forceMagnitude
+        x: (dx / (distance * distance)) * forceMagnitude/800*width,
+        y: (dy / (distance * distance)) * forceMagnitude/800*width
       });
     });
 
@@ -215,7 +223,8 @@ onMounted(()=>{
                 <button class="btn btn-outline-primary mb-3" @click="Explode">&nbsp;💥&nbsp;</button>
                 <div id="explosion"></div>
                 <button class="btn btn-outline-primary" @click="runExplosion()">Reset</button><br>
-                <label> Explosion Strength: {{ strength }} </label><br><input type="range" class="form-range" v-model="strength" min="0.5" max="20" step="0.01" style="width:fit-content"/>
+                <label> Explosion Strength: {{ strength }} </label><br><input type="range" class="form-range" v-model="strength" min="0.5" max="20" step="0.01" style="width:fit-content"/><br>
+                <span class="warn">{{viewportMsg }}</span>
                 </figure>
                 <br>
                 A few technical details for the interested here. The explosion gets weaker with the square of the distance from the 
