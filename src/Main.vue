@@ -184,7 +184,7 @@ function hideMobileBar() {
 
 <template>
   <!-- MOBILE NAVBAR -->
-  <nav class="navbar d-flex" id="mobile-nav"
+  <nav class="navbar" id="mobile-nav"
     :style="!sidebar ? 'display:none;' : 'z-index:1;animation:fadein 1s forwards;position:fixed;width:100%;left:0;background-color: var(--bs-content-bg); border-bottom: var(--bs-border-width) solid var(--bs-content-border-color);'">
       <a href="#mobile-menu" role="button" style="margin-left:15px;" data-bs-toggle="offcanvas">
         <span class="navbar-toggler-icon"></span>
