@@ -198,7 +198,7 @@ function hideMobileBar() {
   <!-- START OF MOBILE SIDEBAR -->
   <div class="sidebar offcanvas offcanvas-start" id="mobile-menu">
     <div class="offcanvas-header border-bottom border-secondary border-opacity-25">
-      <a class="sidebar-brand mx-auto" href="javascript:void(0);" @click="user.current = 'landing'; hideMobileBar()">
+      <a class="sidebar-brand mx-auto" href="javascript:void(0);" @click="Window.scrollTo(0,0);user.current = 'landing'; hideMobileBar()">
         <img src="/favicon.png" width="24" height="24" class="d-inline-block align-text-top rounded-1">
         The AntiMatter Lab
       </a>
@@ -218,7 +218,7 @@ function hideMobileBar() {
         <li v-for="lesson in filteredLessons.kinematics">
           <a href="javascript:void(0);" :class="user.current === lesson ? 'text-body-emphasis nav-link' : 'nav-link'"
             :style="user.current === lesson ? 'text-decoration: underline' : ''"
-            @click="user.current = lesson; hideMobileBar()">{{
+            @click="Window.scrollTo(0,0);user.current = lesson; hideMobileBar()">{{
               lesson }}</a>
         </li>
 
@@ -233,7 +233,7 @@ function hideMobileBar() {
         <li v-for="lesson in filteredLessons.dynamics">
           <a href="javascript:void(0);" :class="user.current === lesson ? 'text-body-emphasis nav-link' : 'nav-link'"
             :style="user.current === lesson ? 'text-decoration: underline' : ''"
-            @click="user.current = lesson; hideMobileBar()">{{
+            @click="Window.scrollTo(0,0);user.current = lesson; hideMobileBar()">{{
               lesson }}</a>
         </li>
 
@@ -248,7 +248,7 @@ function hideMobileBar() {
         <li v-for="lesson in filteredLessons.circularGravity">
           <a href="javascript:void(0);" :class="user.current === lesson ? 'text-body-emphasis nav-link' : 'nav-link'"
             :style="user.current === lesson ? 'text-decoration: underline' : ''"
-            @click="user.current = lesson; hideMobileBar()">{{
+            @click="Window.scrollTo(0,0);user.current = lesson; hideMobileBar()">{{
               lesson }}</a>
         </li>
 
@@ -263,7 +263,7 @@ function hideMobileBar() {
         <li v-for="lesson in filteredLessons.energy">
           <a href="javascript:void(0);" :class="user.current === lesson ? 'text-body-emphasis nav-link' : 'nav-link'"
             :style="user.current === lesson ? 'text-decoration: underline' : ''"
-            @click="user.current = lesson; hideMobileBar()">{{
+            @click="Window.scrollTo(0,0);user.current = lesson; hideMobileBar()">{{
               lesson }}</a>
         </li>
 
@@ -278,7 +278,7 @@ function hideMobileBar() {
         <li v-for="lesson in filteredLessons.momentum">
           <a href="javascript:void(0);" :class="user.current === lesson ? 'text-body-emphasis nav-link' : 'nav-link'"
             :style="user.current === lesson ? 'text-decoration: underline' : ''"
-            @click="user.current = lesson; hideMobileBar()">{{
+            @click="Window.scrollTo(0,0);user.current = lesson; hideMobileBar()">{{
               lesson }}</a>
         </li>
 
@@ -293,7 +293,7 @@ function hideMobileBar() {
         <li v-for="lesson in filteredLessons.rotation">
           <a href="javascript:void(0);" :class="user.current === lesson ? 'text-body-emphasis nav-link' : 'nav-link'"
             :style="user.current === lesson ? 'text-decoration: underline' : ''"
-            @click="user.current = lesson; hideMobileBar()">{{
+            @click="Window.scrollTo(0,0);user.current = lesson; hideMobileBar()">{{
               lesson }}</a>
         </li>
 
@@ -307,7 +307,7 @@ function hideMobileBar() {
         <li v-for="lesson in filteredLessons.oscillations">
           <a href="javascript:void(0);" :class="user.current === lesson ? 'text-body-emphasis nav-link' : 'nav-link'"
             :style="user.current === lesson ? 'text-decoration: underline' : ''"
-            @click="user.current = lesson; hideMobileBar()">{{
+            @click="Window.scrollTo(0,0);user.current = lesson; hideMobileBar()">{{
               lesson }}</a>
         </li>
 
@@ -326,7 +326,7 @@ function hideMobileBar() {
         <option value="light">Light</option>
       </select>
       <span class="text-secondary-emphasis">Made by Edward Jiang and Eric Niu</span><br style="margin-bottom:10px">
-      <a href="javascript:void(0);" @click="user.current = 'about'; hideMobileBar()"
+      <a href="javascript:void(0);" @click="Window.scrollTo(0,0);user.current = 'about'; hideMobileBar()"
         class="text-decoration-none">About</a>&nbsp;&nbsp;
       <a href="https://github.com/Edward358-AI/The-AntiMatter-Lab" target="_blank" class="text-decoration-none"
         @click="hideMobileBar()">Github</a>
@@ -337,7 +337,7 @@ function hideMobileBar() {
   <div class="sidebar offcanvas-start offcanvas-md" id="menu"
     :style="sidebar ? 'animation: slideRight 0.3s forwards' : ''">
     <div class="offcanvas-header border-bottom border-secondary border-opacity-25">
-      <a class="sidebar-brand mx-auto" href="javascript:void(0);" @click="user.current = 'landing'">
+      <a class="sidebar-brand mx-auto" href="javascript:void(0);" @click="Window.scrollTo(0,0);user.current = 'landing'">
         <img src="/favicon.png" width="24" height="24" class="d-inline-block align-text-top rounded-1">
         The AntiMatter Lab
       </a>
@@ -355,7 +355,7 @@ function hideMobileBar() {
         </li>
         <li v-for="lesson in filteredLessons.kinematics">
           <a href="javascript:void(0);" :class="user.current === lesson ? 'text-body-emphasis nav-link' : 'nav-link'"
-            :style="user.current === lesson ? 'text-decoration: underline' : ''" @click="user.current = lesson">{{
+            :style="user.current === lesson ? 'text-decoration: underline' : ''" @click="Window.scrollTo(0,0);user.current = lesson">{{
               lesson }}</a>
         </li>
 
@@ -369,7 +369,7 @@ function hideMobileBar() {
         </li>
         <li v-for="lesson in filteredLessons.dynamics">
           <a href="javascript:void(0);" :class="user.current === lesson ? 'text-body-emphasis nav-link' : 'nav-link'"
-            :style="user.current === lesson ? 'text-decoration: underline' : ''" @click="user.current = lesson">{{
+            :style="user.current === lesson ? 'text-decoration: underline' : ''" @click="Window.scrollTo(0,0);user.current = lesson">{{
               lesson }}</a>
         </li>
 
@@ -383,7 +383,7 @@ function hideMobileBar() {
         </li>
         <li v-for="lesson in filteredLessons.circularGravity">
           <a href="javascript:void(0);" :class="user.current === lesson ? 'text-body-emphasis nav-link' : 'nav-link'"
-            :style="user.current === lesson ? 'text-decoration: underline' : ''" @click="user.current = lesson">{{
+            :style="user.current === lesson ? 'text-decoration: underline' : ''" @click="Window.scrollTo(0,0);user.current = lesson">{{
               lesson }}</a>
         </li>
 
@@ -397,7 +397,7 @@ function hideMobileBar() {
         </li>
         <li v-for="lesson in filteredLessons.energy">
           <a href="javascript:void(0);" :class="user.current === lesson ? 'text-body-emphasis nav-link' : 'nav-link'"
-            :style="user.current === lesson ? 'text-decoration: underline' : ''" @click="user.current = lesson">{{
+            :style="user.current === lesson ? 'text-decoration: underline' : ''" @click="Window.scrollTo(0,0);user.current = lesson">{{
               lesson }}</a>
         </li>
 
@@ -411,7 +411,7 @@ function hideMobileBar() {
         </li>
         <li v-for="lesson in filteredLessons.momentum">
           <a href="javascript:void(0);" :class="user.current === lesson ? 'text-body-emphasis nav-link' : 'nav-link'"
-            :style="user.current === lesson ? 'text-decoration: underline' : ''" @click="user.current = lesson">{{
+            :style="user.current === lesson ? 'text-decoration: underline' : ''" @click="Window.scrollTo(0,0);user.current = lesson">{{
               lesson }}</a>
         </li>
 
@@ -425,7 +425,7 @@ function hideMobileBar() {
         </li>
         <li v-for="lesson in filteredLessons.rotation">
           <a href="javascript:void(0);" :class="user.current === lesson ? 'text-body-emphasis nav-link' : 'nav-link'"
-            :style="user.current === lesson ? 'text-decoration: underline' : ''" @click="user.current = lesson">{{
+            :style="user.current === lesson ? 'text-decoration: underline' : ''" @click="Window.scrollTo(0,0);user.current = lesson">{{
               lesson }}</a>
         </li>
 
@@ -438,7 +438,7 @@ function hideMobileBar() {
         </li>
         <li v-for="lesson in filteredLessons.oscillations">
           <a href="javascript:void(0);" :class="user.current === lesson ? 'text-body-emphasis nav-link' : 'nav-link'"
-            :style="user.current === lesson ? 'text-decoration: underline' : ''" @click="user.current = lesson">{{
+            :style="user.current === lesson ? 'text-decoration: underline' : ''" @click="Window.scrollTo(0,0);user.current = lesson">{{
               lesson }}</a>
         </li>
 
@@ -457,7 +457,7 @@ function hideMobileBar() {
         <option value="light">Light</option>
       </select>
       <span class="text-secondary-emphasis">Made by Edward Jiang and Eric Niu</span><br style="margin-bottom:10px">
-      <a href="javascript:void(0);" @click="user.current = 'about'" class="text-decoration-none">About</a>&nbsp;&nbsp;
+      <a href="javascript:void(0);" @click="Window.scrollTo(0,0);user.current = 'about'" class="text-decoration-none">About</a>&nbsp;&nbsp;
       <a href="https://github.com/Edward358-AI/The-AntiMatter-Lab" target="_blank"
         class="text-decoration-none">Github</a>
     </div>
