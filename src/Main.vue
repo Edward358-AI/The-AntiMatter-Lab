@@ -468,130 +468,130 @@ function hideMobileBar() {
 
   <Vectors v-show="user.current === lessons.kinematics[0]" :level="user.difficulty" :page="user.page.Vectors"
     @nextpage="Window.scrollTo(0, 0); user.page.Vectors++" @prevpage="Window.scrollTo(0, 0); user.page.Vectors--"
-    @nextlesson="Window.scrollTo(0, 0); user.current = lessons.kinematics[1]" />
+    @nextlesson="Window.scrollTo(0, 0); user.current = lessons.kinematics[1];user.page.Vectors=0" />
   <DimenAnalyz v-show="user.current === lessons.kinematics[1]" :level="user.difficulty" :page="user.page.DimenAnalyz"
     @nextpage="Window.scrollTo(0, 0); user.page.DimenAnalyz++"
     @prevpage="Window.scrollTo(0, 0); user.page.DimenAnalyz--"
-    @nextlesson="Window.scrollTo(0, 0); user.current = lessons.kinematics[2]" />
+    @nextlesson="Window.scrollTo(0, 0); user.current = lessons.kinematics[2];user.page.DimenAnalyz=0" />
   <PosVelAcc v-show="user.current === lessons.kinematics[2]" :level="user.difficulty" :page="user.page.PosVelAcc"
     @nextpage="Window.scrollTo(0, 0); user.page.PosVelAcc++" @prevpage="Window.scrollTo(0, 0); user.page.PosVelAcc--"
-    @nextlesson="Window.scrollTo(0, 0); user.current = lessons.kinematics[3]" />
+    @nextlesson="Window.scrollTo(0, 0); user.current = lessons.kinematics[3];user.page.PosVelAcc=0" />
   <OneDMotion v-show="user.current === lessons.kinematics[3]" :level="user.difficulty" :page="user.page.OneDMotion"
     @nextpage="Window.scrollTo(0, 0); user.page.OneDMotion++" @prevpage="Window.scrollTo(0, 0); user.page.OneDMotion--"
-    @nextlesson="Window.scrollTo(0, 0); user.current = lessons.kinematics[4]" />
+    @nextlesson="Window.scrollTo(0, 0); user.current = lessons.kinematics[4];user.page.OneDMotion=0" />
   <TwoDMotion v-show="user.current === lessons.kinematics[4]" :level="user.difficulty" :page="user.page.TwoDMotion"
     @nextpage="Window.scrollTo(0, 0); user.page.TwoDMotion++" @prevpage="Window.scrollTo(0, 0); user.page.TwoDMotion--"
-    @nextlesson="Window.scrollTo(0, 0); user.current = lessons.kinematics[5]" />
+    @nextlesson="Window.scrollTo(0, 0); user.current = lessons.kinematics[5];user.page.TwoDMotion=0" />
   <RelativeVel v-show="user.current === lessons.kinematics[5]" :level="user.difficulty" :page="user.page.RelativeVel"
     @nextpage="Window.scrollTo(0, 0); user.page.RelativeVel++"
     @prevpage="Window.scrollTo(0, 0); user.page.RelativeVel--"
-    @nextlesson="Window.scrollTo(0, 0); user.current = lessons.dynamics[0]" />
+    @nextlesson="Window.scrollTo(0, 0); user.current = lessons.dynamics[0];user.page.RelativeVel=0" />
 
   <Newton v-show="user.current === lessons.dynamics[0]" :level="user.difficulty" :page="user.page.Newton"
     @nextpage="Window.scrollTo(0, 0); user.page.Newton++" @prevpage="Window.scrollTo(0, 0); user.page.Newton--"
-    @nextlesson="Window.scrollTo(0, 0); user.current = lessons.dynamics[1]" />
+    @nextlesson="Window.scrollTo(0, 0); user.current = lessons.dynamics[1];user.page.Newton=0" />
   <OtherForces v-show="user.current === lessons.dynamics[1]" :level="user.difficulty" :page="user.page.OtherForces"
     @nextpage="Window.scrollTo(0, 0); user.page.OtherForces++"
     @prevpage="Window.scrollTo(0, 0); user.page.OtherForces--"
-    @nextlesson="Window.scrollTo(0, 0); user.current = lessons.dynamics[2]" />
+    @nextlesson="Window.scrollTo(0, 0); user.current = lessons.dynamics[2];user.page.OtherForces=0" />
   <FmaFBD v-show="user.current === lessons.dynamics[2]" :level="user.difficulty" :page="user.page.FmaFBD"
     @nextpage="Window.scrollTo(0, 0); user.page.FmaFBD++" @prevpage="Window.scrollTo(0, 0); user.page.FmaFBD--"
-    @nextlesson="Window.scrollTo(0, 0); user.current = lessons.dynamics[3]" />
+    @nextlesson="Window.scrollTo(0, 0); user.current = lessons.dynamics[3];user.page.FmaFBD=0" />
   <InclinedPlanes v-show="user.current === lessons.dynamics[3]" :level="user.difficulty"
     :page="user.page.InclinedPlanes" @nextpage="Window.scrollTo(0, 0); user.page.InclinedPlanes++"
     @prevpage="Window.scrollTo(0, 0); user.page.InclinedPlanes--"
-    @nextlesson="Window.scrollTo(0, 0); user.current = lessons.dynamics[4]" />
+    @nextlesson="Window.scrollTo(0, 0); user.current = lessons.dynamics[4];user.page.InclinedPLanes=0" />
   <Spring v-show="user.current === lessons.dynamics[4]" :level="user.difficulty" :page="user.page.Spring"
     @nextpage="Window.scrollTo(0, 0); user.page.Spring++" @prevpage="Window.scrollTo(0, 0); user.page.Spring--"
-    @nextlesson="Window.scrollTo(0, 0); user.current = lessons.circularGravity[0]" />
+    @nextlesson="Window.scrollTo(0, 0); user.current = lessons.circularGravity[0];user.page.Spring=0" />
 
   <Centripetal v-show="user.current === lessons.circularGravity[0]" :level="user.difficulty"
     :page="user.page.Centripetal" @nextpage="Window.scrollTo(0, 0); user.page.Centripetal++"
     @prevpage="Window.scrollTo(0, 0); user.page.Centripetal--"
-    @nextlesson="Window.scrollTo(0, 0); user.current = lessons.circularGravity[1]" />
+    @nextlesson="Window.scrollTo(0, 0); user.current = lessons.circularGravity[1];user.page.Centripetal=0" />
   <Fictious v-show="user.current === lessons.circularGravity[1]" :level="user.difficulty" :page="user.page.Fictious"
     @nextpage="Window.scrollTo(0, 0); user.page.Fictious++" @prevpage="Window.scrollTo(0, 0); user.page.Fictious--"
-    @nextlesson="Window.scrollTo(0, 0); user.current = lessons.circularGravity[2]" />
+    @nextlesson="Window.scrollTo(0, 0); user.current = lessons.circularGravity[2];user.page.Fictious=0" />
   <GravityLaws v-show="user.current === lessons.circularGravity[2]" :level="user.difficulty"
     :page="user.page.GravityLaws" @nextpage="Window.scrollTo(0, 0); user.page.GravityLaws++"
     @prevpage="Window.scrollTo(0, 0); user.page.GravityLaws--"
-    @nextlesson="Window.scrollTo(0, 0); user.current = lessons.circularGravity[3]" />
+    @nextlesson="Window.scrollTo(0, 0); user.current = lessons.circularGravity[3];user.page.GravityLaws" />
   <Kepler v-show="user.current === lessons.circularGravity[3]" :level="user.difficulty" :page="user.page.Kepler"
     @nextpage="Window.scrollTo(0, 0); user.page.Kepler++" @prevpage="Window.scrollTo(0, 0); user.page.Kepler--"
-    @nextlesson="Window.scrollTo(0, 0); user.current = lessons.energy[0]" />
+    @nextlesson="Window.scrollTo(0, 0); user.current = lessons.energy[0];user.page.Kepler=0" />
 
   <DotProd v-show="user.current === lessons.energy[0]" :level="user.difficulty" :page="user.page.DotProd"
     @nextpage="Window.scrollTo(0, 0); user.page.DotProd++" @prevpage="Window.scrollTo(0, 0); user.page.DotProd--"
-    @nextlesson="Window.scrollTo(0, 0); user.current = lessons.energy[1]" />
+    @nextlesson="Window.scrollTo(0, 0); user.current = lessons.energy[1];user.page.DotProd=0" />
   <Work v-show="user.current === lessons.energy[1]" :level="user.difficulty" :page="user.page.Work"
     @nextpage="Window.scrollTo(0, 0); user.page.Work++" @prevpage="Window.scrollTo(0, 0); user.page.Work--"
-    @nextlesson="Window.scrollTo(0, 0); user.current = lessons.energy[2]" />
+    @nextlesson="Window.scrollTo(0, 0); user.current = lessons.energy[2];user.page.Work=0" />
   <Energy v-show="user.current === lessons.energy[2]" :level="user.difficulty" :page="user.page.Energy"
     @nextpage="Window.scrollTo(0, 0); user.page.Energy++" @prevpage="Window.scrollTo(0, 0); user.page.Energy--"
-    @nextlesson="Window.scrollTo(0, 0); user.current = lessons.energy[3]" />
+    @nextlesson="Window.scrollTo(0, 0); user.current = lessons.energy[3];user.page.Energy=0" />
   <EqTypes v-show="user.current === lessons.energy[3]" :level="user.difficulty" :page="user.page.EqTypes"
     @nextpage="Window.scrollTo(0, 0); user.page.EqTypes++" @prevpage="Window.scrollTo(0, 0); user.page.EqTypes--"
-    @nextlesson="Window.scrollTo(0, 0); user.current = lessons.energy[4]" />
+    @nextlesson="Window.scrollTo(0, 0); user.current = lessons.energy[4];user.page.EqTypes=0" />
   <Power v-show="user.current === lessons.energy[4]" :level="user.difficulty" :page="user.page.Power"
     @nextpage="Window.scrollTo(0, 0); user.page.Power++" @prevpage="Window.scrollTo(0, 0); user.page.Power--"
-    @nextlesson="Window.scrollTo(0, 0); user.current = lessons.energy[5]" />
+    @nextlesson="Window.scrollTo(0, 0); user.current = lessons.energy[5];user.page.Power=0" />
   <GravEnergy v-show="user.current === lessons.energy[5]" :level="user.difficulty" :page="user.page.GravEnergy"
     @nextpage="Window.scrollTo(0, 0); user.page.GravEnergy++" @prevpage="Window.scrollTo(0, 0); user.page.GravEnergy--"
-    @nextlesson="Window.scrollTo(0, 0); user.current = lessons.momentum[0]" />
+    @nextlesson="Window.scrollTo(0, 0); user.current = lessons.momentum[0];user.page.GravEnergy=0" />
 
   <Impulse v-show="user.current === lessons.momentum[0]" :level="user.difficulty" :page="user.page.Impulse"
     @nextpage="Window.scrollTo(0, 0); user.page.Impulse++" @prevpage="Window.scrollTo(0, 0); user.page.Impulse--"
-    @nextlesson="Window.scrollTo(0, 0); user.current = lessons.momentum[1]" />
+    @nextlesson="Window.scrollTo(0, 0); user.current = lessons.momentum[1];user.page.Impulse=0" />
   <LinMomConsrv v-show="user.current === lessons.momentum[1]" :level="user.difficulty" :page="user.page.LinMomConsrv"
     @nextpage="Window.scrollTo(0, 0); user.page.LinMomConsrv++"
     @prevpage="Window.scrollTo(0, 0); user.page.LinMomConsrv--"
-    @nextlesson="Window.scrollTo(0, 0); user.current = lessons.momentum[2]" />
+    @nextlesson="Window.scrollTo(0, 0); user.current = lessons.momentum[2];user.page.LinMomConsrv=0" />
   <CenterOfMass v-show="user.current === lessons.momentum[2]" :level="user.difficulty" :page="user.page.CenterOfMass"
     @nextpage="Window.scrollTo(0, 0); user.page.CenterOfMass++"
     @prevpage="Window.scrollTo(0, 0); user.page.CenterOfMass--"
-    @nextlesson="Window.scrollTo(0, 0); user.current = lessons.momentum[3]" />
+    @nextlesson="Window.scrollTo(0, 0); user.current = lessons.momentum[3];user.page.CenterOfMass=0" />
   <Collisions v-show="user.current === lessons.momentum[3]" :level="user.difficulty" :page="user.page.Collisions"
     @nextpage="Window.scrollTo(0, 0); user.page.Collisions++" @prevpage="Window.scrollTo(0, 0); user.page.Collisions--"
-    @nextlesson="Window.scrollTo(0, 0); user.current = lessons.momentum[4]" />
+    @nextlesson="Window.scrollTo(0, 0); user.current = lessons.momentum[4];user.page.Collisions=0" />
   <Explosions v-show="user.current === lessons.momentum[4]" :level="user.difficulty" :page="user.page.Explosions"
     @nextpage="Window.scrollTo(0, 0); user.page.Explosions++" @prevpage="Window.scrollTo(0, 0); user.page.Explosions--"
-    @nextlesson="Window.scrollTo(0, 0); user.current = lessons.rotation[0]" />
+    @nextlesson="Window.scrollTo(0, 0); user.current = lessons.rotation[0];user.page.Explosions=0" />
 
   <RotationalKinematics v-show="user.current === lessons.rotation[0]" :level="user.difficulty"
     :page="user.page.RotationalKinematics" @nextpage="Window.scrollTo(0, 0); user.page.RotationalKinematics++"
     @prevpage="Window.scrollTo(0, 0); user.page.RotationalKinematics--"
-    @nextlesson="Window.scrollTo(0, 0); user.current = lessons.rotation[1]" />
+    @nextlesson="Window.scrollTo(0, 0); user.current = lessons.rotation[1];user.page.RotationalKinematics=0" />
   <Torque v-show="user.current === lessons.rotation[1]" :level="user.difficulty" :page="user.page.Torque"
     @nextpage="Window.scrollTo(0, 0); user.page.Torque++" @prevpage="Window.scrollTo(0, 0); user.page.Torque--"
-    @nextlesson="Window.scrollTo(0, 0); user.current = lessons.rotation[2]" />
+    @nextlesson="Window.scrollTo(0, 0); user.current = lessons.rotation[2];user.page.Torque=0" />
   <MomentInertia v-show="user.current === lessons.rotation[2]" :level="user.difficulty" :page="user.page.MomentInertia"
     @nextpage="Window.scrollTo(0, 0); user.page.MomentInertia++"
     @prevpage="Window.scrollTo(0, 0); user.page.MomentInertia--"
-    @nextlesson="Window.scrollTo(0, 0); user.current = lessons.rotation[3]" />
+    @nextlesson="Window.scrollTo(0, 0); user.current = lessons.rotation[3];user.page.MomentInertia=0" />
   <RotationalDynamics v-show="user.current === lessons.rotation[3]" :level="user.difficulty"
     :page="user.page.RotationalDynamics" @nextpage="Window.scrollTo(0, 0); user.page.RotationalDynamics++"
     @prevpage="Window.scrollTo(0, 0); user.page.RotationalDynamics--"
-    @nextlesson="Window.scrollTo(0, 0); user.current = lessons.rotation[4]" />
+    @nextlesson="Window.scrollTo(0, 0); user.current = lessons.rotation[4];user.page.RotationalDynamics=0" />
   <Rolling v-show="user.current === lessons.rotation[4]" :level="user.difficulty" :page="user.page.Rolling"
     @nextpage="Window.scrollTo(0, 0); user.page.Rolling++" @prevpage="Window.scrollTo(0, 0); user.page.Rolling--"
-    @nextlesson="Window.scrollTo(0, 0); user.current = lessons.rotation[5]" />
+    @nextlesson="Window.scrollTo(0, 0); user.current = lessons.rotation[5];user.page.Rolling=0" />
   <AngMomentum v-show="user.current === lessons.rotation[5]" :level="user.difficulty" :page="user.page.AngMomentum"
     @nextpage="Window.scrollTo(0, 0); user.page.AngMomentum++"
     @prevpage="Window.scrollTo(0, 0); user.page.AngMomentum--"
-    @nextlesson="Window.scrollTo(0, 0); user.current = lessons.oscillations[0]" />
+    @nextlesson="Window.scrollTo(0, 0); user.current = lessons.oscillations[0];user.page.AngMomentum=0" />
 
   <SHM v-show="user.current === lessons.oscillations[0]" :level="user.difficulty" :page="user.page.SHM"
     @nextpage="Window.scrollTo(0, 0); user.page.SHM++" @prevpage="Window.scrollTo(0, 0); user.page.SHM--"
-    @nextlesson="Window.scrollTo(0, 0); user.current = lessons.oscillations[1]" />
+    @nextlesson="Window.scrollTo(0, 0); user.current = lessons.oscillations[1];user.page.SHM=0" />
   <SpringOsc v-show="user.current === lessons.oscillations[1]" :level="user.difficulty" :page="user.page.SpringOsc"
     @nextpage="Window.scrollTo(0, 0); user.page.SpringOsc++" @prevpage="Window.scrollTo(0, 0); user.page.SpringOsc--"
-    @nextlesson="Window.scrollTo(0, 0); user.current = lessons.oscillations[2]" />
+    @nextlesson="Window.scrollTo(0, 0); user.current = lessons.oscillations[2];user.page.SpringOsc=0" />
   <Pendulum v-show="user.current === lessons.oscillations[2]" :level="user.difficulty" :page="user.page.Pendulum"
     @nextpage="Window.scrollTo(0, 0); user.page.Pendulum++" @prevpage="Window.scrollTo(0, 0); user.page.Pendulum--"
-    @nextlesson="Window.scrollTo(0, 0); user.current = lessons.oscillations[3]" />
+    @nextlesson="Window.scrollTo(0, 0); user.current = lessons.oscillations[3];user.page.Pendulum=0" />
   <OtherOsc v-show="user.current === lessons.oscillations[3]" :level="user.difficulty" :page="user.page.OtherOsc"
     @nextpage="Window.scrollTo(0, 0); user.page.OtherOsc++" @prevpage="Window.scrollTo(0, 0); user.page.OtherOsc--"
-    @nextlesson="Window.scrollTo(0, 0); user.current = 'landing'" />
+    @nextlesson="Window.scrollTo(0, 0); user.current = 'landing';user.page.OtherOsc=0" />
 
 </template>
 
