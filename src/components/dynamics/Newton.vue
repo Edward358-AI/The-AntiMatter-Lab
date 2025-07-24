@@ -166,27 +166,36 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
             <br><br>
             <figure>
                 <img src="/src/assets/dynamics/Figure 14.png" />
-                <figcaption>Figure 2: A gun being fired, with force vectors indicating Newton's Third Law in action.</figcaption>
+                <figcaption>Figure 2: A gun being fired, with force vectors indicating Newton's Third Law in action.
+                </figcaption>
             </figure>
             <br>
             <p>
-            Let’s take a look at why Newton's Third Law is misunderstood sometimes. For example, say I asked you this question. What is the
-            opposite and reaction force of the gravitational force the Earth exerts on you?<br><br>Maybe you would say it is
-            the force that the ground exerts on you. However, this is actually incorrect. It is important to mention
-            that Newton’s Third Law only applies to pairs of forces that belong to the same interaction.
-            The interaction between you and Earth is completely different from the interaction between you and the
-            ground. The magnitude of the gravitational force that Earth exerts on you just happens to be of the same
-            magnitude, but they are of different interactions. 
-            <br><br>The Newton’s Third Law equivalent for the force the
-            ground exerts on you is the force you exert on the ground. Furthermore, you could have also reasoned that
-            the two forces both act on the same object (you, the person), so they cannot be part of an action-reaction
-            pair. An action-reaction force pair <b>always</b> acts on two different objects.
-            <br><br>
-            Surprisingly, Newton’s Third Law is not the most difficult to understand, it’s just that the way it is
-            interpreted and presented often times is incorrect. Newton states "action" and "reaction", but in truth, there is no action and reaction. From now on, we will call these pairs "Third Law Pairs", because that's what they are. Finally, as an ending note, intuitively, you can think of it this way: Newton’s
-            Third Law is like if I punch you in the face, I break my wrist, and not if I punch you, you punch me back. 
-            <br><br>
-            But all these are just concepts. (Except maybe the Second Law.) Now let's put them to use with free-body diagrams!
+                Let’s take a look at why Newton's Third Law is misunderstood sometimes. For example, say I asked you
+                this question. What is the
+                opposite and reaction force of the gravitational force the Earth exerts on you?<br><br>Maybe you would
+                say it is
+                the force that the ground exerts on you. However, this is actually incorrect. It is important to mention
+                that Newton’s Third Law only applies to pairs of forces that belong to the same interaction.
+                The interaction between you and Earth is completely different from the interaction between you and the
+                ground. The magnitude of the gravitational force that Earth exerts on you just happens to be of the same
+                magnitude, but they are of different interactions.
+                <br><br>The Newton’s Third Law equivalent for the force the
+                ground exerts on you is the force you exert on the ground. Furthermore, you could have also reasoned
+                that
+                the two forces both act on the same object (you, the person), so they cannot be part of an
+                action-reaction
+                pair. An action-reaction force pair <b>always</b> acts on two different objects.
+                <br><br>
+                Surprisingly, Newton’s Third Law is not the most difficult to understand, it’s just that the way it is
+                interpreted and presented often times is incorrect. Newton states "action" and "reaction", but in truth,
+                there is no action and reaction. From now on, we will call these pairs "Third Law Pairs", because that's
+                what they are. Finally, as an ending note, intuitively, you can think of it this way: Newton’s
+                Third Law is like if I punch you in the face, I break my wrist, and not if I punch you, you punch me
+                back.
+                <br><br>
+                But all these are just concepts. (Except maybe the Second Law.) Now let's put them to use with free-body
+                diagrams!
             </p>
             <div class="btn-contain-left">
                 <button class="btn btn-dark" style="animation: scale1 2s infinite;" @click="$emit('prevpage')">&larr;

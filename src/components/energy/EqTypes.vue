@@ -51,20 +51,20 @@ function runUnstableEq() {
     // run the engine
     Runner.run(runner, engine);
 
-    var pencilTip = Bodies.polygon(300/600*width, 300/600*width, 3, 11.54/600*width, {
+    var pencilTip = Bodies.polygon(300 / 600 * width, 300 / 600 * width, 3, 11.54 / 600 * width, {
         render: { fillStyle: '#ffa11b' },
         angle: Math.PI / 6,
     })
 
-    var pencilBody = Bodies.rectangle(300/600*width, 169.46/600*width, 20/600*width, 250/600*width, {
+    var pencilBody = Bodies.rectangle(300 / 600 * width, 169.46 / 600 * width, 20 / 600 * width, 250 / 600 * width, {
         render: { fillStyle: '#ffa11b' }
     })
 
-    var pencilEraser = Bodies.rectangle(300/600*width, 50/600*width, 20/600*width, 25/600*width, {
+    var pencilEraser = Bodies.rectangle(300 / 600 * width, 50 / 600 * width, 20 / 600 * width, 25 / 600 * width, {
         render: { fillStyle: 'pink' }
     })
 
-    var pencilLead = Bodies.polygon(300/600*width, 308.54/600*width, 3, 3/600*width, {
+    var pencilLead = Bodies.polygon(300 / 600 * width, 308.54 / 600 * width, 3, 3 / 600 * width, {
         render: { fillStyle: '#fff' },
         angle: Math.PI / 6,
     })
@@ -75,10 +75,10 @@ function runUnstableEq() {
     })
 
     var walls =
-        [Bodies.rectangle(700/600*width, 200/600*width, 200/600*width, 600/600*width, { isStatic: true, render: { visible: false } }),
-        Bodies.rectangle(-100/600*width, 200/600*width, 200/600*width, 600/600*width, { isStatic: true, render: { visible: false } }),
-        Bodies.rectangle(300/600*width, -100/600*width, 600/600*width, 200/600*width, { isStatic: true, render: { visible: false } }),
-        Bodies.rectangle(300/600*width, 500/600*width, 600/600*width, 300/600*width, { isStatic: true, render: { visible: true, fillStyle: "#888" } })
+        [Bodies.rectangle(700 / 600 * width, 200 / 600 * width, 200 / 600 * width, 600 / 600 * width, { isStatic: true, render: { visible: false } }),
+        Bodies.rectangle(-100 / 600 * width, 200 / 600 * width, 200 / 600 * width, 600 / 600 * width, { isStatic: true, render: { visible: false } }),
+        Bodies.rectangle(300 / 600 * width, -100 / 600 * width, 600 / 600 * width, 200 / 600 * width, { isStatic: true, render: { visible: false } }),
+        Bodies.rectangle(300 / 600 * width, 500 / 600 * width, 600 / 600 * width, 300 / 600 * width, { isStatic: true, render: { visible: true, fillStyle: "#888" } })
         ]
     Composite.add(engine.world, [pencil, ...walls])
 
@@ -159,7 +159,8 @@ onMounted(() => {
                 <br>
                 The three types of equilibrium are defined by the shape of the potential energy graph at the equilibrium
                 point. Now, let's look
-                at each of these in detail. <span v-show="level == 1">This is really supposed to be dependent on calculus,
+                at each of these in detail. <span v-show="level == 1">This is really supposed to be dependent on
+                    calculus,
                     but I'll do my
                     best to explain calculus concepts without actually invoking calculus. It isn't strictly required to
                     know calculus, but this is
@@ -513,7 +514,8 @@ onMounted(() => {
         <div v-show="page === 4">
             <span v-show="level < 2">
                 While it is very easy to qualitatively tell what kind of equilibrium a system is in, mathematically
-                the exact analysis unfortunately requires calculus. <span v-show="level == 1">It's unavoidable, so we will
+                the exact analysis unfortunately requires calculus. <span v-show="level == 1">It's unavoidable, so we
+                    will
                     have to deal
                     with this issue by testing your knowledge with conceptual questions.</span> With that said, let's
                 move on to doing a conceptual practice problem where you tell me whether each scenario is a stable,

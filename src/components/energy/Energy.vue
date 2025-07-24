@@ -28,13 +28,13 @@ function runCurvedRamp() {
     // Clear previous content
     const container = document.getElementById("curvedramp");
     container.innerHTML = "";
-var width = 0.5 * window.innerWidth > 800 ? 800 : window.innerWidth < 768 ? 0.65 * window.innerWidth : 0.5 * window.innerWidth;
-var height = width / 2;
+    var width = 0.5 * window.innerWidth > 800 ? 800 : window.innerWidth < 768 ? 0.65 * window.innerWidth : 0.5 * window.innerWidth;
+    var height = width / 2;
     // Create engine with gravity
     const engine = Engine.create({
-        gravity: { x: 0, y: 1/800*width }
+        gravity: { x: 0, y: 1 / 800 * width }
     });
-    
+
 
     // Create renderer
     const render = Render.create({
@@ -50,21 +50,21 @@ var height = width / 2;
     });
 
     // Create a simple U-shaped ramp using 3 parts: left wall, curve, right wall
-    const rampWidth = 30/800*width; // Thickness of ramp walls
-    const rampHeight = 200/800*width; // Height of straight sections
-    const curveRadius = 150/800*width; // How wide the U-shape is
+    const rampWidth = 30 / 800 * width; // Thickness of ramp walls
+    const rampHeight = 200 / 800 * width; // Height of straight sections
+    const curveRadius = 150 / 800 * width; // How wide the U-shape is
 
     // Left vertical wall
     const leftWall = Bodies.rectangle(
-        115/800*width, 200/800*width,
-        300/800*width, 30/800*width,
+        115 / 800 * width, 200 / 800 * width,
+        300 / 800 * width, 30 / 800 * width,
         { isStatic: true, render: { fillStyle: "#777" }, friction: 0 }
     );
 
     // Right vertical wall
     const rightWall = Bodies.rectangle(
-        685/800*width, 200/800*width,
-        300/800*width, 30/800*width,
+        685 / 800 * width, 200 / 800 * width,
+        300 / 800 * width, 30 / 800 * width,
         { isStatic: true, render: { fillStyle: "#777" }, friction: 0 }
     );
 
@@ -73,12 +73,12 @@ var height = width / 2;
     const curveParts = [];
     for (let i = 0; i < curveSegments; i++) {
         const angle = Math.PI * (i / curveSegments); // 0 to π (180 degrees)
-        const x = 400/800*width + curveRadius * Math.cos(angle);
-        const y = 200/800*width + curveRadius * Math.sin(angle);
+        const x = 400 / 800 * width + curveRadius * Math.cos(angle);
+        const y = 200 / 800 * width + curveRadius * Math.sin(angle);
 
         const segment = Matter.Bodies.rectangle(
             x, y,
-            rampWidth, 30/800*width,
+            rampWidth, 30 / 800 * width,
             {
                 isStatic: true,
                 angle: angle + Math.PI / 2, // Rotate to follow curve
@@ -90,17 +90,17 @@ var height = width / 2;
     }
     // Create boundaries (invisible)
     var walls = [
-        Bodies.rectangle(-50/800*width, 400/800*width, 100/800*width, 800/800*width, { isStatic: true, render: { visible: false } }),
-        Bodies.rectangle(850/800*width, 400/800*width, 100/800*width, 800/800*width, { isStatic: true, render: { visible: false } }),
-        Bodies.rectangle(400/800*width, -50/800*width, 800/800*width, 100/800*width, { isStatic: true, render: { visible: false } }),
-        Bodies.rectangle(400/800*width, 850/800*width, 800/800*width, 100/800*width, { isStatic: true, render: { visible: false } })
+        Bodies.rectangle(-50 / 800 * width, 400 / 800 * width, 100 / 800 * width, 800 / 800 * width, { isStatic: true, render: { visible: false } }),
+        Bodies.rectangle(850 / 800 * width, 400 / 800 * width, 100 / 800 * width, 800 / 800 * width, { isStatic: true, render: { visible: false } }),
+        Bodies.rectangle(400 / 800 * width, -50 / 800 * width, 800 / 800 * width, 100 / 800 * width, { isStatic: true, render: { visible: false } }),
+        Bodies.rectangle(400 / 800 * width, 850 / 800 * width, 800 / 800 * width, 100 / 800 * width, { isStatic: true, render: { visible: false } })
     ];
 
     // Add everything to the world
     Composite.add(engine.world, [leftWall, rightWall, ...curveParts, ...walls]);
 
     // Add a ball to test the ramp
-    const ball = Matter.Bodies.circle(400/800*width, 100/800*width, 30/800*width, {
+    const ball = Matter.Bodies.circle(400 / 800 * width, 100 / 800 * width, 30 / 800 * width, {
         render: { fillStyle: "#f00" },
         friction: 0,
         frictionAir: 0

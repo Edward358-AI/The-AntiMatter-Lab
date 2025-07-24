@@ -28,8 +28,8 @@ function run1dCollision() {
 
     // create an engine
     var engine = Engine.create();
-var width = 0.5 * window.innerWidth > 800 ? 800 : window.innerWidth < 768 ? 0.65 * window.innerWidth : 0.5 * window.innerWidth;
-var height = width / 2
+    var width = 0.5 * window.innerWidth > 800 ? 800 : window.innerWidth < 768 ? 0.65 * window.innerWidth : 0.5 * window.innerWidth;
+    var height = width / 2
     // create a renderer
     var render = Render.create({
         element: document.getElementById('1dCollision'),
@@ -42,21 +42,21 @@ var height = width / 2
         }
     });
 
-    var m_1 = parseFloat(mass1.value)/800*width
-    var m_2 = parseFloat(mass2.value)/800*width
-    var v_1 = parseFloat(vel1.value)/800*width
-    var v_2 = parseFloat(vel2.value)/800*width
+    var m_1 = parseFloat(mass1.value) / 800 * width
+    var m_2 = parseFloat(mass2.value) / 800 * width
+    var v_1 = parseFloat(vel1.value) / 800 * width
+    var v_2 = parseFloat(vel2.value) / 800 * width
 
     var restitution = parseFloat(elasticity.value)
 
-    var ground = Bodies.rectangle(400/800*width, 400/800*width, 800/800*width, 100/800*width, {
+    var ground = Bodies.rectangle(400 / 800 * width, 400 / 800 * width, 800 / 800 * width, 100 / 800 * width, {
         isStatic: true,
         render: { fillStyle: '#888' },
         friction: 0,
         restitution: 0
     })
 
-    var ball1 = Bodies.circle(200/800*width, 319/800*width, 30/800*width, {
+    var ball1 = Bodies.circle(200 / 800 * width, 319 / 800 * width, 30 / 800 * width, {
         friction: 0,
         frictionAir: 0,
         render: { fillStyle: '#00afe2' },
@@ -64,7 +64,7 @@ var height = width / 2
         restitution: restitution
     })
 
-    var ball2 = Bodies.circle(600/800*width, 320/800*width, 30/800*width, {
+    var ball2 = Bodies.circle(600 / 800 * width, 320 / 800 * width, 30 / 800 * width, {
         friction: 0,
         frictionAir: 0,
         render: { fillStyle: "#ff4a4a" },
@@ -73,8 +73,8 @@ var height = width / 2
     })
 
     var walls = [
-        Bodies.rectangle(-50/800*width, 200/800*width, 100/800*width, 400/800*width, { isStatic: true, render: { visible: false }, friction: 0, restitution: 1 }),
-        Bodies.rectangle(850/800*width, 200/800*width, 100/800*width, 400/800*width, { isStatic: true, render: { visible: false }, friction: 0, restitution: 1 })
+        Bodies.rectangle(-50 / 800 * width, 200 / 800 * width, 100 / 800 * width, 400 / 800 * width, { isStatic: true, render: { visible: false }, friction: 0, restitution: 1 }),
+        Bodies.rectangle(850 / 800 * width, 200 / 800 * width, 100 / 800 * width, 400 / 800 * width, { isStatic: true, render: { visible: false }, friction: 0, restitution: 1 })
     ]
 
     Composite.add(engine.world, [ground, ball1, ball2, ...walls],
@@ -118,19 +118,21 @@ onMounted(() => {
                 <div id="1dCollision"></div>
                 <button class="btn btn-outline-primary" @click="run1dCollision()">Reset</button><br>
 
-                    <div class="row justify-content-center"> <label>Blue ball mass: {{ mass1 }}</label><br><input type="range" class="form-range"
-                            v-model="mass1" min="1" max="100" step="0.1" style="width:fit-content" /><br><label>Blue ball
-                            speed: {{ vel1 }}</label><br><input type="range" class="form-range" v-model="vel1" min="-10" max="10"
-                            step="0.1" style="width:fit-content" /></div>
+                <div class="row justify-content-center"> <label>Blue ball mass: {{ mass1 }}</label><br><input
+                        type="range" class="form-range" v-model="mass1" min="1" max="100" step="0.1"
+                        style="width:fit-content" /><br><label>Blue ball
+                        speed: {{ vel1 }}</label><br><input type="range" class="form-range" v-model="vel1" min="-10"
+                        max="10" step="0.1" style="width:fit-content" /></div>
 
-                    <div class="row justify-content-center"> <label>Red ball mass: {{ mass2 }}</label> <br><input type="range" class="form-range"
-                            v-model="mass2" min="1" max="100" step="0.1" style="width:fit-content" />
-                        <br><label>Red ball speed: {{ vel2 }}</label> <br><input type="range" class="form-range" v-model="vel2" min="-10"
-                            max="10" step="0.1" style="width:fit-content" /><br>
-                    </div>
-                <label>Elasticity (bounciness): {{ elasticity }}</label> <br><input type="range" class="form-range" v-model="elasticity"
-                    min="0" max="1" step="0.01" style="width:fit-content" /><br>
-                    <span class="warn">{{ viewportMsg }}</span>
+                <div class="row justify-content-center"> <label>Red ball mass: {{ mass2 }}</label> <br><input
+                        type="range" class="form-range" v-model="mass2" min="1" max="100" step="0.1"
+                        style="width:fit-content" />
+                    <br><label>Red ball speed: {{ vel2 }}</label> <br><input type="range" class="form-range"
+                        v-model="vel2" min="-10" max="10" step="0.1" style="width:fit-content" /><br>
+                </div>
+                <label>Elasticity (bounciness): {{ elasticity }}</label> <br><input type="range" class="form-range"
+                    v-model="elasticity" min="0" max="1" step="0.01" style="width:fit-content" /><br>
+                <span class="warn">{{ viewportMsg }}</span>
             </figure>
             <br>
             Now, to explain what's going on. Essentially, you have two balls that collide with each other, with many

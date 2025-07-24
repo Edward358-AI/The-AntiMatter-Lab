@@ -34,7 +34,7 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                     exists. This is why we define vector quantities. They are quantities that have both magnitude and
                     direction. Graphically, the direction is the direction in which the arrow
                     points, and the magnitude is the length of the arrow.</span>
-                    <br><br>
+                <br><br>
             <figure>
                 <img src="/src/assets/kinematics/Figure 1.png" />
                 <figcaption><i>Figure 1: A representation of a vector.</i></figcaption>
@@ -213,7 +213,7 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                     of
                     algebraically representing vectors. Being able to represent them algebraically is key for doing any
                     sort of
-                    computation with them. 
+                    computation with them.
                     <br><br>
                     The first is to express a vector as a magnitude (length) and an angle,
                     usually
@@ -242,7 +242,7 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                     is in
                     the negative direction. If you actually consider the $x$ component as a horizontal vector, and the
                     $y$
-                    component as a vertical vector, they will sum up to the original vector. 
+                    component as a vertical vector, they will sum up to the original vector.
                     <br><br>
                     The unit vector notation
                     directly
@@ -287,7 +287,8 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                     components to produce the white components, as shown on the horizontal and vertical axes. The
                     smaller,
                     dashed white arrow shows you can move the components of the blue vectors to do tip-to-tail
-                    addition!<br><br>However, we may occasionally run into an issue here. How do we get the components of a
+                    addition!<br><br>However, we may occasionally run into an issue here. How do we get the components
+                    of a
                     vector
                     if we are not given them? Suppose we are given the magnitude and argument (angle), as we mentioned
                     before,
@@ -303,7 +304,7 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                     grasp, but you made it through the most basic and fundamental of all of it. The rest will be more
                     concepts
                     and less math (hopefully)! Ready to move on? Let's go!
-                    
+
                 </span>
             </p>
             <div class="btn-contain-left">
@@ -311,9 +312,9 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                     Previous</button>
             </div>
             <div class="btn-contain-right">
-                        <button class="btn btn-dark" style="animation: scale 2s infinite;"
-                            @click="$emit('nextlesson')">Next Lesson! &rarr;</button>
-                    </div>
+                <button class="btn btn-dark" style="animation: scale 2s infinite;" @click="$emit('nextlesson')">Next
+                    Lesson! &rarr;</button>
+            </div>
 
         </div>
     </div>

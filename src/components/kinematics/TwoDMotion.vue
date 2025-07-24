@@ -74,7 +74,7 @@ function runProjMotion() {
     }
 
     setTimeout(() => {
-        Body.setVelocity(ball, { x: v_x/1000*width, y: -v_y/1000*width });
+        Body.setVelocity(ball, { x: v_x / 1000 * width, y: -v_y / 1000 * width });
     }, 500); // 500ms delay before movement
 
 

@@ -111,7 +111,7 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                     are
                     units that are usually made through a combination of multiple units. For example, the unit for
                     velocity
-                    is meters per second, or $\frac{\textrm{m}}{\textrm{s}}$. What does this mean? 
+                    is meters per second, or $\frac{\textrm{m}}{\textrm{s}}$. What does this mean?
                     <br><br>
                     This tells you that
                     something is traveling $1$ meter per $1$ second (when I say $1$, even though there isn't any place
@@ -146,14 +146,16 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                     if we want to convert $1 ~ \textrm{L}$ to $\textrm{mL}$, and we know $1 ~ \textrm{L} = 1000 ~
                     \textrm{mL}$, we can do something like this: $$1 ~ \cancel{\textrm{L}} ~ \cdot ~ 1000 ~
                     \frac{\textrm{mL}}{\cancel{\textrm{L}}}$$ You notice how units are able to cancel out, just like you
-                    would do with variables or numbers!<br><br>Now let's see this in an equation. A simple equation you may
+                    would do with variables or numbers!<br><br>Now let's see this in an equation. A simple equation you
+                    may
                     already know is $\textrm{speed} \cdot \textrm{time} = \textrm{distance}$. Speed is measured in
                     $\frac{\textrm{meters}}{\textrm{second}}$, and time is measured in $\textrm{seconds}$. Thus, let's
                     use
                     some arbitrary numbers and see it in action! $$3 ~ \frac{\textrm{m}}{\cancel{\textrm{s}}} ~ \cdot ~
                     9 ~
                     \cancel{\textrm{s}} = 27 ~ \textrm{m}$$ Do we see how this works? Hopefully you understand how to do
-                    math with units now!<br><br>>Now, there are many other practical uses and applications of dimensional
+                    math with units now!<br><br>>Now, there are many other practical uses and applications of
+                    dimensional
                     analysis. One important use is to establish a relationship between two quantities. This is going a
                     little beyond the scope of this lesson, but say we wanted to relate displacement (unit:
                     $\textrm{m}$)
@@ -162,15 +164,16 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                     units, if we multiply acceleration by $\textrm{s}^2$, you can get our desired result.<br>IMPORTANT!
                     These letters are not referring to variables, but units! Don't forget that when you do math with
                     units!<br><br>Time has the dimension of $\textrm{s}$, so multiplying by time squared will give us
-                    displacement!Thus we craft an equation like so: 
+                    displacement!Thus we craft an equation like so:
                     <br>($\Delta x$ = displacement, $\Delta t$ = time,
                     $a$ =
-                    acceleration) <br><br>$$\Delta x \sim a \Delta t^2$$ <br>By realizing we can create relationships between two
+                    acceleration) <br><br>$$\Delta x \sim a \Delta t^2$$ <br>By realizing we can create relationships
+                    between two
                     quantities via equations is a powerful tool. The funning wavy looking symbol in the middle is simply
                     used to denote that the <i>dimensions</i> are equal, minus the possibility of extra constants, or
                     coefficients. If we used an equal sign instead, it could potentially be an incorrect statement since
                     we may have missed out on some constants or coefficients. Speaking of constants,
-                    some constants will have dimensions. 
+                    some constants will have dimensions.
                     <br><br>Again, you will learn these equations much later on, but this
                     is
                     just for reference. We know the force that gravity exerts on you can be given through this equation:
@@ -193,7 +196,8 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                     when
                     you input values into an equation, and not just inputting them because you were told to do so or
                     blindly
-                    doing so.<br><br>Now after reading that lesson, can you see why it is important to understand how the
+                    doing so.<br><br>Now after reading that lesson, can you see why it is important to understand how
+                    the
                     unit
                     gives meaning to a number? Throughout lessons, we will introduce to you many
                     different units and derived units, which are all important to know. Are you ready for some "real"

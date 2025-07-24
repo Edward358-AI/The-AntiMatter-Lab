@@ -30,8 +30,8 @@ function runAngCollision() {
 
     engine = Engine.create()
     engine.gravity.y = 0
-var width = 0.5 * window.innerWidth > 600 ? 600 : window.innerWidth < 768 ? 0.65 * window.innerWidth : 0.5 * window.innerWidth;
-var height = width;
+    var width = 0.5 * window.innerWidth > 600 ? 600 : window.innerWidth < 768 ? 0.65 * window.innerWidth : 0.5 * window.innerWidth;
+    var height = width;
     render = Render.create({
         element: document.getElementById("angularcollision"),
         engine: engine,
@@ -45,23 +45,23 @@ var height = width;
 
     Render.run(render)
 
-    rod = Bodies.rectangle(300/600*width, 300/600*width, 50/600*width, 400/600*width, {
+    rod = Bodies.rectangle(300 / 600 * width, 300 / 600 * width, 50 / 600 * width, 400 / 600 * width, {
         render: { fillStyle: "#888" },
-        inertia: 1000 * Math.pow(inputInertia.value, 2)/600*width,
+        inertia: 1000 * Math.pow(inputInertia.value, 2) / 600 * width,
         frictionAir: 0,
         restitution: 1
     })
 
     const pivot = Constraint.create({
         bodyA: rod,
-        pointB: { x: 300/600*width, y: 300/600*width },
+        pointB: { x: 300 / 600 * width, y: 300 / 600 * width },
         stiffness: 1,
         length: 0,
         damping: 0,
         render: { strokeStyle: "#fff", lineWidth: 3 }
     })
 
-    ball = Bodies.circle(100/600*width, 400/600*width, 40/600*width, {
+    ball = Bodies.circle(100 / 600 * width, 400 / 600 * width, 40 / 600 * width, {
         render: { fillStyle: "cyan" },
         restitution: Math.abs(elasticity.value),
         frictionAir: 0,
@@ -69,10 +69,10 @@ var height = width;
     })
 
     const walls = [
-        Bodies.rectangle(-50/600*width, 300/600*width, 100/600*width, 800/600*width, { isStatic: true }),
-        Bodies.rectangle(650/600*width, 300/600*width, 100/600*width, 800/600*width, { isStatic: true }),
-        Bodies.rectangle(300/600*width, -50/600*width, 800/600*width, 100/600*width, { isStatic: true }),
-        Bodies.rectangle(300/600*width, 650/600*width, 800/600*width, 100/600*width, { isStatic: true })
+        Bodies.rectangle(-50 / 600 * width, 300 / 600 * width, 100 / 600 * width, 800 / 600 * width, { isStatic: true }),
+        Bodies.rectangle(650 / 600 * width, 300 / 600 * width, 100 / 600 * width, 800 / 600 * width, { isStatic: true }),
+        Bodies.rectangle(300 / 600 * width, -50 / 600 * width, 800 / 600 * width, 100 / 600 * width, { isStatic: true }),
+        Bodies.rectangle(300 / 600 * width, 650 / 600 * width, 800 / 600 * width, 100 / 600 * width, { isStatic: true })
     ]
 
     Composite.add(engine.world, [rod, pivot, ball, ...walls])
@@ -101,7 +101,7 @@ onMounted(() => {
 // Watch inertia changes and update the body
 watch(inputInertia, (newVal) => {
     if (rod) {
-        const newInertia = 1000 * Math.pow(newVal, 2)/600*width
+        const newInertia = 1000 * Math.pow(newVal, 2) / 600 * width
         Body.setInertia(rod, newInertia)
     }
 })
@@ -243,8 +243,8 @@ watch(elasticity, (newVal) => {
                 <div class="row justify-content-center"><label>Elasticity: {{ elasticity }}</label><br><input
                         type="range" class="form-range" v-model="elasticity" min="0" max="1" step="0.1"
                         style="width:fit-content;" /></div>
-            <span class="warn">{{viewportMsg}}</span>   
-            
+                <span class="warn">{{ viewportMsg }}</span>
+
             </figure>
             <br>
             You're also able to dynamically change the moment of inertia, but that can lead to some wacky results (as

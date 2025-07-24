@@ -18,7 +18,7 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                 like. It
                 is a frame in which you conduct your calculations and view everything happen. The key thing here is
                 though, a reference frame could be inertial or non inertial. Pretty much all of the reference frames we
-                work inside will always be inertial, unless otherwise stated. 
+                work inside will always be inertial, unless otherwise stated.
                 <br><br>
                 Noninertial reference frames don't serve a
                 purpose until much later—so don't worry too much about them for now. We will soon explain why we prefer
@@ -30,19 +30,20 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                 him as if I am moving.
                 <br><br>
                 Let's say I wanted to find what my velocity was relative to the observer. From
-                that we can derive an equation: 
+                that we can derive an equation:
                 <br><br>
-                $$\vec{v_{PO}}=\vec{v_{PT}}+\vec{v_{TO}}$$ 
+                $$\vec{v_{PO}}=\vec{v_{PT}}+\vec{v_{TO}}$$
                 <br>The subscripts and symbols
                 might be a bit confusing at first, but essentially what they mean is that my velocity relative to the
                 observer ($v_{PO}$) is equal to the <i>vector</i> sum of my velocity relative to the train ($v_{PT}$)
                 and the velocity of the train relative to the observer ($v_{TO}$). We notice that this is a vector sum,
-                which means it works in multiple dimensions. 
+                which means it works in multiple dimensions.
                 <br><br>
                 Furthermore, you might see that the middle two subscripts
                 are equal. That means to find the velocity of A relative to B, we can find the relative velocity of A to
                 another point C, and the velocity of C relative to point B. Adding those will actually give us the
-                velocity of A, relative to B! That's how vectors work to help us. Let's work through a minimal example on the next page.
+                velocity of A, relative to B! That's how vectors work to help us. Let's work through a minimal example
+                on the next page.
             <div class="btn-contain-right">
                 <button class="btn btn-dark" style="animation: scale1 2s infinite;" @click="$emit('nextpage')">Next
                     &rarr;</button>
@@ -60,7 +61,7 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                 Perhaps a diagram will help us solve this problem:
                 <br><br>
                 <figure>
-                    <img src="/src/assets/kinematics/Figure 14.png"/>
+                    <img src="/src/assets/kinematics/Figure 14.png" />
                     <figcaption>Figure 1: A boat traveling across a river, with vectors labeled.</figcaption>
                 </figure>
                 <br>
@@ -71,13 +72,13 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                 the
                 boat is not moving at all (Think back to the train example: To you, someone else on the train isn't
                 moving
-                because you are both moving at the same speed the train is)! 
+                because you are both moving at the same speed the train is)!
                 <br><br>
                 Now let's try and relate the water and the
                 observer on the shore. The observer on the shore is not moving, so the water is moving relative to the
                 shore. Thus, when we do a vector sum, splitting the two vectors into components (North-South is the
                 vertical
-                component, East-West is the horizontal component): 
+                component, East-West is the horizontal component):
                 <br><br>$$v_{BO} = v_{BW} + v_{WO}$$ $$\langle v_{BO_x},
                 v_{BO_y}
                 \rangle = \langle 0,12 \rangle + \langle
@@ -91,17 +92,19 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                 is moving East with a speed of $5~\textrm m /\textrm s$, and not moving North or South. That's why its
                 vertical component is zero.
                 <span v-show="level > 0">Since we know how to find the magnitude, we can do this relatively easily using
-                    Pythagorean theorem: 
+                    Pythagorean theorem:
                     <br><br>
-                        $$|v_{BO}|=\sqrt{(5)^2+(12)^2}=\bbox[3px,
+                    $$|v_{BO}|=\sqrt{(5)^2+(12)^2}=\bbox[3px,
                     border: 0.5px solid
                     white]{13~\textrm m /\textrm s}$$
-                <br></span>
+                    <br></span>
             </div>
             <br>
-            Sometimes, it may be easier to shorthand the equation like so, especially when $C$ is not needed: 
+            Sometimes, it may be easier to shorthand the equation like so, especially when $C$ is not needed:
             <br><br>$$v_{AB} = v_A-v_B$$<br>
-            And vice versa. Essentially, what this equation states is that the velocity of A relative to B is the velocity of A minus the velocity of B. However use this only when the velocity of A and B are given to be relative to the same reference frame C.
+            And vice versa. Essentially, what this equation states is that the velocity of A relative to B is the
+            velocity of A minus the velocity of B. However use this only when the velocity of A and B are given to be
+            relative to the same reference frame C.
             <br>
             <br>
             Congratulations! You finished the first unit in your physics journey. But, don't give up now, because a

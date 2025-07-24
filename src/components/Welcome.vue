@@ -6,7 +6,7 @@ const Window = window
 </script>
 
 <template>
-    <div id="welcome" :style="sidebar ? '' : Window.innerWidth <= 768 ? '':'transform:translateX(-160px)'">
+    <div id="welcome" :style="sidebar ? '' : Window.innerWidth <= 768 ? '' : 'transform:translateX(-160px)'">
         <img src="/logo.png" width="40%" class="rounded" />
         <h1>Welcome to the AntiMatter Lab.</h1>
         <p style="animation: slideUp 5s forwards; animation-delay: 100ms; opacity: 0;">What is physics? It's the study
@@ -21,7 +21,6 @@ const Window = window
 </template>
 
 <style scoped>
-
 #welcome {
     margin: auto;
     animation: fadein 1.5s;

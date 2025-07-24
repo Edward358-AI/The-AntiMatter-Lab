@@ -146,36 +146,66 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                 object is still at rest relative to the surface it rests on. Kinetic friction acts when an object is in
                 motion relative to the surface it rests on.<br><br>
 
-                The coefficient of static friction is denoted as $\mu_s$ and kinetic friction $\mu_k$. Static friction is also sometimes written as $\mu_s^{MAX}$, and you will see why in a second. If both are
-                equal, usually just $\mu$ is used for simplicity. The friction force is equal to $\mu \cdot F_N$ and is usually oppositely directed to any net applied force, but
+                The coefficient of static friction is denoted as $\mu_s$ and kinetic friction $\mu_k$. Static friction
+                is also sometimes written as $\mu_s^{MAX}$, and you will see why in a second. If both are
+                equal, usually just $\mu$ is used for simplicity. The friction force is equal to $\mu \cdot F_N$ and is
+                usually oppositely directed to any net applied force, but
                 this doesn’t always hold true. The more general rule is that friction always opposes relative motion
                 between two surfaces. This will become more prevalent later on when we teach free-body diagrams.<br><br>
 
-                One really important concept that we recognize and clear out of the way for friction is how the frictional force actually works. Static friction is actually a force that will automatically adjust itself to match the applied force. However, there is a certain maximum for this. That's what $\mu_s$ is here for. The magnitude of the frictional force will always be $≤\mu_s F_N$, and so when you exceed that value, the frictional force turns into the kinetic frictional force, which is always constant value of $\mu_k \cdot F_N$. This means that the coefficient of static friction must be greater than the coefficient of kinetic friction!!<br>
-                <span v-show="level==0">There's no doubt you've definitely tried to push something across a floor at some point in your life. You'll notice that it is actually harder to get the box moving at first, but once it is moving, it becomes a bit smoother sailing from there. What we just explained, if you think about it, perfectly matches up with this intuition!<br></span>
+                One really important concept that we recognize and clear out of the way for friction is how the
+                frictional force actually works. Static friction is actually a force that will automatically adjust
+                itself to match the applied force. However, there is a certain maximum for this. That's what $\mu_s$ is
+                here for. The magnitude of the frictional force will always be $≤\mu_s F_N$, and so when you exceed that
+                value, the frictional force turns into the kinetic frictional force, which is always constant value of
+                $\mu_k \cdot F_N$. This means that the coefficient of static friction must be greater than the
+                coefficient of kinetic friction!!<br>
+                <span v-show="level == 0">There's no doubt you've definitely tried to push something across a floor at
+                    some point in your life. You'll notice that it is actually harder to get the box moving at first,
+                    but once it is moving, it becomes a bit smoother sailing from there. What we just explained, if you
+                    think about it, perfectly matches up with this intuition!<br></span>
                 <br>
-                <span v-show="level>0">
-                A graph here to show what we mean:
-                <figure>
-                    <img src="/src/assets/dynamics/Figure 17.png" style="max-width:250px" />
-                    <figcaption>Figure 1: A graph that shows the magnitude of frictional force over time, in accordance with the applied force.</figcaption>
-                </figure>
-                You are probably wondering, is it possible for $\mu_k$ instead to be <i>greater</i> than $\mu_s$? Let's take a closer look. Remember, once we apply a force $F$ that less than or equal to $\mu_s F_N$, the object will not move because the static friction can counteract this force. However, once the force exceeds the value of $\mu_s F_N$, the object will begin to slide. That is the standard for how friction operates. When it begins sliding, it switches to kinetic friction, $\mu_k F_N$. Now if $\mu_k$ is greater than $\mu_s$, then the magnitude of the kinetic frictional force will automatically be greater than the static frictional force, which means as soon as it switches to kinetic friction, the block will not move. But that contradicts our earlier statement of it will begin to slide when the applied force exceeds $\mu_s F_N$ in magnitude. So thus, the statement that $\mu_s≥\mu_k$ must hold.
-                <br><br></span>
-                
-                
-                So far, these are all the forces you will encounter. This chapter was not particularly problem-heavy, but more on concepts. There are most definitely more forces that we will add to our
-                collection as we progress. <span v-show="level==2">As for you calculus students, we know you're itching to pull our your calculus tools. Unfortunately, this isn't your chapter just yet. Calculus will begin to play a more important role with the chapters to come!</span> Remember, all these forces are not “new” types of forces, they all will fall
-                under the category of one of the four fundamental forces in nature. We stress this importance because it's crucial that you realize the difference. In your journey through Newtonian mechanics, for the most part, if the force not is gravitational, then it must be electromagnetic.<br>But simply knowing these forces is
+                <span v-show="level > 0">
+                    A graph here to show what we mean:
+                    <figure>
+                        <img src="/src/assets/dynamics/Figure 17.png" style="max-width:250px" />
+                        <figcaption>Figure 1: A graph that shows the magnitude of frictional force over time, in
+                            accordance with the applied force.</figcaption>
+                    </figure>
+                    You are probably wondering, is it possible for $\mu_k$ instead to be <i>greater</i> than $\mu_s$?
+                    Let's take a closer look. Remember, once we apply a force $F$ that less than or equal to $\mu_s
+                    F_N$, the object will not move because the static friction can counteract this force. However, once
+                    the force exceeds the value of $\mu_s F_N$, the object will begin to slide. That is the standard for
+                    how friction operates. When it begins sliding, it switches to kinetic friction, $\mu_k F_N$. Now if
+                    $\mu_k$ is greater than $\mu_s$, then the magnitude of the kinetic frictional force will
+                    automatically be greater than the static frictional force, which means as soon as it switches to
+                    kinetic friction, the block will not move. But that contradicts our earlier statement of it will
+                    begin to slide when the applied force exceeds $\mu_s F_N$ in magnitude. So thus, the statement that
+                    $\mu_s≥\mu_k$ must hold.
+                    <br><br>
+                </span>
+
+
+                So far, these are all the forces you will encounter. This chapter was not particularly problem-heavy,
+                but more on concepts. There are most definitely more forces that we will add to our
+                collection as we progress. <span v-show="level == 2">As for you calculus students, we know you're itching
+                    to pull our your calculus tools. Unfortunately, this isn't your chapter just yet. Calculus will
+                    begin to play a more important role with the chapters to come!</span> Remember, all these forces are
+                not “new” types of forces, they all will fall
+                under the category of one of the four fundamental forces in nature. We stress this importance because
+                it's crucial that you realize the difference. In your journey through Newtonian mechanics, for the most
+                part, if the force not is gravitational, then it must be electromagnetic.<br>But simply knowing these
+                forces is
                 not enough. You will learn how to use this knowledge to solve problems and draw free-body diagrams,
-                which is arguably one of the most important things you will ever learn in mechanics. 
+                which is arguably one of the most important things you will ever learn in mechanics.
             </p>
             <div class="btn-contain-left">
                 <button class="btn btn-dark" style="animation: scale1 2s infinite;" @click="$emit('prevpage')">&larr;
                     Previous</button>
             </div>
             <div class="btn-contain-right">
-                <button class="btn btn-dark" style="animation: scale 2s infinite;" @click="$emit('nextlesson')">Next Lesson!
+                <button class="btn btn-dark" style="animation: scale 2s infinite;" @click="$emit('nextlesson')">Next
+                    Lesson!
                     &rarr;</button>
             </div>
         </div>

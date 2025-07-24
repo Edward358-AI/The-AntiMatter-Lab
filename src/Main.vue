@@ -139,7 +139,7 @@ const lessons = reactive(
 
     oscillations: [
       "Simple Harmonic Motion",
-      "Spring-Block Oscillators", 
+      "Spring-Block Oscillators",
       "Pendulums",
       "Other Oscillators"
     ]
@@ -186,14 +186,14 @@ function hideMobileBar() {
   <!-- MOBILE NAVBAR -->
   <nav class="navbar" id="mobile-nav"
     :style="!sidebar ? 'display:none;' : 'z-index:1;animation:fadein 1s forwards;position:fixed;width:100%;left:0;background-color: var(--bs-content-bg); border-bottom: var(--bs-border-width) solid var(--bs-content-border-color);'">
-    
+
     <div class="container-fluid justify-content-center">
       <a href="#mobile-menu" role="button" data-bs-toggle="offcanvas">
 
-      <span class="navbar-toggler-icon"></span>
+        <span class="navbar-toggler-icon"></span>
 
-    </a>
-      
+      </a>
+
       <a class="sidebar-brand mx-auto" href="javascript:void(0);" @click="user.current = 'landing'">
         <img src="/favicon.png" width="24" height="24" class="d-inline-block align-text-top rounded-1">
         The AntiMatter Lab
@@ -203,10 +203,10 @@ function hideMobileBar() {
 
   </nav>
 
-<!-- START OF MOBILE SIDEBAR -->
+  <!-- START OF MOBILE SIDEBAR -->
   <div class="sidebar offcanvas offcanvas-start" id="mobile-menu">
     <div class="offcanvas-header border-bottom border-secondary border-opacity-25">
-      <a class="sidebar-brand mx-auto" href="javascript:void(0);" @click="user.current = 'landing';hideMobileBar()">
+      <a class="sidebar-brand mx-auto" href="javascript:void(0);" @click="user.current = 'landing'; hideMobileBar()">
         <img src="/favicon.png" width="24" height="24" class="d-inline-block align-text-top rounded-1">
         The AntiMatter Lab
       </a>
@@ -225,7 +225,8 @@ function hideMobileBar() {
         </li>
         <li v-for="lesson in filteredLessons.kinematics">
           <a href="javascript:void(0);" :class="user.current === lesson ? 'text-body-emphasis nav-link' : 'nav-link'"
-            :style="user.current === lesson ? 'text-decoration: underline' : ''" @click="user.current = lesson;hideMobileBar()">{{
+            :style="user.current === lesson ? 'text-decoration: underline' : ''"
+            @click="user.current = lesson; hideMobileBar()">{{
               lesson }}</a>
         </li>
 
@@ -239,7 +240,8 @@ function hideMobileBar() {
         </li>
         <li v-for="lesson in filteredLessons.dynamics">
           <a href="javascript:void(0);" :class="user.current === lesson ? 'text-body-emphasis nav-link' : 'nav-link'"
-            :style="user.current === lesson ? 'text-decoration: underline' : ''" @click="user.current = lesson;hideMobileBar()">{{
+            :style="user.current === lesson ? 'text-decoration: underline' : ''"
+            @click="user.current = lesson; hideMobileBar()">{{
               lesson }}</a>
         </li>
 
@@ -253,7 +255,8 @@ function hideMobileBar() {
         </li>
         <li v-for="lesson in filteredLessons.circularGravity">
           <a href="javascript:void(0);" :class="user.current === lesson ? 'text-body-emphasis nav-link' : 'nav-link'"
-            :style="user.current === lesson ? 'text-decoration: underline' : ''" @click="user.current = lesson;hideMobileBar()">{{
+            :style="user.current === lesson ? 'text-decoration: underline' : ''"
+            @click="user.current = lesson; hideMobileBar()">{{
               lesson }}</a>
         </li>
 
@@ -267,7 +270,8 @@ function hideMobileBar() {
         </li>
         <li v-for="lesson in filteredLessons.energy">
           <a href="javascript:void(0);" :class="user.current === lesson ? 'text-body-emphasis nav-link' : 'nav-link'"
-            :style="user.current === lesson ? 'text-decoration: underline' : ''" @click="user.current = lesson;hideMobileBar()">{{
+            :style="user.current === lesson ? 'text-decoration: underline' : ''"
+            @click="user.current = lesson; hideMobileBar()">{{
               lesson }}</a>
         </li>
 
@@ -281,7 +285,8 @@ function hideMobileBar() {
         </li>
         <li v-for="lesson in filteredLessons.momentum">
           <a href="javascript:void(0);" :class="user.current === lesson ? 'text-body-emphasis nav-link' : 'nav-link'"
-            :style="user.current === lesson ? 'text-decoration: underline' : ''" @click="user.current = lesson;hideMobileBar()">{{
+            :style="user.current === lesson ? 'text-decoration: underline' : ''"
+            @click="user.current = lesson; hideMobileBar()">{{
               lesson }}</a>
         </li>
 
@@ -295,11 +300,12 @@ function hideMobileBar() {
         </li>
         <li v-for="lesson in filteredLessons.rotation">
           <a href="javascript:void(0);" :class="user.current === lesson ? 'text-body-emphasis nav-link' : 'nav-link'"
-            :style="user.current === lesson ? 'text-decoration: underline' : ''" @click="user.current = lesson;hideMobileBar()">{{
+            :style="user.current === lesson ? 'text-decoration: underline' : ''"
+            @click="user.current = lesson; hideMobileBar()">{{
               lesson }}</a>
         </li>
 
-         <br class="mb-5">
+        <br class="mb-5">
         <li>
           <h6 class="sidebar-header"><b>Oscillations</b></h6>
         </li>
@@ -308,7 +314,8 @@ function hideMobileBar() {
         </li>
         <li v-for="lesson in filteredLessons.oscillations">
           <a href="javascript:void(0);" :class="user.current === lesson ? 'text-body-emphasis nav-link' : 'nav-link'"
-            :style="user.current === lesson ? 'text-decoration: underline' : ''" @click="user.current = lesson;hideMobileBar()">{{
+            :style="user.current === lesson ? 'text-decoration: underline' : ''"
+            @click="user.current = lesson; hideMobileBar()">{{
               lesson }}</a>
         </li>
 
@@ -327,13 +334,14 @@ function hideMobileBar() {
         <option value="light">Light</option>
       </select>
       <span class="text-secondary-emphasis">Made by Edward Jiang and Eric Niu</span><br style="margin-bottom:10px">
-      <a href="javascript:void(0);" @click="user.current = 'about';hideMobileBar()" class="text-decoration-none">About</a>&nbsp;&nbsp;
-      <a href="https://github.com/Edward358-AI/The-AntiMatter-Lab" target="_blank"
-        class="text-decoration-none" @click="hideMobileBar()">Github</a>
+      <a href="javascript:void(0);" @click="user.current = 'about'; hideMobileBar()"
+        class="text-decoration-none">About</a>&nbsp;&nbsp;
+      <a href="https://github.com/Edward358-AI/The-AntiMatter-Lab" target="_blank" class="text-decoration-none"
+        @click="hideMobileBar()">Github</a>
     </div>
   </div>
 
-<!-- START OF NORMAL SIDEBAR -->
+  <!-- START OF NORMAL SIDEBAR -->
   <div class="sidebar offcanvas-start offcanvas-md" id="menu"
     :style="sidebar ? 'animation: slideRight 0.3s forwards' : ''">
     <div class="offcanvas-header border-bottom border-secondary border-opacity-25">
@@ -581,20 +589,16 @@ function hideMobileBar() {
     @nextlesson="Window.scrollTo(0, 0); user.current = lessons.oscillations[0]" />
 
   <SHM v-show="user.current === lessons.oscillations[0]" :level="user.difficulty" :page="user.page.SHM"
-    @nextpage="Window.scrollTo(0, 0); user.page.SHM++"
-    @prevpage="Window.scrollTo(0, 0); user.page.SHM--"
+    @nextpage="Window.scrollTo(0, 0); user.page.SHM++" @prevpage="Window.scrollTo(0, 0); user.page.SHM--"
     @nextlesson="Window.scrollTo(0, 0); user.current = lessons.oscillations[1]" />
   <SpringOsc v-show="user.current === lessons.oscillations[1]" :level="user.difficulty" :page="user.page.SpringOsc"
-    @nextpage="Window.scrollTo(0, 0); user.page.SpringOsc++"
-    @prevpage="Window.scrollTo(0, 0); user.page.SpringOsc--"
+    @nextpage="Window.scrollTo(0, 0); user.page.SpringOsc++" @prevpage="Window.scrollTo(0, 0); user.page.SpringOsc--"
     @nextlesson="Window.scrollTo(0, 0); user.current = lessons.oscillations[2]" />
   <Pendulum v-show="user.current === lessons.oscillations[2]" :level="user.difficulty" :page="user.page.Pendulum"
-    @nextpage="Window.scrollTo(0, 0); user.page.Pendulum++"
-    @prevpage="Window.scrollTo(0, 0); user.page.Pendulum--"
+    @nextpage="Window.scrollTo(0, 0); user.page.Pendulum++" @prevpage="Window.scrollTo(0, 0); user.page.Pendulum--"
     @nextlesson="Window.scrollTo(0, 0); user.current = lessons.oscillations[3]" />
   <OtherOsc v-show="user.current === lessons.oscillations[3]" :level="user.difficulty" :page="user.page.OtherOsc"
-    @nextpage="Window.scrollTo(0, 0); user.page.OtherOsc++"
-    @prevpage="Window.scrollTo(0, 0); user.page.OtherOsc--"
+    @nextpage="Window.scrollTo(0, 0); user.page.OtherOsc++" @prevpage="Window.scrollTo(0, 0); user.page.OtherOsc--"
     @nextlesson="Window.scrollTo(0, 0); user.current = 'landing'" />
 
 </template>

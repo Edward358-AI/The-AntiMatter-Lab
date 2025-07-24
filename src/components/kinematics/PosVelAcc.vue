@@ -100,7 +100,8 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                     for regular numbers, or non-vectors). These terms are not interchangeable and will come up
                     again!!</span>
                 <span v-show="level > 0">
-                    Welcome to the start of a bunch of lessons on "real" physics! Are you excited? Let's get right into it, shall we?
+                    Welcome to the start of a bunch of lessons on "real" physics! Are you excited? Let's get right into
+                    it, shall we?
                     <br><br>
                     Position is
                     defined as
@@ -117,7 +118,7 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                     meters
                     from the same object. The object is still in
                     the same place, so both points of view must be correct! So if position is not constant for each
-                    observer, then what is the point of defining it? 
+                    observer, then what is the point of defining it?
                     <br><br>
                     Well, the change in position, or displacement, is
                     constant. From my point of view, my friend is still $2$ meters from the object. This is true for ANY
@@ -130,7 +131,7 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                         dislike using $d$, and any calculus student will understand why.</span> To calculate
                     displacement,
                     we use the
-                    formula $x=x_f-x_i$, where $x_f$ and $x_i$ are the final and initial positions, respectively. 
+                    formula $x=x_f-x_i$, where $x_f$ and $x_i$ are the final and initial positions, respectively.
                     <br><br>
                     A
                     quantity
@@ -204,7 +205,8 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                     lap!
                     <br><br>
                     All this talk about instantaneous vs average velocity is very important to remember.
-                    Calculating the instantaneous velocity requires higher level math than what we expect that you have, but there
+                    Calculating the instantaneous velocity requires higher level math than what we expect that you have,
+                    but there
                     is
                     one equation you can use to find the initial and final velocities, involving acceleration later
                     on.<br><br>As with distance and displacment, you may have heard of speed. Speed
@@ -217,7 +219,9 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                     length of the path around the park!<br>However, unlike distance and displacement, speed can be
                     <i>more</i> confusing sometimes. Speed is often used as a word in physics texts to describe the
                     magnitude (or length) of the velocity vector (remember vectors?), so in a sense, speed is related to
-                    velocity. We will occasionally use speed to refer to the magnitude of velocity. Use your best judgement and decide based on the context of the problem whether that is actually speed or just a shorthand for the magnitude of velocity. But remember, without context, speed will
+                    velocity. We will occasionally use speed to refer to the magnitude of velocity. Use your best
+                    judgement and decide based on the context of the problem whether that is actually speed or just a
+                    shorthand for the magnitude of velocity. But remember, without context, speed will
                     always refer to $\frac{\Delta s}{\Delta
                     t}$ and is always a nonnegative scalar, while velocity is $\frac{\Delta x}{\Delta t}$ and a vector,
                     a
@@ -231,7 +235,7 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                     displacement divided by the time interval in which it took place. We also realize that this is the
                     slope
                     of a position
-                    versus time ($x\textrm{-}t$) graph ($x$ divided by $t$, which is rise over run!). 
+                    versus time ($x\textrm{-}t$) graph ($x$ divided by $t$, which is rise over run!).
                     <br><br>
                     From this, we
                     easily
@@ -265,7 +269,7 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                     <i>more</i> confusing sometimes. Speed is often used as a word in physics texts to describe the
                     magnitude (or length) of the velocity vector (remember vectors?), so in a sense, speed is related to
                     velocity (do not make the same mistake for distance! Distance is almost NEVER used to refer to the
-                    magnitude of the displacement vector). 
+                    magnitude of the displacement vector).
                     <br><br>
                     Thus, for the remainder of this unit, we will do our best to
                     refer
@@ -275,7 +279,7 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                     to
                     decide, using your best judgement and the context, whether "speed" in that scenario refers to its
                     actual
-                    definition or just a shorthand for the magnitude of the velocity vector. 
+                    definition or just a shorthand for the magnitude of the velocity vector.
                     <br><br>
                     However, without any context,
                     speed and velocity are two noninterchangeable terms! Speed will always refer to $\frac{\Delta
@@ -336,7 +340,7 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                     vectors.
                     However, it is also important remember that if the vector's direction changes, then wouldn't it also
                     be
-                    a different vector? 
+                    a different vector?
                     <br><br>
                     So now let's look at an example. Let's say you have a toy car moving at a
                     constant
@@ -396,14 +400,14 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                     <br><br>
                     But hold on! What is $v_f$? If you remember from just a few paragraphs ago, $v_f$ is equal to $v_i +
                     at$! So
-                    when we plug this in, we get: 
+                    when we plug this in, we get:
                     <br><br>
                     $$\bar{v} = \frac{v_0 + at + v_0}{2} = \frac{2v_0 + at}{2} = v_0 +
                     \frac{1}{2}at$$ So, now we have an equation that we can plug into $x=\bar{v}t$! Plugging this in
                     will
                     give us:
                     <br><br>
-                     $$x = (v_0 + \frac{1}{2}at) \cdot t = v_0 t + \frac{1}{2}at^2$$ So this is the equation
+                    $$x = (v_0 + \frac{1}{2}at) \cdot t = v_0 t + \frac{1}{2}at^2$$ So this is the equation
                     that
                     involves acceleration! We'll show examples of more equations later on, but this is
                     part of five equations that you MUST memorize.
@@ -439,7 +443,7 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                     solve
                     this task at hand.
                     <br><br>
-                     First, we need to derive an equation for average velocity, $\bar{v}$. For those
+                    First, we need to derive an equation for average velocity, $\bar{v}$. For those
                     that
                     don't know, taking the average of some amount of quantities is to add all the quantities together,
                     and
@@ -456,23 +460,25 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                     v_i}{\cancel{2}} + \frac{a \cdot \Delta t}{2} = v_i + \frac 1 2 a \cdot \Delta t$$ Wow, now
                     you can see that average velocity is equal to this! Now we can plug this into $\Delta x = \bar{v}
                     \cdot
-                    \Delta t$! 
+                    \Delta t$!
                     <br><br>
-                    Substituting this heap of variables and numbers for $\bar{v}$ gives us: 
+                    Substituting this heap of variables and numbers for $\bar{v}$ gives us:
                     <br><br>
                     $$\Delta x = (v_i
                     +
-                    \frac 1 2 a \cdot \Delta t) \cdot \Delta t = v_i \cdot \Delta t + \frac 1 2 a \cdot (\Delta t)^2$$<br>
+                    \frac 1 2 a \cdot \Delta t) \cdot \Delta t = v_i \cdot \Delta t + \frac 1 2 a \cdot (\Delta
+                    t)^2$$<br>
                     Wow,
                     the final equation involving displacement and acceleration! Isn't that amazing?
                     Like with the previous equation, though, this is only valid under a constant acceleration. Another
                     way
                     you could have done this is by rearranging the original equation to get $v_i=v_f-at$, and this would
-                    have yielded something like this:<br><br> $$\Delta x=v_f \cdot \Delta t-\frac 1 2 \cdot a \cdot (\Delta
+                    have yielded something like this:<br><br> $$\Delta x=v_f \cdot \Delta t-\frac 1 2 \cdot a \cdot
+                    (\Delta
                     t)^2$$<br>
                     Now if you haven't learned algebra yet, this could be difficult to grasp. However, I promise, for
                     the
-                    next few chapters, we will focus a little less on the equations. 
+                    next few chapters, we will focus a little less on the equations.
                     <br><br>
                     This was just a fun experiment to
                     see
@@ -487,12 +493,14 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                 </span>
                 <span v-show="level > 0">
                     Now let's take a look at the same thing but via
-                    graphical analysis. <span v-show="level==1">We know that acceleration is the slope of the velocity versus time (v-t) graph.
+                    graphical analysis. <span v-show="level == 1">We know that acceleration is the slope of the velocity
+                        versus time (v-t) graph.
                         <br><br>
-                    The
-                    area under the curve is displacement, since it is computed by multiplying velocity and time interval
-                    (the axes) which gives the units of displacement (what is $\frac{\textrm{m}}{\textrm{s}} \cdot
-                    \textrm{s}$). Don't worry! If you don't know what area under the curve is,
+                        The
+                        area under the curve is displacement, since it is computed by multiplying velocity and time
+                        interval
+                        (the axes) which gives the units of displacement (what is $\frac{\textrm{m}}{\textrm{s}} \cdot
+                        \textrm{s}$). Don't worry! If you don't know what area under the curve is,
                         it is exactly what it sounds
                         like. You calculate the area under the line of the graph for a certain interval. The reason why
                         this
@@ -501,21 +509,21 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                         y-axis, if you multiply the units, you will get the units of displacement (believe it or not,
                         you are
                         learning fundamental calculus right now!).</span>
-                        <br><br>
+                    <br><br>
                     For the case with initial velocity $v_0$ and
                     constant
                     acceleration
                     $a$, we have a graph that looks like this:
                     <br><br>
                     <figure>
-                        <img src="/src/assets/kinematics/Figure 8.png"  />
+                        <img src="/src/assets/kinematics/Figure 8.png" />
                         <figcaption>Figure 1: Graphical derivation of the position equation involving acceleration
                         </figcaption>
                     </figure>
                     <br>
                     For any $v_f$, the area is: <br><br>
                     $$x=\frac{v_0+v_f}{2} \cdot t$$<br>
-                     Using the formula for the area of a
+                    Using the formula for the area of a
                     trapezoid (I will assume you know the trapezoid formula, if not, you can search it up). You can
                     visualize this trapezoid by drawing a vertical line from the tip of the arrow to the x-axis, which
                     you
@@ -534,26 +542,26 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                     Which is what we exactly just derived!! It is highly recommended (maybe almost required) that you
                     memorize these equations, because you will likely be using them a lot for the next two
                     lessons. <br><br>
-                    <span v-show="level == 2">This is much easier to derive from a calculus perspective: 
+                    <span v-show="level == 2">This is much easier to derive from a calculus perspective:
                         <br><br>$$v = v_0 +
                         at$$<br>
                         $$\frac{dx}{dt} = v_0 + at$$ $$dx = (v_0 + at)dt$$ $$\int_{x_0}^{x_f}dx =
                         \int_{0}^{t}(v_0+at)dt$$
                         $$x_f-x_0 = \Delta x = v_0 t + \frac{1}{2}at^2$$</span>
-                        <br><br>Another interesting thing you can do is remember when we taught you dimensional
+                    <br><br>Another interesting thing you can do is remember when we taught you dimensional
                     analysis?
                     You can go back to the equations we mentioned and double confirm with us, are the equations also
                     <i>dimensionally</i> accurate? Just something for you to investigate upon.<br><br>
                     From this, we can graph an $x$-$t$ graph for constant acceleration scenarios. A desmos example is
                     shown
                     below (you can play around with the sliders):
-                    <iframe src="https://www.desmos.com/calculator/g1suzxzrsv" width="1000" height="500" style="margin:auto;display:block;"
-                        frameborder=0></iframe><br>
+                    <iframe src="https://www.desmos.com/calculator/g1suzxzrsv" width="1000" height="500"
+                        style="margin:auto;display:block;" frameborder=0></iframe><br>
                     That's pretty much all there is to position, velocity, and acceleration. Usually, when we say $x$,
                     we do
                     mean displacement, but occasionally, if you see $x$ denoted with subscripts $f$ or $i$ or $0$, it
                     will
-                    refer to instantaneous position. 
+                    refer to instantaneous position.
                     <br><br>
                     However, as we mentioned at the start of the lesson, it is vastly
                     more
@@ -563,7 +571,8 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                     there is one key takeaway from this lesson, it would be how the three values are related. Remember:
                     velocity is the (instantaneous) rate of change of displacement, and acceleration is the
                     (instantaneous)
-                    rate of change of velocity.<br><br>Are you ready to learn how to use what you just learned to do some
+                    rate of change of velocity.<br><br>Are you ready to learn how to use what you just learned to do
+                    some
                     cool
                     calculations? Let's go to it!
                 </span>
