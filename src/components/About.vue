@@ -40,7 +40,7 @@
             <span><strong>Calculus-Based:</strong> The purest form of physics, which expands on algebra-based physics
                 with calculus concepts. Concurrent learning or previously taken AP® Calculus AB (or of similar material)
                 is required for sufficient understanding.</span><br><br>
-            <br><br>
+            <br>
             We also have interactive examples and not just wordy explanations, which overall can greatly improve
             your learning experience. We've also sprinkled in a bit of light humor when I (Eric) deemed it necessary.
             Enjoy! <br>Note: Sometimes when you switch the difficulty, the content on a page may not change.
