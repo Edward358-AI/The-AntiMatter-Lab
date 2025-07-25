@@ -479,16 +479,17 @@ onMounted(() => {
                 <h3>Inclined Plane Demo</h3><br>
                 <div id="inclined"></div>
                 <button class="btn btn-outline-primary" @click="runInclinedPlane()">Reset</button><br>
-
-                <div class="row justify-content-center">
-                    <label>Incline Angle: {{ inputAngle }}</label><br>
-                    <input type="range" class="form-range mx-auto" v-model="inputAngle" min="0" max="90" step="1"
-                        style="width:fit-content;" />
-                </div>
-                <div class="row justify-content-center">
-                    <label>Friction Coefficient: {{ friction }}</label><br>
-                    <input type="range" class="form-range" v-model="friction" min="0" max="1" step="0.01"
-                        style="width:fit-content" />
+                <div class="row justify-content-center m-auto" style="max-width:700px;">
+                    <div class="col">
+                        <label>Incline Angle: {{ inputAngle }}</label><br>
+                        <input type="range" class="form-range mx-auto" v-model="inputAngle" min="0" max="90" step="1"
+                            style="width:fit-content;" />
+                    </div>
+                    <div class="col">
+                        <label>Friction Coefficient: {{ friction }}</label><br>
+                        <input type="range" class="form-range" v-model="friction" min="0" max="1" step="0.01"
+                            style="width:fit-content" />
+                    </div>
                 </div>
                 <span class="warn">{{ viewportMsg }}</span>
             </figure><br>

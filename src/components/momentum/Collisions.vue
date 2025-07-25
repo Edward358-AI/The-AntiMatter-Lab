@@ -118,20 +118,34 @@ onMounted(() => {
                 <div id="1dCollision"></div>
                 <button class="btn btn-outline-primary" @click="run1dCollision()">Reset</button><br>
 
-                <div class="row justify-content-center"> <label>Blue ball mass: {{ mass1 }}</label><br><input
-                        type="range" class="form-range" v-model="mass1" min="1" max="100" step="0.1"
-                        style="width:fit-content" /><br><label>Blue ball
-                        speed: {{ vel1 }}</label><br><input type="range" class="form-range" v-model="vel1" min="-10"
-                        max="10" step="0.1" style="width:fit-content" /></div>
-
-                <div class="row justify-content-center"> <label>Red ball mass: {{ mass2 }}</label> <br><input
-                        type="range" class="form-range" v-model="mass2" min="1" max="100" step="0.1"
-                        style="width:fit-content" />
-                    <br><label>Red ball speed: {{ vel2 }}</label> <br><input type="range" class="form-range"
-                        v-model="vel2" min="-10" max="10" step="0.1" style="width:fit-content" /><br>
+                <div class="row justify-content-center m-auto" style="max-width:750px;">
+                    <div class="col">
+                        <label>Blue ball mass: {{ mass1 }}</label>
+                        <br><input type="range" class="form-range" v-model="mass1" min="1" max="100" step="0.1"
+                            style="width:fit-content" />
+                    </div>
+                    <div class="col">
+                        <label>Red ball mass: {{ mass2 }}</label> <br><input type="range" class="form-range"
+                            v-model="mass2" min="1" max="100" step="0.1" style="width:fit-content" />
+                    </div>
+                    
+                    <div class="w-100"></div>
+                    <div class="col">
+                        <label>Blue ball
+                            speed: {{ vel1 }}</label><br>
+                        <input type="range" class="form-range" v-model="vel1" min="-10" max="10" step="0.1"
+                            style="width:fit-content" />
+                    </div>
+                    <div class="col">
+                        <label>Red ball speed: {{ vel2 }}</label> <br><input type="range" class="form-range"
+                            v-model="vel2" min="-10" max="10" step="0.1" style="width:fit-content" /><br>
+                    </div>
+                    <div class="w-100"></div>
+                    <div class="col">
+                    <label>Elasticity (bounciness): {{ elasticity }}</label> <br><input type="range" class="form-range"
+                        v-model="elasticity" min="0" max="1" step="0.01" style="width:fit-content" /><br>
+                    </div>
                 </div>
-                <label>Elasticity (bounciness): {{ elasticity }}</label> <br><input type="range" class="form-range"
-                    v-model="elasticity" min="0" max="1" step="0.01" style="width:fit-content" /><br>
                 <span class="warn">{{ viewportMsg }}</span>
             </figure>
             <br>

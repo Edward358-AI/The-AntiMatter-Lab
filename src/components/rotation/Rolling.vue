@@ -125,13 +125,15 @@ onMounted(() => {
                 <div id="roll"></div>
                 <button class="btn btn-outline-primary" @click="runRolling()">Reset</button><br>
 
-                <div class="row justify-content-center"> <label>Moment of Inertia: {{ inputInertia }}</label><br><input
-                        type="range" class="form-range" v-model="inputInertia" min="10" max="75" step="1"
-                        style="width:fit-content" /></div>
+                <div class="row justify-content-center m-auto" style="max-width:700px;">
+                    <div class="col"><label>Moment of Inertia: {{ inputInertia }}</label><br><input type="range"
+                            class="form-range" v-model="inputInertia" min="10" max="75" step="1"
+                            style="width:fit-content" /></div>
 
-                <div class="row justify-content-center"><label>Coefficient of Friction: {{ inputFriction
-                        }}</label><br><input type="range" class="form-range" v-model="inputFriction" min="0" max="1"
-                        step=".01" style="width:fit-content" /></div>
+                    <div class="col"><label>Coefficient of Friction: {{ inputFriction
+                            }}</label><br><input type="range" class="form-range" v-model="inputFriction" min="0" max="1"
+                            step=".01" style="width:fit-content" /></div>
+                </div>
                 <span class="warn">{{ viewportMsg }}</span>
             </figure>
             <br>
