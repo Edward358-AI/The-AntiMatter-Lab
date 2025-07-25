@@ -26,8 +26,11 @@ function runCentripetal() {
     var engine = Engine.create();
 
     engine.gravity.y = 0;
+
     engine.constraintIterations = 10;
+
     var width = 0.5 * window.innerWidth > 600 ? 600 : window.innerWidth < 768 ? 0.65 * window.innerWidth : 0.5 * window.innerWidth;
+
     var height = width;
     // create renderer
     var render = Render.create({
@@ -50,10 +53,10 @@ function runCentripetal() {
         })
 
     var tether = Constraint.create({
-        pointA: { x: 300 / 600 * width, y: 300 / 600 * width },       // fixed center
+        pointA: { x: 300 / 600 * width, y: 300 / 600 * width },  // fixed center
         bodyB: ball,
-        length: 200 / 600 * width,          // initial distance from center
-        stiffness: 1,         // rigid rod
+        length: 200 / 600 * width,  // initial distance from center
+        stiffness: 1, // rigid rod
         render: {
             strokeStyle: '#fff',
             lineWidth: 2
