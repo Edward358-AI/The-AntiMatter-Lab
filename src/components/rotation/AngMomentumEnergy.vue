@@ -47,7 +47,7 @@ function runAngCollision() {
 
     rod = Bodies.rectangle(300 / 600 * width, 300 / 600 * width, 50 / 600 * width, 400 / 600 * width, {
         render: { fillStyle: "#888" },
-        inertia: 1000 * Math.pow(inputInertia.value, 2) / 600 * width,
+        inertia: 1000 * Math.pow(inputInertia.value, 2),
         frictionAir: 0,
         restitution: 1
     })
@@ -101,7 +101,7 @@ onMounted(() => {
 // Watch inertia changes and update the body
 watch(inputInertia, (newVal) => {
     if (rod) {
-        const newInertia = 1000 * Math.pow(newVal, 2) / 600 * width
+        const newInertia = 1000 * Math.pow(newVal, 2)
         Body.setInertia(rod, newInertia)
     }
 })
