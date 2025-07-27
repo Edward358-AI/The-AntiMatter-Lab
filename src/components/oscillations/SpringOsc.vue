@@ -271,6 +271,12 @@ watch(inputMass, (newVal) => {
             velocity, and acceleration at any
             point in time. This is where sinusoidal functions come in to save the day.
             <br><br>
+            <span v-show="level==0"><b>Quick disclaimer</b>: you probably won't know everything I'm talking about here at a 
+                conceptual level. The informaiton I'm about to give does rely pretty heavily on knowledge of sinusoidal 
+                functions and trigonometry, but is foundational enough that I had to include it. If you don't understand, feel 
+                free to skip over it.
+                <br><br>
+            </span>
             First, we need to set a few ground rules. There is a new quantity called the <b>amplitude</b>, which is
             simply the furtherst the block gets from
             the equilibrium point. We represent it with the letter $A$. We are also assuming that we start the particle
