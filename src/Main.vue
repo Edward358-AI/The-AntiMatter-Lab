@@ -46,6 +46,13 @@ import SpringOsc from './components/oscillations/SpringOsc.vue'
 import Pendulum from './components/oscillations/Pendulum.vue'
 import OtherOsc from './components/oscillations/OtherOsc.vue'
 
+import FluidIntro from './components/fluids/FluidIntro.vue'
+import Pressure from './components/fluids/Pressure.vue'
+import FluidFlow from './components/fluids/FluidFlow.vue'
+import AirResistance from './components/fluids/AirResistance.vue'
+import Bernoulli from './components/fluids/Bernoulli.vue'
+
+
 const htmlElement = document.documentElement
 const doc = document
 const Window = window
@@ -57,7 +64,8 @@ const user = reactive({
     DotProd: 0, Energy: 0, GravEnergy: 0, Power: 0, Work: 0, EqTypes: 0,
     Collisions: 0, Impulse: 0, LinMomConsrv: 0, CenterOfMass: 0, Explosions: 0,
     RotationalKinematics: 0, Torque: 0, MomentInertia: 0, RotationalDynamics: 0, Rolling: 0, AngMomentum: 0,
-    SHM: 0, SpringOsc: 0, Pendulum: 0, OtherOsc: 0
+    SHM: 0, SpringOsc: 0, Pendulum: 0, OtherOsc: 0,
+    FluidIntro:0 , Pressure: 0, FluidFlow: 0, AirResistance: 0, Bernoulli: 0
   }
 })
 
@@ -142,6 +150,14 @@ const lessons = reactive(
       "Spring-Block Oscillators",
       "Pendulums",
       "Other Oscillators"
+    ],
+
+    fluids: [
+      "Properties of Fluids",
+      "Pressure",
+      "Fluid Flow",
+      "Air Resistance and Drag",
+      "Bernoulli's Principle"
     ]
   }
 )
@@ -308,6 +324,20 @@ function hideMobileBar() {
               lesson }}</a>
         </li>
 
+        <br class="mb-5">
+        <li>
+          <h6 class="sidebar-header"><b>Fluid Dynamics</b></h6>
+        </li>
+        <li>
+          <hr class="sidebar-divider">
+        </li>
+        <li v-for="lesson in filteredLessons.fluids">
+          <a href="javascript:void(0);" :class="user.current === lesson ? 'text-body-emphasis nav-link' : 'nav-link'"
+            :style="user.current === lesson ? 'text-decoration: underline' : ''"
+            @click="Window.scrollTo(0,0);user.current = lesson; hideMobileBar()">{{
+              lesson }}</a>
+        </li>
+
       </ul>
     </div>
     <div class="offcanvas-footer mb-2 border-top border-secondary border-opacity-25">
@@ -436,6 +466,20 @@ function hideMobileBar() {
         <li v-for="lesson in filteredLessons.oscillations">
           <a href="javascript:void(0);" :class="user.current === lesson ? 'text-body-emphasis nav-link' : 'nav-link'"
             :style="user.current === lesson ? 'text-decoration: underline' : ''" @click="Window.scrollTo(0,0);user.current = lesson">{{
+              lesson }}</a>
+        </li>
+
+        <br class="mb-5">
+        <li>
+          <h6 class="sidebar-header"><b>Fluid Dynamics</b></h6>
+        </li>
+        <li>
+          <hr class="sidebar-divider">
+        </li>
+        <li v-for="lesson in filteredLessons.fluids">
+          <a href="javascript:void(0);" :class="user.current === lesson ? 'text-body-emphasis nav-link' : 'nav-link'"
+            :style="user.current === lesson ? 'text-decoration: underline' : ''"
+            @click="Window.scrollTo(0,0);user.current = lesson">{{
               lesson }}</a>
         </li>
 
@@ -588,7 +632,23 @@ function hideMobileBar() {
     @nextlesson="Window.scrollTo(0, 0); user.current = lessons.oscillations[3];user.page.Pendulum=0" />
   <OtherOsc v-show="user.current === lessons.oscillations[3]" :level="user.difficulty" :page="user.page.OtherOsc"
     @nextpage="Window.scrollTo(0, 0); user.page.OtherOsc++" @prevpage="Window.scrollTo(0, 0); user.page.OtherOsc--"
-    @nextlesson="Window.scrollTo(0, 0); user.current = 'landing';user.page.OtherOsc=0" />
+    @nextlesson="Window.scrollTo(0, 0); user.current = lessons.fluids[0];user.page.OtherOsc=0" />
+
+  <FluidIntro v-show="user.current === lessons.fluids[0]" :level="user.difficulty" :page="user.page.FluidIntro"
+    @nextpage="Window.scrollTo(0, 0); user.page.FluidIntro++" @prevpage="Window.scrollTo(0, 0); user.page.FluidIntro--"
+    @nextlesson="Window.scrollTo(0, 0); user.current = lessons.fluids[1];user.page.FluidIntro=0" />
+  <Pressure v-show="user.current === lessons.fluids[1]" :level="user.difficulty" :page="user.page.Pressure"
+    @nextpage="Window.scrollTo(0, 0); user.page.Pressure++" @prevpage="Window.scrollTo(0, 0); user.page.Pressure--"
+    @nextlesson="Window.scrollTo(0, 0); user.current = lessons.fluids[2];user.page.Pressure=0" />
+  <FluidFlow v-show="user.current === lessons.fluids[2]" :level="user.difficulty" :page="user.page.FluidFlow"
+    @nextpage="Window.scrollTo(0, 0); user.page.FluidFlow++" @prevpage="Window.scrollTo(0, 0); user.page.FluidFlow--"
+    @nextlesson="Window.scrollTo(0, 0); user.current = lessons.fluids[3];user.page.FluidFlow=0" />
+  <AirResistance v-show="user.current === lessons.fluids[3]" :level="user.difficulty" :page="user.page.AirResistance"
+    @nextpage="Window.scrollTo(0, 0); user.page.AirResistance++" @prevpage="Window.scrollTo(0, 0); user.page.AirResistance--"
+    @nextlesson="Window.scrollTo(0, 0); user.current = lessons.fluids[4];user.page.AirResistance=0" />
+  <Bernoulli v-show="user.current === lessons.fluids[4]" :level="user.difficulty" :page="user.page.Bernoulli"
+    @nextpage="Window.scrollTo(0, 0); user.page.Bernoulli++" @prevpage="Window.scrollTo(0, 0); user.page.Bernoulli--"
+    @nextlesson="Window.scrollTo(0, 0); user.current = 'landing';user.page.Bernoulli=0" />
 
 </template>
 
