@@ -1,14 +1,21 @@
 <script setup>
 defineProps(["level", "page"])
 defineEmits(["nextlesson", "nextpage", "prevpage"])
-import { onMounted, ref } from 'vue'
+import { onMounted, onUnmounted, ref, watch } from 'vue'
 const show = ref(false)
 const show1 = ref(false)
 const show2 = ref(false)
 const show3 = ref(false)
 const viewportMsg = ref('')
 
+let yoyo
+
 const inputInertia = ref(15)
+// Store engine and render references for cleanup
+let currentEngine = null
+let currentRender = null
+let currentRunner = null
+
 // module aliases
 var Engine = Matter.Engine,
     Render = Matter.Render,
@@ -23,6 +30,23 @@ var Engine = Matter.Engine,
 
 
 function runMoInertia() {
+    // Clean up previous engine if it exists
+    if (currentEngine) {
+        if (currentRunner) {
+            Runner.stop(currentRunner)
+        }
+        if (currentRender) {
+            Render.stop(currentRender)
+            currentRender.canvas.remove()
+            currentRender.canvas = null
+            currentRender.context = null
+            currentRender = null
+        }
+        Engine.clear(currentEngine)
+        currentEngine = null
+        currentRunner = null
+    }
+
     if (window.innerWidth < 1000) {
         viewportMsg.value = "Warning. Some demos may not work as intended/as well on smaller viewports. Consider using a larger viewing window for best results."
     } else {
@@ -32,6 +56,7 @@ function runMoInertia() {
 
     // create an engine
     var engine = Engine.create();
+    currentEngine = engine // Store reference for cleanup
 
     engine.gravity.y = 0
 
@@ -48,6 +73,7 @@ function runMoInertia() {
             background: "#000"
         }
     });
+    currentRender = render // Store reference for cleanup
 
     // run the renderer
     Render.run(render);
@@ -62,7 +88,7 @@ function runMoInertia() {
     var spoke2 = Bodies.rectangle(300 / 600 * width, 300 / 600 * width, 400 / 600 * width, 10 / 600 * width, { render: { fillStyle: '#ff5151' }, angle: Math.PI / 2 });
 
     var inertia = inputInertia.value * 1000 / 600 * width
-    var yoyo = Body.create({
+    yoyo = Body.create({
         parts: [yoyoCircle, yoyoOverlay, spoke1, spoke2, yoyoCenter],
         mass: 2,
         frictionAir: 0.001,
@@ -93,6 +119,7 @@ function runMoInertia() {
 
     // create runner
     var runner = Runner.create()
+    currentRunner = runner // Store reference for cleanup
 
     Runner.run(runner, engine)
     // run the engine
@@ -103,6 +130,32 @@ function runMoInertia() {
 onMounted(() => {
     runMoInertia()
 })
+
+onUnmounted(() => {
+    // Clean up when component is destroyed
+    if (currentEngine) {
+        if (currentRunner) {
+            Runner.stop(currentRunner)
+        }
+        if (currentRender) {
+            Render.stop(currentRender)
+            currentRender.canvas.remove()
+            currentRender.canvas = null
+            currentRender.context = null
+        }
+        Engine.clear(currentEngine)
+        currentEngine = null
+        currentRender = null
+        currentRunner = null
+    }
+})
+
+watch(inputInertia, (newVal) => {
+    if (yoyo) {
+        Body.setInertia(yoyo, Math.abs(newVal) * 1000 )
+    }
+})
+
 </script>
 
 

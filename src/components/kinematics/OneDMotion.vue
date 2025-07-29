@@ -1,12 +1,40 @@
 <script setup>
-import { onMounted, ref } from 'vue'
+import { onMounted, onUnmounted, ref } from 'vue'
 defineProps(["level", "page"])
 defineEmits(["nextlesson", "nextpage", "prevpage"])
 
 const inputValue = ref('')
 const viewportMsg = ref('')
 
+var Engine = Matter.Engine,
+    Render = Matter.Render,
+    Runner = Matter.Runner,
+    Bodies = Matter.Bodies,
+    Composite = Matter.Composite;
+
+// Store engine and render references for cleanup
+let currentEngine = null
+let currentRender = null
+let currentRunner = null
+
 function runConstAcc() {
+    // Clean up previous engine if it exists
+    if (currentEngine) {
+        if (currentRunner) {
+            Runner.stop(currentRunner)
+        }
+        if (currentRender) {
+            Render.stop(currentRender)
+            currentRender.canvas.remove()
+            currentRender.canvas = null
+            currentRender.context = null
+            currentRender = null
+        }
+        Engine.clear(currentEngine)
+        currentEngine = null
+        currentRunner = null
+    }
+
     if (window.innerWidth < 1000) {
         viewportMsg.value = "Warning. Some demos may not work as intended/as well on smaller viewports. Consider using a larger viewing window for best results."
     } else {
@@ -14,14 +42,10 @@ function runConstAcc() {
     }
     document.getElementById("constAcc").innerHTML = ""
     // module aliases
-    var Engine = Matter.Engine,
-        Render = Matter.Render,
-        Runner = Matter.Runner,
-        Bodies = Matter.Bodies,
-        Composite = Matter.Composite;
 
     // create an engine
     var engine = Engine.create();
+    currentEngine = engine // Store reference for cleanup
 
     var width = 0.5 * window.innerWidth > 1000 ? 1000 : window.innerWidth < 768 ? 0.65 * window.innerWidth : 0.5 * window.innerWidth;
     var height = 400 / 1000 * width;
@@ -38,6 +62,7 @@ function runConstAcc() {
             background: "#000"
         }
     });
+    currentRender = render // Store reference for cleanup
     // run the renderer
     Render.run(render);
 
@@ -95,12 +120,32 @@ function runConstAcc() {
 
     // create runner
     var runner = Runner.create();
+    currentRunner = runner // Store reference for cleanup
 
     // run the engine
     Runner.run(runner, engine);
 }
 onMounted(() => {
     runConstAcc()
+})
+
+onUnmounted(() => {
+    // Clean up when component is destroyed
+    if (currentEngine) {
+        if (currentRunner) {
+            Runner.stop(currentRunner)
+        }
+        if (currentRender) {
+            Render.stop(currentRender)
+            currentRender.canvas.remove()
+            currentRender.canvas = null
+            currentRender.context = null
+        }
+        Engine.clear(currentEngine)
+        currentEngine = null
+        currentRender = null
+        currentRunner = null
+    }
 })
 </script>
 

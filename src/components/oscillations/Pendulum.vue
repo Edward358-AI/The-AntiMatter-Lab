@@ -1,7 +1,7 @@
 <script setup>
 defineProps(["level", "page"])
 defineEmits(["nextlesson", "nextpage", "prevpage"])
-import {onMounted, ref, watch} from 'vue'
+import {onMounted, onUnmounted, ref, watch} from 'vue'
 const show = ref(false)
 const show1 = ref(false)
 const show2 = ref(false)
@@ -12,6 +12,10 @@ const mass = ref(25)
 const gravity = ref(10)
 
 let rod, circle, engine
+// Store engine and render references for cleanup
+let currentEngine = null
+let currentRender = null
+let currentRunner = null
 
 // module aliases
 var Engine = Matter.Engine,
@@ -25,6 +29,23 @@ var Engine = Matter.Engine,
     MouseConstraint = Matter.MouseConstraint;
 
 function runPendulum() {
+    // Clean up previous engine if it exists
+    if (currentEngine) {
+        if (currentRunner) {
+            Runner.stop(currentRunner)
+        }
+        if (currentRender) {
+            Render.stop(currentRender)
+            currentRender.canvas.remove()
+            currentRender.canvas = null
+            currentRender.context = null
+            currentRender = null
+        }
+        Engine.clear(currentEngine)
+        currentEngine = null
+        currentRunner = null
+    }
+
     if (window.innerWidth < 1000) {
         viewportMsg.value = "Warning. Some demos may not work as intended/as well on smaller viewports. Consider using a larger viewing window for best results."
     } else {
@@ -33,6 +54,7 @@ function runPendulum() {
     document.getElementById("pendulum").innerHTML = ""
     // create engine
     engine = Engine.create()
+    currentEngine = engine // Store reference for cleanup
     var width = 0.5 * window.innerWidth > 600 ? 1000 : window.innerWidth < 768 ? 0.65 * window.innerWidth : 0.5 * window.innerWidth;
     var height = 0.6 * width
 
@@ -50,6 +72,7 @@ function runPendulum() {
             background: "#000"
         }
     })
+    currentRender = render // Store reference for cleanup
     Render.run(render)
 
     circle = Bodies.circle(0.3 * width, 0.7 * height, 0.2 * height, {
@@ -94,6 +117,7 @@ function runPendulum() {
 
     // create runner
     var runner = Runner.create()
+    currentRunner = runner // Store reference for cleanup
     Runner.run(runner, engine)
 
     // add mouse control
@@ -117,6 +141,25 @@ function runPendulum() {
 }
 onMounted(()=>{
     runPendulum()
+})
+
+onUnmounted(() => {
+    // Clean up when component is destroyed
+    if (currentEngine) {
+        if (currentRunner) {
+            Runner.stop(currentRunner)
+        }
+        if (currentRender) {
+            Render.stop(currentRender)
+            currentRender.canvas.remove()
+            currentRender.canvas = null
+            currentRender.context = null
+        }
+        Engine.clear(currentEngine)
+        currentEngine = null
+        currentRender = null
+        currentRunner = null
+    }
 })
 
 watch(gravity, (newVal) => {

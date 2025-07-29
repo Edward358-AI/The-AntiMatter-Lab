@@ -1,29 +1,53 @@
 <script setup>
 import Matter from 'matter-js'
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, onUnmounted } from 'vue'
 defineProps(["level", "page"])
 defineEmits(["nextlesson", "nextpage", "prevpage"])
 
 const viewportMsg = ref('')
 
+var Engine = Matter.Engine,
+    Render = Matter.Render,
+    Runner = Matter.Runner,
+    Bodies = Matter.Bodies,
+    Body = Matter.Body,
+    Constraint = Matter.Constraint,
+    Composite = Matter.Composite,
+    Mouse = Matter.Mouse,
+    MouseConstraint = Matter.MouseConstraint;
+
+// Store engine and render references for cleanup
+let currentEngine = null
+let currentRender = null
+let currentRunner = null
+
 function runCentripetal() {
+    // Clean up previous engine if it exists
+    if (currentEngine) {
+        if (currentRunner) {
+            Runner.stop(currentRunner)
+        }
+        if (currentRender) {
+            Render.stop(currentRender)
+            currentRender.canvas.remove()
+            currentRender.canvas = null
+            currentRender.context = null
+            currentRender = null
+        }
+        Engine.clear(currentEngine)
+        currentEngine = null
+        currentRunner = null
+    }
+
     if (window.innerWidth < 1000) {
         viewportMsg.value = "Warning. Some demos may not work as intended/as well on smaller viewports. Consider using a larger viewing window for best results."
     } else {
         viewportMsg.value = ""
     }
     document.getElementById("spin").innerHTML = ""
-    var Engine = Matter.Engine,
-        Render = Matter.Render,
-        Runner = Matter.Runner,
-        Bodies = Matter.Bodies,
-        Body = Matter.Body,
-        Constraint = Matter.Constraint,
-        Composite = Matter.Composite,
-        Mouse = Matter.Mouse,
-        MouseConstraint = Matter.MouseConstraint;
     // create engine
     var engine = Engine.create();
+    currentEngine = engine // Store reference for cleanup
 
     engine.gravity.y = 0;
 
@@ -43,6 +67,7 @@ function runCentripetal() {
             background: "#000"
         }
     })
+    currentRender = render // Store reference for cleanup
     Render.run(render)
 
     var ball = Bodies.circle(300 / 600 * width, 550 / 600 * width, 40 / 600 * width,
@@ -70,6 +95,7 @@ function runCentripetal() {
 
     // create runner
     var runner = Runner.create()
+    currentRunner = runner // Store reference for cleanup
 
     //run engine
     Runner.run(runner, engine)
@@ -99,6 +125,25 @@ function runCentripetal() {
 }
 onMounted(() => {
     runCentripetal()
+})
+
+onUnmounted(() => {
+    // Clean up when component is destroyed
+    if (currentEngine) {
+        if (currentRunner) {
+            Runner.stop(currentRunner)
+        }
+        if (currentRender) {
+            Render.stop(currentRender)
+            currentRender.canvas.remove()
+            currentRender.canvas = null
+            currentRender.context = null
+        }
+        Engine.clear(currentEngine)
+        currentEngine = null
+        currentRender = null
+        currentRunner = null
+    }
 })
 
 </script>

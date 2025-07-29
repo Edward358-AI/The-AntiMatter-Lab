@@ -1,6 +1,6 @@
 <script setup>
 import Matter, { Body } from 'matter-js'
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, onUnmounted } from 'vue'
 defineProps(["level", "page"])
 defineEmits(["nextlesson", "nextpage", "prevpage"])
 const show = ref(false)
@@ -10,25 +10,49 @@ const show3 = ref(false)
 const show4 = ref(false)
 const viewportMsg = ref('')
 
+// module aliases
+var Engine = Matter.Engine,
+    Render = Matter.Render,
+    Runner = Matter.Runner,
+    Bodies = Matter.Bodies,
+    Composite = Matter.Composite,
+    Composites = Matter.Composites,
+    Mouse = Matter.Mouse,
+    MouseConstraint = Matter.MouseConstraint;
+
+// Store engine and render references for cleanup
+let currentEngine = null
+let currentRender = null
+let currentRunner = null
+
 function runUnstableEq() {
+    // Clean up previous engine if it exists
+    if (currentEngine) {
+        if (currentRunner) {
+            Runner.stop(currentRunner)
+        }
+        if (currentRender) {
+            Render.stop(currentRender)
+            currentRender.canvas.remove()
+            currentRender.canvas = null
+            currentRender.context = null
+            currentRender = null
+        }
+        Engine.clear(currentEngine)
+        currentEngine = null
+        currentRunner = null
+    }
+
     if (window.innerWidth < 1000) {
         viewportMsg.value = "Warning. Some demos may not work as intended/as well on smaller viewports. Consider using a larger viewing window for best results."
     } else {
         viewportMsg.value = ""
     }
     document.getElementById("unstable").innerHTML = ""
-    // module aliases
-    var Engine = Matter.Engine,
-        Render = Matter.Render,
-        Runner = Matter.Runner,
-        Bodies = Matter.Bodies,
-        Composite = Matter.Composite,
-        Composites = Matter.Composites,
-        Mouse = Matter.Mouse,
-        MouseConstraint = Matter.MouseConstraint;
 
     // create an engine
     var engine = Engine.create();
+    currentEngine = engine // Store reference for cleanup
     var width = 0.5 * window.innerWidth > 600 ? 600 : window.innerWidth < 768 ? 0.65 * window.innerWidth : 0.5 * window.innerWidth;
     var height = 400 / 600 * width;
     // create a renderer
@@ -42,11 +66,13 @@ function runUnstableEq() {
             background: "#000"
         }
     });
+    currentRender = render // Store reference for cleanup
     // run the renderer
     Render.run(render);
 
     // create runner
     var runner = Runner.create();
+    currentRunner = runner // Store reference for cleanup
 
     // run the engine
     Runner.run(runner, engine);
@@ -104,6 +130,25 @@ function runUnstableEq() {
 
 onMounted(() => {
     runUnstableEq()
+})
+
+onUnmounted(() => {
+    // Clean up when component is destroyed
+    if (currentEngine) {
+        if (currentRunner) {
+            Runner.stop(currentRunner)
+        }
+        if (currentRender) {
+            Render.stop(currentRender)
+            currentRender.canvas.remove()
+            currentRender.canvas = null
+            currentRender.context = null
+        }
+        Engine.clear(currentEngine)
+        currentEngine = null
+        currentRender = null
+        currentRunner = null
+    }
 })
 </script>
 

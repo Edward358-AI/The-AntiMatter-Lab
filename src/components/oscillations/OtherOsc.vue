@@ -1,12 +1,16 @@
 <script setup>
 defineProps(["level", "page"])
 defineEmits(["nextlesson", "nextpage", "prevpage"])
-import {onMounted, ref, watch} from 'vue'
+import {onMounted, onUnmounted, ref, watch} from 'vue'
 const viewportMsg = ref('')
 const redMass = ref(10)
 const blueMass = ref(10)
 
 let ball1, ball2
+// Store engine and render references for cleanup
+let currentEngine = null
+let currentRender = null
+let currentRunner = null
 
 // module aliases
 var Engine = Matter.Engine,
@@ -20,6 +24,23 @@ var Engine = Matter.Engine,
     MouseConstraint = Matter.MouseConstraint;
 
 function runDoublePendulum() {
+    // Clean up previous engine if it exists
+    if (currentEngine) {
+        if (currentRunner) {
+            Runner.stop(currentRunner)
+        }
+        if (currentRender) {
+            Render.stop(currentRender)
+            currentRender.canvas.remove()
+            currentRender.canvas = null
+            currentRender.context = null
+            currentRender = null
+        }
+        Engine.clear(currentEngine)
+        currentEngine = null
+        currentRunner = null
+    }
+
     if (window.innerWidth < 1000) {
         viewportMsg.value = "Warning. Some demos may not work as intended/as well on smaller viewports. Consider using a larger viewing window for best results."
     } else {
@@ -28,6 +49,7 @@ function runDoublePendulum() {
     document.getElementById("doublependulum").innerHTML = ""
     // create engine
     var engine = Engine.create()
+    currentEngine = engine // Store reference for cleanup
     engine.gravity.y = 5
 
     var width = 0.5 * window.innerWidth > 800 ? 700 : window.innerWidth < 768 ? 0.65 * window.innerWidth : 0.5 * window.innerWidth;

@@ -1,6 +1,6 @@
 <script setup>
 import Matter, { Body } from 'matter-js';
-import { onMounted, ref } from 'vue'
+import { onMounted, onUnmounted, ref } from 'vue'
 defineProps(["level", "page"])
 defineEmits(["nextlesson", "nextpage", "prevpage"])
 
@@ -8,22 +8,46 @@ const inputAngle = ref('')
 const initVelocity = ref('')
 const viewportMsg = ref('')
 
+// module aliases
+var Engine = Matter.Engine,
+    Render = Matter.Render,
+    Runner = Matter.Runner,
+    Bodies = Matter.Bodies,
+    Composite = Matter.Composite;
+
+// Store engine and render references for cleanup
+let currentEngine = null
+let currentRender = null
+let currentRunner = null
+
 function degreesToRadians(degrees) {
     return degrees * (Math.PI / 180);
 }
 
 
 function runProjMotion() {
+    // Clean up previous engine if it exists
+    if (currentEngine) {
+        if (currentRunner) {
+            Runner.stop(currentRunner)
+        }
+        if (currentRender) {
+            Render.stop(currentRender)
+            currentRender.canvas.remove()
+            currentRender.canvas = null
+            currentRender.context = null
+            currentRender = null
+        }
+        Engine.clear(currentEngine)
+        currentEngine = null
+        currentRunner = null
+    }
+
     document.getElementById("projMotion").innerHTML = ""
-    // module aliases
-    var Engine = Matter.Engine,
-        Render = Matter.Render,
-        Runner = Matter.Runner,
-        Bodies = Matter.Bodies,
-        Composite = Matter.Composite;
 
     // create an engine
     var engine = Engine.create();
+    currentEngine = engine // Store reference for cleanup
     var width = 0.5 * window.innerWidth > 1000 ? 1000 : window.innerWidth < 768 ? 0.65 * window.innerWidth : 0.5 * window.innerWidth;
     var height = 600 / 1000 * width;
     // create a renderer
@@ -37,6 +61,7 @@ function runProjMotion() {
             background: "#000"
         }
     });
+    currentRender = render // Store reference for cleanup
     // run the renderer
     Render.run(render);
 
@@ -82,6 +107,7 @@ function runProjMotion() {
 
     // create runner
     var runner = Runner.create();
+    currentRunner = runner // Store reference for cleanup
 
     // run the engine
     Runner.run(runner, engine);
@@ -96,6 +122,25 @@ function runProjMotion() {
 
 onMounted(() => {
     runProjMotion()
+})
+
+onUnmounted(() => {
+    // Clean up when component is destroyed
+    if (currentEngine) {
+        if (currentRunner) {
+            Runner.stop(currentRunner)
+        }
+        if (currentRender) {
+            Render.stop(currentRender)
+            currentRender.canvas.remove()
+            currentRender.canvas = null
+            currentRender.context = null
+        }
+        Engine.clear(currentEngine)
+        currentEngine = null
+        currentRender = null
+        currentRunner = null
+    }
 })
 </script>
 

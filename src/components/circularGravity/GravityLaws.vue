@@ -1,5 +1,5 @@
 <script setup>
-import { onMounted, ref } from 'vue'
+import { onMounted, onUnmounted, ref } from 'vue'
 defineProps(["level", "page"])
 defineEmits(["nextlesson", "nextpage", "prevpage"])
 
@@ -13,6 +13,10 @@ var Engine = Matter.Engine,
     Mouse = Matter.Mouse,
     MouseConstraint = Matter.MouseConstraint;
 
+// Store engine and render references for cleanup
+let currentEngine = null
+let currentRender = null
+let currentRunner = null
 
 var planet3 = null;
 
@@ -21,6 +25,23 @@ const viewportMsg = ref('')
 
 
 function runGrav() {
+    // Clean up previous engine if it exists
+    if (currentEngine) {
+        if (currentRunner) {
+            Runner.stop(currentRunner)
+        }
+        if (currentRender) {
+            Render.stop(currentRender)
+            currentRender.canvas.remove()
+            currentRender.canvas = null
+            currentRender.context = null
+            currentRender = null
+        }
+        Engine.clear(currentEngine)
+        currentEngine = null
+        currentRunner = null
+    }
+
     if (window.innerWidth < 1000) {
         viewportMsg.value = "Warning. Some demos may not work as intended/as well on smaller viewports. Consider using a larger viewing window for best results."
     } else {
@@ -34,6 +55,7 @@ function runGrav() {
         gravity: { x: 0, y: 0 },
         enableSleeping: false // Important to prevent bodies from sleeping
     });
+    currentEngine = engine // Store reference for cleanup
 
     var width = 0.5 * window.innerWidth > 800 ? 800 : window.innerWidth < 768 ? 0.65 * window.innerWidth : 0.5 * window.innerWidth;
     var height = width;
@@ -50,6 +72,7 @@ function runGrav() {
             showSleeping: false
         }
     });
+    currentRender = render // Store reference for cleanup
     Render.run(render);
 
     // Create planets with initial velocities
@@ -149,6 +172,7 @@ function runGrav() {
 
     // Create and run runner
     var runner = Runner.create();
+    currentRunner = runner // Store reference for cleanup
     Runner.run(runner, engine);
 
     // Add mouse control
@@ -169,6 +193,25 @@ function runGrav() {
 
 onMounted(() => {
     runGrav()
+})
+
+onUnmounted(() => {
+    // Clean up when component is destroyed
+    if (currentEngine) {
+        if (currentRunner) {
+            Runner.stop(currentRunner)
+        }
+        if (currentRender) {
+            Render.stop(currentRender)
+            currentRender.canvas.remove()
+            currentRender.canvas = null
+            currentRender.context = null
+        }
+        Engine.clear(currentEngine)
+        currentEngine = null
+        currentRender = null
+        currentRunner = null
+    }
 })
 
 </script>

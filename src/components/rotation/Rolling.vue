@@ -1,12 +1,17 @@
 <script setup>
 defineProps(["level", "page"])
 defineEmits(["nextlesson", "nextpage", "prevpage"])
-import { onMounted, ref } from 'vue'
+import { onMounted, onUnmounted, ref } from 'vue'
 import Matter, { Body } from 'matter-js'
 
 const inputFriction = ref(0.05)
 const inputInertia = ref(20)
 const viewportMsg = ref('')
+
+// Store engine and render references for cleanup
+let currentEngine = null
+let currentRender = null
+let currentRunner = null
 
 // module aliases
 var Engine = Matter.Engine,
@@ -18,6 +23,23 @@ var Engine = Matter.Engine,
     MouseConstraint = Matter.MouseConstraint,
     Mouse = Matter.Mouse;
 function runRolling() {
+    // Clean up previous engine if it exists
+    if (currentEngine) {
+        if (currentRunner) {
+            Runner.stop(currentRunner)
+        }
+        if (currentRender) {
+            Render.stop(currentRender)
+            currentRender.canvas.remove()
+            currentRender.canvas = null
+            currentRender.context = null
+            currentRender = null
+        }
+        Engine.clear(currentEngine)
+        currentEngine = null
+        currentRunner = null
+    }
+
     if (window.innerWidth < 1000) {
         viewportMsg.value = "Warning. Some demos may not work as intended/as well on smaller viewports. Consider using a larger viewing window for best results."
     } else {
@@ -27,6 +49,7 @@ function runRolling() {
 
     // create an engine
     var engine = Engine.create();
+    currentEngine = engine // Store reference for cleanup
 
     var width = 0.5 * window.innerWidth > 1000 ? 1000 : window.innerWidth < 768 ? 0.65 * window.innerWidth : 0.5 * window.innerWidth;
     var height = 600 / 1000 * width
@@ -42,6 +65,7 @@ function runRolling() {
             background: "#000"
         }
     });
+    currentRender = render // Store reference for cleanup
 
     // run the renderer
     Render.run(render);
@@ -80,6 +104,7 @@ function runRolling() {
     Composite.add(engine.world, [wheel, ...walls, ground, leftramp, rightramp])
     // create runner
     var runner = Runner.create()
+    currentRunner = runner // Store reference for cleanup
 
     Runner.run(runner, engine)
     // run the engine
@@ -104,6 +129,25 @@ function runRolling() {
 }
 onMounted(() => {
     runRolling()
+})
+
+onUnmounted(() => {
+    // Clean up when component is destroyed
+    if (currentEngine) {
+        if (currentRunner) {
+            Runner.stop(currentRunner)
+        }
+        if (currentRender) {
+            Render.stop(currentRender)
+            currentRender.canvas.remove()
+            currentRender.canvas = null
+            currentRender.context = null
+        }
+        Engine.clear(currentEngine)
+        currentEngine = null
+        currentRender = null
+        currentRunner = null
+    }
 })
 
 </script>

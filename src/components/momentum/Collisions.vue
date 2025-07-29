@@ -1,7 +1,7 @@
 <script setup>
 defineProps(["level", "page"])
 defineEmits(["nextlesson", "nextpage", "prevpage"])
-import { onMounted, ref } from 'vue'
+import { onMounted, onUnmounted, ref } from 'vue'
 
 const mass1 = ref('30')
 const mass2 = ref('40')
@@ -9,6 +9,11 @@ const vel1 = ref('4')
 const vel2 = ref('-3')
 const elasticity = ref('1')
 const viewportMsg = ref('')
+
+// Store engine and render references for cleanup
+let currentEngine = null
+let currentRender = null
+let currentRunner = null
 
 // module aliases
 var Engine = Matter.Engine,
@@ -19,6 +24,23 @@ var Engine = Matter.Engine,
     Composite = Matter.Composite;
 
 function run1dCollision() {
+    // Clean up previous engine if it exists
+    if (currentEngine) {
+        if (currentRunner) {
+            Runner.stop(currentRunner)
+        }
+        if (currentRender) {
+            Render.stop(currentRender)
+            currentRender.canvas.remove()
+            currentRender.canvas = null
+            currentRender.context = null
+            currentRender = null
+        }
+        Engine.clear(currentEngine)
+        currentEngine = null
+        currentRunner = null
+    }
+
     if (window.innerWidth < 1000) {
         viewportMsg.value = "Warning. Some demos may not work as intended/as well on smaller viewports. Consider using a larger viewing window for best results."
     } else {
@@ -28,6 +50,7 @@ function run1dCollision() {
 
     // create an engine
     var engine = Engine.create();
+    currentEngine = engine // Store reference for cleanup
     var width = 0.5 * window.innerWidth > 800 ? 800 : window.innerWidth < 768 ? 0.65 * window.innerWidth : 0.5 * window.innerWidth;
     var height = width / 2
     // create a renderer

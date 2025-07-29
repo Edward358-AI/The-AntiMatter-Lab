@@ -1,11 +1,16 @@
 <script setup>
 defineProps(["level", "page"])
 defineEmits(["nextlesson", "nextpage", "prevpage"])
-import { ref, onMounted, watch } from 'vue'
+import { ref, onMounted, onUnmounted, watch } from 'vue'
 
 const inputInertia = ref(30)
 const elasticity = ref(1)
 const viewportMsg = ref('')
+
+// Store engine and render references for cleanup
+let currentEngine = null
+let currentRender = null
+let currentRunner = null
 
 var Engine = Matter.Engine,
     Render = Matter.Render,
@@ -21,6 +26,23 @@ let rod, ball
 let engine, render, runner
 
 function runAngCollision() {
+    // Clean up previous engine if it exists
+    if (currentEngine) {
+        if (currentRunner) {
+            Runner.stop(currentRunner)
+        }
+        if (currentRender) {
+            Render.stop(currentRender)
+            currentRender.canvas.remove()
+            currentRender.canvas = null
+            currentRender.context = null
+            currentRender = null
+        }
+        Engine.clear(currentEngine)
+        currentEngine = null
+        currentRunner = null
+    }
+
     if (window.innerWidth < 1000) {
         viewportMsg.value = "Warning. Some demos may not work as intended/as well on smaller viewports. Consider using a larger viewing window for best results."
     } else {
@@ -29,6 +51,7 @@ function runAngCollision() {
     document.getElementById("angularcollision").innerHTML = ""
 
     engine = Engine.create()
+    currentEngine = engine // Store reference for cleanup
     engine.gravity.y = 0
     var width = 0.5 * window.innerWidth > 600 ? 600 : window.innerWidth < 768 ? 0.65 * window.innerWidth : 0.5 * window.innerWidth;
     var height = width;
@@ -42,6 +65,7 @@ function runAngCollision() {
             background: "#000"
         }
     })
+    currentRender = render // Store reference for cleanup
 
     Render.run(render)
 
@@ -78,6 +102,7 @@ function runAngCollision() {
     Composite.add(engine.world, [rod, pivot, ball, ...walls])
 
     runner = Runner.create()
+    currentRunner = runner // Store reference for cleanup
     Runner.run(runner, engine)
 
     const mouse = Mouse.create(render.canvas)
@@ -96,6 +121,25 @@ function runAngCollision() {
 
 onMounted(() => {
     runAngCollision()
+})
+
+onUnmounted(() => {
+    // Clean up when component is destroyed
+    if (currentEngine) {
+        if (currentRunner) {
+            Runner.stop(currentRunner)
+        }
+        if (currentRender) {
+            Render.stop(currentRender)
+            currentRender.canvas.remove()
+            currentRender.canvas = null
+            currentRender.context = null
+        }
+        Engine.clear(currentEngine)
+        currentEngine = null
+        currentRender = null
+        currentRunner = null
+    }
 })
 
 // Watch inertia changes and update the body

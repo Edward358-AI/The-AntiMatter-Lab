@@ -1,6 +1,5 @@
 <script setup>
-import Matter, { Constraint } from 'matter-js';
-import { ref, vShow, onMounted, vModelDynamic } from 'vue'
+import { ref, vShow, onMounted, onUnmounted } from 'vue'
 
 defineProps(["level", "page"])
 defineEmits(["nextlesson", "nextpage", "prevpage"])
@@ -8,26 +7,51 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
 const stiffness = ref('0.1')
 const viewportMsg = ref('')
 
+// module aliases
+var Engine = Matter.Engine,
+    Render = Matter.Render,
+    Runner = Matter.Runner,
+    Bodies = Matter.Bodies,
+    Composite = Matter.Composite,
+    Constraint = Matter.Constraint,
+    Mouse = Matter.Mouse,
+    MouseConstraint = Matter.MouseConstraint;
+
+// Store engine and render references for cleanup
+let currentEngine = null
+let currentRender = null
+let currentRunner = null
+
 
 function runSpring() {
+    // Clean up previous engine if it exists
+    if (currentEngine) {
+        if (currentRunner) {
+            Runner.stop(currentRunner)
+        }
+        if (currentRender) {
+            Render.stop(currentRender)
+            currentRender.canvas.remove()
+            currentRender.canvas = null
+            currentRender.context = null
+            currentRender = null
+        }
+        Engine.clear(currentEngine)
+        currentEngine = null
+        currentRunner = null
+    }
+
     if (window.innerWidth < 768) {
         viewportMsg.value = "Warning. Some demos may not work as intended/as well on smaller viewports. Consider using a larger viewing window for best results."
     } else {
         viewportMsg.value = ""
     }
     document.getElementById("spring").innerHTML = ""
-    // module aliases
-    var Engine = Matter.Engine,
-        Render = Matter.Render,
-        Runner = Matter.Runner,
-        Bodies = Matter.Bodies,
-        Composite = Matter.Composite,
-        Constraint = Matter.Constraint,
-        Mouse = Matter.Mouse,
-        MouseConstraint = Matter.MouseConstraint;
+
 
     // create an engine
     var engine = Engine.create();
+    currentEngine = engine // Store reference for cleanup
 
     // create a renderer
 
@@ -43,6 +67,7 @@ function runSpring() {
             background: "#000"
         }
     });
+    currentRender = render // Store reference for cleanup
     // run the renderer
     Render.run(render);
 
@@ -112,6 +137,7 @@ function runSpring() {
 
     // create runner
     var runner = Runner.create();
+    currentRunner = runner // Store reference for cleanup
 
     // run the engine
     Runner.run(runner, engine);
@@ -137,6 +163,25 @@ function runSpring() {
 
 onMounted(() => {
     runSpring()
+})
+
+onUnmounted(() => {
+    // Clean up when component is destroyed
+    if (currentEngine) {
+        if (currentRunner) {
+            Runner.stop(currentRunner)
+        }
+        if (currentRender) {
+            Render.stop(currentRender)
+            currentRender.canvas.remove()
+            currentRender.canvas = null
+            currentRender.context = null
+        }
+        Engine.clear(currentEngine)
+        currentEngine = null
+        currentRender = null
+        currentRunner = null
+    }
 })
 
 </script>

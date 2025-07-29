@@ -1,14 +1,19 @@
 <script setup>
 defineProps(["level", "page"])
 defineEmits(["nextlesson", "nextpage", "prevpage"])
-import { onMounted, ref, watch } from 'vue'
+import { onMounted, onUnmounted, ref, watch } from 'vue'
 const viewportMsg = ref('')
-const springConst = ref(1.0)
+const springConst = ref(2.0)
 const inputMass = ref(30)
 // Add a reactive ref for platform visibility
 const showPlatform = ref(true)
 
 let block
+// Store engine and render references for cleanup
+let currentEngine = null
+let currentRender = null
+let currentRunner = null
+
 // module aliases
 var Engine = Matter.Engine,
     Render = Matter.Render,
@@ -24,6 +29,26 @@ var Engine = Matter.Engine,
 let springEngine = null
 
 function runSpringOsc() {
+    // Clean up previous engine if it exists
+    if (currentEngine) {
+        // Stop the runner
+        if (currentRunner) {
+            Runner.stop(currentRunner)
+        }
+        // Stop and clear the render
+        if (currentRender) {
+            Render.stop(currentRender)
+            currentRender.canvas.remove()
+            currentRender.canvas = null
+            currentRender.context = null
+            currentRender = null
+        }
+        // Clear the engine
+        Engine.clear(currentEngine)
+        currentEngine = null
+        currentRunner = null
+    }
+
     if (window.innerWidth < 1000) {
         viewportMsg.value = "Warning. Some demos may not work as intended/as well on smaller viewports. Consider using a larger viewing window for best results."
     } else {
@@ -32,6 +57,7 @@ function runSpringOsc() {
     document.getElementById("springOsc").innerHTML = ""
     // create engine
     var engine = Engine.create()
+    currentEngine = engine // Store reference for cleanup
     springEngine = engine // Save reference for gravity toggling
     engine.gravity.y = 1
     var width = 0.5 * window.innerWidth > 800 ? 700 : window.innerWidth < 768 ? 0.65 * window.innerWidth : 0.5 * window.innerWidth;
@@ -48,6 +74,7 @@ function runSpringOsc() {
             background: "#000"
         }
     })
+    currentRender = render // Store reference for cleanup
     Render.run(render)
 
     block = Bodies.rectangle(0.6 * width, 0.5 * height, 80 / 800 * width, 80 / 800 * width,
@@ -125,6 +152,7 @@ function runSpringOsc() {
 
     // create runner
     var runner = Runner.create()
+    currentRunner = runner // Store reference for cleanup
     Runner.run(runner, engine)
 
     // add mouse control
@@ -160,6 +188,25 @@ function togglePlatform() {
 
 onMounted(() => {
     runSpringOsc()
+})
+
+onUnmounted(() => {
+    // Clean up when component is destroyed
+    if (currentEngine) {
+        if (currentRunner) {
+            Runner.stop(currentRunner)
+        }
+        if (currentRender) {
+            Render.stop(currentRender)
+            currentRender.canvas.remove()
+            currentRender.canvas = null
+            currentRender.context = null
+        }
+        Engine.clear(currentEngine)
+        currentEngine = null
+        currentRender = null
+        currentRunner = null
+    }
 })
 
 watch(springConst, () => {

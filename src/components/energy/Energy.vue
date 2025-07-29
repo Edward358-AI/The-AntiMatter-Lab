@@ -1,5 +1,5 @@
 <script setup>
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, onUnmounted } from 'vue'
 defineProps(["level", "page"])
 defineEmits(["nextlesson", "nextpage", "prevpage"])
 const show = ref(false)
@@ -8,6 +8,11 @@ const show2 = ref(false)
 const show3 = ref(false)
 const show4 = ref(false)
 const viewportMsg = ref('')
+
+// Store engine and render references for cleanup
+let currentEngine = null
+let currentRender = null
+let currentRunner = null
 
 // module aliases
 var Engine = Matter.Engine,
@@ -20,6 +25,23 @@ var Engine = Matter.Engine,
 
 
 function runCurvedRamp() {
+    // Clean up previous engine if it exists
+    if (currentEngine) {
+        if (currentRunner) {
+            Runner.stop(currentRunner)
+        }
+        if (currentRender) {
+            Render.stop(currentRender)
+            currentRender.canvas.remove()
+            currentRender.canvas = null
+            currentRender.context = null
+            currentRender = null
+        }
+        Engine.clear(currentEngine)
+        currentEngine = null
+        currentRunner = null
+    }
+
     if (window.innerWidth < 1000) {
         viewportMsg.value = "Warning. Some demos may not work as intended/as well on smaller viewports. Consider using a larger viewing window for best results."
     } else {
@@ -34,6 +56,7 @@ function runCurvedRamp() {
     const engine = Engine.create({
         gravity: { x: 0, y: 1 / 800 * width }
     });
+    currentEngine = engine // Store reference for cleanup
 
 
     // Create renderer
@@ -48,6 +71,7 @@ function runCurvedRamp() {
             showAngleIndicator: false
         }
     });
+    currentRender = render // Store reference for cleanup
 
     // Create a simple U-shaped ramp using 3 parts: left wall, curve, right wall
     const rampWidth = 30 / 800 * width; // Thickness of ramp walls
@@ -109,7 +133,9 @@ function runCurvedRamp() {
 
     // Run the engine & renderer
     Render.run(render);
-    Runner.run(Matter.Runner.create(), engine);
+    const runner = Runner.create();
+    currentRunner = runner // Store reference for cleanup
+    Runner.run(runner, engine);
 
     // add mouse control
     var mouse = Mouse.create(render.canvas),
@@ -134,6 +160,25 @@ function runCurvedRamp() {
 
 onMounted(() => {
     runCurvedRamp()
+})
+
+onUnmounted(() => {
+    // Clean up when component is destroyed
+    if (currentEngine) {
+        if (currentRunner) {
+            Runner.stop(currentRunner)
+        }
+        if (currentRender) {
+            Render.stop(currentRender)
+            currentRender.canvas.remove()
+            currentRender.canvas = null
+            currentRender.context = null
+        }
+        Engine.clear(currentEngine)
+        currentEngine = null
+        currentRender = null
+        currentRunner = null
+    }
 })
 </script>
 
