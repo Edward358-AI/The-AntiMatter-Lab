@@ -249,6 +249,7 @@ watch(redMass, (newVal) => {
                         <input type="range" class="form-range" v-model="blueMass" min="1.0" max="50.0" step="0.5"
                             style="width:fit-content" />
                     </div>
+                    <span class="warn">{{ viewportMsg }}</span>
                 </div>
                 </figure>
                 <br>

@@ -314,7 +314,6 @@ watch(gravity, (newVal) => {
                 <h3>Physical Pendulum Demo</h3>
                 <div id="pendulum"></div>
                 <button class="btn btn-outline-primary" @click="runPendulum()">Reset</button>&emsp;
-                <br><span class="warn">{{ viewportMsg }}</span>
                 <div class="row justify-content-center m-auto" style="max-width:700px;">
                     <label> Gravity: {{ gravity }} </label><br>
                     <input type="range"
@@ -324,6 +323,7 @@ watch(gravity, (newVal) => {
                         style="width:fit-content"
                     />
                 </div>
+                <span class="warn">{{ viewportMsg }}</span>
             </figure>
             <br>
             As you might have seen, the moment of inertia plays a role in the period of oscillation! The circle had a much greater moment of inertia 
