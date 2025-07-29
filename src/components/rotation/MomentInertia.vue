@@ -589,7 +589,7 @@ watch(inputInertia, (newVal) => {
             moment of inertia for easy reference. I know you'll probably be needing it until you memorize all of them.
             <br><br>
             <figure>
-                <table style=" 
+                <table style="
                         outline: 4px solid #ccc;
                         border-radius: 8px;
                         background: #000;

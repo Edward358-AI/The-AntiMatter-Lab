@@ -1,5 +1,4 @@
 <script setup>
-import Matter from 'matter-js'
 defineProps(["level", "page"])
 defineEmits(["nextlesson", "nextpage", "prevpage"])
 import { onMounted, onUnmounted, ref, watch } from 'vue'
@@ -328,7 +327,7 @@ watch(inputMass, (newVal) => {
             point in time. This is where sinusoidal functions come in to save the day.
             <br><br>
             <span v-show="level==0"><b>Quick disclaimer</b>: you probably won't know everything I'm talking about here at a 
-                conceptual level. The informaiton I'm about to give does rely pretty heavily on knowledge of sinusoidal 
+                conceptual level. The information I'm about to give does rely pretty heavily on knowledge of sinusoidal 
                 functions and trigonometry, but is foundational enough that I had to include it. If you don't understand, feel 
                 free to skip over it.
                 <br><br>

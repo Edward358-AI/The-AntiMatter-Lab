@@ -21,7 +21,7 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                 is that it is very "smooth" and "regular". The exact reason for this will be revealed later.
                 <br><br>
                 <span v-show="level>0">
-                    Since we introduced the idea of periodic motion, we should also introduce the idea of <b>aperioidic</b> motion. In simple 
+                    Since we introduced the idea of periodic motion, we should also introduce the idea of <b>aperiodic</b> motion. In simple 
                     terms, this is any motion that does not repeat itself in a regular pattern. Sometimes, periodicity is used to represent that the 
                     motion repeats itself over a regular interval, while oscillatory motion refers to motion that repeats itself both in a regular 
                     pattern and interval. This usually involves something moving back and forth around a central position.

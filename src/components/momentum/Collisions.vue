@@ -185,7 +185,7 @@ onMounted(() => {
             knowing that the total momentum of the system is zero. However, just knowing that isn't enough.
             <br><br>
             <span v-show="level > 0">
-                There are actually three types of collisions, classfied on the basis of energy conservation. Recall that
+                There are actually three types of collisions, classified on the basis of energy conservation. Recall that
                 momentum
                 will be conserved regardless of whether there are nonconservative internal interactions, but mechanical
                 energy will not.

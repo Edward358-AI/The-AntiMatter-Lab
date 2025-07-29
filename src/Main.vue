@@ -92,7 +92,7 @@ function getCurrentPage() {
 // Variable that is used to keep track of if the sidebar should be loaded
 const sidebar = ref(false)
 
-// List of lessons organized by unit 
+// List of lessons organized by unit
 const lessons = reactive(
   {
     kinematics: [

@@ -41,7 +41,7 @@ const showAnswer4 = ref(false)
             Did you get it? The force down should be gravity, but the book is not moving, so there is an upward force,
             and that is the normal force from the table!
             <figure>
-                <img src="/src/assets/dynamics/FIgure 35.png" />
+                <img src="/src/assets/dynamics/Figure 35.png" />
                 <figcaption>Figure 2: A complete free-body diagram.</figcaption>
             </figure>
             There are a few things regarding this image that we will explain.<br>Now seeing after how to NOT draw an
