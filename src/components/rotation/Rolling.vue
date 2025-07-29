@@ -2,7 +2,6 @@
 defineProps(["level", "page"])
 defineEmits(["nextlesson", "nextpage", "prevpage"])
 import { onMounted, onUnmounted, ref } from 'vue'
-import Matter, { Body } from 'matter-js'
 
 const inputFriction = ref(0.05)
 const inputInertia = ref(20)
@@ -18,6 +17,7 @@ var Engine = Matter.Engine,
     Render = Matter.Render,
     Runner = Matter.Runner,
     Bodies = Matter.Bodies,
+    Body = Matter.Body,
     Constraint = Matter.Constraint,
     Composite = Matter.Composite,
     MouseConstraint = Matter.MouseConstraint,

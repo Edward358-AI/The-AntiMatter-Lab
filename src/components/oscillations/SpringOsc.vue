@@ -1,4 +1,5 @@
 <script setup>
+import Matter from 'matter-js'
 defineProps(["level", "page"])
 defineEmits(["nextlesson", "nextpage", "prevpage"])
 import { onMounted, onUnmounted, ref, watch } from 'vue'
@@ -13,6 +14,7 @@ let block
 let currentEngine = null
 let currentRender = null
 let currentRunner = null
+let springUpdateHandler = null
 
 // module aliases
 var Engine = Matter.Engine,
@@ -120,8 +122,8 @@ function runSpringOsc() {
     // Hooke's Law parameters
     const springLength = 0.25 * width // equilibrium length of the spring
 
-
-    Matter.Events.on(engine, 'beforeUpdate', function () {
+    // Define the spring update handler
+    springUpdateHandler = function () {
         // Calculate displacement from equilibrium
         const anchor = { x: 0.5 * width, y: 0.5 * height }
         const blockPos = block.position
@@ -142,7 +144,9 @@ function runSpringOsc() {
         const forceMag = springConst.value * extension * 0.1 // Reduced force scaling
         const force = { x: forceMag * dirX, y: forceMag * dirY }
         Body.applyForce(block, block.position, force)
-    })
+    }
+
+    Matter.Events.on(engine, 'beforeUpdate', springUpdateHandler)
 
     // Add platform only if it exists
     const bodiesToAdd = platform ? [block, ...walls, pivot, spring, platform] : [block, ...walls, pivot, spring];
@@ -193,6 +197,11 @@ onMounted(() => {
 onUnmounted(() => {
     // Clean up when component is destroyed
     if (currentEngine) {
+        // Remove event listeners
+        if (springUpdateHandler) {
+            Matter.Events.off(currentEngine, 'beforeUpdate', springUpdateHandler)
+            springUpdateHandler = null
+        }
         if (currentRunner) {
             Runner.stop(currentRunner)
         }

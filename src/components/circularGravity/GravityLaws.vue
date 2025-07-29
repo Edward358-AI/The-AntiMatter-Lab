@@ -17,6 +17,7 @@ var Engine = Matter.Engine,
 let currentEngine = null
 let currentRender = null
 let currentRunner = null
+let gravityUpdateHandler = null
 
 var planet3 = null;
 
@@ -141,10 +142,8 @@ function runGrav() {
     const G = 50 / 800 * width; // Gravitational constant (tuned for this scale)
     const minDistance = 30 / 800 * width; // Minimum distance to apply force
 
-    // Apply gravitational forces
-    Matter.Events.on(engine, "beforeUpdate", function () {
-
-
+    // Define the gravity update handler
+    gravityUpdateHandler = function () {
         for (let i = 0; i < planets.length; i++) {
             for (let j = i + 1; j < planets.length; j++) {
                 const bodyA = planets[i];
@@ -168,7 +167,10 @@ function runGrav() {
                 Body.applyForce(bodyB, bodyB.position, Vector.mult(forceDirection, -forceMagnitude / bodyB.mass));
             }
         }
-    });
+    }
+
+    // Apply gravitational forces
+    Matter.Events.on(engine, "beforeUpdate", gravityUpdateHandler);
 
     // Create and run runner
     var runner = Runner.create();
@@ -198,6 +200,11 @@ onMounted(() => {
 onUnmounted(() => {
     // Clean up when component is destroyed
     if (currentEngine) {
+        // Remove event listeners
+        if (gravityUpdateHandler) {
+            Matter.Events.off(currentEngine, 'beforeUpdate', gravityUpdateHandler)
+            gravityUpdateHandler = null
+        }
         if (currentRunner) {
             Runner.stop(currentRunner)
         }

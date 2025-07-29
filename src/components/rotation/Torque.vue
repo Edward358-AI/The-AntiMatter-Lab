@@ -7,6 +7,7 @@ import { onMounted, onUnmounted, ref } from 'vue'
 let currentEngine = null
 let currentRender = null
 let currentRunner = null
+let torqueUpdateHandler = null
 
 // module aliases
 var Engine = Matter.Engine,
@@ -118,13 +119,16 @@ function runWrench() {
 
     Composite.add(engine.world, [wrench, pivot, hand, constraint1, constraint2])
 
-    //only wrench feels gravity
-    Matter.Events.on(engine, 'beforeUpdate', () => {
+    // Define the torque update handler
+    torqueUpdateHandler = () => {
         Body.applyForce(wrench, wrench.position, {
             x: 0,
             y: 0.005 * wrench.mass / 600 * width
         });
-    });
+    }
+
+    //only wrench feels gravity
+    Matter.Events.on(engine, 'beforeUpdate', torqueUpdateHandler);
 
     // create runner
     var runner = Runner.create()
@@ -160,6 +164,11 @@ onMounted(() => {
 onUnmounted(() => {
     // Clean up when component is destroyed
     if (currentEngine) {
+        // Remove event listeners
+        if (torqueUpdateHandler) {
+            Matter.Events.off(currentEngine, 'beforeUpdate', torqueUpdateHandler)
+            torqueUpdateHandler = null
+        }
         if (currentRunner) {
             Runner.stop(currentRunner)
         }

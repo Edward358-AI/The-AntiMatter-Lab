@@ -18,6 +18,7 @@ var Engine = Matter.Engine,
 let currentEngine = null
 let currentRender = null
 let currentRunner = null
+let inclineUpdateHandler = null
 
 function degreesToRadians(degrees) {
     return degrees * (Math.PI / 180);
@@ -109,10 +110,13 @@ function runInclinedPlane() {
         render: { fillStyle: '#f55' }
     });
 
-    // Prevent block from rotating by resetting angular speed every tick
-    Matter.Events.on(engine, 'beforeUpdate', function () {
+    // Define the incline update handler
+    inclineUpdateHandler = function () {
         Body.setAngularSpeed(block, 0)
-    })
+    }
+
+    // Prevent block from rotating by resetting angular speed every tick
+    Matter.Events.on(engine, 'beforeUpdate', inclineUpdateHandler)
 
     Composite.add(engine.world, [block, plane]);
 
@@ -132,6 +136,11 @@ onMounted(() => {
 onUnmounted(() => {
     // Clean up when component is destroyed
     if (currentEngine) {
+        // Remove event listeners
+        if (inclineUpdateHandler) {
+            Matter.Events.off(currentEngine, 'beforeUpdate', inclineUpdateHandler)
+            inclineUpdateHandler = null
+        }
         if (currentRunner) {
             Runner.stop(currentRunner)
         }

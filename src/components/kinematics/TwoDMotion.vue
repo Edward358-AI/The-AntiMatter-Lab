@@ -1,5 +1,4 @@
 <script setup>
-import Matter, { Body } from 'matter-js';
 import { onMounted, onUnmounted, ref } from 'vue'
 defineProps(["level", "page"])
 defineEmits(["nextlesson", "nextpage", "prevpage"])
@@ -13,6 +12,7 @@ var Engine = Matter.Engine,
     Render = Matter.Render,
     Runner = Matter.Runner,
     Bodies = Matter.Bodies,
+    Body = Matter.Body,
     Composite = Matter.Composite;
 
 // Store engine and render references for cleanup

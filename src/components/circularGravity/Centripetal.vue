@@ -1,5 +1,4 @@
 <script setup>
-import Matter from 'matter-js'
 import { ref, onMounted, onUnmounted } from 'vue'
 defineProps(["level", "page"])
 defineEmits(["nextlesson", "nextpage", "prevpage"])

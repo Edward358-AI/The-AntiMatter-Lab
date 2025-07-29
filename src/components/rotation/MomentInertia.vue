@@ -15,6 +15,7 @@ const inputInertia = ref(15)
 let currentEngine = null
 let currentRender = null
 let currentRunner = null
+let momentInertiaUpdateHandler = null
 
 // module aliases
 var Engine = Matter.Engine,
@@ -99,7 +100,8 @@ function runMoInertia() {
 
     Composite.add(engine.world, [yoyo]);
 
-    Events.on(engine, 'beforeUpdate', function () {
+    // Define the moment of inertia update handler
+    momentInertiaUpdateHandler = function () {
         // Torque pair to spin the object
         var stringForce1 = { x: 0, y: 0.0001 };
         var stringForce2 = { x: 0, y: -0.0001 };
@@ -115,7 +117,9 @@ function runMoInertia() {
         }
         Body.applyForce(yoyo, point1, stringForce1);
         Body.applyForce(yoyo, point2, stringForce2)
-    });
+    }
+
+    Events.on(engine, 'beforeUpdate', momentInertiaUpdateHandler);
 
     // create runner
     var runner = Runner.create()
@@ -134,6 +138,11 @@ onMounted(() => {
 onUnmounted(() => {
     // Clean up when component is destroyed
     if (currentEngine) {
+        // Remove event listeners
+        if (momentInertiaUpdateHandler) {
+            Events.off(currentEngine, 'beforeUpdate', momentInertiaUpdateHandler)
+            momentInertiaUpdateHandler = null
+        }
         if (currentRunner) {
             Runner.stop(currentRunner)
         }

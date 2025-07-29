@@ -1,5 +1,4 @@
 <script setup>
-import Matter, { Body } from 'matter-js'
 import { ref, onMounted, onUnmounted } from 'vue'
 defineProps(["level", "page"])
 defineEmits(["nextlesson", "nextpage", "prevpage"])
@@ -17,6 +16,7 @@ var Engine = Matter.Engine,
     Bodies = Matter.Bodies,
     Composite = Matter.Composite,
     Composites = Matter.Composites,
+    Body = Matter.Body,
     Mouse = Matter.Mouse,
     MouseConstraint = Matter.MouseConstraint;
 
