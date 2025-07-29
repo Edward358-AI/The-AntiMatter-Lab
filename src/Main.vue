@@ -354,8 +354,8 @@ function hideMobileBar() {
       </select>
       <span class="text-secondary-emphasis">Made by Edward Jiang and Eric Niu</span><br style="margin-bottom:10px">
       <a href="javascript:void(0);" @click="Window.scrollTo(0,0);user.current = 'about'; hideMobileBar()"
-        class="text-decoration-none">About</a>&nbsp;&nbsp;
-      <a href="https://github.com/Edward358-AI/The-AntiMatter-Lab" target="_blank" class="text-decoration-none"
+        class="link-offset-1 info-link">About</a>&nbsp;&nbsp;
+      <a href="https://github.com/Edward358-AI/The-AntiMatter-Lab" target="_blank" class="link-offset-1 info-link"
         @click="hideMobileBar()">Github</a>
     </div>
   </div>
@@ -498,9 +498,9 @@ function hideMobileBar() {
         <option value="light">Light</option>
       </select>
       <span class="text-secondary-emphasis">Made by Edward Jiang and Eric Niu</span><br style="margin-bottom:10px">
-      <a href="javascript:void(0);" @click="Window.scrollTo(0,0);user.current = 'about'" class="text-decoration-none">About</a>&nbsp;&nbsp;
+      <a href="javascript:void(0);" @click="Window.scrollTo(0,0);user.current = 'about'" class="link-offset-1 info-link">About</a>&emsp;
       <a href="https://github.com/Edward358-AI/The-AntiMatter-Lab" target="_blank"
-        class="text-decoration-none">Github</a>
+        class="link-offset-1 info-link">Github</a>
     </div>
   </div>
 
@@ -673,5 +673,13 @@ function hideMobileBar() {
   #mobile-nav {
     display: flex;
   }
+}
+
+.info-link {
+  opacity: 0.85;
+}
+
+.info-link:hover {
+  opacity: 1;
 }
 </style>
