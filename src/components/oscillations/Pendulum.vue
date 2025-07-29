@@ -102,10 +102,10 @@ function runPendulum() {
     })
 
     var rodConstraint = Constraint.create({
-        bodyA: rod, 
+        bodyA: rod,
         pointA: { x: 0, y: -0.15 * height },
         pointB: { x: 0.7 * width, y: 0.5 * height },
-        length: 0, 
+        length: 0,
         stiffness: 1,
                 render: {
             lineWidth: 0.006 * width,
@@ -174,10 +174,10 @@ watch(gravity, (newVal) => {
         <p>
             <div v-show="page===0">
                 Do you know what a pendulum is? It's just a small object at the end of a string that oscillates back and forth due to gravity.
-                As you could probably guess, this is also a sort of simple harmonic motion, though only for certain cases. The oscillatory motion of a 
+                As you could probably guess, this is also a sort of simple harmonic motion, though only for certain cases. The oscillatory motion of a
                 pendulum is very similar to rotation, so we will be using techniques of torque rather than just force analysis.
                 <br><br>
-                Our first kind of pendulum is a <b>simple pendulum</b>, consisting of a small point object hung by a massless string of some length that is 
+                Our first kind of pendulum is a <b>simple pendulum</b>, consisting of a small point object hung by a massless string of some length that is
                 set to oscillate. As the name suggests, it is the most simple kind of pendulum we'll be talking about here.
                 <br><br>
                 <figure>
@@ -186,22 +186,22 @@ watch(gravity, (newVal) => {
                 </figure>
                 <br>
                 <span v-show="level>0">
-                    The simple pendulum can be analyzed using forces. At each point in the pendulum's motion, the string will make some angle $\theta$ 
-                    with the vertical. Gravity is the only force that causes a torque about the pivot point in the ceiling and causes the bob to rotate, so 
-                    we can figure out the torque due to gravity in terms of the bob's mass $m$, the angle $\theta$ and the string length $L$. Only the perpendicular component 
+                    The simple pendulum can be analyzed using forces. At each point in the pendulum's motion, the string will make some angle $\theta$
+                    with the vertical. Gravity is the only force that causes a torque about the pivot point in the ceiling and causes the bob to rotate, so
+                    we can figure out the torque due to gravity in terms of the bob's mass $m$, the angle $\theta$ and the string length $L$. Only the perpendicular component
                     causes a torque.
                     <br><br>
                     $$ \tau = - mg \sin \theta L $$
                     $$ mL^2 \alpha = - mg \sin \theta L $$
                     $$ \alpha = - \dfrac{g}{L} \sin \theta $$
                     <br>
-                    We have angular acceleration related to angular position, but it's not in the exact form $\alpha = - \omega ^2 \theta $ needed 
-                    for simple harmonic motion. We next want to use an approximation technique, where we can approximate $\sin \theta \approx \theta $ for 
-                    small angles, typically angles less than $15 \degree$. <span v-show="level==2">If you've noticed, we are actually just taking the first term in the Taylor 
+                    We have angular acceleration related to angular position, but it's not in the exact form $\alpha = - \omega ^2 \theta $ needed
+                    for simple harmonic motion. We next want to use an approximation technique, where we can approximate $\sin \theta \approx \theta $ for
+                    small angles, typically angles less than $15 \degree$. <span v-show="level==2">If you've noticed, we are actually just taking the first term in the Taylor
                         expansion for $\sin \theta$ as an approximation.
                     </span>
                     <br><br>
-                    What this means is that the pendulum is actually <b>not</b> perfectly simple harmonic in nature, but rather can deviate quite a bit from traditional simple harmonic motion if 
+                    What this means is that the pendulum is actually <b>not</b> perfectly simple harmonic in nature, but rather can deviate quite a bit from traditional simple harmonic motion if
                     the angles are large! Most of the time, we will deal with small angles, so the motion is very close to simple harmonic in nature and is just 
                     approximated as simple harmonic. After we do the approximation, we are left with the new equation:
                     <br><br>

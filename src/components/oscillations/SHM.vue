@@ -8,20 +8,20 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
         <h1>Simple Harmonic Motion</h1><br>
         <p>
             <div v-show="page===0">
-                Simple harmonic motion (SHM) is the simplest kind of periodic motion, which is motion that repeats itself 
-                over regular intervals. Although other kinds of periodic motion exist, SHM is the most basic and the 
+                Simple harmonic motion (SHM) is the simplest kind of periodic motion, which is motion that repeats itself
+                over regular intervals. Although other kinds of periodic motion exist, SHM is the most basic and the
                 easiest to deal with. That doesn't mean this unit is going to be easy, though!
                 <br><br>
-                This unit does not introduce any new fundamental quantities unlike the previous few, but instead focuses heavily on 
-                applying everything we've learned so far in order to analyze a type of complex motion. We don't just have things moving in 
+                This unit does not introduce any new fundamental quantities unlike the previous few, but instead focuses heavily on
+                applying everything we've learned so far in order to analyze a type of complex motion. We don't just have things moving in
                 straight lines or circles anymore. They're now moving back and forth!
                 <br><br>
-                First, let's talk about what SHM looks like. SHM is a type of <b>oscillation</b>, which involves 
+                First, let's talk about what SHM looks like. SHM is a type of <b>oscillation</b>, which involves
                 some object moving back and forth in a regular pattern. What distinguishes SHM from other kinds of oscillation
                 is that it is very "smooth" and "regular". The exact reason for this will be revealed later.
                 <br><br>
                 <span v-show="level>0">
-                    Since we introduced the idea of periodic motion, we should also introduce the idea of <b>aperiodic</b> motion. In simple 
+                    Since we introduced the idea of periodic motion, we should also introduce the idea of <b>aperiodic</b> motion. In simple
                     terms, this is any motion that does not repeat itself in a regular pattern. Sometimes, periodicity is used to represent that the 
                     motion repeats itself over a regular interval, while oscillatory motion refers to motion that repeats itself both in a regular 
                     pattern and interval. This usually involves something moving back and forth around a central position.

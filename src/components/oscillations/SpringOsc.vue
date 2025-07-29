@@ -326,9 +326,9 @@ watch(inputMass, (newVal) => {
             velocity, and acceleration at any
             point in time. This is where sinusoidal functions come in to save the day.
             <br><br>
-            <span v-show="level==0"><b>Quick disclaimer</b>: you probably won't know everything I'm talking about here at a 
-                conceptual level. The information I'm about to give does rely pretty heavily on knowledge of sinusoidal 
-                functions and trigonometry, but is foundational enough that I had to include it. If you don't understand, feel 
+            <span v-show="level==0"><b>Quick disclaimer</b>: you probably won't know everything I'm talking about here at a
+                conceptual level. The information I'm about to give does rely pretty heavily on knowledge of sinusoidal
+                functions and trigonometry, but is foundational enough that I had to include it. If you don't understand, feel
                 free to skip over it.
                 <br><br>
             </span>

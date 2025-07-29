@@ -151,7 +151,7 @@ onMounted(() => {
                         <label>Red ball mass: {{ mass2 }}</label> <br><input type="range" class="form-range"
                             v-model="mass2" min="1" max="100" step="0.1" style="width:fit-content" />
                     </div>
-                    
+
                     <div class="w-100"></div>
                     <div class="col">
                         <label>Blue ball

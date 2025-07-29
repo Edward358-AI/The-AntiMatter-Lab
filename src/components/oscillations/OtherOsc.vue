@@ -85,7 +85,7 @@ function runDoublePendulum() {
     var constraint1 = Constraint.create({
         bodyA: ball1,
         pointB: { x: 0.5* width, y: 0.2 * height},
-        length: 0.3 * height, 
+        length: 0.3 * height,
         damping: 0,
         stiffness: 1,
                 render: {
@@ -97,7 +97,7 @@ function runDoublePendulum() {
     var constraint2 = Constraint.create({
         bodyA: ball1,
         bodyB: ball2,
-        length: 0.3 * height, 
+        length: 0.3 * height,
         damping: 0,
         stiffness: 1,
                 render: {
@@ -156,25 +156,25 @@ watch(redMass, (newVal) => {
         <h1>Other Oscillators</h1><br>
         <p>
             <div v-show="page===0">
-                The most common examples of SHM are the pendulums and spring-block oscillators, but there are others that lurk in the 
-                shadows, undiscussed but still important. The one that is most different from the two we've already talked about yet 
-                is still able to be analyzed easily is the <b>torsional pendulum</b>. This is a disk or other rigid object connected to a 
+                The most common examples of SHM are the pendulums and spring-block oscillators, but there are others that lurk in the
+                shadows, undiscussed but still important. The one that is most different from the two we've already talked about yet
+                is still able to be analyzed easily is the <b>torsional pendulum</b>. This is a disk or other rigid object connected to a
                 cable which exerts torque whenever it is twisted.
                 <br><br>
-                These torsion cables act like the rotational analogue of springs, following a relation that looks very much like Hooke's law 
-                but for torque. They relate torque to angular displacement from equilibrium and have a torsional strength instead of a 
+                These torsion cables act like the rotational analogue of springs, following a relation that looks very much like Hooke's law
+                but for torque. They relate torque to angular displacement from equilibrium and have a torsional strength instead of a
                 spring strength.
                 <br><br>
                 $$ \tau = - \kappa \theta $$
                 <br>
-                The fancy-looking letter $\kappa$ is the Greek letter kappa, and it is the torsional strength <span v-show='level>0'>(measured in $\textrm{N} \cdot \textrm{m/rad} $)</span>. This simple harmonic oscillator system is very similar to the spring-block 
-                system, and can be treated similarly. We attach an object with a moment of inertia of $I$ to the cable, then give it some initial angular 
+                The fancy-looking letter $\kappa$ is the Greek letter kappa, and it is the torsional strength <span v-show='level>0'>(measured in $\textrm{N} \cdot \textrm{m/rad} $)</span>. This simple harmonic oscillator system is very similar to the spring-block
+                system, and can be treated similarly. We attach an object with a moment of inertia of $I$ to the cable, then give it some initial angular
                 twist $\theta_0$.
                 <br><br>
                 $$ I \alpha = - \kappa \theta $$
                 $$ \alpha = -\dfrac{\kappa}{I} \theta $$
                 <br>
-                This relates the angular acceleration and the angular position and follows the $\alpha = - \omega^2 \theta$ form that characterizes SHM, so 
+                This relates the angular acceleration and the angular position and follows the $\alpha = - \omega^2 \theta$ form that characterizes SHM, so
                 we can conclude that the angular frequency of oscillation of the torsional pendulum is:
                 <br><br>
                 $$ \omega = \sqrt{\dfrac{\kappa}{I} } $$
@@ -185,7 +185,7 @@ watch(redMass, (newVal) => {
                 $$ f = \dfrac{1}{2\pi} \sqrt{\dfrac{\kappa}{I}} $$
                 <br>
                 <span v-show="level>0">
-                    Not all materials have torsional qualities. If you've ever twisted a yoyo around a string, you'll see that it tries to spin 
+                    Not all materials have torsional qualities. If you've ever twisted a yoyo around a string, you'll see that it tries to spin
                     itself back around, but it doesn't do so very successfully. Typically, tougher objects like steel cable have better torsional 
                     strengths. There is actually a way to find the torsional strength of a material, but this is beyond what I want to talk about here 
                     and ventures into the realm of engineering.
