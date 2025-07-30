@@ -37,7 +37,7 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                 <br><br>
             <figure>
                 <img src="/src/assets/kinematics/Figure 1.png" />
-                <figcaption><i>Figure 1: A representation of a vector.</i></figcaption>
+                <figcaption>Figure 1: A representation of a vector.</figcaption>
             </figure>
             <br>
             <span v-show="level == 0">
@@ -89,7 +89,7 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                     <br><br>
                     <figure>
                         <img src="/src/assets/kinematics/Figure 11.png" />
-                        <figcaption><i>Figure 2: Two vectors being added linearly.</i></figcaption>
+                        <figcaption>Figure 2: Two vectors being added linearly.</figcaption>
                     </figure>
                     <br>
                     Other than that, there are two primary methods to adding vectors, one being algebraically and the
@@ -113,7 +113,7 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                     <br><br>
                     <figure>
                         <img src="/src/assets/kinematics/Figure 11.png" />
-                        <figcaption><i>Figure 2: Two vectors being added linearly.</i></figcaption>
+                        <figcaption>Figure 2: Two vectors being added linearly.</figcaption>
                     </figure>
                     <br>
                     Besides that, you can either add them graphically or algebraically.
@@ -129,7 +129,7 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                 <br><br>
             <figure>
                 <img src="/src/assets/kinematics/Figure 2.png" />
-                <figcaption><i>Figure 3: Tip-to-tail method </i></figcaption>
+                <figcaption>Figure 3: Tip-to-tail method </figcaption>
             </figure>
             <br>
             <span v-show="level > 0">In the parallelogram method, both vectors are placed at the origin, and a
@@ -141,7 +141,7 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                 <br><br>
                 <figure>
                     <img src="/src/assets/kinematics/Figure 3.png" />
-                    <figcaption><i>Figure 4: Parallelogram method </i></figcaption>
+                    <figcaption>Figure 4: Parallelogram method </figcaption>
                 </figure>
                 <br>
             </span>
@@ -182,7 +182,7 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                     <br><br>
                     <figure>
                         <img src="/src/assets/kinematics/Figure 6.png" />
-                        <figcaption><i>Figure 4: Vector addition (component method)</i></figcaption>
+                        <figcaption>Figure 4: Vector addition (component method)</figcaption>
                     </figure>
                     <br>
                     The diagram may be a little cluttered and difficult to understand, but you see the horizontal
@@ -225,7 +225,7 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                     <br><br>
                     <figure>
                         <img src="/src/assets/kinematics/Figure 4.png" />
-                        <figcaption><i>Figure 5: A vector defined by its magnitude and argument (angle)</i></figcaption>
+                        <figcaption>Figure 5: A vector defined by its magnitude and argument (angle)</figcaption>
                     </figure>
                 </span>
                 <span v-show="level > 0">
@@ -257,7 +257,7 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                     <br><br>
                     <figure>
                         <img src="/src/assets/kinematics/Figure 5.png" />
-                        <figcaption><i>Figure 6: A vector defined by its horizontal and vertical components</i>
+                        <figcaption>Figure 6: A vector defined by its horizontal and vertical components
                         </figcaption>
                     </figure>
                     <br>
@@ -279,7 +279,7 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                     <br><br>
                     <figure>
                         <img src="/src/assets/kinematics/Figure 6.png" />
-                        <figcaption><i>Figure 7: Vector addition via component method</i></figcaption>
+                        <figcaption>Figure 7: Vector addition via component method</figcaption>
                     </figure>
                     <br>
                     Now is it clear that the components add up to the resultant vector? The red components add up with
