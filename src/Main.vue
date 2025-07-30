@@ -186,8 +186,6 @@ watch(user, () => {
   htmlElement.setAttribute("data-bs-theme", user.theme)
 })
 
-// Parses MathJax after content has been loaded to ensure the math is rendered properly
-
 function hideMobileBar() {
   if (Window.innerWidth <= 768) {
     doc.getElementById("closeMenu").click()

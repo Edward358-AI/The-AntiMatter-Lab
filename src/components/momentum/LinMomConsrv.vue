@@ -1,5 +1,6 @@
 <script setup>
 import { onMounted, onUnmounted, ref } from 'vue'
+import { Engine, Render, Runner, Bodies, Body, Composite, Constraint, Mouse, MouseConstraint} from 'matter-js'
 defineProps(["level", "page"])
 defineEmits(["nextlesson", "nextpage", "prevpage"])
 
@@ -12,15 +13,6 @@ let currentRender = null
 let currentRunner = null
 
 function runNewtonsCradle() {
-    // Define Matter.js variables first
-    var Engine = Matter.Engine,
-        Render = Matter.Render,
-        Runner = Matter.Runner,
-        Body = Matter.Body,
-        Composites = Matter.Composites,
-        MouseConstraint = Matter.MouseConstraint,
-        Mouse = Matter.Mouse,
-        Composite = Matter.Composite
 
     // Clean up previous engine if it exists
     if (currentEngine) {
@@ -141,9 +133,6 @@ onUnmounted(() => {
 })
 
 function newtonsCradle(xx, yy, number, size, length) {
-    var Composite = Matter.Composite,
-        Constraint = Matter.Constraint,
-        Bodies = Matter.Bodies
 
     var newtonsCradle = Composite.create({ label: 'Newtons Cradle' })
 
