@@ -1,18 +1,12 @@
 <script setup>
 import { ref, vShow, onMounted, onUnmounted } from 'vue'
+import { Engine, Render, Runner, Bodies, Composite, Body, Events} from 'matter-js'
 defineProps(["level", "page"])
 defineEmits(["nextlesson", "nextpage", "prevpage"])
 
 const inputAngle = ref(30)
 const friction = ref(0.05)
 const viewportMsg = ref('')
-
-var Engine = Matter.Engine,
-    Render = Matter.Render,
-    Runner = Matter.Runner,
-    Bodies = Matter.Bodies,
-    Composite = Matter.Composite,
-    Body = Matter.Body;
 
 // Store engine and render references for cleanup
 let currentEngine = null
@@ -116,7 +110,7 @@ function runInclinedPlane() {
     }
 
     // Prevent block from rotating by resetting angular speed every tick
-    Matter.Events.on(engine, 'beforeUpdate', inclineUpdateHandler)
+    Events.on(engine, 'beforeUpdate', inclineUpdateHandler)
 
     Composite.add(engine.world, [block, plane]);
 
@@ -138,7 +132,7 @@ onUnmounted(() => {
     if (currentEngine) {
         // Remove event listeners
         if (inclineUpdateHandler) {
-            Matter.Events.off(currentEngine, 'beforeUpdate', inclineUpdateHandler)
+            Events.off(currentEngine, 'beforeUpdate', inclineUpdateHandler)
             inclineUpdateHandler = null
         }
         if (currentRunner) {

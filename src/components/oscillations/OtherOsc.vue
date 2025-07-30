@@ -2,6 +2,7 @@
 defineProps(["level", "page"])
 defineEmits(["nextlesson", "nextpage", "prevpage"])
 import {onMounted, onUnmounted, ref, watch} from 'vue'
+import { Engine, Render, Runner, Bodies, Body, Composite, Mouse, Constraint, MouseConstraint} from 'matter-js'
 const viewportMsg = ref('')
 const redMass = ref(10)
 const blueMass = ref(10)
@@ -12,16 +13,6 @@ let currentEngine = null
 let currentRender = null
 let currentRunner = null
 
-// module aliases
-var Engine = Matter.Engine,
-    Render = Matter.Render,
-    Runner = Matter.Runner,
-    Bodies = Matter.Bodies,
-    Body = Matter.Body,
-    Constraint = Matter.Constraint,
-    Composite = Matter.Composite,
-    Mouse = Matter.Mouse,
-    MouseConstraint = Matter.MouseConstraint;
 
 function runDoublePendulum() {
     // Clean up previous engine if it exists
