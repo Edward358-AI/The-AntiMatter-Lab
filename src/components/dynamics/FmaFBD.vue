@@ -1,6 +1,6 @@
 <script setup>
 import { ref, vShow } from 'vue'
-defineProps(["level", "page"])
+defineProps(["level", "page", "lessonShowing"])
 defineEmits(["nextlesson", "nextpage", "prevpage"])
 
 const showAnswer = ref(false)

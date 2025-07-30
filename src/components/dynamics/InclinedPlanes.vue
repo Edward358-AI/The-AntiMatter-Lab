@@ -1,7 +1,7 @@
 <script setup>
 import { ref, vShow, onMounted, onUnmounted } from 'vue'
 import { Engine, Render, Runner, Bodies, Composite, Body, Events} from 'matter-js'
-defineProps(["level", "page"])
+defineProps(["level", "page", "lessonShowing"])
 defineEmits(["nextlesson", "nextpage", "prevpage"])
 
 const inputAngle = ref(30)

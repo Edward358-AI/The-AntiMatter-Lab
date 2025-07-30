@@ -1,7 +1,7 @@
 <script setup>
 import { onMounted, onUnmounted, ref } from 'vue'
 import { Engine, Render, Runner, Bodies, Body, Composite, Mouse, Vector, MouseConstraint, Events} from 'matter-js'
-defineProps(["level", "page"])
+defineProps(["level", "page", "lessonShowing"])
 defineEmits(["nextlesson", "nextpage", "prevpage"])
 
 // Store engine and render references for cleanup

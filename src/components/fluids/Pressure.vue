@@ -1,5 +1,5 @@
 <script setup>
-defineProps(["level", "page"])
+defineProps(["level", "page", "lessonShowing"])
 defineEmits(["nextlesson", "nextpage", "prevpage"])
 import { ref, onMounted, onUnmounted, watch } from 'vue'
 import { Engine, Render, Runner, Bodies, Body, Composite, Events} from 'matter-js'
