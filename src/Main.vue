@@ -654,12 +654,12 @@ onUpdated(() => {
   <FluidFlow v-if="user.current === lessons.fluids[2]" :level="user.difficulty" :lessonShowing="lessonShowing"  :page="user.page.FluidFlow"
     @nextpage="Window.scrollTo(0, 0); user.page.FluidFlow++" @prevpage="Window.scrollTo(0, 0); user.page.FluidFlow--"
     @nextlesson="Window.scrollTo(0, 0); user.current = lessons.fluids[3];user.page.FluidFlow=0" />
-  <AirResistance v-if="user.current === lessons.fluids[3]" :level="user.difficulty" :lessonShowing="lessonShowing"  :page="user.page.AirResistance"
-    @nextpage="Window.scrollTo(0, 0); user.page.AirResistance++" @prevpage="Window.scrollTo(0, 0); user.page.AirResistance--"
-    @nextlesson="Window.scrollTo(0, 0); user.current = lessons.fluids[4];user.page.AirResistance=0" />
-  <Bernoulli v-if="user.current === lessons.fluids[4]" :level="user.difficulty" :lessonShowing="lessonShowing"  :page="user.page.Bernoulli"
+  <Bernoulli v-if="user.current === lessons.fluids[3]" :level="user.difficulty" :lessonShowing="lessonShowing"  :page="user.page.Bernoulli"
     @nextpage="Window.scrollTo(0, 0); user.page.Bernoulli++" @prevpage="Window.scrollTo(0, 0); user.page.Bernoulli--"
-    @nextlesson="Window.scrollTo(0, 0); user.current = 'landing';user.page.Bernoulli=0" />
+    @nextlesson="Window.scrollTo(0, 0); user.current = lessons.fluids[4];user.page.Bernoulli=0" />
+  <AirResistance v-if="user.current === lessons.fluids[4]" :level="user.difficulty" :lessonShowing="lessonShowing"  :page="user.page.AirResistance"
+    @nextpage="Window.scrollTo(0, 0); user.page.AirResistance++" @prevpage="Window.scrollTo(0, 0); user.page.AirResistance--"
+    @nextlesson="Window.scrollTo(0, 0); user.current = 'landing';user.page.AirResistance=0" />
 
 </template>
 
