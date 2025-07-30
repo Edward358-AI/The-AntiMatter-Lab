@@ -116,7 +116,8 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                 This is a typical volume formula in the form of area times height.
             </span>
             <br>
-            The volume flow rate must be the same at any two points on the same pipe, leading us to an important relation. Let's say the pipe has and 
+            The volume flow rate must be the same at any two points on the same pipe, leading us to an important relation. This has to be true for any general 
+            scenario, not just for laminar flow. Conservation of mass is a <b>very</b> fundamental law, and is actually one of the Navier-Stokes Equations. Let's say the pipe has and 
             area $A_1$ and a flow rate $v_1$ at one point, and an area $A_2$ and flow rate $v_2$ at another. Then, we have the relationship:
             <br><br>
             $$ A_1 v_1 = A_2 v_2 $$
