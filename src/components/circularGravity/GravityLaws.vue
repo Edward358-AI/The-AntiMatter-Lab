@@ -1,17 +1,8 @@
 <script setup>
 import { onMounted, onUnmounted, ref } from 'vue'
+import { Engine, Render, Runner, Bodies, Body, Composite, Mouse, Vector, MouseConstraint, Events} from 'matter-js'
 defineProps(["level", "page"])
 defineEmits(["nextlesson", "nextpage", "prevpage"])
-
-var Engine = Matter.Engine,
-    Render = Matter.Render,
-    Runner = Matter.Runner,
-    Bodies = Matter.Bodies,
-    Body = Matter.Body,
-    Composite = Matter.Composite,
-    Vector = Matter.Vector,
-    Mouse = Matter.Mouse,
-    MouseConstraint = Matter.MouseConstraint;
 
 // Store engine and render references for cleanup
 let currentEngine = null
@@ -170,7 +161,7 @@ function runGrav() {
     }
 
     // Apply gravitational forces
-    Matter.Events.on(engine, "beforeUpdate", gravityUpdateHandler);
+    Events.on(engine, "beforeUpdate", gravityUpdateHandler);
 
     // Create and run runner
     var runner = Runner.create();
@@ -202,7 +193,7 @@ onUnmounted(() => {
     if (currentEngine) {
         // Remove event listeners
         if (gravityUpdateHandler) {
-            Matter.Events.off(currentEngine, 'beforeUpdate', gravityUpdateHandler)
+            Events.off(currentEngine, 'beforeUpdate', gravityUpdateHandler)
             gravityUpdateHandler = null
         }
         if (currentRunner) {
