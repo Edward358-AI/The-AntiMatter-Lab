@@ -2,7 +2,6 @@
 defineProps(["level", "page"])
 defineEmits(["nextlesson", "nextpage", "prevpage"])
 import { ref, onMounted, onUnmounted, watch } from 'vue'
-import { Engine, Render, Runner, Bodies, Body, Composite, Events} from 'matter-js'
 const viewportMsg = ref('')
 const multiplier = ref(10)
 
@@ -13,6 +12,13 @@ let currentRender = null
 let currentRunner = null
 let pressureUpdateHandler = null
 
+// module aliases
+var Engine = Matter.Engine,
+    Render = Matter.Render,
+    Runner = Matter.Runner,
+    Bodies = Matter.Bodies,
+    Body = Matter.Body,
+    Composite = Matter.Composite
 
 function runPressure() {
     // Clean up previous engine if it exists
@@ -107,7 +113,7 @@ function runPressure() {
         });
     }
 
-    Events.on(engine, 'beforeUpdate', pressureUpdateHandler);
+    Matter.Events.on(engine, 'beforeUpdate', pressureUpdateHandler);
 
         engine.timing.timeScale = 1
 
@@ -123,7 +129,7 @@ onUnmounted(() => {
     if (currentEngine) {
         // Remove event listeners
         if (pressureUpdateHandler) {
-            Events.off(currentEngine, 'beforeUpdate', pressureUpdateHandler)
+            Matter.Events.off(currentEngine, 'beforeUpdate', pressureUpdateHandler)
             pressureUpdateHandler = null
         }
         if (currentRunner) {

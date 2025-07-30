@@ -2,7 +2,6 @@
 defineProps(["level", "page"])
 defineEmits(["nextlesson", "nextpage", "prevpage"])
 import { onMounted, onUnmounted, ref } from 'vue'
-import { Engine, Render, Runner, Bodies, Body, Composite} from 'matter-js'
 
 const mass1 = ref('30')
 const mass2 = ref('40')
@@ -15,6 +14,14 @@ const viewportMsg = ref('')
 let currentEngine = null
 let currentRender = null
 let currentRunner = null
+
+// module aliases
+var Engine = Matter.Engine,
+    Render = Matter.Render,
+    Runner = Matter.Runner,
+    Bodies = Matter.Bodies,
+    Body = Matter.Body,
+    Composite = Matter.Composite;
 
 function run1dCollision() {
     // Clean up previous engine if it exists

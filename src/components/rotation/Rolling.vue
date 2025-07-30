@@ -2,7 +2,7 @@
 defineProps(["level", "page"])
 defineEmits(["nextlesson", "nextpage", "prevpage"])
 import { onMounted, onUnmounted, ref } from 'vue'
-import { Engine, Render, Runner, Bodies, Body, Composite, Mouse, MouseConstraint} from 'matter-js'
+
 const inputFriction = ref(0.05)
 const inputInertia = ref(20)
 const viewportMsg = ref('')
@@ -12,6 +12,16 @@ let currentEngine = null
 let currentRender = null
 let currentRunner = null
 
+// module aliases
+var Engine = Matter.Engine,
+    Render = Matter.Render,
+    Runner = Matter.Runner,
+    Bodies = Matter.Bodies,
+    Body = Matter.Body,
+    Constraint = Matter.Constraint,
+    Composite = Matter.Composite,
+    MouseConstraint = Matter.MouseConstraint,
+    Mouse = Matter.Mouse;
 function runRolling() {
     // Clean up previous engine if it exists
     if (currentEngine) {

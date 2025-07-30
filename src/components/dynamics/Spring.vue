@@ -1,12 +1,21 @@
 <script setup>
 import { ref, vShow, onMounted, onUnmounted } from 'vue'
-import { Engine, Render, Runner, Bodies, Composite, Mouse, Constraint, MouseConstraint} from 'matter-js'
 
 defineProps(["level", "page"])
 defineEmits(["nextlesson", "nextpage", "prevpage"])
 
 const stiffness = ref('0.1')
 const viewportMsg = ref('')
+
+// module aliases
+var Engine = Matter.Engine,
+    Render = Matter.Render,
+    Runner = Matter.Runner,
+    Bodies = Matter.Bodies,
+    Composite = Matter.Composite,
+    Constraint = Matter.Constraint,
+    Mouse = Matter.Mouse,
+    MouseConstraint = Matter.MouseConstraint;
 
 // Store engine and render references for cleanup
 let currentEngine = null

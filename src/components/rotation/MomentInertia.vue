@@ -2,7 +2,6 @@
 defineProps(["level", "page"])
 defineEmits(["nextlesson", "nextpage", "prevpage"])
 import { onMounted, onUnmounted, ref, watch } from 'vue'
-import { Engine, Render, Runner, Bodies, Body, Composite, Events} from 'matter-js'
 const show = ref(false)
 const show1 = ref(false)
 const show2 = ref(false)
@@ -17,6 +16,19 @@ let currentEngine = null
 let currentRender = null
 let currentRunner = null
 let momentInertiaUpdateHandler = null
+
+// module aliases
+var Engine = Matter.Engine,
+    Render = Matter.Render,
+    Runner = Matter.Runner,
+    Bodies = Matter.Bodies,
+    Constraint = Matter.Constraint,
+    Body = Matter.Body,
+    Composite = Matter.Composite,
+    MouseConstraint = Matter.MouseConstraint,
+    Mouse = Matter.Mouse,
+    Events = Matter.Events
+
 
 function runMoInertia() {
     // Clean up previous engine if it exists

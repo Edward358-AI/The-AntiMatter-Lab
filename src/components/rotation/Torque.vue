@@ -2,12 +2,23 @@
 defineProps(["level", "page"])
 defineEmits(["nextlesson", "nextpage", "prevpage"])
 import { onMounted, onUnmounted, ref } from 'vue'
-import { Engine, Render, Runner, Bodies, Body, Composite, Mouse, Constraint, MouseConstraint, Events} from 'matter-js'
+
 // Store engine and render references for cleanup
 let currentEngine = null
 let currentRender = null
 let currentRunner = null
 let torqueUpdateHandler = null
+
+// module aliases
+var Engine = Matter.Engine,
+    Render = Matter.Render,
+    Runner = Matter.Runner,
+    Bodies = Matter.Bodies,
+    Constraint = Matter.Constraint,
+    Body = Matter.Body,
+    Composite = Matter.Composite,
+    MouseConstraint = Matter.MouseConstraint,
+    Mouse = Matter.Mouse;
 
 const viewportMsg = ref('')
 function runWrench() {
@@ -117,7 +128,7 @@ function runWrench() {
     }
 
     //only wrench feels gravity
-    Events.on(engine, 'beforeUpdate', torqueUpdateHandler);
+    Matter.Events.on(engine, 'beforeUpdate', torqueUpdateHandler);
 
     // create runner
     var runner = Runner.create()
@@ -155,7 +166,7 @@ onUnmounted(() => {
     if (currentEngine) {
         // Remove event listeners
         if (torqueUpdateHandler) {
-            Events.off(currentEngine, 'beforeUpdate', torqueUpdateHandler)
+            Matter.Events.off(currentEngine, 'beforeUpdate', torqueUpdateHandler)
             torqueUpdateHandler = null
         }
         if (currentRunner) {

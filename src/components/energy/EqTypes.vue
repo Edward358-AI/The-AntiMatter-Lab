@@ -1,6 +1,5 @@
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue'
-import { Engine, Render, Runner, Bodies, Body, Composite, Mouse, MouseConstraint} from 'matter-js'
 defineProps(["level", "page"])
 defineEmits(["nextlesson", "nextpage", "prevpage"])
 const show = ref(false)
@@ -9,6 +8,17 @@ const show2 = ref(false)
 const show3 = ref(false)
 const show4 = ref(false)
 const viewportMsg = ref('')
+
+// module aliases
+var Engine = Matter.Engine,
+    Render = Matter.Render,
+    Runner = Matter.Runner,
+    Bodies = Matter.Bodies,
+    Composite = Matter.Composite,
+    Composites = Matter.Composites,
+    Body = Matter.Body,
+    Mouse = Matter.Mouse,
+    MouseConstraint = Matter.MouseConstraint;
 
 // Store engine and render references for cleanup
 let currentEngine = null

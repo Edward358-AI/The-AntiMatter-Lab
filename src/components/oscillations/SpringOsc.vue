@@ -2,7 +2,6 @@
 defineProps(["level", "page"])
 defineEmits(["nextlesson", "nextpage", "prevpage"])
 import { onMounted, onUnmounted, ref, watch } from 'vue'
-import { Engine, Render, Runner, Bodies, Body, Composite, Mouse, Constraint, MouseConstraint, Events} from 'matter-js'
 const viewportMsg = ref('')
 const springConst = ref(2.0)
 const inputMass = ref(30)
@@ -15,6 +14,17 @@ let currentEngine = null
 let currentRender = null
 let currentRunner = null
 let springUpdateHandler = null
+
+// module aliases
+var Engine = Matter.Engine,
+    Render = Matter.Render,
+    Runner = Matter.Runner,
+    Bodies = Matter.Bodies,
+    Body = Matter.Body,
+    Constraint = Matter.Constraint,
+    Composite = Matter.Composite,
+    Mouse = Matter.Mouse,
+    MouseConstraint = Matter.MouseConstraint;
 
 // Store engine reference so toggleGravity can access it
 let springEngine = null
@@ -135,7 +145,7 @@ function runSpringOsc() {
         Body.applyForce(block, block.position, force)
     }
 
-    Events.on(engine, 'beforeUpdate', springUpdateHandler)
+    Matter.Events.on(engine, 'beforeUpdate', springUpdateHandler)
 
     // Add platform only if it exists
     const bodiesToAdd = platform ? [block, ...walls, pivot, spring, platform] : [block, ...walls, pivot, spring];
@@ -188,7 +198,7 @@ onUnmounted(() => {
     if (currentEngine) {
         // Remove event listeners
         if (springUpdateHandler) {
-            Events.off(currentEngine, 'beforeUpdate', springUpdateHandler)
+            Matter.Events.off(currentEngine, 'beforeUpdate', springUpdateHandler)
             springUpdateHandler = null
         }
         if (currentRunner) {

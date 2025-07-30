@@ -1,12 +1,16 @@
 <script setup>
 import { onMounted, onUnmounted, ref } from 'vue'
-import { Engine, Render, Runner, Bodies, Composite} from 'matter-js'
 defineProps(["level", "page"])
 defineEmits(["nextlesson", "nextpage", "prevpage"])
 
 const inputValue = ref('')
 const viewportMsg = ref('')
 
+var Engine = Matter.Engine,
+    Render = Matter.Render,
+    Runner = Matter.Runner,
+    Bodies = Matter.Bodies,
+    Composite = Matter.Composite;
 
 // Store engine and render references for cleanup
 let currentEngine = null

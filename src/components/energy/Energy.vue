@@ -1,6 +1,5 @@
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue'
-import { Engine, Render, Runner, Bodies, Composite, Mouse, MouseConstraint} from 'matter-js'
 defineProps(["level", "page"])
 defineEmits(["nextlesson", "nextpage", "prevpage"])
 const show = ref(false)
@@ -14,6 +13,16 @@ const viewportMsg = ref('')
 let currentEngine = null
 let currentRender = null
 let currentRunner = null
+
+// module aliases
+var Engine = Matter.Engine,
+    Render = Matter.Render,
+    Runner = Matter.Runner,
+    Bodies = Matter.Bodies,
+    Composite = Matter.Composite,
+    Mouse = Matter.Mouse,
+    MouseConstraint = Matter.MouseConstraint;
+
 
 function runCurvedRamp() {
     // Clean up previous engine if it exists
@@ -91,7 +100,7 @@ function runCurvedRamp() {
         const x = 400 / 800 * width + curveRadius * Math.cos(angle);
         const y = 200 / 800 * width + curveRadius * Math.sin(angle);
 
-        const segment = Bodies.rectangle(
+        const segment = Matter.Bodies.rectangle(
             x, y,
             rampWidth, 30 / 800 * width,
             {
@@ -115,7 +124,7 @@ function runCurvedRamp() {
     Composite.add(engine.world, [leftWall, rightWall, ...curveParts, ...walls]);
 
     // Add a ball to test the ramp
-    const ball = Bodies.circle(400 / 800 * width, 100 / 800 * width, 30 / 800 * width, {
+    const ball = Matter.Bodies.circle(400 / 800 * width, 100 / 800 * width, 30 / 800 * width, {
         render: { fillStyle: "#f00" },
         friction: 0,
         frictionAir: 0
