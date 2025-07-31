@@ -176,7 +176,9 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                     <br><br>
                     $$PA = Mg $$
                     $$ A = \dfrac{Mg}{P} $$
-                    $$ A = 11.5 ~\textrm{m}^2 $$
+                    $$ A = \bbox[3px,
+                    border: 0.5px solid
+                    white]{11.5 ~\textrm{m}^2 }$$
                     <br>
                     This is a pretty big area, which shows why larger planes generally will need larger wingspans.
                 </div>
@@ -196,3 +198,6 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
         </p>
     </div>
 </template>
+
+<style scoped>
+</style>
