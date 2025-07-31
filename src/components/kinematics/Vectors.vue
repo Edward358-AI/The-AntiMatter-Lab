@@ -369,8 +369,8 @@ watch(() => props.lessonShowing, () => {
             </div>
             <div class="col d-flex flex-column">
                 <input class="btn btn-primary d-block me-auto my-auto" type="submit"
-                    :value="results[0] !== 0 ? 'Check Again' : 'Check Answer'"><br>
-                <div class="me-auto mb-auto" :style="results[0] === 0 ? 'display:none' : ''">{{ results[0] === 1 ?
+                    :value="results[q.number] !== 0 ? 'Check Again' : 'Check Answer'"><br>
+                <div class="me-auto mb-auto" :style="results[q.number] === 0 ? 'display:none' : ''">{{ results[q.number] === 1 ?
                     "&#x2705; Correct!" : "&#x274c; Not quite! Try again."}}</div>
             </div>
         </form><br>
