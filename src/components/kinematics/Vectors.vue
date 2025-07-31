@@ -2,7 +2,6 @@
 import { reactive, watch } from 'vue'
 const props = defineProps(["level", "page", "lessonShowing"])
 defineEmits(["nextlesson", "nextpage", "prevpage"])
-const print = console.log
 
 const results = reactive([0]) // update as add more questions
 
