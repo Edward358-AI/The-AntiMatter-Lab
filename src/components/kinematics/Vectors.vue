@@ -4,6 +4,20 @@ const props = defineProps(["level", "page", "lessonShowing"])
 defineEmits(["nextlesson", "nextpage", "prevpage"])
 
 const results = reactive([0]) // update as add more questions
+const questions = reactive(
+    [
+        {
+            number: 0,
+            question: "What is the proper format for a vector in component form?",
+            answers: [
+                ["$\\{3, 5\\}$", 0],
+                ["$\\langle 3, 5 \\rangle$", 1],
+                ["$(3, 5)$", 0],
+                ["$[3, 5]$", 0]
+            ]
+        }
+    ]
+)
 
 // universal check answer for a given question
 function checkAnswer(form) {
@@ -339,29 +353,28 @@ watch(() => props.lessonShowing, () => {
     </div>
     <div v-else class="container h100 p-5">
         <h1>Vectors Problems</h1><br>
-        <form @submit.prevent="checkAnswer(0)" class="question">
-        <label class="form-label fs-5">1. Which of the following is correct vector notation in component form?</label><br>
-            <div class="form-check m-auto" style="width:fit-content;">
-                <input class="form-check-input" type="radio" name="question" value="y">
-                <label class="form-check-label">
-                    $\langle 3, 5 \rangle$
-                </label>
+        <form @submit.prevent="checkAnswer(q.number)" class="question row justify-content-center" v-for="q in questions">
+            <div class="w-100">
+                <label class="form-label fs-5">{{ q.number+1 + ". " + q.question }}</label><br>
             </div>
-            <div class="form-check m-auto" style="width:fit-content;">
-                <input class="form-check-input" type="radio" name="question" value="n">
-                <label class="form-check-label">
-                    $(3, 5)$
-                </label>
+            <div class="col border-end border-secondary">
+                <div class="ms-auto" style="width:fit-content">
+                    <div class="form-check" style="width:fit-content;" v-for="a in q.answers">
+                        <input class="form-check-input" type="radio" name="question" :value="a[1] === 0 ? 'n' : 'y'">
+                        <label class="form-check-label">
+                            {{ a[0] }}
+                        </label>
+                    </div>
+                </div>
             </div>
-            <div class="form-check m-auto mb-2" style="width:fit-content;">
-                <input class="form-check-input" type="radio" name="question" value="n">
-                <label class="form-check-label">
-                    $\{3, 5\}$
-                </label>
+            <div class="col d-flex flex-column">
+                <input class="btn btn-primary d-block me-auto my-auto" type="submit"
+                    :value="results[0] !== 0 ? 'Check Again' : 'Check Answer'"><br>
+                <div class="me-auto mb-auto" :style="results[0] === 0 ? 'display:none' : ''">{{ results[0] === 1 ?
+                    "&#x2705; Correct!" : "&#x274c; Not quite! Try again."}}</div>
             </div>
-            <input class="btn btn-primary" type="submit" value="Check">
         </form><br>
-        <div class="mx-auto">{{ results[0] === 1 ? "&#x2705; Correct!" : results[0] === -1 ? "&#x274c; Not quite! Try again." : "" }}</div>
+
     </div>
 </template>
 
