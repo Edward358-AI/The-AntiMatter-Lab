@@ -1,5 +1,7 @@
+BELOW IS LESSON TEMPLATE
+
 <script setup>
-defineProps(["level", "page"])
+defineProps(["level", "page", "lessonShowing"])
 defineEmits(["nextlesson", "nextpage", "prevpage"])
 </script>
 
@@ -31,3 +33,30 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
 
 
 <style scoped></style>
+
+
+BELOW IS QUESTION FORMAT
+
+<form @submit.prevent="checkAnswer(Q_NUMBER)" class="question">
+    <label class="form-label fs-5">test question</label><br>
+    <div class="form-check m-auto" style="width:fit-content;">
+        <input class="form-check-input" type="radio" name="question" value="y"> <!-- correct answer -->
+        <label class="form-check-label">
+            test
+        </label>
+    </div>
+    <div class="form-check m-auto" style="width:fit-content;">
+        <input class="form-check-input" type="radio" name="question" value="n">
+        <label class="form-check-label">
+            test
+        </label>
+    </div>
+    <div class="form-check m-auto mb-2" style="width:fit-content;">
+        <input class="form-check-input" type="radio" name="question" value="n">
+        <label class="form-check-label">
+            test
+        </label>
+    </div>
+    <input class="btn btn-primary" type="submit" value="Check">
+</form><br>
+<div class="mx-auto">{{ results[Q_NUMBER] === 1 ? "&#x2705; Correct!" : results[Q_NUMBER] === -1 ? "&#x274c; Not quite! Try again." : "" }}</div>

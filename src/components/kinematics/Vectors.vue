@@ -1,11 +1,31 @@
 <script setup>
-defineProps(["level", "page", "lessonShowing"])
+import { reactive, watch } from 'vue'
+const props = defineProps(["level", "page", "lessonShowing"])
 defineEmits(["nextlesson", "nextpage", "prevpage"])
+const print = console.log
+
+const results = reactive([0]) // update as add more questions
+
+// universal check answer for a given question
+function checkAnswer(form) {
+    const data = new FormData(document.querySelectorAll(".question")[form])
+    if (data.get("question") === "y") results[form] = 1
+    else results[form] = -1
+}
+
+// remove progress on lesson change
+watch(() => props.lessonShowing, () => {
+    for (let i = 0; i < results.length; i++) {
+        results[i] = 0
+        if (props.lessonShowing == true) document.querySelectorAll(".question")[i].reset()
+    }
+
+})
 </script>
 
 
 <template>
-    <div class="container h100 p-5">
+    <div v-if="lessonShowing == true" class="container h100 p-5">
         <h1>Vectors</h1><br>
         <div v-show="page === 0">
             <p>
@@ -317,6 +337,32 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
             </div>
 
         </div>
+    </div>
+    <div v-else class="container h100 p-5">
+        <h1>Vectors Problems</h1><br>
+        <form @submit.prevent="checkAnswer(0)" class="question">
+        <label class="form-label fs-5">1. Which of the following is correct vector notation in component form?</label><br>
+            <div class="form-check m-auto" style="width:fit-content;">
+                <input class="form-check-input" type="radio" name="question" value="y">
+                <label class="form-check-label">
+                    $\langle 3, 5 \rangle$
+                </label>
+            </div>
+            <div class="form-check m-auto" style="width:fit-content;">
+                <input class="form-check-input" type="radio" name="question" value="n">
+                <label class="form-check-label">
+                    $(3, 5)$
+                </label>
+            </div>
+            <div class="form-check m-auto mb-2" style="width:fit-content;">
+                <input class="form-check-input" type="radio" name="question" value="n">
+                <label class="form-check-label">
+                    $\{3, 5\}$
+                </label>
+            </div>
+            <input class="btn btn-primary" type="submit" value="Check">
+        </form><br>
+        <div class="mx-auto">{{ results[0] === 1 ? "&#x2705; Correct!" : results[0] === -1 ? "&#x274c; Not quite! Try again." : "" }}</div>
     </div>
 </template>
 
