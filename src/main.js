@@ -12,4 +12,13 @@ window.addEventListener('dragstart',(e) => {
   if (e.target.nodeName === 'IMG') e.preventDefault()
 })
 
-window.MathJax.typeset()
+// Initialize MathJax when it's ready
+if (window.MathJax) {
+  window.MathJax.typeset()
+} else {
+  window.addEventListener('load', () => {
+    if (window.MathJax) {
+      window.MathJax.typeset()
+    }
+  })
+}
