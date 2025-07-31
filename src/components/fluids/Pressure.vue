@@ -337,7 +337,7 @@ watch(multiplier, (newVal) => {
             <br>
             The motion of every single particle is governed by simple kinematics and collisions rules, yet the motion of the particles appears random because there is 
             such a large number of them. In fact, the system of the demo is theoretically completely describable by using the techniques we learned previously. The glaring issue 
-            is that there are 3,200 particles in the demo, and many orders of magnitude more air molecules in a smiliarly-sized space. It would be pretty much 
+            is that there are 3,200 particles in the demo, and many orders of magnitude more air molecules in a similarly-sized space. It would be pretty much 
             impossible to solve the system even if it just relied on kinematics and collisions (which it does not).
             <br><br>
             Therefore, we deal with a macroscopic model of gases rather than looking at individual particles. Because there are so many particles, the distribution is 
