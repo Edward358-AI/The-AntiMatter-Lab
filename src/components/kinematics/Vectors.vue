@@ -38,7 +38,7 @@ watch(() => props.lessonShowing, () => {
 
 
 <template>
-    <div v-if="lessonShowing == true" class="container h100 p-5">
+    <div v-show="lessonShowing" class="container h100 p-5">
         <h1>Vectors</h1><br>
         <div v-show="page === 0">
             <p>
@@ -351,7 +351,7 @@ watch(() => props.lessonShowing, () => {
 
         </div>
     </div>
-    <div v-else class="container h100 p-5">
+    <div v-show="!lessonShowing" class="container h100 p-5">
         <h1>Vectors Problems</h1><br>
         <form @submit.prevent="checkAnswer(q.number)" class="question row justify-content-center" v-for="q in questions">
             <div class="w-100">
