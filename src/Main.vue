@@ -221,8 +221,8 @@ onUpdated(() => {
       <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close" id="closeMenu"></button>
     </div>
     <div class="offcanvas-header border-bottom border-secondary border-opacity-25 justify-content-center p-0">
-      <div @click="lessonShowing=true" :class="lessonShowing ? 'sidebarTab col border-end border-secondary border-opacity-25 p-2 bg-secondary-subtle' : 'sidebarTab col border-end border-secondary border-opacity-25 p-2'">Lessons</div>
-      <div @click="lessonShowing=false" :class="lessonShowing ? 'sidebarTab col p-2' : 'sidebarTab col p-2 bg-secondary-subtle'">Problems</div>
+      <div @click="lessonShowing=true; hideMobileBar()" :class="lessonShowing ? 'sidebarTab col border-end border-secondary border-opacity-25 p-2 bg-secondary-subtle' : 'sidebarTab col border-end border-secondary border-opacity-25 p-2'">Lessons</div>
+      <div @click="lessonShowing=false;  hideMobileBar()" :class="lessonShowing ? 'sidebarTab col p-2' : 'sidebarTab col p-2 bg-secondary-subtle'">Problems</div>
     </div>
     <div class="offcanvas-header border-bottom border-secondary border-opacity-25">
       <input v-model="searchQuery" type="text" class="form-control" placeholder="Type here to find a lesson...">
