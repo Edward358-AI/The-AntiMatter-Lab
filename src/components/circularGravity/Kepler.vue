@@ -323,7 +323,7 @@ watch(() => props.lessonShowing, () => {
     </div>
 
     <div v-show="!lessonShowing" class="container h100 p-5">
-        <h1>Vectors Problems</h1><br>
+        <h1>Kepler's Laws Problems</h1><br>
         <form @submit.prevent="checkAnswer(q.number)" class="question row justify-content-center" v-for="q in questions">
             <div class="w-100">
                 <label class="form-label fs-5">{{ q.number+1 + ". " + q.question }}</label><br>
