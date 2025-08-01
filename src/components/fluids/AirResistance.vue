@@ -4,6 +4,50 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
 import { Engine, Render, Runner, Bodies, Composite, Mouse, MouseConstraint, Body} from 'matter-js'
 import {onMounted, ref, onUnmounted, watch} from 'vue'
 
+const questions = reactive(
+    [
+        [ // conceptual difficutly
+            {
+                number: 0,
+                question: "What is the proper format for a vector in component form?",
+                answers: [
+                    ["$\\{3, 5\\}$", 0],
+                    ["$\\langle 3, 5 \\rangle$", 1],
+                    ["$(3, 5)$", 0],
+                    ["$[3, 5]$", 0]
+                ],
+                explain: "Recall that a vector in component form is denoted by its component in the horizontal direction ($x$) and vertical direction ($y$), surrounded by angle brackets. Thus the second answer choice is the correct one."
+            }
+        ],
+        [ // algebra difficutly
+            {
+                number: 0,
+                question: "What is the proper format for a vector in component form?",
+                answers: [
+                    ["$\\{3, 5\\}$", 0],
+                    ["$\\langle 3, 5 \\rangle$", 1],
+                    ["$(3, 5)$", 0],
+                    ["$[3, 5]$", 0]
+                ],
+                explain: "Recall that a vector in component form is denoted by its component in the horizontal direction ($x$) and vertical direction ($y$), surrounded by angle brackets. Thus the second answer choice is the correct one."
+            }
+        ],
+        [ // calculus difficutly
+            {
+                number: 0,
+                question: "What is the proper format for a vector in component form?",
+                answers: [
+                    ["$\\{3, 5\\}$", 0],
+                    ["$\\langle 3, 5 \\rangle$", 1],
+                    ["$(3, 5)$", 0],
+                    ["$[3, 5]$", 0]
+                ],
+                explain: "Recall that a vector in component form is denoted by its component in the horizontal direction ($x$) and vertical direction ($y$), surrounded by angle brackets. Thus the second answer choice is the correct one."
+            }
+        ]
+    ]
+)
+
 const show = ref(false)
 const show1 = ref(false)
 const show2 = ref(false)
@@ -545,5 +589,30 @@ onUnmounted(() => {
             </div>
             </div>
         </p>
+    </div>
+    <div v-show="!lessonShowing" class="container h100 p-5">
+        <h1>Air Resistance Problems</h1><br>
+        <form @submit.prevent="checkAnswer(q.number)" class="question row justify-content-center" v-for="q in questions">
+            <div class="w-100">
+                <label class="form-label fs-5">{{ q.number+1 + ". " + q.question }}</label><br>
+            </div>
+            <div class="col border-end border-secondary">
+                <div class="ms-auto" style="width:fit-content">
+                    <div class="form-check" style="width:fit-content;" v-for="a in q.answers">
+                        <input class="form-check-input" type="radio" name="question" :value="a[1] === 0 ? 'n' : 'y'">
+                        <label class="form-check-label">
+                            {{ a[0] }}
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="col d-flex flex-column">
+                <input class="btn btn-primary d-block me-auto my-auto" type="submit"
+                    :value="results[q.number] !== 0 ? 'Check Again' : 'Check Answer'"><br>
+                <div class="me-auto mb-auto" :style="results[q.number] === 0 ? 'display:none' : ''">{{ results[q.number] === 1 ?
+                    "&#x2705; Correct!" : "&#x274c; Not quite! Try again."}}</div>
+            </div>
+        </form><br>
+
     </div>
 </template>
