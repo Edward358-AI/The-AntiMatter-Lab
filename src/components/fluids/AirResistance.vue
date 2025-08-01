@@ -2,7 +2,7 @@
 defineProps(["level", "page", "lessonShowing"])
 defineEmits(["nextlesson", "nextpage", "prevpage"])
 import { Engine, Render, Runner, Bodies, Composite, Mouse, MouseConstraint, Body} from 'matter-js'
-import {onMounted, ref, onUnmounted, watch} from 'vue'
+import {onMounted, ref, onUnmounted, watch, reactive} from 'vue'
 
 const questions = reactive(
     [
@@ -340,7 +340,7 @@ onUnmounted(() => {
 
 
 <template>
-    <div class="container h100 p-5">
+    <div v-show="lessonShowing" class="container h100 p-5">
         <h1>Air Resistance and Drag Forces</h1><br>
         <p>
             <div v-show="page===0">
