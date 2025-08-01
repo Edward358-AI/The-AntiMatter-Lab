@@ -3,13 +3,24 @@ import { reactive, watch } from 'vue'
 const props = defineProps(["level", "page", "lessonShowing"])
 defineEmits(["nextlesson", "nextpage", "prevpage"])
 
-const results = reactive([[0], [0], [0]]) // update as add more questions
-const explanations = reactive([[false], [false], [false]]) // keeps track of what explanations are visible
+const results = reactive([[0, 0, 0], [0], [0]]) // update as add more questions
+const explanations = reactive([[false, false, false], [false], [false]]) // keeps track of what explanations are visible
 const questions = reactive(
     [
         [ // conceptual difficutly
-            {
+        {
                 number: 0,
+                question: "What is the correct way to denote a vector with the letter $a$?",
+                answers: [
+                    ["$\\vec{a}$", 1, false],
+                    ["$\\Delta a$", 0, false],
+                    ["$\\bar{a}$", 0, false],
+                    ["$\\overleftrightarrow{a}$", 0, false]
+                ],
+                explain: "As mentioned in the lesson, the typical way to denote vectors is using $\\vec{a}$, a little arrow over the letter, or bolded like $\\vectorbold{a}$. You might also see $\\hat{a}$ being used sometimes, but for our purposes we are concerned with $\\vec{a}$."
+            }, 
+            {
+                number: 1,
                 question: "What is the proper format for a vector in component form?",
                 answers: [
                     ["$\\{3, 5\\}$", 0, false],
@@ -18,7 +29,19 @@ const questions = reactive(
                     ["$[3, 5]$", 0, false]
                 ],
                 explain: "Recall that a vector in component form is denoted by its component in the horizontal direction ($x$) and vertical direction ($y$), surrounded by angle brackets. Thus the second answer choice is the correct one."
+            },
+            {
+                number: 2,
+                question: "What is the result in component form of adding these two vectors, $\\vec{a}= \\langle 4,6 \\rangle$ and $\\vec{b}= \\langle 11, 2 \\rangle$",
+                answers: [
+                    ["$\\langle 15, 4 \\rangle$", 0, false],
+                    ["$\\langle 7, 8 \\rangle$", 0, false],
+                    ["$\\langle 14, 6 \\rangle$", 0, false],
+                    ["$\\langle 15, 8 \\rangle$", 1, false]
+                ],
+                explain: "$\\vec{a} + \\vec{b} = \\langle 4,6 \\rangle + \\langle 11, 2 \\rangle$ $ = \\langle 4+11, 6+2 \\rangle = \\langle 15, 8 \\rangle$"
             }
+            
         ],
         [ // algebra difficutly
             {
