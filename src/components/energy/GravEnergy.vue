@@ -517,7 +517,7 @@ watch(() => props.lessonShowing, () => {
                     === 1 ?
                     "&#x2705; Correct!" : "&#x274c; Not quite! Try again." }}
                 </div>
-                <a href="#" v-show="results[q.number] !== 0" class="me-auto mb-auto ms-1"
+                <a href="javascript:void(0)" v-show="results[q.number] !== 0" class="me-auto mb-auto ms-1"
                     @click="explanations[q.number] = !explanations[q.number]">{{ !explanations[q.number] ? "Want to see an explanation ? " : "Hide explanation" }}</a>
             </div>
             <span class="mt-3" style="padding: 0% 25%" v-show="explanations[q.number]">{{ q.explain }}</span>
