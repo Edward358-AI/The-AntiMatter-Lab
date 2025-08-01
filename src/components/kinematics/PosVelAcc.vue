@@ -1,49 +1,214 @@
 <script setup>
 import { reactive, watch } from 'vue'
 const props = defineProps(["level", "page", "lessonShowing"])
-defineEmits(["nextlesson", "nextpage", "prevpage"])
+const emit = defineEmits(["nextlesson", "nextpage", "prevpage"])
 
-const results = reactive([[0], [0], [0]]) // update as add more questions
-const explanations = reactive([[false], [false], [false]]) // keeps track of what explanations are visible
+const results = reactive([[0,0,0,0,0,0], [0,0,0,0,0,0], [0,0,0,0,0,0]]) // update as add more questions
+const explanations = reactive([[false, false, false, false, false, false], [false, false, false, false, false, false], [false, false, false, false, false, false]]) // keeps track of what explanations are visible
 const questions = reactive(
     [
         [ // conceptual difficutly
             {
                 number: 0,
-                question: "What is the proper format for a vector in component form?",
+                question: "What is the displacement of a person who walks to the store 5 km away and back?",
                 answers: [
-                    ["$\\{3, 5\\}$", 0, false],
-                    ["$\\langle 3, 5 \\rangle$", 1, false],
-                    ["$(3, 5)$", 0, false],
-                    ["$[3, 5]$", 0, false]
+                    ["10 km", 0, false],
+                    ["$5 km", 0, false],
+                    ["15 km", 0, false],
+                    ["0 km", 1, false]
                 ],
-                explain: "Recall that a vector in component form is denoted by its component in the horizontal direction ($x$) and vertical direction ($y$), surrounded by angle brackets. Thus the second answer choice is the correct one."
+                explain: "Recall that displacement only measures your start and end positions. Since this is a round trip to the store, you end up right where you started, meaning your displacement is zero."
+            },
+            {
+                number: 1,
+                question: "What is the average velocity of the guy walking to the store in the previous problem if his trip takes 30 minutes?",
+                answers: [
+                    ["0 km/h", 1, false],
+                    ["20 km/h", 0, false],
+                    ["10 km/h", 0, false],
+                    ["5 km/h", 0, false]
+                ],
+                explain: "The person's displacement is zero because his initial and final positions do not change. Average velocity is displacement over total time, so this is also zero."
+            },
+            {
+                number: 2,
+                question: "What is your displacement vector after you move 3 kilometers north and 2 kilometers west? Assume answers are in kilometers.",
+                answers: [
+                    ["$\\langle 3, 0\\rangle$", 0, false],
+                    ["$\\langle 2, -3\\rangle$", 0, false],
+                    ["$\\langle -2, 3\\rangle$", 1, false],
+                    ["$\\langle 2, 3\\rangle$", 0, false]
+                ],
+                explain: "The displacement vector is defined by your change in position. In this case, you move three kilometers north (positive y) and two kilometers west (negative x)."
+            },
+            {
+                number: 3,
+                question: "How fast will you be going after you accelerate at $5 \\textrm{m/s}^2$ for 12 seconds, if you start from rest?",
+                answers: [
+                    ["24 m/s", 0, false],
+                    ["60 m/s", 1, false],
+                    ["25 m/s", 0, false],
+                    ["2.4 m/s", 0, false]
+                ],
+                explain: "Recall that your change in velocity $\\Delta v = a \\Delta t$. Plugging these numbers into the formula and realizing that you start with zero velocity, we get an answer of 60 m/s."
+            },
+            {
+                number: 4,
+                question: "How far could you go if you started from rest and accelerated at $a = 2.0 ~\\textrm{m/s}^2$ for 5 minutes?",
+                answers: [
+                    ["9 km", 0, false],
+                    ["0.6 km", 0, false],
+                    ["10 km", 0, false],
+                    ["90 km", 1, false]
+                ],
+                explain: "We can use the formula $\\Delta x = \\dfrac12 a\\Delta t^2$ because we start from rest. Remembering to convert minutes to seconds, we can plug in and get our answer of 90,000 meters, or 90 kilometers."
+            },
+            {
+                number: 5,
+                question: "Is it possible to have zero acceleration but nonzero displacement over some time interval?",
+                answers: [
+                    ["No, because you need acceleration for motion.", 0, false],
+                    ["No, because without acceleration things will slow down.", 0, false],
+                    ["Yes, because you could still have some constant velocity.", 1, false],
+                    ["Yes, because acceleration does not directly affect displacement.", 0, false]
+                ],
+                explain: "The key takeaway is that acceleration tends to change the velocity of an object, but you could still have some constant velocity without any acceleration! Thus, the correct answer choice is the third one."
             }
         ],
         [ // algebra difficutly
             {
                 number: 0,
-                question: "What is the proper format for a vector in component form?",
+                question: "What is the displacement of a person who walks in an irregular path from (0,0) to (12,5)?",
                 answers: [
-                    ["$\\{3, 5\\}$", 0, false],
-                    ["$\\langle 3, 5 \\rangle$", 1, false],
-                    ["$(3, 5)$", 0, false],
-                    ["$[3, 5]$", 0, false]
+                    ["169", 0, false],
+                    ["12", 0, false],
+                    ["13", 1, false],
+                    ["17", 0, false]
                 ],
-                explain: "Recall that a vector in component form is denoted by its component in the horizontal direction ($x$) and vertical direction ($y$), surrounded by angle brackets. Thus the second answer choice is the correct one."
+                explain: "Recall that displacement is straight-line distance between your start and end points. In this case, you would use the distance formula, which would give you 13 as the answer."
+            },
+            {
+                number: 1,
+                question: "What is the average speed of a person who walks around a circle of radius $2.5 ~\\textrm{m}$ in 10 seconds?",
+                answers: [
+                    ["0.25 m/s", 0, false],
+                    ["1.57 m/s", 1, false],
+                    ["0.64 m/s", 0, false],
+                    ["0.79 m/s", 0, false]
+                ],
+                explain: "Average speed is distance travelled over time. The distance travelled is equal to the circumference of the circle, and the time is ten seconds. Evaluating this gives us the second answer choice."
+            },
+            {
+                number: 2,
+                question: "What is your displacement vector after you move 3 kilometers north and 2 kilometers west? Assume answers are in kilometers.",
+                answers: [
+                    ["$\\langle 3, 0\\rangle$", 0, false],
+                    ["$\\langle 2, -3\\rangle$", 0, false],
+                    ["$\\langle -2, 3\\rangle$", 1, false],
+                    ["$\\langle 2, 3\\rangle$", 0, false]
+                ],
+                explain: "The displacement vector is defined by your change in position. In this case, you move three kilometers north (positive y) and two kilometers west (negative x)."
+            },
+            {
+                number: 3,
+                question: "You decide to time yourself on a straight racetrack. Your car can accelerate at $4.0 ~\\textrm{m/s}$, and the track is 1.5 kilometers long. How long does it take you to get to the end? ",
+                answers: [
+                    ["13.7 s", 0, false],
+                    ["27.4 s", 1, false],
+                    ["19.4 s", 0, false],
+                    ["38.7 s", 0, false]
+                ],
+                explain: "Using the formula that $\\Delta x = \\dfrac 12 a t^2$ where we omit the initial velocity term because you start the race from rest, we can solve for $t$. This gives us 24.7 seconds."
+            },
+            {
+                number: 4,
+                question: "What is your average acceleration if your velocity changes from $\\langle 0, 4 \\rangle$ to $ \\langle -3, -4\\rangle$ over a period of 4 seconds?",
+                answers: [
+                    ["$\\langle -\\frac34, -2 \\rangle$", 1, false],
+                    ["$\\langle -\\frac34, 2 \\rangle$", 0, false],
+                    ["$ \\langle -3, 8 \\rangle$", 0, false],
+                    ["$\\langle -12, 16 \\rangle $", 0, false]
+                ],
+                explain: "Recall that average acceleration is the change in velocity over the time interval. Thus, we simply calculate the velocity change for each dimension and write the result as another vector."
+            },
+            {
+                number: 5,
+                question: "Is it possible to have zero acceleration but nonzero displacement over some time interval?",
+                answers: [
+                    ["No, because you need acceleration for motion.", 0, false],
+                    ["No, because without acceleration things will slow down.", 0, false],
+                    ["Yes, because you could still have some constant velocity.", 1, false],
+                    ["Yes, because acceleration does not directly affect displacement.", 0, false]
+                ],
+                explain: "The key takeaway is that acceleration tends to change the velocity of an object, but you could still have some constant velocity without any acceleration! Thus, the correct answer choice is the third one."
             }
         ],
         [ // calculus difficutly
             {
                 number: 0,
-                question: "What is the proper format for a vector in component form?",
+                question: "What is the displacement of a person who walks in an irregular path from (-12,7) to (1,12)?",
                 answers: [
-                    ["$\\{3, 5\\}$", 0, false],
-                    ["$\\langle 3, 5 \\rangle$", 1, false],
-                    ["$(3, 5)$", 0, false],
-                    ["$[3, 5]$", 0, false]
+                    ["169", 0, false],
+                    ["12", 0, false],
+                    ["13", 1, false],
+                    ["17", 0, false]
                 ],
-                explain: "Recall that a vector in component form is denoted by its component in the horizontal direction ($x$) and vertical direction ($y$), surrounded by angle brackets. Thus the second answer choice is the correct one."
+                explain: "Recall that displacement is straight-line distance between your start and end points. In this case, you would use the distance formula, which would give you 13 as the answer."
+            },
+            {
+                number: 1,
+                question: "What is the average speed of a person who walks around a circle of radius $2.5 ~\\textrm{m}$ in 10 seconds?",
+                answers: [
+                    ["0.25 m/s", 0, false],
+                    ["1.57 m/s", 1, false],
+                    ["0.64 m/s", 0, false],
+                    ["0.79 m/s", 0, false]
+                ],
+                explain: "Average speed is distance travelled over time. The distance travelled is equal to the circumference of the circle, and the time is ten seconds. Evaluating this gives us the second answer choice."
+            },
+            {
+                number: 2,
+                question: "What is your displacement vector after you move 3 kilometers north and 2 kilometers west? Assume answers are in kilometers.",
+                answers: [
+                    ["$\\langle 3, 0\\rangle$", 0, false],
+                    ["$\\langle 2, -3\\rangle$", 0, false],
+                    ["$\\langle -2, 3\\rangle$", 1, false],
+                    ["$\\langle 2, 3\\rangle$", 0, false]
+                ],
+                explain: "The displacement vector is defined by your change in position. In this case, you move three kilometers north (positive y) and two kilometers west (negative x)."
+            },
+            {
+                number: 3,
+                question: "You decide to time yourself on a straight racetrack. Your car can accelerate at $4.0 ~\\textrm{m/s}$, and the track is 1.5 kilometers long. How long does it take you to get to the end? ",
+                answers: [
+                    ["13.7 s", 0, false],
+                    ["27.4 s", 1, false],
+                    ["19.4 s", 0, false],
+                    ["38.7 s", 0, false]
+                ],
+                explain: "Using the formula that $\\Delta x = \\dfrac 12 a t^2$ where we omit the initial velocity term because you start the race from rest, we can solve for $t$. This gives us 24.7 seconds."
+            },
+            {
+                number: 4,
+                question: "An object follows the position function $ x(t) = 3 t^2 + 4t + 12$, where everything has the proper units. What is the velocity-time function for this object?",
+                answers: [
+                    ["$ v(t) = t^3 +2 t^2 + 12 t$", 0, false],
+                    ["$v(t) = 6t + 4 + \\frac{12}{t}$", 0, false],
+                    ["$v(t) = \\frac32 t + 4$", 0, false],
+                    ["$v(t) = 6t + 4$", 1, false]
+                ],
+                explain: "Recall that $v = \\frac{dx}{dt}$. We simply differentiate the position-time function with respect to time, which gives us the fourth answer choice."
+            },
+            {
+                number: 5,
+                question: "Is it possible to have zero acceleration but nonzero displacement over some time interval?",
+                answers: [
+                    ["No, because you need acceleration for motion.", 0, false],
+                    ["No, because without acceleration things will slow down.", 0, false],
+                    ["Yes, because you could still have some constant velocity.", 1, false],
+                    ["Yes, because acceleration does not directly affect displacement.", 0, false]
+                ],
+                explain: "The key takeaway is that acceleration tends to change the velocity of an object, but you could still have some constant velocity without any acceleration! Thus, the correct answer choice is the third one."
             }
         ]
     ]
