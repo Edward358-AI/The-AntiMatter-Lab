@@ -1,12 +1,302 @@
 <script setup>
-import { reactive, watch } from 'vue'
-const props = defineProps(["level", "page", "lessonShowing"])
+defineProps(["level", "page", "lessonShowing"])
 defineEmits(["nextlesson", "nextpage", "prevpage"])
+import { Engine, Render, Runner, Bodies, Composite, Mouse, MouseConstraint, Body} from 'matter-js'
+import {onMounted, ref, onUnmounted, watch} from 'vue'
+
+const show = ref(false)
+const show1 = ref(false)
+const show2 = ref(false)
+const show3 = ref(false)
+const show4 = ref(false)
+const viewportMsg = ref('')
+
+// Airflow control variables
+const speed = ref(8)
+const particleRate = ref(10)
+
+// Store engine and render references for cleanup
+let currentEngine = null
+let currentRender = null
+let currentRunner = null
+
+// Function to start/restart particle generation
+function startParticleGeneration(engine, width, height) {
+    // Clear existing interval if it exists
+    if (currentEngine && currentEngine.particleInterval) {
+        clearInterval(currentEngine.particleInterval);
+    }
+    
+    // Create new particle stream with current rate
+    let particleInterval = setInterval(() => {
+        // Only create particles if engine still exists
+        if (!currentEngine) {
+            clearInterval(particleInterval);
+            return;
+        }
+        
+        // Create a small particle on the right side
+        const particle = Bodies.circle(
+            width - 20, // Start from right edge
+            Math.random() * (height - 100) + 50, // Random Y position
+            5, // Radius
+            {
+                render: {
+                    fillStyle: '#ff6b6b',
+                    strokeStyle: '#fff',
+                    lineWidth: 1
+                },
+                frictionAir: 0, 
+                restitution: 0.8,
+                collisionFilter: {
+                    category: 0x0004, // Different category from walls
+                    mask: 0x0004 | 0x0008 // Collide with other particles (0x0004) and cyan body (0x0008)
+                }
+            }
+        );
+        
+        // Add creation timestamp for cleanup
+        particle.createdAt = Date.now();
+        
+        // Give it leftward velocity using Body.setVelocity
+        Body.setVelocity(particle, {
+            x: -speed.value - (Math.random() - 0.5) * 8, // Base speed + small random variation
+            y: (Math.random() - 0.5) * 2 // Slight random Y velocity
+        });
+        
+        // Add to world
+        Composite.add(engine.world, particle);
+        
+    }, particleRate.value); // Create new particle based on rate setting
+    
+    // Store interval reference for cleanup
+    currentEngine.particleInterval = particleInterval;
+}
+
+function runDrag() {
+    // Clean up previous engine if it exists
+    if (currentEngine) {
+        // Clear particle interval
+        if (currentEngine.particleInterval) {
+            clearInterval(currentEngine.particleInterval);
+        }
+        // Clear cleanup interval
+        if (currentEngine.cleanupInterval) {
+            clearInterval(currentEngine.cleanupInterval);
+        }
+        // Stop the runner
+        if (currentRunner) {
+            Runner.stop(currentRunner)
+        }
+        // Stop and clear the render
+        if (currentRender) {
+            Render.stop(currentRender)
+            currentRender.canvas.remove()
+            currentRender.canvas = null
+            currentRender.context = null
+            currentRender = null
+        }
+        // Clear the engine
+        Engine.clear(currentEngine)
+        currentEngine = null
+        currentRunner = null
+    }
+
+    if (window.innerWidth < 1000) {
+        viewportMsg.value = "Warning. Some demos may not work as intended/as well on smaller viewports. Consider using a larger viewing window for best results."
+    } else {
+        viewportMsg.value = ""
+    }
+    document.getElementById("drag").innerHTML = ""
+
+    // create an engine
+    var engine = Engine.create();
+    currentEngine = engine // Store reference for cleanup
+    engine.gravity.y = 0
+    var width = 0.5 * window.innerWidth > 800 ? 600 : window.innerWidth < 768 ? 0.65 * window.innerWidth : 0.5 * window.innerWidth;
+    var height = 0.8 * width;
+    // create a renderer
+    var render = Render.create({
+        element: document.getElementById('drag'),
+        engine: engine,
+        options: {
+            width: width,
+            height: height,
+            wireframes: false,
+            background: "#000"
+        }
+    });
+
+
+    currentRender = render // Store reference for cleanup
+    // run the renderer
+    Render.run(render);
+
+    // create runner
+    var runner = Runner.create();
+    currentRunner = runner // Store reference for cleanup
+
+    // run the engine
+    Runner.run(runner, engine);
+
+    const wallThickness = 50;
+    var walls = [
+        // Top wall
+        Bodies.rectangle(width / 2, -wallThickness / 2, width + 200, wallThickness, {
+            isStatic: true,
+            render: { visible: false },
+            collisionFilter: {
+                category: 0x0002,
+                mask: 0x0008 // Can collide with the cyan body (0x0008)
+            }
+        }),
+        // Bottom wall
+        Bodies.rectangle(width / 2, height + wallThickness / 2, width + 200, wallThickness, {
+            isStatic: true,
+            render: { visible: false },
+            collisionFilter: {
+                category: 0x0002,
+                mask: 0x0008
+            }
+        }),
+        // Left wall
+        Bodies.rectangle(-wallThickness / 2, height / 2, wallThickness, height + 100, {
+            isStatic: true,
+            render: { visible: false },
+            collisionFilter: {
+                category: 0x0002,
+                mask: 0x0008
+            }
+        }),
+        // Right wall
+        Bodies.rectangle(width + wallThickness/ 2, height / 2, wallThickness, height + 100, {
+            isStatic: true,
+            render: { visible: false },
+            collisionFilter: {
+                category: 0x0002,
+                mask: 0x0008
+            }
+        })
+    ];
+    
+    var body = Bodies.rectangle(0.5 * width, 0.5* height, 0.1* width, 0.1 * width, {
+        render: {fillStyle: 'cyan'},
+        collisionFilter: {
+            category: 0x0008, // Body has its own category so particles can collide with it
+            mask: 0xFFFFFFFF // Can collide with everything (default behavior)
+        }
+    })
+
+    // Add walls and body to world
+    Composite.add(engine.world, [...walls, body]);
+
+    // Start particle generation
+    startParticleGeneration(engine, width, height);
+
+    // Add periodic cleanup for old particles
+    let cleanupInterval = setInterval(() => {
+        if (!currentEngine) {
+            clearInterval(cleanupInterval);
+            return;
+        }
+        
+        // Get all bodies from the world
+        const bodies = Composite.allBodies(engine.world);
+        const particlesToRemove = [];
+        
+        // Find particles that have gone offscreen or have been around for too long
+        bodies.forEach(body => {
+            // Skip static bodies (walls)
+            if (body.isStatic) return;
+            
+            const age = Date.now() - (body.createdAt || Date.now());
+            
+            // Remove particles that have gone offscreen or are too old
+            if (body.position.x < -100 || 
+                body.position.x > width + 100 || 
+                body.position.y < -100 || 
+                body.position.y > height + 100 || 
+                age > 15000) {
+                particlesToRemove.push(body);
+            }
+        });
+        
+        // Remove the identified particles
+        if (particlesToRemove.length > 0) {
+            Composite.remove(engine.world, particlesToRemove);
+        }
+        
+    }, 1000); // Run cleanup every second
+    
+    // Store cleanup interval reference
+    currentEngine.cleanupInterval = cleanupInterval;
+
+    // add mouse control
+    var mouse = Mouse.create(render.canvas);
+    var mouseConstraint = MouseConstraint.create(engine, {
+        mouse: mouse,
+        constraint: {
+            stiffness: 0.2,
+            render: {
+                visible: false
+            }
+        }
+    });
+
+    Composite.add(engine.world, mouseConstraint);
+
+    // keep the mouse in sync with rendering
+    render.mouse = mouse;
+
+}  
+
+onMounted(() => {
+    runDrag()
+});
+
+// Watch for particle rate changes and restart generation
+watch(particleRate, () => {
+    if (currentEngine) {
+        // Get canvas dimensions
+        const width = 0.5 * window.innerWidth > 800 ? 600 : window.innerWidth < 768 ? 0.65 * window.innerWidth : 0.5 * window.innerWidth;
+        const height = 0.8 * width;
+        startParticleGeneration(currentEngine, width, height);
+    }
+});
+
+onUnmounted(() => {
+    // Clean up when component is destroyed
+    if (currentEngine) {
+        // Clear particle interval
+        if (currentEngine.particleInterval) {
+            clearInterval(currentEngine.particleInterval);
+        }
+        // Clear cleanup interval
+        if (currentEngine.cleanupInterval) {
+            clearInterval(currentEngine.cleanupInterval);
+        }
+        // Remove event listeners
+        if (currentRunner) {
+            Runner.stop(currentRunner)
+        }
+        if (currentRender) {
+            Render.stop(currentRender)
+            currentRender.canvas.remove()
+            currentRender.canvas = null
+            currentRender.context = null
+        }
+        Engine.clear(currentEngine)
+        currentEngine = null
+        currentRender = null
+        currentRunner = null
+    }
+});
+
 </script>
 
 
 <template>
-    <div v-show="lessonShowing" class="container h100 p-5">
+    <div class="container h100 p-5">
         <h1>Air Resistance and Drag Forces</h1><br>
         <p>
             <div v-show="page===0">
@@ -193,34 +483,9 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                 <br><br>
                 <span v-show="level==2">
                     Fortunately for you calculus students, we can actually use calculus to derive the exact equations of motion for an object that falls under 
-                    air resistance. We will use the linear drag model for simplicity, and we can simply use our integration skills to get through this one.
+                    air resistance. We will use the linear drag model for simplicity, and we can simply use our integration skills to get through this
                 </span>
             </div>
         </p>
-    </div>
-    <div v-show="!lessonShowing" class="container h100 p-5">
-        <h1>Vectors Problems</h1><br>
-        <form @submit.prevent="checkAnswer(q.number)" class="question row justify-content-center" v-for="q in questions">
-            <div class="w-100">
-                <label class="form-label fs-5">{{ q.number+1 + ". " + q.question }}</label><br>
-            </div>
-            <div class="col border-end border-secondary">
-                <div class="ms-auto" style="width:fit-content">
-                    <div class="form-check" style="width:fit-content;" v-for="a in q.answers">
-                        <input class="form-check-input" type="radio" name="question" :value="a[1] === 0 ? 'n' : 'y'">
-                        <label class="form-check-label">
-                            {{ a[0] }}
-                        </label>
-                    </div>
-                </div>
-            </div>
-            <div class="col d-flex flex-column">
-                <input class="btn btn-primary d-block me-auto my-auto" type="submit"
-                    :value="results[q.number] !== 0 ? 'Check Again' : 'Check Answer'"><br>
-                <div class="me-auto mb-auto" :style="results[q.number] === 0 ? 'display:none' : ''">{{ results[q.number] === 1 ?
-                    "&#x2705; Correct!" : "&#x274c; Not quite! Try again."}}</div>
-            </div>
-        </form><br>
-
     </div>
 </template>
