@@ -483,8 +483,66 @@ onUnmounted(() => {
                 <br><br>
                 <span v-show="level==2">
                     Fortunately for you calculus students, we can actually use calculus to derive the exact equations of motion for an object that falls under 
-                    air resistance. We will use the linear drag model for simplicity, and we can simply use our integration skills to get through this
+                    air resistance. We will use the linear drag model for simplicity, and we can simply use our integration skills to get through this problem. First, 
+                    we want to write the forces on the falling object:
+                    <br><br>
+                    $$ mg - bv = ma $$
+                    $$ g -\dfrac{b}{m} v = a $$
+                    <br>
+                    Now, we want to recall that $a = \frac{dv}{dt}$, which lets us set this up as a differential equation:
+                    <br><br>
+                    $$ g -\dfrac{b}{m} v = \dfrac{dv}{dt} $$
+                    <br>
+                    We want to separate the variables here, so we can write this as:
+                    <br><br>
+                    $$ \dfrac{dv}{g -\dfrac{b}{m} v} = dt $$
+                    <br>
+                    Now, we can integrate both sides. The left side is a bit tricky, but we can use u-substitution. I won't show it here since it's not a complex 
+                    substitution, but you can use $u = g - \frac{b}{m} v$ if you have trouble.
+                    <br><br>
+                    $$ \int_0^v \dfrac{dv}{g -\dfrac{b}{m} v} = \int_0^t dt $$
+                    $$ -\dfrac{m}{b} \ln\left|g -\dfrac{b}{m} v\right| \bigg|_0^v = t $$
+                    $$ -\dfrac{m}{b} \left( \ln\left|g -\dfrac{b}{m} v\right| - \ln(g) \right) = t $$
+                    <br>
+                    We can use a property of logarithms to combine the two logarithms:
+                    <br><br>
+                    $$ -\dfrac{m}{b} \ln\left(\dfrac{g -\dfrac{b}{m} v}{g}\right) = t $$
+                    $$ \dfrac{g -\dfrac{b}{m} v}{g} = e^{-\dfrac{b}{m} t} $$
+                    $$ g -\dfrac{b}{m} v = g e^{-\dfrac{b}{m} t} $$
+                    $$ v = -\dfrac{mg}{b} \left( e^{-\frac{b}{m} t} - 1 \right) $$
+                    <br>
+                    We can use this to find the position and acceleration as well, though I won't make you do that.
+                    This is the exact equation of motion for an object falling under linear drag. It is a bit complicated, but it does make sense. 
+                    It's easier to understand if we look at it conceptually instead of focusing on the equation.
+                    <br><br>
                 </span>
+                When the object is initially dropped, it has very little air resistance acting on it because it is not moving very fast. THis means that the 
+                initial acceleration should be roughly linear and equal to $g$. As the object falls, the acceleration will gradually decrease as the force of air 
+                resistance increases.
+                <br><br>
+                <span v-show="level>0">
+                    As the object approaches the terminal velocity, the velocity with respect to time should asymptote to a fixed value, and the acceleration should 
+                    asymptote to zero. The initial slope of the velocity versus time graph would look roughly linear, and the slope would decrease with time as the 
+                    acceleration decreased. With this information, we can draw a rough graph of the motion.
+                </span>
+                <span v-show="level==0">
+                    When the object approaches the terminal velocity, the acceleration should drop to zero as the forces get balanced, and the velocity will approach the 
+                    terminal velocity value. This information is enough to generate a rough graph of the motion of velocity versus time.
+                </span>
+                <br><br>
+                Take a look at the graph below. It has all of the characteristics that the hypothetical graph we talked about above should have.
+                <br><br>
+                <figure>
+                    <img src="\src\assets\fluids\Figure 113.png"/>
+                    <figcaption>Figure 2: The velocity-time graph for an object falling under air resistance.</figcaption>
+                </figure>
+                <br>
+                That's it for our exploration of air resistance! This topic can get pretty complex, but the introductory physics and the general concepts behind it 
+                are quite simple. This is also the end of our fluids unit, and the end of mechanics. I hope you enjoyed your journey with us thus far.
+                <div class="btn-contain-left">
+                <button class="btn btn-dark" style="animation: scale1 2s infinite;" @click="$emit('prevpage')">&larr;
+                    Previous</button>
+            </div>
             </div>
         </p>
     </div>
