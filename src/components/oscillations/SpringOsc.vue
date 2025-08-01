@@ -3,8 +3,8 @@ import { reactive, watch } from 'vue'
 const props = defineProps(["level", "page", "lessonShowing"])
 defineEmits(["nextlesson", "nextpage", "prevpage"])
 
-const results = reactive([0]) // update as add more questions
-const explanations = reactive([false]) // keeps track of what explanations are visible
+const results = reactive([[0], [0], [0]]) // update as add more questions
+const explanations = reactive([[false], [false], [false]]) // keeps track of what explanations are visible
 const questions = reactive(
     [
         [ // conceptual difficutly
@@ -12,10 +12,10 @@ const questions = reactive(
                 number: 0,
                 question: "What is the proper format for a vector in component form?",
                 answers: [
-                    ["$\\{3, 5\\}$", 0],
-                    ["$\\langle 3, 5 \\rangle$", 1],
-                    ["$(3, 5)$", 0],
-                    ["$[3, 5]$", 0]
+                    ["$\\{3, 5\\}$", 0, false],
+                    ["$\\langle 3, 5 \\rangle$", 1, false],
+                    ["$(3, 5)$", 0, false],
+                    ["$[3, 5]$", 0, false]
                 ],
                 explain: "Recall that a vector in component form is denoted by its component in the horizontal direction ($x$) and vertical direction ($y$), surrounded by angle brackets. Thus the second answer choice is the correct one."
             }
@@ -25,10 +25,10 @@ const questions = reactive(
                 number: 0,
                 question: "What is the proper format for a vector in component form?",
                 answers: [
-                    ["$\\{3, 5\\}$", 0],
-                    ["$\\langle 3, 5 \\rangle$", 1],
-                    ["$(3, 5)$", 0],
-                    ["$[3, 5]$", 0]
+                    ["$\\{3, 5\\}$", 0, false],
+                    ["$\\langle 3, 5 \\rangle$", 1, false],
+                    ["$(3, 5)$", 0, false],
+                    ["$[3, 5]$", 0, false]
                 ],
                 explain: "Recall that a vector in component form is denoted by its component in the horizontal direction ($x$) and vertical direction ($y$), surrounded by angle brackets. Thus the second answer choice is the correct one."
             }
@@ -38,10 +38,10 @@ const questions = reactive(
                 number: 0,
                 question: "What is the proper format for a vector in component form?",
                 answers: [
-                    ["$\\{3, 5\\}$", 0],
-                    ["$\\langle 3, 5 \\rangle$", 1],
-                    ["$(3, 5)$", 0],
-                    ["$[3, 5]$", 0]
+                    ["$\\{3, 5\\}$", 0, false],
+                    ["$\\langle 3, 5 \\rangle$", 1, false],
+                    ["$(3, 5)$", 0, false],
+                    ["$[3, 5]$", 0, false]
                 ],
                 explain: "Recall that a vector in component form is denoted by its component in the horizontal direction ($x$) and vertical direction ($y$), surrounded by angle brackets. Thus the second answer choice is the correct one."
             }
@@ -52,18 +52,19 @@ const questions = reactive(
 // universal check answer for a given question
 function checkAnswer(form) {
     const data = new FormData(document.querySelectorAll(".question")[form])
-    if (data.get("question") === "y") results[form] = 1
-    else results[form] = -1
+    if (data.get("question") === "y") results[props.level][form] = 1
+    else results[props.level][form] = -1
 }
 
-// remove progress on lesson change
-watch(() => props.lessonShowing, () => {
-    for (let i = 0; i < results.length; i++) {
-        results[i] = 0
-        if (props.lessonShowing == true) document.querySelectorAll(".question")[i].reset()
+function setChecked(chek, qNum) {
+    for (let i = 0; i < questions[props.level][qNum].answers.length; i++) {
+        if (questions[props.level][qNum].answers[i][2] && i !== chek) {
+            questions[props.level][qNum].answers[i][2] = false
+        } else if (!questions[props.level][qNum].answers[i][2] && i === chek) {
+            questions[props.level][qNum].answers[i][2] = true
+        }
     }
-
-})
+}
 import { onMounted, onUnmounted, ref} from 'vue'
 import { Engine, Render, Runner, Bodies, Body, Composite, Mouse, Constraint, MouseConstraint, Events} from 'matter-js'
 const viewportMsg = ref('')
@@ -686,36 +687,40 @@ watch(inputMass, (newVal) => {
         </div>
         </p>
     </div>
-    <div v-show="!lessonShowing" class="container h100 p-5">
+    <div v-show="!lessonShowing" class="container h100 pt-5">
         <h1>Spring Oscillator Problems</h1><br>
-        <form @submit.prevent="checkAnswer(q.number)" class="question row justify-content-center mx-auto mt-5"
-            v-for="q in questions[level]">
-            <div class="w-100">
-                <label class="form-label fs-5">{{ q.number + 1 + ". " + q.question }}</label><br>
-            </div>
-            <div class="col border-end border-secondary">
-                <div class="ms-auto" style="width:fit-content">
-                    <div class="form-check" style="width:fit-content;" v-for="a in q.answers">
-                        <input class="form-check-input" type="radio" name="question" :value="a[1] === 0 ? 'n' : 'y'">
-                        <label class="form-check-label" style="font-size:0.96rem">
-                            {{ a[0] }}
-                        </label>
+        <div class="question-container row justify-content-center mx-auto px-5 pb-5">
+            <form @submit.prevent="checkAnswer(q.number)" style="height:fit-content"
+                class="question col-6 row justify-content-center my-5" v-for="q in questions[level]">
+                <div class="w-100">
+                    <label class="form-label fs-5">{{ q.number + 1 + ". " + q.question }}</label><br>
+                </div>
+                <div class="col border-end border-secondary">
+                    <div class="ms-auto" style="width:fit-content">
+                        <div class="form-check" style="width:fit-content;" v-for="(a, index) in q.answers">
+                            <input class="form-check-input" type="radio" name="question" :value="a[1] === 0 ? 'n' : 'y'"
+                                :checked="a[2]" @click="setChecked(index, q.number)">
+                            <label class="form-check-label" style="font-size:0.96rem">
+                                {{ a[0] }}
+                            </label>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col d-flex flex-column">
-                <input class="btn btn-primary d-block me-auto my-auto" type="submit"
-                    :value="results[q.number] !== 0 ? 'Check Again' : 'Check Answer'"><br>
-                <div class="me-auto my-auto" v-show="results[q.number] !== 0">{{ results[q.number]
-                    === 1 ?
-                    "&#x2705; Correct!" : "&#x274c; Not quite! Try again." }}
+                <div class="col d-flex flex-column text-start">
+                    <input class="btn btn-primary d-block me-auto my-auto" type="submit"
+                        :value="results[level][q.number] !== 0 ? 'Check Again' : 'Check Answer'"><br>
+                    <div class="me-auto my-auto" v-show="results[level][q.number] !== 0">{{ results[level][q.number]
+                        === 1 ?
+                        "&#x2705; Correct!" : "&#x274c; Not quite! Try again." }}
+                    </div>
+                    <a href="javascript:void(0)" v-show="results[level][q.number] !== 0" class="me-auto mb-auto ms-1"
+                        @click="explanations[level][q.number] = !explanations[level][q.number]">{{
+                            !explanations[level][q.number] ? "Want to see an explanation? " : "Hide explanation" }}</a>
                 </div>
-                <a href="javascript:void(0)" v-show="results[q.number] !== 0" class="me-auto mb-auto ms-1"
-                    @click="explanations[q.number] = !explanations[q.number]">{{ !explanations[q.number] ? "Want to see an explanation ? " : "Hide explanation" }}</a>
-            </div>
-            <span class="mt-3" style="padding: 0% 25%" v-show="explanations[q.number]">{{ q.explain }}</span>
-        </form>
-    <br><br>
+                <span class="explained mt-3" v-show="explanations[level][q.number]">{{ q.explain }}</span>
+            </form>
+
+        </div>
     </div>
 </template>
 

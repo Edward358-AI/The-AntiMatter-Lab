@@ -3,8 +3,8 @@ import { reactive, watch } from 'vue'
 const props = defineProps(["level", "page", "lessonShowing"])
 defineEmits(["nextlesson", "nextpage", "prevpage"])
 
-const results = reactive([0, 0, 0, 0, 0]) // update as add more questions
-const explanations = reactive([false, false, false, false, false]) // keeps track of what explanations are visible
+const results = reactive([[0, 0, 0, 0, 0], [0, 0, 0, 0, 0],  [0, 0, 0, 0, 0]]) // update as add more questions
+const explanations = reactive([[false, false, false, false, false], [false, false, false, false, false], [false, false, false, false, false]]) // keeps track of what explanations are visible
 const questions = reactive(
     [
         [ // conceptual difficutly
@@ -12,10 +12,10 @@ const questions = reactive(
                 number: 0,
                 question: "What are the units of speed, which measures how much distance is travelled in some amount of time?",
                 answers: [
-                    ["seconds per meter", 0],
-                    ["meters", 0],
-                    ["meters per second", 1],
-                    ["seconds", 0]
+                    ["seconds per meter", 0, false],
+                    ["meters", 0, false],
+                    ["meters per second", 1, false],
+                    ["seconds", 0, false]
                 ],
                 explain: "It is stated that speed is measured in distance per unit time. Meters is our standard unit of distance, and seconds is our standard measure of time, so the answer is meters per second."
             },
@@ -23,10 +23,10 @@ const questions = reactive(
                number: 1,
                 question: "How many meters are in 15 kilometers?",
                 answers: [
-                    ["$ 150$ m", 0],
-                    ["$1500$ m", 0],
-                    ["$15000000$ m", 0],
-                    ["$15000$ m", 1]
+                    ["$ 150$ m", 0, false],
+                    ["$1500$ m", 0, false],
+                    ["$15000000$ m", 0, false],
+                    ["$15000$ m", 1, false]
                 ],
                 explain: "There are 1000 meters per kilometer, so 15 kilometers is 15 thousand meters."
             },
@@ -34,10 +34,10 @@ const questions = reactive(
                 number: 2,
                 question: "How many milliseconds are in a second?",
                 answers:[
-                ['1000', 1],
-                ['500', 0],
-                ['100', 0],
-                ['10', 0]
+                ['1000', 1, false],
+                ['500', 0, false],
+                ['100', 0, false],
+                ['10', 0, false]
                 ],
                 explain: "The metric prefix \'milli\' represents 1/1000th of something, so a millisecond is 1/1000th of a second."
             },
@@ -45,10 +45,10 @@ const questions = reactive(
                 number: 3,
                 question: "On an alien planet, 10 glorps are equal to 3 frizzes, and 12 frizzes equal 13 slarns. How many glorps are equal to one slarn?",
                 answers:[
-                ['40', 0],
-                ['13', 0],
-                ['40/13', 1],
-                ['13/40', 0]
+                ['40', 0, false],
+                ['13', 0, false],
+                ['40/13', 1, false],
+                ['13/40', 0, false]
                 ],
                 explain: "If 10 glorps equal 3 frizzes, then 40 glorps equal 12 frizzes, which equal 13 slarns. We need to divide by 13 because we're asked how many equal one slarn."
             },
@@ -56,10 +56,10 @@ const questions = reactive(
                 number: 4,
                 question: "The knot is a measurement of speed often used on ships. If a knot is roughly 1.8 km/h, how fast is 30 knots in km/h?",
                 answers:[
-                ['17 km/h', 0],
-                ['54 km/h', 1],
-                ['16.7 km/h', 0],
-                ['58 km/h', 0]
+                ['17 km/h', 0, false],
+                ['54 km/h', 1, false],
+                ['16.7 km/h', 0, false],
+                ['58 km/h', 0, false]
                 ],
                 explain: "We can just directly multiply the number of knots by the conversion factor, which is 1.8. This gives us 54 km/h."
             }
@@ -70,10 +70,10 @@ const questions = reactive(
                 number: 0,
                 question: "What are the units of speed, which measures how much distance is travelled in some amount of time?",
                 answers: [
-                    ["seconds per meter", 0],
-                    ["meters", 0],
-                    ["meters per second", 1],
-                    ["seconds", 0]
+                    ["seconds per meter", 0, false],
+                    ["meters", 0, false],
+                    ["meters per second", 1, false],
+                    ["seconds", 0, false]
                 ],
                 explain: "It is stated that speed is measured in distance per unit time. Meters is our standard unit of distance, and seconds is our standard measure of time, so the answer is meters per second."
             },
@@ -81,10 +81,10 @@ const questions = reactive(
                 number: 1,
                 question: "How many meters are in 15 kilometers?",
                 answers: [
-                    ["$ 150$ m", 0],
-                    ["$1500$ m", 0],
-                    ["$15000000$ m", 0],
-                    ["$15000$ m", 1]
+                    ["$ 150$ m", 0, false],
+                    ["$1500$ m", 0, false],
+                    ["$15000000$ m", 0, false],
+                    ["$15000$ m", 1, false]
                 ],
                 explain: "There are 1000 meters per kilometer, so 15 kilometers is 15 thousand meters."
             },
@@ -92,10 +92,10 @@ const questions = reactive(
                 number: 2,
                 question: "How many seconds are in a 365 day year?",
                 answers:[
-                ['378432000 s', 0],
-                ['31536000 s', 1],
-                ['8760 s', 0],
-                ['4541184000 s', 0]
+                ['378432000 s', 0, false],
+                ['31536000 s', 1, false],
+                ['8760 s', 0, false],
+                ['4541184000 s', 0, false]
                 ],
                 explain: "There are 365 days per year, 24 hours in a day, 60 minutes in an hour, and 60 seconds in a minute. If we multiply all of those together, we get the answer."
             },
@@ -103,10 +103,10 @@ const questions = reactive(
                 number: 3,
                 question: "On an alien planet, 10 glorps are equal to 3 frizzes, and 12 frizzes equal 13 slarns. How many glorps are equal to one slarn?",
                 answers:[
-                ['40', 0],
-                ['13', 0],
-                ['40/13', 1],
-                ['13/40', 0]
+                ['40', 0, false],
+                ['13', 0, false],
+                ['40/13', 1, false],
+                ['13/40', 0, false]
                 ],
                 explain: "If 10 glorps equal 3 frizzes, then 40 glorps equal 12 frizzes, which equal 13 slarns. We need to divide by 13 because we're asked how many equal one slarn."
             },
@@ -114,23 +114,23 @@ const questions = reactive(
                 number: 4,
                 question: "The knot is a measurement of speed often used on ships. If a knot is roughly 1.8 km/h, how fast is 30 knots in m/s?",
                 answers:[
-                ['194.4 m/s', 0],
-                ['54 m/s', 0],
-                ['15 m/s', 1],
-                ['2.41 m/s', 0]
+                ['194.4 m/s', 0, false],
+                ['54 m/s', 0, false],
+                ['15 m/s', 1, false],
+                ['2.41 m/s', 0, false]
                 ],
                 explain: "We can first directly multiply the number of knots by the conversion factor, which is 1.8. This gives us 54 km/h, at which point we can use the conversion factors for kilometers to meters and hours to minutes then to seconds."
             }
         ],
         [ // calculus difficutly
             {
-                number: 1,
+                number: 0,
                 question: "What are the units of speed, which measures how much distance is travelled in some amount of time?",
                 answers: [
-                    ["seconds per meter", 0],
-                    ["meters", 0],
-                    ["meters per second", 1],
-                    ["seconds", 0]
+                    ["seconds per meter", 0, false],
+                    ["meters", 0, false],
+                    ["meters per second", 1, false],
+                    ["seconds", 0, false]
                 ],
                 explain: "It is stated that speed is measured in distance per unit time. Meters is our standard unit of distance, and seconds is our standard measure of time, so the answer is meters per second."
             },
@@ -138,10 +138,10 @@ const questions = reactive(
                 number: 1,
                 question: "How many meters are in 15 kilometers?",
                 answers: [
-                    ["$ 150$ m", 0],
-                    ["$1500$ m", 0],
-                    ["$15000000$ m", 0],
-                    ["$15000$ m", 1]
+                    ["$ 150$ m", 0, false],
+                    ["$1500$ m", 0, false],
+                    ["$15000000$ m", 0, false],
+                    ["$15000$ m", 1, false]
                 ],
                 explain: "There are 1000 meters per kilometer, so 15 kilometers is 15 thousand meters."
             },
@@ -149,10 +149,10 @@ const questions = reactive(
                 number: 2,
                 question: "How many seconds are in a 365 day year?",
                 answers:[
-                ['378432000 s', 0],
-                ['31536000 s', 1],
-                ['8760 s', 0],
-                ['4541184000 s', 0]
+                ['378432000 s', 0, false],
+                ['31536000 s', 1, false],
+                ['8760 s', 0, false],
+                ['4541184000 s', 0, false]
                 ],
                 explain: "There are 365 days per year, 24 hours in a day, 60 minutes in an hour, and 60 seconds in a minute. If we multiply all of those together, we get the answer."
             },
@@ -160,10 +160,10 @@ const questions = reactive(
                 number: 3,
                 question: "On an alien planet, 10 glorps are equal to 3 frizzes, and 12 frizzes equal 13 slarns. How many glorps are equal to one slarn?",
                 answers:[
-                ['40', 0],
-                ['13', 0],
-                ['40/13', 1],
-                ['13/40', 0]
+                ['40', 0, false],
+                ['13', 0, false],
+                ['40/13', 1, false],
+                ['13/40', 0, false]
                 ],
                 explain: "If 10 glorps equal 3 frizzes, then 40 glorps equal 12 frizzes, which equal 13 slarns. We need to divide by 13 because we're asked how many equal one slarn."
             },
@@ -171,10 +171,10 @@ const questions = reactive(
                 number: 4,
                 question: "The knot is a measurement of speed often used on ships. If a knot is roughly 1.8 km/h, how fast is 30 knots in m/s?",
                 answers:[
-                ['194.4 m/s', 0],
-                ['54 m/s', 0],
-                ['15 m/s', 1],
-                ['2.41 m/s', 0]
+                ['194.4 m/s', 0, false],
+                ['54 m/s', 0, false],
+                ['15 m/s', 1, false],
+                ['2.41 m/s', 0, false]
                 ],
                 explain: "We can first directly multiply the number of knots by the conversion factor, which is 1.8. This gives us 54 km/h, at which point we can use the conversion factors for kilometers to meters and hours to minutes then to seconds."
             }
@@ -185,18 +185,19 @@ const questions = reactive(
 // universal check answer for a given question
 function checkAnswer(form) {
     const data = new FormData(document.querySelectorAll(".question")[form])
-    if (data.get("question") === "y") results[form] = 1
-    else results[form] = -1
+    if (data.get("question") === "y") results[props.level][form] = 1
+    else results[props.level][form] = -1
 }
 
-// remove progress on lesson change
-watch(() => props.lessonShowing, () => {
-    for (let i = 0; i < results.length; i++) {
-        results[i] = 0
-        if (props.lessonShowing == true) document.querySelectorAll(".question")[i].reset()
+function setChecked(chek, qNum) {
+    for (let i = 0; i < questions[props.level][qNum].answers.length; i++) {
+        if (questions[props.level][qNum].answers[i][2] && i !== chek) {
+            questions[props.level][qNum].answers[i][2] = false
+        } else if (!questions[props.level][qNum].answers[i][2] && i === chek) {
+            questions[props.level][qNum].answers[i][2] = true
+        }
     }
-
-})
+}
 </script>
 
 
@@ -413,36 +414,40 @@ watch(() => props.lessonShowing, () => {
         </p>
     </div>
 
-    <div v-show="!lessonShowing" class="container h100 p-5">
+    <div v-show="!lessonShowing" class="container h100 pt-5">
         <h1>Dimensional Analysis Problems</h1><br>
-        <form @submit.prevent="checkAnswer(q.number)" class="question row justify-content-center mx-auto mt-5"
-            v-for="q in questions[level]">
-            <div class="w-100">
-                <label class="form-label fs-5">{{ q.number + 1 + ". " + q.question }}</label><br>
-            </div>
-            <div class="col border-end border-secondary">
-                <div class="ms-auto" style="width:fit-content">
-                    <div class="form-check" style="width:fit-content;" v-for="a in q.answers">
-                        <input class="form-check-input" type="radio" name="question" :value="a[1] === 0 ? 'n' : 'y'">
-                        <label class="form-check-label" style="font-size:0.96rem">
-                            {{ a[0] }}
-                        </label>
+        <div class="question-container row justify-content-center mx-auto px-5 pb-5">
+            <form @submit.prevent="checkAnswer(q.number)" style="height:fit-content"
+                class="question col-6 row justify-content-center my-5" v-for="q in questions[level]">
+                <div class="w-100">
+                    <label class="form-label fs-5">{{ q.number + 1 + ". " + q.question }}</label><br>
+                </div>
+                <div class="col border-end border-secondary">
+                    <div class="ms-auto" style="width:fit-content">
+                        <div class="form-check" style="width:fit-content;" v-for="(a, index) in q.answers">
+                            <input class="form-check-input" type="radio" name="question" :value="a[1] === 0 ? 'n' : 'y'"
+                                :checked="a[2]" @click="setChecked(index, q.number)">
+                            <label class="form-check-label" style="font-size:0.96rem">
+                                {{ a[0] }}
+                            </label>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col d-flex flex-column">
-                <input class="btn btn-primary d-block me-auto my-auto" type="submit"
-                    :value="results[q.number] !== 0 ? 'Check Again' : 'Check Answer'"><br>
-                <div class="me-auto my-auto" v-show="results[q.number] !== 0">{{ results[q.number]
-                    === 1 ?
-                    "&#x2705; Correct!" : "&#x274c; Not quite! Try again." }}
+                <div class="col d-flex flex-column text-start">
+                    <input class="btn btn-primary d-block me-auto my-auto" type="submit"
+                        :value="results[level][q.number] !== 0 ? 'Check Again' : 'Check Answer'"><br>
+                    <div class="me-auto my-auto" v-show="results[level][q.number] !== 0">{{ results[level][q.number]
+                        === 1 ?
+                        "&#x2705; Correct!" : "&#x274c; Not quite! Try again." }}
+                    </div>
+                    <a href="javascript:void(0)" v-show="results[level][q.number] !== 0" class="me-auto mb-auto ms-1"
+                        @click="explanations[level][q.number] = !explanations[level][q.number]">{{
+                            !explanations[level][q.number] ? "Want to see an explanation? " : "Hide explanation" }}</a>
                 </div>
-                <a href="javascript:void(0)" v-show="results[q.number] !== 0" class="me-auto mb-auto ms-1"
-                    @click="explanations[q.number] = !explanations[q.number]">{{ !explanations[q.number] ? "Want to see an explanation ? " : "Hide explanation" }}</a>
-            </div>
-            <span class="mt-3" style="padding: 0% 25%" v-show="explanations[q.number]">{{ q.explain }}</span>
-        </form>
-    <br><br>
+                <span class="explained mt-3" v-show="explanations[level][q.number]">{{ q.explain }}</span>
+            </form>
+
+        </div>
     </div>
 </template>
 

@@ -593,35 +593,39 @@ onUnmounted(() => {
             </div>
         </p>
     </div>
-    <div v-show="!lessonShowing" class="container h100 p-5">
+    <div v-show="!lessonShowing" class="container h100 pt-5">
         <h1>Air Resistance Problems</h1><br>
-        <form @submit.prevent="checkAnswer(q.number)" class="question row justify-content-center mx-auto mt-5"
-            v-for="q in questions[level]">
-            <div class="w-100">
-                <label class="form-label fs-5">{{ q.number + 1 + ". " + q.question }}</label><br>
-            </div>
-            <div class="col border-end border-secondary">
-                <div class="ms-auto" style="width:fit-content">
-                    <div class="form-check" style="width:fit-content;" v-for="a in q.answers">
-                        <input class="form-check-input" type="radio" name="question" :value="a[1] === 0 ? 'n' : 'y'">
-                        <label class="form-check-label" style="font-size:0.96rem">
-                            {{ a[0] }}
-                        </label>
+        <div class="question-container row justify-content-center mx-auto px-5 pb-5">
+            <form @submit.prevent="checkAnswer(q.number)" style="height:fit-content"
+                class="question col-6 row justify-content-center my-5" v-for="q in questions[level]">
+                <div class="w-100">
+                    <label class="form-label fs-5">{{ q.number + 1 + ". " + q.question }}</label><br>
+                </div>
+                <div class="col border-end border-secondary">
+                    <div class="ms-auto" style="width:fit-content">
+                        <div class="form-check" style="width:fit-content;" v-for="(a, index) in q.answers">
+                            <input class="form-check-input" type="radio" name="question" :value="a[1] === 0 ? 'n' : 'y'"
+                                :checked="a[2]" @click="setChecked(index, q.number)">
+                            <label class="form-check-label" style="font-size:0.96rem">
+                                {{ a[0] }}
+                            </label>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col d-flex flex-column">
-                <input class="btn btn-primary d-block me-auto my-auto" type="submit"
-                    :value="results[q.number] !== 0 ? 'Check Again' : 'Check Answer'"><br>
-                <div class="me-auto my-auto" v-show="results[q.number] !== 0">{{ results[q.number]
-                    === 1 ?
-                    "&#x2705; Correct!" : "&#x274c; Not quite! Try again." }}
+                <div class="col d-flex flex-column text-start">
+                    <input class="btn btn-primary d-block me-auto my-auto" type="submit"
+                        :value="results[level][q.number] !== 0 ? 'Check Again' : 'Check Answer'"><br>
+                    <div class="me-auto my-auto" v-show="results[level][q.number] !== 0">{{ results[level][q.number]
+                        === 1 ?
+                        "&#x2705; Correct!" : "&#x274c; Not quite! Try again." }}
+                    </div>
+                    <a href="javascript:void(0)" v-show="results[level][q.number] !== 0" class="me-auto mb-auto ms-1"
+                        @click="explanations[level][q.number] = !explanations[level][q.number]">{{
+                            !explanations[level][q.number] ? "Want to see an explanation? " : "Hide explanation" }}</a>
                 </div>
-                <a href="javascript:void(0)" v-show="results[q.number] !== 0" class="me-auto mb-auto ms-1"
-                    @click="explanations[q.number] = !explanations[q.number]">{{ !explanations[q.number] ? "Want to see an explanation ? " : "Hide explanation" }}</a>
-            </div>
-            <span class="mt-3" style="padding: 0% 25%" v-show="explanations[q.number]">{{ q.explain }}</span>
-        </form>
-    <br><br>
+                <span class="explained mt-3" v-show="explanations[level][q.number]">{{ q.explain }}</span>
+            </form>
+
+        </div>
     </div>
 </template>
