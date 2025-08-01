@@ -5,47 +5,212 @@ import { reactive, watch } from 'vue'
 const props = defineProps(["level", "page", "lessonShowing"])
 defineEmits(["nextlesson", "nextpage", "prevpage"])
 
-const results = reactive([[0], [0], [0]]) // update as add more questions
-const explanations = reactive([[false], [false], [false]]) // keeps track of what explanations are visible
+const results = reactive([[0,0,0,0,0,0], [0,0,0,0,0,0], [0,0,0,0,0,0]]) // update as add more questions
+const explanations = reactive([[false, false, false, false, false, false], [false, false, false, false, false, false], [false, false, false, false, false, false]]) // keeps track of what explanations are visible
 const questions = reactive(
     [
         [ // conceptual difficutly
             {
                 number: 0,
-                question: "What is the proper format for a vector in component form?",
+                question: "What is the gravitational acceleration?",
                 answers: [
-                    ["$\\{3, 5\\}$", 0, false],
-                    ["$\\langle 3, 5 \\rangle$", 1, false],
-                    ["$(3, 5)$", 0, false],
-                    ["$[3, 5]$", 0, false]
+                    ["$10 ~\\textrm{m/s}^2$", 0, false],
+                    ["$12.421 ~\\textrm{m/s}^2 $", 0, false],
+                    ["$9.81 ~\\textrm{m/s}^2$", 1, false],
+                    ["$4.91 ~\\textrm{m/s}^2$", 0, false]
                 ],
-                explain: "Recall that a vector in component form is denoted by its component in the horizontal direction ($x$) and vertical direction ($y$), surrounded by angle brackets. Thus the second answer choice is the correct one."
+                explain: "The most precise value of the gravitational acceleration is answer choice 3. While $10~\\textrm{m/s}^2$ is occasionally used, it is very imprecise."
+            },
+            {
+                number: 1,
+                question: "How far does an object fall one second after being dropped (from rest)?",
+                answers: [
+                    ["4.91 m", 1, false],
+                    ["9.81 m", 0, false],
+                    ["19.62 m", 0, false],
+                    ["8.42 m", 0, false]
+                ],
+                explain: "Recall that free fall is just constant acceleration with an acceleration of $g = 9.81 ~\\textrm{m/s}^2$. The object starts from rest, so we use the formula $ \\Delta y = \\frac12 gt^2 $."
+            },
+            {
+                number: 2,
+                question: "A car is driving along at 25 m/s when it attracts the attention of a parked police car. The police car accelerates uniformly at 2.5 $\\textrm{m/s}^2$. How long does it take for the police car to catch them?",
+                answers: [
+                    ["62 s", 0, false],
+                    ["4.5 s", 0, false],
+                    ["10 s", ,0 ,false],
+                    ["20 s", 1, false]
+                ],
+                explain: "For the car, we have the equation that $x = vt$ since it moves along at constant velocity. The police car follows the equation $x = \\frac12 at^2$ because it accelerates uniformly from rest. Setting these two displacements equal gives us the solution."
+            },
+            {
+                number: 3,
+                question: "",
+                answers: [
+                    ["", 0, false],
+                    ["", 0, false],
+                    ["", 1, false],
+                    ["", 0, false]
+                ],
+                explain: ""
+            },
+            {
+                number: 4,
+                question: "",
+                answers: [
+                    ["", 0, false],
+                    ["", 0, false],
+                    ["", 1, false],
+                    ["", 0, false]
+                ],
+                explain: ""
+            },
+            {
+                number: 5,
+                question: "",
+                answers: [
+                    ["", 0, false],
+                    ["", 0, false],
+                    ["", 1, false],
+                    ["", 0, false]
+                ],
+                explain: ""
             }
         ],
         [ // algebra difficutly
             {
                 number: 0,
-                question: "What is the proper format for a vector in component form?",
+                question: "How long does it take for an object to fall from a 300-meter cliff, given that it is dropped?",
                 answers: [
-                    ["$\\{3, 5\\}$", 0, false],
-                    ["$\\langle 3, 5 \\rangle$", 1, false],
-                    ["$(3, 5)$", 0, false],
-                    ["$[3, 5]$", 0, false]
+                    ["14.2 s", 0, false],
+                    ["7.82 s", 1, false],
+                    ["5.53 s", 0, false],
+                    ["11.1 s", 0, false]
                 ],
-                explain: "Recall that a vector in component form is denoted by its component in the horizontal direction ($x$) and vertical direction ($y$), surrounded by angle brackets. Thus the second answer choice is the correct one."
+                explain: "We use the formula $y = \\frac12 gt^2$ and solve for $t$, yielding the equation $ t = \\sqrt{\\frac{2y}{g}$. Plugging in the appropriate values gives us 7.82 seconds."
+            },
+            {
+                number: 1,
+                question: "",
+                answers: [
+                    ["", 0, false],
+                    ["", 0, false],
+                    ["", 1, false],
+                    ["", 0, false]
+                ],
+                explain: ""
+            },
+            {
+                number: 2,
+                question: "A car is driving along at 25 m/s when it attracts the attention of a parked police car. The police car accelerates uniformly at 2.5 $\\textrm{m/s}^2$. How long does it take for the police car to catch them?",
+                answers: [
+                    ["62 s", 0, false],
+                    ["4.5 s", 0, false],
+                    ["10 s", ,0 ,false],
+                    ["20 s", 1, false]
+                ],
+                explain: "For the car, we have the equation that $x = vt$ since it moves along at constant velocity. The police car follows the equation $x = \\frac12 at^2$ because it accelerates uniformly from rest. Setting these two displacements equal gives us the solution."
+            },
+            {
+                number: 3,
+                question: "",
+                answers: [
+                    ["", 0, false],
+                    ["", 0, false],
+                    ["", 1, false],
+                    ["", 0, false]
+                ],
+                explain: ""
+            },
+            {
+                number: 4,
+                question: "",
+                answers: [
+                    ["", 0, false],
+                    ["", 0, false],
+                    ["", 1, false],
+                    ["", 0, false]
+                ],
+                explain: ""
+            },
+            {
+                number: 5,
+                question: "",
+                answers: [
+                    ["", 0, false],
+                    ["", 0, false],
+                    ["", 1, false],
+                    ["", 0, false]
+                ],
+                explain: ""
             }
         ],
         [ // calculus difficutly
             {
                 number: 0,
-                question: "What is the proper format for a vector in component form?",
+                question: "How long does it take for an object to fall from a 300-meter cliff, given that it is dropped?",
                 answers: [
-                    ["$\\{3, 5\\}$", 0, false],
-                    ["$\\langle 3, 5 \\rangle$", 1, false],
-                    ["$(3, 5)$", 0, false],
-                    ["$[3, 5]$", 0, false]
+                    ["14.2 s", 0, false],
+                    ["7.82 s", 1, false],
+                    ["5.53 s", 0, false],
+                    ["11.1 s", 0, false]
                 ],
-                explain: "Recall that a vector in component form is denoted by its component in the horizontal direction ($x$) and vertical direction ($y$), surrounded by angle brackets. Thus the second answer choice is the correct one."
+                explain: "We use the formula $y = \\frac12 gt^2$ and solve for $t$, yielding the equation $ t = \\sqrt{\\frac{2y}{g}$. Plugging in the appropriate values gives us 7.82 seconds."
+            },
+            {
+                number: 1,
+                question: "",
+                answers: [
+                    ["", 0, false],
+                    ["", 0, false],
+                    ["", 1, false],
+                    ["", 0, false]
+                ],
+                explain: ""
+            },
+            {
+                number: 2,
+                question: "A car is driving along at 25 m/s when it attracts the attention of a parked police car. The police car accelerates uniformly at 2.5 $\\textrm{m/s}^2$. How long does it take for the police car to catch them?",
+                answers: [
+                    ["62 s", 0, false],
+                    ["4.5 s", 0, false],
+                    ["10 s", ,0 ,false],
+                    ["20 s", 1, false]
+                ],
+                explain: "For the car, we have the equation that $x = vt$ since it moves along at constant velocity. The police car follows the equation $x = \\frac12 at^2$ because it accelerates uniformly from rest. Setting these two displacements equal gives us the solution."
+            },
+            {
+                number: 3,
+                question: "",
+                answers: [
+                    ["", 0, false],
+                    ["", 0, false],
+                    ["", 1, false],
+                    ["", 0, false]
+                ],
+                explain: ""
+            },
+            {
+                number: 4,
+                question: "",
+                answers: [
+                    ["", 0, false],
+                    ["", 0, false],
+                    ["", 1, false],
+                    ["", 0, false]
+                ],
+                explain: ""
+            },
+            {
+                number: 5,
+                question: "",
+                answers: [
+                    ["", 0, false],
+                    ["", 0, false],
+                    ["", 1, false],
+                    ["", 0, false]
+                ],
+                explain: ""
             }
         ]
     ]
@@ -806,7 +971,7 @@ onUnmounted(() => {
                     makes
                     physics <i>beautiful</i> (and why all of science is beautiful). Some of you may have come into this
                     course thinking that physics is just a bunch of nonsensical mathematical junk. And to a reasonable
-                    extent, some of that is most definitely true. <br>But here is what draws the distinction between us
+                    extent, some of that is most definitely true. <br><br>But here is what draws the distinction between us
                     physicists and mathematicians. To your average mathematician, that is just an equation with a bunch
                     of
                     variables, and they see it as a mathematical tool, a placeholder, for something that they will use
@@ -820,7 +985,7 @@ onUnmounted(() => {
                     that we just learned, how we combined what we knew to find something that we didn't know, and how we
                     ended up with such a beautiful result, you'll observe that this equation over here doesn't just
                     contain
-                    the mathematical meaning it carries in solving problems.<br>Going back to our example, you'll see
+                    the mathematical meaning it carries in solving problems.<br><br>Going back to our example, you'll see
                     that
                     $x$, our displacement, is dependent on three things: the initial velocity multiplied by the time
                     interval, and add one-half the acceleration multiplied by the time interval squared. By realizing
@@ -848,7 +1013,8 @@ onUnmounted(() => {
                         zero,
                         and since our equation $y=v_0t-\frac 1 2 gt^2$, models displacement, the time derivative of
                         displacement is just velocity. So the derivative at the maximum of that function is zero, which
-                        means the velocity there is zero.</span> So, what are the equations that we can derive from
+                        means the velocity there is zero.</span> 
+                        <br><br>So, what are the equations that we can derive from
                     this?
                     Let's find the total time that the object is in the air. If you throw it up and it comes back to
                     you,
@@ -866,7 +1032,8 @@ onUnmounted(() => {
                     zero,
                     then the other half of the time must be going from $0$ to $-v_0$ (Plug the previously derived
                     equation
-                    for $t$ into $v_f=v_0-gt$ to see for yourself). Thus, the velocity of the object when it returns to
+                    for $t$ into $v_f=v_0-gt$ to see for yourself). 
+                    <br><br>Thus, the velocity of the object when it returns to
                     its
                     original height after being thrown upwards with velocity $v_0$ is $-v_0$. The same magnitude of
                     velocity, but in opposite directions. Now plugging the time $t$ it takes to reach height $h$:
