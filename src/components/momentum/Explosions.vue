@@ -477,9 +477,9 @@ onUnmounted(() => {
 
     <div v-show="!lessonShowing" class="container h100 pt-5">
         <h1>Explosion Problems</h1><br>
-        <div class="question-container row justify-content-center mx-auto px-5 pb-5">
+        <div class="question-container row justify-content-center mx-auto pb-5">
             <form @submit.prevent="checkAnswer(q.number)" style="height:fit-content"
-                class="question col-6 row justify-content-center my-5" v-for="q in questions[level]">
+                class="question col-6 row justify-content-center my-5 mx-auto" v-for="q in questions[level]">
                 <div class="w-100">
                     <label class="form-label fs-5">{{ q.number + 1 + ". " + q.question }}</label><br>
                 </div>
@@ -488,7 +488,7 @@ onUnmounted(() => {
                         <div class="form-check" style="width:fit-content;" v-for="(a, index) in q.answers">
                             <input class="form-check-input" type="radio" name="question" :value="a[1] === 0 ? 'n' : 'y'"
                                 :checked="a[2]" @click="setChecked(index, q.number)">
-                            <label class="form-check-label" style="font-size:0.96rem">
+                            <label class="form-check-label text-start" style="font-size:0.96rem">
                                 {{ a[0] }}
                             </label>
                         </div>

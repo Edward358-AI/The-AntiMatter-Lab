@@ -161,7 +161,22 @@ figure img {
 
     .question {
         width: 100%;
+        flex-direction: column;
     }
+    
+    .question .col {
+        border: 0 !important;
+    }
+
+    .question .col .ms-auto {
+        margin-right: auto !important;
+    }
+
+    .question .col .me-auto {
+        margin-left: auto !important;
+        margin-top: 5px !important;
+    }
+
 }
 
 @media screen and (max-width: 1800px) {
