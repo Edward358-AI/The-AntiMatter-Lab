@@ -166,6 +166,17 @@ const questions = reactive(
                 ['13/40', 0]
                 ],
                 explain: "If 10 glorps equal 3 frizzes, then 40 glorps equal 12 frizzes, which equal 13 slarns. We need to divide by 13 because we're asked how many equal one slarn."
+            },
+            {
+                number: 4,
+                question: "The knot is a measurement of speed often used on ships. If a knot is roughly 1.8 km/h, how fast is 30 knots in m/s?",
+                answers:[
+                ['194.4 m/s', 0],
+                ['54 m/s', 0],
+                ['15 m/s', 1],
+                ['2.41 m/s', 0]
+                ],
+                explain: "We can first directly multiply the number of knots by the conversion factor, which is 1.8. This gives us 54 km/h, at which point we can use the conversion factors for kilometers to meters and hours to minutes then to seconds."
             }
         ]
     ]
