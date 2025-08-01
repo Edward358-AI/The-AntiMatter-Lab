@@ -550,7 +550,7 @@ function setChecked(chek, qNum) {
                         <div class="form-check" style="width:fit-content;" v-for="(a, index) in q.answers">
                             <input class="form-check-input" type="radio" name="question" :value="a[1] === 0 ? 'n' : 'y'"
                                 :checked="a[2]" @click="setChecked(index, q.number)">
-                            <label class="form-check-label text-start" style="font-size:0.96rem">
+                            <label class="form-check-label text-start" style="font-size:0.96rem; max-width: 200px;">
                                 {{ a[0] }}
                             </label>
                         </div>
@@ -559,7 +559,7 @@ function setChecked(chek, qNum) {
                 <div class="col d-flex flex-column text-start">
                     <input class="btn btn-primary d-block me-auto my-auto" type="submit"
                         :value="results[level][q.number] !== 0 ? 'Check Again' : 'Check Answer'"><br>
-                    <div class="me-auto my-auto" v-show="results[level][q.number] !== 0">{{ results[level][q.number]
+                    <div class="me-auto mb-auto" v-show="results[level][q.number] !== 0">{{ results[level][q.number]
                         === 1 ?
                         "&#x2705; Correct!" : "&#x274c; Not quite! Try again." }}
                     </div>

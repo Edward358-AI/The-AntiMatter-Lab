@@ -13,7 +13,7 @@ const questions = reactive(
                 question: "What is the displacement of a person who walks to the store 5 km away and back?",
                 answers: [
                     ["10 km", 0, false],
-                    ["$5 km", 0, false],
+                    ["5 km", 0, false],
                     ["15 km", 0, false],
                     ["0 km", 1, false]
                 ],
@@ -43,7 +43,7 @@ const questions = reactive(
             },
             {
                 number: 3,
-                question: "How fast will you be going after you accelerate at $5 \\textrm{m/s}^2$ for 12 seconds, if you start from rest?",
+                question: "How fast will you be going after you accelerate at $5~\\textrm{m/s}^2$ for 12 seconds, if you start from rest?",
                 answers: [
                     ["24 m/s", 0, false],
                     ["60 m/s", 1, false],
@@ -830,7 +830,7 @@ function setChecked(chek, qNum) {
                         <div class="form-check" style="width:fit-content;" v-for="(a, index) in q.answers">
                             <input class="form-check-input" type="radio" name="question" :value="a[1] === 0 ? 'n' : 'y'"
                                 :checked="a[2]" @click="setChecked(index, q.number)">
-                            <label class="form-check-label text-start" style="font-size:0.96rem">
+                            <label class="form-check-label text-start" style="font-size:0.96rem; max-width: 200px;">
                                 {{ a[0] }}
                             </label>
                         </div>
@@ -839,7 +839,7 @@ function setChecked(chek, qNum) {
                 <div class="col d-flex flex-column text-start">
                     <input class="btn btn-primary d-block me-auto my-auto" type="submit"
                         :value="results[level][q.number] !== 0 ? 'Check Again' : 'Check Answer'"><br>
-                    <div class="me-auto my-auto" v-show="results[level][q.number] !== 0">{{ results[level][q.number]
+                    <div class="me-auto mb-auto" v-show="results[level][q.number] !== 0">{{ results[level][q.number]
                         === 1 ?
                         "&#x2705; Correct!" : "&#x274c; Not quite! Try again." }}
                     </div>
