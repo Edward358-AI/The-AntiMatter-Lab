@@ -4,6 +4,7 @@ const props = defineProps(["level", "page", "lessonShowing"])
 defineEmits(["nextlesson", "nextpage", "prevpage"])
 
 const results = reactive([0]) // update as add more questions
+const explanations = reactive([false]) // keeps track of what explanations are visible
 const questions = reactive(
     [
         [ // conceptual difficutly
@@ -59,6 +60,7 @@ function checkAnswer(form) {
 watch(() => props.lessonShowing, () => {
     for (let i = 0; i < results.length; i++) {
         results[i] = 0
+        explanations[i] = 0
         if (props.lessonShowing == true) document.querySelectorAll(".question")[i].reset()
     }
 
@@ -382,7 +384,7 @@ watch(() => props.lessonShowing, () => {
     </div>
     <div v-show="!lessonShowing" class="container h100 p-5">
         <h1>Vectors Problems</h1><br>
-        <form @submit.prevent="checkAnswer(q.number)" class="question row justify-content-center"
+        <form @submit.prevent="checkAnswer(q.number)" class="question row justify-content-center mx-auto mt-5"
             v-for="q in questions[level]">
             <div class="w-100">
                 <label class="form-label fs-5">{{ q.number + 1 + ". " + q.question }}</label><br>
@@ -391,7 +393,7 @@ watch(() => props.lessonShowing, () => {
                 <div class="ms-auto" style="width:fit-content">
                     <div class="form-check" style="width:fit-content;" v-for="a in q.answers">
                         <input class="form-check-input" type="radio" name="question" :value="a[1] === 0 ? 'n' : 'y'">
-                        <label class="form-check-label">
+                        <label class="form-check-label" style="font-size:0.96rem">
                             {{ a[0] }}
                         </label>
                     </div>
@@ -400,11 +402,15 @@ watch(() => props.lessonShowing, () => {
             <div class="col d-flex flex-column">
                 <input class="btn btn-primary d-block me-auto my-auto" type="submit"
                     :value="results[q.number] !== 0 ? 'Check Again' : 'Check Answer'"><br>
-                <div class="me-auto mb-auto" :style="results[q.number] === 0 ? 'display:none' : ''">{{ results[q.number]
+                <div class="me-auto my-auto" v-show="results[q.number] !== 0">{{ results[q.number]
                     === 1 ?
-                    "&#x2705; Correct!" : "&#x274c; Not quite! Try again."}}</div>
+                    "&#x2705; Correct!" : "&#x274c; Not quite! Try again." }}
+                </div>
+                <a href="#" v-show="results[q.number] !== 0" class="me-auto mb-auto ms-1"
+                    @click="explanations[q.number] = !explanations[q.number]">{{ !explanations[q.number] ? "Want to see an explanation ? " : "Hide explanation" }}</a>
             </div>
-        </form><br>
+            <span class="mt-3" style="padding: 0% 25%" v-show="explanations[q.number]">{{ q.explain }}</span>
+        </form>
 
     </div>
 </template>
