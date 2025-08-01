@@ -3,47 +3,169 @@ import { reactive, watch } from 'vue'
 const props = defineProps(["level", "page", "lessonShowing"])
 defineEmits(["nextlesson", "nextpage", "prevpage"])
 
-const results = reactive([0]) // update as add more questions
-const explanations = reactive([false]) // keeps track of what explanations are visible
+const results = reactive([0, 0, 0, 0, 0]) // update as add more questions
+const explanations = reactive([false, false, false, false, false]) // keeps track of what explanations are visible
 const questions = reactive(
     [
         [ // conceptual difficutly
             {
                 number: 0,
-                question: "What is the proper format for a vector in component form?",
+                question: "What are the units of speed, which measures how much distance is travelled in some amount of time?",
                 answers: [
-                    ["$\\{3, 5\\}$", 0],
-                    ["$\\langle 3, 5 \\rangle$", 1],
-                    ["$(3, 5)$", 0],
-                    ["$[3, 5]$", 0]
+                    ["seconds per meter", 0],
+                    ["meters", 0],
+                    ["meters per second", 1],
+                    ["seconds", 0]
                 ],
-                explain: "Recall that a vector in component form is denoted by its component in the horizontal direction ($x$) and vertical direction ($y$), surrounded by angle brackets. Thus the second answer choice is the correct one."
+                explain: "It is stated that speed is measured in distance per unit time. Meters is our standard unit of distance, and seconds is our standard measure of time, so the answer is meters per second."
+            },
+            {
+               number: 1,
+                question: "How many meters are in 15 kilometers?",
+                answers: [
+                    ["$ 150$ m", 0],
+                    ["$1500$ m", 0],
+                    ["$15000000$ m", 0],
+                    ["$15000$ m", 1]
+                ],
+                explain: "There are 1000 meters per kilometer, so 15 kilometers is 15 thousand meters."
+            },
+            {
+                number: 2,
+                question: "How many milliseconds are in a second?",
+                answers:[
+                ['1000', 1],
+                ['500', 0],
+                ['100', 0],
+                ['10', 0]
+                ],
+                explain: "The metric prefix \'milli\' represents 1/1000th of something, so a millisecond is 1/1000th of a second."
+            },
+            {
+                number: 3,
+                question: "On an alien planet, 10 glorps are equal to 3 frizzes, and 12 frizzes equal 13 slarns. How many glorps are equal to one slarn?",
+                answers:[
+                ['40', 0],
+                ['13', 0],
+                ['40/13', 1],
+                ['13/40', 0]
+                ],
+                explain: "If 10 glorps equal 3 frizzes, then 40 glorps equal 12 frizzes, which equal 13 slarns. We need to divide by 13 because we're asked how many equal one slarn."
+            },
+            {
+                number: 4,
+                question: "The knot is a measurement of speed often used on ships. If a knot is roughly 1.8 km/h, how fast is 30 knots in km/h?",
+                answers:[
+                ['17 km/h', 0],
+                ['54 km/h', 1],
+                ['16.7 km/h', 0],
+                ['58 km/h', 0]
+                ],
+                explain: "We can just directly multiply the number of knots by the conversion factor, which is 1.8. This gives us 54 km/h."
             }
+
         ],
         [ // algebra difficutly
             {
                 number: 0,
-                question: "What is the proper format for a vector in component form?",
+                question: "What are the units of speed, which measures how much distance is travelled in some amount of time?",
                 answers: [
-                    ["$\\{3, 5\\}$", 0],
-                    ["$\\langle 3, 5 \\rangle$", 1],
-                    ["$(3, 5)$", 0],
-                    ["$[3, 5]$", 0]
+                    ["seconds per meter", 0],
+                    ["meters", 0],
+                    ["meters per second", 1],
+                    ["seconds", 0]
                 ],
-                explain: "Recall that a vector in component form is denoted by its component in the horizontal direction ($x$) and vertical direction ($y$), surrounded by angle brackets. Thus the second answer choice is the correct one."
+                explain: "It is stated that speed is measured in distance per unit time. Meters is our standard unit of distance, and seconds is our standard measure of time, so the answer is meters per second."
+            },
+            {
+                number: 1,
+                question: "How many meters are in 15 kilometers?",
+                answers: [
+                    ["$ 150$ m", 0],
+                    ["$1500$ m", 0],
+                    ["$15000000$ m", 0],
+                    ["$15000$ m", 1]
+                ],
+                explain: "There are 1000 meters per kilometer, so 15 kilometers is 15 thousand meters."
+            },
+            {
+                number: 2,
+                question: "How many seconds are in a 365 day year?",
+                answers:[
+                ['378432000 s', 0],
+                ['31536000 s', 1],
+                ['8760 s', 0],
+                ['4541184000 s', 0]
+                ],
+                explain: "There are 365 days per year, 24 hours in a day, 60 minutes in an hour, and 60 seconds in a minute. If we multiply all of those together, we get the answer."
+            },
+            {
+                number: 3,
+                question: "On an alien planet, 10 glorps are equal to 3 frizzes, and 12 frizzes equal 13 slarns. How many glorps are equal to one slarn?",
+                answers:[
+                ['40', 0],
+                ['13', 0],
+                ['40/13', 1],
+                ['13/40', 0]
+                ],
+                explain: "If 10 glorps equal 3 frizzes, then 40 glorps equal 12 frizzes, which equal 13 slarns. We need to divide by 13 because we're asked how many equal one slarn."
+            },
+            {
+                number: 4,
+                question: "The knot is a measurement of speed often used on ships. If a knot is roughly 1.8 km/h, how fast is 30 knots in m/s?",
+                answers:[
+                ['194.4 m/s', 0],
+                ['54 m/s', 0],
+                ['15 m/s', 1],
+                ['2.41 m/s', 0]
+                ],
+                explain: "We can first directly multiply the number of knots by the conversion factor, which is 1.8. This gives us 54 km/h, at which point we can use the conversion factors for kilometers to meters and hours to minutes then to seconds."
             }
         ],
         [ // calculus difficutly
             {
-                number: 0,
-                question: "What is the proper format for a vector in component form?",
+                number: 1,
+                question: "What are the units of speed, which measures how much distance is travelled in some amount of time?",
                 answers: [
-                    ["$\\{3, 5\\}$", 0],
-                    ["$\\langle 3, 5 \\rangle$", 1],
-                    ["$(3, 5)$", 0],
-                    ["$[3, 5]$", 0]
+                    ["seconds per meter", 0],
+                    ["meters", 0],
+                    ["meters per second", 1],
+                    ["seconds", 0]
                 ],
-                explain: "Recall that a vector in component form is denoted by its component in the horizontal direction ($x$) and vertical direction ($y$), surrounded by angle brackets. Thus the second answer choice is the correct one."
+                explain: "It is stated that speed is measured in distance per unit time. Meters is our standard unit of distance, and seconds is our standard measure of time, so the answer is meters per second."
+            },
+            {
+                number: 1,
+                question: "How many meters are in 15 kilometers?",
+                answers: [
+                    ["$ 150$ m", 0],
+                    ["$1500$ m", 0],
+                    ["$15000000$ m", 0],
+                    ["$15000$ m", 1]
+                ],
+                explain: "There are 1000 meters per kilometer, so 15 kilometers is 15 thousand meters."
+            },
+            {
+                number: 2,
+                question: "How many seconds are in a 365 day year?",
+                answers:[
+                ['378432000 s', 0],
+                ['31536000 s', 1],
+                ['8760 s', 0],
+                ['4541184000 s', 0]
+                ],
+                explain: "There are 365 days per year, 24 hours in a day, 60 minutes in an hour, and 60 seconds in a minute. If we multiply all of those together, we get the answer."
+            },
+            {
+                number: 3,
+                question: "On an alien planet, 10 glorps are equal to 3 frizzes, and 12 frizzes equal 13 slarns. How many glorps are equal to one slarn?",
+                answers:[
+                ['40', 0],
+                ['13', 0],
+                ['40/13', 1],
+                ['13/40', 0]
+                ],
+                explain: "If 10 glorps equal 3 frizzes, then 40 glorps equal 12 frizzes, which equal 13 slarns. We need to divide by 13 because we're asked how many equal one slarn."
             }
         ]
     ]
@@ -309,7 +431,7 @@ watch(() => props.lessonShowing, () => {
             </div>
             <span class="mt-3" style="padding: 0% 25%" v-show="explanations[q.number]">{{ q.explain }}</span>
         </form>
-
+    <br><br>
     </div>
 </template>
 

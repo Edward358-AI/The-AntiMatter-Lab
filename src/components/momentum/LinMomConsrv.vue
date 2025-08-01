@@ -538,7 +538,7 @@ function newtonsCradle(xx, yy, number, size, length) {
             </div>
             <span class="mt-3" style="padding: 0% 25%" v-show="explanations[q.number]">{{ q.explain }}</span>
         </form>
-
+    <br><br>
     </div>
 </template>
 

@@ -637,7 +637,7 @@ const showAnswer4 = ref(false)
             </div>
             <span class="mt-3" style="padding: 0% 25%" v-show="explanations[q.number]">{{ q.explain }}</span>
         </form>
-
+    <br><br>
     </div>
 </template>
 
