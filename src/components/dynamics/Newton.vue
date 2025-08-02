@@ -43,7 +43,7 @@ const questions = reactive(
             },
             {
                 number: 3,
-                question: "Why does an object on a tabeltop not accelerate?",
+                question: "Why does an object on a tabletop not accelerate?",
                 answers: [
                     ["Because the forces on it are balanced", 1, false],
                     ["Because there are no forces on it", 0, false],
