@@ -10,205 +10,205 @@ const questions = reactive(
         [ // conceptual difficutly
             {
                 number: 0,
-                question: "What is the proper format for a vector in component form?",
+                question: "What causes a net force?",
                 answers: [
-                    ["$\\{3, 5\\}$", 0, false],
-                    ["$\\langle 3, 5 \\rangle$", 1, false],
-                    ["$(3, 5)$", 0, false],
-                    ["$[3, 5]$", 0, false]
+                    ["An acceleration", 0, false],
+                    ["Physical contact with an object", 0, false],
+                    ["Forces aren't real", 0, false],
+                    ["Net forces are not \"caused\"", 1, false]
                 ],
-                explain: "Recall that a vector in component form is denoted by its component in the horizontal direction ($x$) and vertical direction ($y$), surrounded by angle brackets. Thus the second answer choice is the correct one."
+                explain: "Recall that the net force produces an acceleration, not the other way around. The other answer choices are all inaccurate to some degree. You don't need contact to have a force, as gravity evidences, and forces are obviously real."
             },
             {
                 number: 1,
-                question: "",
+                question: "Which of these is an example of Newton's First Law in action?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["A person running on a circular track", 0, false],
+                    ["A person flying through a windshield after a crash", 1, false],
+                    ["A pendulum bob rocking back and forth", 0, false],
+                    ["An object free falling under gravity", 0, false]
                 ],
-                explain: ""
+                explain: "The second answer choice is grim, but it demonstrates the idea of inertia: that the person retains their original velocity after the car is suddenly stopped. All of the others do not demonstrate this concept."
             },
             {
                 number: 2,
-                question: "",
+                question: "What is the gravitational force from the Earth on you compared to the force from you on the Earth?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["The Earth exerts a greater force on you", 0, false],
+                    ["The forces are the same in magnitude", 1, false],
+                    ["You exert no force on the Earth", 0, false],
+                    ["You exert a greater force on the Earth", 0, false]
                 ],
-                explain: ""
+                explain: "According to Newton's Third Law, forces come in equal and opposite action-reaction pairs. Even gravity does this, which means that the correct answer choice is the second one."
             },
             {
                 number: 3,
-                question: "",
+                question: "Why does an object on a tabeltop not accelerate?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["Because the forces on it are balanced", 1, false],
+                    ["Because there are no forces on it", 0, false],
+                    ["It is held in place by gravity", 0, false],
+                    ["Because of Newton's First Law", 0, false]
                 ],
-                explain: ""
+                explain: "Recall that if forces are balanced, it means the net force on the object is exactly zero. This is why the object does not accelerate. All of the other answer choices are either incorrect or provide an incomplete explanation."
             },
             {
                 number: 4,
-                question: "",
+                question: "Why is it easier for spaceships to achieve high speeds?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["They have very powerful engines", 0, false],
+                    ["They can fly", 0, false],
+                    ["There is almost zero friction in space", 1, false],
+                    ["There is no gravity in space", 0, false]
                 ],
-                explain: ""
+                explain: "While some of these statements may be true, the one that explains why spacecraft practically don't slow down at all in space is the third answer choice. This allows them to run relatively weak but long-lasting engines, which accelerate them slowly up to enormously high speeds."
             },
             {
                 number: 5,
-                question: "",
+                question: "How is motion possible at all if all forces occur in equal and opposite force pairs according to Newton's Third Law?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["All motion is an illusion", 0, false],
+                    ["The larger object experiences less force", 0, false],
+                    ["The forces aren't actually balanced", 0, false],
+                    ["The forces act on different objects", 1, false]
                 ],
-                explain: ""
+                explain: "The force pair acts on two different objects, so the two forces don't cancel each other out. This is important to know!"
             }
         ],
         [ // algebra difficutly
             {
                 number: 0,
-                question: "What is the proper format for a vector in component form?",
+                question: "What causes a net force?",
                 answers: [
-                    ["$\\{3, 5\\}$", 0, false],
-                    ["$\\langle 3, 5 \\rangle$", 1, false],
-                    ["$(3, 5)$", 0, false],
-                    ["$[3, 5]$", 0, false]
+                    ["An acceleration", 0, false],
+                    ["Physical contact with an object", 0, false],
+                    ["Forces aren't real", 0, false],
+                    ["Net forces are not \"caused\"", 1, false]
                 ],
-                explain: "Recall that a vector in component form is denoted by its component in the horizontal direction ($x$) and vertical direction ($y$), surrounded by angle brackets. Thus the second answer choice is the correct one."
+                explain: "Recall that the net force produces an acceleration, not the other way around. The other answer choices are all inaccurate to some degree. You don't need contact to have a force, as gravity evidences, and forces are obviously real."
             },
             {
                 number: 1,
-                question: "",
+                question: "A box of mass 3.0 kg is pushed by an unknown force across a surface, where it accelerates at $2.3 \\textrm{m/s}^2$. What must be the net force on the box?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["1.30 N", 0, false],
+                    ["6.90 N", 1, false],
+                    ["0.76 N", 0, false],
+                    ["5.30 N", 0, false]
                 ],
-                explain: ""
+                explain: "Recall that Newton's Second Law states that the net force must be equal to the mass times the acceleration. Thus, we can calculate that the net force on the object from the information given is 6.90 N."
             },
             {
                 number: 2,
-                question: "",
+                question: "How are Newton's First and Second Laws related?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["They are in increasing numerical order", 0, false],
+                    ["They both have to do with balanced forces", 0, false],
+                    ["The first law is a special case of the second", 1, false],
+                    ["The first law is used to understand the second", 0, false]
                 ],
-                explain: ""
+                explain: "Newton's First Law is a special case of the second law where the net force is zero ($F_{net} = 0$), and therefore the acceleration is zero."
             },
             {
                 number: 3,
-                question: "",
+                question: "Can an action-reaction force pair ever act on the same object?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["Yes", 0, false],
+                    ["No", 1, false],
+                    ["Sometimes", 0, false],
+                    ["Always", 0, false]
                 ],
-                explain: ""
+                explain: "By definition, an action-reaction force pair acts on <i>two different objects</i>. They can never be on the same object."
             },
             {
                 number: 4,
-                question: "",
+                question: "Suppose we have an object in outer space, far away from any planets or stars. You find that exerting a force of 30 N on it causes it to accelerate at 3.7 m/s. What is the object's mass?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["8.11 kg", 1, false],
+                    ["111 kg", 0, false],
+                    ["26.3 kg", 0, false],
+                    ["0.12 kg", 0, false]
                 ],
-                explain: ""
+                explain: "Recall that Newton's Second Law states that $F_{net} = ma$. Since we are far away from everything, the only force on the object is the 30 N you push on it with. This is your net force, and you can simply use the second law to solve for mass with this information."
             },
             {
                 number: 5,
-                question: "",
+                question: "How is motion possible at all if all forces occur in equal and opposite force pairs according to Newton's Third Law?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["All motion is an illusion", 0, false],
+                    ["The larger object experiences less force", 0, false],
+                    ["The forces aren't actually balanced", 0, false],
+                    ["The forces act on different objects", 1, false]
                 ],
-                explain: ""
+                explain: "The force pair acts on two different objects, so the two forces don't cancel each other out. This is important to know!"
             }
         ],
         [ // calculus difficutly
             {
                 number: 0,
-                question: "What is the proper format for a vector in component form?",
+                question: "What causes a net force?",
                 answers: [
-                    ["$\\{3, 5\\}$", 0, false],
-                    ["$\\langle 3, 5 \\rangle$", 1, false],
-                    ["$(3, 5)$", 0, false],
-                    ["$[3, 5]$", 0, false]
+                    ["An acceleration", 0, false],
+                    ["Physical contact with an object", 0, false],
+                    ["Forces aren't real", 0, false],
+                    ["Net forces are not \"caused\"", 1, false]
                 ],
-                explain: "Recall that a vector in component form is denoted by its component in the horizontal direction ($x$) and vertical direction ($y$), surrounded by angle brackets. Thus the second answer choice is the correct one."
+                explain: "Recall that the net force produces an acceleration, not the other way around. The other answer choices are all inaccurate to some degree. You don't need contact to have a force, as gravity evidences, and forces are obviously real."
             },
             {
                 number: 1,
-                question: "",
+                question: "A box of mass 3.0 kg is pushed by an unknown force across a surface, where it accelerates at $2.3 \\textrm{m/s}^2$. What must be the net force on the box?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["1.30 N", 0, false],
+                    ["6.90 N", 1, false],
+                    ["0.76 N", 0, false],
+                    ["5.30 N", 0, false]
                 ],
-                explain: ""
+                explain: "Recall that Newton's Second Law states that the net force must be equal to the mass times the acceleration. Thus, we can calculate that the net force on the object from the information given is 6.90 N."
             },
             {
                 number: 2,
-                question: "",
+                question: "How are Newton's First and Second Laws related?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["They are in increasing numerical order", 0, false],
+                    ["They both have to do with balanced forces", 0, false],
+                    ["The first law is a special case of the second", 1, false],
+                    ["The first law is used to understand the second", 0, false]
                 ],
-                explain: ""
+                explain: "Newton's First Law is a special case of the second law where the net force is zero ($F_{net} = 0$), and therefore the acceleration is zero."
             },
             {
                 number: 3,
-                question: "",
+                question: "Can an action-reaction force pair ever act on the same object?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["Yes", 0, false],
+                    ["No", 1, false],
+                    ["Sometimes", 0, false],
+                    ["Always", 0, false]
                 ],
-                explain: ""
+                explain: "By definition, an action-reaction force pair acts on <i>two different objects</i>. They can never be on the same object."
             },
             {
                 number: 4,
-                question: "",
+                question: "Suppose we have an object in outer space, far away from any planets or stars. You find that exerting a force of 30 N on it causes it to accelerate at 3.7 m/s. What is the object's mass?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["8.11 kg", 1, false],
+                    ["111 kg", 0, false],
+                    ["26.3 kg", 0, false],
+                    ["0.12 kg", 0, false]
                 ],
-                explain: ""
+                explain: "Recall that Newton's Second Law states that $F_{net} = ma$. Since we are far away from everything, the only force on the object is the 30 N you push on it with. This is your net force, and you can simply use the second law to solve for mass with this information."
             },
             {
                 number: 5,
-                question: "",
+                question: "How is motion possible at all if all forces occur in equal and opposite force pairs according to Newton's Third Law?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["All motion is an illusion", 0, false],
+                    ["The larger object experiences less force", 0, false],
+                    ["The forces aren't actually balanced", 0, false],
+                    ["The forces act on different objects", 1, false]
                 ],
-                explain: ""
+                explain: "The force pair acts on two different objects, so the two forces don't cancel each other out. This is important to know!"
             }
         ]
     ]
