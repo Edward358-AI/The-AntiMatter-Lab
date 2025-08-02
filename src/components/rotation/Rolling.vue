@@ -731,7 +731,7 @@ onUnmounted(() => {
             <form @submit.prevent="checkAnswer(q.number)" style="height:fit-content"
                 class="question col-6 row justify-content-center my-5 mx-auto" v-for="q in questions[level]">
                 <div class="w-100">
-                    <label class="form-label fs-5">{{ q.number + 1 + ". " + q.question }}</label><br>
+                    <label class="form-label fs-5" v-html=" q.number + 1 + '. ' + q.question"></label><br>
                 </div>
                 <div class="col border-end border-secondary">
                     <div class="ms-auto" style="width:fit-content">
