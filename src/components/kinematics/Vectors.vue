@@ -3,8 +3,8 @@ import { reactive, watch } from 'vue'
 const props = defineProps(["level", "page", "lessonShowing"])
 defineEmits(["nextlesson", "nextpage", "prevpage"])
 
-const results = reactive([[0, 0, 0, 0], [0], [0]]) // update as add more questions
-const explanations = reactive([[false, false, false, false], [false], [false]]) // keeps track of what explanations are visible
+const results = reactive([[0, 0, 0, 0], [0,0,0], [0]]) // update as add more questions
+const explanations = reactive([[false, false, false, false], [false,false,false], [false]]) // keeps track of what explanations are visible
 const questions = reactive(
     [
         [ // conceptual difficutly
@@ -57,12 +57,34 @@ const questions = reactive(
         [ // algebra difficutly
             {
                 number: 0,
+                question: "What is the correct way to denote a vector with the letter $a$?",
+                answers: [
+                    ["$\\vec{a}$", 1, false],
+                    ["$\\Delta a$", 0, false],
+                    ["$\\bar{a}$", 0, false],
+                    ["$\\overleftrightarrow{a}$", 0, false]
+                ],
+                explain: "As mentioned in the lesson, the typical way to denote vectors is using $\\vec{a}$, a little arrow over the letter, or bolded like $\\vectorbold{a}$. You might also see $\\hat{a}$ being used sometimes, but for our purposes we are concerned with $\\vec{a}$."
+            }, 
+            {
+                number: 1,
                 question: "What is the proper format for a vector in component form?",
                 answers: [
                     ["$\\{3, 5\\}$", 0, false],
                     ["$\\langle 3, 5 \\rangle$", 1, false],
                     ["$(3, 5)$", 0, false],
                     ["$[3, 5]$", 0, false]
+                ],
+                explain: "Recall that a vector in component form is denoted by its component in the horizontal direction ($x$) and vertical direction ($y$), surrounded by angle brackets. Thus the second answer choice is the correct one."
+            },
+            {
+                number: 2,
+                question: "<img style='max-width: 150px;' src='/src/assets/kinematics/Problem1.png' class='rounded'><br>What is the component form of a vector with magnitude $7$ and argument (angle) of $60 \\degree$ with respect positive x-axis?",
+                answers: [
+                    ["$\\langle 7, 0 \\rangle$", 0, false],
+                    ["$\\langle 0, 7 \\rangle$", 0, false],
+                    ["$\\langle \\frac{7}{2}, \\frac{7}{2} \\sqrt{3} \\rangle$", 1, false],
+                    ["$\\langle \\frac{7}{2} \\sqrt{3}, \\frac{7}{2} \\rangle$", 0, false]
                 ],
                 explain: "Recall that a vector in component form is denoted by its component in the horizontal direction ($x$) and vertical direction ($y$), surrounded by angle brackets. Thus the second answer choice is the correct one."
             }
@@ -422,7 +444,7 @@ function setChecked(chek, qNum) {
             <form @submit.prevent="checkAnswer(q.number)" style="height:fit-content"
                 class="question col-6 row justify-content-center my-5 mx-auto" v-for="q in questions[level]">
                 <div class="w-100">
-                    <label class="form-label fs-5">{{ q.number + 1 + ". " + q.question }}</label><br>
+                    <label class="form-label fs-5" v-html="q.number + 1 + '. ' + q.question"></label><br>
                 </div>
                 <div class="col border-end border-secondary">
                     <div class="ms-auto" style="width:fit-content">

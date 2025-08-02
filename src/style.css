@@ -1,18 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wdth,wght@0,75..100,300..800;1,75..100,300..800&display=swap');
-
-.sidebar {
-    font-variation-settings:
-    "wdth" 98;
-}
-
 html,
 body {
     width: 100%;
     height: 100%;
-    font-family: "Open Sans", sans-serif;
-    font-weight: 360;
-    font-variation-settings:
-    "wdth" 100;
 }
 
 body {
@@ -55,7 +44,7 @@ figure {
 }
 
 p {
-    font-size: 1.06rem;
+    font-size: 1.08rem;
     line-height: 2.5rem;
 }
 
@@ -154,7 +143,7 @@ a {
 
 figure img {
     border-radius: 10px;
-    max-width: 500px;
+    max-width: 450px;
     width: 90%;
 }
 

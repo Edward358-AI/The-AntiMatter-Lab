@@ -228,7 +228,7 @@ onUpdated(() => {
       <div @click="lessonShowing = false; hideMobileBar(); Window.scrollTo(0, 0)"
         :class="lessonShowing ? 'sidebarTab col p-2' : 'sidebarTab col p-2 bg-secondary-subtle'">Problems</div>
     </div>
-    <div class="offcanvas-header border-bottom border-secondary border-opacity-25" style="height: 50px;">
+    <div class="offcanvas-header border-bottom border-secondary border-opacity-25" style="height: 55px;">
       <input v-model="searchQuery" type="text" class="form-control" placeholder="Type here to find a lesson...">
     </div>
     <div class="offcanvas-body">
