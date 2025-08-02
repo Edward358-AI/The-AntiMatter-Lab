@@ -3,8 +3,8 @@ import { reactive, watch } from 'vue'
 const props = defineProps(["level", "page", "lessonShowing"])
 defineEmits(["nextlesson", "nextpage", "prevpage"])
 
-const results = reactive([[0, 0, 0, 0], [0,0,0], [0]]) // update as add more questions
-const explanations = reactive([[false, false, false, false], [false,false,false], [false]]) // keeps track of what explanations are visible
+const results = reactive([[0, 0, 0, 0], [0,0,0,0,0,0], [0,0,0,0,0,0]]) // update as add more questions
+const explanations = reactive([[false, false, false, false], [false,false,false,false,false,false], [false,false,false,false,false,false]]) // keeps track of what explanations are visible
 const questions = reactive(
     [
         [ // conceptual difficutly
@@ -79,19 +79,63 @@ const questions = reactive(
             },
             {
                 number: 2,
-                question: "<img style='max-width: 150px;' src='/src/assets/kinematics/Problem1.png' class='rounded'><br>What is the component form of a vector with magnitude $7$ and argument (angle) of $60 \\degree$ with respect positive x-axis?",
+                question: "<img style='max-width: 170px;' src='/src/assets/kinematics/Problem1.png' class='rounded'><br>What is the component form of a vector with magnitude $7$ and argument (angle) of $60 \\degree$ with respect positive x-axis?",
                 answers: [
                     ["$\\langle 7, 0 \\rangle$", 0, false],
                     ["$\\langle 0, 7 \\rangle$", 0, false],
                     ["$\\langle \\frac{7}{2}, \\frac{7}{2} \\sqrt{3} \\rangle$", 1, false],
                     ["$\\langle \\frac{7}{2} \\sqrt{3}, \\frac{7}{2} \\rangle$", 0, false]
                 ],
-                explain: "Recall that a vector in component form is denoted by its component in the horizontal direction ($x$) and vertical direction ($y$), surrounded by angle brackets. Thus the second answer choice is the correct one."
+                explain: "Remember that the component form of a vector, given its angle and magnitude, is going to be $\\langle |\\vec{a}|\\cos(\\theta),|\\vec{a}|\\sin(\\theta) \\rangle$. Thus we get that the component form of this vector is $\\langle 7\\cos(60\\degree),7\\sin(60\\degree) \\rangle$ $=\\langle 7\\cdot \\frac{1}{2},7 \\cdot \\frac{\\sqrt{3}}{2} \\rangle$, which would simplify to answer choice 3."
+            },
+            {
+                number: 3,
+                question: "<img style='max-width: 170px;' src='/src/assets/kinematics/Problem2.png' class='rounded'><br>What is the magnitude of the resultant vector of adding the 2 blue vectors as depicted?",
+                answers: [
+                    ["$8.2~\\textrm{m}$", 1, false],
+                    ["$8.0~\\textrm{m}$", 0, false],
+                    ["$7.8~\\textrm{m}$", 0, false],
+                    ["$8.5~\\textrm{m}$", 0, false]
+                ],
+                explain: "First, begin by converting the following vectors to component form. The first one is $\\langle 0,6 \\rangle$ and the second is $\\langle 8 \\cos(20 \\degree), -8 \\sin(20\\degree) \\rangle$ $\\approx \\langle 7.52,-2.74 \\rangle $. Then, it's as simple as adding these components together to create the components of the resultant vector: $\\langle 0+7.52,6-2.74 \\rangle$ $\\approx \\langle 7.52,3.26 \\rangle $. Then use Pythagorean Theorem to get the magnitude, which should be about $8.2~\\textrm{m}$."
+            },
+            {
+                number: 4,
+                question: "Continuing from the previous problem, what is the angle the resultant vector makes with the horizontal? (denoted by $\\theta$)",
+                answers: [
+                    ["$19.9 \\degree$", 0, false],
+                    ["$20.1 \\degree$", 0, false],
+                    ["$23.5 \\degree$", 1, false],
+                    ["$21.2 \\degree$", 0, false]
+                ],
+                explain: "If you see the explanation for the previous question, you'll see how we got the component form of the resultant vector. To calculate the angle $\\theta$ as depicted in the image, we can take the arctangent of the vertical component over the horizontal one to get the angle: $\\arctan(\\frac{3.26}{7.52})\\approx 23.5\\degree$ (because the components and the vector form a right triangle)"
+            },
+            {
+                number: 5,
+                question: "<img style='max-width: 200px;' src='/src/assets/kinematics/Problem3.png' class='rounded'><br>Find the magnitude of the resultant vector of adding these three vectors together.",
+                answers: [
+                    ["$8.1~\\textrm{N}$", 0, false],
+                    ["$7.9~\\textrm{N}$", 0, false],
+                    ["$7.5~\\textrm{N}$", 0, false],
+                    ["$7.2~\\textrm{N}$", 1, false]
+                ],
+                explain: "Recall from the lesson that we can actually move vectors around, so we can rearrange all three vectors using the tip-to-tail method:<br><img style='max-width: 140px;' src='/src/assets/kinematics/Solution1.png' class='rounded'><br>*Image may not be to scale.<br>We can now do the same method by converting all of the vectors to component form and adding their components: $\\langle -9,0 \\rangle + \\langle 11 \\cos(70 \\degree), 11 \\sin(70 \\degree) \\rangle $ $+ \\langle 8 \\cos(25\\degree), 8 \\sin(25 \\degree) \\rangle$ $\\approx \\langle 2.01, 6.96 \\rangle$. Now, using Pythagorean theorem with the components gives us the magnitude to be roughly $7.2~\\textrm{N}$."
             }
         ],
         [ // calculus difficutly
             {
                 number: 0,
+                question: "What is the correct way to denote a vector with the letter $a$?",
+                answers: [
+                    ["$\\vec{a}$", 1, false],
+                    ["$\\Delta a$", 0, false],
+                    ["$\\bar{a}$", 0, false],
+                    ["$\\overleftrightarrow{a}$", 0, false]
+                ],
+                explain: "As mentioned in the lesson, the typical way to denote vectors is using $\\vec{a}$, a little arrow over the letter, or bolded like $\\vectorbold{a}$. You might also see $\\hat{a}$ being used sometimes, but for our purposes we are concerned with $\\vec{a}$."
+            }, 
+            {
+                number: 1,
                 question: "What is the proper format for a vector in component form?",
                 answers: [
                     ["$\\{3, 5\\}$", 0, false],
@@ -100,6 +144,50 @@ const questions = reactive(
                     ["$[3, 5]$", 0, false]
                 ],
                 explain: "Recall that a vector in component form is denoted by its component in the horizontal direction ($x$) and vertical direction ($y$), surrounded by angle brackets. Thus the second answer choice is the correct one."
+            },
+            {
+                number: 2,
+                question: "<img style='max-width: 170px;' src='/src/assets/kinematics/Problem1.png' class='rounded'><br>What is the component form of a vector with magnitude $7$ and argument (angle) of $60 \\degree$ with respect positive x-axis?",
+                answers: [
+                    ["$\\langle 7, 0 \\rangle$", 0, false],
+                    ["$\\langle 0, 7 \\rangle$", 0, false],
+                    ["$\\langle \\frac{7}{2}, \\frac{7}{2} \\sqrt{3} \\rangle$", 1, false],
+                    ["$\\langle \\frac{7}{2} \\sqrt{3}, \\frac{7}{2} \\rangle$", 0, false]
+                ],
+                explain: "Remember that the component form of a vector, given its angle and magnitude, is going to be $\\langle |\\vec{a}|\\cos(\\theta),|\\vec{a}|\\sin(\\theta) \\rangle$. Thus we get that the component form of this vector is $\\langle 7\\cos(60\\degree),7\\sin(60\\degree) \\rangle$ $=\\langle 7\\cdot \\frac{1}{2},7 \\cdot \\frac{\\sqrt{3}}{2} \\rangle$, which would simplify to answer choice 3."
+            },
+            {
+                number: 3,
+                question: "<img style='max-width: 170px;' src='/src/assets/kinematics/Problem2.png' class='rounded'><br>What is the magnitude of the resultant vector of adding the 2 blue vectors as depicted?",
+                answers: [
+                    ["$8.2~\\textrm{m}$", 1, false],
+                    ["$8.0~\\textrm{m}$", 0, false],
+                    ["$7.8~\\textrm{m}$", 0, false],
+                    ["$8.5~\\textrm{m}$", 0, false]
+                ],
+                explain: "First, begin by converting the following vectors to component form. The first one is $\\langle 0,6 \\rangle$ and the second is $\\langle 8 \\cos(20 \\degree), -8 \\sin(20\\degree) \\rangle$ $\\approx \\langle 7.52,-2.74 \\rangle $. Then, it's as simple as adding these components together to create the components of the resultant vector: $\\langle 0+7.52,6-2.74 \\rangle$ $\\approx \\langle 7.52,3.26 \\rangle $. Then use Pythagorean Theorem to get the magnitude, which should be about $8.2~\\textrm{m}$."
+            },
+            {
+                number: 4,
+                question: "Continuing from the previous problem, what is the angle the resultant vector makes with the horizontal? (denoted by $\\theta$)",
+                answers: [
+                    ["$19.9 \\degree$", 0, false],
+                    ["$20.1 \\degree$", 0, false],
+                    ["$23.5 \\degree$", 1, false],
+                    ["$21.2 \\degree$", 0, false]
+                ],
+                explain: "If you see the explanation for the previous question, you'll see how we got the component form of the resultant vector. To calculate the angle $\\theta$ as depicted in the image, we can take the arctangent of the vertical component over the horizontal one to get the angle: $\\arctan(\\frac{3.26}{7.52})\\approx 23.5\\degree$ (because the components and the vector form a right triangle)"
+            },
+            {
+                number: 5,
+                question: "<img style='max-width: 200px;' src='/src/assets/kinematics/Problem3.png' class='rounded'><br>Find the magnitude of the resultant vector of adding these three vectors together.",
+                answers: [
+                    ["$8.1~\\textrm{N}$", 0, false],
+                    ["$7.9~\\textrm{N}$", 0, false],
+                    ["$7.5~\\textrm{N}$", 0, false],
+                    ["$7.2~\\textrm{N}$", 1, false]
+                ],
+                explain: "Recall from the lesson that we can actually move vectors around, so we can rearrange all three vectors using the tip-to-tail method:<br><img style='max-width: 140px;' src='/src/assets/kinematics/Solution1.png' class='rounded'><br>*Image may not be to scale.<br>We can now do the same method by converting all of the vectors to component form and adding their components: $\\langle -9,0 \\rangle + \\langle 11 \\cos(70 \\degree), 11 \\sin(70 \\degree) \\rangle $ $+ \\langle 8 \\cos(25\\degree), 8 \\sin(25 \\degree) \\rangle$ $\\approx \\langle 2.01, 6.96 \\rangle$. Now, using Pythagorean theorem with the components gives us the magnitude to be roughly $7.2~\\textrm{N}$."
             }
         ]
     ]
@@ -440,6 +528,7 @@ function setChecked(chek, qNum) {
     </div>
     <div v-show="!lessonShowing" class="container-fluid h100 pt-5">
         <h1>Vectors Problems</h1><br>
+        <span>A calculator might be necessary for the following problems.</span>
         <div class="question-container row justify-content-center mx-auto pb-5">
             <form @submit.prevent="checkAnswer(q.number)" style="height:fit-content"
                 class="question col-6 row justify-content-center my-5 mx-auto" v-for="q in questions[level]">
