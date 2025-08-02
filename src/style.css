@@ -1,4 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk&display=swap');
+@font-face {
+    font-family: Avenirfont;
+    src: url("assets/AvenirLTStd-Light.otf") format("opentype");
+}
 
 html,
 body {
@@ -184,9 +187,4 @@ figure img {
     .explained {
         padding: 0% 10%;
     }
-}
-
-@font-face {
-    font-family: Avenirfont;
-    src: url("assets/AvenirLTStd-Light.otf") format("opentype");
 }
