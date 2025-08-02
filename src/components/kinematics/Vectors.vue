@@ -32,7 +32,7 @@ const questions = reactive(
             },
             {
                 number: 2,
-                question: "What is the result in component form of adding these two vectors, $\\vec{a}= \\langle 4,6 \\rangle$ and $\\vec{b}= \\langle 11, 2 \\rangle$",
+                question: "What is the result in component form of adding these two vectors, $\\vec{a}= \\langle 4,6 \\rangle$ and $\\vec{b}= \\langle 11, 2 \\rangle$?",
                 answers: [
                     ["$\\langle 15, 4 \\rangle$", 0, false],
                     ["$\\langle 7, 8 \\rangle$", 0, false],
