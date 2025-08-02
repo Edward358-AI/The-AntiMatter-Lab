@@ -45,36 +45,36 @@ const questions = reactive(
             },
             {
                 number: 3,
-                question: "",
+                question: "A hockey puck slides on an ice rink that is 15 meters across. If it can cross the rink in 4 seconds, what must its velocity be?",
                 answers: [
-                    ["", 0, false],
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false]
+                    ["0.267 m/s", 0, false],
+                    ["3.75 m/s", 1, false],
+                    ["2.74 m/s", 0, false],
+                    ["7.5 m/s", 0, false]
                 ],
-                explain: ""
+                explain: "We are given the displacement as well as the time interval, so we can directly plug those into the equation for average velocity to get 3.75 m/s."
             },
             {
                 number: 4,
-                question: "",
+                question: "A train appraoches a station whuile cruising at 40 m/s. It has to stop in 300 meters. What is the required acceleration for this?",
                 answers: [
-                    ["", 0, false],
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false]
+                    ["$2.5~\\textrm{m/s}^2$", 0, false],
+                    ["$7.5~\\textrm{m/s}^2$", 0, false],
+                    ["$2.67~\\textrm{m/s}^2$", 1, false],
+                    ["$5.33~\\textrm{m/s}^2$", 0, false]
                 ],
-                explain: ""
+                explain: "We want to use the formula ${v_f}^2 - {v_0}^2 = 2a\\Delta x$, where the final velocity is zero and the acceleration is negative, since it is slowing down the train car. Plugging in numbers gives us the third option."
             },
             {
                 number: 5,
-                question: "",
+                question: "Which of these cases has zero acceleration?",
                 answers: [
-                    ["", 0, false],
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false]
+                    ["A ball rolling a circle at constant speed", 0, false],
+                    ["A car starting from rest down the freeway", 0, false],
+                    ["A ball thrown into the air", 0, false],
+                    ["None of the above", 1, false]
                 ],
-                explain: ""
+                explain: "The second and third options are self-explanatory as to why they are accelerating. However, the first case is actually not zero acceleration because velocity is a vector, and the direction of velocity changes as you move in a circle. Tricky!"
             }
         ],
         [ // algebra difficutly
@@ -91,14 +91,14 @@ const questions = reactive(
             },
             {
                 number: 1,
-                question: "",
+                question: "A ball is thrown straight up with some intial speed $v_0$. How long does it take for it to hit the ground again?",
                 answers: [
-                    ["", 0, false],
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false]
+                    ["$\\frac{v_0}{g}$", 0, false],
+                    ["$g{v_0}$", 0, false],
+                    ["$\\frac{2v_0}{g}$", 1, false],
+                    ["$\\frac{g}{2v_0}$", 0, false]
                 ],
-                explain: ""
+                explain: "We want to use the formula that $y = v_0t - \\frac12 gt^2$ and solve for when the ball is on the ground, or when $y=0$. Solving the equation for $t$ should yield you the third result."
             },
             {
                 number: 2,
@@ -113,36 +113,36 @@ const questions = reactive(
             },
             {
                 number: 3,
-                question: "",
+                question: "A car crashes into a wall at 75 km/h and the front end crumples while the car decelerates. If the maximum deceleration that the person inside can survive is $290 ~\\textrm{m/s}^2$, how far does the front end of the car have to collapse?",
                 answers: [
-                    ["", 0, false],
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false]
+                    ["0.75 m", 1, false],
+                    ["9.70 m", 0, false],
+                    ["0.26 m", 0, false],
+                    ["0.72 m", 0, false]
                 ],
-                explain: ""
+                explain: "First, don't forget to convert into meters per second. Next, we want to use the ${v_f}^2 - {v_0}^2 = 2a\\Delta x$ equation, where the final velocity must be zero. We can then solve for the required $\\Delta x$ given the acceleration is $290 ~\\textrm{m/s}^2$."
             },
             {
                 number: 4,
-                question: "",
+                question: "A deer crosses 30 meters in front of a car going at 18 m/s. The driver takes 0.25 seconds to react, after which he immediately slams on the brakes, causing a uniform acceleration of $6.0~\\textrm{m/s}^2$. Does he avoid a collision, and how far does he go before stopping?",
                 answers: [
-                    ["", 0, false],
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false]
+                    ["No, he goes 54 meters.", 0, false],
+                    ["No, he goes 31.5 meters.", 1, false],
+                    ["Yes, he goes 27 meters. ", 0, false],
+                    ["Yes, he goes 9.5 meters.", 0, false]
                 ],
-                explain: ""
+                explain: "First, the driver goes $ 18 \\cdot 0.25 = 4.5~\\textrm{m}$ in the time it takes him to react, meaning he doesn't actually have the full 30 meters to stop. We then compute that he needs 27 meters after he starts braking to stop by using the ${v_f}^2 - {v_0}^2 = 2a\\Delta x$ equation, meaning the answer is that he needs a total of 31.5 meters to stop."
             },
             {
                 number: 5,
-                question: "",
+                question: "Which of these cases has zero acceleration?",
                 answers: [
-                    ["", 0, false],
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false]
+                    ["A ball rolling a circle at constant speed", 0, false],
+                    ["A car starting from rest down the freeway", 0, false],
+                    ["A ball thrown into the air", 0, false],
+                    ["None of the above", 1, false]
                 ],
-                explain: ""
+                explain: "The second and third options are self-explanatory as to why they are accelerating. However, the first case is actually not zero acceleration because velocity is a vector, and the direction of velocity changes as you move in a circle. Tricky!"
             }
         ],
         [ // calculus difficutly
@@ -159,14 +159,14 @@ const questions = reactive(
             },
             {
                 number: 1,
-                question: "",
+                question: "A ball is thrown straight up with some intial speed $v_0$. How long does it take for it to hit the ground again?",
                 answers: [
-                    ["", 0, false],
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false]
+                    ["$\\frac{v_0}{g}$", 0, false],
+                    ["$g{v_0}$", 0, false],
+                    ["$\\frac{2v_0}{g}$", 1, false],
+                    ["$\\frac{g}{2v_0}$", 0, false]
                 ],
-                explain: ""
+                explain: "We want to use the formula that $y = v_0t - \\frac12 gt^2$ and solve for when the ball is on the ground, or when $y=0$. Solving the equation for $t$ should yield you the third result."
             },
             {
                 number: 2,
@@ -181,36 +181,36 @@ const questions = reactive(
             },
             {
                 number: 3,
-                question: "",
+                question: "A car crashes into a wall at 75 km/h and the front end crumples while the car decelerates. If the maximum deceleration that the person inside can survive is $290 ~\\textrm{m/s}^2$, how far does the front end of the car have to collapse?",
                 answers: [
-                    ["", 0, false],
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false]
+                    ["0.75 m", 1, false],
+                    ["9.70 m", 0, false],
+                    ["0.26 m", 0, false],
+                    ["0.72 m", 0, false]
                 ],
-                explain: ""
+                explain: "First, don't forget to convert into meters per second. Next, we want to use the ${v_f}^2 - {v_0}^2 = 2a\\Delta x$ equation, where the final velocity must be zero. We can then solve for the required $\\Delta x$ given the acceleration is $290 ~\\textrm{m/s}^2$."
             },
             {
                 number: 4,
-                question: "",
+                question: "A deer crosses 30 meters in front of a car going at 18 m/s. The driver takes 0.25 seconds to react, after which he immediately slams on the brakes, causing a uniform acceleration of $6.0~\\textrm{m/s}^2$. Does he avoid a collision, and how far does he go before stopping?",
                 answers: [
-                    ["", 0, false],
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false]
+                    ["No, he goes 54 meters.", 0, false],
+                    ["No, he goes 31.5 meters.", 1, false],
+                    ["Yes, he goes 27 meters. ", 0, false],
+                    ["Yes, he goes 9.5 meters.", 0, false]
                 ],
-                explain: ""
+                explain: "First, the driver goes $ 18 \\cdot 0.25 = 4.5~\\textrm{m}$ in the time it takes him to react, meaning he doesn't actually have the full 30 meters to stop. We then compute that he needs 27 meters after he starts braking to stop by using the ${v_f}^2 - {v_0}^2 = 2a\\Delta x$ equation, meaning the answer is that he needs a total of 31.5 meters to stop."
             },
             {
                 number: 5,
-                question: "",
+                question: "Which of these cases has zero acceleration?",
                 answers: [
-                    ["", 0, false],
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false]
+                    ["A ball rolling a circle at constant speed", 0, false],
+                    ["A car starting from rest down the freeway", 0, false],
+                    ["A ball thrown into the air", 0, false],
+                    ["None of the above", 1, false]
                 ],
-                explain: ""
+                explain: "The second and third options are self-explanatory as to why they are accelerating. However, the first case is actually not zero acceleration because velocity is a vector, and the direction of velocity changes as you move in a circle. Tricky!"
             }
         ]
     ]
