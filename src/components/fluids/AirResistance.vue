@@ -1,11 +1,11 @@
 <script setup>
-defineProps(["level", "page", "lessonShowing"])
+const props = defineProps(["level", "page", "lessonShowing"])
 defineEmits(["nextlesson", "nextpage", "prevpage"])
 import { Engine, Render, Runner, Bodies, Composite, Mouse, MouseConstraint, Body} from 'matter-js'
 import {onMounted, ref, onUnmounted, watch, reactive} from 'vue'
 
-const results = reactive([0]) // update as add more questions
-const explanations = reactive([false]) // keeps track of what explanations are visible
+const results = reactive([[0], [0], [0]]) // update as add more questions
+const explanations = reactive([[false], [false], [false]]) // keeps track of what explanations are visible
 
 const questions = reactive(
     [
@@ -14,10 +14,10 @@ const questions = reactive(
                 number: 0,
                 question: "What is the proper format for a vector in component form?",
                 answers: [
-                    ["$\\{3, 5\\}$", 0],
-                    ["$\\langle 3, 5 \\rangle$", 1],
-                    ["$(3, 5)$", 0],
-                    ["$[3, 5]$", 0]
+                    ["$\\{3, 5\\}$", 0, false],
+                    ["$\\langle 3, 5 \\rangle$", 1, false],
+                    ["$(3, 5)$", 0, false],
+                    ["$[3, 5]$", 0, false]
                 ],
                 explain: "Recall that a vector in component form is denoted by its component in the horizontal direction ($x$) and vertical direction ($y$), surrounded by angle brackets. Thus the second answer choice is the correct one."
             }
@@ -27,10 +27,10 @@ const questions = reactive(
                 number: 0,
                 question: "What is the proper format for a vector in component form?",
                 answers: [
-                    ["$\\{3, 5\\}$", 0],
-                    ["$\\langle 3, 5 \\rangle$", 1],
-                    ["$(3, 5)$", 0],
-                    ["$[3, 5]$", 0]
+                    ["$\\{3, 5\\}$", 0, false],
+                    ["$\\langle 3, 5 \\rangle$", 1, false],
+                    ["$(3, 5)$", 0, false],
+                    ["$[3, 5]$", 0, false]
                 ],
                 explain: "Recall that a vector in component form is denoted by its component in the horizontal direction ($x$) and vertical direction ($y$), surrounded by angle brackets. Thus the second answer choice is the correct one."
             }
@@ -40,10 +40,10 @@ const questions = reactive(
                 number: 0,
                 question: "What is the proper format for a vector in component form?",
                 answers: [
-                    ["$\\{3, 5\\}$", 0],
-                    ["$\\langle 3, 5 \\rangle$", 1],
-                    ["$(3, 5)$", 0],
-                    ["$[3, 5]$", 0]
+                    ["$\\{3, 5\\}$", 0, false],
+                    ["$\\langle 3, 5 \\rangle$", 1, false],
+                    ["$(3, 5)$", 0, false],
+                    ["$[3, 5]$", 0, false]
                 ],
                 explain: "Recall that a vector in component form is denoted by its component in the horizontal direction ($x$) and vertical direction ($y$), surrounded by angle brackets. Thus the second answer choice is the correct one."
             }
@@ -338,6 +338,22 @@ onUnmounted(() => {
         currentRunner = null
     }
 });
+
+function checkAnswer(form) {
+    const data = new FormData(document.querySelectorAll(".question")[form])
+    if (data.get("question") === "y") results[props.level][form] = 1
+    else results[props.level][form] = -1
+}
+
+function setChecked(chek, qNum) {
+    for (let i = 0; i < questions[props.level][qNum].answers.length; i++) {
+        if (questions[props.level][qNum].answers[i][2] && i !== chek) {
+            questions[props.level][qNum].answers[i][2] = false
+        } else if (!questions[props.level][qNum].answers[i][2] && i === chek) {
+            questions[props.level][qNum].answers[i][2] = true
+        }
+    }
+}
 
 </script>
 
