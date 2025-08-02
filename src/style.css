@@ -1,10 +1,18 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wdth,wght@0,98,360;1,98,300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wdth,wght@0,75..100,300..800;1,75..100,300..800&display=swap');
+
+.sidebar {
+    font-variation-settings:
+    "wdth" 98;
+}
 
 html,
 body {
     width: 100%;
     height: 100%;
-    font-family: Open Sans, sans-serif;
+    font-family: "Open Sans", sans-serif;
+    font-weight: 360;
+    font-variation-settings:
+    "wdth" 100;
 }
 
 body {
@@ -47,8 +55,8 @@ figure {
 }
 
 p {
-    font-size: 1.08rem;
-    line-height: 2.5rem;
+    font-size: 1.06rem;
+    line-height: 2.4rem;
 }
 
 .problem {
@@ -151,8 +159,10 @@ figure img {
 }
 
 .warn {
-    font-size: 0.87rem;
+    display:block;
+    font-size: 0.88rem;
     color: gray;
+    margin: 20px;
 }
 
 .explained {
