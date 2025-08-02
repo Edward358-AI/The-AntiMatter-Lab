@@ -5,47 +5,212 @@ const props = defineProps(["level", "page", "lessonShowing"])
 defineEmits(["nextlesson", "nextpage", "prevpage"])
 
 
-const results = reactive([[0], [0], [0]]) // update as add more questions
-const explanations = reactive([[false], [false], [false]]) // keeps track of what explanations are visible
+const results = reactive([[0,0,0,0,0,0], [0,0,0,0,0,0], [0,0,0,0,0,0]]) // update as add more questions
+const explanations = reactive([[false,false,false,false,false,false], [false,false,false,false,false,false], [false,false,false,false,false,false]]) // keeps track of what explanations are visible
 const questions = reactive(
     [
-        [ // conceptual difficutly
+        [ // conceptual difficulty
             {
                 number: 0,
-                question: "What is the proper format for a vector in component form?",
+                question: "When is the maximum range achieved?",
                 answers: [
-                    ["$\\{3, 5\\}$", 0, false],
-                    ["$\\langle 3, 5 \\rangle$", 1, false],
-                    ["$(3, 5)$", 0, false],
-                    ["$[3, 5]$", 0, false]
+                    ["When the angle is at $45 \\degree$", 1, false],
+                    ["When the velocity and acceleration are perpendicular", 0, false],
+                    ["When the x and y directions are independent", 0, false],
+                    ["When projectile is launched horizontally", 0, false]
                 ],
-                explain: "Recall that a vector in component form is denoted by its component in the horizontal direction ($x$) and vertical direction ($y$), surrounded by angle brackets. Thus the second answer choice is the correct one."
+                explain: "Recall that the maximum range is achieved when the angle is exactly 45 degrees."
+            },
+            {
+                number: 1,
+                question: "When are the velocity and acceleration vectors perpendicular in projectile motion?",
+                answers: [
+                    ["When the projectile is first launched", 0, false],
+                    ["When the projectile is launched straight up", 0, false],
+                    ["When the projectile is at its highest point", 1, false],
+                    ["Never", 0, false]
+                ],
+                explain: "At the peak of its motion, the projectile has no y-direction velocity, but it has some x-direction velocity. The acceleration is always pointed directly downwards, which means that the velocity and acceleration are perpendicular at this point."
+            },
+            {
+                number: 2,
+                question: "When are the velocity and acceleration parallel in projectile motion?",
+                answers: [
+                    ["When the projectile is first launched", 0, false],
+                    ["When the projectile is launched straight up", 1, false],
+                    ["When the projectile is at its highest point", 0, false],
+                    ["Never", 0, false]
+                ],
+                explain: "Only when the motion is purely vertical can the acceleration and velocity ever be entirely parallel, since if it has any horizontal velocity the total velocity would not be in the y-direction."
+            },
+            {
+                number: 3,
+                question: "Which hits the ground first: a projectile that is dropped, or a projectile launched sideways from the same height?",
+                answers: [
+                    ["The one dropped", 0, false],
+                    ["The one thrown", 0, false],
+                    ["It depends on their masses", 0, false],
+                    ["They hit at the same time", 1, false]
+                ],
+                explain: "The change in the y-position of both objects is the same, and we treat the x and y-directions separately. Therefore, the two objects will hit the ground at the same time."
+            },
+            {
+                number: 4,
+                question: "The shape a projectile traces out is called a:",
+                answers: [
+                    ["hyperbola", 0, false],
+                    ["parabola", 1, false],
+                    ["umbrella", 0, false],
+                    ["quartic", 0, false]
+                ],
+                explain: "The parabola is the shape of projectile motion. The most common example of one is the quadratic graph."
+            },
+            {
+                number: 5,
+                question: "A ball is thrown at some angle above the horizontal. When it hits the ground, what is its final speed compared to its initial?",
+                answers: [
+                    ["Less", 0, false],
+                    ["More", 0, false],
+                    ["The same", 1, false],
+                    ["It depends on how far it travelled", 0, false]
+                ],
+                explain: "Since the motion is symmetrical, the speed at which the projectile hits the ground must be the same as the speed at which it left the ground. Symmetry can save you a lot of work."
             }
         ],
-        [ // algebra difficutly
+        [ // algebra difficulty
             {
                 number: 0,
-                question: "What is the proper format for a vector in component form?",
+                question: "What is the general formula for the maximum range for a projectile launched at a speed of $v_0$?",
                 answers: [
-                    ["$\\{3, 5\\}$", 0, false],
-                    ["$\\langle 3, 5 \\rangle$", 1, false],
-                    ["$(3, 5)$", 0, false],
-                    ["$[3, 5]$", 0, false]
+                    ["$\\frac{2{v_0}^2}{g}$", 0, false],
+                    ["$\\frac{v_0}{g}$", 0, false],
+                    ["$\\frac{2v_0}{g}$", 0, false],
+                    ["$\\frac{{v_0}^2}{g}$", 1, false]
                 ],
-                explain: "Recall that a vector in component form is denoted by its component in the horizontal direction ($x$) and vertical direction ($y$), surrounded by angle brackets. Thus the second answer choice is the correct one."
+                explain: "Recall that the range formula is $$ R = \\frac{{v_0}^2\\sin 2\\theta}{g}$. Maximum range is at $45 \\degree$, so the formula simplifies to the last answer choice."
+            },
+            {
+                number: 1,
+                question: "A projectile launched at an angle of $30 \\degree$ has a range of 50 meters. What was the initial speed of the projectile?",
+                answers: [
+                    ["31.3 m/s", 0, false],
+                    ["23.8 m/s", 1, false],
+                    ["22.1 m/s", 0, false],
+                    ["15.7 m/s", 0, false]
+                ],
+                explain: "We use the range formula $ R = \\frac{{v_0}^2\\sin 2\\theta}{g}$, plugging in numbers for the angle and the range. Then, we simply solve for $v_0$ to get 23.8 m/s as our answer."
+            },
+            {
+                number: 2,
+                question: "A bullet is shot horizontally from a height of 0.7 meters, at a velocity of 760 m/s. How far does it travel before hitting the ground?",
+                answers: [
+                    ["287 m", 1, false],
+                    ["203 m", 0, false],
+                    ["77.5 m", 0, false],
+                    [" 532 m", 0, false]
+                ],
+                explain: "The time it takes for the bullet to fall the 0.7 meters can be found with $\\Delta y = \\frac12 gt^2$, giving us a time of 0.38 seconds. Then, we just multiply this time with the x-direction velocity to find the range to be 287 meters."
+            },
+            {
+                number: 3,
+                question: "Which hits the ground first: a projectile that is dropped, or a projectile launched sideways from the same height?",
+                answers: [
+                    ["The one dropped", 0, false],
+                    ["The one thrown", 0, false],
+                    ["It depends on their masses", 0, false],
+                    ["They hit at the same time", 1, false]
+                ],
+                explain: "The change in the y-position of both objects is the same, and we treat the x and y-directions separately. Therefore, the two objects will hit the ground at the same time."
+            },
+            {
+                number: 4,
+                question: "Which of these is the correct maximum height for a ball thrown at $15 \\degree$ above the horizontal at a velocity of 15 m/s?",
+                answers: [
+                    ["0.79 m", 0, false],
+                    ["0.77 m", 1, false],
+                    ["0.65 m", 0, false],
+                    ["1.46 m", 0, false]
+                ],
+                explain: "You need to use the height formula $ H = \\frac{{v_0 \\sin \\theta}^2}{g}$ and plug in all the values given. It is a direct computation, but you should use $g = 9.81~\\textrm{m/s}^2$ for the most precise answer."
+            },
+            {
+                number: 5,
+                question: "Consider a particle launched at $45 \\degree$ at 500 m/s. Calculate the difference in the range of the projectile if the angle was changed to be one degree more or less.",
+                answers: [
+                    ["16.5 m", 0, false],
+                    ["445 m", 0, false],
+                    ["31.0 m", 1, false],
+                    ["10.0 m", 0, false]
+                ],
+                explain: "We simply calculate the two ranges, one for $ 45 \\degree$ and one for $ 46 \\degree$ or $ 44 \\degree$, and find their difference. If we follow the range formula and do all the arithmetic correctly, we should get a quite significant difference of 31.0 meters!"
             }
         ],
-        [ // calculus difficutly
+        [ // calculus difficulty
             {
                 number: 0,
-                question: "What is the proper format for a vector in component form?",
+                question: "What is the general formula for the maximum range for a projectile launched at a speed of $v_0$?",
                 answers: [
-                    ["$\\{3, 5\\}$", 0, false],
-                    ["$\\langle 3, 5 \\rangle$", 1, false],
-                    ["$(3, 5)$", 0, false],
-                    ["$[3, 5]$", 0, false]
+                    ["$\\frac{2{v_0}^2}{g}$", 0, false],
+                    ["$\\frac{v_0}{g}$", 0, false],
+                    ["$\\frac{2v_0}{g}$", 0, false],
+                    ["$\\frac{{v_0}^2}{g}$", 1, false]
                 ],
-                explain: "Recall that a vector in component form is denoted by its component in the horizontal direction ($x$) and vertical direction ($y$), surrounded by angle brackets. Thus the second answer choice is the correct one."
+                explain: "Recall that the range formula is $ R = \\frac{{v_0}^2\\sin 2\\theta}{g}$. Maximum range is at $45 \\degree$, so the formula simplifies to the last answer choice."
+            },
+            {
+                number: 1,
+                question: "A projectile launched at an angle of $30 \\degree$ has a range of 50 meters. What was the initial speed of the projectile?",
+                answers: [
+                    ["31.3 m/s", 0, false],
+                    ["23.8 m/s", 1, false],
+                    ["22.1 m/s", 0, false],
+                    ["15.7 m/s", 0, false]
+                ],
+                explain: "We use the range formula $ R = \\frac{{v_0}^2\\sin 2\\theta}{g}$, plugging in numbers for the angle and the range. Then, we simply solve for $v_0$ to get 23.8 m/s as our answer."
+            },
+            {
+                number: 2,
+                question: "A bullet is shot horizontally from a height of 0.7 meters, at a velocity of 760 m/s. How far does it travel before hitting the ground?",
+                answers: [
+                    ["287 m", 1, false],
+                    ["203 m", 0, false],
+                    ["77.5 m", 0, false],
+                    [" 532 m", 0, false]
+                ],
+                explain: "The time it takes for the bullet to fall the 0.7 meters can be found with $\\Delta y = \\frac12 gt^2$, giving us a time of 0.38 seconds. Then, we just multiply this time with the x-direction velocity to find the range to be 287 meters."
+            },
+            {
+                number: 3,
+                question: "Which hits the ground first: a projectile that is dropped, or a projectile launched sideways from the same height?",
+                answers: [
+                    ["The one dropped", 0, false],
+                    ["The one thrown", 0, false],
+                    ["It depends on their masses", 0, false],
+                    ["They hit at the same time", 1, false]
+                ],
+                explain: "The change in the y-position of both objects is the same, and we treat the x and y-directions separately. Therefore, the two objects will hit the ground at the same time."
+            },
+            {
+                number: 4,
+                question: "Which of these is the correct maximum height for a ball thrown at $15 \\degree$ above the horizontal at a velocity of 15 m/s?",
+                answers: [
+                    ["0.79 m", 0, false],
+                    ["0.77 m", 1, false],
+                    ["0.65 m", 0, false],
+                    ["1.46 m", 0, false]
+                ],
+                explain: "You need to use the height formula $ H = \\frac{{v_0 \\sin \\theta}^2}{g}$ and plug in all the values given. It is a direct computation, but you should use $g = 9.81~\\textrm{m/s}^2$ for the most precise answer."
+            },
+            {
+                number: 5,
+                question: "Consider a particle launched at $45 \\degree$ at 500 m/s. Calculate the difference in the range of the projectile if the angle was changed to be one degree more or less.",
+                answers: [
+                    ["16.5 m", 0, false],
+                    ["445 m", 0, false],
+                    ["31.0 m", 1, false],
+                    ["10.0 m", 0, false]
+                ],
+                explain: "We simply calculate the two ranges, one for $ 45 \\degree$ and one for $ 46 \\degree$ or $ 44 \\degree$, and find their difference. If we follow the range formula and do all the arithmetic correctly, we should get a quite significant difference of 31.0 meters!"
             }
         ]
     ]
@@ -214,7 +379,7 @@ onUnmounted(() => {
                     vectors
                     can be defined with a magnitude and angle from the positive x-axis, and so we can launch a
                     projectile at
-                    with an intitial velocity, at a certain angle, and it will yield this:
+                    with an initial velocity, at a certain angle, and it will yield this:
                     <br><br>
                     <figure>
                         <img src="/src/assets/kinematics/Figure 12.png" />
@@ -236,7 +401,7 @@ onUnmounted(() => {
                     interesting
                     formulas and problems arise from this as a result. Remember that vectors can be defined with a
                     magnitude and
-                    angle from the positive x-axis, and so we can launch a projectile at with an intitial velocity
+                    angle from the positive x-axis, and so we can launch a projectile at with an initial velocity
                     $v_0$, at a
                     certain angle $\theta$, and it will yield this:
                     <figure>
@@ -245,7 +410,7 @@ onUnmounted(() => {
                     </figure>
                     Now that you've seen our diagram, it's time to experience it. Or at least, experience it the best
                     you can in an
-                    online setting. We have made a projectile motion demonstration with adjustable paramenters for
+                    online setting. We have made a projectile motion demonstration with adjustable parameters for
                     launch speed and angle.
                     Do note that the projectile will bounce because we thought it would look better, but the thing we're
                     concerned with here is
@@ -274,7 +439,7 @@ onUnmounted(() => {
                 are two
                 projectiles that
                 are launched at completely different angles yield the same range. The reason for this is more
-                mathemathically intense than we can handle, but conceptually, all you need to know is that if you
+                mathematically intense than we can handle, but conceptually, all you need to know is that if you
                 shoot an
                 object at an angle, say $10$ degrees, then if you shoot it at $90$ minus that angle (in degrees), it
                 will also land
@@ -389,7 +554,7 @@ onUnmounted(() => {
                     component to reach the final range is the same time it takes the vertical component to travel up and
                     down, as if it were on its own.<br><br>Conceptually, this is pretty much all there is to projectile
                     motion. Next up is a short and brief lesson that will talk you through some things that will be
-                    helpful to know, particular for unit 2.
+                    helpful to know, particularly for unit 2.
                 </span>
                 <span v-show="level > 0">
                     In order to prove that the trajectory is parabolic, we need to relate x and y. To do this, we write
