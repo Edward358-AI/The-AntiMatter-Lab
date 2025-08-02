@@ -1,13 +1,10 @@
-@font-face {
-    font-family: Avenirfont;
-    src: url("assets/AvenirLTStd-Light.otf") format("opentype");
-}
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wdth,wght@0,98,360;1,98,300&display=swap');
 
 html,
 body {
     width: 100%;
     height: 100%;
-    font-family: Avenirfont;
+    font-family: Open Sans, sans-serif;
 }
 
 body {
@@ -50,7 +47,7 @@ figure {
 }
 
 p {
-    font-size: 1.1rem;
+    font-size: 1.08rem;
     line-height: 2.5rem;
 }
 
@@ -71,6 +68,10 @@ figcaption {
 
 a {
     color: inherit;
+}
+
+.sidebar {
+    font-size: 0.9rem;
 }
 
 @keyframes fadein {
