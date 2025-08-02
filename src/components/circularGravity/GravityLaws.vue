@@ -809,7 +809,7 @@ onUnmounted(() => {
                         @click="explanations[level][q.number] = !explanations[level][q.number]">{{
                             !explanations[level][q.number] ? "Want to see an explanation? " : "Hide explanation" }}</a>
                 </div>
-                <span class="explained mt-3" v-show="explanations[level][q.number]">{{ q.explain }}</span>
+                <span class="explained mt-3" v-show="explanations[level][q.number]" v-html="q.explain"></span>
             </form>
 
         </div>

@@ -3,8 +3,8 @@ import { reactive, watch } from 'vue'
 const props = defineProps(["level", "page", "lessonShowing"])
 defineEmits(["nextlesson", "nextpage", "prevpage"])
 
-const results = reactive([[0, 0, 0], [0], [0]]) // update as add more questions
-const explanations = reactive([[false, false, false], [false], [false]]) // keeps track of what explanations are visible
+const results = reactive([[0, 0, 0, 0], [0], [0]]) // update as add more questions
+const explanations = reactive([[false, false, false, false], [false], [false]]) // keeps track of what explanations are visible
 const questions = reactive(
     [
         [ // conceptual difficutly
@@ -40,6 +40,17 @@ const questions = reactive(
                     ["$\\langle 15, 8 \\rangle$", 1, false]
                 ],
                 explain: "$\\vec{a} + \\vec{b} = \\langle 4,6 \\rangle + \\langle 11, 2 \\rangle$ $ = \\langle 4+11, 6+2 \\rangle = \\langle 15, 8 \\rangle$"
+            },
+            {
+                number: 3,
+                question: "What is the name of the method of adding two vectors graphically?",
+                answers: [
+                    ["End-to-tail", 0, false],
+                    ["Tail-to-end", 0, false],
+                    ["Tip-to-tail", 1, false],
+                    ["Start-to-end", 0, false]
+                ],
+                explain: "Recall from the lesson that the way to properly add vectors graphically is using the <i>tip-to-tail</i> method."
             }
             
         ],
@@ -435,7 +446,7 @@ function setChecked(chek, qNum) {
                         @click="explanations[level][q.number] = !explanations[level][q.number]">{{
                             !explanations[level][q.number] ? "Want to see an explanation? " : "Hide explanation" }}</a>
                 </div>
-                <span class="explained mt-3" v-show="explanations[level][q.number]">{{ q.explain }}</span>
+                <span class="explained mt-3" v-show="explanations[level][q.number]" v-html="q.explain"></span>
             </form>
 
         </div>
