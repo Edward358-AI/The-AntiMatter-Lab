@@ -213,7 +213,7 @@ onUpdated(() => {
 
   <!-- START OF MOBILE SIDEBAR -->
   <div class="sidebar offcanvas offcanvas-start" id="mobile-menu">
-    <div class="offcanvas-header border-bottom border-secondary border-opacity-25">
+    <div class="offcanvas-header border-bottom border-secondary border-opacity-25 align-items-center" style="height: 50px">
       <a class="sidebar-brand mx-auto" href="javascript:void(0);"
         @click="Window.scrollTo(0, 0); user.current = 'landing'; hideMobileBar()">
         <img src="/favicon.png" width="24" height="24" class="d-inline-block align-text-top rounded-1">
@@ -228,7 +228,7 @@ onUpdated(() => {
       <div @click="lessonShowing = false; hideMobileBar(); Window.scrollTo(0, 0)"
         :class="lessonShowing ? 'sidebarTab col p-2' : 'sidebarTab col p-2 bg-secondary-subtle'">Problems</div>
     </div>
-    <div class="offcanvas-header border-bottom border-secondary border-opacity-25">
+    <div class="offcanvas-header border-bottom border-secondary border-opacity-25" style="height: 50px;">
       <input v-model="searchQuery" type="text" class="form-control" placeholder="Type here to find a lesson...">
     </div>
     <div class="offcanvas-body">
@@ -351,11 +351,11 @@ onUpdated(() => {
 
       </ul>
     </div>
-    <div class="offcanvas-footer mb-3 pt-2 border-top border-secondary border-opacity-25">
-      <div class="row justify-content-center mb-2">
+    <div class="offcanvas-footer mb-1 pt-1 border-top border-secondary border-opacity-25">
+      <div class="row justify-content-center" style="margin-bottom:1px">
         <div class="col-6">
           <h6 class="sidebar-header">Adjust Math Level</h6>
-          <select style="width: 140px;" class="mx-auto p-2 my-2 form-select" id="levelSelect" v-model="user.difficulty">
+          <select style="width: 140px;" class="mx-auto p-2 my-1 form-select" id="levelSelect" v-model="user.difficulty" @change="hideMobileBar()">
             <option value="0">Conceptual</option>
             <option value="1">Algebra-Based</option>
             <option value="2">Calculus-Based</option>
@@ -363,17 +363,17 @@ onUpdated(() => {
         </div>
         <div class="col-4">
           <h6 class="sidebar-header">Theme</h6>
-          <select style="width: 70px;" class="mx-auto p-2 my-2 form-select" id="themeSelect" v-model="user.theme">
+          <select style="width: 70px;" class="mx-auto p-2 my-1 form-select" id="themeSelect" v-model="user.theme" @change="hideMobileBar()">
             <option value="dark">Dark</option>
             <option value="light">Light</option>
           </select>
         </div>
       </div>
-      <span class="text-secondary-emphasis">Made by Edward Jiang and Eric Niu</span><br style="margin-bottom:10px">
-      <a href="javascript:void(0);" @click="Window.scrollTo(0, 0); user.current = 'about'"
+      <span class="text-secondary-emphasis">Made by Edward Jiang and Eric Niu</span><br style="margin-bottom:2px">
+      <a href="javascript:void(0);" @click="Window.scrollTo(0, 0); user.current = 'about'; hideMobileBar()"
         class="link-offset-1 info-link">About</a>&emsp;
       <a href="https://github.com/Edward358-AI/The-AntiMatter-Lab" target="_blank"
-        class="link-offset-1 info-link">Github</a>
+        class="link-offset-1 info-link" @click="hideMobileBar()">Github</a>
     </div>
   </div>
 
@@ -736,7 +736,7 @@ onUpdated(() => {
 }
 
 #mobile-menu {
-  max-width: 310px;
+  max-width: 300px;
 }
 
 @media only screen and (min-width:768px) {
