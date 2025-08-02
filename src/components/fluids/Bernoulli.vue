@@ -3,47 +3,212 @@ import { reactive, watch } from 'vue'
 const props = defineProps(["level", "page", "lessonShowing"])
 defineEmits(["nextlesson", "nextpage", "prevpage"])
 
-const results = reactive([[0], [0], [0]]) // update as add more questions
-const explanations = reactive([[false], [false], [false]]) // keeps track of what explanations are visible
+const results = reactive([[0,0,0,0,0,0], [0,0,0,0,0,0], [0,0,0,0,0,0]]) // update as add more questions
+const explanations = reactive([[false,false,false,false,false,false], [false,false,false,false,false,false], [false,false,false,false,false,false]]) // keeps track of what explanations are visible
 const questions = reactive(
     [
-        [ // conceptual difficutly
+        [ // conceptual difficulty
             {
                 number: 0,
-                question: "What is the proper format for a vector in component form?",
+                question: "",
                 answers: [
-                    ["$\\{3, 5\\}$", 0, false],
-                    ["$\\langle 3, 5 \\rangle$", 1, false],
-                    ["$(3, 5)$", 0, false],
-                    ["$[3, 5]$", 0, false]
+                    ["", 0, false],
+                    ["", 1, false],
+                    ["", 0, false],
+                    ["", 0, false]
                 ],
-                explain: "Recall that a vector in component form is denoted by its component in the horizontal direction ($x$) and vertical direction ($y$), surrounded by angle brackets. Thus the second answer choice is the correct one."
+                explain: ""
+            },
+            {
+                number: 1,
+                question: "",
+                answers: [
+                    ["", 0, false],
+                    ["", 1, false],
+                    ["", 0, false],
+                    ["", 0, false]
+                ],
+                explain: ""
+            },
+            {
+                number: 2,
+                question: "",
+                answers: [
+                    ["", 0, false],
+                    ["", 1, false],
+                    ["", 0, false],
+                    ["", 0, false]
+                ],
+                explain: ""
+            },
+            {
+                number: 3,
+                question: "",
+                answers: [
+                    ["", 0, false],
+                    ["", 1, false],
+                    ["", 0, false],
+                    ["", 0, false]
+                ],
+                explain: ""
+            },
+            {
+                number: 4,
+                question: "",
+                answers: [
+                    ["", 0, false],
+                    ["", 1, false],
+                    ["", 0, false],
+                    ["", 0, false]
+                ],
+                explain: ""
+            },
+            {
+                number: 5,
+                question: "",
+                answers: [
+                    ["", 0, false],
+                    ["", 1, false],
+                    ["", 0, false],
+                    ["", 0, false]
+                ],
+                explain: ""
             }
         ],
-        [ // algebra difficutly
+        [ // algebra difficulty
             {
                 number: 0,
-                question: "What is the proper format for a vector in component form?",
+                question: "",
                 answers: [
-                    ["$\\{3, 5\\}$", 0, false],
-                    ["$\\langle 3, 5 \\rangle$", 1, false],
-                    ["$(3, 5)$", 0, false],
-                    ["$[3, 5]$", 0, false]
+                    ["", 0, false],
+                    ["", 1, false],
+                    ["", 0, false],
+                    ["", 0, false]
                 ],
-                explain: "Recall that a vector in component form is denoted by its component in the horizontal direction ($x$) and vertical direction ($y$), surrounded by angle brackets. Thus the second answer choice is the correct one."
+                explain: ""
+            },
+            {
+                number: 1,
+                question: "",
+                answers: [
+                    ["", 0, false],
+                    ["", 1, false],
+                    ["", 0, false],
+                    ["", 0, false]
+                ],
+                explain: ""
+            },
+            {
+                number: 2,
+                question: "",
+                answers: [
+                    ["", 0, false],
+                    ["", 1, false],
+                    ["", 0, false],
+                    ["", 0, false]
+                ],
+                explain: ""
+            },
+            {
+                number: 3,
+                question: "",
+                answers: [
+                    ["", 0, false],
+                    ["", 1, false],
+                    ["", 0, false],
+                    ["", 0, false]
+                ],
+                explain: ""
+            },
+            {
+                number: 4,
+                question: "",
+                answers: [
+                    ["", 0, false],
+                    ["", 1, false],
+                    ["", 0, false],
+                    ["", 0, false]
+                ],
+                explain: ""
+            },
+            {
+                number: 5,
+                question: "",
+                answers: [
+                    ["", 0, false],
+                    ["", 1, false],
+                    ["", 0, false],
+                    ["", 0, false]
+                ],
+                explain: ""
             }
         ],
-        [ // calculus difficutly
+        [ // calculus difficulty
             {
                 number: 0,
-                question: "What is the proper format for a vector in component form?",
+                question: "",
                 answers: [
-                    ["$\\{3, 5\\}$", 0, false],
-                    ["$\\langle 3, 5 \\rangle$", 1, false],
-                    ["$(3, 5)$", 0, false],
-                    ["$[3, 5]$", 0, false]
+                    ["", 0, false],
+                    ["", 1, false],
+                    ["", 0, false],
+                    ["", 0, false]
                 ],
-                explain: "Recall that a vector in component form is denoted by its component in the horizontal direction ($x$) and vertical direction ($y$), surrounded by angle brackets. Thus the second answer choice is the correct one."
+                explain: ""
+            },
+            {
+                number: 1,
+                question: "",
+                answers: [
+                    ["", 0, false],
+                    ["", 1, false],
+                    ["", 0, false],
+                    ["", 0, false]
+                ],
+                explain: ""
+            },
+            {
+                number: 2,
+                question: "",
+                answers: [
+                    ["", 0, false],
+                    ["", 1, false],
+                    ["", 0, false],
+                    ["", 0, false]
+                ],
+                explain: ""
+            },
+            {
+                number: 3,
+                question: "",
+                answers: [
+                    ["", 0, false],
+                    ["", 1, false],
+                    ["", 0, false],
+                    ["", 0, false]
+                ],
+                explain: ""
+            },
+            {
+                number: 4,
+                question: "",
+                answers: [
+                    ["", 0, false],
+                    ["", 1, false],
+                    ["", 0, false],
+                    ["", 0, false]
+                ],
+                explain: ""
+            },
+            {
+                number: 5,
+                question: "",
+                answers: [
+                    ["", 0, false],
+                    ["", 1, false],
+                    ["", 0, false],
+                    ["", 0, false]
+                ],
+                explain: ""
             }
         ]
     ]

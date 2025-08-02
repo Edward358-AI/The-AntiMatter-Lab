@@ -4,212 +4,146 @@ const props = defineProps(["level", "page", "lessonShowing"])
 defineEmits(["nextlesson", "nextpage", "prevpage"])
 
 
-const results = reactive([[0,0,0,0,0,0], [0,0,0,0,0,0], [0,0,0,0,0,0]]) // update as add more questions
-const explanations = reactive([[false,false,false,false,false,false], [false,false,false,false,false,false], [false,false,false,false,false,false]]) // keeps track of what explanations are visible
+const results = reactive([[0,0,0,0], [0,0,0,0], [0,0,0,0]]) // update as add more questions
+const explanations = reactive([[false,false,false,false], [false,false,false,false], [false,false,false,false]]) // keeps track of what explanations are visible
 const questions = reactive(
     [
         [ // conceptual difficutly
             {
                 number: 0,
-                question: "What is the proper format for a vector in component form?",
+                question: "Consider being inside a car on a freeway. In which of these cases would you see another car moving at zero relative velocity?",
                 answers: [
-                    ["$\\{3, 5\\}$", 0, false],
-                    ["$\\langle 3, 5 \\rangle$", 1, false],
-                    ["$(3, 5)$", 0, false],
-                    ["$[3, 5]$", 0, false]
+                    ["The other car is not moving.", 0, false],
+                    ["The other car moves with the same speed.", 0, false],
+                    ["The other car moves with the same velocity.", 1, false],
+                    ["You crash into a pole because you were too busy looking at the other car.", 0, false]
                 ],
-                explain: "Recall that a vector in component form is denoted by its component in the horizontal direction ($x$) and vertical direction ($y$), surrounded by angle brackets. Thus the second answer choice is the correct one."
+                explain: "The correct option is the third choice. If the other car is moving with the same velocity, it means it moves alongside you at the same speed in the same direction, and you don't appear to see it move."
             },
             {
                 number: 1,
-                question: "",
+                question: "In which of these cases would two cars have the greatest relative velocity?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["They move in the same direction", 0, false],
+                    ["They are head-on to each other", 1, false],
+                    ["They approach an intersection from right angles", 0, false],
+                    ["They all have the same relative velocity", 0, false]
                 ],
-                explain: ""
+                explain: "When the two cars are head-on, their relative velocity is the sum of their two velocities. The first choice means you take the difference of their velocities, and the third requires you to use the Pythagorean Theorem, which gives a smaller result than just adding them."
             },
             {
                 number: 2,
-                question: "",
+                question: "Alex approaches an intersection at 15 m/s in his car. Bob comes from the other road at 17 m/s. What is their relative velocity? (Assume the intersection is shaped like a plus sign.)",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["32 m/s", 0, false],
+                    ["2 m/s", 0, false],
+                    ["22.7 m/s", 1, false],
+                    ["8 m/s", 0, false]
                 ],
-                explain: ""
+                explain: "Since the two are at right angles, we have to use the Pythagorean theorem to find their relative velocity, or $v_{ab} = \\sqrt{{v_a}^2 +{v_b}^2}$. This gives us the third answer choice." 
             },
             {
                 number: 3,
-                question: "",
+                question: "What is an inertial reference frame?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["One where you don't move", 0, false],
+                    ["One where your velocity is zero", 0, false],
+                    ["One where gravity is the only force on you", 0, false],
+                    ["One where you do not accelerate", 1, false]
                 ],
-                explain: ""
+                explain: "An inertial reference frame is characterized by there being no acceleration."
             },
-            {
-                number: 4,
-                question: "",
-                answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
-                ],
-                explain: ""
-            },
-            {
-                number: 5,
-                question: "",
-                answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
-                ],
-                explain: ""
-            }
         ],
         [ // algebra difficutly
             {
                 number: 0,
-                question: "What is the proper format for a vector in component form?",
+                question: "Consider being inside a car on a freeway. In which of these cases would you see another car moving at zero relative velocity?",
                 answers: [
-                    ["$\\{3, 5\\}$", 0, false],
-                    ["$\\langle 3, 5 \\rangle$", 1, false],
-                    ["$(3, 5)$", 0, false],
-                    ["$[3, 5]$", 0, false]
+                    ["The other car is not moving.", 0, false],
+                    ["The other car moves with the same speed.", 0, false],
+                    ["The other car moves with the same velocity.", 1, false],
+                    ["You crash into a pole because you were too busy looking at the other car.", 0, false]
                 ],
-                explain: "Recall that a vector in component form is denoted by its component in the horizontal direction ($x$) and vertical direction ($y$), surrounded by angle brackets. Thus the second answer choice is the correct one."
+                explain: "The correct option is the third choice. If the other car is moving with the same velocity, it means it moves alongside you at the same speed in the same direction, and you don't appear to see it move."
             },
             {
                 number: 1,
-                question: "",
+                question: "In which of these cases would two cars have the greatest relative velocity?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["They move in the same direction", 0, false],
+                    ["They are head-on to each other", 1, false],
+                    ["They approach an intersection from right angles", 0, false],
+                    ["They all have the same relative velocity", 0, false]
                 ],
-                explain: ""
+                explain: "When the two cars are head-on, their relative velocity is the sum of their two velocities. The first choice means you take the difference of their velocities, and the third requires you to use the Pythagorean Theorem, which gives a smaller result than just adding them."
             },
             {
                 number: 2,
-                question: "",
+                question: "If two objects have some relative velocity, is it possible to tell which one is moving?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["Yes", 0, false],
+                    ["No", 1, false],
+                    ["Sometimes", 0, false],
+                    ["Only if you are in an inertial reference frame", 0, false]
                 ],
-                explain: ""
+                explain: "Velocity depends on the reference frame of the observer. There is no absolute reference frame, so it is impossible to absolutely tell whether one object or another is moving."
             },
             {
                 number: 3,
-                question: "",
+                question: "A boat moves downstream in a river at 30 km/h. At some point, it passes a log. It them travels downstream for 5 kilometers, then returns to the log. How long is the time between seeing the kog for the first time and seeing it for the second time?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["20 min", 1, false],
+                    ["10 min", 0, false],
+                    ["40 min", 0, false],
+                    ["60 min", 0, false]
                 ],
-                explain: ""
-            },
-            {
-                number: 4,
-                question: "",
-                answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
-                ],
-                explain: ""
-            },
-            {
-                number: 5,
-                question: "",
-                answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
-                ],
-                explain: ""
+                explain: "You can use brute-force kinematics to get the answer, but there's a clever trick. The relative velocity between the boat and river is constant and the log drifts downstream at a constant rate, so can just take the round-trip distance and divide it by the speed. Simple!"
             }
         ],
         [ // calculus difficutly
             {
                 number: 0,
-                question: "What is the proper format for a vector in component form?",
+                question: "Consider being inside a car on a freeway. In which of these cases would you see another car moving at zero relative velocity?",
                 answers: [
-                    ["$\\{3, 5\\}$", 0, false],
-                    ["$\\langle 3, 5 \\rangle$", 1, false],
-                    ["$(3, 5)$", 0, false],
-                    ["$[3, 5]$", 0, false]
+                    ["The other car is not moving.", 0, false],
+                    ["The other car moves with the same speed.", 0, false],
+                    ["The other car moves with the same velocity.", 1, false],
+                    ["You crash into a pole because you were too busy looking at the other car.", 0, false]
                 ],
-                explain: "Recall that a vector in component form is denoted by its component in the horizontal direction ($x$) and vertical direction ($y$), surrounded by angle brackets. Thus the second answer choice is the correct one."
+                explain: "The correct option is the third choice. If the other car is moving with the same velocity, it means it moves alongside you at the same speed in the same direction, and you don't appear to see it move."
             },
             {
                 number: 1,
-                question: "",
+                question: "In which of these cases would two cars have the greatest relative velocity?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["They move in the same direction", 0, false],
+                    ["They are head-on to each other", 1, false],
+                    ["They approach an intersection from right angles", 0, false],
+                    ["They all have the same relative velocity", 0, false]
                 ],
-                explain: ""
+                explain: "When the two cars are head-on, their relative velocity is the sum of their two velocities. The first choice means you take the difference of their velocities, and the third requires you to use the Pythagorean Theorem, which gives a smaller result than just adding them."
             },
             {
                 number: 2,
-                question: "",
+                question: "If two objects have some relative velocity, is it possible to tell which one is moving?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["Yes", 0, false],
+                    ["No", 1, false],
+                    ["Sometimes", 0, false],
+                    ["Only if you are in an inertial reference frame", 0, false]
                 ],
-                explain: ""
+                explain: "Velocity depends on the reference frame of the observer. There is no absolute reference frame, so it is impossible to absolutely tell whether one object or another is moving."
             },
             {
                 number: 3,
-                question: "",
+                question: "A boat moves downstream in a river at 30 km/h. At some point, it passes a log. It them travels downstream for 5 kilometers, then returns to the log. How long is the time between seeing the kog for the first time and seeing it for the second time?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["20 min", 1, false],
+                    ["10 min", 0, false],
+                    ["40 min", 0, false],
+                    ["60 min", 0, false]
                 ],
-                explain: ""
-            },
-            {
-                number: 4,
-                question: "",
-                answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
-                ],
-                explain: ""
-            },
-            {
-                number: 5,
-                question: "",
-                answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
-                ],
-                explain: ""
+                explain: "You can use brute-force kinematics to get the answer, but there's a clever trick. The relative velocity between the boat and river is constant and the log drifts downstream at a constant rate, so can just take the round-trip distance and divide it by the speed. Simple!"
             }
         ]
     ]
