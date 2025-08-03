@@ -81,8 +81,7 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
         <h1>License</h1><br>
         <p class="text-center pb-5">This project is licensed under the MIT License.</p>
         <div class="btn-contain-right">
-                <button class="btn btn-dark" style="animation: scale 2s infinite;" @click="$emit('nextlesson')">Next
-                    Lesson! &rarr;</button>
+                <button class="btn btn-dark" style="animation: scale 2s infinite;" @click="$emit('nextlesson')">Next Page!&rarr;</button>
             </div>
     </div>
 </template>
