@@ -12,205 +12,205 @@ const questions = reactive(
         [ // conceptual difficutly
             {
                 number: 0,
-                question: "What is the proper format for a vector in component form?",
+                question: "What is the theoretical maximum possible acceleration on a frictionless inclined plane?",
                 answers: [
-                    ["$\\{3, 5\\}$", 0, false],
-                    ["$\\langle 3, 5 \\rangle$", 1, false],
-                    ["$(3, 5)$", 0, false],
-                    ["$[3, 5]$", 0, false]
+                    ["4.91 $~\\textrm{m/s}^2$", 0, false],
+                    ["9.81 $~\\textrm{m/s}^2$", 1, false],
+                    ["There is no limit", 0, false],
+                    ["The limit cannot be calculated", 0, false]
                 ],
-                explain: "Recall that a vector in component form is denoted by its component in the horizontal direction ($x$) and vertical direction ($y$), surrounded by angle brackets. Thus the second answer choice is the correct one."
+                explain: "The acceleration of a block on an inclined plane only depends on the incline angle. The maximum acceleration happens when the incline angle is 90 degrees, because in that case the object is in free fall. This gives us the second answer choice as the correct one."
             },
             {
                 number: 1,
-                question: "",
+                question: "Which of these does not affect the acceleration down an inclined plane?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["Friction", 0, false],
+                    ["Gravity", 0, false],
+                    ["Incline Angle", 0, false],
+                    ["Mass", 1, false]
                 ],
-                explain: ""
+                explain: "The acceleration down an incline does not depend on the mass of the object, much like free fall. In our force equations, mass cancels out at the end."
             },
             {
                 number: 2,
-                question: "",
+                question: "Which one of these would not be an ideal pulley?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["A massless, frictionless wheel", 0, false],
+                    ["A massive, frictionless wheel", 0, false],
+                    ["A massless wheel with friction", 0, false],
+                    ["A massive wheel with friction", 1, false]
                 ],
-                explain: ""
+                explain: "The ideal pulley allows the string to pass over it without friction and does not affect the motion of the system as a whole. The first two would be ideal because the string passes over them with friction, but the third would also be ideal because the motion of a massless object wouldn't affect anything, even if it did have friction. Thus the correct answer is the fourth one."
             },
             {
                 number: 3,
-                question: "",
+                question: "What happens if you have two equal weights on either side of an Atwood's machine and slightly pull one of the blocks downwards?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["The block accelerates down", 0, false],
+                    ["The block accelerates up", 0, false],
+                    ["The block moves at constant velocity", 1, false],
+                    ["The block stops", 0, false]
                 ],
-                explain: ""
+                explain: "Because the machine has two identical weights on either side, there is zero acceleration of the system as a whole. Therefore, the block that is pulled downwards will continue at constant velocity."
             },
             {
                 number: 4,
-                question: "",
+                question: "Consider the pulley of an ideal Atwood's machine, where the string has a tension $T$. What is force on the pulley due to the string?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["$2T$", 1, false],
+                    ["$T$", 0, false],
+                    ["$0$", 0, false],
+                    ["$T/2$", 0, false]
                 ],
-                explain: ""
+                explain: "There is a downward force of $T$ on both sides of the pulley due to the string, meaning the total force on the pulley by the string wrapped around it is $2T$."
             },
             {
                 number: 5,
-                question: "",
+                question: "Changing the size of the pulley in a basic Atwood's machine changes the:",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["Acceleration", 0, false],
+                    ["Mass", 0, false],
+                    ["Direction of motion", 0, false],
+                    ["None of the above ", 1, false]
                 ],
-                explain: ""
+                explain: "Changing the pulley's size does not change anything about the Atwood's machine. Only changing the two masses would have any effect on the system."
             }
         ],
         [ // algebra difficutly
             {
                 number: 0,
-                question: "What is the proper format for a vector in component form?",
+                question: "What is the theoretical maximum possible acceleration on a frictionless inclined plane?",
                 answers: [
-                    ["$\\{3, 5\\}$", 0, false],
-                    ["$\\langle 3, 5 \\rangle$", 1, false],
-                    ["$(3, 5)$", 0, false],
-                    ["$[3, 5]$", 0, false]
+                    ["4.91 $~\\textrm{m/s}^2$", 0, false],
+                    ["9.81 $~\\textrm{m/s}^2$", 1, false],
+                    ["There is no limit", 0, false],
+                    ["The limit cannot be calculated", 0, false]
                 ],
-                explain: "Recall that a vector in component form is denoted by its component in the horizontal direction ($x$) and vertical direction ($y$), surrounded by angle brackets. Thus the second answer choice is the correct one."
+                explain: "The acceleration of a block on an inclined plane only depends on the incline angle. The maximum acceleration happens when the incline angle is 90 degrees, because in that case the object is in free fall. This gives us the second answer choice as the correct one."
             },
             {
                 number: 1,
-                question: "",
+                question: "How long does it take to slide from rest down a $15 \\degree$ frictionless incline that is 4 meters tall?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["3.49 s", 1, false],
+                    ["2.47 s", 0, false],
+                    ["1.78 s", 0, false],
+                    ["1.58 s", 0, false]
                 ],
-                explain: ""
+                explain: "The acceleration down the incline is equal to $g \\sin 15 \\degree$. We use this information, along with the fact that the diagonal length of the incline is $4 / \\sin 15 \\degree$, along with the kinematics formula $x = \\dfrac12 at^2$ to solve the problem, yielding a time of 3.49 seconds."
             },
             {
                 number: 2,
-                question: "",
+                question: "What is the minimum force required to push a 30 kilogram box up a $25 \\degree$ incline if the box has a coefficient of kinetic friction of $\\mu_k = 0.4$ with the incline?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["124.4 N", 0, false],
+                    ["176.9 N", 0, false],
+                    ["231.1 N", 1, false],
+                    ["294.3 N", 0, false]
                 ],
-                explain: ""
+                explain: "Both the component of gravity down the incline and the friction act against you when you attempt to push the box upwards. The component of gravity is equal to $mg \\sin 25 \\degree$, and the friction is equal to $\\mu_k F_N$, where $F_N = mg \\cos 25 \\degree$. Doing a bit of algebra, we arrive at the answer that the minimum force required is 231.1 N."
             },
             {
                 number: 3,
-                question: "",
+                question: "The maximum possible tension in a string used for an Atwood's machine is 150 N. Which pair of masses is a possible option if we don't want the string to break?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["20 kg, 25 kg", 0, false],
+                    ["10 kg, 30 kg", 1, false],
+                    ["15 kg, 25 kg", 0, false],
+                    ["5 kg, 65 kg", 0, false]
                 ],
-                explain: ""
+                explain: "If we solve for the general form of the tension in the string using the two equations describing the motion of the two blocks, we get that $T = \\frac{2m_1m_2g}{m_1+m_2}$. Plugging in values lets us conclude that only option 2 satisfies the condition of a tension force less than 150 N."
             },
             {
                 number: 4,
-                question: "",
+                question: "Consider the pulley of an ideal Atwood's machine, where the string has a tension $T$. What is force on the pulley due to the string?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["$2T$", 1, false],
+                    ["$T$", 0, false],
+                    ["$0$", 0, false],
+                    ["$T/2$", 0, false]
                 ],
-                explain: ""
+                explain: "There is a downward force of $T$ on both sides of the pulley due to the string, meaning the total force on the pulley by the string wrapped around it is $2T$."
             },
             {
                 number: 5,
-                question: "",
+                question: "Consider a modified Atwood's Machine as shown. The incline angle is $30 \\degree$, and the masses are $m_1 = 30~\\textrm{kg}$ and $m_2 = 18~\\textrm{kg}$, respectively. What is the acceleration of both bodies?<br><img style='max-width: 200px;' src='/src/assets/dynamics/Problem 6.png' class='rounded'/>",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["$2.45~\\textrm{m/s}^2$", 0, false],
+                    ["$1.63~\\textrm{m/s}^2$", 0, false],
+                    ["$0.89~\\textrm{m/s}^2$", 0, false],
+                    ["$0.61~\\textrm{m/s}^2$", 1, false]
                 ],
-                explain: ""
+                explain: "For the right block, we have the equation $m_2 g - F_T = m_2 a$ as usual. However, for the left block, we need to deal with the incline, which means that the force-analysis equation is $F_T \\sin \\theta - m_1 g = m_1 a$. Solving for $a$ with these two equations gives us the fourth answer choice."
             }
         ],
         [ // calculus difficutly
             {
                 number: 0,
-                question: "What is the proper format for a vector in component form?",
+                question: "What is the theoretical maximum possible acceleration on a frictionless inclined plane?",
                 answers: [
-                    ["$\\{3, 5\\}$", 0, false],
-                    ["$\\langle 3, 5 \\rangle$", 1, false],
-                    ["$(3, 5)$", 0, false],
-                    ["$[3, 5]$", 0, false]
+                    ["4.91 $~\\textrm{m/s}^2$", 0, false],
+                    ["9.81 $~\\textrm{m/s}^2$", 1, false],
+                    ["There is no limit", 0, false],
+                    ["The limit cannot be calculated", 0, false]
                 ],
-                explain: "Recall that a vector in component form is denoted by its component in the horizontal direction ($x$) and vertical direction ($y$), surrounded by angle brackets. Thus the second answer choice is the correct one."
+                explain: "The acceleration of a block on an inclined plane only depends on the incline angle. The maximum acceleration happens when the incline angle is 90 degrees, because in that case the object is in free fall. This gives us the second answer choice as the correct one."
             },
             {
                 number: 1,
-                question: "",
+                question: "How long does it take to slide from rest down a $15 \\degree$ frictionless incline that is 4 meters tall?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["3.49 s", 1, false],
+                    ["2.47 s", 0, false],
+                    ["1.78 s", 0, false],
+                    ["1.58 s", 0, false]
                 ],
-                explain: ""
+                explain: "The acceleration down the incline is equal to $g \\sin 15 \\degree$. We use this information, along with the fact that the diagonal length of the incline is $4 / \\sin 15 \\degree$, along with the kinematics formula $x = \\dfrac12 at^2$ to solve the problem, yielding a time of 3.49 seconds."
             },
             {
                 number: 2,
-                question: "",
+                question: "What is the minimum force required to push a 30 kilogram box up a $25 \\degree$ incline if the box has a coefficient of kinetic friction of $\\mu_k = 0.4$ with the incline?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["124.4 N", 0, false],
+                    ["176.9 N", 0, false],
+                    ["231.1 N", 1, false],
+                    ["294.3 N", 0, false]
                 ],
-                explain: ""
+                explain: "Both the component of gravity down the incline and the friction act against you when you attempt to push the box upwards. The component of gravity is equal to $mg \\sin 25 \\degree$, and the friction is equal to $\\mu_k F_N$, where $F_N = mg \\cos 25 \\degree$. Doing a bit of algebra, we arrive at the answer that the minimum force required is 231.1 N."
             },
             {
                 number: 3,
-                question: "",
+                question: "The maximum possible tension in a string used for an Atwood's machine is 150 N. Which pair of masses is a possible option if we don't want the string to break?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["20 kg, 25 kg", 0, false],
+                    ["10 kg, 30 kg", 1, false],
+                    ["15 kg, 25 kg", 0, false],
+                    ["5 kg, 65 kg", 0, false]
                 ],
-                explain: ""
+                explain: "If we solve for the general form of the tension in the string using the two equations describing the motion of the two blocks, we get that $T = \\frac{2m_1m_2g}{m_1+m_2}$. Plugging in values lets us conclude that only option 2 satisfies the condition of a tension force less than 150 N."
             },
             {
                 number: 4,
-                question: "",
+                question: "Consider the pulley of an ideal Atwood's machine, where the string has a tension $T$. What is force on the pulley due to the string?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["$2T$", 1, false],
+                    ["$T$", 0, false],
+                    ["$0$", 0, false],
+                    ["$T/2$", 0, false]
                 ],
-                explain: ""
+                explain: "There is a downward force of $T$ on both sides of the pulley due to the string, meaning the total force on the pulley by the string wrapped around it is $2T$."
             },
             {
                 number: 5,
-                question: "",
+                question: "Consider a modified Atwood's Machine as shown. The incline angle is $30 \\degree$, and the masses are $m_1 = 30~\\textrm{kg}$ and $m_2 = 18~\\textrm{kg}$, respectively. What is the acceleration of both bodies?<br><img style='max-width: 200px;' src='/src/assets/dynamics/Problem 6.png' class='rounded'/>",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["$2.45~\\textrm{m/s}^2$", 0, false],
+                    ["$1.63~\\textrm{m/s}^2$", 0, false],
+                    ["$0.89~\\textrm{m/s}^2$", 0, false],
+                    ["$0.61~\\textrm{m/s}^2$", 1, false]
                 ],
-                explain: ""
+                explain: "For the right block, we have the equation $m_2 g - F_T = m_2 a$ as usual. However, for the left block, we need to deal with the incline, which means that the force-analysis equation is $F_T \\sin \\theta - m_1 g = m_1 a$. Solving for $a$ with these two equations gives us the fourth answer choice."
             }
         ]
     ]
