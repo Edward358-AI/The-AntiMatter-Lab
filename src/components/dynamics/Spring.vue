@@ -6,204 +6,138 @@ import { reactive, watch } from 'vue'
 const props = defineProps(["level", "page", "lessonShowing"])
 defineEmits(["nextlesson", "nextpage", "prevpage"])
 
-const results = reactive([[0,0,0,0,0,0], [0,0,0,0,0,0], [0,0,0,0,0,0]]) // update as add more questions
-const explanations = reactive([[false,false,false,false,false,false], [false,false,false,false,false,false], [false,false,false,false,false,false]]) // keeps track of what explanations are visible
+const results = reactive([[0,0,0,0], [0,0,0,0], [0,0,0,0]]) // update as add more questions
+const explanations = reactive([[false,false,false,false], [false,false,false,false], [false,false,false,false]]) // keeps track of what explanations are visible
 const questions = reactive(
     [
         [ // conceptual difficutly
             {
                 number: 0,
-                question: "What is the proper format for a vector in component form?",
+                question: "What is a spring that follows the formula $F_s = - kx$ called?",
                 answers: [
-                    ["$\\{3, 5\\}$", 0, false],
-                    ["$\\langle 3, 5 \\rangle$", 1, false],
-                    ["$(3, 5)$", 0, false],
-                    ["$[3, 5]$", 0, false]
+                    ["Newtonian", 0, false],
+                    ["Nietzschean", 0, false],
+                    ["Hookean", 1, false],
+                    ["Linear", 0, false]
                 ],
-                explain: "Recall that a vector in component form is denoted by its component in the horizontal direction ($x$) and vertical direction ($y$), surrounded by angle brackets. Thus the second answer choice is the correct one."
+                explain: "A spring that linearly increases its force with the stretch from its natural length is called a <b>Hookean</b> spring."
             },
             {
                 number: 1,
-                question: "",
+                question: "Attaching two identical spring in series:",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["Doubles the spring constant", 0, false],
+                    ["Halves the spring constant", 1, false],
+                    ["Does nothing", 0, false],
+                    ["Quadruples the spring constant", 0, false]
                 ],
-                explain: ""
+                explain: "Attaching springs in series tends to decrease the spring constant. The only answer choice that satisfies this is the second one."
             },
             {
                 number: 2,
-                question: "",
+                question: "If a spring of spring constant $k = 1200 ~\\textrm{N/m}$ will break when stretched more than $1.5~\\textrm{m}$, what is the maximum force it can exert?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["1800 N", 1, false],
+                    ["1200 N", 0, false],
+                    ["900 N", 0, false],
+                    ["600 N", 0, false]
                 ],
-                explain: ""
+                explain: "The magnitude of the spring force is given by $F_s = kx$. For this problem, all we need to do is to plug in the values for $k$ and $x$, and we get an answer of 1800"
             },
             {
                 number: 3,
-                question: "",
+                question: "How are springs and strings similar?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["They can both stretch", 0, false],
+                    ["They are both rigid", 0, false],
+                    ["They both exert forces on either end", 1, false],
+                    ["Neither can be used to apply a force", 0, false]
                 ],
-                explain: ""
-            },
-            {
-                number: 4,
-                question: "",
-                answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
-                ],
-                explain: ""
-            },
-            {
-                number: 5,
-                question: "",
-                answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
-                ],
-                explain: ""
+                explain: "Springs and strings both exert equal forces from both of their ends when they do exert a force. Therefore, the third answer choice is the correct one."
             }
         ],
         [ // algebra difficutly
             {
                 number: 0,
-                question: "What is the proper format for a vector in component form?",
+                question: "How far does a vertical spring with a spring constant $k = 1500~\\textrm{N/m}$ stretch when a 40 kg weight is attached to it?",
                 answers: [
-                    ["$\\{3, 5\\}$", 0, false],
-                    ["$\\langle 3, 5 \\rangle$", 1, false],
-                    ["$(3, 5)$", 0, false],
-                    ["$[3, 5]$", 0, false]
+                    ["0.26 m", 1, false],
+                    ["0.026 m", 0, false],
+                    ["3.82 m", 0, false],
+                    ["0.041 m", 0, false]
                 ],
-                explain: "Recall that a vector in component form is denoted by its component in the horizontal direction ($x$) and vertical direction ($y$), surrounded by angle brackets. Thus the second answer choice is the correct one."
+                explain: "The spring force in this problem must balance the gravitational force of the 40 kg weight, meaning that the stretch of the spring must satisfy the equation $kx = mg$. We can easily solve this to get the first answer choice."
             },
             {
                 number: 1,
-                question: "",
+                question: "Two identical spring scales are attached in series, then used to measure the weight of a 1200 N object. What does each scale read?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["600 N", 0, false],
+                    ["2400 N", 0, false],
+                    ["1800 N", 0, false],
+                    ["1200 N", 1, false]
                 ],
-                explain: ""
+                explain: "The total effective spring constant is half of the original, which means that the stretch due to the weight will be double what it would be if there were only one scale. However, because the two scales are independent, each one only stretches half of this doubled amount, meaning the stretch is the same. Thus, the spring force due to each scale is still the same, and therefore the on each reading would remain the same as if there was only one scale."
             },
             {
                 number: 2,
-                question: "",
+                question: "A spring ($k = 600~\\textrm{N/m}$) lying on a horizontal table has a natural length of 0.5 meters, with one of its ends secured in place. You pull the other end of the spring a distance of 0.4 meters perpendicular to the original orientation of the spring. What is the force that the spring exerts?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["240 N", 0, false],
+                    ["84.2 N", 1, false],
+                    ["60 N", 0, false],
+                    ["124.3 N", 0, false]
                 ],
-                explain: ""
+                explain: "The stretch of the spring can be found with the Pythagorean theorem. The new length of the spring after the stretch is $\\sqrt{(0.5)^2 + (0.4)^2} = 0.64~\\textrm{m}$. The stretch is then $0.64 - 0.5 = 0.14~\\textrm{m}$. The spring force is then given by $F_s = kx = 600~\\textrm{N/m} \\cdot 0.14~\\textrm{m} = 84.2~\\textrm{N}$."
             },
             {
                 number: 3,
-                question: "",
+                question: "What is the effective spring constant of the configuration of five identical springs in terms of the spring constant of each spring $k$? <br><img style='max-width: 200px;' src='/src/assets/dynamics/Problem 7.png' class='rounded'>",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["$\\frac15 k$", 0, false],
+                    ["$\\frac56 k$", 0, false],
+                    ["$\\frac65 k$", 1, false],
+                    ["$5k$", 0, false]
                 ],
-                explain: ""
-            },
-            {
-                number: 4,
-                question: "",
-                answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
-                ],
-                explain: ""
-            },
-            {
-                number: 5,
-                question: "",
-                answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
-                ],
-                explain: ""
+                explain: "The system is essentially a combination of series and parallel springs. The set of three springs in parallel has an effective spring constant of $3k$, and the two springs in parallel have an effective spring constant of $2k$. These two combinations are themselves in series, so the effective spring constant of the entire system is given by the formula for springs in series: $\\frac{1}{k_{eff}} = \\frac{1}{3k} + \\frac{1}{2k}$. Solving this gives us $k_{eff} = \\frac{6}{5} k$."
             }
         ],
         [ // calculus difficutly
             {
                 number: 0,
-                question: "What is the proper format for a vector in component form?",
+                question: "How far does a vertical spring with a spring constant $k = 1500~\\textrm{N/m}$ stretch when a 40 kg weight is attached to it?",
                 answers: [
-                    ["$\\{3, 5\\}$", 0, false],
-                    ["$\\langle 3, 5 \\rangle$", 1, false],
-                    ["$(3, 5)$", 0, false],
-                    ["$[3, 5]$", 0, false]
+                    ["0.26 m", 1, false],
+                    ["0.026 m", 0, false],
+                    ["3.82 m", 0, false],
+                    ["0.041 m", 0, false]
                 ],
-                explain: "Recall that a vector in component form is denoted by its component in the horizontal direction ($x$) and vertical direction ($y$), surrounded by angle brackets. Thus the second answer choice is the correct one."
+                explain: "The spring force in this problem must balance the gravitational force of the 40 kg weight, meaning that the stretch of the spring must satisfy the equation $kx = mg$. We can easily solve this to get the first answer choice."
             },
             {
                 number: 1,
-                question: "",
+                question: "Two identical spring scales are attached in series, then used to measure the weight of a 1200 N object. What does each scale read?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["600 N", 0, false],
+                    ["2400 N", 0, false],
+                    ["1800 N", 0, false],
+                    ["1200 N", 1, false]
                 ],
-                explain: ""
+                explain: "The total effective spring constant is half of the original, which means that the stretch due to the weight will be double what it would be if there were only one scale. However, because the two scales are independent, each one only stretches half of this doubled amount, meaning the stretch is the same. Thus, the spring force due to each scale is still the same, and therefore the on each reading would remain the same as if there was only one scale."
             },
             {
                 number: 2,
-                question: "",
+                question: "A spring ($k = 600~\\textrm{N/m}$) lying on a horizontal table has a natural length of 0.5 meters, with one of its ends secured in place. You pull the other end of the spring a distance of 0.4 meters perpendicular to the original orientation of the spring. What is the force that the spring exerts?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["240 N", 0, false],
+                    ["84.2 N", 1, false],
+                    ["60 N", 0, false],
+                    ["124.3 N", 0, false]
                 ],
-                explain: ""
+                explain: "The stretch of the spring can be found with the Pythagorean theorem. The new length of the spring after the stretch is $\\sqrt{(0.5)^2 + (0.4)^2} = 0.64~\\textrm{m}$. The stretch is then $0.64 - 0.5 = 0.14~\\textrm{m}$. The spring force is then given by $F_s = kx = 600~\\textrm{N/m} \\cdot 0.14~\\textrm{m} = 84.2~\\textrm{N}$."
             },
             {
                 number: 3,
-                question: "",
-                answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
-                ],
-                explain: ""
-            },
-            {
-                number: 4,
-                question: "",
-                answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
-                ],
-                explain: ""
-            },
-            {
-                number: 5,
                 question: "",
                 answers: [
                     ["", 0, false],
