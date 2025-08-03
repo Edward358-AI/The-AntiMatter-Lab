@@ -79,7 +79,7 @@ const questions = reactive(
             },
             {
                 number: 2,
-                question: "Consider the diagram below. What is the tension in the right string if the sign weighs 400 N? <br> <img style='max-width: 200px;' src='/public/dynamics/Problem 4.png' class='rounded'>",
+                question: "Consider the diagram below. What is the tension in the right string if the sign weighs 400 N? <br> <img style='max-width: 200px;' src='/dynamics/Problem 4.png' class='rounded'>",
                 answers: [
                     ["200 N", 0, false],
                     ["346 N", 1, false],
@@ -101,7 +101,7 @@ const questions = reactive(
             },
             {
                 number: 4,
-                question: "Consider the apparatus shown below, which is called a <b>painter's chair</b>. If the entire contraption (human included) has a mass of 70 kg, what is the force that the person must pull on the string with to hold themselves up? <br><img style='max-width: 200px;' src='/public/dynamics/Problem 5.png' class='rounded'>",
+                question: "Consider the apparatus shown below, which is called a <b>painter's chair</b>. If the entire contraption (human included) has a mass of 70 kg, what is the force that the person must pull on the string with to hold themselves up? <br><img style='max-width: 200px;' src='/dynamics/Problem 5.png' class='rounded'>",
                 answers: [
                     ["687 N", 0, false],
                     ["1373 N", 0, false],
@@ -147,7 +147,7 @@ const questions = reactive(
             },
             {
                 number: 2,
-                question: "Consider the diagram below. What is the tension in the right string if the sign weighs 400 N? <br> <img style='max-width: 200px;' src='/public/dynamics/Problem 4.png' class='rounded'>",
+                question: "Consider the diagram below. What is the tension in the right string if the sign weighs 400 N? <br> <img style='max-width: 200px;' src='/dynamics/Problem 4.png' class='rounded'>",
                 answers: [
                     ["200 N", 0, false],
                     ["346 N", 1, false],
@@ -169,7 +169,7 @@ const questions = reactive(
             },
             {
                 number: 4,
-                question: "Consider the apparatus shown below, which is called a <b>painter's chair</b>. If the entire contraption (human included) has a mass of 70 kg, what is the force that the person must pull on the string with to hold themselves up?<br><img style='max-width: 200px;' src='/public/dynamics/Problem 5.png' class='rounded'>",
+                question: "Consider the apparatus shown below, which is called a <b>painter's chair</b>. If the entire contraption (human included) has a mass of 70 kg, what is the force that the person must pull on the string with to hold themselves up?<br><img style='max-width: 200px;' src='/dynamics/Problem 5.png' class='rounded'>",
                 answers: [
                     ["687 N", 0, false],
                     ["1373 N", 0, false],

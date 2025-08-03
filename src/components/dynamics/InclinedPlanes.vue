@@ -135,7 +135,7 @@ const questions = reactive(
             },
             {
                 number: 5,
-                question: "Consider a modified Atwood's Machine as shown. The incline angle is $30 \\degree$, and the masses are $m_1 = 30~\\textrm{kg}$ and $m_2 = 18~\\textrm{kg}$, respectively. What is the acceleration of both bodies?<br><img style='max-width: 200px;' src='/public/dynamics/Problem 6.png' class='rounded'/>",
+                question: "Consider a modified Atwood's Machine as shown. The incline angle is $30 \\degree$, and the masses are $m_1 = 30~\\textrm{kg}$ and $m_2 = 18~\\textrm{kg}$, respectively. What is the acceleration of both bodies?<br><img style='max-width: 200px;' src='/dynamics/Problem 6.png' class='rounded'/>",
                 answers: [
                     ["$2.45~\\textrm{m/s}^2$", 0, false],
                     ["$1.63~\\textrm{m/s}^2$", 0, false],
@@ -203,7 +203,7 @@ const questions = reactive(
             },
             {
                 number: 5,
-                question: "Consider a modified Atwood's Machine as shown. The incline angle is $30 \\degree$, and the masses are $m_1 = 30~\\textrm{kg}$ and $m_2 = 18~\\textrm{kg}$, respectively. What is the acceleration of both bodies?<br><img style='max-width: 200px;' src='/public/dynamics/Problem 6.png' class='rounded'/>",
+                question: "Consider a modified Atwood's Machine as shown. The incline angle is $30 \\degree$, and the masses are $m_1 = 30~\\textrm{kg}$ and $m_2 = 18~\\textrm{kg}$, respectively. What is the acceleration of both bodies?<br><img style='max-width: 200px;' src='/dynamics/Problem 6.png' class='rounded'/>",
                 answers: [
                     ["$2.45~\\textrm{m/s}^2$", 0, false],
                     ["$1.63~\\textrm{m/s}^2$", 0, false],

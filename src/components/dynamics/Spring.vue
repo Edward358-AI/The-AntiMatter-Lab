@@ -92,7 +92,7 @@ const questions = reactive(
             },
             {
                 number: 3,
-                question: "What is the effective spring constant of the configuration of five identical springs in terms of the spring constant of each spring $k$? <br><img style='max-width: 200px;' src='/public/dynamics/Problem 7.png' class='rounded'>",
+                question: "What is the effective spring constant of the configuration of five identical springs in terms of the spring constant of each spring $k$? <br><img style='max-width: 200px;' src='/dynamics/Problem 7.png' class='rounded'>",
                 answers: [
                     ["$\\frac15 k$", 0, false],
                     ["$\\frac56 k$", 0, false],
@@ -138,7 +138,7 @@ const questions = reactive(
             },
             {
                 number: 3,
-                question: "What is the effective spring constant of the configuration of five identical springs in terms of the spring constant of each spring $k$? <br><img style='max-width: 200px;' src='/public/dynamics/Problem 7.png' class='rounded'>",
+                question: "What is the effective spring constant of the configuration of five identical springs in terms of the spring constant of each spring $k$? <br><img style='max-width: 200px;' src='/dynamics/Problem 7.png' class='rounded'>",
                 answers: [
                     ["$\\frac15 k$", 0, false],
                     ["$\\frac56 k$", 0, false],
