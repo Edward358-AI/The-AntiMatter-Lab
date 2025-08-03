@@ -4,212 +4,190 @@ import { reactive, watch } from 'vue'
 const props = defineProps(["level", "page", "lessonShowing"])
 defineEmits(["nextlesson", "nextpage", "prevpage"])
 
-const results = reactive([[0,0,0,0,0,0], [0,0,0,0,0,0], [0,0,0,0,0,0]]) // update as add more questions
-const explanations = reactive([[false,false,false,false,false,false], [false,false,false,false,false,false], [false,false,false,false,false,false]]) // keeps track of what explanations are visible
+const results = reactive([[0,0,0,0], [0,0,0,0,0,0], [0,0,0,0,0,0]]) // update as add more questions
+const explanations = reactive([[false,false,false,false], [false,false,false,false,false,false], [false,false,false,false,false,false]]) // keeps track of what explanations are visible
 const questions = reactive(
     [
         [ // conceptual difficutly
             {
                 number: 0,
-                question: "What is the proper format for a vector in component form?",
+                question: "What should you not do for a free-body diagram?",
                 answers: [
-                    ["$\\{3, 5\\}$", 0, false],
-                    ["$\\langle 3, 5 \\rangle$", 1, false],
-                    ["$(3, 5)$", 0, false],
-                    ["$[3, 5]$", 0, false]
+                    ["Label all your forces", 0, false],
+                    ["Draw all of your forces the same length", 1, false],
+                    ["Reduce the object down to a point", 0, false],
+                    ["Draw all forces acting on the object", 0, false]
                 ],
-                explain: "Recall that a vector in component form is denoted by its component in the horizontal direction ($x$) and vertical direction ($y$), surrounded by angle brackets. Thus the second answer choice is the correct one."
+                explain: "You should make your forces have magnitudes that somewhat represent their actual magnitudes. Therefore, the second answer choice represents what you should not do."
             },
             {
                 number: 1,
-                question: "",
+                question: "A sign is hung by a single massless chain from a storefront. If the sign has a mass of 40 kg, what is the tension force in the chain?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["40 N", 0, false],
+                    ["196 N", 0, false],
+                    ["4.1 N", 0, false],
+                    ["392 N", 1, false]
                 ],
-                explain: ""
+                explain: "The tension force must balance the gravitational force because the sign has to hang in equilibrium. Thus, we can calculate that $F_T = F_g = mg = 392~\\textrm{N}$."
             },
             {
                 number: 2,
-                question: "",
+                question: "What do weight scales measure?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["Gravitational force", 0, false],
+                    ["Frictional Force", 0, false],
+                    ["Normal force", 1, false],
+                    ["Weight force", 0, false]
                 ],
-                explain: ""
+                explain: "A scale actually measures the normal force exerted on it. Think about pushing downwards on a scale, increasing the normal force on it. Doesn't that increase the \"weight\" it reads?"
             },
             {
                 number: 3,
-                question: "",
+                question: "What is the difference between mass and weight?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["Weight is always greater than mass", 0, false],
+                    ["Weight is the gravitational force", 1, false],
+                    ["Mass is the gravitational force", 0, false],
+                    ["They are the same thing", 0, false]
                 ],
-                explain: ""
-            },
-            {
-                number: 4,
-                question: "",
-                answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
-                ],
-                explain: ""
-            },
-            {
-                number: 5,
-                question: "",
-                answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
-                ],
-                explain: ""
+                explain: "The weight of an object refers to the gravitational force exerted on it. Mass is an intrinsic measure of the object."
             }
         ],
         [ // algebra difficutly
             {
                 number: 0,
-                question: "What is the proper format for a vector in component form?",
+                question: "How many forces act on a box sitting on a table at rest?",
                 answers: [
-                    ["$\\{3, 5\\}$", 0, false],
-                    ["$\\langle 3, 5 \\rangle$", 1, false],
-                    ["$(3, 5)$", 0, false],
-                    ["$[3, 5]$", 0, false]
+                    ["None", 0, false],
+                    ["One", 0, false],
+                    ["Two", 1, false],
+                    ["Three", 0, false]
                 ],
-                explain: "Recall that a vector in component form is denoted by its component in the horizontal direction ($x$) and vertical direction ($y$), surrounded by angle brackets. Thus the second answer choice is the correct one."
+                explain: "The forces that act on a box at rest on a table are the gravitational force and the normal force from the table, bringing us to a total of two forces."
             },
             {
                 number: 1,
-                question: "",
+                question: "What is the maximum possible acceleration of a car that has a coefficient of friction of $\\mu = 0.7$ with the ground?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["$6.87~\\textrm{m/s}^2$", 1, false],
+                    ["$14.01~\\textrm{m/s}^2$", 0, false],
+                    ["$3.04~\\textrm{m/s}^2$", 0, false],
+                    ["There is no limit", 0, false]
                 ],
-                explain: ""
+                explain: "A car relies on static friction to push itself forward (there are no other possible forces that can act horizontally to the surface it is on!), so therefore the maximum force on it is $ F_{net} = \\mu mg = ma$, which gives us a maximum possible acceleration of $a = \\mu g = 6.87 ~\\textrm{m/s}^2$."
             },
             {
                 number: 2,
-                question: "",
+                question: "Consider the diagram below. What is the tension in the right string if the sign weighs 400 N? <br> <img style='max-width: 200px;' src='/src/assets/dynamics/Problem 4.png' class='rounded'>",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["200 N", 0, false],
+                    ["346 N", 1, false],
+                    ["400 N", 0, false],
+                    ["173 N", 0, false]
                 ],
-                explain: ""
+                explain: "We know that there is equilibrium in all directions. <br>First, we can use the condition that the x-direction forces must be balanced to relate the left tension and the right tension $(F_{T_L} \\cos 30 \\degree = F_{T_R} \\cos 60 \\degree)$, then use the condition for y-direction equilibrium to relate the two tensions and gravity $(F_g = F_{T_L} \\sin 30 \\degree + F_{T_R} \\sin 60 \\degree)$. <br> After doing some algebra, we should find that the tension in the right string is $200\\sqrt{3} ~\\textrm{N}$, or $173~\\textrm{N}$ if you prefer."
             },
             {
                 number: 3,
-                question: "",
+                question: "An elevator which weighs 4000 N is lifted up at a constant acceleration of $3.0~\\textrm{m/s}^2$. What is the required tension force in the cable for this?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["12000", 0, false],
+                    ["1223 N", 0, false],
+                    ["5523 N", 1, false],
+                    ["408 N", 0, false]
                 ],
-                explain: ""
+                explain: "The net force on the object must be such that the acceleration is as given. The elevator has a <b>weight</b> of 4000 N, which means it has a mass of $4000/9.81 = 407~\\textrm{kg}$. <br> We then write Newton's Second Law for this system:<br> $F_T - F_g = ma$, after which we can solve for $F_T$, giving us the third answer choice."
             },
             {
                 number: 4,
-                question: "",
+                question: "Consider the apparatus shown below, which is called a <b>painter's chair</b>. If the entire contraption (human included) has a mass of 70 kg, what is the force that the person must pull on the string with to hold themselves up? <br><img style='max-width: 200px;' src='/src/assets/dynamics/Problem 5.png' class='rounded'>",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["687 N", 0, false],
+                    ["1373 N", 0, false],
+                    ["700 N", 0, false],
+                    ["343 N", 1, false]
                 ],
-                explain: ""
+                explain: "The system experiences two identical tension forces: One as the reaction force for the person pulling on the string, and the other at the point where the string is attached to the contraption. Thus, the required force is only half of the weight of the entire system."
             },
             {
                 number: 5,
-                question: "",
+                question: "You drop a book of weight $F_g$ on a table, which falls and sticks to the table after impact. What must have been the magnitude of the normal force during the impact?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["Equal to $F_g$", 0, false],
+                    ["Greater than $F_g$", 1, false],
+                    ["Less than $F_g$ but nonzero", 0, false],
+                    ["Zero", 0, false]
                 ],
-                explain: ""
+                explain: "Since the book goes from having downward velocity to having zero velocity before and after impact, the acceleration must have been upwards. The normal force upwards on it must have been greater than the gravitational force on it, which is how the book accelerates upwards to come to rest."
             }
         ],
         [ // calculus difficutly
             {
                 number: 0,
-                question: "What is the proper format for a vector in component form?",
+                question: "How many forces act on a box sitting on a table at rest?",
                 answers: [
-                    ["$\\{3, 5\\}$", 0, false],
-                    ["$\\langle 3, 5 \\rangle$", 1, false],
-                    ["$(3, 5)$", 0, false],
-                    ["$[3, 5]$", 0, false]
+                    ["None", 0, false],
+                    ["One", 0, false],
+                    ["Two", 1, false],
+                    ["Three", 0, false]
                 ],
-                explain: "Recall that a vector in component form is denoted by its component in the horizontal direction ($x$) and vertical direction ($y$), surrounded by angle brackets. Thus the second answer choice is the correct one."
+                explain: "The forces that act on a box at rest on a table are the gravitational force and the normal force from the table, bringing us to a total of two forces."
             },
             {
                 number: 1,
-                question: "",
+                question: "What is the maximum possible acceleration of a car that has a coefficient of friction of $\\mu = 0.7$ with the ground?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["$6.87~\\textrm{m/s}^2$", 1, false],
+                    ["$14.01~\\textrm{m/s}^2$", 0, false],
+                    ["$3.04~\\textrm{m/s}^2$", 0, false],
+                    ["There is no limit", 0, false]
                 ],
-                explain: ""
+                explain: "A car relies on static friction to push itself forward (there are no other possible forces that can act horizontally to the surface it is on!), so therefore the maximum force on it is $ F_{net} = \\mu mg = ma$, which gives us a maximum possible acceleration of $a = \\mu g = 6.87 ~\\textrm{m/s}^2$."
             },
             {
                 number: 2,
-                question: "",
+                question: "Consider the diagram below. What is the tension in the right string if the sign weighs 400 N? <br> <img style='max-width: 200px;' src='/src/assets/dynamics/Problem 4.png' class='rounded'>",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["200 N", 0, false],
+                    ["346 N", 1, false],
+                    ["400 N", 0, false],
+                    ["173 N", 0, false]
                 ],
-                explain: ""
+                explain: "We know that there is equilibrium in all directions. <br>First, we can use the condition that the x-direction forces must be balanced to relate the left tension and the right tension $(F_{T_L} \\cos 30 \\degree = F_{T_R} \\cos 60 \\degree)$, then use the condition for y-direction equilibrium to relate the two tensions and gravity $(F_g = F_{T_L} \\sin 30 \\degree + F_{T_R} \\sin 60 \\degree)$. <br> After doing some algebra, we should find that the tension in the right string is $200\\sqrt{3} ~\\textrm{N}$, or $173~\\textrm{N}$ if you prefer."
             },
             {
                 number: 3,
-                question: "",
+                question: "An elevator which weighs 4000 N is lifted up at a constant acceleration of $3.0~\\textrm{m/s}^2$. What is the required tension force in the cable for this?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["12000", 0, false],
+                    ["1223 N", 0, false],
+                    ["5523 N", 1, false],
+                    ["408 N", 0, false]
                 ],
-                explain: ""
+                explain: "The net force on the object must be such that the acceleration is as given. The elevator has a <b>weight</b> of 4000 N, which means it has a mass of $4000/9.81 = 407~\\textrm{kg}$. <br> We then write Newton's Second Law for this system:<br> $F_T - F_g = ma$, after which we can solve for $F_T$, giving us the third answer choice."
             },
             {
                 number: 4,
-                question: "",
+                question: "Consider the apparatus shown below, which is called a <b>painter's chair</b>. If the entire contraption (human included) has a mass of 70 kg, what is the force that the person must pull on the string with to hold themselves up?<br><img style='max-width: 200px;' src='/src/assets/dynamics/Problem 5.png' class='rounded'>",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["687 N", 0, false],
+                    ["1373 N", 0, false],
+                    ["700 N", 0, false],
+                    ["343 N", 1, false]
                 ],
-                explain: ""
+                explain: "The system experiences two identical tension forces: One as the reaction force for the person pulling on the string, and the other at the point where the string is attached to the contraption. Thus, the required force is only half of the weight of the entire system."
             },
             {
                 number: 5,
-                question: "",
+                question: "You drop a book of weight $F_g$ on a table, which falls and sticks to the table after impact. What must have been the magnitude of the normal force during the impact?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["Equal to $F_g$", 0, false],
+                    ["Greater than $F_g$", 1, false],
+                    ["Less than $F_g$ but nonzero", 0, false],
+                    ["Zero", 0, false]
                 ],
-                explain: ""
+                explain: "Since the book goes from having downward velocity to having zero velocity before and after impact, the acceleration must have been upwards. The normal force upwards on it must have been greater than the gravitational force on it, which is how the book accelerates upwards to come to rest."
             }
         ]
     ]
