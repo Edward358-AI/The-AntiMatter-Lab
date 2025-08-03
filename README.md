@@ -10,7 +10,7 @@ https://theantimatterlab-edward358ais-projects.vercel.app/
 
 https://theantimatterlab-git-main-edward358ais-projects.vercel.app/
 
-<h1>About</h1><br>
+<h2>About</h2><br>
         <p>This project was created originally in the summer of 2024 designed to create an interactive and in depth
             learning experience for physics. The website design and programming was done by Edward Jiang, and the
             curriculum/teachings were carefully crafted by multiple-time USAPHO qualifier Eric Niu As of currently the
@@ -18,14 +18,14 @@ https://theantimatterlab-git-main-edward358ais-projects.vercel.app/
             C: Mechanics (and bonus fluids section), and regular content updates/new functionalities will likely be
             pushed out in the near future.</p><br><br>
 
-<h1>Our Mission</h1><br>
+<h2>Our Mission</h2><br>
         <p>While our website's simple mission might be just to educate people on physics, our actual vision witht this project is much bigger. In simple terms, our vision might be best explained as this: To give the world a better understanding of what physics, specifically
             mechanics, really is (it was also originally designed to get more people to join a local physics club).
             Physics is not an easy subject to grasp, yet it is fundamental to understanding the world around us. You can
             imagine it as the law that governs our universe and our surroundings. Why do you fall back down whenever you
             jump, how does your car start, and how can a rocket propel itself into space—these are all questions that
             can be ultimately answered using physics.</p><br>
-            <h3>The STEM Education Challenge</h3><br>
+            <h4>The STEM Education Challenge</h4><br>
             <p>
             On a more critical note, if you look at it demographically, the U.S. is currently lacking domestic STEM
             students. This statistic is not fabricated—it's proven fact (search it up yourself!). According to the 2023/2024 academic year data,
@@ -36,7 +36,7 @@ https://theantimatterlab-git-main-edward358ais-projects.vercel.app/
             four years of higher education. The critical insight lies in recognizing that international students
             comprise just 5% of the total U.S. population, yet over half of them pursue STEM fields and earn nearly half
             or more of all graduate STEM degrees. These statistics reveal a significant gap in domestic STEM engagement that may pose problems in the country's future development in the next several years.</p><br>
-            <h3>Why Physics? The Foundation of Scientific Understanding</h3><br>
+            <h4>Why Physics? The Foundation of Scientific Understanding</h4><br>
             <p>
             This poses a crucial question: Why focus specifically on physics? The answer lies in physics' fundamental
             role as the cornerstone of all scientific disciplines. Physics provides the mathematical framework and
@@ -47,7 +47,7 @@ https://theantimatterlab-git-main-edward358ais-projects.vercel.app/
             Moreover, physics develops critical thinking skills that extend far beyond scientific applications. It
             teaches students to approach complex problems systematically, to think quantitatively about cause and
             effect, and to construct logical arguments based on evidence. These skills are invaluable in our modern society, which is becoming increasingly technologically driven and many career paths require core skills and aptitudes like these.</p><br>
-            <h3>Our Vision for Impact</h3><br>
+            <h4>Our Vision for Impact</h4><br>
             <p>
             As you may have already predicted, one of our primary missions is to intrigue more students in STEM,
             particularly inspiring domestic students to pursue careers in these critical fields. By making physics
@@ -57,7 +57,7 @@ https://theantimatterlab-git-main-edward358ais-projects.vercel.app/
             the frontiers of space, just to name a few examples. It may all sound a bit far-fetched now, but by building and promoting better physics education today, we are actually indirectly sowing the seeds for the next generation of problem-solvers and innovators who will shape tomorrow's world!
         </p><br><br>
 
-  <h1>Why Us?</h1><br>
+  <h2>Why Us?</h2><br>
         <p>
             While many physics resources online offer surface-level explanations, are no longer maintained as well, and/or are not as easy to navigate, we provide comprehensive, in-depth content that shines light the underlying principles of physics.<br>Our platform features three distinct difficulty levels—conceptual, algebra-based, and calculus-based—ensuring that learners, regardless of background, can engage with material appropriate to their mathematical skill level. Furthermore, additional features that set us apart include our extensive collection of interactive demonstrations and simulations that bring abstract concepts to life, compensating for the limitations of online learning by providing hands-on virtual experiences that are fun and engaging (hopefully!). <br>Unlike static resources that remain unchanged for years, we are committed to continuous expansion and improvement, regularly adding new content and refining existing explanations. We don't plan to stop development on this project any time soon. Our dedication to this website and its future ensures that the current content you access today doesn't stay long as it is ever-changing and evolving for the better!
         </p><br><br>
