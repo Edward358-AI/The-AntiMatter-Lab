@@ -1,8 +1,10 @@
 <script setup>
 import { ref, reactive, computed, watch, onMounted, onUpdated } from 'vue'
 import Welcome from './components/Welcome.vue'
-import About from './components/About.vue'
-import Algebra from './components/Algebra.vue'
+
+import About from './components/basics/About.vue'
+import Algebra from './components/basics/Algebra.vue'
+import GettingStarted from './components/basics/GettingStarted.vue'
 
 import Vectors from './components/kinematics/Vectors.vue'
 import PosVelAcc from './components/kinematics/PosVelAcc.vue'
@@ -58,7 +60,7 @@ const htmlElement = document.documentElement
 const doc = document
 const Window = window
 const user = reactive({
-  current: "landing", difficulty: 0, theme: "dark", page: { Algebra: 0,
+  current: "landing", difficulty: 0, theme: "dark", page: { Algebra: 0, About: 0, GettingStarted: 0,
     Vectors: 0, DimenAnalyz: 0, PosVelAcc: 0, OneDMotion: 0, TwoDMotion: 0, RelativeVel: 0,
     FmaFBD: 0, Spring: 0, InclinedPlanes: 0, OtherForces: 0, Newton: 0,
     Kepler: 0, GravityLaws: 0, Centripetal: 0, Fictious: 0,
@@ -97,8 +99,12 @@ const sidebar = ref(false)
 // List of lessons organized by unit
 const lessons = reactive(
   {
+    basics: [
+      "About Us and Our Mission", 
+      "Getting Started",
+      "Basic Algebra"
+    ],
     kinematics: [
-      "Basic Algebra",
       "Vectors",
       "Dimensional Analysis",
       "Position, Velocity, Acceleration",
@@ -235,6 +241,21 @@ onUpdated(() => {
     </div>
     <div class="offcanvas-body">
       <ul class="sidebar-nav">
+        <li>
+          <h6 class="sidebar-header"><b>Getting Started</b></h6>
+        </li>
+        <li>
+          <hr class="sidebar-divider">
+        </li>
+        <li v-for="lesson in filteredLessons.basics">
+          <a href="javascript:void(0);" :class="user.current === lesson ? 'text-body-emphasis nav-link' : 'nav-link'"
+            :style="user.current === lesson ? 'text-decoration: underline' : ''"
+            @click="Window.scrollTo(0, 0); user.current = lesson; hideMobileBar()">{{
+              lesson }}</a>
+        </li>
+
+
+        <br class="mb-5">
         <li>
           <h6 class="sidebar-header"><b>Kinematics</b></h6>
         </li>
@@ -402,6 +423,21 @@ onUpdated(() => {
     <div class="offcanvas-body">
       <ul class="sidebar-nav">
         <li>
+          <h6 class="sidebar-header"><b>Getting Started</b></h6>
+        </li>
+        <li>
+          <hr class="sidebar-divider">
+        </li>
+        <li v-for="lesson in filteredLessons.basics">
+          <a href="javascript:void(0);" :class="user.current === lesson ? 'text-body-emphasis nav-link' : 'nav-link'"
+            :style="user.current === lesson ? 'text-decoration: underline' : ''"
+            @click="Window.scrollTo(0, 0); user.current = lesson; hideMobileBar()">{{
+              lesson }}</a>
+        </li>
+
+
+        <br class="mb-5">
+        <li>
           <h6 class="sidebar-header"><b>Kinematics</b></h6>
         </li>
         <li>
@@ -545,34 +581,42 @@ onUpdated(() => {
     </div>
   </div>
 
-  <Welcome v-if="user.current === 'landing'" :sidebar="sidebar" @show-sidebar="sidebar = true; getCurrentPage()" @show-about="user.current='about'"/>
-  <About v-if="user.current === 'about'" />
-  <Algebra v-if="user.current === lessons.kinematics[0]" :level="user.difficulty" :lessonShowing="lessonShowing"
+  <Welcome v-if="user.current === 'landing'" :sidebar="sidebar" @show-sidebar="sidebar = true; getCurrentPage()" @show-about="user.current=lessons.basics[0]"/>
+
+  <About v-if="user.current === lessons.basics[0]" :level="user.difficulty" :lessonShowing="lessonShowing"
+    :page="user.page.About" @nextpage="Window.scrollTo(0, 0); user.page.About++"
+    @prevpage="Window.scrollTo(0, 0); user.page.About--"
+    @nextlesson="Window.scrollTo(0, 0); user.current = lessons.basics[1]; user.page.About = 0" />
+  <GettingStarted v-if="user.current === lessons.basics[1]" :level="user.difficulty" :lessonShowing="lessonShowing"
+    :page="user.page.GettingStarted" @nextpage="Window.scrollTo(0, 0); user.page.GettingStarted++"
+    @prevpage="Window.scrollTo(0, 0); user.page.GettingStarted--"
+    @nextlesson="Window.scrollTo(0, 0); user.current = lessons.basics[2]; user.page.GettingStarted = 0" />
+  <Algebra v-if="user.current === lessons.basics[2]" :level="user.difficulty" :lessonShowing="lessonShowing"
     :page="user.page.Algebra" @nextpage="Window.scrollTo(0, 0); user.page.Algebra++"
     @prevpage="Window.scrollTo(0, 0); user.page.Algebra--"
-    @nextlesson="Window.scrollTo(0, 0); user.current = lessons.kinematics[1]; user.page.Algebra = 0" />
+    @nextlesson="Window.scrollTo(0, 0); user.current = lessons.kinematics[0]; user.page.Algebra = 0" />
 
-  <Vectors v-if="user.current === lessons.kinematics[1]" :level="user.difficulty" :lessonShowing="lessonShowing"
+  <Vectors v-if="user.current === lessons.kinematics[0]" :level="user.difficulty" :lessonShowing="lessonShowing"
     :page="user.page.Vectors" @nextpage="Window.scrollTo(0, 0); user.page.Vectors++"
     @prevpage="Window.scrollTo(0, 0); user.page.Vectors--"
-    @nextlesson="Window.scrollTo(0, 0); user.current = lessons.kinematics[2]; user.page.Vectors = 0" />
-  <DimenAnalyz v-if="user.current === lessons.kinematics[2]" :level="user.difficulty" :lessonShowing="lessonShowing"
+    @nextlesson="Window.scrollTo(0, 0); user.current = lessons.kinematics[1]; user.page.Vectors = 0" />
+  <DimenAnalyz v-if="user.current === lessons.kinematics[1]" :level="user.difficulty" :lessonShowing="lessonShowing"
     :page="user.page.DimenAnalyz" @nextpage="Window.scrollTo(0, 0); user.page.DimenAnalyz++"
     @prevpage="Window.scrollTo(0, 0); user.page.DimenAnalyz--"
-    @nextlesson="Window.scrollTo(0, 0); user.current = lessons.kinematics[3]; user.page.DimenAnalyz = 0" />
-  <PosVelAcc v-if="user.current === lessons.kinematics[3]" :level="user.difficulty" :lessonShowing="lessonShowing"
+    @nextlesson="Window.scrollTo(0, 0); user.current = lessons.kinematics[2]; user.page.DimenAnalyz = 0" />
+  <PosVelAcc v-if="user.current === lessons.kinematics[2]" :level="user.difficulty" :lessonShowing="lessonShowing"
     :page="user.page.PosVelAcc" @nextpage="Window.scrollTo(0, 0); user.page.PosVelAcc++"
     @prevpage="Window.scrollTo(0, 0); user.page.PosVelAcc--"
-    @nextlesson="Window.scrollTo(0, 0); user.current = lessons.kinematics[4]; user.page.PosVelAcc = 0" />
-  <OneDMotion v-if="user.current === lessons.kinematics[4]" :level="user.difficulty" :lessonShowing="lessonShowing"
+    @nextlesson="Window.scrollTo(0, 0); user.current = lessons.kinematics[3]; user.page.PosVelAcc = 0" />
+  <OneDMotion v-if="user.current === lessons.kinematics[3]" :level="user.difficulty" :lessonShowing="lessonShowing"
     :page="user.page.OneDMotion" @nextpage="Window.scrollTo(0, 0); user.page.OneDMotion++"
     @prevpage="Window.scrollTo(0, 0); user.page.OneDMotion--"
-    @nextlesson="Window.scrollTo(0, 0); user.current = lessons.kinematics[5]; user.page.OneDMotion = 0" />
-  <TwoDMotion v-if="user.current === lessons.kinematics[5]" :level="user.difficulty" :lessonShowing="lessonShowing"
+    @nextlesson="Window.scrollTo(0, 0); user.current = lessons.kinematics[4]; user.page.OneDMotion = 0" />
+  <TwoDMotion v-if="user.current === lessons.kinematics[4]" :level="user.difficulty" :lessonShowing="lessonShowing"
     :page="user.page.TwoDMotion" @nextpage="Window.scrollTo(0, 0); user.page.TwoDMotion++"
     @prevpage="Window.scrollTo(0, 0); user.page.TwoDMotion--"
-    @nextlesson="Window.scrollTo(0, 0); user.current = lessons.kinematics[6]; user.page.TwoDMotion = 0" />
-  <RelativeVel v-if="user.current === lessons.kinematics[6]" :level="user.difficulty" :lessonShowing="lessonShowing"
+    @nextlesson="Window.scrollTo(0, 0); user.current = lessons.kinematics[5]; user.page.TwoDMotion = 0" />
+  <RelativeVel v-if="user.current === lessons.kinematics[5]" :level="user.difficulty" :lessonShowing="lessonShowing"
     :page="user.page.RelativeVel" @nextpage="Window.scrollTo(0, 0); user.page.RelativeVel++"
     @prevpage="Window.scrollTo(0, 0); user.page.RelativeVel--"
     @nextlesson="Window.scrollTo(0, 0); user.current = lessons.dynamics[0]; user.page.RelativeVel = 0" />
