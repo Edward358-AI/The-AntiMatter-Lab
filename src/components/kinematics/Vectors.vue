@@ -79,7 +79,7 @@ const questions = reactive(
             },
             {
                 number: 2,
-                question: "<img style='max-width: 170px;' src='/src/assets/kinematics/Problem1.png' class='rounded'><br>What is the component form of a vector with magnitude $7$ and argument (angle) of $60 \\degree$ with respect positive x-axis?",
+                question: "<img style='max-width: 170px;' src='/kinematics/Problem1.png' class='rounded'><br>What is the component form of a vector with magnitude $7$ and argument (angle) of $60 \\degree$ with respect positive x-axis?",
                 answers: [
                     ["$\\langle 7, 0 \\rangle$", 0, false],
                     ["$\\langle 0, 7 \\rangle$", 0, false],
@@ -90,7 +90,7 @@ const questions = reactive(
             },
             {
                 number: 3,
-                question: "<img style='max-width: 170px;' src='/src/assets/kinematics/Problem2.png' class='rounded'><br>What is the magnitude of the resultant vector of adding the 2 blue vectors as depicted?",
+                question: "<img style='max-width: 170px;' src='/kinematics/Problem2.png' class='rounded'><br>What is the magnitude of the resultant vector of adding the 2 blue vectors as depicted?",
                 answers: [
                     ["$8.2~\\textrm{m}$", 1, false],
                     ["$8.0~\\textrm{m}$", 0, false],
@@ -112,14 +112,14 @@ const questions = reactive(
             },
             {
                 number: 5,
-                question: "<img style='max-width: 200px;' src='/src/assets/kinematics/Problem3.png' class='rounded'><br>Find the magnitude of the resultant vector of adding these three vectors together.",
+                question: "<img style='max-width: 200px;' src='/kinematics/Problem3.png' class='rounded'><br>Find the magnitude of the resultant vector of adding these three vectors together.",
                 answers: [
                     ["$8.1~\\textrm{N}$", 0, false],
                     ["$7.9~\\textrm{N}$", 0, false],
                     ["$7.5~\\textrm{N}$", 0, false],
                     ["$7.2~\\textrm{N}$", 1, false]
                 ],
-                explain: "Recall from the lesson that we can actually move vectors around, so we can rearrange all three vectors using the tip-to-tail method:<br><img style='max-width: 140px;' src='/src/assets/kinematics/Solution1.png' class='rounded'><br>*Image may not be to scale.<br>We can now do the same method by converting all of the vectors to component form and adding their components: $\\langle -9,0 \\rangle + \\langle 11 \\cos(70 \\degree), 11 \\sin(70 \\degree) \\rangle $ $+ \\langle 8 \\cos(25\\degree), 8 \\sin(25 \\degree) \\rangle$ $\\approx \\langle 2.01, 6.96 \\rangle$. Now, using Pythagorean theorem with the components gives us the magnitude to be roughly $7.2~\\textrm{N}$."
+                explain: "Recall from the lesson that we can actually move vectors around, so we can rearrange all three vectors using the tip-to-tail method:<br><img style='max-width: 140px;' src='/kinematics/Solution1.png' class='rounded'><br>*Image may not be to scale.<br>We can now do the same method by converting all of the vectors to component form and adding their components: $\\langle -9,0 \\rangle + \\langle 11 \\cos(70 \\degree), 11 \\sin(70 \\degree) \\rangle $ $+ \\langle 8 \\cos(25\\degree), 8 \\sin(25 \\degree) \\rangle$ $\\approx \\langle 2.01, 6.96 \\rangle$. Now, using Pythagorean theorem with the components gives us the magnitude to be roughly $7.2~\\textrm{N}$."
             }
         ],
         [ // calculus difficutly
@@ -147,7 +147,7 @@ const questions = reactive(
             },
             {
                 number: 2,
-                question: "<img style='max-width: 170px;' src='/src/assets/kinematics/Problem1.png' class='rounded'><br>What is the component form of a vector with magnitude $7$ and argument (angle) of $60 \\degree$ with respect positive x-axis?",
+                question: "<img style='max-width: 170px;' src='/kinematics/Problem1.png' class='rounded'><br>What is the component form of a vector with magnitude $7$ and argument (angle) of $60 \\degree$ with respect positive x-axis?",
                 answers: [
                     ["$\\langle 7, 0 \\rangle$", 0, false],
                     ["$\\langle 0, 7 \\rangle$", 0, false],
@@ -158,7 +158,7 @@ const questions = reactive(
             },
             {
                 number: 3,
-                question: "<img style='max-width: 170px;' src='/src/assets/kinematics/Problem2.png' class='rounded'><br>What is the magnitude of the resultant vector of adding the 2 blue vectors as depicted?",
+                question: "<img style='max-width: 170px;' src='/kinematics/Problem2.png' class='rounded'><br>What is the magnitude of the resultant vector of adding the 2 blue vectors as depicted?",
                 answers: [
                     ["$8.2~\\textrm{m}$", 1, false],
                     ["$8.0~\\textrm{m}$", 0, false],
@@ -180,14 +180,14 @@ const questions = reactive(
             },
             {
                 number: 5,
-                question: "<img style='max-width: 200px;' src='/src/assets/kinematics/Problem3.png' class='rounded'><br>Find the magnitude of the resultant vector of adding these three vectors together.",
+                question: "<img style='max-width: 200px;' src='/kinematics/Problem3.png' class='rounded'><br>Find the magnitude of the resultant vector of adding these three vectors together.",
                 answers: [
                     ["$8.1~\\textrm{N}$", 0, false],
                     ["$7.9~\\textrm{N}$", 0, false],
                     ["$7.5~\\textrm{N}$", 0, false],
                     ["$7.2~\\textrm{N}$", 1, false]
                 ],
-                explain: "Recall from the lesson that we can actually move vectors around, so we can rearrange all three vectors using the tip-to-tail method:<br><img style='max-width: 140px;' src='/src/assets/kinematics/Solution1.png' class='rounded'><br>*Image may not be to scale.<br>We can now do the same method by converting all of the vectors to component form and adding their components: $\\langle -9,0 \\rangle + \\langle 11 \\cos(70 \\degree), 11 \\sin(70 \\degree) \\rangle $ $+ \\langle 8 \\cos(25\\degree), 8 \\sin(25 \\degree) \\rangle$ $\\approx \\langle 2.01, 6.96 \\rangle$. Now, using Pythagorean theorem with the components gives us the magnitude to be roughly $7.2~\\textrm{N}$."
+                explain: "Recall from the lesson that we can actually move vectors around, so we can rearrange all three vectors using the tip-to-tail method:<br><img style='max-width: 140px;' src='/kinematics/Solution1.png' class='rounded'><br>*Image may not be to scale.<br>We can now do the same method by converting all of the vectors to component form and adding their components: $\\langle -9,0 \\rangle + \\langle 11 \\cos(70 \\degree), 11 \\sin(70 \\degree) \\rangle $ $+ \\langle 8 \\cos(25\\degree), 8 \\sin(25 \\degree) \\rangle$ $\\approx \\langle 2.01, 6.96 \\rangle$. Now, using Pythagorean theorem with the components gives us the magnitude to be roughly $7.2~\\textrm{N}$."
             }
         ]
     ]
