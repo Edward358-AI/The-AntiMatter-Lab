@@ -10,205 +10,205 @@ const questions = reactive(
         [ // conceptual difficutly
             {
                 number: 0,
-                question: "What is the proper format for a vector in component form?",
+                question: "What force is responsible for keeping a book still on a table?",
                 answers: [
-                    ["$\\{3, 5\\}$", 0, false],
-                    ["$\\langle 3, 5 \\rangle$", 1, false],
-                    ["$(3, 5)$", 0, false],
-                    ["$[3, 5]$", 0, false]
+                    ["Gravitational", 0, false],
+                    ["Frictional", 0, false],
+                    ["Normal", 1, false],
+                    ["Strong", 0, false]
                 ],
-                explain: "Recall that a vector in component form is denoted by its component in the horizontal direction ($x$) and vertical direction ($y$), surrounded by angle brackets. Thus the second answer choice is the correct one."
+                explain: "Recall that the normal force acts perpendicular to a surface, in this case the table. It holds up the book on the table, balancing out the force of gravity on it."
             },
             {
                 number: 1,
-                question: "",
+                question: "Which of these most accurately describes what the frictional force does?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["Resists motion", 0, false],
+                    ["Resists relative motion", 1, false],
+                    ["Slows things down", 0, false],
+                    ["Generates heat", 0, false]
                 ],
-                explain: ""
+                explain: "Friction is defined as tending to resist relative motion between two surfaces. The other answer choices can be true in some circumstances, but only the second one is always true."
             },
             {
                 number: 2,
-                question: "",
+                question: "What force keeps the Earth in orbit around the sun?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["Frictional", 0, false],
+                    ["Electromagnetic", 0, false],
+                    ["Weak", 0, false],
+                    ["Gravitational", 1, false]
                 ],
-                explain: ""
+                explain: "Gravity is the key force that plays into keeping planets like the Earth and moons like well, the moon, in orbit around larger celesial bodies."
             },
             {
                 number: 3,
-                question: "",
+                question: "What force enables you to walk? (Think about cases where it's hard to walk!)",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["Normal", 0, false],
+                    ["Gravitational", 0, false],
+                    ["Friction", 1, false],
+                    ["Tension", 0, false]
                 ],
-                explain: ""
+                explain: "Friction is actually the force responsible for enabling you to walk forward, since it is the only force than can be exerted parallel to a surface. This can be seen: have you ever noticed how hard it is to walk on ice (very low friction)?"
             },
             {
                 number: 4,
-                question: "",
+                question: "A box and the surface it sits on have a coefficient of static friction of $\\mu_s$. When you push on the box of mass $m$ with some force $F$, it does not move. What must be the force of friction opposing you?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["$F$", 1, false],
+                    ["$0$", 0, false],
+                    ["$\\mu_s mg$", 0, false],
+                    ["$ \\mu_s F$", 0, false]
                 ],
-                explain: ""
+                explain: "Since the box is not moving because the friction is static, the frictional force must be equal to the force that is applied to the box in order to balance it. Thus, the correct choice is the first one."
             },
             {
                 number: 5,
-                question: "",
+                question: "What is the most common type of force?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["Gravitational", 0, false],
+                    ["Electromagnetic", 1, false],
+                    ["Strong", 0, false],
+                    ["Weak", 0, false]
                 ],
-                explain: ""
+                explain: "All contact forces (friction, normal force, tension) are technically electromagnetic forces, as explained in the section. Thus, the most common type of force we'll be talking about is actually electromagnetic!"
             }
         ],
         [ // algebra difficutly
             {
                 number: 0,
-                question: "What is the proper format for a vector in component form?",
+                question: "What is the heaviest object you can hang from a string if it breaks when the tension in it exceeds 200 N?",
                 answers: [
-                    ["$\\{3, 5\\}$", 0, false],
-                    ["$\\langle 3, 5 \\rangle$", 1, false],
-                    ["$(3, 5)$", 0, false],
-                    ["$[3, 5]$", 0, false]
+                    ["200 kg", 0, false],
+                    ["40.8 kg", 0, false],
+                    ["20.4 kg", 1, false],
+                    ["4.91 kg", 0, false]
                 ],
-                explain: "Recall that a vector in component form is denoted by its component in the horizontal direction ($x$) and vertical direction ($y$), surrounded by angle brackets. Thus the second answer choice is the correct one."
+                explain: "The tensional force in the string should be equal to the gravitational force, since the string is the only thing holding the object up. Recall that $F_g = mg$, and use this formula where $F_g = F_T = 30~\\textrm{N}$ to solve for an answer."
             },
             {
                 number: 1,
-                question: "",
+                question: "Which of these is a plausible value for the coefficient of friction between your shoe and concrete?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["0.01", 0, false],
+                    ["1.24", 0, false],
+                    ["0.47", 1, false],
+                    ["14.5", 0, false]
                 ],
-                explain: ""
+                explain: "Most coefficents of friction are betweeen zero and one. Your shoe and concrete have a fairly large coefficient of friction, as can be evidenced if you go outside. Thus, the only plausible answer choice is the third option."
             },
             {
                 number: 2,
-                question: "",
+                question: "Is there a maximum value for the normal force in the real world?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["Yes", 1, false],
+                    ["No", 0, false],
+                    ["Sometimes", 0, false],
+                    ["Not enough information", 0, false]
                 ],
-                explain: ""
+                explain: "In the real world, surfaces have a breaking point. A wooden table will break if too much force is exerted on it. Therefore, the maximum value of the normal force is not unbounded but depends on the physical characteristics of surfaces."
             },
             {
                 number: 3,
-                question: "",
+                question: "What force causes a ball to roll along a surface?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["Normal", 0, false],
+                    ["Gravitational", 0, false],
+                    ["Kinetic friction", 0, false],
+                    ["Static friction", 1, false]
                 ],
-                explain: ""
+                explain: "When objects roll, they usually roll without slipping, meaning the bottom of the object is always momentarily at rest with the ground. Thus, the force that keeps them rolling is actually static friction. If you've ever seen what happens when a car drives on ice, you'll know that friction is important to rolling!"
             },
             {
                 number: 4,
-                question: "",
+                question: "A box and the surface it sits on have a coefficient of static friction of $\\mu_s$. When you push on the box of mass $m$ with some force $F$, it does not move. What must be the force of friction opposing you?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["$F$", 1, false],
+                    ["$0$", 0, false],
+                    ["$\\mu_s mg$", 0, false],
+                    ["$ \\mu_s F$", 0, false]
                 ],
-                explain: ""
+                explain: "Since the box is not moving because the friction is static, the frictional force must be equal to the force that is applied to the box in order to balance it. Thus, the correct choice is the first one."
             },
             {
                 number: 5,
-                question: "",
+                question: "Which one of these forces only exists in a gravitational field?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["Electromagnetic", 0, false],
+                    ["Normal", 0, false],
+                    ["Friction", 0, false],
+                    ["None of the above", 1, false]
                 ],
-                explain: ""
+                explain: "Gravity does not affect the presence of normal or frictional forces, because they are exerted by surfaces in contact. Even in outer space, you can feel a normal force if you press against the walls of the space capsule, and you can feel friction if you run your hands along it."
             }
         ],
         [ // calculus difficutly
             {
                 number: 0,
-                question: "What is the proper format for a vector in component form?",
+                question: "What is the heaviest object you can hang from a string if it breaks when the tension in it exceeds 200 N?",
                 answers: [
-                    ["$\\{3, 5\\}$", 0, false],
-                    ["$\\langle 3, 5 \\rangle$", 1, false],
-                    ["$(3, 5)$", 0, false],
-                    ["$[3, 5]$", 0, false]
+                    ["200 kg", 0, false],
+                    ["40.8 kg", 0, false],
+                    ["20.4 kg", 1, false],
+                    ["4.91 kg", 0, false]
                 ],
-                explain: "Recall that a vector in component form is denoted by its component in the horizontal direction ($x$) and vertical direction ($y$), surrounded by angle brackets. Thus the second answer choice is the correct one."
+                explain: "The tensional force in the string should be equal to the gravitational force, since the string is the only thing holding the object up. Recall that $F_g = mg$, and use this formula where $F_g = F_T = 30~\\textrm{N}$ to solve for an answer."
             },
             {
                 number: 1,
-                question: "",
+                question: "Which of these is a plausible value for the coefficient of friction between your shoe and concrete?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["0.01", 0, false],
+                    ["1.24", 0, false],
+                    ["0.47", 1, false],
+                    ["14.5", 0, false]
                 ],
-                explain: ""
+                explain: "Most coefficents of friction are betweeen zero and one. Your shoe and concrete have a fairly large coefficient of friction, as can be evidenced if you go outside. Thus, the only plausible answer choice is the third option."
             },
             {
                 number: 2,
-                question: "",
+                question: "Is there a maximum value for the normal force in the real world?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["Yes", 1, false],
+                    ["No", 0, false],
+                    ["Sometimes", 0, false],
+                    ["Not enough information", 0, false]
                 ],
-                explain: ""
+                explain: "In the real world, surfaces have a breaking point. A wooden table will break if too much force is exerted on it. Therefore, the maximum value of the normal force is not unbounded but depends on the physical characteristics of surfaces."
             },
             {
                 number: 3,
-                question: "",
+                question: "What force causes a ball to roll along a surface?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["Normal", 0, false],
+                    ["Gravitational", 0, false],
+                    ["Kinetic friction", 0, false],
+                    ["Static friction", 1, false]
                 ],
-                explain: ""
+                explain: "When objects roll, they usually roll without slipping, meaning the bottom of the object is always momentarily at rest with the ground. Thus, the force that keeps them rolling is actually static friction. If you've ever seen what happens when a car drives on ice, you'll know that friction is important to rolling!"
             },
             {
                 number: 4,
-                question: "",
+                question: "A box and the surface it sits on have a coefficient of static friction of $\\mu_s$. When you push on the box of mass $m$ with some force $F$, it does not move. What must be the force of friction opposing you?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["$F$", 1, false],
+                    ["$0$", 0, false],
+                    ["$\\mu_s mg$", 0, false],
+                    ["$ \\mu_s F$", 0, false]
                 ],
-                explain: ""
+                explain: "Since the box is not moving because the friction is static, the frictional force must be equal to the force that is applied to the box in order to balance it. Thus, the correct choice is the first one."
             },
             {
                 number: 5,
-                question: "",
+                question: "Which one of these forces only exists in a gravitational field?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["Electromagnetic", 0, false],
+                    ["Normal", 0, false],
+                    ["Friction", 0, false],
+                    ["None of the above", 1, false]
                 ],
-                explain: ""
+                explain: "Gravity does not affect the presence of normal or frictional forces, because they are exerted by surfaces in contact. Even in outer space, you can feel a normal force if you press against the walls of the space capsule, and you can feel friction if you run your hands along it."
             }
         ]
     ]
@@ -388,24 +388,27 @@ function setChecked(chek, qNum) {
                 here for. The magnitude of the frictional force will always be $≤\mu_s F_N$, and so when you exceed that
                 value, the frictional force turns into the kinetic frictional force, which is always constant value of
                 $\mu_k \cdot F_N$. This means that the coefficient of static friction must be greater than the
-                coefficient of kinetic friction!!<br>
+                coefficient of kinetic friction!!<br><br>
                 <span v-show="level == 0">There's no doubt you've definitely tried to push something across a floor at
                     some point in your life. You'll notice that it is actually harder to get the box moving at first,
                     but once it is moving, it becomes a bit smoother sailing from there. What we just explained, if you
-                    think about it, perfectly matches up with this intuition!<br></span>
-                <br>
+                    think about it, perfectly matches up with this intuition!<br><br></span>
                 <span v-show="level > 0">
                     A graph here to show what we mean:
+                    <br><br>
                     <figure>
-                        <img src="/src/assets/dynamics/Figure 17.png" style="max-width:250px" />
+                        <img src="/src/assets/dynamics/Figure 17.png" />
                         <figcaption>Figure 1: A graph that shows the magnitude of frictional force over time, in
                             accordance with the applied force.</figcaption>
                     </figure>
+                    <br><br>
                     You are probably wondering, is it possible for $\mu_k$ instead to be <i>greater</i> than $\mu_s$?
                     Let's take a closer look. Remember, once we apply a force $F$ that less than or equal to $\mu_s
                     F_N$, the object will not move because the static friction can counteract this force. However, once
                     the force exceeds the value of $\mu_s F_N$, the object will begin to slide. That is the standard for
-                    how friction operates. When it begins sliding, it switches to kinetic friction, $\mu_k F_N$. Now if
+                    how friction operates. 
+                    <br><br>
+                    When it begins sliding, it switches to kinetic friction, $\mu_k F_N$. Now if
                     $\mu_k$ is greater than $\mu_s$, then the magnitude of the kinetic frictional force will
                     automatically be greater than the static frictional force, which means as soon as it switches to
                     kinetic friction, the block will not move. But that contradicts our earlier statement of it will
@@ -423,7 +426,7 @@ function setChecked(chek, qNum) {
                 not “new” types of forces, they all will fall
                 under the category of one of the four fundamental forces in nature. We stress this importance because
                 it's crucial that you realize the difference. In your journey through Newtonian mechanics, for the most
-                part, if the force not is gravitational, then it must be electromagnetic.<br>But simply knowing these
+                part, if the force not is gravitational, then it must be electromagnetic.<br><br>But simply knowing these
                 forces is
                 not enough. You will learn how to use this knowledge to solve problems and draw free-body diagrams,
                 which is arguably one of the most important things you will ever learn in mechanics.
@@ -441,7 +444,7 @@ function setChecked(chek, qNum) {
     </div>
 
     <div v-show="!lessonShowing" class="container h100 pt-5">
-        <h1>Introductory Forces Problems</h1><br>
+        <h1>Forces Problems</h1><br>
         <div class="question-container row justify-content-center mx-auto pb-5">
             <form @submit.prevent="checkAnswer(q.number)" style="height:fit-content"
                 class="question col-6 row justify-content-center my-5 mx-auto" v-for="q in questions[level]">
