@@ -7,14 +7,14 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
     <div class="container h100 p-5">
         <h1>Why Us?</h1><br>
         <p>
-            First, let's talk some logistics. Why choose us when learning physics?<br>While many physics resources online offer surface-level explanations, are no longer maintained as well,
+            First, let's talk some logistics. Why choose us when learning physics?<br><br>While many physics resources online offer surface-level explanations, are no longer maintained as well,
             and/or are not as easy to navigate, we provide comprehensive, in-depth content comparatively that better shines light the
-            underlying principles of physics.<br>Our platform features three distinct difficulty levels—conceptual,
+            underlying principles of physics.<br><br>Our platform features three distinct difficulty levels—conceptual,
             algebra-based, and calculus-based—ensuring that learners, regardless of background, can engage with material
             appropriate to their mathematical skill level. Furthermore, additional features that set us apart include
             our extensive collection of interactive demonstrations and simulations that bring abstract concepts to life,
             compensating for the limitations of online learning by providing hands-on virtual experiences that are fun
-            and engaging (hopefully!). <br>Unlike static resources that remain unchanged for years, we are committed to
+            and engaging (hopefully!). <br><br>Unlike static resources that remain unchanged for years, we are committed to
             continuous expansion and improvement, regularly adding new content and refining existing explanations. We
             don't plan to stop development on this project any time soon. Our dedication to this website and its future
             ensures that the current content you access today doesn't stay long as it is ever-changing and evolving for
