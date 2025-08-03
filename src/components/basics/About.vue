@@ -8,7 +8,7 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
         <h1>About</h1><br>
         <p>This project was created originally in the summer of 2024 designed to create an interactive and in depth
             learning experience for physics. The website design and programming was done by Edward Jiang, and the
-            curriculum/teachings were carefully crafted by multiple-time USAPHO qualifier Eric Niu As of currently the
+            curriculum/teachings were carefully crafted by USAPhO silver medalist and three-time USAPhO qualifier Hanyu Niu. As of currently the
             project has reached its original goal of completing most if not all the major topics covered in AP Physics
             C: Mechanics (and bonus fluids section), and regular content updates/new functionalities will likely be
             pushed out in the near future.</p><br><br>
