@@ -8,7 +8,7 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
         <h1>Why Us?</h1><br>
         <p>
             First, let's talk some logistics. Why choose us when learning physics?<br><br>While many physics resources online offer surface-level explanations, are no longer maintained as well,
-            and/or are not as easy to navigate, we provide comprehensive, in-depth content comparatively that better shines light the
+            and/or are not as easy to navigate, we provide comprehensive, in-depth content comparatively that better shines light on the
             underlying principles of physics.<br><br>Our platform features three distinct difficulty levels—conceptual,
             algebra-based, and calculus-based—ensuring that learners, regardless of background, can engage with material
             appropriate to their mathematical skill level. Furthermore, additional features that set us apart include
@@ -17,8 +17,8 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
             and engaging (hopefully!). <br><br>Unlike static resources that remain unchanged for years, we are committed to
             continuous expansion and improvement, regularly adding new content and refining existing explanations. We
             don't plan to stop development on this project any time soon. Our dedication to this website and its future
-            ensures that the current content you access today doesn't stay long as it is ever-changing and evolving for
-            the better!
+            ensures that the current content you access today doesn't stay the same for long &mdash; it is ever-changing and evolving so we can 
+            bring you better, more comprehensive resources!
         </p><br><br>
 
         <h1>Getting Started</h1><br>
@@ -29,8 +29,8 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
             physics.<br><br>
             <span><strong>Conceptual:</strong> Simple as possible, avoiding using complex mathematical
                 calculations/representations when possible. Prior experience using basic algebra is recommended, but not
-                required. If you're brave, you could jump right in! However, it could a little more difficult to
-                understand, however, if you don't have that background. If you don't, don't worry! Our next lesson, Basic Algebra, will teach you the basics of algebra that you will need to know to understand the rest of the content on this website without a problem.</span><br>
+                required. If you're brave, you could jump right in, though it could be a little tougher to
+                understand if you lack that background. If you need help, don't worry! Our next lesson, Basic Algebra, will teach you the basics of algebra that you will need to know to understand the rest of the content on this website without a problem.</span><br>
             <br>
             <span><strong>Algebra-Based:</strong> Takes it up a notch by using algebra-level skills, which introduces a
                 lot of new things like equations and graphs. Knowledge of Algebra 1 and Geometry is required, although
@@ -43,9 +43,9 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                 is required for sufficient understanding.</span><br><br>
 
             We also have interactive examples and not just wordy explanations, which overall can greatly improve
-            your learning experience. We've also sprinkled in a bit of light humor when I (Eric) deemed it necessary.
+            your learning experience. We've also sprinkled in a bit of light humor when I (Hanyu) deemed it necessary.
             Enjoy! <br><br>Note: Sometimes when you switch the difficulty, the content on a page may not change.
-            This is because some content may be overlapping (i.e. the content is the same regardless of what math
+            This is because some content may overlap (i.e. the content is the same regardless of what math
             level).
         </p><br><br>
         <div class="btn-contain-right">
