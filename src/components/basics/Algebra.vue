@@ -237,12 +237,13 @@ function setChecked(chek, qNum) {
         <h1>Basic Algebra</h1><br>
         <div v-show="page === 0">
             <p>
-                NOTE: YOU CAN SKIP THIS LESSON IF YOU ARE ALREADY FAMILIAR WITH BASIC ALGEBRA.
-                <br><br>
-                This lesson is designed to help you review basic algebra concepts that are necessary for understanding
-                physics. This lesson will cover the basics of algebraic operations, equations, and functions that will
-                be occasionally used throughout the course, even in the conceptual difficulty.<br><br>
+            NOTE: YOU CAN SKIP THIS LESSON IF YOU ARE ALREADY FAMILIAR WITH BASIC ALGEBRA.
+            <br><br>
+            This lesson is designed to help you review basic algebra concepts that are necessary for understanding
+            physics. This lesson will cover the basics of algebraic operations, equations, and functions that will
+            be occasionally used throughout the course, even in the conceptual difficulty.</p><br><br>
             <h4 class="text-center">Introduction</h4>
+            <p>
             To start off, let's begin by talking about what is algebra. Algebra is a branch of mathematics that deals
             with symbols and the rules for manipulating those symbols.<br><br>
             Why is this important in physics? Well, the physics equations that you are about to learn aren't just simply
@@ -250,15 +251,15 @@ function setChecked(chek, qNum) {
             take a look at Newton's Second Law of Motion: $$F = ma$$ It may seem arbitrary now, but this equation
             actually describes the relationship between force, mass, and acceleration. In this case, the letter "F"
             represents force, "m" represents mass, and "a" represents acceleration. Thus, the equation tells us that the
-            (net) force acting on an object is equivalent to the mass multiplied by the acceleration.<br><br>
-            <h4 class="text-center">Variables</h4>Let's talk the very core of algebra: variables. Variables are symbols
+            (net) force acting on an object is equivalent to the mass multiplied by the acceleration.</p><br><br>
+            <h4 class="text-center">Variables</h4><p>Let's talk the very core of algebra: variables. Variables are symbols
             or letters that represent quantities, especially unknown ones. All the letters in the previous equation are
             variables, as $F$ stands for force, $m$ stands for mass, and $a$ stands for acceleration. Variables can hold
             numerical values too, like this: $a=5$. When we declare this, we are saying that $a$ is equal to $5$, so
             that means wherever we see and $a$ in an equation or expression, we can replace it with $5$. Going back to
             the previous example, if we know that $F=ma$ and we know that mass is $2$ and acceleration is $5$ (i.e.
             $m=2$ and $a=5$), then we can replace the variables with their values to get: $$F = 2 \times 5$$ And we can
-            solve this to get $F=10$. Obviously we can't just randomly assign value to variables most of the time,
+            solve this to get $F=10$. This method is called <i>substitution</i>.<br>Obviously we can't just randomly assign value to variables most of the time,
             usually they are given or we have to solve for them. But this is the basic idea of variables in algebra.
             They are just letters that represent quantities, and we can manipulate them to solve equations or
             expressions.
@@ -269,8 +270,8 @@ function setChecked(chek, qNum) {
             </div>
         </div>
         <div v-show="page === 1">
-            <p>
             <h4 class="text-center">Syntax</h4>
+            <p>
             Now, we will take a look at some basic algebraic operations that will help you understand how we can
             manipulate these equations and expressions of letters and symbols. Before we begin, we need to first dissect
             the way these equations are written, which may be unfamiliar to you. Here is the equation again: $$F = ma$$
@@ -279,8 +280,9 @@ function setChecked(chek, qNum) {
             Furthermore, you might know that "$\times$" is the multiplication operator, but in algebra, we can actually
             use "$\cdot$" or just put two letters next to each other to indicate multiplication. In essence, the above
             equation is the same as saying, $$F = m \times a$$ We don't typically use the multiplication operator in
-            algebra because it looks like the letter $x$ and can cause confusion.<br><br>
+            algebra because it looks like the letter $x$ and can cause confusion.<br><br></p>
             <h4 class="text-center">Basic Algebraic Operations</h4>
+            <p>
             Next, we will talk about some basic algebraic operations that will help you understand how we can manipulate
             these equations and expressions to our benefit. The most basic operation is addition/subtraction. We can add
             or subtract quantities to <i>both</i> sides of the equation without changing the relationship. For example,
@@ -290,6 +292,8 @@ function setChecked(chek, qNum) {
             numbers if it doesn't make sense: If we have $2 \cdot 2 = 4$, then if we only add $5$ to one side for
             example, both sides won't be equal anymore. The principle here is the exact same, we are using variables
             instead of numbers.<br><br>
+            The same can be done with multiplication and division (as long as you don't divide by zero). We can
+            multiply or divide both sides of the equation by a quantity without changing the relationship. For example, If we multiply $F=ma$ by $2$, we get: $$2F = 2ma$$ And the equation still holds true. Division works exactly the same way. If this isn't clear, again, we can see this through a numerical example: $2 \cdot 2 = 4$, multiplying both sides by $2$ gives us $2 \cdot 2 \cdot 2 = 4 \cdot 2$, which is $8=8$.<br><br>Finally, we can use these operations to our advantage when we want to <i>solve</i> for a variable. For example, we can solve for $a$ in the previous equation by dividing both sides by $m$: $$\frac{F}{m} = \frac{ma}{m}$$ $$\frac{F}{m} = \frac{m}{m} \cdot a$$ $$\frac{F}{m} = a$$ (Recall that anything divided by itself equals $1$, and $1$ multiplied by anything is itself) This is the same as saying that acceleration is equal to force divided by mass. We can do this with any variable in an equation, as long as we follow the rules of algebra and manipulate the equation correctly like we just showed you.<br><br>
             </p>
             <div class="btn-contain-left">
                 <button class="btn btn-dark" style="animation: scale1 2s infinite;" @click="$emit('prevpage')">&larr;
@@ -302,31 +306,25 @@ function setChecked(chek, qNum) {
         </div>
         <div v-show="page === 2">
             <p>
-            <h4 class="text-center">Basic Algebraic Operations</h4>
-            Now, we will take a look at some basic algebraic operations that will help you understand how we can
-            manipulate these equations and expressions of letters and symbols. Before we begin, we need to first dissect
-            the way these equations are written, which may be unfamiliar to you. Here is the equation again: $$F = ma$$
-            An equation of letters and symbols is no different from an equation of numbers, like $4+4=8$. They both
-            indicate a relationship between multiple quantities, just that we replaced the numbers with letters.
-            Furthermore, you might know that "$\times$" is the multiplication operator, but in algebra, we can actually
-            use "$\cdot$" or just put two letters next to each other to indicate multiplication. In essence, the above
-            equation is the same as saying, $$F = m \times a$$ We don't typically use the multiplication operator in
-            algebra because it looks like the letter $x$ and can cause confusion.<br><br>
+            Let's work through an example problem together to solidify your understanding of these concepts.
+            </p>
+            <p>
+                <div class="problem">
+                    <i>Given that $F=ma$ and we know that $a=\frac{v^2}{r}$, substitute and solve the new equation for $r$.</i><br><br>
+                    To first start, we have to realize that the variable $a$ is in both equations, so we can substitute what they gave us for $a$ into the first equation.<br>This gives us: $$F = m \cdot \frac{v^2}{r}$$ Now, we can multiply both sides by $r$ to get rid of the denominator: $$F \cdot r = \frac{v^2}{r} \cdot r$$ $$Fr = mv^2$$ Finally, we can divide both sides by $F$ to solve for $r$: $$\frac{Fr}{F} = \frac{mv^2}{F}$$ $$r = \frac{mv^2}{F}$$ Notice how we used the basic operations of algebra that were just previously mentioned to manipulate the equation to solve for $r$. This is the essence of algebra, and it is a powerful tool that will help you solve many problems in physics. If it's not clear to you right now, don't worry, because this will become second nature to you as you practice more problems and learn more about physics.
+                </div><br>
+                Now that you have a solid understanding of basic algebra, it's time to move on to your first lesson in physics! (You can check out the practice problems in this lesson if you feel like you need more practice with algebra)
             </p>
             <div class="btn-contain-left">
                 <button class="btn btn-dark" style="animation: scale1 2s infinite;" @click="$emit('prevpage')">&larr;
                     Previous</button>
             </div>
             <div class="btn-contain-right">
-                <button class="btn btn-dark" style="animation: scale1 2s infinite;" @click="$emit('nextpage')">Next
-                    &rarr;</button>
+                <button class="btn btn-dark" style="animation: scale 2s infinite;" @click="$emit('nextlesson')">Next
+                    Lesson! &rarr;</button>
             </div>
         </div>
     </div>
-    <!-- <div class="btn-contain-right">
-                <button class="btn btn-dark" style="animation: scale 2s infinite;" @click="$emit('nextlesson')">Next
-                    Lesson! &rarr;</button>
-            </div> -->
 
     <div v-show="!lessonShowing" class="container-fluid h100 pt-5">
         <h1>Basic Algebra Problems</h1><br>
