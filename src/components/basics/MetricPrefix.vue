@@ -552,6 +552,7 @@ function setChecked(chek, qNum) {
 
     <div v-show="!lessonShowing" class="container h100 pt-5">
         <h1>Metric Prefixes Problems</h1><br>
+        <span v-show="level > -1">A calculator might be necessary for the following problems.</span>
         <div class="question-container row justify-content-center mx-auto pb-5">
             <form @submit.prevent="checkAnswer(q.number)" style="height:fit-content"
                 class="question col-6 row justify-content-center my-5 mx-auto" v-for="q in questions[level]">
