@@ -7,8 +7,8 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
     <div class="container h100 p-5">
         <h1>About</h1><br>
         <p>This project was originally created in the summer of 2024 as a vision for an interactive and in-depth
-            learning experience for physics. The website was a cooperative effort on the part of Edward Jiang and USAPhO silver medalist and three-time USAPhO qualifier
-            Hanyu Niu. As of currently the
+            learning experience for physics. The website was a cooperative effort on the part of hobbyist web developer Edward Jiang and USAPhO silver medalist/3-time USAPhO qualifier
+            Hanyu Niu (you can obviously tell who's the more qualified individual here). As of currently the
             project has reached its original goal of completing all the major topics covered in AP Physics
             C: Mechanics (and bonus fluids section), and regular content updates/new functionalities will be
             pushed out in the near future.</p><br><br>
@@ -74,7 +74,7 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
             implementation of certain functionalities over regular JS.<br><br>A CSS framework, Halfmoon CSS (<a
                 class="link-underline-secondary" href="https://www.gethalfmoon.com"
                 target="_blank">https://www.gethalfmoon.com</a>), was also used to
-            effortlessly create a (somewhat) nice looking layout and website.<br><br>>MathJax (<a
+            effortlessly create a (somewhat) nice looking layout and website.<br><br>MathJax (<a
                 class="link-underline-secondary" href="https://mathjax.org" target="_blank">https://mathjax.org</a>) and
             Vue-MathJax-Next (<a class="link-underline-secondary" href="https://github.com/justforuse/vue-mathjax-next"
                 target="_blank">https://github.com/justforuse/vue-mathjax-next</a>) were implemented for clean looking

@@ -247,7 +247,7 @@ function setChecked(chek, qNum) {
                 on the metric system, which is famous for not being used in the United States. The SI system is based on a set of base units, which are defined in terms of 
                 fundamental physical constants. Some of the most common base units are the meter ($\textrm{m}$) for distance, kilogram ($\textrm{kg}$) for mass, and second ($\textrm{s}$) for time.
                 <br><br>
-                As you progress this course, you wil learn about more SI units that are used to measure other physical quantities, such as the Newton <br>($\textrm{N}$) for force, the Joule ($\textrm{J}$) for energy, etc. But what if 
+                As you progress this course, you will learn about more SI units that are used to measure other physical quantities, such as the Newton <br>($\textrm{N}$) for force, the Joule ($\textrm{J}$) for energy, etc. But what if 
                 we want to measure the distance, say, from the Earth to the sun? Or the mass of a proton? These values are so large or small that they are impractical to express in base units. This is why the SI system also includes a set 
                 of metric prefixes, which are used to express these values in a more manageable way. These prefixes are used to multiply or divide the base unit by a power of ten, allowing us to express very large or very small quantities in a more convenient form.
                 <br><br>

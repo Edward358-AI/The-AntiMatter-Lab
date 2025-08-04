@@ -242,6 +242,7 @@ function setChecked(chek, qNum) {
                 <span v-show="level == 0">
                     Welcome to the start of a bunch of lessons on "real" physics! Are you excited? Let's jump right in!
                     <br><br>
+            <h4 class="text-center"></h4>
                     Position is defined as
                     the vector (wake up call if you were dozing off in lesson 1!) from the origin to
                     the point where an object is on a coordinate plane.
@@ -271,7 +272,7 @@ function setChecked(chek, qNum) {
                     the
                     letter, and we wanted to refer to it without actually saying the value/quantity. The variable $x$ is
                     primarily used, though $y$ and $d$ are sometimes used.
-                    <br><br>
+                    <br><br><h4 class="text-center">Displacement</h4>
                     Do you remember
                     when we just said that <i>displacement</i> is far more useful than just position by itself? Well,
                     given
@@ -308,7 +309,7 @@ function setChecked(chek, qNum) {
                     position minus initial position. So if your final position is back to the origin, and you started at
                     the
                     origin... That can only mean one thing... Your displacement is $0$! Do you see why? If your final
-                    position is $0$ meters from the origin, but so is your initial position, $0-0=0$!<br><br>Moving on
+                    position is $0$ meters from the origin, but so is your initial position, $0-0=0$!<br><br><h4 class="text-center">Distance vs Displacement</h4>Moving on
                     to a
                     different (but related) topic, you may also have heard of <i>distance</i>, which does actually hold
                     some
@@ -348,7 +349,7 @@ function setChecked(chek, qNum) {
                     from the same object. The object is still in
                     the same place, so both points of view must be correct! So if position is not constant for each
                     observer, then what is the point of defining it?
-                    <br><br>
+                    <br><br><h4 class="text-center">Displacement</h4>
                     Well, the change in position, or displacement, is
                     constant. From my point of view, my friend is still $2$ meters from the object. This is true for ANY
                     point
@@ -361,7 +362,7 @@ function setChecked(chek, qNum) {
                     displacement,
                     we use the
                     formula $x=x_f-x_i$, where $x_f$ and $x_i$ are the final and initial positions, respectively.
-                    <br><br>
+                    <br><br><h4 class="text-center">Distance vs Displacement</h4>
                     A
                     quantity
                     called
@@ -388,6 +389,7 @@ function setChecked(chek, qNum) {
         <div v-show="page === 1">
             <p>
                 <span v-show="level == 0">
+                    <h4 class="text-center">Velocity</h4>
                     Now, velocity ($v$), in its formal definition, is defined as the instantaneous rate of change of
                     position (but we won't be dealing with the formal definition).
                     The units of velocity is meters per second, $\frac{ \textrm{m} }{\textrm{s} }$
@@ -438,7 +440,7 @@ function setChecked(chek, qNum) {
                     but there
                     is
                     one equation you can use to find the initial and final velocities, involving acceleration later
-                    on.<br><br>As with distance and displacment, you may have heard of speed. Speed
+                    on.<br><br><h4 class="text-center">Speed vs Velocity</h4>As with distance and displacment, you may have heard of speed. Speed
                     and velocity are two non interchangeable terms as well. You might be able
                     to predict, if velocity is displacement divided by time, then speed must be distance divided by
                     time!
@@ -457,6 +459,7 @@ function setChecked(chek, qNum) {
                     quantity with a magnitude and direction!
                 </span>
                 <span v-show="level > 0">
+                    <h4 class="text-center">Velocity</h4>
                     Now, velocity ($v$) is defined as the instantaneous rate of change of position. <span
                         v-show="level == 1">This typically requires calculus to calculate, so we won’t worry too much
                         about
@@ -494,7 +497,7 @@ function setChecked(chek, qNum) {
                     Let's go back to example of me running around the park. My average velocity is zero, since my final
                     and
                     initial positions are the same, but my average speed is not zero, since my distance traveled is the
-                    length of the path around the park!<br><br>However, unlike distance and displacement, speed can be
+                    length of the path around the park!<br><br><h4 class="text-center">Speed vs Velocity</h4>However, unlike distance and displacement, speed can be
                     <i>more</i> confusing sometimes. Speed is often used as a word in physics texts to describe the
                     magnitude (or length) of the velocity vector (remember vectors?), so in a sense, speed is related to
                     velocity (do not make the same mistake for distance! Distance is almost NEVER used to refer to the
@@ -530,6 +533,7 @@ function setChecked(chek, qNum) {
         <div v-show="page === 2">
             <p>
                 <span v-show="level == 0">
+                    <h4 class="text-center">Acceleration</h4>
                     Acceleration ($a$) is our
                     final kinematic quantity, and it is the rate of change of
                     velocity. As with velocity, there is instantaneous acceleration, and average acceleration. We will
@@ -543,10 +547,6 @@ function setChecked(chek, qNum) {
                     meters per second squared (for those that don't know, it just means $\frac{\textrm{m}}{\textrm{s}
                     \cdot
                     \textrm{s}}$.)<br><br>
-                    An aside: Have you noticed we use the multiplication dot to denote multiplication?
-                    It's because the other symbol is an x-shape, and guess what variable that looks like! We don't want
-                    to
-                    confuse ourselves!<br><br>
                     We can also write an equation with velocity and
                     acceleration, just like we did before with displacement and velocity, like shown: $$a \cdot \Delta t
                     =
@@ -560,7 +560,7 @@ function setChecked(chek, qNum) {
                     only valid under the circumstance that your acceleration is constant, or you are using the average
                     acceleration. If the acceleration is not constant, you would have to use the average acceleration,
                     or
-                    use more advanced calculus tools.<br><br>Now before we close off this lesson, there is something
+                    use more advanced calculus tools.<br><br><h4 class="text-center">Conclusion</h4>Now before we close off this lesson, there is something
                     conceptually that is
                     important to realize. <i>All these quantities listed are VECTOR quantities.</i> Need a refresher? A
                     vector is defined by its length and direction. Now, if a vector's length changes, then it is a
@@ -584,6 +584,7 @@ function setChecked(chek, qNum) {
                     This is a very important concept that you must know! (It will come up again)
                 </span>
                 <span v-show="level > 0">
+                    <h4 class="text-center">Acceleration</h4>
                     Acceleration is our final kinematic quantity, and it is the instantaneous rate of change of
                     velocity.
                     Likewise, average acceleration is equal to the change in velocity over time ($a=\frac{\Delta
@@ -619,7 +620,7 @@ function setChecked(chek, qNum) {
                     $x=at^2$. This is NOT true. One important thing to realize here is that $\bar{v}$ is <i>average</i>
                     acceleration, and the previous equation, $\Delta v=at$, finds <i>change in</i> velocity. To find the
                     true
-                    equation, we can use one of two methods: algebra/graphical analysis, or calculus.<br><br>First,
+                    equation, we can use one of two methods: algebra/graphical analysis, or calculus.<br><br><h4 class="text-center">Deriving Equations: Algebraic Analysis</h4>First,
                     let's
                     take a look at how algebra and graph analysis can lead us to the right equation. Notice that we can
                     calculate our <i>average</i> velocity using this equation (If you ever see $v_i$ and $v_0$, just
@@ -660,10 +661,10 @@ function setChecked(chek, qNum) {
                     this
                     math level, just to give you something to chew on. Warning! This section has fancy notation and
                     symbols
-                    and requires algebra skills! So if you don't want that, go ahead and skip to the next lesson!
+                    and requires algebra skills! If you did the Basic Algebra lesson earlier, you should be fine though.
                     However, I
                     do recommend you try your best and read it and follow along. If it's not for you, great! Keep moving
-                    forward. If you're interested, stic around!<br><br>Now
+                    forward. If you're interested, stick around!<br><br>Now
                     you're probably thinking, is there a way to
                     relate acceleration and displacement? Given the equations that we have, you'll see that we have
                     $\bar{v}
@@ -712,15 +713,13 @@ function setChecked(chek, qNum) {
                     This was just a fun experiment to
                     see
                     how we can come up with an equation for displacement and acceleration. If you genuinely are having a
-                    hard time comprehending and understanding, we recommend you go to Khan Acadmey's Algebra course
-                    (link <a href="https://www.khanacademy.org/math/algebra-basics/alg-basics-algebraic-expressions"
-                        target="_blank">here</a>) and reviewing that lesson we just linked. After doing that, maybe come
-                    back and review this lesson again!<br><br>
+                    hard time comprehending and understanding, we recommend you go back to the Basic Algebra lesson, read it and come back here. That should help you a lot.<br><br>
                     OK! Are you ready to learn more about kinematics? Then let's
                     go to
                     it!
                 </span>
                 <span v-show="level > 0">
+                    <h4 class="text-center">Deriving Equations: Graphical Analysis</h4>
                     Now let's take a look at the same thing but via
                     graphical analysis. <span v-show="level == 1">We know that acceleration is the slope of the velocity
                         versus time (v-t) graph.
@@ -785,7 +784,7 @@ function setChecked(chek, qNum) {
                     shown
                     below (you can play around with the sliders):
                     <iframe src="https://www.desmos.com/calculator/g1suzxzrsv"
-                        style="margin:auto;display:block;width:100%; max-width:1000px;aspect-ratio:1 / 1;max-height:500px;" frameborder=0></iframe><br>
+                        style="margin:auto;display:block;width:100%; max-width:1000px;aspect-ratio:1 / 1;max-height:500px;" frameborder=0></iframe><br><h4 class="text-center">Conclusion</h4>
                     That's pretty much all there is to position, velocity, and acceleration. Usually, when we say $x$,
                     we do
                     mean displacement, but occasionally, if you see $x$ denoted with subscripts $f$ or $i$ or $0$, it

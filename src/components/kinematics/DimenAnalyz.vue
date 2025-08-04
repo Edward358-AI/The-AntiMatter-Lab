@@ -217,7 +217,8 @@ function setChecked(chek, qNum) {
                     what
                     we're dealing with here. If you look at the two words separately, you get "Dimensional" and
                     "Analysis".
-                    The first important thing about dimensional analysis is the dimensions part.<br><br>A dimension, is
+                    The first important thing about dimensional analysis is the dimensions part.<br><br>
+            <h4 class="text-center">Dimensions</h4>A dimension, is
                     much
                     like maybe what you see as a unit. If you've ever measured something, you know that you need to
                     specify
@@ -252,7 +253,8 @@ function setChecked(chek, qNum) {
                     what
                     we're dealing with here. If you look at the two words separately, you get "Dimensional" and
                     "Analysis".
-                    The first important thing about dimensional analysis is the dimensions part.<br><br>A dimension, is
+                    The first important thing about dimensional analysis is the dimensions part.<br><br>
+            <h4 class="text-center">Dimensions</h4>A dimension, is
                     much
                     like maybe what you see as a unit. If you've ever measured something, you know that you need to
                     specify
@@ -275,7 +277,8 @@ function setChecked(chek, qNum) {
                     mean $6$ meters, $6$ seconds, $6$ meters/second, $6$ Newtons, $6$ Newton meters, and so on. See,
                     without
                     a unit, a simple "number" becomes practically meaningless, so that's why we stress the importance of
-                    units.<br><br>Another helpful thing to know about this is the concept of derived units. Derived
+                    units.<br><br>
+            <h4 class="text-center">Derived Units</h4>Another helpful thing to know about this is the concept of derived units. Derived
                     units
                     are
                     units that are usually made through a combination of multiple units. For example, the unit for
@@ -304,6 +307,7 @@ function setChecked(chek, qNum) {
         <div v-show="page === 1">
             <p>
                 <span v-show="level == 0">
+            <h4 class="text-center">Derived Units</h4>
                     Another helpful thing to know about this is the concept of derived units. Derived units
                     are
                     units that are usually made through a combination of multiple units. For example, the unit for
@@ -323,7 +327,8 @@ function setChecked(chek, qNum) {
                     Newtons is the unit to measure <i>force</i>, it tells you that $1$ Newton is the force needed to
                     give a
                     mass of $1 ~ \textrm{kg}$ with an acceleration of $1 \frac{\textrm{m}}{\textrm{s}^2}$! Isn't that
-                    cool?<br><br>The second part is analysis. We won't focus too much on the analysis part, since that
+                    cool?<br><br>
+            <h4 class="text-center">Conclusion</h4>The second part is analysis. We won't focus too much on the analysis part, since that
                     requires
                     some more advanced mathematical knowledge. Regardless, it is important to understand that in
                     physics,
@@ -332,6 +337,7 @@ function setChecked(chek, qNum) {
                     going!
                 </span>
                 <span v-show="level > 0">
+            <h4 class="text-center">Analysis</h4>
                     The second part is analysis. Analysis is a bit more interesting. When you do analysis, you
                     are
                     basically doing math that requires converting or changing units. For example, you might need to do
@@ -384,7 +390,8 @@ function setChecked(chek, qNum) {
                     <br><br> Now you see how the
                     exact
                     same concept can be used to apply to constants because not all constants are dimensionless
-                    scalars!<br><br>As you get more and more familiar or experienced with the math being done, you can
+                    scalars!<br><br>
+            <h4 class="text-center">Conclusion</h4>As you get more and more familiar or experienced with the math being done, you can
                     simply omit the units for the sake of time and space. However, when just starting out, which we
                     assume
                     you are, we highly recommend adding units, because it gives you an idea of how varying units can

@@ -396,7 +396,7 @@ onUpdated(() => {
           </select>
         </div>
       </div>
-      <span class="text-secondary-emphasis">Made by Edward Jiang and Eric Niu</span><br style="margin-bottom:2px">
+      <span class="text-secondary-emphasis">© 2024 The AntiMatter Lab</span><br style="margin-bottom:2px">
       <a href="javascript:void(0);" @click="Window.scrollTo(0, 0); user.current = 'about'; hideMobileBar()"
         class="link-offset-1 info-link">About Us</a>&emsp;
       <a href="https://github.com/Edward358-AI/The-AntiMatter-Lab" target="_blank"
@@ -577,7 +577,7 @@ onUpdated(() => {
           </select>
         </div>
       </div>
-      <span class="text-secondary-emphasis">Made by Edward Jiang and Eric Niu</span><br style="margin-bottom:10px">
+      <span class="text-secondary-emphasis">© 2024 The AntiMatter Lab</span><br style="margin-bottom:10px">
       <a href="javascript:void(0);" @click="Window.scrollTo(0, 0); user.current = 'about'"
         class="link-offset-1 info-link">About Us</a>&emsp;
       <a href="https://github.com/Edward358-AI/The-AntiMatter-Lab" target="_blank"
