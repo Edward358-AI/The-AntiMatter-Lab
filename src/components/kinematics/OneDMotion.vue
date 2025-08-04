@@ -430,10 +430,9 @@ onUnmounted(() => {
                 most of these entry level kinematics will ignore air resistance and friction, and assume all the
                 objects
                 that we deal with are ideal in the sense that they don't generate a lot of air resistance nor
-                friction.<br><br>We generally will be less focused on doing calculations, but here are the equations
+                friction.<br><br><h4 class="text-center">The Equations</h4>We generally will be less focused on doing calculations, but here are the equations
                 that we
-                will be needing anyways (the Khan Academy course for algebra would be quite helpful right now if you
-                need it! It's linked in the About page and the previous lesson.):
+                will be needing anyways (the Basic Algebra lesson would be very very helpful right now!):
                 $$\underline{\textrm{\#1:}~~v_f=v_0+at}$$ $$\underline{\textrm{\#2:}~~x=v_0t+\frac 1 2 at^2}$$
                 $$\underline{\textrm{\#3:}~~x=v_ft-\frac 1 2 at^2}$$ I know I've omitted the "$\Delta$" symbol for
                 displacement ($x$) and time ($t$), but just know that it means "change in". It just becomes a lot
@@ -454,7 +453,7 @@ onUnmounted(() => {
                 However, for the sake of simplicity in our calculations, most of these entry level kinematics will
                 ignore air resistance and friction, and assume all the objects that we deal with are ideal in the
                 sense
-                that they don't generate a lot of air resistance nor friction.<br><br>If you have already forgotten
+                that they don't generate a lot of air resistance nor friction.<br><br><h4 class="text-center">The Equations</h4>If you have already forgotten
                 (which I
                 hope you haven't), here are the equations we derived from the previous chapter:
                 $$\underline{\textrm{\#1:}~~v_f=v_0+at}$$ $$\underline{\textrm{\#2:}~~x=v_0t+\frac 1 2 at^2}$$ I
@@ -645,7 +644,7 @@ onUnmounted(() => {
                     equation
                     to use to solve a problem. <br>Now as I said, there is ZERO problem solving in this chapter, so we
                     will
-                    introduce another interesting concept!<br><br>
+                    introduce another interesting concept!<br><br><h4 class="text-center">Free Fall</h4>
                     One-dimensional motion, all in all, seems pretty boring. However, there is a case where you can
                     virtually immediately apply it to your everyday lives. Well, what is that? It's free fall!
                     <figure>
@@ -758,6 +757,7 @@ onUnmounted(() => {
                     the the realm of free-fall, because the acceleration is constant!
                 </span>
                 <span v-show="level > 0">
+                    <h4 class="text-center">Free Fall</h4>
                     One-dimensional motion, all in all, seems pretty boring. Despite this, it is a
                     necessary
                     skill that you learn how to work with when we hit 2-dimensional motion. Yet, there is a
@@ -809,7 +809,7 @@ onUnmounted(() => {
                     $\Delta y$ (or $y$) as the displacement in the vertical direction, while height ($h$) is just a
                     fancy
                     way to say distance but in the vertical direction. Since it is standard, we will define the positive
-                    direction as upwards.<br><br>
+                    direction as upwards.<br><br><h4 class="text-center">The New (not really) Equations</h4>
                     Problem solving is very, very straightforward. The equations are tweaked a little bit since we
                     defined our positive direction as upwards (for those involving $a$). You'll see how this affects our
                     values when we solve problems: $$v_f=v_0-gt$$ $$y=v_0-\frac 1 2 gt^2$$ $$y=v_f+\frac 1 2 gt^2$$
@@ -961,7 +961,7 @@ onUnmounted(() => {
                     This was a rather brief lesson, and I promise there are much more interesting concepts in the next
                     lesson. It is much more applicable because you can experiment and see it in your everyday lives,
                     manifested in the form of not 1-dimensional, but 2-dimensional motion, also known as: projectile
-                    motion!<br><br>Before we get into it, as always, I have something for you to chew on (no, not
+                    motion!<br><br><h4 class="text-center">Conclusion</h4>Before we get into it, as always, I have something for you to chew on (no, not
                     literally). If you didn't understand any bit of the equation part of the chapter, that's okay! Not
                     everyone knows algebra 1 and that was an important part of creating this project in itself. Yet
                     despite
@@ -1000,7 +1000,7 @@ onUnmounted(() => {
                     such
                     elegant and simple results. <br>And sometimes, simple is beautiful.
                 </span>
-                <span v-show="level > 0">Before we continue on to 2-dimensional motion, there is an important concept
+                <span v-show="level > 0"><h4 class="text-center">Free Fall w/ Upward Motion</h4>Before we continue on to 2-dimensional motion, there is an important concept
                     that
                     needs to
                     be covered. What if, instead of dropping something, you threw it upwards? You would see the object
@@ -1040,7 +1040,7 @@ onUnmounted(() => {
                     $$h=v_0(\frac{v_0}{g}) - \frac 1 2 g(\frac{v_0}{g})^2=\frac{v_0^2}{2g}$$ We don't have any specific
                     problems for you to solve on this concept, but it becomes more important and more prevalent in the
                     next
-                    chapter. Ok! Have you mastered one-dimensional motion? Are you ready to try your hand at
+                    chapter.<br><br><h4 class="text-center">Conclusion</h4> Ok! Have you mastered one-dimensional motion? Are you ready to try your hand at
                     two-dimensional
                     motion? Then hit "Next Lesson" to go to it!
                 </span>
@@ -1054,21 +1054,6 @@ onUnmounted(() => {
                     Lesson! &rarr;</button>
             </div>
         </div>
-        <!-- 
-                
-                
-                
-                <br><br>
-
-
-
-                <br><br><br><br>
-
-
-
-
-                
-            </span> -->
     </div>
 
     <div v-show="!lessonShowing" class="container h100 pt-5">

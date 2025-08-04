@@ -272,15 +272,14 @@ function setChecked(chek, qNum) {
         <div v-show="page === 1">
             <h4 class="text-center">Syntax</h4>
             <p>
-            Now, we will take a look at some basic algebraic operations that will help you understand how we can
-            manipulate these equations and expressions of letters and symbols. Before we begin, we need to first dissect
+            First, we need to dissect
             the way these equations are written, which may be unfamiliar to you. Here is the equation again: $$F = ma$$
             An equation of letters and symbols is no different from an equation of numbers, like $4+4=8$. They both
             indicate a relationship between multiple quantities, just that we replaced the numbers with letters.
             Furthermore, you might know that "$\times$" is the multiplication operator, but in algebra, we can actually
             use "$\cdot$" or just put two letters next to each other to indicate multiplication. In essence, the above
             equation is the same as saying, $$F = m \times a$$ We don't typically use the multiplication operator in
-            algebra because it looks like the letter $x$ and can cause confusion.<br><br></p>
+            algebra because it looks like the letter $x$ and can cause confusion.<br><br>You might also see us using $\Sigma$ and $\Delta$ here and there, just note that these are NOT variables and should NOT be treated like variables. Instead they are used as clarifiers, as $\Sigma$ represents "sum", or "net", like $\Sigma F$ represents net force, and $\Delta$ means change in, like $\Delta x$ means change in $x$. Again, they are not variables, so treat it and the letter/symbol that follows as a single variable. You might also see other Greek letters being used, like $\theta , \pi , \alpha , \tau , \omega$. Just note that this time, these will <i>actually</i> refer to variables, and not whatever $\Sigma$ and $\Delta$ refer to. It might be a bit confusing at first, but it will become easier to understand later on.<br><br>Another important notation you might want to know is exponents. For example, you might see us use $v^2$. This is simply equal to $v \cdot v$. Likewise, for $v^3$, it would be $v \cdot v \cdot v$. Sensing a pattern? I'll leave it to you to figure out what $v^4$ and $v^{100}$ mean then.<br><br>On the topic of exponents, you might also see us using subscripts, like $v_i$ and $v_f$. The reason we use these is very similar the function of $\Sigma$ and $\Delta$, the subscript is simply for more clarification. For example, $v_i$ stands for <i>initial</i> velocity, and the latter stands for <i>final</i> velocity. Sometimes we might use numbers as subscripts; they serve the same purpose: $r_1$, $r_2$, and $r_3$ refer to three different variables.<br><br></p>
             <h4 class="text-center">Basic Algebraic Operations</h4>
             <p>
             Next, we will talk about some basic algebraic operations that will help you understand how we can manipulate
