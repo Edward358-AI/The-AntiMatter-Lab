@@ -95,7 +95,7 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
                 target="_blank">antimatter5175@gmail.com</a>).</p><br><br>
 
         <h1>License</h1><br>
-        <p class="text-center pb-5">This project is licensed under the MIT License.</p>
+        <p class="text-center pb-5">This project is licensed under the GNU Affero General Public License v3.0.</p>
         <div class="btn-contain-right">
                 <button class="btn btn-dark" style="animation: scale 2s infinite;" @click="$emit('nextlesson')">Next Page!&rarr;</button>
             </div>
