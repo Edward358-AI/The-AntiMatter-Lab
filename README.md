@@ -1,5 +1,5 @@
 # The AntiMatter Lab
-An interactive, hands-on experience for learning physics for the average person!
+An interactive, hands-on experience for learning physics for anyone!
 
 ## Links
 https://theantimatterlab.net/
