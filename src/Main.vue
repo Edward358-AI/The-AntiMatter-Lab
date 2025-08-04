@@ -397,7 +397,7 @@ onUpdated(() => {
         </div>
       </div>
       <span class="text-secondary-emphasis">© 2024 The AntiMatter Lab</span><br style="margin-bottom:2px">
-      <a href="javascript:void(0);" @click="Window.scrollTo(0, 0); user.current = 'about'; hideMobileBar()"
+      <a href="javascript:void(0);" @click="Window.scrollTo(0, 0); user.current=lessons.basics[2]; hideMobileBar()"
         class="link-offset-1 info-link">About Us</a>&emsp;
       <a href="https://github.com/Edward358-AI/The-AntiMatter-Lab" target="_blank"
         class="link-offset-1 info-link" @click="hideMobileBar()">Github</a>
@@ -578,7 +578,7 @@ onUpdated(() => {
         </div>
       </div>
       <span class="text-secondary-emphasis">© 2024 The AntiMatter Lab</span><br style="margin-bottom:10px">
-      <a href="javascript:void(0);" @click="Window.scrollTo(0, 0); user.current = 'about'"
+      <a href="javascript:void(0);" @click="Window.scrollTo(0, 0); user.current=lessons.basics[2]"
         class="link-offset-1 info-link">About Us</a>&emsp;
       <a href="https://github.com/Edward358-AI/The-AntiMatter-Lab" target="_blank"
         class="link-offset-1 info-link">Github</a>
