@@ -10,205 +10,205 @@ const questions = reactive(
         [ // conceptual difficulty
             {
                 number: 0,
-                question: "",
+                question: "Solve the equation $2x + 3 = 11$ for $x$.",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["7", 0, false],
+                    ["2.5", 0, false],
+                    ["4", 1, false],
+                    ["0", 0, false]
                 ],
-                explain: ""
+                explain: "We first subtract 3 from both sides to get $2x = 8$. Then we divide both sides by 2 to get $x = 4$."
             },
             {
                 number: 1,
-                question: "",
+                question: "If $y = 3x + 2$, what is the value of $y$ when $x = 4$?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["20", 0, false],
+                    ["14", 1, false],
+                    ["10", 0, false],
+                    ["18", 0, false]
                 ],
-                explain: ""
+                explain: "We plug in $x = 4$ into the equation: $y = 3(4) + 2 = 12 + 2 = 14$."
             },
             {
                 number: 2,
-                question: "",
+                question: "If $x+y=10$ and $x-y=2$, what are the values of $x$ and $y$?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["6, 4", 1, false],
+                    ["7, 3", 0, false],
+                    ["4, 6", 0, false],
+                    ["12, -2", 0, false]
                 ],
-                explain: ""
+                explain: "If we add the two equations, we get $2x = 12$, so $x = 6$. Then we can plug this value into either equation to find $y$: $6 + y = 10$, so $y = 4$."
             },
             {
                 number: 3,
-                question: "",
+                question: "Express the formula $C_v = \\frac32nRT$ in terms of n.",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["$n = \\frac23 C_vRT$", 0, false],
+                    ["$n = \\frac32 \\frac{C_vR}{T}$", 0, false],
+                    ["$n = \\frac23 \\frac{C_v}{RT}$", 1, false],
+                    ["$n = \\frac32 \\frac{1}{C_vRT}$", 0, false]
                 ],
-                explain: ""
+                explain: "We want to isolate $n$ in the equation. We can do this by multiplying both sides by $\\dfrac{2}{3C_v}$, which gives us $n = \\frac{2C_v}{3RT}$. Then we can simplify this to get $n = \\frac23 \\frac{C_v}{RT}$."
             },
             {
                 number: 4,
-                question: "",
+                question: "What is the solution to the equation $5x - 7 = 3x + 5$?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["12", 0, false],
+                    ["4", 0, false],
+                    ["2", 0, false],
+                    ["6", 1, false]
                 ],
-                explain: ""
+                explain: "We first want to get all the $x$ terms on one side and the constant terms on the other side. We can do this by subtracting $3x$ from both sides and adding $7$ to both sides: $5x - 3x = 5 + 7$. This simplifies to $2x = 12$, so $x = 6$."
             },
             {
                 number: 5,
-                question: "",
+                question: "Simplify the expression $\\frac{2x^2 + 4x}{2x} - (3x-x^2)$.",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["$3x^2 + x$", 0, false],
+                    ["$2x^2 + 2x+2$", 0, false],
+                    ["$x^2 - 2x+2$", 1, false],
+                    ["$x^2 - 2x$", 0, false]
                 ],
-                explain: ""
+                explain: "We want to simplify the expression step by step. First, we can factor out $2x$ from the first term: $\\frac{2x(x + 2)}{2x} - (3x - x^2)$. This simplifies to $x + 2 - (3x - x^2)$. Now we can distribute the negative sign in the second term: $x + 2 - 3x + x^2$. Finally, we can combine like terms to get $x^2 - 2x + 2$."
             }
         ],
         [ // algebra difficulty
             {
                 number: 0,
-                question: "",
+                question: "Solve the equation $2x + 3 = 11$ for $x$.",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["7", 0, false],
+                    ["2.5", 0, false],
+                    ["4", 1, false],
+                    ["0", 0, false]
                 ],
-                explain: ""
+                explain: "We first subtract 3 from both sides to get $2x = 8$. Then we divide both sides by 2 to get $x = 4$."
             },
             {
                 number: 1,
-                question: "",
+                question: "If $y = 3x + 2$, what is the value of $y$ when $x = 4$?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["20", 0, false],
+                    ["14", 1, false],
+                    ["10", 0, false],
+                    ["18", 0, false]
                 ],
-                explain: ""
+                explain: "We plug in $x = 4$ into the equation: $y = 3(4) + 2 = 12 + 2 = 14$."
             },
             {
                 number: 2,
-                question: "",
+                question: "If $x+y=10$ and $x-y=2$, what are the values of $x$ and $y$?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["6, 4", 1, false],
+                    ["7, 3", 0, false],
+                    ["4, 6", 0, false],
+                    ["12, -2", 0, false]
                 ],
-                explain: ""
+                explain: "If we add the two equations, we get $2x = 12$, so $x = 6$. Then we can plug this value into either equation to find $y$: $6 + y = 10$, so $y = 4$."
             },
             {
                 number: 3,
-                question: "",
+                question: "Express the formula $C_v = \\frac32nRT$ in terms of n.",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["$n = \\frac23 C_vRT$", 0, false],
+                    ["$n = \\frac32 \\frac{C_vR}{T}$", 0, false],
+                    ["$n = \\frac23 \\frac{C_v}{RT}$", 1, false],
+                    ["$n = \\frac32 \\frac{1}{C_vRT}$", 0, false]
                 ],
-                explain: ""
+                explain: "We want to isolate $n$ in the equation. We can do this by multiplying both sides by $\\dfrac{2}{3C_v}$, which gives us $n = \\frac{2C_v}{3RT}$. Then we can simplify this to get $n = \\frac23 \\frac{C_v}{RT}$."
             },
             {
                 number: 4,
-                question: "",
+                question: "What is the solution to the equation $5x - 7 = 3x + 5$?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["12", 0, false],
+                    ["4", 0, false],
+                    ["2", 0, false],
+                    ["6", 1, false]
                 ],
-                explain: ""
+                explain: "We first want to get all the $x$ terms on one side and the constant terms on the other side. We can do this by subtracting $3x$ from both sides and adding $7$ to both sides: $5x - 3x = 5 + 7$. This simplifies to $2x = 12$, so $x = 6$."
             },
             {
                 number: 5,
-                question: "",
+                question: "Simplify the expression $\\frac{2x^2 + 4x}{2x} - (3x-x^2)$.",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["$3x^2 + x$", 0, false],
+                    ["$2x^2 + 2x+2$", 0, false],
+                    ["$x^2 - 2x+2$", 1, false],
+                    ["$x^2 - 2x$", 0, false]
                 ],
-                explain: ""
+                explain: "We want to simplify the expression step by step. First, we can factor out $2x$ from the first term: $\\frac{2x(x + 2)}{2x} - (3x - x^2)$. This simplifies to $x + 2 - (3x - x^2)$. Now we can distribute the negative sign in the second term: $x + 2 - 3x + x^2$. Finally, we can combine like terms to get $x^2 - 2x + 2$."
             }
         ],
         [ // calculus difficulty
             {
                 number: 0,
-                question: "",
+                question: "Solve the equation $2x + 3 = 11$ for $x$.",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["7", 0, false],
+                    ["2.5", 0, false],
+                    ["4", 1, false],
+                    ["0", 0, false]
                 ],
-                explain: ""
+                explain: "We first subtract 3 from both sides to get $2x = 8$. Then we divide both sides by 2 to get $x = 4$."
             },
             {
                 number: 1,
-                question: "",
+                question: "If $y = 3x + 2$, what is the value of $y$ when $x = 4$?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["20", 0, false],
+                    ["14", 1, false],
+                    ["10", 0, false],
+                    ["18", 0, false]
                 ],
-                explain: ""
+                explain: "We plug in $x = 4$ into the equation: $y = 3(4) + 2 = 12 + 2 = 14$."
             },
             {
                 number: 2,
-                question: "",
+                question: "If $x+y=10$ and $x-y=2$, what are the values of $x$ and $y$?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["6, 4", 1, false],
+                    ["7, 3", 0, false],
+                    ["4, 6", 0, false],
+                    ["12, -2", 0, false]
                 ],
-                explain: ""
+                explain: "If we add the two equations, we get $2x = 12$, so $x = 6$. Then we can plug this value into either equation to find $y$: $6 + y = 10$, so $y = 4$."
             },
             {
                 number: 3,
-                question: "",
+                question: "Express the formula $C_v = \\frac32nRT$ in terms of n.",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["$n = \\frac23 C_vRT$", 0, false],
+                    ["$n = \\frac32 \\frac{C_vR}{T}$", 0, false],
+                    ["$n = \\frac23 \\frac{C_v}{RT}$", 1, false],
+                    ["$n = \\frac32 \\frac{1}{C_vRT}$", 0, false]
                 ],
-                explain: ""
+                explain: "We want to isolate $n$ in the equation. We can do this by multiplying both sides by $\\dfrac{2}{3C_v}$, which gives us $n = \\frac{2C_v}{3RT}$. Then we can simplify this to get $n = \\frac23 \\frac{C_v}{RT}$."
             },
             {
                 number: 4,
-                question: "",
+                question: "What is the solution to the equation $5x - 7 = 3x + 5$?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["12", 0, false],
+                    ["4", 0, false],
+                    ["2", 0, false],
+                    ["6", 1, false]
                 ],
-                explain: ""
+                explain: "We first want to get all the $x$ terms on one side and the constant terms on the other side. We can do this by subtracting $3x$ from both sides and adding $7$ to both sides: $5x - 3x = 5 + 7$. This simplifies to $2x = 12$, so $x = 6$."
             },
             {
                 number: 5,
-                question: "",
+                question: "Simplify the expression $\\frac{2x^2 + 4x}{2x} - (3x-x^2)$.",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["$3x^2 + x$", 0, false],
+                    ["$2x^2 + 2x+2$", 0, false],
+                    ["$x^2 - 2x+2$", 1, false],
+                    ["$x^2 - 2x$", 0, false]
                 ],
-                explain: ""
+                explain: "We want to simplify the expression step by step. First, we can factor out $2x$ from the first term: $\\frac{2x(x + 2)}{2x} - (3x - x^2)$. This simplifies to $x + 2 - (3x - x^2)$. Now we can distribute the negative sign in the second term: $x + 2 - 3x + x^2$. Finally, we can combine like terms to get $x^2 - 2x + 2$."
             }
         ]
     ]
@@ -328,7 +328,7 @@ function setChecked(chek, qNum) {
 
     <div v-show="!lessonShowing" class="container-fluid h100 pt-5">
         <h1>Basic Algebra Problems</h1><br>
-        <span v-show="level > 0">A calculator might be necessary for the following problems.</span>
+        <span v-show="level > -1">A calculator might be necessary for the following problems.</span>
         <div class="question-container row justify-content-center mx-auto pb-5">
             <form @submit.prevent="checkAnswer(q.number)" style="height:fit-content"
                 class="question col-6 row justify-content-center my-5 mx-auto" v-for="q in questions[level]">
