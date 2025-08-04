@@ -12,205 +12,205 @@ const questions = reactive(
         [ // conceptual difficulty
             {
                 number: 0,
-                question: "What is the proper format for a vector in component form?",
+                question: "Which direction is the centripetal acceleration?",
                 answers: [
-                    ["$\\{3, 5\\}$", 0, false],
-                    ["$\\langle 3, 5 \\rangle$", 1, false],
-                    ["$(3, 5)$", 0, false],
-                    ["$[3, 5]$", 0, false]
+                    ["Forwards", 0, false],
+                    ["Backwards", 0, false],
+                    ["Away from the center", 0, false],
+                    ["Towards the center", 1, false]
                 ],
-                explain: "Recall that a vector in component form is denoted by its component in the horizontal direction ($x$) and vertical direction ($y$), surrounded by angle brackets. Thus the second answer choice is the correct one."
+                explain: "The term \"centripetal\" means <i>center-seeking</i>, and the centripetal force is therefore pointing towards the center of the circle."
             },
             {
                 number: 1,
-                question: "",
+                question: "What force keeps planets moving in circles around the sun?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["Centripetal", 0, false],
+                    ["Centrifugal", 0, false],
+                    ["Gravitational", 1, false],
+                    ["Tension", 0, false]
                 ],
-                explain: ""
+                explain: "The gravitational force is responsible for providing the necessary centripetal force such that the planets can orbit the sun. The centripetal force is <b>not</b> a new force!"
             },
             {
                 number: 2,
-                question: "",
+                question: "You are swinging a ball on a rope over your head. As you swing, you gradually increase the speed. What must happen if you want the radius of the circle to remain the same?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["Tension decreases", 0, false],
+                    ["Tension increases", 1, false],
+                    ["Centripetal force increases", 0, false],
+                    ["Gravitational force increases", 0, false]
                 ],
-                explain: ""
+                explain: "The tension in the string must increase, because a greater centripetal force must be provided in order to keep the faster ball moving in the same circle."
             },
             {
                 number: 3,
-                question: "",
+                question: "What provides the centripetal force for a car going around a curve?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["Normal force", 0, false],
+                    ["Gravity", 0, false],
+                    ["Friction", 1, false],
+                    ["Engine", 0, false]
                 ],
-                explain: ""
+                explain: "Only friction can act parallel to the surface, which is why it is the only possible option that can provide the centripetal force for a car going in a circle."
             },
             {
                 number: 4,
-                question: "",
+                question: "Why do we use banked curves?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["Allows normal force to provide centripetal force", 1, false],
+                    ["Decreases friction", 0, false],
+                    ["Increases magnitude of gravitational force down the incline", 0, false],
+                    ["They look cool", 0, false]
                 ],
-                explain: ""
+                explain: "Banked curves are designed such that the normal force can provide some of the centripetal force, which allows the car to go around the curve without relying solely on friction. This is especially useful at high speeds where friction may not be sufficient."
             },
             {
                 number: 5,
-                question: "",
+                question: "Why is a ball moving in a vertical circle not considered uniform circular motion?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["The ball's speed changes", 1, false],
+                    ["The ball's velocity changes", 0, false],
+                    ["The circle isn't perfect", 0, false],
+                    ["Its height changes", 0, false]
                 ],
-                explain: ""
+                explain: "As the ball moves up the vertical circle, it will slow down, and when it moves down it speeds up. The condition for UCM is that the speed remains constant throughout the motion, which is not the case here."
             }
         ],
         [ // algebra difficulty
             {
                 number: 0,
-                question: "What is the proper format for a vector in component form?",
+                question: "What is the maximum possible velocity for a 0.5 kg ball moving in a circle tethered to a 3.0 meter string that will break if the tension in it exceeds 50 N?",
                 answers: [
-                    ["$\\{3, 5\\}$", 0, false],
-                    ["$\\langle 3, 5 \\rangle$", 1, false],
-                    ["$(3, 5)$", 0, false],
-                    ["$[3, 5]$", 0, false]
+                    ["12.2 m/s", 0, false],
+                    ["17.3 m/s", 1, false],
+                    ["8.66 m/s", 0, false],
+                    ["15.8 m/s", 0, false]
                 ],
-                explain: "Recall that a vector in component form is denoted by its component in the horizontal direction ($x$) and vertical direction ($y$), surrounded by angle brackets. Thus the second answer choice is the correct one."
+                explain: "The centripetal force required is given by $F_c = \\dfrac{mv^2}{r}$. Rearranging gives $v = \\sqrt{\\dfrac{F_c r}{m}}$. Plugging in the values gives $v = 17.3 m/s$."
             },
             {
                 number: 1,
-                question: "",
+                question: "What is the coefficient of friction required for a 1000 kg car to make a turn of radius 50 m at a speed of 20 m/s?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["0.816", 1, false],
+                    ["0.421", 0, false],
+                    ["0.401", 0, false],
+                    ["0.724", 0, false]
                 ],
-                explain: ""
+                explain: "The centripetal force required is given by $F_c = \\dfrac{mv^2}{r}$. The frictional force is given by $F_f = \\mu F_N$ where $F_N$ is equal to the weight of the car in this case. Thus, we have $\\mu mg = \\dfrac{mv^2}{r}$. Rearranging gives $\\mu = \\dfrac{v^2}{rg}$. Plugging in the values gives $\\mu = 0.816$."
             },
             {
                 number: 2,
-                question: "",
+                question: "We have shown that high bank angles mean that more of the centripetal force is provided by the normal force. Why do we not bank curves at very high angles then?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["The gravitational force would be too strong", 0, false],
+                    ["The height of the car would be too great", 0, false],
+                    ["The normal force decreases", 1, false],
+                    ["It's an engineering limitation", 0, false]
                 ],
-                explain: ""
+                explain: "As the bank angle increases, the normal force decreases because the component of the gravitational force acting perpendicular to the surface becomes smaller. This means that at very high angles, the normal force may not be sufficient to provide the required centripetal force, or even contribute enough to the frictional force to stop the car from slipping."
             },
             {
                 number: 3,
-                question: "",
+                question: "Let's consider a flat circular track with an unknown radius. If a car that moves at 80 m/s can barely stay on track due to the frictional force, what is the minimum radius of the track if the coefficient of static friction is 0.5?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["13.4 m", 0, false],
+                    ["326.2 m", 0, false],
+                    ["652.4 m", 0, false],
+                    ["1304 m", 1, false]
                 ],
-                explain: ""
+                explain: "We want to equate the frictional force to the centripetal force, which in this case would be the equation $\\mu mg = \\dfrac{mv^2}{r}$ ($F_N = mg$ because it's on a horizontal surface.). Solving for $r$ gives us $r = \\dfrac{v^2}{\\mu g} = 1304 ~\\textrm{m}$."
             },
             {
                 number: 4,
-                question: "",
+                question: "What is the required centripetal acceleration to move a ball in orbit around the Earth at the Earth's surface at a speed of 7.9 km/s? (The Earth's radius is approximately 6.38 million meters.)",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["$10.8 ~\\textrm{m/s}^2$", 0, false],
+                    ["$9.78 ~\\textrm{m/s}^2$", 1, false],
+                    ["$14.7 ~\\textrm{m/s}^2$", 0, false],
+                    ["$7.34 ~\\textrm{m/s}^2$", 0, false]
                 ],
-                explain: ""
+                explain: "We want to just use the formula for centripetal acceleration, $a_c = \\dfrac{v^2}{r}$. Plugging in the values gives us $a_c = 9.78 ~\\textrm{m/s}^2$. This is around the gravitational acceleration at the Earth's surface, which is no coincidence!"
             },
             {
                 number: 5,
-                question: "",
+                question: "Consider a metal ring with a bead attached. The ring has a radius of 0.2 meters, and the bead has a mass of 0.04 kg. If the bead is moving at a speed of 1.5 m/s, what is the force on the bead by the ring and which side of the bead touches the ring? (Inner is the side closer to the center, outer is the side farther from the center.)",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["11.25 N, inner", 0, false],
+                    ["11.25 N, outer", 0, false],
+                    ["0.45 N, inner", 1, false],
+                    ["0.45 N, outer", 0, false]
                 ],
-                explain: ""
+                explain: "We can get the required centripetal force rather easily by using the formula $F_c = \\dfrac{mv^2}{r}$. Plugging in the values gives us $F_c = 0.45 ~\\textrm{N}$. The force must be directed towards the center of the circle, which means that the inner side of the bead touches the ring, which is the only way that the normal force from the ring can be in the correct direction."
             }
         ],
         [ // calculus difficulty
             {
                 number: 0,
-                question: "What is the proper format for a vector in component form?",
+                question: "What is the maximum possible velocity for a 0.5 kg ball moving in a circle tethered to a 3.0 meter string that will break if the tension in it exceeds 50 N?",
                 answers: [
-                    ["$\\{3, 5\\}$", 0, false],
-                    ["$\\langle 3, 5 \\rangle$", 1, false],
-                    ["$(3, 5)$", 0, false],
-                    ["$[3, 5]$", 0, false]
+                    ["12.2 m/s", 0, false],
+                    ["17.3 m/s", 1, false],
+                    ["8.66 m/s", 0, false],
+                    ["15.8 m/s", 0, false]
                 ],
-                explain: "Recall that a vector in component form is denoted by its component in the horizontal direction ($x$) and vertical direction ($y$), surrounded by angle brackets. Thus the second answer choice is the correct one."
+                explain: "The centripetal force required is given by $F_c = \\dfrac{mv^2}{r}$. Rearranging gives $v = \\sqrt{\\dfrac{F_c r}{m}}$. Plugging in the values gives $v = 17.3 m/s$."
             },
             {
                 number: 1,
-                question: "",
+                question: "What is the coefficient of friction required for a 1000 kg car to make a turn of radius 50 m at a speed of 20 m/s?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["0.816", 1, false],
+                    ["0.421", 0, false],
+                    ["0.401", 0, false],
+                    ["0.724", 0, false]
                 ],
-                explain: ""
+                explain: "The centripetal force required is given by $F_c = \\dfrac{mv^2}{r}$. The frictional force is given by $F_f = \\mu F_N$ where $F_N$ is equal to the weight of the car in this case. Thus, we have $\\mu mg = \\dfrac{mv^2}{r}$. Rearranging gives $\\mu = \\dfrac{v^2}{rg}$. Plugging in the values gives $\\mu = 0.816$."
             },
             {
                 number: 2,
-                question: "",
+                question: "We have shown that high bank angles mean that more of the centripetal force is provided by the normal force. Why do we not bank curves at very high angles then?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["The gravitational force would be too strong", 0, false],
+                    ["The height of the car would be too great", 0, false],
+                    ["The normal force decreases", 1, false],
+                    ["It's an engineering limitation", 0, false]
                 ],
-                explain: ""
+                explain: "As the bank angle increases, the normal force decreases because the component of the gravitational force acting perpendicular to the surface becomes smaller. This means that at very high angles, the normal force may not be sufficient to provide the required centripetal force, or even contribute enough to the frictional force to stop the car from slipping."
             },
             {
                 number: 3,
-                question: "",
+                question: "Let's consider a flat circular track with an unknown radius. If a car that moves at 80 m/s can barely stay on track due to the frictional force, what is the minimum radius of the track if the coefficient of static friction is 0.5?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["13.4 m", 0, false],
+                    ["326.2 m", 0, false],
+                    ["652.4 m", 0, false],
+                    ["1304 m", 1, false]
                 ],
-                explain: ""
+                explain: "We want to equate the frictional force to the centripetal force, which in this case would be the equation $\\mu mg = \\dfrac{mv^2}{r}$ ($F_N = mg$ because it's on a horizontal surface.). Solving for $r$ gives us $r = \\dfrac{v^2}{\\mu g} = 1304 ~\\textrm{m}$."
             },
             {
                 number: 4,
-                question: "",
+                question: "What is the required centripetal acceleration to move a ball in orbit around the Earth at the Earth's surface at a speed of 7.9 km/s? (The Earth's radius is approximately 6.38 million meters.)",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["$10.8 ~\\textrm{m/s}^2$", 0, false],
+                    ["$9.78 ~\\textrm{m/s}^2$", 1, false],
+                    ["$14.7 ~\\textrm{m/s}^2$", 0, false],
+                    ["$7.34 ~\\textrm{m/s}^2$", 0, false]
                 ],
-                explain: ""
+                explain: "We want to just use the formula for centripetal acceleration, $a_c = \\dfrac{v^2}{r}$. Plugging in the values gives us $a_c = 9.78 ~\\textrm{m/s}^2$. This is around the gravitational acceleration at the Earth's surface, which is no coincidence!"
             },
             {
                 number: 5,
-                question: "",
+                question: "Consider a metal ring with a bead attached. The ring has a radius of 0.2 meters, and the bead has a mass of 0.04 kg. If the bead is moving at a speed of 1.5 m/s, what is the force on the bead by the ring and which side of the bead touches the ring? (Inner is the side closer to the center, outer is the side farther from the center.)",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["11.25 N, inner", 0, false],
+                    ["11.25 N, outer", 0, false],
+                    ["0.45 N, inner", 1, false],
+                    ["0.45 N, outer", 0, false]
                 ],
-                explain: ""
+                explain: "We can get the required centripetal force rather easily by using the formula $F_c = \\dfrac{mv^2}{r}$. Plugging in the values gives us $F_c = 0.45 ~\\textrm{N}$. The force must be directed towards the center of the circle, which means that the inner side of the bead touches the ring, which is the only way that the normal force from the ring can be in the correct direction."
             }
         ]
     ]
@@ -427,22 +427,21 @@ onUnmounted(() => {
                     <br><br>
                     So we write down:
                     <br><br>
-                    $r d\theta=v dt$ (1)
-                    <br><br>
+                    $$r d\theta=v dt ~(1) $$
+                    <br>
                     Acceleration is defined as:
                     <br><br>
-                    $a=\dfrac{dv}{dt}$
-                    <br><br>
+                    $$a=\dfrac{dv}{dt}$$
+                    <br>
                     By the same logic as before,
                     <br><br>
-                    $dv=v d\theta$ (2)
-                    <br><br>
-                    $a=v\dfrac{d\theta}{dt}$ (3)
-                    <br><br>
+                    $$dv=v d\theta ~(2)$$
+                    $$a=v\dfrac{d\theta}{dt} ~(3)$$
+                    <br>
                     Substituting (1) and (2) into (3), we obtain:
                     <br><br>
                     $$a=\dfrac{v^2}{r}$$
-                    <br><br>
+                    <br>
                 </span>
                 <span v-show="level == 1">
                     Consider a small time interval $\Delta t$. In that interval, the ball roughly displaces $\Delta
@@ -452,17 +451,16 @@ onUnmounted(() => {
                     <br><br>
                     We can write:
                     <br><br>
-                    $r \Delta \theta=v \Delta$ (1)
-                    <br><br>
+                    $$r \Delta \theta=v \Delta t ~(1)$$
+                    <br>
                     Acceleration is defined as:
                     <br><br>
-                    $a= \dfrac{\Delta v}{\Delta t}$
-                    <br><br>
+                    $$a= \dfrac{\Delta v}{\Delta t}$$
+                    <br>
                     By the same logic as before,
                     <br><br>
-                    $\Delta =v \Delta \theta$ (2)
-                    <br><br>
-                    $a=v\dfrac{\Delta\theta}{\Delta t}$ (3)
+                    $$\Delta v=v \Delta \theta ~(2)$$
+                    $$a=v\dfrac{\Delta\theta}{\Delta t}~(3)$$
                     <br><br>
                     Substituting (1) and (2) into (3), we obtain:
                     <br><br>
@@ -520,7 +518,7 @@ onUnmounted(() => {
                 of radius
                 $r$ is:
                 <br><br>
-                $a_c = \dfrac{v^2}{r}$
+                $$a_c = \dfrac{v^2}{r}$$
                 <br><br>
                 Not too complex, eh? Now, we should analyze this formula. We see that the centripetal acceleration
                 required
@@ -532,7 +530,7 @@ onUnmounted(() => {
                 <br><br>
                 The centripetal force required directly builds off of this centripetal acceleration:
                 <br><br>
-                $F_c = m\dfrac{v^2}{r}$
+                $$F_c = m\dfrac{v^2}{r}$$
                 <br><br>
                 Unfortunately, the majority of uniform circular motion is calculation-based and there is not too much
                 conceptual content.
@@ -569,7 +567,7 @@ onUnmounted(() => {
                     forward! Friction back at it again, doing unexpected things.
                 </div>
                 <br><br>
-                Now, we should consder the special case of a banked curve. This isn't an easy calculation, so instead of
+                Now, we should consider the special case of a banked curve. This isn't an easy calculation, so instead of
                 making
                 this a problem I'll walk you through it.
                 <br><br>
@@ -616,19 +614,18 @@ onUnmounted(() => {
                 The component of $F_n$ that can contribute to the centripetal acceleration is the horizontal component,
                 or $F_nsin\theta$. Using this and the previously derived result, we can write:
                 <br><br>
-                $ma_c=mg\dfrac{\sin\theta}{\cos\theta}=mg \tan\theta$
+                $$ma_c=mg\dfrac{\sin\theta}{\cos\theta}=mg \tan\theta$$
+                $$a_c= g\tan\theta$$
                 <br>
-                $a_c= g\tan\theta$
-                <br><br>
                 And, since $a_c=v^2/r$,
-                <br>
-                $v=\sqrt{gr\tan\theta}$
                 <br><br>
+                $$v=\sqrt{gr\tan\theta}$$
+                <br>
                 This is a very constraining condition, only allowing for a single possible speed for a given curve. It
                 is more realistic to consider friction, which would allow for a range of speeds. The frictional effects
                 are all static if we consider a car (unless the car's tires
                 are slipping, which would not be ideal), but to simplify I will define the coefficient of static and
-                kinetic friction to be $/mu$.
+                kinetic friction to be $\mu$.
                 Now, find the range of values for $v$ where the car does not move up or down the incline.
                 <br><br>
                 The range of values comes from the fact that friction is directed either up or down the incline,
@@ -636,25 +633,23 @@ onUnmounted(() => {
                 about this detail for now.
                 We can simply first assume the case of friction up the incline and solve it.
                 <br><br>
-                The expression: <br>
-                $F_s=\mu F_n$<br>
+                The expression:
+                $$F_s=\mu F_n$$
                 still holds, as always. By doing force analysis, we write down a set of two
                 equations using the horizontal and vertical axes:
                 <br><br>
-                $F_s sin\theta +F_n \cos \theta = mg$
-                <br><br>
-                $m\dfrac{v^2}{r}=F_n \sin\theta - F_s \cos\theta$
-                <br><br>
+                $$F_s sin\theta +F_n \cos \theta = mg$$
+                $$m\dfrac{v^2}{r}=F_n \sin\theta - F_s \cos\theta$$
+                <br>
                 We can reduce these equations to:
                 <br><br>
-                $F_n(\mu \sin\theta + \cos \theta) = mg$
-                <br><br>
-                $m\dfrac{v^2}{r}=F_n (\sin\theta - \mu \cos\theta)$
-                <br><br>
-                Eliminating $F_n$ gives:
+                $$F_n(\mu \sin\theta + \cos \theta) = mg$$
+                $$m\dfrac{v^2}{r}=F_n (\sin\theta - \mu \cos\theta)$$
                 <br>
-                $\dfrac {v^2}{gr}= \dfrac {\sin\theta - \mu \cos\theta}{\mu \sin\theta + \cos \theta}$
+                Eliminating $F_n$ gives:
                 <br><br>
+                $$\dfrac {v^2}{gr}= \dfrac {\sin\theta - \mu \cos\theta}{\mu \sin\theta + \cos \theta}$$
+                <br>
                 Since we assumed the friction is up the incline, this is the lower bound. The way to know this
                 is to realize that friction is attempting to keep the car from slipping down the incline if it's
                 directed upwards,
@@ -663,18 +658,19 @@ onUnmounted(() => {
                 is moving slower, and thus the friction force must be opposed to the component of the normal force that
                 is providing
                 the centripetal force. Therefore, we can write the first condition:
+                <br><br>
+                $$v<\sqrt{gr\dfrac{\tan \theta - \mu}{\mu \tan\theta + 1}}$$
                 <br>
-                $v<\sqrt{gr\dfrac{\tan \theta - \mu}{\mu \tan\theta + 1}}$ <br><br>
-                    This is the lower bound, and we can find the upper bound by repeating the calculation
-                    with friction in the other direction. However, if you’re lazy like me, you can just reverse
+                This is the lower bound, and we can find the upper bound by repeating the calculation
+                with friction in the other direction. However, if you’re lazy like me, you can just reverse
                     the signs within the dimensionless term (the term with $\mu$ in it), which works because of how
                     vectors work.
                     (If you don’t understand, I either recommend reviewing vectors or just brute forcing it to prove it
                     to yourself.)
                     What I mean is:
                     <br><br>
-                    $\sqrt{gr\dfrac{\tan \theta - \mu}{\mu \tan\theta + 1}}< v < \sqrt{gr\dfrac{\tan \theta + \mu}{1 -
-                        \mu \tan\theta}}$ <br><br>
+                    $$\sqrt{gr\dfrac{\tan \theta - \mu}{\mu \tan\theta + 1}}< v < \sqrt{gr\dfrac{\tan \theta + \mu}{1 -
+                        \mu \tan\theta}}$$ <br>
                         A quite complex result.
                         <br><br>
                         Now there is the case of non-uniform circular motion, most simply in the case of a vertical
@@ -699,7 +695,7 @@ onUnmounted(() => {
                 wheel is momentarily at rest with the ground (think about
                 how the wheel doesn't slip!) and that point always tends
                 to accelerate backwards with respect to the ground, so the force of static friction is forward! Think
-                about it more until you understsand this.
+                about it more until you understand this.
                 <br><br>
                 Now, we're going to show a diagram of the banked turn to drive home what it really is:
                 <br><br>
@@ -728,9 +724,8 @@ onUnmounted(() => {
                 able
                 to see that in this case there is only a single speed that enables circular motion for a certain radius.
                 First off, you
-                need to realize that the centripetal acceleration/centripetal force is constant because it is consisted
-                of solely
-                by the normal force. Then, we can reason that
+                need to realize that the centripetal acceleration/centripetal force is constant because it consists
+                entirely of the normal force. Then, we can reason that
                 because the formula $a_c = v^2/r$ is an equation and not an inequality, there is only a single value of
                 $v$ when we
                 are given $a_c$ and $r$ that would work. However, if we add friction into the mix, we can have a range
@@ -741,7 +736,7 @@ onUnmounted(() => {
                 depending on $v$. The
                 way to solve problems where the direction of friction can be uncertain is to simply assume a direction
                 first and find a result,
-                then go back and assume friction in the other direction. Qualitatively, we know that friction be
+                then go back and assume friction in the other direction. Qualitatively, we know that friction will be
                 directed up the incline if the
                 speed is low, as a smaller centripetal force is needed in that case. The inverse is true as well; if
                 speeds are high friction
@@ -767,7 +762,7 @@ onUnmounted(() => {
             This kind of circular motion is <b>not</b> uniform, as the speed of the object changes throughout the
             motion.
             The gravitational force is always directed downwards, but the centripetal force must always be towards the
-            center of the circle. This means that while you travel upwards, your speed will decreaase due to the
+            center of the circle. This means that while you travel upwards, your speed will decrease due to the
             gravitational force, and
             when you travel downwards, your speed will increase due to the gravitational force.
             <br><br>
@@ -833,7 +828,7 @@ onUnmounted(() => {
                 The points B and D are pretty similar and not worth mathematically analyzing in depth. In these cases,
                 gravity is completely tangential and cannot provide any centripetal force, which means all centripetal
                 force is
-                provided by the normal force. The nornal force can vary pretty much infinitely in our theoretical cases
+                provided by the normal force. The normal force can vary pretty much infinitely in our theoretical cases
                 (though in real life
                 the material has stress limits), so we can just conclude that the normal force is equal to the required
                 centripetal force at these points.
