@@ -92,7 +92,7 @@ const questions = reactive(
             },
             {
                 number: 3,
-                question: "What is the effective spring constant of the configuration of five identical springs in terms of the spring constant of each spring $k$? <br><img style='max-width: 200px;' src='/src/assets/dynamics/Problem 7.png' class='rounded'>",
+                question: "What is the effective spring constant of the configuration of five identical springs in terms of the spring constant of each spring $k$? <br><img style='max-width: 200px;' src='/dynamics/Problem 7.png' class='rounded'>",
                 answers: [
                     ["$\\frac15 k$", 0, false],
                     ["$\\frac56 k$", 0, false],
@@ -138,14 +138,14 @@ const questions = reactive(
             },
             {
                 number: 3,
-                question: "",
+                question: "What is the effective spring constant of the configuration of five identical springs in terms of the spring constant of each spring $k$? <br><img style='max-width: 200px;' src='/dynamics/Problem 7.png' class='rounded'>",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["$\\frac15 k$", 0, false],
+                    ["$\\frac56 k$", 0, false],
+                    ["$\\frac65 k$", 1, false],
+                    ["$5k$", 0, false]
                 ],
-                explain: ""
+                explain: "The system is essentially a combination of series and parallel springs. The set of three springs in parallel has an effective spring constant of $3k$, and the two springs in parallel have an effective spring constant of $2k$. These two combinations are themselves in series, so the effective spring constant of the entire system is given by the formula for springs in series: $\\frac{1}{k_{eff}} = \\frac{1}{3k} + \\frac{1}{2k}$. Solving this gives us $k_{eff} = \\frac{6}{5} k$."
             }
         ]
     ]

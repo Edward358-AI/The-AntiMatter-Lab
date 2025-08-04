@@ -237,7 +237,7 @@ function setChecked(chek, qNum) {
         <h1>Basic Algebra</h1><br>
         <div v-show="page === 0">
             <p>
-            NOTE: YOU CAN SKIP THIS LESSON IF YOU ARE ALREADY FAMILIAR WITH BASIC ALGEBRA.
+            <b>Note: You can skip this lesson if you are already familiar with basic algebra concepts.</b>
             <br><br>
             This lesson is designed to help you review basic algebra concepts that are necessary for understanding
             physics. This lesson will cover the basics of algebraic operations, equations, and functions that will
