@@ -221,7 +221,8 @@ function setChecked(chek, qNum) {
                     while
                     that is true, a basic understanding of simple mathematics is sufficient to learn physics
                     conceptually.
-                    It’s simply that most places don’t teach good conceptual physics anymore.<br><br>The first thing we
+                    It’s simply that most places don’t teach good conceptual physics anymore.<br><br>
+            <h4 class="text-center">The Vector</h4>The first thing we
                     must
                     recognize when we learn physics is the vector. The vector looks like an arrow, but it doesn’t tell
                     you
@@ -251,7 +252,8 @@ function setChecked(chek, qNum) {
             <span v-show="level == 0">
                 It is important to note that the position of the vector on the coordinate grid does
                 NOT actually matter, so we can move them around the grid to make things more convenient. As long as we
-                maintain the same direction and magnitude, we can move the vector around however we like.<br><br>A
+                maintain the same direction and magnitude, we can move the vector around however we like.<br><br>
+            <h4 class="text-center">Notation</h4>A
                 vector is
                 defined and named by a single letter. A vector is typically seen with an arrowhead on top, like shown:
                 &nbsp;$\vec{a}$
@@ -264,7 +266,8 @@ function setChecked(chek, qNum) {
             <span v-show="level > 0">
                 It is important to note that the position of the vector on the coordinate grid does
                 NOT actually matter, so we can move them around the grid to make things more convenient. As long as we
-                maintain the direction and magnitude, we are all good.<br><br>On paper, vectors are named
+                maintain the direction and magnitude, we are all good.<br><br>
+            <h4 class="text-center">Notation</h4>On paper, vectors are named
                 with a single letter, much like variables. While scalars are defined just by a single letter (like $a$),
                 a
                 vector is
@@ -289,6 +292,7 @@ function setChecked(chek, qNum) {
         <div v-show="page === 1">
             <p>
                 <span v-show="level == 0">
+            <h4 class="text-center">Vector Addition</h4>
                     Now you're probably thinking, can you perform basic operations on vectors? Well, you can!
                     However, it isn't
                     as simple as $1+1=2$. There are times though, if two vectors point in the SAME direction, then you
@@ -314,6 +318,7 @@ function setChecked(chek, qNum) {
                     starting point to the ending point. Perhaps a diagram will be more enlightening...
                 </span>
                 <span v-show="level > 0">
+            <h4 class="text-center">Vector Addition</h4>
                     While scalar quantities can be added linearly, vector quantities require a bit more work to
                     manipulate. There are times, however, when you can add vectors linearly. That is when they are
                     pointing in
@@ -326,6 +331,7 @@ function setChecked(chek, qNum) {
                     <br>
                     Besides that, you can either add them graphically or algebraically.
                     <br><br>
+            <h4 class="text-center">Graphical Methods</h4>
                     Graphically, there are two main methods, tip-to-tail and parallelogram. We will utilize the ability
                     to
                     reposition vectors anywhere on
@@ -370,7 +376,8 @@ function setChecked(chek, qNum) {
                     And that's it! That's pretty much all there is to basic vectors, since we aren't dealing with
                     algebra and
                     more advanced math. To close off the first lesson, we'll give you a
-                    little sneak preview of something about vectors.<br><br>Vectors can be defined via something called
+                    little sneak preview of something about vectors.<br><br>
+            <h4 class="text-center">Component Form</h4>Vectors can be defined via something called
                     <i>components</i>. In a 2-dimensional plane, we have a horizontal component (a horizontal vector
                     with
                     magnitude) and a vertical component (vertical vector with magnitude). The reason why we do this is
@@ -406,7 +413,8 @@ function setChecked(chek, qNum) {
                     we keep
                     their magnitude and direction. This diagram just proves how you can simply add vector components,
                     using what
-                    we just learned: the tip-to-tail method!<br><br>If you want to learn more about this, you can either
+                    we just learned: the tip-to-tail method!<br><br>
+            <h4 class="text-center">Conclusion</h4>If you want to learn more about this, you can either
                     search
                     it
                     up or take a sneak peek at our Algebra-based level (if you feel confident enough). Ready to go onto
@@ -415,6 +423,7 @@ function setChecked(chek, qNum) {
                 </span>
 
                 <span v-show="level > 0">
+            <h4 class="text-center">Algebraic Methods</h4>
                     This is great and all, but sometimes, graphical analysis is unavailable. In that case, algebraic
                     vector
                     addition is available. But it's not as simple as $1+1=2$! First, we will introduce the two methods
@@ -436,7 +445,9 @@ function setChecked(chek, qNum) {
                         <figcaption>Figure 5: A vector defined by its magnitude and argument (angle)</figcaption>
                     </figure>
                 </span>
-                <span v-show="level > 0">
+                <span v-show="level > 0"><br>
+                    
+            <h4 class="text-center">Component Form</h4>
                     The other method is to define a vector by its horizontal and vertical components. In this case,
                     either angle
                     brackets are used or the unit vector notation is used. The two are practically the same. In the
@@ -507,6 +518,7 @@ function setChecked(chek, qNum) {
                     investigate more about this, you will have to do so on your own, since it would take too much effort
                     to try
                     to explain it here.<br><br>
+            <h4 class="text-center">Conclusion</h4>
                     Whew! You made it to the end of the lesson on vectors! Congratulations! Physics is not an easy
                     science to
                     grasp, but you made it through the most basic and fundamental of all of it. The rest will be more
