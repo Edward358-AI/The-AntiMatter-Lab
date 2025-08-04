@@ -341,7 +341,7 @@ function setChecked(chek, qNum) {
                know the intricacies of how the functions work. We just need to know that we can find the angle by using the inverse functions by plugging in the value of the trig function into the inverse function in our calculator.
                <br><br>
                So, if you have a ratio that represents the sine of an angle, you want to plug that ratio into the inverse sine function, which is usually written as $\sin^{-1}\theta$ or $\arcsin\theta$. The other two are 
-               written as $\cos^{-1}\theta$ or $\arccos]\theta$ and $\tan^{-1}\theta$ or $\arctan\theta$.
+               written as $\cos^{-1}\theta$ or $\arccos\theta$ and $\tan^{-1}\theta$ or $\arctan\theta$.
                <br><br>
                 This is just surface-level trigonometry, and there is a world of other topics to learn about angles and triangles and triangular angles. This is 
                 good enough of an introduction for our purposes, however. Let's try a few very simple practice problems now to test your understanding of this topic.
