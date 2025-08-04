@@ -838,6 +838,7 @@ onUnmounted(() => {
         <div v-show="page === 4">
             <p>
                 <span v-show="level == 0">
+                    <h4 class="text-center">Free Fall Concepts</h4>
                     Since we introduced the concept
                     of free fall, let's take a look at some important concepts regarding free fall. Have you ever
                     noticed

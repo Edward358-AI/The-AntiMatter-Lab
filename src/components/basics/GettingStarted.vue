@@ -8,8 +8,8 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
         <h1>Why Us?</h1><br>
         <p>
             First, let's talk some logistics. Why choose us when learning physics?<br><br>While many physics resources online offer surface-level explanations, are no longer maintained as well,
-            and/or are not as easy to navigate, we provide comprehensive, in-depth content comparatively that better shines light on the
-            underlying principles of physics.<br><br>Our platform features three distinct difficulty levels—conceptual,
+            and/or are not as easy to navigate, we provide comprehensive, in-depth content that better shines light on the
+            underlying principles of physics.<br><br>In addition to that, many of the physics learning resources out there expect you to know certain math up to a certain level or similar prerequisites, but we don't, because we believe that physics is for everyone. In fact, the following couple of lessons are dedicated to help those with a weaker math skillset to understand the more complex mathematics that is required of physics, which shows our dedication to make physics <i>truly</i> accessible for anyone, regardless of their background! Our conceptual difficulty truly does try to avoid the complex math as much as possible (although some is still required to show important relationships between physics quantities), while still giving you a full taste of physics through concepts.<br><br>Our platform features three distinct difficulty levels—conceptual,
             algebra-based, and calculus-based—ensuring that learners, regardless of background, can engage with material
             appropriate to their mathematical skill level. Furthermore, additional features that set us apart include
             our extensive collection of interactive demonstrations and simulations that bring abstract concepts to life,

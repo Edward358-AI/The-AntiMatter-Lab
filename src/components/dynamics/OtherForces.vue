@@ -241,9 +241,7 @@ function setChecked(chek, qNum) {
                 We have been negligent to dive deeper into forces, despite introducing it briefly in the previous
                 chapter. As a refresher, forces are simply a push or pull that may <i>change</i> motion. Again, they are
                 not directly responsible for maintaining or causing motion, like we discussed in the previous
-                lesson.<br><br>
-
-                There are four fundamental forces categorized on the basis of particle exchange:
+                lesson.<br><br><h4 class="text-center">The Four Fundamental Forces</h4>
             </p>
             <ul>
                 <li>
@@ -316,6 +314,7 @@ function setChecked(chek, qNum) {
             </div>
         </div>
         <div v-show="page === 1">
+            <h4 class="text-center">The Gravitational Force</h4>
             <p>
                 Firstly, there’s the gravitational force, but remember, that’s long range force. It is the primary long
                 range interaction we will be dealing with in Newtonian mechanics. It is denoted as $F_G$ or $F_g$. Let’s
@@ -325,7 +324,7 @@ function setChecked(chek, qNum) {
                 the gravitational field strength, and its units may also be denoted as $\textrm N /\textrm{kg}$. Thus,
                 by Newton’s second law, the net force, or sum of all forces is equal to just $F_g$. But $F_g=ma$, and
                 since we know the magnitude of acceleration to be $g$, $F_g=mg$. This is one of the primary forces that
-                you will be dealing with.<br><br>
+                you will be dealing with.<br><br><h4 class="text-center">Electromagnetic Forces</h4>
 
                 The following are all contact forces, meaning direct contact is required for them. Since these don’t
                 look like gravitational forces, what must they be? Electromagnetic forces.<br><br>
@@ -363,7 +362,8 @@ function setChecked(chek, qNum) {
             </div>
         </div>
         <div v-show="page === 2">
-            <p>
+            <h4 class="text-center">The Frictional Force</h4><br>
+            <p> <strong>Note: Even though the title says "The Frictional Force", it's NOT a new "type" of force. Remember that frictional forces fall under the <i>Electromagnetic forces</i> category</strong><br><br>
                 Frictional forces are contact forces exerted parallel to a surface. They are denoted by $F_f$ or
                 sometimes simply $f$ (though, again, this is a letter used by other quantities as well). Friction is
                 really quite a complex force resulting from microscopic interactions between the irregularities between
@@ -417,7 +417,7 @@ function setChecked(chek, qNum) {
                     <br><br>
                 </span>
 
-
+                <h4 class="text-center">Conclusion</h4>
                 So far, these are all the forces you will encounter. This chapter was not particularly problem-heavy,
                 but more on concepts. There are most definitely more forces that we will add to our
                 collection as we progress. <span v-show="level == 2">As for you calculus students, we know you're itching

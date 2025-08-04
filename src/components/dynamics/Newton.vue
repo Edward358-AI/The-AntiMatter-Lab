@@ -264,9 +264,7 @@ function setChecked(chek, qNum) {
             </div>
         </div>
         <div v-show="page === 1">
-            <p>
-                Newton’s first law has to do with the idea of motion.
-            </p><br>
+            <h4 class="text-center">Newton's First Law</h4><br>
             <div class="problem" style="text-align:center;font-size:1.05rem;width:fit-content;margin:auto;">
                 <strong>Newton’s First Law (Law of Inertia):</strong> <i>An object tends to remain in its state of
                     motion.</i>
@@ -322,10 +320,7 @@ function setChecked(chek, qNum) {
             </div>
         </div>
         <div v-show="page === 2">
-            <p>
-                Newton’s second law relates the acceleration of an object to the forces acting on it. This is the only
-                one of Newton’s laws to have an explicit mathematical equation associated with it:
-            </p><br>
+            <h4 class="text-center">Newton's Second Law</h4><br>
             <div class="problem" style="text-align:center;font-size:1.05rem;width:fit-content;margin:auto;">
                 <strong>Newton’s Second Law (Law of Acceleration):</strong> <i>The net force acting on an object is
                     equal to its mass times
@@ -373,9 +368,7 @@ function setChecked(chek, qNum) {
             </div>
         </div>
         <div v-show="page === 3">
-            <p>
-                Newton’s third law states that all forces must exist in pairs.
-            </p><br>
+            <h4 class="text-center">Newton's Third Law</h4><br>
             <div class="problem" style="text-align:center;font-size:1.05rem;width:fit-content;margin:auto;">
                 <strong>Newton’s Third Law (Law of Action-Reaction):</strong> <i> Every action force has an opposite and
                     equal reaction force.</i>
@@ -407,15 +400,14 @@ function setChecked(chek, qNum) {
                 the force that the ground exerts on you. However, this is actually incorrect. It is important to mention
                 that Newton’s Third Law only applies to pairs of forces that belong to the same interaction.
                 The interaction between you and Earth is completely different from the interaction between you and the
-                ground. The magnitude of the gravitational force that Earth exerts on you just happens to be of the same
-                magnitude, but they are of different interactions.
-                <br><br>The Newton’s Third Law equivalent for the force the
+                ground. In actuality, the Newton’s Third Law equivalent for the force the
                 ground exerts on you is the force you exert on the ground. Furthermore, you could have also reasoned
                 that
                 the two forces both act on the same object (you, the person), so they cannot be part of an
                 action-reaction
-                pair. An action-reaction force pair <b>always</b> acts on two different objects.
-                <br><br>
+                pair. An action-reaction force pair <b>always</b> acts on two different objects.<br><br> Thus, as crazy as it may sound, the Newton's Third Law pair for the gravitational force the Earth exerts on you is the gravitational force you exert on the Earth. (You will see why this is true in the lesson regarding Newton's Law of Gravitation.)</p>
+                <br><br><h4 class="text-center">Conclusion</h4>
+                <p>
                 Surprisingly, Newton’s Third Law is not the most difficult to understand, it’s just that the way it is
                 interpreted and presented often times is incorrect. Newton states "action" and "reaction", but in truth,
                 there is no action and reaction. From now on, we will call these pairs "Third Law Pairs", because that's

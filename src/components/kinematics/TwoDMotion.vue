@@ -468,7 +468,7 @@ onUnmounted(() => {
                 and will be explained later on. First, if you remember the formulas for total flight time, and the
                 maximum
                 height, you might be wondering: Can we derive some form of them here as well? Well, yes!
-                <br><br>Actually,
+                <br><br><h4 class="text-center">Calculations with 2d Motion</h4>Actually,
                 the idea behind
                 working with kinematics in two dimensions is the fact that you can simply split up $v_0$ into its
                 horizontal
@@ -532,6 +532,7 @@ onUnmounted(() => {
         <div v-show="page === 1">
             <p>
                 <span v-show="level == 0">
+                    <h4 class="text-center">2d Motion Concepts</h4>
                     There are many cool concepts about projectile motion. Firstly, if you notice, there are always going
                     to be two solutions of range, for any given height. For example, if you draw a straight line at any
                     height less than the maximum, you'll notice that it intersects two points on the parabola. This is a
@@ -557,6 +558,7 @@ onUnmounted(() => {
                     helpful to know, particularly for unit 2.
                 </span>
                 <span v-show="level > 0">
+                    <h4 class="text-center">The Trajectory Formula</h4>
                     In order to prove that the trajectory is parabolic, we need to relate x and y. To do this, we write
                     general
                     equations for each like this:

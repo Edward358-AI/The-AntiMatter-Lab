@@ -178,7 +178,7 @@ function setChecked(chek, qNum) {
                 example. A common example used is a person in a train and an onlooker at a station or the side of the
                 tracks. To someone else in the train with me, it does not look like I am moving. However, to the
                 onlooker on the outside, I am zooming past them. Why is this? Well, the key here is the idea of a
-                reference frame.<br><br>A <i>reference frame</i> is nothing too complex, it is exactly what it sounds
+                reference frame.<br><br><h4 class="text-center">Reference Frames</h4>A <i>reference frame</i> is nothing too complex, it is exactly what it sounds
                 like. It
                 is a frame in which you conduct your calculations and view everything happen. The key thing here is
                 though, a reference frame could be inertial or non inertial. Pretty much all of the reference frames we
@@ -188,7 +188,7 @@ function setChecked(chek, qNum) {
                 purpose until much later—so don't worry too much about them for now. We will soon explain why we prefer
                 inertial reference frames! For now, just understand the concept of it, since reference frames will come
                 up again later on!!
-                <br><br>So for someone in the
+                <br><br><h4 class="text-center">Relative Velocity Equation</h4>So for someone in the
                 train, since they are moving at the same velocity I am, they don't see me move <i>relative to their
                     point of view</i>. The same applies to the observer, since he is not moving, while I am, it looks to
                 him as if I am moving.
@@ -263,7 +263,7 @@ function setChecked(chek, qNum) {
                     white]{13~\textrm m /\textrm s}$$
                     <br></span>
             </div>
-            <br>
+            <br><h4 class="text-center">Conclusion</h4>
             Sometimes, it may be easier to shorthand the equation like so, especially when $C$ is not needed:
             <br><br>$$v_{AB} = v_A-v_B$$<br>
             And vice versa. Essentially, what this equation states is that the velocity of A relative to B is the
