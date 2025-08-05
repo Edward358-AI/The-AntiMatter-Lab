@@ -393,7 +393,7 @@ onUnmounted(() => {
                 In this section, I hope to teach how to solve these types of problems. We&apos;re also going to talk
                 about pulleys, but I don&apos;t think there&apos;s a good story about that.
 
-                <br><br>
+                <br><br><h4 class="text-center">The Inclined Plane</h4>
                 <span v-show="level > 0">
                     First, we consider the quintessential object on an inclined plane with incline angle $\theta$.
                     <br><br>
@@ -413,7 +413,7 @@ onUnmounted(() => {
                     <br><br>
                     Notice how the normal force $F_n$ is NOT oppositely directed and equal to $mg$ in this case!
                     It will be directed perpendicular to the incline. Now, this diagram is technically accurate, but not
-                    very useful.
+                    very useful.<br><br><h4 class="text-center">Determining Axes</h4>
                     Drawing axes will be helpful to tell us how to resolve the forces into components and solve the
                     problem with
                     Newton&apos;s second law.
@@ -446,7 +446,7 @@ onUnmounted(() => {
                     the angle of $mg$ with the parallel axis and that with the perpendicular axis are complementary.
                     Again, the exact process by which you get this intuition is not important, but it is very important
                     to know that that angle is $\theta$.
-                    <br><br>
+                    <br><br><h4 class="text-center">Analysis</h4>
                     Now, the challenge is to find the value of $F_n$ and the acceleration of the block down the incline
                     in terms of $m$, $\theta$, and any constants (hint: the only one we’ll need is $g$).
                     <br><br>
@@ -497,7 +497,7 @@ onUnmounted(() => {
                     other hand, is always directed vertically downwards. This is very important to keep in mind, as it
                     is a very common error that people
                     make when analyzing inclined planes.
-                    <br><br>
+                    <br><br><h4 class="text-center">Determining Axes</h4>
                     Now, this diagram is technically accurate, but not very useful. Drawing axes will be helpful to tell
                     us how to look at the forces.
                     <br><br>
@@ -560,6 +560,7 @@ onUnmounted(() => {
 
             <p>
                 <span v-show="level > 0">
+                    <h4 class="text-center">Inclined Plane (with friction)</h4>
                     Consider the same scenario, but with friction. Now there’s going to be a frictional force directed
                     parallel to the plane.
                     <br><br>
@@ -657,7 +658,7 @@ onUnmounted(() => {
                                     looks slightly awkward, blame Canva for not having mathprint.)</figcaption>
                             </figure>
                             From this, we see that the sine is equal to <br>
-                            $sin\theta=\dfrac{2Cx}{\sqrt{(2Cx)^2+1}}$
+                            $\sin\theta=\dfrac{2Cx}{\sqrt{(2Cx)^2+1}}$
                             <br><br>
                             Now, we can plug this into the equation for acceleration to get: <br>
                             $a=g\sin\theta=g\dfrac{2Cx}{\sqrt{(2Cx)^2+1}}$
@@ -689,7 +690,7 @@ onUnmounted(() => {
                     common. But before we do that, let's have an
                     interactive element!
                 </span>
-                <span v-show="level == 0">
+                <span v-show="level == 0"><h4 class="text-center">Inclined Planes (with friction)</h4>
                     Consider the exact same scenario, but now with friction thrown in. The force-vector diagram now
                     looks like this:
                     <br><br>
@@ -788,7 +789,7 @@ onUnmounted(() => {
                 But since this is a physics lesson and not a history or engineering lesson, we don't care about that.
                 I'm here to show you
                 how to analyze the forces behind pulleys and how to solve problems involving them.
-                <br><br>
+                <br><br><h4 class="text-center">The Pulley</h4>
                 For now, we only consider massless, frictionless pulleys and massless strings. Let’s use a simple
                 one-pulley system to demonstrate the mechanics behind the pulley.
                 <br><br>
@@ -812,7 +813,7 @@ onUnmounted(() => {
             Intuitively, if you pull down with a force equal in magnitude to the block’s weight, it will remain at rest
             in the air.
             You can then do all sorts of force analysis.
-            <br><br>
+            <br><br><h4 class="text-center">Atwood Machines</h4>
             Now I’d like to consider the Atwood machine where two differently-massed objects hang from either side of a
             pulley.
             <br><br>
@@ -910,6 +911,7 @@ onUnmounted(() => {
             </div>
         </div>
         <div v-show="page === 4">
+            <h4 class="text-center">More Complex Pulley Systems</h4>
             <p>
                 Something more interesting happens when there is more than one pulley involved, specifically when that
                 second pulley is allowed to move. For instance, take this scenario:
@@ -973,7 +975,7 @@ onUnmounted(() => {
                     Solving for $a_2$ first is also a completely valid way to solve this problem, and you should arrive
                     at the same answer.
                 </div>
-                <br><br>
+                <br><h4 class="text-center">Conclusion</h4>
                 This is one of the more difficult scenarios involving pulleys and is not entirely too common, but it is
                 the entire reason why pulleys are so useful in the real world. Additionally (Eric speaking), you should
                 be
@@ -1006,7 +1008,7 @@ onUnmounted(() => {
                 thinking about the physical setup of the pulley, it should make sense.
                 This, in turn, means that the acceleration of the pulley upward is half of the “acceleration” of the
                 string.
-                <br><br>
+                <br><br><h4 class="text-center">Conclusion</h4>
                 That's pretty much all there is to say about this scenario without getting into the mathematics of it.
                 There are many similar
                 machines that involve pulleys that are allowed to move, but they all follow the same principles. At a

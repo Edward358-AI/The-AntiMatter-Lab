@@ -231,7 +231,7 @@ const showAnswer4 = ref(false)
                 F$,
                 where $\Sigma$ indicates summation. However, it is usually more useful to have two net forces directed
                 along
-                two axes.<br><br>
+                two axes.<br><br><h4 class="text-center">Free-Body Diagrams</h4>
                 To represent forces on an object, we will use the free-body diagram (FBD). To construct an FBD, we
                 consider
                 the object as a point and draw the forces acting on it with their tails on the point. For instance,
@@ -253,7 +253,7 @@ const showAnswer4 = ref(false)
             </figure>
             There are a few things regarding this image that we will explain.<br>Now seeing after how to NOT draw an
             FBD, we will give you a (mostly) foolproof recipe on how to build a correct FBD that will help you solve
-            even the most difficult of problems!
+            even the most difficult of problems!<br><br><h4 class="text-center">How to Construct FBDs</h4>
             <ul>
                 <li>First, we want to define a body or system and a reference frame to work in. Essentially, this part
                     is isolating the body and determining what coordinate axes we want to use. For example, on a slope,
@@ -689,7 +689,7 @@ const showAnswer4 = ref(false)
                         $F_{net}=F-\mu_sm_pg=m_sa$ <br><br>
                         $a=\dfrac{F-\mu_sm_pg}{m_s}$, which is a lot less elegant than the no-slip solution!
                     </div>
-                    <br><br>
+                    <br><h4 class="text-center">Conclusion</h4>
                     Now that we've covered the types of force-analysis problems requiring FBDs briefly, we can
                     talk more in-depth about two common special types of force-analysis problem in the next lesson.
                 </span>
@@ -731,7 +731,7 @@ const showAnswer4 = ref(false)
                         and unexpected conclusions. Physics
                         is not always intuitive, and some discoveries can come as welcome surprises.
                     </div>
-                    <br><br>
+                    <br><h4 class="text-center">Conclusion</h4>
                     Now, we have a good conceptual grasp on how to analyze the forces in a system. In the next lesson,
                     we will go over two very
                     common key examples and general scenarios in forces and beyond. So, without further ado, let's get

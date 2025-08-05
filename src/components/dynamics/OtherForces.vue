@@ -363,7 +363,7 @@ function setChecked(chek, qNum) {
         </div>
         <div v-show="page === 2">
             <h4 class="text-center">The Frictional Force</h4><br>
-            <p> <strong>Note: Even though the title says "The Frictional Force", it's NOT a new "type" of force. Remember that frictional forces fall under the <i>Electromagnetic forces</i> category</strong><br><br>
+            <p> <strong>Note: Even though the title says "The Frictional Force", it's NOT a new "type" of force. Remember that frictional forces fall under the <i>Electromagnetic forces</i> category.</strong><br><br>
                 Frictional forces are contact forces exerted parallel to a surface. They are denoted by $F_f$ or
                 sometimes simply $f$ (though, again, this is a letter used by other quantities as well). Friction is
                 really quite a complex force resulting from microscopic interactions between the irregularities between

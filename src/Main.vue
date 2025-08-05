@@ -648,7 +648,7 @@ onUpdated(() => {
   <InclinedPlanes v-if="user.current === lessons.dynamics[3]" :level="user.difficulty" :lessonShowing="lessonShowing"
     :page="user.page.InclinedPlanes" @nextpage="Window.scrollTo(0, 0); user.page.InclinedPlanes++"
     @prevpage="Window.scrollTo(0, 0); user.page.InclinedPlanes--"
-    @nextlesson="Window.scrollTo(0, 0); user.current = lessons.dynamics[4]; user.page.InclinedPLanes = 0" />
+    @nextlesson="Window.scrollTo(0, 0); user.current = lessons.dynamics[4]; user.page.InclinedPlanes = 0" />
   <Spring v-if="user.current === lessons.dynamics[4]" :level="user.difficulty" :lessonShowing="lessonShowing"
     :page="user.page.Spring" @nextpage="Window.scrollTo(0, 0); user.page.Spring++"
     @prevpage="Window.scrollTo(0, 0); user.page.Spring--"

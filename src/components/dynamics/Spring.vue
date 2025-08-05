@@ -352,7 +352,7 @@ onUnmounted(() => {
             flexibility as well as allowing it to store energy. Engineers would tell you more, but this is a physics
             lesson and we'll
             mostly go over the physics of springs rather than the applications.
-            <br><br>
+            <br><br><h4 class="text-center">Spring Properties</h4>
             First, a few general assumptions that are true of all springs. All springs have some "natural length" when
             they are not stretched
             or compressed. They also always exert a force that is opposite to the direction they're displaced. While it
@@ -380,6 +380,7 @@ onUnmounted(() => {
                 </div>
                 <span class="warn">{{ viewportMsg }}</span>
             </figure>
+            <h4 class="text-center">Hooke's Law</h4>
             <span v-show="level > 0">
                 The most common type of spring you'll see is a Hookean spring, named after English polymath Robert
                 Hooke. It involves a spring
@@ -550,11 +551,12 @@ onUnmounted(() => {
             </div>
         </div>
         <div v-show="page === 2">
+            <h4 class="text-center">Spring Combinations</h4>
             I want to introduce the idea of combinations of springs. For any combination of springs, we can replace
             the combination with a single spring that has the same effect as the whole combination. This single spring
             must have a spring constant equal to the <b>effective spring constant</b> $k_{eff}$ of the combination. The
             manner of calculating this constant is what we'll explore here.
-            <br><br>
+            <br><br><h4 class="text-center">Parallel Springs</h4>
             First, we have to define the two kinds of possible combinations. The first is a <b>parallel</b>
             combinations, which
             simply involves springs placed side-by-side. The other is the <b>series</b> combination, which involves
@@ -589,7 +591,7 @@ onUnmounted(() => {
                     sum of their
                     individual spring constants.
                 </b>
-                <br><br>
+                <br><br><h4 class="text-center">Series Springs</h4>
                 Similar reasoning can be used for the case of springs in series. However, this time the stretch of each
                 spring isn't the same, but
                 something else is. What this constant quanitity is often isn't immediately obvious. However, consider
@@ -661,7 +663,7 @@ onUnmounted(() => {
                 <br>
                 In other words, the <b>effective spring constant of springs in parallel is the sum of the individual
                     spring constants.</b>
-                <br><br>
+                <br><br><h4 class="text-center">Series Springs</h4>
                 The result for springs in <b>series</b> is a little more complicated. See, for springs in series only
                 one spring is connected to and directly acts on the
                 object. However, throughout the entire series of springs the force has to remain the same because of
@@ -682,8 +684,9 @@ onUnmounted(() => {
                     springs connected in series is the sum of the
                     reciprocals of the individual spring constants.
                 </b> (What a mouthful!) It's probably easier just to look at the equation than try to put it into words.
+            <br>
             </span>
-            <br><br>
+            <br><h4 class="text-center">Conclusion</h4>
             Now, with springs fully covered, we can move on from this long (but important!) unit and finally begin to
             talk
             about something new. The second unit, which is also considered one of the hardest and most crucial units in
