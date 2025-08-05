@@ -3,212 +3,190 @@ import { reactive, watch } from 'vue'
 const props = defineProps(["level", "page", "lessonShowing"])
 defineEmits(["nextlesson", "nextpage", "prevpage"])
 
-const results = reactive([[0,0,0,0,0,0], [0,0,0,0,0,0], [0,0,0,0,0,0]]) // update as add more questions
-const explanations = reactive([[false,false,false,false,false,false], [false,false,false,false,false,false], [false,false,false,false,false,false]]) // keeps track of what explanations are visible
+const results = reactive([[0,0,0,0], [0,0,0,0,0,0], [0,0,0,0,0,0]]) // update as add more questions
+const explanations = reactive([[false,false,false,false], [false,false,false,false,false,false], [false,false,false,false,false,false]]) // keeps track of what explanations are visible
 const questions = reactive(
     [
         [ // conceptual difficulty
             {
                 number: 0,
-                question: "What is the proper format for a vector in component form?",
+                question: "Why do ficticious forces arise?",
                 answers: [
-                    ["$\\{3, 5\\}$", 0, false],
-                    ["$\\langle 3, 5 \\rangle$", 1, false],
-                    ["$(3, 5)$", 0, false],
-                    ["$[3, 5]$", 0, false]
+                    ["Because they are not real", 0, false],
+                    ["Because they are mathematically helpful", 0, false],
+                    ["Because you work in a noninertial frame", 1, false],
+                    ["Because they are a result of acceleration", 0, false]
                 ],
-                explain: "Recall that a vector in component form is denoted by its component in the horizontal direction ($x$) and vertical direction ($y$), surrounded by angle brackets. Thus the second answer choice is the correct one."
+                explain: "Ficticious forces arise because you are working in a noninertial frame of reference. This means that the frame is accelerating, which leads to the appearance of forces that do not exist in a normal inertial frame."
             },
             {
                 number: 1,
-                question: "",
+                question: "What is an example of a ficticious force?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["Gravitational force", 0, false],
+                    ["Centrifugal force", 1, false],
+                    ["Centripetal force", 0, false],
+                    ["Friction force", 0, false]
                 ],
-                explain: ""
+                explain: "The centrifugal force is the ficticious counterpart to the centripetal force, which is felt by an observer in a rotating frame of reference. It appears to push objects outward, away from the center of rotation."
             },
             {
                 number: 2,
-                question: "",
+                question: "Under which of these following scenarios would you feel a ficticious force?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["Cruising along the freeway", 0, false],
+                    ["Free falling or skydiving", 0, false],
+                    ["Moving at constant speed in an elevator", 0, false],
+                    ["Slowing down at a traffic light", 1, false]
                 ],
-                explain: ""
+                explain: "Slowing down at a traffic light is the only scenario here where there is acceleration, so it is the only one where you would feel a ficticious force. You do accelerate while falling, but when you free fall you feel no forces."
             },
             {
                 number: 3,
-                question: "",
+                question: "A ball is hung from a string inside a train car. The train car accelerates at a constant rate to the right. Which of the following accurately describes the ball?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["It hangs straight down", 0, false],
+                    ["It hangs at an angle to the left", 1, false],
+                    ["It hangs at an angle to the right", 0, false],
+                    ["It causes circular motion", 0, false]
                 ],
-                explain: ""
-            },
-            {
-                number: 4,
-                question: "",
-                answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
-                ],
-                explain: ""
-            },
-            {
-                number: 5,
-                question: "",
-                answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
-                ],
-                explain: ""
+                explain: "The ficticious force felt by the ball due to the train's acceleration causes it to hang at an angle to the left. This is because the ficticious force acts in the opposite direction of the train's acceleration, which is to the right."
             }
         ],
         [ // algebra difficulty
             {
                 number: 0,
-                question: "What is the proper format for a vector in component form?",
+                question: "A ball is hung from a string inside a truck moving in a circle. The truck moves at 15 m/s around a circle of radius 40 m. What angle does the string make with the vertical?",
                 answers: [
-                    ["$\\{3, 5\\}$", 0, false],
-                    ["$\\langle 3, 5 \\rangle$", 1, false],
-                    ["$(3, 5)$", 0, false],
-                    ["$[3, 5]$", 0, false]
+                    ["$2.19\\degree$", 0, false],
+                    ["$56.8 \\degree$", 0, false],
+                    ["$0 \\degree$", 0, false],
+                    ["$29.8\\degree$", 1, false]
                 ],
-                explain: "Recall that a vector in component form is denoted by its component in the horizontal direction ($x$) and vertical direction ($y$), surrounded by angle brackets. Thus the second answer choice is the correct one."
+                explain: "The angle can be found by comparing the vertical and horizontal components of the forces acting on the ball in the noninertial frame. The vertical component is the gravitational force, and the horizontal component is the ficticious centrifugal force. Using the inverse tangent function ($\\arctan(g/a_c)$), we find that the angle is approximately $29.8\\degree$."
             },
             {
                 number: 1,
-                question: "",
+                question: "A long string is tied to a ball and swung in a circle of radius $R$, where $R$ is less than the length of the string. The string is somewhat slack and allowed to slide. If the speed of rotation is increased, what happens to the length of the string?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["$R$ increases", 1, false],
+                    ["$R$ decreases", 0, false],
+                    ["$R$ remains constant", 0, false],
+                    ["$R$ goes to zero", 0, false]
                 ],
-                explain: ""
+                explain: "Because the ficticious centrifugal force increases with speed, the string will lengthen to maintain the balance of forces. Thus, the radius $R$ increases as the speed of rotation increases."
             },
             {
                 number: 2,
-                question: "",
+                question: "Do ficticious forces have reaction forces?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["Yes, all forces do", 0, false],
+                    ["No, they don't actually act on anything", 1, false],
+                    ["No, because they are special cases", 0, false],
+                    ["Yes, because they are applied by something", 0, false]
                 ],
-                explain: ""
+                explain: "Ficticious forces are mathematical conveniences that do not actually exist. They do not act on any physical object and exist only in frames where Newton's Laws do not apply (noninertial frames). Therefore, they do not have reaction forces."
             },
             {
                 number: 3,
-                question: "",
+                question: "How does the ficticious force relate to Newton's First Law?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["It allows the first law to apply in a noninertial frame", 1, false],
+                    ["It violates the first law, causing acceleration when forces are balanced", 0, false],
+                    ["It doesn't have any relation to it", 0, false],
+                    ["It prevents force balance by constantly being there", 0, false]
                 ],
-                explain: ""
+                explain: "The ficticious force balances out real forces in a noninertial frame, seeming to allow for no apparent acceleration. For instance, the ficticious centrifugal force balances the centripetal force in the rotating reference frame."
             },
             {
                 number: 4,
-                question: "",
+                question: "Consider the ficticious forces when you are free falling. What is the net force acting on you in your frame of reference?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["$mg$", 0, false],
+                    ["$2mg$", 0, false],
+                    ["$mg/2$", 0, false],
+                    ["$0$", 1, false]
                 ],
-                explain: ""
+                explain: "When you are free falling, the ficticious force acting upward is equal in magnitude to the gravitational force acting downward. This means that the net force in your frame of reference is zero, as both forces cancel each other out. This is why you feel weightless in free fall."
             },
             {
                 number: 5,
-                question: "",
+                question: "Which one of these best describes why ficticious forces arise?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["Noninertial reference frames are unconventional to deal with and require special methods", 0, false],
+                    ["The inertia of an object makes it seem to accelerate with respect to its surroundings", 1, false],
+                    ["The human body has a unique way of experiencing forces because we are sentient", 0, false],
+                    ["None of the above", 0, false]
                 ],
-                explain: ""
+                explain: "The inertia of objects is the root cause behind the ficticious force. When you suddenly brake in the car, you feel something push you forward, but it is really your own inertia tending to remain in the state of motion it was before you decelerated and not an actual force pushing you."
             }
         ],
         [ // calculus difficulty
             {
                 number: 0,
-                question: "What is the proper format for a vector in component form?",
+                question: "A ball is hung from a string inside a truck moving in a circle. The truck moves at 15 m/s around a circle of radius 40 m. What angle does the string make with the vertical?",
                 answers: [
-                    ["$\\{3, 5\\}$", 0, false],
-                    ["$\\langle 3, 5 \\rangle$", 1, false],
-                    ["$(3, 5)$", 0, false],
-                    ["$[3, 5]$", 0, false]
+                    ["$2.19\\degree$", 0, false],
+                    ["$56.8 \\degree$", 0, false],
+                    ["$0 \\degree$", 0, false],
+                    ["$29.8\\degree$", 1, false]
                 ],
-                explain: "Recall that a vector in component form is denoted by its component in the horizontal direction ($x$) and vertical direction ($y$), surrounded by angle brackets. Thus the second answer choice is the correct one."
+                explain: "The angle can be found by comparing the vertical and horizontal components of the forces acting on the ball in the noninertial frame. The vertical component is the gravitational force, and the horizontal component is the ficticious centrifugal force. Using the inverse tangent function ($\\arctan(g/a_c)$), we find that the angle is approximately $29.8\\degree$."
             },
             {
                 number: 1,
-                question: "",
+                question: "A long string is tied to a ball and swung in a circle of radius $R$, where $R$ is less than the length of the string. The string is somewhat slack and allowed to slide. If the speed of rotation is increased, what happens to the length of the string?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["$R$ increases", 1, false],
+                    ["$R$ decreases", 0, false],
+                    ["$R$ remains constant", 0, false],
+                    ["$R$ goes to zero", 0, false]
                 ],
-                explain: ""
+                explain: "Because the ficticious centrifugal force increases with speed, the string will lengthen to maintain the balance of forces. Thus, the radius $R$ increases as the speed of rotation increases."
             },
             {
                 number: 2,
-                question: "",
+                question: "Do ficticious forces have reaction forces?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["Yes, all forces do", 0, false],
+                    ["No, they don't actually act on anything", 1, false],
+                    ["No, because they are special cases", 0, false],
+                    ["Yes, because they are applied by something", 0, false]
                 ],
-                explain: ""
+                explain: "Ficticious forces are mathematical conveniences that do not actually exist. They do not act on any physical object and exist only in frames where Newton's Laws do not apply (noninertial frames). Therefore, they do not have reaction forces."
             },
             {
                 number: 3,
-                question: "",
+                question: "How does the ficticious force relate to Newton's First Law?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["It allows the first law to apply in a noninertial frame", 1, false],
+                    ["It violates the first law, causing acceleration when forces are balanced", 0, false],
+                    ["It doesn't have any relation to it", 0, false],
+                    ["It prevents force balance by constantly being there", 0, false]
                 ],
-                explain: ""
+                explain: "The ficticious force balances out real forces in a noninertial frame, seeming to allow for no apparent acceleration. For instance, the ficticious centrifugal force balances the centripetal force in the rotating reference frame."
             },
             {
                 number: 4,
-                question: "",
+                question: "Consider the ficticious forces when you are free falling. What is the net force acting on you in your frame of reference?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["$mg$", 0, false],
+                    ["$2mg$", 0, false],
+                    ["$mg/2$", 0, false],
+                    ["$0$", 1, false]
                 ],
-                explain: ""
+                explain: "When you are free falling, the ficticious force acting upward is equal in magnitude to the gravitational force acting downward. This means that the net force in your frame of reference is zero, as both forces cancel each other out. This is why you feel weightless in free fall."
             },
             {
                 number: 5,
-                question: "",
+                question: "Which one of these best describes why ficticious forces arise?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["Noninertial reference frames are unconventional to deal with and require special methods", 0, false],
+                    ["The inertia of an object makes it seem to accelerate with respect to its surroundings", 1, false],
+                    ["The human body has a unique way of experiencing forces because we are sentient", 0, false],
+                    ["None of the above", 0, false]
                 ],
-                explain: ""
+                explain: "The inertia of objects is the root cause behind the ficticious force. When you suddenly brake in the car, you feel something push you forward, but it is really your own inertia tending to remain in the state of motion it was before you decelerated and not an actual force pushing you."
             }
         ]
     ]
