@@ -16,205 +16,205 @@ const questions = reactive(
         [ // conceptual difficulty
             {
                 number: 0,
-                question: "",
+                question: "What does the prefix \"kilo-\" represent?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["100", 0, false],
+                    ["0.001", 0, false],
+                    ["1000", 1, false],
+                    ["100000", 0, false]
                 ],
-                explain: ""
+                explain: "The prefix \"kilo-\" represents 1000, which is 10<sup>3</sup>. It is commonly used in units such as kilogram (kg) and kilometer (km). Thus the correct answer is the third one."
             },
             {
                 number: 1,
-                question: "",
+                question: "How many millimeters are in a centimeter?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["10", 1, false],
+                    ["100", 0, false],
+                    ["1000", 0, false],
+                    ["0.01", 0, false]
                 ],
-                explain: ""
+                explain: "There are 1000 millimeters in a meter, and 100 centimeters in a meter, so there are 10 millimeters in a centimeter. We can get to this answer by first converting one centimeter to meters, then multiplying by the conversion factor for meters to millimeters. Thus the correct answer is the first one."
             },
             {
                 number: 2,
-                question: "",
+                question: "You buy a 0.5 kiloliter bottle of water. How many milliliters of water do you have?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["500", 0, false],
+                    ["500000", 1, false],
+                    ["5000000", 0, false],
+                    ["5", 0, false]
                 ],
-                explain: ""
+                explain: "There are 1000 liters in a kiloliter, and 1000 milliliters in a liter, so to convert 0.5 kiloliters to milliliters, we multiply by 1000 to get the number of liters, which is 500. Then, we multiply by 1000 to get 500000 milliliters. Thus the correct answer is the second one."
             },
             {
                 number: 3,
-                question: "",
+                question: "Which of these is not a base SI unit?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["meter", 0, false],
+                    ["gram", 1, false],
+                    ["second", 0, false],
+                    ["Newton", 0, false]
                 ],
-                explain: ""
+                explain: "The gram is not a base SI unit; it is a derived unit of mass. The base SI unit for mass is the kilogram (kg). The other options are all base SI units: meter (m) for distance, second (s) for time, and Newton (N) is a derived unit of force based on the kilogram, meter, and second. Thus the correct answer is the second one."
             },
             {
                 number: 4,
-                question: "",
+                question: "What is the prefix for 10<sup>-6</sup>?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["milli", 0, false],
+                    ["macro", 0, false],
+                    ["micro", 1, false],
+                    ["nano", 0, false]
                 ],
-                explain: ""
+                explain: "The correct prefix for 10<sup>-6</sup> is 'micro', which is represented by the symbol 'μ'. It is commonly used in units such as micrometer (μm) and microsecond (μs). Thus the correct answer is the third one."
             },
             {
                 number: 5,
-                question: "",
+                question: "What is the smallest metric prefix that is commonly used?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["yotta", 0, false],
+                    ["yocto", 0, false],
+                    ["gamma", 0, false],
+                    ["nano", 1, false]
                 ],
-                explain: ""
+                explain: "The prefix nano represents 10<sup>-9</sup>, which is the smallest metric prefix that is commonly used. It is represented by the symbol 'n' and is used in units such as nanometer (nm) and nanosecond (ns). Thus the correct answer is the fourth one."
             }
         ],
         [ // algebra difficulty
             {
                 number: 0,
-                question: "",
+                question: "What does the prefix \"kilo-\" represent?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["100", 0, false],
+                    ["0.001", 0, false],
+                    ["1000", 1, false],
+                    ["100000", 0, false]
                 ],
-                explain: ""
+                explain: "The prefix \"kilo-\" represents 1000, which is 10<sup>3</sup>. It is commonly used in units such as kilogram (kg) and kilometer (km). Thus the correct answer is the third one."
             },
             {
                 number: 1,
-                question: "",
+                question: "How many millimeters are in a centimeter?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["10", 1, false],
+                    ["100", 0, false],
+                    ["1000", 0, false],
+                    ["0.01", 0, false]
                 ],
-                explain: ""
+                explain: "There are 1000 millimeters in a meter, and 100 centimeters in a meter, so there are 10 millimeters in a centimeter. We can get to this answer by first converting one centimeter to meters, then multiplying by the conversion factor for meters to millimeters. Thus the correct answer is the first one."
             },
             {
                 number: 2,
-                question: "",
+                question: "You buy a 0.5 kiloliter bottle of water. How many milliliters of water do you have?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["500", 0, false],
+                    ["500000", 1, false],
+                    ["5000000", 0, false],
+                    ["5", 0, false]
                 ],
-                explain: ""
+                explain: "There are 1000 liters in a kiloliter, and 1000 milliliters in a liter, so to convert 0.5 kiloliters to milliliters, we multiply by 1000 to get the number of liters, which is 500. Then, we multiply by 1000 to get 500000 milliliters. Thus the correct answer is the second one."
             },
             {
                 number: 3,
-                question: "",
+                question: "Which of these is not a base SI unit?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["meter", 0, false],
+                    ["gram", 1, false],
+                    ["second", 0, false],
+                    ["Newton", 0, false]
                 ],
-                explain: ""
+                explain: "The gram is not a base SI unit; it is a derived unit of mass. The base SI unit for mass is the kilogram (kg). The other options are all base SI units: meter (m) for distance, second (s) for time, and Newton (N) is a derived unit of force based on the kilogram, meter, and second. Thus the correct answer is the second one."
             },
             {
                 number: 4,
-                question: "",
+                question: "What is the prefix for 10<sup>-6</sup>?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["milli", 0, false],
+                    ["macro", 0, false],
+                    ["micro", 1, false],
+                    ["nano", 0, false]
                 ],
-                explain: ""
+                explain: "The correct prefix for 10<sup>-6</sup> is 'micro', which is represented by the symbol 'μ'. It is commonly used in units such as micrometer (μm) and microsecond (μs). Thus the correct answer is the third one."
             },
             {
                 number: 5,
-                question: "",
+                question: "What is the smallest metric prefix that is commonly used?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["yotta", 0, false],
+                    ["yocto", 0, false],
+                    ["gamma", 0, false],
+                    ["nano", 1, false]
                 ],
-                explain: ""
+                explain: "The prefix nano represents 10<sup>-9</sup>, which is the smallest metric prefix that is commonly used. It is represented by the symbol 'n' and is used in units such as nanometer (nm) and nanosecond (ns). Thus the correct answer is the fourth one."
             }
         ],
         [ // calculus difficulty
             {
                 number: 0,
-                question: "",
+                question: "What does the prefix \"kilo-\" represent?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["100", 0, false],
+                    ["0.001", 0, false],
+                    ["1000", 1, false],
+                    ["100000", 0, false]
                 ],
-                explain: ""
+                explain: "The prefix \"kilo-\" represents 1000, which is 10<sup>3</sup>. It is commonly used in units such as kilogram (kg) and kilometer (km). Thus the correct answer is the third one."
             },
             {
                 number: 1,
-                question: "",
+                question: "How many millimeters are in a centimeter?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["10", 1, false],
+                    ["100", 0, false],
+                    ["1000", 0, false],
+                    ["0.01", 0, false]
                 ],
-                explain: ""
+                explain: "There are 1000 millimeters in a meter, and 100 centimeters in a meter, so there are 10 millimeters in a centimeter. We can get to this answer by first converting one centimeter to meters, then multiplying by the conversion factor for meters to millimeters. Thus the correct answer is the first one."
             },
             {
                 number: 2,
-                question: "",
+                question: "You buy a 0.5 kiloliter bottle of water. How many milliliters of water do you have?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["500", 0, false],
+                    ["500000", 1, false],
+                    ["5000000", 0, false],
+                    ["5", 0, false]
                 ],
-                explain: ""
+                explain: "There are 1000 liters in a kiloliter, and 1000 milliliters in a liter, so to convert 0.5 kiloliters to milliliters, we multiply by 1000 to get the number of liters, which is 500. Then, we multiply by 1000 to get 500000 milliliters. Thus the correct answer is the second one."
             },
             {
                 number: 3,
-                question: "",
+                question: "Which of these is not a base SI unit?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["meter", 0, false],
+                    ["gram", 1, false],
+                    ["second", 0, false],
+                    ["Newton", 0, false]
                 ],
-                explain: ""
+                explain: "The gram is not a base SI unit; it is a derived unit of mass. The base SI unit for mass is the kilogram (kg). The other options are all base SI units: meter (m) for distance, second (s) for time, and Newton (N) is a derived unit of force based on the kilogram, meter, and second. Thus the correct answer is the second one."
             },
             {
                 number: 4,
-                question: "",
+                question: "What is the prefix for 10<sup>-6</sup>?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["milli", 0, false],
+                    ["macro", 0, false],
+                    ["micro", 1, false],
+                    ["nano", 0, false]
                 ],
-                explain: ""
+                explain: "The correct prefix for 10<sup>-6</sup> is 'micro', which is represented by the symbol 'μ'. It is commonly used in units such as micrometer (μm) and microsecond (μs). Thus the correct answer is the third one."
             },
             {
                 number: 5,
-                question: "",
+                question: "What is the smallest metric prefix that is commonly used?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["yotta", 0, false],
+                    ["yocto", 0, false],
+                    ["gamma", 0, false],
+                    ["nano", 1, false]
                 ],
-                explain: ""
+                explain: "The prefix nano represents 10<sup>-9</sup>, which is the smallest metric prefix that is commonly used. It is represented by the symbol 'n' and is used in units such as nanometer (nm) and nanosecond (ns). Thus the correct answer is the fourth one."
             }
         ]
     ]
@@ -552,6 +552,7 @@ function setChecked(chek, qNum) {
 
     <div v-show="!lessonShowing" class="container h100 pt-5">
         <h1>Metric Prefixes Problems</h1><br>
+        <span v-show="level > -1">A calculator might be necessary for the following problems.</span>
         <div class="question-container row justify-content-center mx-auto pb-5">
             <form @submit.prevent="checkAnswer(q.number)" style="height:fit-content"
                 class="question col-6 row justify-content-center my-5 mx-auto" v-for="q in questions[level]">

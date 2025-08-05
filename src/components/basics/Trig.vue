@@ -14,205 +14,205 @@ const questions = reactive(
         [ // conceptual difficulty
             {
                 number: 0,
-                question: "",
+                question: "Which trig function describes the ratio of the opposite side to the hypotenuse?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["Sine", 1, false],
+                    ["Cosine", 0, false],
+                    ["Tangent", 0, false],
+                    ["Secant", 0, false]
                 ],
-                explain: ""
+                explain: "The sine function is defined as the ratio of the opposite side to the hypotenuse in a right triangle."
             },
             {
                 number: 1,
-                question: "",
+                question: "Which one of these is equal to the tangent of $30 \\degree$?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["$\\frac12$", 0, false],
+                    ["$\\frac{1}{\\sqrt{3}}$", 1, false],
+                    ["$\\sqrt3$", 0, false],
+                    ["$\\frac{\\sqrt{3}}{2}$", 0, false]
                 ],
-                explain: ""
+                explain: "The tangent of $30 \\degree$ is equal to $\\frac{1}{\\sqrt{3}}$."
             },
             {
                 number: 2,
-                question: "",
+                question: "A right triangle has an opposite side of 12 units and an angle of $45 \\degree$. What is the length of the hypotenuse?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["$12\\sqrt2$", 1, false],
+                    ["$\\frac{12}{\\sqrt2}$", 0, false],
+                    ["$6$", 0, false],
+                    ["$\\frac{6}{\\sqrt2}$", 0, false]
                 ],
-                explain: ""
+                explain: "We want to use the sine function here, since we have the length of the opposite side, the angle, and are looking for the hypotenuse length. Since the sine is defined as the opposite over the hypotenuse, we can find the length of the hypotenuse by dividing the length of the opposite side by the sine of the angle. Thus, we have $\\frac{12}{\\sin(45 \\degree)} = \\frac{12}{\\frac{\\sqrt2}{2}} = 12\\sqrt2$."
             },
             {
                 number: 3,
-                question: "",
+                question: "A right triangle has a hypotenuse length of 15 and an adjacent side of 9. What is the angle of the triangle?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["$59.0\\degree$", 0, false],
+                    ["$36.9\\degree$", 0, false],
+                    ["$53.1\\degree$", 1, false],
+                    ["$31.0 \\degree$", 0, false]
                 ],
-                explain: ""
+                explain: "We use the arccosine function here to solve for the angle. When we plug the value of the cosine (9/15) into the arccosine function, we get $\\arccos(9/15) = 53.1\\degree$."
             },
             {
                 number: 4,
-                question: "",
+                question: "What is the maximum value of the sine function?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["Infinity", 0, false],
+                    ["5", 0, false],
+                    ["2", 0, false],
+                    ["1", 1, false]
                 ],
-                explain: ""
+                explain: "The length of the opposite side can never be longer than the hypotenuse, so the maximum ratio of opposite to hypotenuse is 1, which occurs when the opposite side is equal to the hypotenuse. This means that the sine function has a maximum value of 1."
             },
             {
                 number: 5,
-                question: "",
+                question: "What is the maximum value of the tangent function?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["1", 0, false],
+                    ["2", 0, false],
+                    ["10", 0, false],
+                    ["Infinity", 1, false]
                 ],
-                explain: ""
+                explain: "The tangent function can approach infinity as the angle approaches $90 \\degree$, since the opposite side can be much longer than the adjacent side, making the ratio of opposite to adjacent very large. Thus, the maximum value of the tangent function is infinity. If you plug values close to $90 \\degree$ into the tangent function on your calculator, you will see that the value gets very large."
             }
         ],
         [ // algebra difficulty
             {
                 number: 0,
-                question: "",
+                question: "Which trig function describes the ratio of the opposite side to the hypotenuse?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["Sine", 1, false],
+                    ["Cosine", 0, false],
+                    ["Tangent", 0, false],
+                    ["Secant", 0, false]
                 ],
-                explain: ""
+                explain: "The sine function is defined as the ratio of the opposite side to the hypotenuse in a right triangle."
             },
             {
                 number: 1,
-                question: "",
+                question: "Which one of these is equal to the tangent of $30 \\degree$?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["$\\frac12$", 0, false],
+                    ["$\\frac{1}{\\sqrt{3}}$", 1, false],
+                    ["$\\sqrt3$", 0, false],
+                    ["$\\frac{\\sqrt{3}}{2}$", 0, false]
                 ],
-                explain: ""
+                explain: "The tangent of $30 \\degree$ is equal to $\\frac{1}{\\sqrt{3}}$."
             },
             {
                 number: 2,
-                question: "",
+                question: "A right triangle has an opposite side of 12 units and an angle of $45 \\degree$. What is the length of the hypotenuse?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["$12\\sqrt2$", 1, false],
+                    ["$\\frac{12}{\\sqrt2}$", 0, false],
+                    ["$6$", 0, false],
+                    ["$\\frac{6}{\\sqrt2}$", 0, false]
                 ],
-                explain: ""
+                explain: "We want to use the sine function here, since we have the length of the opposite side, the angle, and are looking for the hypotenuse length. Since the sine is defined as the opposite over the hypotenuse, we can find the length of the hypotenuse by dividing the length of the opposite side by the sine of the angle. Thus, we have $\\frac{12}{\\sin(45 \\degree)} = \\frac{12}{\\frac{\\sqrt2}{2}} = 12\\sqrt2$."
             },
             {
                 number: 3,
-                question: "",
+                question: "A right triangle has a hypotenuse length of 15 and an adjacent side of 9. What is the angle of the triangle?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["$59.0\\degree$", 0, false],
+                    ["$36.9\\degree$", 0, false],
+                    ["$53.1\\degree$", 1, false],
+                    ["$31.0 \\degree$", 0, false]
                 ],
-                explain: ""
+                explain: "We use the arccosine function here to solve for the angle. When we plug the value of the cosine (9/15) into the arccosine function, we get $\\arccos(9/15) = 53.1\\degree$."
             },
             {
                 number: 4,
-                question: "",
+                question: "What is the maximum value of the sine function?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["Infinity", 0, false],
+                    ["5", 0, false],
+                    ["2", 0, false],
+                    ["1", 1, false]
                 ],
-                explain: ""
+                explain: "The length of the opposite side can never be longer than the hypotenuse, so the maximum ratio of opposite to hypotenuse is 1, which occurs when the opposite side is equal to the hypotenuse. This means that the sine function has a maximum value of 1."
             },
             {
                 number: 5,
-                question: "",
+                question: "What is the maximum value of the tangent function?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["1", 0, false],
+                    ["2", 0, false],
+                    ["10", 0, false],
+                    ["Infinity", 1, false]
                 ],
-                explain: ""
+                explain: "The tangent function can approach infinity as the angle approaches $90 \\degree$, since the opposite side can be much longer than the adjacent side, making the ratio of opposite to adjacent very large. Thus, the maximum value of the tangent function is infinity. If you plug values close to $90 \\degree$ into the tangent function on your calculator, you will see that the value gets very large."
             }
         ],
         [ // calculus difficulty
             {
                 number: 0,
-                question: "",
+                question: "Which trig function describes the ratio of the opposite side to the hypotenuse?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["Sine", 1, false],
+                    ["Cosine", 0, false],
+                    ["Tangent", 0, false],
+                    ["Secant", 0, false]
                 ],
-                explain: ""
+                explain: "The sine function is defined as the ratio of the opposite side to the hypotenuse in a right triangle."
             },
             {
                 number: 1,
-                question: "",
+                question: "Which one of these is equal to the tangent of $30 \\degree$?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["$\\frac12$", 0, false],
+                    ["$\\frac{1}{\\sqrt{3}}$", 1, false],
+                    ["$\\sqrt3$", 0, false],
+                    ["$\\frac{\\sqrt{3}}{2}$", 0, false]
                 ],
-                explain: ""
+                explain: "The tangent of $30 \\degree$ is equal to $\\frac{1}{\\sqrt{3}}$."
             },
             {
                 number: 2,
-                question: "",
+                question: "A right triangle has an opposite side of 12 units and an angle of $45 \\degree$. What is the length of the hypotenuse?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["$12\\sqrt2$", 1, false],
+                    ["$\\frac{12}{\\sqrt2}$", 0, false],
+                    ["$6$", 0, false],
+                    ["$\\frac{6}{\\sqrt2}$", 0, false]
                 ],
-                explain: ""
+                explain: "We want to use the sine function here, since we have the length of the opposite side, the angle, and are looking for the hypotenuse length. Since the sine is defined as the opposite over the hypotenuse, we can find the length of the hypotenuse by dividing the length of the opposite side by the sine of the angle. Thus, we have $\\frac{12}{\\sin(45 \\degree)} = \\frac{12}{\\frac{\\sqrt2}{2}} = 12\\sqrt2$."
             },
             {
                 number: 3,
-                question: "",
+                question: "A right triangle has a hypotenuse length of 15 and an adjacent side of 9. What is the angle of the triangle?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["$59.0\\degree$", 0, false],
+                    ["$36.9\\degree$", 0, false],
+                    ["$53.1\\degree$", 1, false],
+                    ["$31.0 \\degree$", 0, false]
                 ],
-                explain: ""
+                explain: "We use the arccosine function here to solve for the angle. When we plug the value of the cosine (9/15) into the arccosine function, we get $\\arccos(9/15) = 53.1\\degree$."
             },
             {
                 number: 4,
-                question: "",
+                question: "What is the maximum value of the sine function?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["Infinity", 0, false],
+                    ["5", 0, false],
+                    ["2", 0, false],
+                    ["1", 1, false]
                 ],
-                explain: ""
+                explain: "The length of the opposite side can never be longer than the hypotenuse, so the maximum ratio of opposite to hypotenuse is 1, which occurs when the opposite side is equal to the hypotenuse. This means that the sine function has a maximum value of 1."
             },
             {
                 number: 5,
-                question: "",
+                question: "What is the maximum value of the tangent function?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["1", 0, false],
+                    ["2", 0, false],
+                    ["10", 0, false],
+                    ["Infinity", 1, false]
                 ],
-                explain: ""
+                explain: "The tangent function can approach infinity as the angle approaches $90 \\degree$, since the opposite side can be much longer than the adjacent side, making the ratio of opposite to adjacent very large. Thus, the maximum value of the tangent function is infinity. If you plug values close to $90 \\degree$ into the tangent function on your calculator, you will see that the value gets very large."
             }
         ]
     ]
@@ -297,37 +297,38 @@ function setChecked(chek, qNum) {
                         border-radius: 8px;
                         background: #000;
                         margin: auto;
-                        padding: 12px;
+                        padding: 20px;
                         color: #fff;
                         border-collapse: separate;
-                        border-spacing: 0;
+                        border-spacing: 8px;
+                        font-size: 1.1rem;
                         ">
                     <thead>
                         <tr>
-                            <th>Angle</th>
-                            <th>sin(θ)</th>
-                            <th>cos(θ)</th>
-                            <th>tan(θ)</th>
+                            <th style="padding: 12px 16px;">Angle</th>
+                            <th style="padding: 12px 16px;">sin(θ)</th>
+                            <th style="padding: 12px 16px;">cos(θ)</th>
+                            <th style="padding: 12px 16px;">tan(θ)</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td>30°</td>
-                            <td>$\frac{1}{2}$</td>
-                            <td>$\frac{\sqrt{3}}{2}$</td>
-                            <td>$\frac{1}{\sqrt{3}}$</td>
+                            <td style="padding: 12px 16px; text-align: center;">30°</td>
+                            <td style="padding: 12px 16px; text-align: center;">$\frac{1}{2}$</td>
+                            <td style="padding: 12px 16px; text-align: center;">$\frac{\sqrt{3}}{2}$</td>
+                            <td style="padding: 12px 16px; text-align: center;">$\frac{1}{\sqrt{3}}$</td>
                         </tr>
                         <tr>
-                            <td>45°</td>
-                            <td>$\frac{\sqrt{2}}{2}$</td>
-                            <td>$\frac{\sqrt{2}}{2}$</td>
-                            <td>$1$</td>
+                            <td style="padding: 12px 16px; text-align: center;">45°</td>
+                            <td style="padding: 12px 16px; text-align: center;">$\frac{\sqrt{2}}{2}$</td>
+                            <td style="padding: 12px 16px; text-align: center;">$\frac{\sqrt{2}}{2}$</td>
+                            <td style="padding: 12px 16px; text-align: center;">$1$</td>
                         </tr>
                         <tr>
-                            <td>60°</td>
-                            <td>$\frac{\sqrt{3}}{2}$</td>
-                            <td>$\frac{1}{2}$</td>
-                            <td>$\sqrt{3}$</td>
+                            <td style="padding: 12px 16px; text-align: center;">60°</td>
+                            <td style="padding: 12px 16px; text-align: center;">$\frac{\sqrt{3}}{2}$</td>
+                            <td style="padding: 12px 16px; text-align: center;">$\frac{1}{2}$</td>
+                            <td style="padding: 12px 16px; text-align: center;">$\sqrt{3}$</td>
                         </tr>
                     </tbody>
                 </table>
@@ -407,7 +408,8 @@ function setChecked(chek, qNum) {
     </div>
 
     <div v-show="!lessonShowing" class="container h100 pt-5">
-        <h1>Metric Prefixes Problems</h1><br>
+        <h1>Trigonometry Problems</h1><br>
+        <span v-show="level > -1">A calculator might be necessary for the following problems.</span>
         <div class="question-container row justify-content-center mx-auto pb-5">
             <form @submit.prevent="checkAnswer(q.number)" style="height:fit-content"
                 class="question col-6 row justify-content-center my-5 mx-auto" v-for="q in questions[level]">
