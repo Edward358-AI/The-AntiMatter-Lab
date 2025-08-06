@@ -384,7 +384,7 @@ onUnmounted(() => {
 <template>
     <div v-show="lessonShowing" class="container h100 p-5">
         <h1>Inclined Planes and Pulleys</h1><br>
-        <div v-show="page === 0">
+        <div v-show="page === 0"><h4 class="text-center">Introduction</h4>
 
             <p>
                 It is said that Galileo dropped massive (that is, having mass) balls off of the Leaning Tower of Pisa to

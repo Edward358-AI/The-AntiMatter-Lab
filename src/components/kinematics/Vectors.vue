@@ -215,7 +215,7 @@ function setChecked(chek, qNum) {
 <template>
     <div v-show="lessonShowing" class="container h100 p-5">
         <h1>Vectors</h1><br>
-        <div v-show="page === 0">
+        <div v-show="page === 0"><h4 class="text-center">Introduction</h4>
             <p>
                 <span v-show="level == 0">Maybe you’ve heard somewhere that physics is heavily math based. And yes,
                     while

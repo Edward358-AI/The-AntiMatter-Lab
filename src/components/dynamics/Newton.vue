@@ -236,7 +236,7 @@ function setChecked(chek, qNum) {
 <template>
     <div v-show="lessonShowing" class="container h100 p-5">
         <h1>Newton's Laws</h1><br>
-        <div v-show="page === 0">
+        <div v-show="page === 0"><h4 class="text-center">Introduction</h4>
             <p>
                 This is the start of probably the most important and difficult unit to master in all of physics. First,
                 introductions: Isaac Newton is a name well known in physics and mathematics for his breakthroughs and

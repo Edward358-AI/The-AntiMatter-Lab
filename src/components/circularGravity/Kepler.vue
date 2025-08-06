@@ -237,7 +237,7 @@ function setChecked(chek, qNum) {
     <div v-show="lessonShowing" class="container h100 p-5">
         <h1>Kepler's Laws</h1><br>
         <p>
-        <div v-show="page === 0">
+        <div v-show="page === 0"><h4 class="text-center">Introduction</h4>
             Johannes Kepler was a German astronomer who actually lived before Newton formulated his Law of Universal
             Gravitation, figuring out his three laws of planetary motion from astronomical data. There's a bit of
             interesting

@@ -345,7 +345,7 @@ onUnmounted(() => {
     <div v-show="lessonShowing" class="container h100 p-5">
         <h1>Spring Forces</h1><br>
         <p>
-        <div v-show="page === 0">
+        <div v-show="page === 0"><h4 class="text-center">Introduction</h4>
             The spring has been around for quite a while. It's used in all sorts of things like scales, shock dampeners,
             cars, etc. It's useful because it applies a larger force the more it's stretched or compressed, which gives
             it

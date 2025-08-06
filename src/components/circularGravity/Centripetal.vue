@@ -373,12 +373,12 @@ onUnmounted(() => {
     <div v-show="lessonShowing" class="container h100 p-5">
         <h1>Centripetal Force/Acceleration</h1><br>
         <p>
-        <div v-show="page === 0">
+        <div v-show="page === 0"><h4 class="text-center">Introduction</h4>
             You often hear of centrifugal force being the force that holds you against the walls of one of those
             amusement park spinning rides.
             It is actually quite amusing since centrifugal force isn't a real force (but still exists calculationally)
             and the real deal behind
-            circular motion is the centripetal force. Both those names are Latin in origin and mean center-fleeing and
+            circular motion is the <i>centripetal</i> force. Both those names are Latin in origin and mean center-fleeing and
             center-seeking respectively.
             Finally, some English that makes sense. Note that <strong><u>this is NOT a new force</u></strong>, but
             really a required force for circular motion to occur.
@@ -398,7 +398,7 @@ onUnmounted(() => {
                 <button class="btn btn-outline-primary" @click="runCentripetal()">Reset</button><br>
                 <span class="warn">{{ viewportMsg }}</span>
             </figure>
-            <br>
+            <br><h4 class="text-center">Centripetal Acceleration</h4>
             Centripetal acceleration is directed inward toward the center of the circle that the object traces out as it
             moves.
             At every point in its motion, the object’s velocity is tangential to the circle, which is why when you
@@ -418,11 +418,11 @@ onUnmounted(() => {
             $r$ is the radius and $v$ is the velocity of the ball, which is constant in uniform circular motion (hence
             the name).
             <br><br>
-            <span v-show="level > 0">
+            <span v-show="level > 0"><h4 class="text-center">Derivation</h4>
                 There’s a good and neat proof for the formula for centripetal acceleration.
                 <span v-show="level == 2">
                     Consider an infinitesimal time interval $dt$. In that interval, the ball displaces $ds=v dt$ along
-                    the circle. But, $ds =r d\theta$ due to how circles work. (We’re using s since arc length is not
+                    the circle. But, $ds =r \cdot d\theta$ due to how circles work. (We’re using s since arc length is not
                     displacement.)
                     <br><br>
                     So we write down:
@@ -446,8 +446,8 @@ onUnmounted(() => {
                 <span v-show="level == 1">
                     Consider a small time interval $\Delta t$. In that interval, the ball roughly displaces $\Delta
                     x=v\Delta t$ along the circle. There is also a small change in the angle $\Delta \theta$, allowing
-                    us to write $\Delta x=rsin\Delta\theta \approx r\Delta\theta$ by the small angle approximation
-                    $sin\theta \approx \theta$.
+                    us to write $\Delta x=r\sin\Delta\theta \approx r\Delta\theta$ by the small angle approximation
+                    $\sin\theta \approx \theta$.
                     <br><br>
                     We can write:
                     <br><br>
@@ -475,7 +475,7 @@ onUnmounted(() => {
                     <br><br>
                 </span>
                 Centripetal acceleration is more commonly denoted $a_c$ instead of just $a$.
-                <br><br>
+                <br><br><h4 class="text-center">Centripetal Force</h4>
                 By extension, we can write the centripetal force (really the centripetal force requirement) as:
                 <br><br>
                 $$F_c=m a_c=m\dfrac{v^2}{r}$$
@@ -527,8 +527,8 @@ onUnmounted(() => {
                 a slower speed to see this.) We also see that it inversely depends on the radius, meaning the required
                 acceleration
                 is less if the circle travelled is larger. You can also easily prove this to yourself.
-                <br><br>
-                The centripetal force required directly builds off of this centripetal acceleration:
+                <br><br><h4 class="text-center">Centripetal Force</h4>
+                The centripetal force (again, like friction, NOT a new type of force) required directly builds off of this centripetal acceleration:
                 <br><br>
                 $$F_c = m\dfrac{v^2}{r}$$
                 <br><br>
@@ -566,7 +566,7 @@ onUnmounted(() => {
                     always tends to accelerate backwards with respect to the ground, so the force of static friction is
                     forward! Friction back at it again, doing unexpected things.
                 </div>
-                <br><br>
+                <br><h4 class="text-center">Banked Curves</h4>
                 Now, we should consider the special case of a banked curve. This isn't an easy calculation, so instead of
                 making
                 this a problem I'll walk you through it.
@@ -583,7 +583,7 @@ onUnmounted(() => {
                 circle.
                 This is why many road engineers bank their curves to make them safe to drive across at higher speeds.
                 (Or so I've heard, I'm not a road engineer.)
-                <br><br>
+                <br><br><h4 class="text-center">Analysis</h4>
                 Let’s assume that the curve is banked at an arbitrary angle $\theta$ less than 90 degrees and has a
                 radius $r$,
                 measured from the center of the circle that the object traces out as it moves.
@@ -627,7 +627,7 @@ onUnmounted(() => {
                 are slipping, which would not be ideal), but to simplify I will define the coefficient of static and
                 kinetic friction to be $\mu$.
                 Now, find the range of values for $v$ where the car does not move up or down the incline.
-                <br><br>
+                <br><br><h4 class="text-center">Analysis With Friction</h4>
                 The range of values comes from the fact that friction is directed either up or down the incline,
                 depending on $v$. Don't worry too much
                 about this detail for now.
@@ -677,6 +677,7 @@ onUnmounted(() => {
                         circle.
             </span>
             <span v-show="level == 0">
+                <h4 class="text-center">Banked Curves</h4>
                 Conceptually, there is one special type of circular motion scenario that is important to consider. If
                 you've
                 ever paid attention while driving or being driven, you'll notice that sometimes, a turn on the freeway
@@ -707,7 +708,7 @@ onUnmounted(() => {
                 however, that the centripetal force is directed horizontally with respect to the ground and not directed
                 down the plane. In a case like this, it is possible for UCM to occur without any frictional forces,
                 unlike with a flat circle.
-                <br><br>
+                <br><br><h4 class="text-center">Force Analysis</h4>
                 Now, let's look at the forces involved. The weight of the object cannot contribute to the centripetal
                 acceleration since it is always perpendicular to the
                 radius of the imaginary horizontal circle the object traces out as it moves along its path. The only
@@ -753,7 +754,7 @@ onUnmounted(() => {
                     &rarr;</button>
             </div>
         </div>
-        <div v-show="page === 2">
+        <div v-show="page === 2"><h4 class="text-center">Vertical Circular Motion</h4>
             We've dealt with horizontal circular motion and even the banked curve, but there is one more case: that of
             vertical circular motion. A simple example of this is when you swing a ball on a string in a vertical
             circle, or
@@ -778,7 +779,7 @@ onUnmounted(() => {
                 <img src="/src/assets/dynamics/verticalcircle.png">
                 <figcaption>Figure 4: A vertical circle, with the points of interest labelled.</figcaption>
             </figure>
-            <br>
+            <br><h4 class="text-center">Analysis</h4>
             <span v-show="level > 0">
                 We are going to analyze every point labelled, but the top and bottom points are the most important.
                 We'll
@@ -840,7 +841,7 @@ onUnmounted(() => {
                 it speeds it up at point D. However, due to a neat quirk that will be explained in the energy unit, the
                 speeds
                 at these two points are equal.
-                <br><br>
+                <br><br><h4 class="text-center">Conclusion</h4>
                 I'll bet all this talk has your head going around in circles (ha ha, get it?). Now, let's slightly pivot
                 our angle on these problems and introduce a new method of analyzing them. You will be reunited with a
                 force
@@ -895,7 +896,7 @@ onUnmounted(() => {
                 <br>
                 This result is important to know, as it is the minimum velocity that the object must have at the top of
                 the circle in order not to fall out.
-                <br><br>
+                <br><br><h4 class="text-center">Conclusion</h4>
                 With that, we're done with circular motion! Actually, that's a lie. The next lesson is not entirely
                 focused on circular motion, but it
                 is included because of how closely it ties in to circular motion. You'll see what I mean when you get

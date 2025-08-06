@@ -379,7 +379,7 @@ onUnmounted(() => {
     <div v-show="lessonShowing" class="container h100 p-5">
         <h1>One-Dimensional Motion/Free fall</h1><br>
 
-        <div v-show="page === 0">
+        <div v-show="page === 0"><h4 class="text-center">Introduction</h4>
             <p>
                 Now comes the fun (depends on your definition) part of physics! All these equations and values that we
                 just

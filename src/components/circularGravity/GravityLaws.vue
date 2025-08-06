@@ -448,7 +448,7 @@ onUnmounted(() => {
     <div v-show="lessonShowing" class="container h100 p-5">
         <h1>Newton's Law of Universal Gravitation</h1><br>
         <p>
-        <div v-show="page === 0">
+        <div v-show="page === 0"><h4 class="text-center">Introduction</h4>
             Issac Newton knew a ton about forces, but he also investigated gravity. Our conception of gravity to this
             point is that it's a constant field with field strength $g = 9.81 ~\textrm{m/s}^2$, but this is only true
             if you're standing on the surface of the Earth. (Technically, this value also varies depending on where you

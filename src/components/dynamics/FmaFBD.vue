@@ -221,7 +221,7 @@ const showAnswer4 = ref(false)
     <div v-show="lessonShowing" class="container h100 p-5">
         <h1>F=ma and Free-body Diagrams</h1><br>
         <p>
-        <div v-show="page === 0">
+        <div v-show="page === 0"><h4 class="text-center">Introduction</h4>
             <p>
                 Newton’s Second Law is the most important and most difficult of all his laws to master. To learn how to
                 use

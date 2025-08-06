@@ -215,7 +215,7 @@ function setChecked(chek, qNum) {
     <div v-show="lessonShowing" class="container h100 p-5">
         <h1>Fictitious Forces</h1><br>
         <p>
-        <div v-show="page === 0">
+        <div v-show="page === 0"><h4 class="text-center">Introduction</h4>
             Remember the centrifugal force from earlier? Well, I said that it doesn’t exist, but it does in a
             mathematical sense.
             For an observer at rest, it does not exist, but the observer actually going in a circle experiences it. If

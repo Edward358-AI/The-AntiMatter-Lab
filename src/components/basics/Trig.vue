@@ -240,6 +240,7 @@ function setChecked(chek, qNum) {
     <div v-show="lessonShowing" class="container h100 p-5">
         <h1>Trigonometry</h1><br>
         <div v-show="page === 0">
+            <h4 class="text-center">Introduction</h4>
             <p>
                 The last thing we need to talk about before we can actually start on our physics content is trigonometry. If you're unfamiliar with what that is, 
                 here's the basic breakdown: trigonometry describes the relationships between the sides of right triangles by using the angles of the triangles. Advanced 

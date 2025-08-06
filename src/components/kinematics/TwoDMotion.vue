@@ -372,6 +372,7 @@ onUnmounted(() => {
         <h1>Two-Dimensional Motion/Projectile Motion</h1><br>
         <div v-show="page === 0">
             <p>
+                <h4 class="text-center">Introduction</h4>
                 <span v-show="level == 0">
                     Finally, the core of kinematics. This is what many people consider to be the most useful application
                     of

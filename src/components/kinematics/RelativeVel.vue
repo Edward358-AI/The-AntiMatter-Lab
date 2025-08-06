@@ -171,7 +171,7 @@ function setChecked(chek, qNum) {
 <template>
     <div v-show="lessonShowing" class="container h100 p-5">
         <h1>Relative Velocity (and reference frames)</h1><br>
-        <div v-show="page === 0">
+        <div v-show="page === 0"><h4 class="text-center">Introduction</h4>
             <p>
                 Relative velocity will be a rather short lesson, as there are mostly just concepts that we need to go
                 over.<br><br>In actuality, it is not a huge topic to tackle. The easiest way to teach this is by

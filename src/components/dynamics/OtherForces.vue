@@ -236,7 +236,7 @@ function setChecked(chek, qNum) {
 <template>
     <div v-show="lessonShowing" class="container h100 p-5">
         <h1>Forces</h1><br>
-        <div v-show="page === 0">
+        <div v-show="page === 0"><h4 class="text-center">Introduction</h4>
             <p>
                 We have been negligent to dive deeper into forces, despite introducing it briefly in the previous
                 chapter. As a refresher, forces are simply a push or pull that may <i>change</i> motion. Again, they are
