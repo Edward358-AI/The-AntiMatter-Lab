@@ -471,7 +471,7 @@ onUnmounted(() => {
                 <div id="Gravitation"></div>
                 <button class="btn btn-outline-primary" @click="runGrav()">Reset</button><br>
                 <span class="warn">{{ viewportMsg }}</span>
-            </figure>
+            </figure><h4 class="text-center">Gravity</h4>
             But first, a more rigorous discussion of what gravity really is. We know gravity causes things to fall, so
             let's start there.
             Gravity tends to pull bodies closer to each other. This leads us to our first conclusion, that as far as we

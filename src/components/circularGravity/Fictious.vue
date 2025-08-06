@@ -356,7 +356,7 @@ function setChecked(chek, qNum) {
             Now you know what fictitious forces are, but you’re probably wondering why this section is here. Well, now
             that I address it you either realize that I’m going to
             explain why this is helpful or (tsk tsk) you haven’t thought that it was out of place at all.
-            <br><br>
+            <br><br><h4 class="text-center">Centrifugal Force</h4>
             Fictitious forces just so happen to be quite helpful in centripetal force problems.
             We can work in the accelerated reference frame of the object moving in a circle, which gives rise to a
             fictitious centrifugal force
@@ -563,7 +563,7 @@ function setChecked(chek, qNum) {
                     This is how the blocks can affect the cart despite being unable to interact with it through
                     friction.
                 </div>
-                <br><br>
+                <br>
             </span>
             <span v-show="level == 0">
                 <div class="problem">
@@ -613,8 +613,8 @@ function setChecked(chek, qNum) {
                     its motion, which enables us
                     to explain how block 2 would even affect the cart.
                 </div>
-                <br><br>
-            </span>
+                <br>
+            </span><h4 class="text-center">Conclusion</h4>
             I hope I've shown you how working in an accelerated reference frame can be useful. Next, we're going to
             pivot and begin to talk about gravity between celestial objects like the planets. This is quite different
             from the gravitational forces we've dealt with previously.

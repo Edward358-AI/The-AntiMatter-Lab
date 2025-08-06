@@ -402,7 +402,7 @@ function setChecked(chek, qNum) {
             </div>
             <div class="btn-contain-right">
                 <button class="btn btn-dark" style="animation: scale 2s infinite;" @click="$emit('nextlesson')">Next
-                    Unit!
+                    Lesson!
                     &rarr;</button>
             </div>
         </div>

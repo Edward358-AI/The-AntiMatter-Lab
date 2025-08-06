@@ -243,7 +243,7 @@ function setChecked(chek, qNum) {
         <h1>Metric Prefixes</h1><br>
         <div v-show="page === 0"><h4 class="text-center">Introduction</h4>
             <p>
-                The SI (<i>Système international d'unités</i>)system is the standard system of measurement used in science and engineering. It is a variation 
+                The SI (<i>Système international d'unités</i>) system is the standard system of measurement used in science and engineering. It is a variation 
                 on the metric system, which is famous for not being used in the United States. The SI system is based on a set of base units, which are defined in terms of 
                 fundamental physical constants. Some of the most common base units are the meter ($\textrm{m}$) for distance, kilogram ($\textrm{kg}$) for mass, and second ($\textrm{s}$) for time.
                 <br><br>

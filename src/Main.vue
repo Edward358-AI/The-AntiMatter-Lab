@@ -7,6 +7,7 @@ import Algebra from './components/basics/Algebra.vue'
 import GettingStarted from './components/basics/GettingStarted.vue'
 import MetricPrefix from './components/basics/MetricPrefix.vue'
 import Trig from './components/basics/Trig.vue'
+import Index from './components/basics/Index.vue'
 
 import Vectors from './components/kinematics/Vectors.vue'
 import PosVelAcc from './components/kinematics/PosVelAcc.vue'
@@ -62,7 +63,7 @@ const htmlElement = document.documentElement
 const doc = document
 const Window = window
 const user = reactive({
-  current: "landing", difficulty: 0, theme: "dark", page: { Algebra: 0, About: 0, GettingStarted: 0, metricPrefix: 0, Trig: 0,
+  current: "landing", difficulty: 0, theme: "dark", page: { Algebra: 0, About: 0, GettingStarted: 0, metricPrefix: 0, Trig: 0, Index: 0,
     Vectors: 0, DimenAnalyz: 0, PosVelAcc: 0, OneDMotion: 0, TwoDMotion: 0, RelativeVel: 0,
     FmaFBD: 0, Spring: 0, InclinedPlanes: 0, OtherForces: 0, Newton: 0,
     Kepler: 0, GravityLaws: 0, Centripetal: 0, Fictious: 0,
@@ -106,7 +107,8 @@ const lessons = reactive(
       "Getting Started",
       "Basic Algebra",
       "Metric Prefixes",
-      "Trigonometry"
+      "Trigonometry",
+      "Index/Glossary"
     ],
     kinematics: [
       "Vectors",
@@ -606,7 +608,11 @@ onUpdated(() => {
   <Trig v-if="user.current === lessons.basics[4]" :level="user.difficulty" :lessonShowing="lessonShowing"
     :page="user.page.Trig" @nextpage="Window.scrollTo(0,0); user.page.Trig++"
     @prevpage="Window.scrollTo(0, 0); user.page.Trig--"
-    @nextlesson="Window.scrollTo(0, 0); user.current = lessons.kinematics[0]; user.page.Trig = 0" />
+    @nextlesson="Window.scrollTo(0, 0); user.current = lessons.basics[5]; user.page.Trig = 0" />
+  <Index v-if="user.current === lessons.basics[5]" :level="user.difficulty" :lessonShowing="lessonShowing"
+    :page="user.page.Index" @nextpage="Window.scrollTo(0, 0); user.page.Index++"
+    @prevpage="Window.scrollTo(0, 0); user.page.Index--"
+    @nextlesson="Window.scrollTo(0, 0); user.current = lessons.kinematics[0]; user.page.Index = 0" />
 
   <Vectors v-if="user.current === lessons.kinematics[0]" :level="user.difficulty" :lessonShowing="lessonShowing"
     :page="user.page.Vectors" @nextpage="Window.scrollTo(0, 0); user.page.Vectors++"
