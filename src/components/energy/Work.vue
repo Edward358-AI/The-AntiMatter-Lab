@@ -234,10 +234,10 @@ function setChecked(chek, qNum) {
 
 
 <template>
-    <div v-show="lessonShowing" class="container h100 p-5">
+    <div v-show="lessonShowing" class="container h100 p-5"><h4 class="text-center"></h4>
         <h1>Definition of "Work"</h1><br>
         <p>
-        <div v-show="page === 0">
+        <div v-show="page===0" ><h4 class="text-center">Introduction</h4>
             We've all done work before, whether it be for school, money, or just for fun. But in physics, the idea of
             work is slightly different from what we think it is in daily life. (In fact, me typing these all words out
             on a

@@ -237,7 +237,7 @@ function setChecked(chek, qNum) {
     <div v-show="lessonShowing" class="container h100 p-5">
         <h1>Dot Product</h1><br>
         <p>
-        <div v-show="page === 0">
+        <div v-show="page===0" ><h4 class="text-center">Introduction</h4>
             So this isn't actually a physics lesson. Like the vectors section, it's intended to brush up on
             external concepts that will prove to be essential to the later discussion of physics concepts. This
             lesson will focus on the concept of dot product, an operator of vector algebra. It's one of the two
@@ -260,7 +260,7 @@ function setChecked(chek, qNum) {
                     <img src="/src/assets/energy/Figure 49.png" />
                     <figcaption>Figure 1: Two unsuspecting vectors we'll use as our test subjects.</figcaption>
                 </figure>
-                <br><br>
+                <br>
                 Unlike adding or subtracting vectors, with the dot product there is no real way to perform it
                 graphically. (This makes
                 sense, since you're outputting a scalar and we don't typically represent scalars on graphs.) The first
@@ -270,7 +270,7 @@ function setChecked(chek, qNum) {
                 the two. In that case, the dot product is defined as:
                 <br><br>
                 $$\vec{a} \cdot \vec{b} = |\vec{a}|~|\vec{b}| \cos \theta$$
-                <br><br>
+                <br>
                 Let's break this down a little bit. I'm mainly just interested in the cosine part, since the two vectors
                 are arbitrary. Now, we know that cosine takes a range of values $-1 ~\leq \cos \theta ~\leq 1$. The
                 cosine is equal to
@@ -310,7 +310,7 @@ function setChecked(chek, qNum) {
                     <img src="/src/assets/energy/Figure 49.png" />
                     <figcaption>Figure 1: Two unsuspecting vectors we'll use as our test subjects.</figcaption>
                 </figure>
-                <br><br>
+                <br>
                 Now, this part requires a bit of trig knowledge. Remember our vectors lesson, and the idea of
                 components.
                 To get the component of any of the two vectors on the other, the fucntion we want to use is the cosine.
@@ -319,7 +319,7 @@ function setChecked(chek, qNum) {
                 it is:
                 <br><br>
                 $$\vec{a} \cdot \vec{b} = |\vec{a}|~|\vec{b}| \cos \theta$$
-                <br><br>
+                <br>
                 The dot between the two vectors denotes the dot product. (It's called <b>dot</b> product for a reason.)
                 <br><br>
                 We can analyze this function by analyzing the cosine function, but this might be a bit too mathematical.

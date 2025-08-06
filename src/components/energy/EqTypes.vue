@@ -376,7 +376,7 @@ onUnmounted(() => {
     <div v-show="lessonShowing" class="container h100 p-5">
         <h1>Types of Equilibrium</h1><br>
         <p>
-        <div v-show="page === 0">
+        <div v-show="page===0" ><h4 class="text-center">Introduction</h4>
             Equilibrium is the state of a system in which all forces acting on it are balanced, resulting in no net
             force or acceleration.
             Up to this point, we've only discussed equilibrium with respect to forces, but equilibrium can also be

@@ -407,7 +407,7 @@ onUnmounted(() => {
     <div v-show="lessonShowing" class="container h100 p-5">
         <h1>Definition of Energy and Energy Conservation</h1><br>
         <p>
-        <div v-show="page === 0">
+        <div v-show="page===0" ><h4 class="text-center">Introduction</h4>
             Here's a question for the ages: what is energy? We use the term all the time in our
             daily lives, yet if I asked you to give a concrete definition of what energy was I doubt you would
             be able to do it. It's obviously something that exists, but is hard to define concisely and isn't tangible.

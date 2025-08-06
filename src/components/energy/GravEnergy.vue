@@ -237,7 +237,7 @@ function setChecked(chek, qNum) {
     <div v-show="lessonShowing" class="container h100 p-5">
         <h1>Universal Gravitational Potential Energy</h1><br>
         <p>
-        <div v-show="page === 0">
+        <div v-show="page===0" ><h4 class="text-center">Introduction</h4>
             This unit only really has one concept, but it's a pretty important one. I want to show of its full potential
             here, but
             I can't due to not having covered angular momentum and torque. Regardless, this unit is quite important and
