@@ -246,7 +246,7 @@ function setChecked(chek, qNum) {
             gist of how Kepler came to his discovery was that he noticed that a circle didn't exactly fit the
             astronomical
             figures, while an elliptical shape fit it much better. This leads us to Kepler's First Law:
-            <br><br>
+            <br><br><h4 class="text-center">Kepler's First Law</h4>
             <div class="problem" style="text-align:center;font-size:1.05rem;width:fit-content;margin:auto;">
                 <strong>Kepler's First Law:</strong> <i> Planetary orbits are elliptical in shape, not circular.</i>
             </div>
@@ -256,7 +256,7 @@ function setChecked(chek, qNum) {
                 <figcaption> Figure 1: (Exaggerated for effect) An elliptical orbit around a star. But while it looks
                     right, it's actually not.</figcaption>
             </figure>
-            <br><br>
+            <br>
             This was revolutionary at the time, as people thought circles were the perfect shape and the cosmos
             must be perfect. However, most planetary orbits are very close to circular, which is why most of the time
             they are approximated as circles for simplicity. But now it's commonly accepted fact, so we won't be
@@ -289,14 +289,14 @@ function setChecked(chek, qNum) {
                 <figcaption> Figure 2: The updated diagram of elliptical orbits.</figcaption>
             </figure>
 
-            <br><br>
+            <br>
             There are some terms associated with the elliptical orbit. The <b>perihelion</b> is the point where the
             planet is closest
             to the star, while the <b>aphelion</b> is the point where it is furthest. Sometimes, the terms
             <b>perigee</b> and <b>apogee</b>
             are used instead. They have the same meaning.
             <span v-show="level > 0">
-                <br><br>
+                <br><br><h4 class="text-center">Eccentricity</h4>
                 I (Eric) want to talk about a new quantity that describes ellipses, the eccentricity. The eccentricity
                 of an ellipse is the
                 ratio of its focal length $c$ to its semimajor axis length $a$. In mathematical terms, this means:
@@ -331,12 +331,12 @@ function setChecked(chek, qNum) {
                     &rarr;</button>
             </div>
         </div>
-        <div v-show="page === 1">
+        <div v-show="page === 1"><h4 class="text-center">Kepler's Second Law</h4>
             <div class="problem" style="text-align:center;font-size:1.05rem;width:fit-content;margin:auto;">
                 <strong>Kepler's Second Law:</strong> <i> The imaginary line connecting the planet and the star sweeps
                     out equal areas in equal times as the planet orbits.</i>
             </div>
-            <br><br>
+            <br>
             This law is a bit unorthodox, to say the least. Imaginary line? Areas? It all seems so abstract, but I
             promsise
             it is anything but. It's certainly a bit verbose and can be hard to understand without
@@ -346,7 +346,7 @@ function setChecked(chek, qNum) {
                 <img src="/src/assets/dynamics/Figure 48.png">
                 <figcaption> Figure 3: A visual guide for Kepler's Second Law.</figcaption>
             </figure>
-            <br><br>
+            <br>
             In the visual, the red and blue areas are (approximately, I made this by hand don't judge me) equal. The
             time it takes
             the planet to travel through those distances is also equal. This is what the law means by "equal areas in
@@ -390,12 +390,12 @@ function setChecked(chek, qNum) {
             </div>
         </div>
 
-        <div v-show="page === 2">
+        <div v-show="page === 2"><h4 class="text-center">Kepler's Third Law</h4>
             <div class="problem" style="text-align:center;font-size:1.05rem;width:fit-content;margin:auto;">
                 <strong>Kepler's Third Law:</strong> <i> For any orbit, the cube of the semimajor axis of orbit is
                     directly proportional to the square of the orbital period.</i>
             </div>
-            <br><br>
+            <br>
             This final law is heavily mathematical and can be used to great effect in finding orbital periods. When you
             know the length of the semimajor
             axis of orbit, it is easy to find the orbital period, either by direct computation or by using a method of
@@ -500,7 +500,7 @@ function setChecked(chek, qNum) {
             star will take less time to complete a full orbit. This is not exactly groundbreaking news to us, so if
             you're struggling with this
             law just remember that at its core, it's a statement of the obvious, albeit a mathematical one.
-            <br><br>
+            <br><br><h4 class="text-center">Conclusion</h4>
             Next, we're going to completely pivot and talk about a new fundamental concept, that of energy. This will
             enable us to
             solve many problems with ease, as long as we're careful about setting them up.

@@ -516,7 +516,7 @@ onUnmounted(() => {
                     objects exerting a gravitaional pull
                     on the Earth.
                 </div>
-                <br><br>
+                <br><br><h4 class="text-center">Shell Theorem</h4>
                 Now, these formulas technically only works for point masses. However, Newton was also kind enough to
                 generalize this to
                 spheres, which are the most common shape for celestial bodies. It is called the shell theorem. This
@@ -616,7 +616,7 @@ onUnmounted(() => {
                 think of ourselves
                 as exerting a gravitaional force on the Earth. It's important to remember this fact (which applies to
                 any two objects that have mass), however.
-                <br><br>
+                <br><br><h4 class="text-center">Shell Theorem</h4>
                 Now, there is a theorem called the shell theorem that enables us to treat spheres as just point objects,
                 which allows
                 us to easily use Newton's Law of Universal Gravitation on them. All you need to know at this level is
@@ -774,7 +774,7 @@ onUnmounted(() => {
                     &rarr;</button>
             </div>
         </div>
-        <div v-show="page === 2">
+        <div v-show="page === 2"><h4 class="text-center">Orbits</h4>
             We just talked about circular motion two lessons ago, so now is a good time to talk about circular motion of
             planets,
             more often called orbits. To begin, we'll only talk about circular orbits here because they are easy to deal
@@ -868,7 +868,7 @@ onUnmounted(() => {
                     <figcaption> Figure 7: One specific "solution" to the three body problem given certain initial
                         conditions. Credit to Wikimedia.</figcaption>
                 </figure>
-                <br><br>
+                <br><h4 class="text-center">Conclusion</h4>
                 Next, we will talk about real planetary motion, which differs quite a bit from the circular orbits we
                 have talked about
                 here. So without futher ado, let's jump into the world of Kepler's laws, which have astronomical
