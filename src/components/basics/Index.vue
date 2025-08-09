@@ -1,6 +1,14 @@
 <script setup>
-const props = defineProps(["level", "page", "lessonShowing"])
-defineEmits(["nextlesson", "nextpage", "prevpage"])
+import { useUserStore } from '../../stores/user'
+import { useLessonShowingStore } from '../../stores/lessonShowing'
+import { storeToRefs } from 'pinia'
+import { watch } from 'vue'
+
+const lessonShowing = storeToRefs(useLessonShowingStore()).lessonShowing
+const level = storeToRefs(useUserStore()).difficulty
+const page = storeToRefs(useUserStore()).Index
+
+watch(page, () => window.scrollTo(0,0))
 </script>
 
 <template>
@@ -39,8 +47,8 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
             <span>&bull; Density - $\dfrac{\textrm{kg}}{\textrm{m}^3}$</span><br>
             </p>
         <div class="btn-contain-right">
-            <button class="btn btn-dark" style="animation : scale 2s infinite;" @click="$emit('nextlesson')">Next
-                Unit! &rarr;</button>
+            <RouterLink class="btn btn-dark" style="animation: scale 2s infinite;" @click="page=0" to="/vectors">Next
+                Unit! &rarr;</RouterLink>
         </div>
     </div>
 </template>

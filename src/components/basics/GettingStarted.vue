@@ -1,6 +1,5 @@
 <script setup>
-const props = defineProps(["level", "page", "lessonShowing"])
-defineEmits(["nextlesson", "nextpage", "prevpage"])
+
 </script>
 
 <template>
@@ -49,8 +48,8 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
             level).
         </p><br><br>
         <div class="btn-contain-right">
-            <button class="btn btn-dark" style="animation: scale 2s infinite;" @click="$emit('nextlesson')">Next
-                Page! &rarr;</button>
+            <RouterLink to="/algebra"><button class="btn btn-dark" style="animation: scale 2s infinite;">Next
+                Page! &rarr;</button></RouterLink>
         </div>
     </div>
 </template>

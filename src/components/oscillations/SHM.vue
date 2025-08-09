@@ -1,7 +1,14 @@
 <script setup>
 import { reactive, watch } from 'vue'
-const props = defineProps(["level", "page", "lessonShowing"])
-defineEmits(["nextlesson", "nextpage", "prevpage"])
+import { useUserStore } from '../../stores/user'
+import { useLessonShowingStore } from '../../stores/lessonShowing'
+import { storeToRefs } from 'pinia'
+
+const lessonShowing = storeToRefs(useLessonShowingStore()).lessonShowing
+const level = storeToRefs(useUserStore()).difficulty
+const page = storeToRefs(useUserStore()).SHM
+
+watch(page, () => window.scrollTo(0,0))
 
 const results = reactive([[0,0,0,0,0,0], [0,0,0,0,0,0], [0,0,0,0,0,0]]) // update as add more questions
 const explanations = reactive([[false,false,false,false,false,false], [false,false,false,false,false,false], [false,false,false,false,false,false]]) // keeps track of what explanations are visible
@@ -217,16 +224,16 @@ const questions = reactive(
 // universal check answer for a given question
 function checkAnswer(form) {
     const data = new FormData(document.querySelectorAll(".question")[form])
-    if (data.get("question") === "y") results[props.level][form] = 1
-    else results[props.level][form] = -1
+    if (data.get("question") === "y") results[level.value][form] = 1
+    else results[level.value][form] = -1
 }
 
 function setChecked(chek, qNum) {
-    for (let i = 0; i < questions[props.level][qNum].answers.length; i++) {
-        if (questions[props.level][qNum].answers[i][2] && i !== chek) {
-            questions[props.level][qNum].answers[i][2] = false
-        } else if (!questions[props.level][qNum].answers[i][2] && i === chek) {
-            questions[props.level][qNum].answers[i][2] = true
+    for (let i = 0; i < questions[level.value][qNum].answers.length; i++) {
+        if (questions[level.value][qNum].answers[i][2] && i !== chek) {
+            questions[level.value][qNum].answers[i][2] = false
+        } else if (!questions[level.value][qNum].answers[i][2] && i === chek) {
+            questions[level.value][qNum].answers[i][2] = true
         }
     }
 }
@@ -273,7 +280,7 @@ function setChecked(chek, qNum) {
                 definition is more general than that! What is the exact definition? Well, it has to do with something that we've 
                 touched on briefly before: the restoring force.
             <div class="btn-contain-right">
-                <button class="btn btn-dark" style="animation: scale1 2s infinite;" @click="$emit('nextpage')">Next
+                <button class="btn btn-dark" style="animation: scale1 2s infinite;" @click="page++">Next
                     &rarr;</button>
             </div>
             </div>
@@ -334,11 +341,11 @@ function setChecked(chek, qNum) {
                 letter and unit as angular velocity. In fact, the relationship goes deeper than just the two quantities. They connect simple 
                 harmonic motion and circular motion.
                 <div class="btn-contain-left">
-                <button class="btn btn-dark" style="animation: scale1 2s infinite;" @click="$emit('prevpage')">&larr;
+                <button class="btn btn-dark" style="animation: scale1 2s infinite;" @click="page--">&larr;
                     Previous</button>
                 </div>
                 <div class="btn-contain-right">
-                <button class="btn btn-dark" style="animation: scale1 2s infinite;" @click="$emit('nextpage')">Next
+                <button class="btn btn-dark" style="animation: scale1 2s infinite;" @click="page++">Next
                     &rarr;</button>
             </div>
             </div>
@@ -402,12 +409,12 @@ function setChecked(chek, qNum) {
                 talking about the various different specific kinds of SHM, starting with the most simple. While we've only really talked about forces and kinematics 
                 here, do note that we are going to delve into other areas such as energy with each specific type of SHM.
                            <div class="btn-contain-left">
-                <button class="btn btn-dark" style="animation: scale1 2s infinite;" @click="$emit('prevpage')">&larr;
+                <button class="btn btn-dark" style="animation: scale1 2s infinite;" @click="page--">&larr;
                     Previous</button>
             </div>
             <div class="btn-contain-right">
-                <button class="btn btn-dark" style="animation: scale 2s infinite;" @click="$emit('nextlesson')">Next Lesson!
-                    &rarr;</button>
+                <RouterLink class="btn btn-dark" style="animation: scale 2s infinite;" @click="page=0" to="/spring-oscillations">Next Lesson!
+                    &rarr;</RouterLink>
             </div>
             </div>
         </p>

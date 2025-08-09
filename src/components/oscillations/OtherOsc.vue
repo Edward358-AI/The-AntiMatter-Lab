@@ -1,7 +1,14 @@
 <script setup>
 import { reactive, watch } from 'vue'
-const props = defineProps(["level", "page", "lessonShowing"])
-defineEmits(["nextlesson", "nextpage", "prevpage"])
+import { useUserStore } from '../../stores/user'
+import { useLessonShowingStore } from '../../stores/lessonShowing'
+import { storeToRefs } from 'pinia'
+
+const lessonShowing = storeToRefs(useLessonShowingStore()).lessonShowing
+const level = storeToRefs(useUserStore()).difficulty
+const page = storeToRefs(useUserStore()).OtherOsc
+
+watch(page, () => window.scrollTo(0,0))
 
 const results = reactive([[0,0,0,0,0,0], [0,0,0,0,0,0], [0,0,0,0,0,0]]) // update as add more questions
 const explanations = reactive([[false,false,false,false,false,false], [false,false,false,false,false,false], [false,false,false,false,false,false]]) // keeps track of what explanations are visible
@@ -217,16 +224,16 @@ const questions = reactive(
 // universal check answer for a given question
 function checkAnswer(form) {
     const data = new FormData(document.querySelectorAll(".question")[form])
-    if (data.get("question") === "y") results[props.level][form] = 1
-    else results[props.level][form] = -1
+    if (data.get("question") === "y") results[level.value][form] = 1
+    else results[level.value][form] = -1
 }
 
 function setChecked(chek, qNum) {
-    for (let i = 0; i < questions[props.level][qNum].answers.length; i++) {
-        if (questions[props.level][qNum].answers[i][2] && i !== chek) {
-            questions[props.level][qNum].answers[i][2] = false
-        } else if (!questions[props.level][qNum].answers[i][2] && i === chek) {
-            questions[props.level][qNum].answers[i][2] = true
+    for (let i = 0; i < questions[level.value][qNum].answers.length; i++) {
+        if (questions[level.value][qNum].answers[i][2] && i !== chek) {
+            questions[level.value][qNum].answers[i][2] = false
+        } else if (!questions[level.value][qNum].answers[i][2] && i === chek) {
+            questions[level.value][qNum].answers[i][2] = true
         }
     }
 }
@@ -420,7 +427,7 @@ watch(redMass, (newVal) => {
                 <br>
                 The steel cable will attempt to twist the disk back to the starting equilibrium.
                 <div class="btn-contain-right">
-                    <button class="btn btn-dark" style="animation: scale1 2s infinite;" @click="$emit('nextpage')">Next
+                    <button class="btn btn-dark" style="animation: scale1 2s infinite;" @click="page++">Next
                     &rarr;</button>
                 </div>
             </div>
@@ -464,11 +471,11 @@ watch(redMass, (newVal) => {
                 one single frequency. The arms of the fork vibrate back and forth in a simple harmonic manner, which cause sound waves to be produced in the air 
                 around it. Again, we won't talk too much in depth behind this, since this isn't a unit on waves.
                 <div class="btn-contain-left">
-                <button class="btn btn-dark" style="animation: scale1 2s infinite;" @click="$emit('prevpage')">&larr;
+                <button class="btn btn-dark" style="animation: scale1 2s infinite;" @click="page--">&larr;
                     Previous</button>
             </div>
             <div class="btn-contain-right">
-                <button class="btn btn-dark" style="animation: scale1 2s infinite;" @click="$emit('nextpage')">Next
+                <button class="btn btn-dark" style="animation: scale1 2s infinite;" @click="page++">Next
                     &rarr;</button>
             </div>
             </div>
@@ -523,12 +530,12 @@ watch(redMass, (newVal) => {
                     This also wraps up our oscillations unit, where we applied our previous skills to analyzing one specific type of motion. Hopefully, you felt confident 
                     combining your skills from all the previous units to tackle simple harmonic motion.
                                 <div class="btn-contain-left">
-                <button class="btn btn-dark" style="animation: scale1 2s infinite;" @click="$emit('prevpage')">&larr;
+                <button class="btn btn-dark" style="animation: scale1 2s infinite;" @click="page--">&larr;
                     Previous</button>
             </div>
             <div class="btn-contain-right">
-                <button class="btn btn-dark" style="animation: scale 2s infinite;" @click="$emit('nextlesson')">Next Unit!
-                    &rarr;</button>
+                <RouterLink class="btn btn-dark" style="animation: scale 2s infinite;" @click="page=0" to="/fluidintro">Next Unit!
+                    &rarr;</RouterLink>
             </div>
             </div>
         </p>

@@ -1,6 +1,14 @@
 <script setup>
-const props = defineProps(["level", "page", "lessonShowing"])
-defineEmits(["nextlesson", "nextpage", "prevpage"])
+import { useUserStore } from '../../stores/user'
+import { useLessonShowingStore } from '../../stores/lessonShowing'
+import { storeToRefs } from 'pinia'
+
+const lessonShowing = storeToRefs(useLessonShowingStore()).lessonShowing
+const level = storeToRefs(useUserStore()).difficulty
+const page = storeToRefs(useUserStore()).AirResistance
+
+watch(page, () => window.scrollTo(0,0))
+
 import { Engine, Render, Runner, Bodies, Composite, Mouse, MouseConstraint, Body} from 'matter-js'
 import {onMounted, ref, onUnmounted, watch, reactive} from 'vue'
 
@@ -341,16 +349,16 @@ onUnmounted(() => {
 
 function checkAnswer(form) {
     const data = new FormData(document.querySelectorAll(".question")[form])
-    if (data.get("question") === "y") results[props.level][form] = 1
-    else results[props.level][form] = -1
+    if (data.get("question") === "y") results[level.value][form] = 1
+    else results[level.value][form] = -1
 }
 
 function setChecked(chek, qNum) {
-    for (let i = 0; i < questions[props.level][qNum].answers.length; i++) {
-        if (questions[props.level][qNum].answers[i][2] && i !== chek) {
-            questions[props.level][qNum].answers[i][2] = false
-        } else if (!questions[props.level][qNum].answers[i][2] && i === chek) {
-            questions[props.level][qNum].answers[i][2] = true
+    for (let i = 0; i < questions[level.value][qNum].answers.length; i++) {
+        if (questions[level.value][qNum].answers[i][2] && i !== chek) {
+            questions[level.value][qNum].answers[i][2] = false
+        } else if (!questions[level.value][qNum].answers[i][2] && i === chek) {
+            questions[level.value][qNum].answers[i][2] = true
         }
     }
 }
@@ -429,7 +437,7 @@ function setChecked(chek, qNum) {
                     motion, just like the other dissipative force we know about: friction.
                 </span>
                 <div class="btn-contain-right">
-                    <button class="btn btn-dark" style="animation: scale1 2s infinite;" @click="$emit('nextpage')">Next
+                    <button class="btn btn-dark" style="animation: scale1 2s infinite;" @click="page++">Next
                     &rarr;</button>
                 </div>
             </div>
@@ -530,11 +538,11 @@ function setChecked(chek, qNum) {
                     Simple enough. Now, you should be able to use this general approach to calculate the terminal velocity given any model for drag.
                 </span>
                 <div class="btn-contain-left">
-                <button class="btn btn-dark" style="animation: scale1 2s infinite;" @click="$emit('prevpage')">&larr;
+                <button class="btn btn-dark" style="animation: scale1 2s infinite;" @click="page--">&larr;
                     Previous</button>
             </div>
             <div class="btn-contain-right">
-                <button class="btn btn-dark" style="animation: scale1 2s infinite;" @click="$emit('nextpage')">Next
+                <button class="btn btn-dark" style="animation: scale1 2s infinite;" @click="page++">Next
                     &rarr;</button>
             </div>
             </div>
@@ -603,7 +611,7 @@ function setChecked(chek, qNum) {
                 That's it for our exploration of air resistance! This topic can get pretty complex, but the introductory physics and the general concepts behind it 
                 are quite simple. This is also the end of our fluids unit, and the end of mechanics. I hope you enjoyed your journey with us thus far.
                 <div class="btn-contain-left">
-                <button class="btn btn-dark" style="animation: scale1 2s infinite;" @click="$emit('prevpage')">&larr;
+                <button class="btn btn-dark" style="animation: scale1 2s infinite;" @click="page--">&larr;
                     Previous</button>
             </div>
             </div>

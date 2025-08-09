@@ -2,8 +2,15 @@
 import { ref, onMounted, onUnmounted } from 'vue'
 import { Engine, Render, Runner, Bodies, Body, Composite, Mouse, MouseConstraint} from 'matter-js'
 import { reactive, watch } from 'vue'
-const props = defineProps(["level", "page", "lessonShowing"])
-defineEmits(["nextlesson", "nextpage", "prevpage"])
+import { useUserStore } from '../../stores/user'
+import { useLessonShowingStore } from '../../stores/lessonShowing'
+import { storeToRefs } from 'pinia'
+
+const lessonShowing = storeToRefs(useLessonShowingStore()).lessonShowing
+const level = storeToRefs(useUserStore()).difficulty
+const page = storeToRefs(useUserStore()).EqTypes
+
+watch(page, () => window.scrollTo(0,0))
 
 const results = reactive([[0,0,0,0,0,0], [0,0,0,0,0,0], [0,0,0,0,0,0]]) // update as add more questions
 const explanations = reactive([[false,false,false,false,false,false], [false,false,false,false,false,false], [false,false,false,false,false,false]]) // keeps track of what explanations are visible
@@ -219,16 +226,16 @@ const questions = reactive(
 // universal check answer for a given question
 function checkAnswer(form) {
     const data = new FormData(document.querySelectorAll(".question")[form])
-    if (data.get("question") === "y") results[props.level][form] = 1
-    else results[props.level][form] = -1
+    if (data.get("question") === "y") results[level.value][form] = 1
+    else results[level.value][form] = -1
 }
 
 function setChecked(chek, qNum) {
-    for (let i = 0; i < questions[props.level][qNum].answers.length; i++) {
-        if (questions[props.level][qNum].answers[i][2] && i !== chek) {
-            questions[props.level][qNum].answers[i][2] = false
-        } else if (!questions[props.level][qNum].answers[i][2] && i === chek) {
-            questions[props.level][qNum].answers[i][2] = true
+    for (let i = 0; i < questions[level.value][qNum].answers.length; i++) {
+        if (questions[level.value][qNum].answers[i][2] && i !== chek) {
+            questions[level.value][qNum].answers[i][2] = false
+        } else if (!questions[level.value][qNum].answers[i][2] && i === chek) {
+            questions[level.value][qNum].answers[i][2] = true
         }
     }
 }
@@ -462,7 +469,7 @@ onUnmounted(() => {
                 which is no Herculean task.
             </span>
             <div class="btn-contain-right">
-                <button class="btn btn-dark" style="animation: scale1 2s infinite;" @click="$emit('nextpage')">Next
+                <button class="btn btn-dark" style="animation: scale1 2s infinite;" @click="page++">Next
                     &rarr;</button>
             </div>
         </div>
@@ -550,11 +557,11 @@ onUnmounted(() => {
                 minimum in the potential energy versus position graph.
             </span>
             <div class="btn-contain-left">
-                <button class="btn btn-dark" style="animation: scale1 2s infinite;" @click="$emit('prevpage')">&larr;
+                <button class="btn btn-dark" style="animation: scale1 2s infinite;" @click="page--">&larr;
                     Previous</button>
             </div>
             <div class="btn-contain-right">
-                <button class="btn btn-dark" style="animation: scale1 2s infinite;" @click="$emit('nextpage')">Next
+                <button class="btn btn-dark" style="animation: scale1 2s infinite;" @click="page++">Next
                     &rarr;</button>
             </div>
         </div>
@@ -669,11 +676,11 @@ onUnmounted(() => {
             Matter.js will cause it to slip over and fall. I'll venture to say that it's virtually impossible to stand
             the pencil back up once it has fallen. Prove me wrong!
             <div class="btn-contain-left">
-                <button class="btn btn-dark" style="animation: scale1 2s infinite;" @click="$emit('prevpage')">&larr;
+                <button class="btn btn-dark" style="animation: scale1 2s infinite;" @click="page--">&larr;
                     Previous</button>
             </div>
             <div class="btn-contain-right">
-                <button class="btn btn-dark" style="animation: scale1 2s infinite;" @click="$emit('nextpage')">Next
+                <button class="btn btn-dark" style="animation: scale1 2s infinite;" @click="page++">Next
                     &rarr;</button>
             </div>
         </div>
@@ -767,11 +774,11 @@ onUnmounted(() => {
                 potential energy graph.
             </span>
             <div class="btn-contain-left">
-                <button class="btn btn-dark" style="animation: scale1 2s infinite;" @click="$emit('prevpage')">&larr;
+                <button class="btn btn-dark" style="animation: scale1 2s infinite;" @click="page--">&larr;
                     Previous</button>
             </div>
             <div class="btn-contain-right">
-                <button class="btn btn-dark" style="animation: scale1 2s infinite;" @click="$emit('nextpage')">Next
+                <button class="btn btn-dark" style="animation: scale1 2s infinite;" @click="page++">Next
                     &rarr;</button>
             </div>
         </div>
@@ -1033,13 +1040,13 @@ onUnmounted(() => {
             important skill to have in physics, and the topic is pretty interesting. Next, we're going to pivot
             back to a more familiar concept that most people have heard of: Power. If you're ready, let's move forward!
             <div class="btn-contain-left">
-                <button class="btn btn-dark" style="animation: scale1 2s infinite;" @click="$emit('prevpage')">&larr;
+                <button class="btn btn-dark" style="animation: scale1 2s infinite;" @click="page--">&larr;
                     Previous</button>
             </div>
             <div class="btn-contain-right">
-                <button class="btn btn-dark" style="animation: scale 2s infinite;" @click="$emit('nextlesson')">Next
+                <RouterLink class="btn btn-dark" style="animation: scale 2s infinite;" @click="page=0" to="/power">Next
                     Lesson!
-                    &rarr;</button>
+                    &rarr;</RouterLink>
             </div>
         </div>
         </p>

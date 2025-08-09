@@ -1,7 +1,14 @@
 <script setup>
 import { reactive, watch } from 'vue'
-const props = defineProps(["level", "page", "lessonShowing"])
-defineEmits(["nextlesson", "nextpage", "prevpage"])
+import { useUserStore } from '../../stores/user'
+import { useLessonShowingStore } from '../../stores/lessonShowing'
+import { storeToRefs } from 'pinia'
+
+const lessonShowing = storeToRefs(useLessonShowingStore()).lessonShowing
+const level = storeToRefs(useUserStore()).difficulty
+const page = storeToRefs(useUserStore()).Pendulum
+
+watch(page, () => window.scrollTo(0,0))
 
 const results = reactive([[0,0,0,0,0,0], [0,0,0,0,0,0], [0,0,0,0,0,0]]) // update as add more questions
 const explanations = reactive([[false,false,false,false,false,false], [false,false,false,false,false,false], [false,false,false,false,false,false]]) // keeps track of what explanations are visible
@@ -455,7 +462,7 @@ watch(gravity, (newVal) => {
                     less than $15 \degree$, and starts to break down at larger angles. We won't be worrying about that here, though.
                 </span>
             <div class="btn-contain-right">
-                <button class="btn btn-dark" style="animation: scale1 2s infinite;" @click="$emit('nextpage')">Next
+                <button class="btn btn-dark" style="animation: scale1 2s infinite;" @click="page++">Next
                     &rarr;</button>
             </div>
             </div>
@@ -559,11 +566,11 @@ watch(gravity, (newVal) => {
                     </div> 
                 </span>
                 <div class="btn-contain-left">
-                    <button class="btn btn-dark" style="animation: scale1 2s infinite;" @click="$emit('prevpage')">&larr;
+                    <button class="btn btn-dark" style="animation: scale1 2s infinite;" @click="page--">&larr;
                     Previous</button>
                 </div>
                 <div class="btn-contain-right">
-                    <button class="btn btn-dark" style="animation: scale1 2s infinite;" @click="$emit('nextpage')">Next
+                    <button class="btn btn-dark" style="animation: scale1 2s infinite;" @click="page++">Next
                     &rarr;</button>
                 </div>
             </div>
@@ -649,11 +656,11 @@ watch(gravity, (newVal) => {
                 $$ T  = \bbox[3px, border: 0.5px solid white]{ 3.01 \textrm{s} } $$
             </div>
             <div class="btn-contain-left">
-                <button class="btn btn-dark" style="animation: scale1 2s infinite;" @click="$emit('prevpage')">&larr;
+                <button class="btn btn-dark" style="animation: scale1 2s infinite;" @click="page--">&larr;
                     Previous</button>
             </div>
             <div class="btn-contain-right">
-                <button class="btn btn-dark" style="animation: scale1 2s infinite;" @click="$emit('nextpage')">Next
+                <button class="btn btn-dark" style="animation: scale1 2s infinite;" @click="page++">Next
                      &rarr;</button>
             </div>
             </div>
@@ -690,12 +697,12 @@ watch(gravity, (newVal) => {
                 are the simple and physical pendulums we analyzed. Next, we'll go over a few more kinds of oscillators that don't fit clearly into any 
                 category. If you're ready, let's move on!
             <div class="btn-contain-left">
-                <button class="btn btn-dark" style="animation: scale1 2s infinite;" @click="$emit('prevpage')">&larr;
+                <button class="btn btn-dark" style="animation: scale1 2s infinite;" @click="page--">&larr;
                     Previous</button>
             </div>
             <div class="btn-contain-right">
-                <button class="btn btn-dark" style="animation: scale 2s infinite;" @click="$emit('nextlesson')">Next Lesson!
-                     &rarr;</button>
+                <RouterLink class="btn btn-dark" style="animation: scale 2s infinite;" @click="page=0" to="/other-oscillations">Next Lesson!
+                     &rarr;</RouterLink>
             </div>
             </div>
         </p>

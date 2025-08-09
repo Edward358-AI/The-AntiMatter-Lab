@@ -1,6 +1,5 @@
 <script setup>
-const props = defineProps(["level", "page", "lessonShowing"])
-defineEmits(["nextlesson", "nextpage", "prevpage"])
+
 </script>
 
 <template>
@@ -97,7 +96,7 @@ defineEmits(["nextlesson", "nextpage", "prevpage"])
         <h1>License</h1><br>
         <p class="text-center pb-5">This project is licensed under the GNU Affero General Public License v3.0.</p>
         <div class="btn-contain-right">
-                <button class="btn btn-dark" style="animation: scale 2s infinite;" @click="$emit('nextlesson')">Next Page!&rarr;</button>
+                <RouterLink to="/getting-started"><button class="btn btn-dark" style="animation: scale 2s infinite;">Next Page!&rarr;</button></RouterLink>
             </div>
     </div>
 </template>

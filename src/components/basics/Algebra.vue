@@ -1,7 +1,14 @@
 <script setup>
 import { reactive, watch } from 'vue'
-const props = defineProps(["level", "page", "lessonShowing"])
-defineEmits(["nextlesson", "nextpage", "prevpage"])
+import { useUserStore } from '../../stores/user'
+import { useLessonShowingStore } from '../../stores/lessonShowing'
+import { storeToRefs } from 'pinia'
+
+const lessonShowing = storeToRefs(useLessonShowingStore()).lessonShowing
+const level = storeToRefs(useUserStore()).difficulty
+const page = storeToRefs(useUserStore()).Algebra
+
+watch(page, () => window.scrollTo(0,0))
 
 const results = reactive([[0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0], [0, 0, 0, 0, 0, 0]]) // update as add more questions
 const explanations = reactive([[false, false, false, false, false, false], [false, false, false, false, false, false], [false, false, false, false, false, false]]) // keeps track of what explanations are visible
@@ -217,16 +224,16 @@ const questions = reactive(
 // universal check answer for a given question
 function checkAnswer(form) {
     const data = new FormData(document.querySelectorAll(".question")[form])
-    if (data.get("question") === "y") results[props.level][form] = 1
-    else results[props.level][form] = -1
+    if (data.get("question") === "y") results[level.value][form] = 1
+    else results[level.value][form] = -1
 }
 
 function setChecked(chek, qNum) {
-    for (let i = 0; i < questions[props.level][qNum].answers.length; i++) {
-        if (questions[props.level][qNum].answers[i][2] && i !== chek) {
-            questions[props.level][qNum].answers[i][2] = false
-        } else if (!questions[props.level][qNum].answers[i][2] && i === chek) {
-            questions[props.level][qNum].answers[i][2] = true
+    for (let i = 0; i < questions[level.value][qNum].answers.length; i++) {
+        if (questions[level.value][qNum].answers[i][2] && i !== chek) {
+            questions[level.value][qNum].answers[i][2] = false
+        } else if (!questions[level.value][qNum].answers[i][2] && i === chek) {
+            questions[level.value][qNum].answers[i][2] = true
         }
     }
 }
@@ -265,7 +272,7 @@ function setChecked(chek, qNum) {
             expressions.
             </p>
             <div class="btn-contain-right">
-                <button class="btn btn-dark" style="animation: scale1 2s infinite;" @click="$emit('nextpage')">Next
+                <button class="btn btn-dark" style="animation: scale1 2s infinite;" @click="page++">Next
                     &rarr;</button>
             </div>
         </div>
@@ -295,11 +302,11 @@ function setChecked(chek, qNum) {
             multiply or divide both sides of the equation by a quantity without changing the relationship. For example, If we multiply $F=ma$ by $2$, we get: $$2F = 2ma$$ And the equation still holds true. Division works exactly the same way. If this isn't clear, again, we can see this through a numerical example: $2 \cdot 2 = 4$, multiplying both sides by $2$ gives us $2 \cdot 2 \cdot 2 = 4 \cdot 2$, which is $8=8$.<br><br>Finally, we can use these operations to our advantage when we want to <i>solve</i> for a variable. For example, we can solve for $a$ in the previous equation by dividing both sides by $m$: $$\frac{F}{m} = \frac{ma}{m}$$ $$\frac{F}{m} = \frac{m}{m} \cdot a$$ $$\frac{F}{m} = a$$ (Recall that anything divided by itself equals $1$, and $1$ multiplied by anything is itself) This is the same as saying that acceleration is equal to force divided by mass. We can do this with any variable in an equation, as long as we follow the rules of algebra and manipulate the equation correctly like we just showed you.<br><br>We can also actually add equations together too. For example, if we these two equations: $$x+y=5$$ $$2x+y=7$$ We can add them together, by adding the left sides of both equations together and the right sides of both together to achieve: $$x+y+2x+y=5+7$$ $$3x+2y=12$$ However, this equation isn't all that helpful to us. It might be helpful to know that we can actually subtract two equations as well: $$2x+y - (x+y) = 7 - 5$$ $$2x-x+y-y=2$$ $$x=2$$ ...And you can actually see how we used these two equations to solve for $x$! Now a challenge to you: Can you figure out how to use this new information about $x$ to solve for $y$? Try it out and see!<br><br>
             </p>
             <div class="btn-contain-left">
-                <button class="btn btn-dark" style="animation: scale1 2s infinite;" @click="$emit('prevpage')">&larr;
+                <button class="btn btn-dark" style="animation: scale1 2s infinite;" @click="page--">&larr;
                     Previous</button>
             </div>
             <div class="btn-contain-right">
-                <button class="btn btn-dark" style="animation: scale1 2s infinite;" @click="$emit('nextpage')">Next
+                <button class="btn btn-dark" style="animation: scale1 2s infinite;" @click="page++">Next
                     &rarr;</button>
             </div>
         </div>
@@ -307,20 +314,19 @@ function setChecked(chek, qNum) {
             <p>
             Let's work through an example problem together to solidify your understanding of these concepts.
             </p>
-            <p>
-                <div class="problem">
+                <div class="problem"><p>
                     <i>Given that $F=ma$ and we know that $a=\frac{v^2}{r}$, substitute and solve the new equation for $r$.</i><br><br>
-                    To first start, we have to realize that the variable $a$ is in both equations, so we can substitute what they gave us for $a$ into the first equation.<br>This gives us: $$F = m \cdot \frac{v^2}{r}$$ Now, we can multiply both sides by $r$ to get rid of the denominator: $$F \cdot r = \frac{v^2}{r} \cdot r$$ $$Fr = mv^2$$ Finally, we can divide both sides by $F$ to solve for $r$: $$\frac{Fr}{F} = \frac{mv^2}{F}$$ $$r = \frac{mv^2}{F}$$ Notice how we used the basic operations of algebra that were just previously mentioned to manipulate the equation to solve for $r$. This is the essence of algebra, and it is a powerful tool that will help you solve many problems in physics. If it's not clear to you right now, don't worry, because this will become second nature to you as you practice more problems and learn more about physics.
-                </div><br>
+                    To first start, we have to realize that the variable $a$ is in both equations, so we can substitute what they gave us for $a$ into the first equation.<br>This gives us: $$F = m \cdot \frac{v^2}{r}$$ Now, we can multiply both sides by $r$ to get rid of the denominator: $$F \cdot r = \frac{v^2}{r} \cdot r$$ $$Fr = mv^2$$ Finally, we can divide both sides by $F$ to solve for $r$: $$\frac{Fr}{F} = \frac{mv^2}{F}$$ $$r = \frac{mv^2}{F}$$ Notice how we used the basic operations of algebra that were just previously mentioned to manipulate the equation to solve for $r$. This is the essence of algebra, and it is a powerful tool that will help you solve many problems in physics. If it's not clear to you right now, don't worry, because this will become second nature to you as you practice more problems and learn more about physics.</p>
+                </div><br><p>
                 Now that you have a solid understanding of basic algebra, it's time to move on to your first lesson in physics! (You can check out the practice problems in this lesson if you feel like you need more practice with algebra)
-            </p>
+            </p><br><br>
             <div class="btn-contain-left">
-                <button class="btn btn-dark" style="animation: scale1 2s infinite;" @click="$emit('prevpage')">&larr;
+                <button class="btn btn-dark" style="animation: scale1 2s infinite;" @click="page--">&larr;
                     Previous</button>
             </div>
             <div class="btn-contain-right">
-                <button class="btn btn-dark" style="animation: scale 2s infinite;" @click="$emit('nextlesson')">Next
-                    Lesson! &rarr;</button>
+                <RouterLink class="btn btn-dark" style="animation: scale 2s infinite;" @click="page=0" to="/metric-prefix">Next
+                    Lesson! &rarr;</RouterLink>
             </div>
         </div>
     </div>
