@@ -160,7 +160,7 @@ const questions = reactive(
         [ // calculus difficutly
             {
                 number: 0,
-                question: "What is the displacement of a person who walks in an irregular path from (-12,7) to (1,12)?",
+                question: "What is the displacement of a person who walks in an irregular path from (-11,7) to (1,12)?",
                 answers: [
                     ["169", 0, false],
                     ["12", 0, false],
