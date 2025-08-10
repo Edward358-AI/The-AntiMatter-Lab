@@ -1,6 +1,6 @@
 <script setup>
 useHead({
-    title: 'Newton\'s Universal Law of Gravitation',
+    title: 'Newton\'s Law of Universal Gravitation',
     meta: [
         { name: 'description', content: 'Explore why Newton\'s universal law of gravitation is fundamental to our understanding of physics and most importantly, gravity itself.' }
     ]
@@ -26,205 +26,205 @@ const questions = reactive(
         [ // conceptual difficulty
             {
                 number: 0,
-                question: "What is the proper format for a vector in component form?",
+                question: "What kind of force is gravity?",
                 answers: [
-                    ["$\\{3, 5\\}$", 0, false],
-                    ["$\\langle 3, 5 \\rangle$", 1, false],
-                    ["$(3, 5)$", 0, false],
-                    ["$[3, 5]$", 0, false]
+                    ["Contact", 0, false],
+                    ["Ranged", 0, false],
+                    ["Field", 1, false],
+                    ["Permeating", 0, false]
                 ],
-                explain: "Recall that a vector in component form is denoted by its component in the horizontal direction ($x$) and vertical direction ($y$), surrounded by angle brackets. Thus the second answer choice is the correct one."
+                explain: "The gravitational force is a field force, meaning it acts at a distance without requiring contact between the objects. The other options either do not exist in physics or do not describe gravity."
             },
             {
                 number: 1,
-                question: "",
+                question: "What is the maximum range of the gravitational force?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["1000 km", 0, false],
+                    ["10 million km", 0, false],
+                    ["500 trillion km", 0, false],
+                    ["Infinity", 1, false]
                 ],
-                explain: ""
+                explain: "The gravitational force can act over infinite distances, though it weakens significantly with distance. The other options are finite distances and do not represent the true nature of gravity."
             },
             {
                 number: 2,
-                question: "",
+                question: "Two identical stars orbit around each other. Around which point do they orbit?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["One of the stars", 0, false],
+                    ["Exactly halfway between them", 1, false],
+                    ["Closer to one star", 0, false],
+                    ["The orbit is not stable", 0, false]
                 ],
-                explain: ""
+                explain: "The binary star system (that's what it's called) orbits around the center of mass of the two stars, which is at the midpoint between them because they are identical."
             },
             {
                 number: 3,
-                question: "",
+                question: "What is the gravitational field inside a spherical shell of mass $M$ and radius $R$?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["Depends on location", 0, false],
+                    ["$G \\frac{M}{R^2}$", 0, false],
+                    ["$G \\frac{M}{2R^2}$", 0, false],
+                    ["0", 1, false]
                 ],
-                explain: ""
+                explain: "According to the shell theorem, the gravitational field inside a spherical shell is zero because the forces from all parts of the shell cancel out."
             },
             {
                 number: 4,
-                question: "",
+                question: "A marble is attracted by the Earth with a force $F_g$. What force does the marble exert on the Earth?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["Less than $F_g$", 0, false],
+                    ["More than $F_g$", 0, false],
+                    ["Equal to $F_g$", 1, false],
+                    ["Zero", 0, false]
                 ],
-                explain: ""
+                explain: "According to Newton's third law, the marble exerts an equal and opposite force on the Earth, so the force is equal to $F_g$. We don't see this because the Earth has a much larger mass, meaning the acceleration it experiences is negligible."
             },
             {
                 number: 5,
-                question: "",
+                question: "A planet has twice the mass of the Earth and half the radius. Find the gravitational field strength on the surface of this planet.",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["9.81 N/m", 0, false],
+                    ["19.6 N/m", 0, false],
+                    ["39.2 N/m", 0, false],
+                    ["78.5 N/m", 1, false]
                 ],
-                explain: ""
+                explain: "The formula for the gravitational field strength is $g = G \\frac{M}{R^2}$. We know the gravitational field strength on Earth is 9.81 N/m. The planet has twice the mass and half the radius of the Earth, meaning we multiply this result by 2 and divide by $\\frac14$ (because of the inverse <b>square</b> law). This gives us $g = 9.81 \\times 2 / ($$\\frac14$$) = 78.5 N/m$."
             }
         ],
         [ // algebra difficulty
             {
                 number: 0,
-                question: "What is the proper format for a vector in component form?",
+                question: "What is the gravitational force on an object of mass $m$ two Earth radii above its surface?",
                 answers: [
-                    ["$\\{3, 5\\}$", 0, false],
-                    ["$\\langle 3, 5 \\rangle$", 1, false],
-                    ["$(3, 5)$", 0, false],
-                    ["$[3, 5]$", 0, false]
+                    ["$mg$", 0, false],
+                    ["$mg/4$", 0, false],
+                    ["$mg/2$", 0, false],
+                    ["$mg/9$", 1, false]
                 ],
-                explain: "Recall that a vector in component form is denoted by its component in the horizontal direction ($x$) and vertical direction ($y$), surrounded by angle brackets. Thus the second answer choice is the correct one."
+                explain: "If an object is two Earth radii above the surface, it is three Earth radii from the center of the Earth. The gravitational force is inversely proportional to the square of the distance from the center of the Earth, so we have $F_g = G \\frac{Mm}{(3R)^2} = mg/9$."
             },
             {
                 number: 1,
-                question: "",
+                question: "Why are the paths of projectiles parabolic, but planetary and satellite orbits are circular or elliptical?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["Gravity acts differently near the Earth", 0, false],
+                    ["They are actually small sections of ellipses", 1, false],
+                    ["The kind of gravity is different in the two", 0, false],
+                    ["Projectiles don't follow parabolic paths", 0, false]
                 ],
-                explain: ""
+                explain: "The parabolic paths of projectiles are actually not perfect parabolas, but rather small sections of ellipses. This is because the gravitational force is almost constant near the Earth's surface, leading to a uniform acceleration that results in a seemingly parabolic trajectory."
             },
             {
                 number: 2,
-                question: "",
+                question: "Assuming there is no air resistance, what is the orbital velocity of a satellite that orbits just above the Earth's surface? The Earth has a radius of $6.38 \\times 10^6$ m and a mass of $5.97 \\times 10^{24}$ kg.",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["7.9 km/s", 1, false],
+                    ["12.4 km/s", 0, false],
+                    ["11.2 km/s", 0, false],
+                    ["5.6 km/s", 0, false]
                 ],
-                explain: ""
+                explain: "The gravitational acceleration at the Earth's surface is $g = 9.81 ~\\textrm{ m/s}^2$. The orbital velocity is solved for using the centripetal acceleration formula, $g = \\frac{v^2}{R}$. Plugging in values gives us $v = 7.9 ~\\textrm{km/s}$."
             },
             {
                 number: 3,
-                question: "",
+                question: "The moon has a surface gravity that is around 1/6th that of the Earth. Given that the mass of the moon is $7.35 \\times 10^{22}$ kg, find the radius of the moon.",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["$1.73 \\times 10^7$ m", 0, false],
+                    ["$5.78 \\times 10^7$ m", 0, false],
+                    ["$1.73 \\times 10^6$ m", 1, false],
+                    ["$4.47 \\times 10^6$ m", 0, false]
                 ],
-                explain: ""
+                explain: "First, we divide the gravitational acceleration of the Earth by 6 to get the acceleration for the moon to be around $1.64 ~\\textrm{m/s}^2$. Then, we recall and rearrange for gravitational field strength ($g = G \\frac{M}{R^2}$), giving us $R = \\sqrt{G \\frac{M}{g}}$. Plugging in values gives us $R = 1.73 \\times 10^6$ m."
             },
             {
                 number: 4,
-                question: "",
+                question: "What is the gravitational field strength a distance 300 km below the surface of the Earth? The Earth has a radius of $6.38 \\times 10^6$ m and a mass of $5.97 \\times 10^{24}$ kg, and we assume it has a uniform density.",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["10.8 N/m", 0, false],
+                    ["9.32 N/m", 1, false],
+                    ["9.35 N/m", 0, false],
+                    ["9.81 N/m", 0, false]
                 ],
-                explain: ""
+                explain: "The gravitational field inside a uniform planet has been shown to be $g = G\\frac{M}{R^3}r$, where $r$ is the distance from the center of the planet. We already have all necessary values, so we can plug in numbers (remembering that $r$ is equal to the radius of the Earth minus 300 km) to get $g = 9.32 ~\\textrm{N/m}$."
             },
             {
                 number: 5,
-                question: "",
+                question: "Which of these planets has the greatest surface gravity?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["Mass $M$, radius $R$", 1, false],
+                    ["Mass $2M$, radius $2R$", 0, false],
+                    ["Mass $4M$, radius $3R$", 0, false],
+                    ["Mass $8M$, radius $4R$", 0, false]
                 ],
-                explain: ""
+                explain: "The gravitational field at the surface is directly proportional to the mass and inversely proportional to the square of the radius. If we do proportionality calculations for each option, we find that the first option does in fact give us the greatest surface gravity."
             }
         ],
         [ // calculus difficulty
             {
                 number: 0,
-                question: "What is the proper format for a vector in component form?",
+                question: "What is the gravitational force on an object of mass $m$ two Earth radii above its surface?",
                 answers: [
-                    ["$\\{3, 5\\}$", 0, false],
-                    ["$\\langle 3, 5 \\rangle$", 1, false],
-                    ["$(3, 5)$", 0, false],
-                    ["$[3, 5]$", 0, false]
+                    ["$mg$", 0, false],
+                    ["$mg/4$", 0, false],
+                    ["$mg/2$", 0, false],
+                    ["$mg/9$", 1, false]
                 ],
-                explain: "Recall that a vector in component form is denoted by its component in the horizontal direction ($x$) and vertical direction ($y$), surrounded by angle brackets. Thus the second answer choice is the correct one."
+                explain: "If an object is two Earth radii above the surface, it is three Earth radii from the center of the Earth. The gravitational force is inversely proportional to the square of the distance from the center of the Earth, so we have $F_g = G \\frac{Mm}{(3R)^2} = mg/9$."
             },
             {
                 number: 1,
-                question: "",
+                question: "Why are the paths of projectiles parabolic, but planetary and satellite orbits are circular or elliptical?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["Gravity acts differently near the Earth", 0, false],
+                    ["They are actually small sections of ellipses", 1, false],
+                    ["The kind of gravity is different in the two", 0, false],
+                    ["Projectiles don't follow parabolic paths", 0, false]
                 ],
-                explain: ""
+                explain: "The parabolic paths of projectiles are actually not perfect parabolas, but rather small sections of ellipses. This is because the gravitational force is almost constant near the Earth's surface, leading to a uniform acceleration that results in a seemingly parabolic trajectory."
             },
             {
                 number: 2,
-                question: "",
+                question: "Assuming there is no air resistance, what is the orbital velocity of a satellite that orbits just above the Earth's surface? The Earth has a radius of $6.38 \\times 10^6$ m and a mass of $5.97 \\times 10^{24}$ kg.",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["7.9 km/s", 1, false],
+                    ["12.4 km/s", 0, false],
+                    ["11.2 km/s", 0, false],
+                    ["5.6 km/s", 0, false]
                 ],
-                explain: ""
+                explain: "The gravitational acceleration at the Earth's surface is $g = 9.81 ~\\textrm{ m/s}^2$. The orbital velocity is solved for using the centripetal acceleration formula, $g = \\frac{v^2}{R}$. Plugging in values gives us $v = 7.9 ~\\textrm{km/s}$."
             },
             {
                 number: 3,
-                question: "",
+                question: "The moon has a surface gravity that is around 1/6th that of the Earth. Given that the mass of the moon is $7.35 \\times 10^{22}$ kg, find the radius of the moon.",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["$1.73 \\times 10^7$ m", 0, false],
+                    ["$5.78 \\times 10^7$ m", 0, false],
+                    ["$1.73 \\times 10^6$ m", 1, false],
+                    ["$4.47 \\times 10^6$ m", 0, false]
                 ],
-                explain: ""
+                explain: "First, we divide the gravitational acceleration of the Earth by 6 to get the acceleration for the moon to be around $1.64 ~\\textrm{m/s}^2$. Then, we recall and rearrange for gravitational field strength ($g = G \\frac{M}{R^2}$), giving us $R = \\sqrt{G \\frac{M}{g}}$. Plugging in values gives us $R = 1.73 \\times 10^6$ m."
             },
             {
                 number: 4,
-                question: "",
+                question: "What is the gravitational field strength a distance 300 km below the surface of the Earth? The Earth has a radius of $6.38 \\times 10^6$ m and a mass of $5.97 \\times 10^{24}$ kg, and we assume it has a uniform density.",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["10.8 N/m", 0, false],
+                    ["9.32 N/m", 1, false],
+                    ["9.35 N/m", 0, false],
+                    ["9.81 N/m", 0, false]
                 ],
-                explain: ""
+                explain: "The gravitational field inside a uniform planet has been shown to be $g = G\\frac{M}{R^3}r$, where $r$ is the distance from the center of the planet. We already have all necessary values, so we can plug in numbers (remembering that $r$ is equal to the radius of the Earth minus 300 km) to get $g = 9.32 ~\\textrm{N/m}$."
             },
             {
                 number: 5,
-                question: "",
+                question: "Which of these planets has the greatest surface gravity?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["Mass $M$, radius $R$", 1, false],
+                    ["Mass $2M$, radius $2R$", 0, false],
+                    ["Mass $4M$, radius $3R$", 0, false],
+                    ["Mass $8M$, radius $4R$", 0, false]
                 ],
-                explain: ""
+                explain: "The gravitational field at the surface is directly proportional to the mass and inversely proportional to the square of the radius. If we do proportionality calculations for each option, we find that the first option does in fact give us the greatest surface gravity."
             }
         ]
     ]
@@ -463,7 +463,7 @@ onUnmounted(() => {
         <h1>Newton's Law of Universal Gravitation</h1><br>
         <p>
         <div v-show="page === 0"><h4 class="text-center">Introduction</h4>
-            Issac Newton knew a ton about forces, but he also investigated gravity. Our conception of gravity to this
+            Isaac Newton knew a ton about forces, but he also investigated gravity. Our concept of gravity to this
             point is that it's a constant field with field strength $g = 9.81 ~\textrm{m/s}^2$, but this is only true
             if you're standing on the surface of the Earth. (Technically, this value also varies depending on where you
             are on Earth.) However, if you go a significant distance upwards, the gravitational force will get weaker.
@@ -527,7 +527,7 @@ onUnmounted(() => {
                     The answer is that the marble exerts a force $F$ on the Earth as well! You can thank Newton's third
                     law for that. The Earth is
                     simply too massive to feel any noticeable acceleration from the marble, so we usually don't think of
-                    objects exerting a gravitaional pull
+                    objects exerting a gravitational pull
                     on the Earth.
                 </div>
                 <br><br><h4 class="text-center">Shell Theorem</h4>
@@ -547,7 +547,7 @@ onUnmounted(() => {
                     sitting right on top of a
                     sphere of radius $R$ and mass $M$. Even with these simplifications, the proof is nontrivial.
                     <br><br>
-                    Split the shell into infinitessmally small rings. Consider the gravitational force from rings on the
+                    Split the shell into infinitesimally small rings. Consider the gravitational force from rings on the
                     shell
                     with thickness $dy$.
                     <figure>
@@ -558,8 +558,8 @@ onUnmounted(() => {
                     due to any ring will be downward. The force $dF$ from each ring, with respect to the marked angle
                     $\phi$, is:
                     <br><br>
-                    $dF = G m\rho (2\pi x) \dfrac{dy}{(R-y)^2+x^2} \dfrac{R-y}{\sqrt{(R-y)^2+x^2}}$
-                    <br><br>
+                    $$dF = G m\rho (2\pi x) \dfrac{dy}{(R-y)^2+x^2} \dfrac{R-y}{\sqrt{(R-y)^2+x^2}}$$
+                    <br>
                     Here, $\rho$ is the density of the shell, equal to $\rho = M/4\pi R^2$. The last term comes from the
                     fact that
                     all the force must be directed in the negative y direction due to symmetry. We know that
@@ -567,43 +567,43 @@ onUnmounted(() => {
                     surface
                     can be approximated as having thickness $dy = dR$. We can thus rewrite the previous equation as:
                     <br><br>
-                    $dF = G Mm \dfrac{1}{4\pi R^2} \dfrac{2\pi R \cos \phi R d\phi}{[(R-R\cos \phi)^2+(R \sin
-                    \phi)^2]^{3/2}} (R-R\sin \phi)$
-                    <br><br>
+                    $$dF = G Mm \dfrac{1}{4\pi R^2} \dfrac{2\pi R \cos \phi R d\phi}{[(R-R\cos \phi)^2+(R \sin
+                    \phi)^2]^{3/2}} (R-R\sin \phi)$$
+                    <br>
                     I know this looks complex, but just stick with me and try to keep track of the algebra. I will not
                     be showing
-                    every step because that would take aboslute ages to write. I'll skip over some basic algebraic steps
+                    every step because that would take absolute ages to write. I'll skip over some basic algebraic steps
                     and leave you
                     to fill in the gaps as an exercise. We are next going to simplify:
                     <br><br>
-                    $dF = G \dfrac{Mm}{2R^2} \dfrac{\cos \phi d\phi}{(2-2\sin\phi)^{3/2}} (1-\sin\phi)$
-                    <br><br>
+                    $$dF = G \dfrac{Mm}{2R^2} \dfrac{\cos \phi d\phi}{(2-2\sin\phi)^{3/2}} (1-\sin\phi)$$
+                    <br>
                     This can be simplified to:
                     <br><br>
-                    $dF = G \dfrac{Mm}{4\sqrt{2}R^2} \dfrac{\cos\phi d\phi}{\sqrt{1-\sin\phi}}$
-                    <br><br>
+                    $$dF = G \dfrac{Mm}{4\sqrt{2}R^2} \dfrac{\cos\phi d\phi}{\sqrt{1-\sin\phi}}$$
+                    <br>
                     Looking at the diagram, we see that we need to integrate from $phi = \pi/2$ to $phi = \pi/2$. We
                     will set these
                     as our bounds of integration:
                     <br><br>
-                    $F_g = G \dfrac{Mm}{4\sqrt{2}R^2} \int_{-\frac{\pi}{2}}^{\frac{\pi}{2}} \dfrac{\cos\phi
-                    d\phi}{\sqrt{1-\sin\phi}}$
+                    $$F_g = G \dfrac{Mm}{4\sqrt{2}R^2} \int_{-\frac{\pi}{2}}^{\frac{\pi}{2}} \dfrac{\cos\phi
+                    d\phi}{\sqrt{1-\sin\phi}}$$
+                    <br>
+                    This can be solved by using u-substitution, where $u=\sin\phi$. The end result we get is:
                     <br><br>
-                    This can be solved by using u-substitition, where $u=\sin\phi$. The end result we get is:
-                    <br><br>
-                    $F_g = G \dfrac{Mm}{4\sqrt{2}R^2} [-2\sqrt{1-\sin\phi}] |_{-\frac{\pi}{2}}^{\frac{\pi}{2}}$
-                    <br><br>
+                    $$F_g = G \dfrac{Mm}{4\sqrt{2}R^2} [-2\sqrt{1-\sin\phi}] |_{-\frac{\pi}{2}}^{\frac{\pi}{2}}$$
+                    <br>
                     If we solve, we get an answer of:
                     <br><br>
-                    $F_g = G \dfrac{Mm}{2R^2}$
-                    <br><br>
+                    $$F_g = G \dfrac{Mm}{2R^2}$$
+                    <br>
                     This is not what we expected! In fact, it is off by a factor of two. Now, we carefully look back and
                     realize that we
                     technically only integrated over one hemisphere, because sweeping from $\phi = - \pi /2$ to $\phi =
                     \pi / 2$ only covers
                     half of the entire sphere. To get the correct answer, we simply multiply this by two:
                     <br><br>
-                    $F_g = G \dfrac{Mm}{R^2}$
+                    $$F_g = G \dfrac{Mm}{R^2}$$
                     <br><br>
                     This is a loose proof of the shell theorem. The second part is much harder to prove and I won't put
                     you
@@ -671,7 +671,7 @@ onUnmounted(() => {
                 gravitational force on you.
                 The only part of the planet that matters, then, is the mass contained within a radius $r < R$, where $R$
                     is the radius of the planet. Here's a diagram to hopefully make what I'm saying clearer. Only the
-                    mass whtin the black sphere actually matters; anything outside exerts zero net force on any object
+                    mass within the black sphere actually matters; anything outside exerts zero net force on any object
                     and contributes zero gravitational field. <br><br>
                     <figure>
                         <img src="/dynamics/Figure 42.png">
@@ -687,18 +687,18 @@ onUnmounted(() => {
                     <br><br>
                     The mass $m$ enclosed within a radius $r$ can be given by:
                     <br><br>
-                    $m = \rho \frac{4}{3}\pi r^3$
-                    <br><br>
+                    $$m = \rho \frac{4}{3}\pi r^3$$
+                    <br>
                     Since $rho = M/(\frac{4}{3}\pi R^3)$, we get the result:
                     <br><br>
-                    $m = M \dfrac{r^3}{R^3}$
-                    <br><br>
+                    $$m = M \dfrac{r^3}{R^3}$$
+                    <br>
                     Knowing the enclosed mass allows us to use the formula for the gravitational field ($g = G
                     \frac{m}{r^2}$) to directly compute our desired
                     results:
                     <br><br>
-                    $g = G \dfrac{M}{R^3} r$
-                    <br><br>
+                    $$g = G \dfrac{M}{R^3} r$$
+                    <br>
                     We see that this indicates that the gravitational field inside a uniform planet is a linear
                     relation, which is quite an
                     interesting result. The field outside follows the inverse-square law but the field at the boundary
@@ -730,7 +730,7 @@ onUnmounted(() => {
                 <br><br>
                 <figure>
                     <img src="/dynamics/Figure 42.png">
-                    <figcaption> Figure 4: Everthing inside the black sphere is "below" and everything outside is
+                    <figcaption> Figure 4: Everything inside the black sphere is "below" and everything outside is
                         "above". I wish I had better words
                         to explain it.
                     </figcaption>
@@ -749,17 +749,17 @@ onUnmounted(() => {
                 The density is proportional to the total mass $M$ divided by the total volume, which is again
                 proportional to the cube of the sphere's radius $R$.
                 <br><br>
-                $\rho \propto \dfrac{M}{R^3}$
+                $$\rho \propto \dfrac{M}{R^3}$$
                 <br><br>
                 This means that $m$ is proportional to:
                 <br><br>
-                $m \propto M \dfrac{r^3}{R^3}$ (Actually, it's exactly equal to this because the formulas for the
-                volumes are the same!)
-                <br><br>
+                $$m \propto M \dfrac{r^3}{R^3}$$ (Actually, it's exactly equal to this because the formulas for the
+                two volumes are the same!)
+                <br>
                 Then, we can use the gravitational field formula ($g = G \frac{m}{r^2}$ and eliminate all constants like
                 $M$ and $R$ to write:
                 <br><br>
-                $g \propto r$
+                $$g \propto r$$
                 <br><br>
                 This indicates that the gravitational field inside a solid sphere is directly proportional to the
                 distance from the center!
@@ -775,7 +775,7 @@ onUnmounted(() => {
                 </figure>
                 We've only talked about the gravity from single objects, but if you're familiar with the solar system
                 you know that there's multiple
-                objects at play. Next, we're going to talk about how the moon and our artifical satellites stay in
+                objects at play. Next, we're going to talk about how the moon and our artificial satellites stay in
                 motion around the Earth due to its
                 gravity, along with many other scenarios for orbits.
             </span>
@@ -807,25 +807,25 @@ onUnmounted(() => {
                 gravitational force from the Earth, and so it
                 must contribute the centripetal force.
                 <br><br>
-                $F_g = m\dfrac{v^2}{R}.$
-                <br><br>
+                $$F_g = m\dfrac{v^2}{R}$$
+                <br>
                 Note that the orbital radius is measured from the center of the planet. Sometimes, you'll be told how
                 far above the surface of the planet the object is. This
                 is <b>not</b> the orbital radius or the separation between the objects; you would need to add the
                 planetary radius to that height value to get the
                 correct radius. We know the expression for $F_g$, so we can write:
                 <br><br>
-                $G\dfrac{Mm}{R^2} = m \dfrac{v^2}{R}$
-                <br><br>
+                $$G\dfrac{Mm}{R^2} = m \dfrac{v^2}{R}$$
+                <br>
                 This allows us to eliminate $m$ from both sides of the equation and write:
                 <br><br>
-                $G \dfrac{M}{R^2} = \dfrac{v^2}{R}$
-                <br><br>
+                $$G \dfrac{M}{R^2} = \dfrac{v^2}{R}$$
+                <br>
                 The only value in this equation that is not known is $v$, so we can solve for that to find the orbital
                 velocity:
                 <br><br>
-                $v = \sqrt{G \dfrac{M}{R}}$
-                <br><br>
+                $$v = \sqrt{G \dfrac{M}{R}}$$
+                <br>
                 This actually gives rise to a very interesting conclusion. See, we assumed values of $M$, $m$, and $R$,
                 but we only got
                 back a single value of $v$ that would satisfy the force equations. This means that for each orbital
@@ -852,12 +852,12 @@ onUnmounted(() => {
                 separation
                 as $R$, we can write:
                 <br><br>
-                $G \dfrac{m^2}{R^2} = m \dfrac{v^2}{R/2}$
-                <br><br>
+                $$G \dfrac{m^2}{R^2} = m \dfrac{v^2}{R/2}$$
+                <br>
                 This allows us to write the result:
                 <br><br>
-                $v = \sqrt{G \dfrac{m}{2R}}$
-                <br><br>
+                $$v = \sqrt{G \dfrac{m}{2R}}$$
+                <br>
                 Note that this is a very specific result and only applies if the two bodies are identical in mass! Many
                 scenarios will have
                 the bodies have different masses, and while the overall approach is similar the result most definitely
@@ -885,7 +885,7 @@ onUnmounted(() => {
                 <br><h4 class="text-center">Conclusion</h4>
                 Next, we will talk about real planetary motion, which differs quite a bit from the circular orbits we
                 have talked about
-                here. So without futher ado, let's jump into the world of Kepler's laws, which have astronomical
+                here. So without further ado, let's jump into the world of Kepler's laws, which have astronomical
                 importance.
             </span>
             <span v-show="level == 0">
@@ -897,12 +897,12 @@ onUnmounted(() => {
                 provide the centripetal
                 force, which gets weaker as the inverse of the separation $1/R$. This allows us to write:
                 <br><br>
-                $\dfrac{1}{R^2} \propto \dfrac{v^2}{R}$
-                <br><br>
+                $$\dfrac{1}{R^2} \propto \dfrac{v^2}{R}$$
+                <br>
                 Doing some simple algebra tells us:
                 <br><br>
-                $v \propto \sqrt{\dfrac{1}{R}}$
-                <br><br>
+                $$v \propto \sqrt{\dfrac{1}{R}}$$
+                <br>
                 What this result tells us is that there is only a single possible velocity for a circular orbit at any
                 radius $R$ from the center of the planet! In most cases, the velocities for a given value of $R$ can be
                 changed,
@@ -939,7 +939,7 @@ onUnmounted(() => {
                 At a conceptual level, it's not
                 essential to know exactly how to compute this.
                 <br><br>
-                Now, we've discusssed only circular orbits, but a certain German man actually discovered that this
+                Now, we've discussed only circular orbits, but a certain German man actually discovered that this
                 wasn't the case for
                 real planets. He formulated three laws of planetary motion, which are the key focus of our next lesson.
                 So if you're ready,
