@@ -1,23 +1,22 @@
 {
   "name": "the-antimatter-lab",
-  "private": true,
-  "version": "0.0.0",
   "type": "module",
+  "private": true,
   "scripts": {
-    "dev": "vite",
-    "devhost": "vite --host",
-    "build": "vite build",
-    "preview": "vite preview"
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "dev:host": "nuxt dev --host",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
   },
   "dependencies": {
+    "@pinia/nuxt": "^0.11.2",
     "matter-js": "^0.20.0",
+    "nuxt": "^4.0.3",
     "pinia": "^3.0.3",
     "pinia-plugin-persistedstate": "^4.4.1",
-    "vue": "^3.4.21",
+    "vue": "^3.5.18",
     "vue-router": "^4.5.1"
-  },
-  "devDependencies": {
-    "@vitejs/plugin-vue": "^5.0.4",
-    "vite": "^5.2.0"
   }
 }

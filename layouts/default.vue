@@ -1,0 +1,4 @@
+<template>
+  <Sidebar />
+  <NuxtPage />
+</template>

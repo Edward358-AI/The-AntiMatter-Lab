@@ -1,0 +1,197 @@
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+#__nuxt {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    text-align: center;
+    overflow: hidden;
+    padding-left: 320px;
+}
+
+@media screen and (max-width: 768px) {
+    #__nuxt {
+        padding-left: 0;
+    }
+}
+
+img {
+    user-select: none;
+}
+
+.h100 {
+    height: 100%;
+    position: relative;
+}
+
+.h100 p {
+    text-align: left;
+}
+
+figure {
+    text-align: center;
+}
+
+.btn-contain-left {
+    left: 63px;
+    position: absolute;
+    padding-bottom: 48px;
+}
+
+.btn-contain-right {
+    right: 63px;
+    position: absolute;
+    padding-bottom: 48px;
+}
+
+p {
+    font-size: 1.08rem;
+    line-height: 2.5rem;
+}
+
+.problem {
+    border: 0.5px solid white;
+    padding: 15px;
+}
+
+.answer {
+    border: 0.5px solid white;
+    padding: 0px 10px;
+}
+
+figcaption {
+    font-size: 0.96rem;
+}
+
+
+a {
+    color: inherit;
+}
+
+.sidebar {
+    font-size: 0.9rem;
+}
+
+@keyframes fadein {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+
+    0%,
+    5% {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+
+    15%,
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+
+    }
+}
+
+@keyframes slideRight {
+    100% {
+        left: 0;
+    }
+}
+
+@keyframes fadeout {
+    0% {
+        opacity: 1
+    }
+
+    100% {
+        opacity: 0
+    }
+}
+
+@keyframes scale {
+    0% {
+        transform: scale(1.1)
+    }
+
+    50% {
+        transform: scale(1.18)
+    }
+
+    100% {
+        transform: scale(1.1)
+    }
+}
+
+@keyframes scale1 {
+    0% {
+        transform: scale(1)
+    }
+
+    50% {
+        transform: scale(1.05)
+    }
+
+    100% {
+        transform: scale(1)
+    }
+}
+
+figure img {
+    border-radius: 10px;
+    max-width: 450px;
+    width: 90%;
+}
+
+.warn {
+    display:block;
+    font-size: 0.88rem;
+    color: gray;
+    margin: 20px;
+}
+
+.explained {
+    padding: 0% 20%;
+}
+
+@media screen and (max-width: 1350px) {
+    .question-container {
+        flex-direction: column;
+    }
+
+    .question {
+        width: 100%;
+        flex-direction: column;
+    }
+    
+    .question .col {
+        border: 0 !important;
+    }
+
+    .question .col .ms-auto {
+        margin-right: auto !important;
+    }
+
+    .question .col .me-auto {
+        margin-left: auto !important;
+        margin-top: 10px !important;
+    }
+
+}
+
+@media screen and (max-width: 1800px) {
+    .explained {
+        padding: 0% 10%;
+    }
+}
