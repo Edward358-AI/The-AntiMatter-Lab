@@ -367,7 +367,6 @@ onMounted(() => {
 <template>
     <div v-show="lessonShowing" class="container h100 p-5">
         <h1>Collisions</h1><br>
-        <p>
         <div v-show="page === 0">
             Play around with this one-dimensional collision demo for a bit to get a feel for what we're going to be
             dealing with!
@@ -1049,7 +1048,6 @@ onMounted(() => {
                     &rarr;</NuxtLink>
             </div>
         </div>
-        </p>
     </div>
 
     <div v-show="!lessonShowing" class="container h100 pt-5">

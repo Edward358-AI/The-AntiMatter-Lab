@@ -388,7 +388,6 @@ onUnmounted(() => {
 <template>
     <div v-show="lessonShowing" class="container h100 p-5">
         <h1>Explosions</h1><br>
-        <p>
         <div v-show="page === 0">
             A fair word of warning before I dissappoint you. This section is less about the flashy part of explosions
             and
@@ -650,8 +649,6 @@ onUnmounted(() => {
                     &rarr;</NuxtLink>
             </div>
         </div>
-
-        </p>
     </div>
 
     <div v-show="!lessonShowing" class="container h100 pt-5">

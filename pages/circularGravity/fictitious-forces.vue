@@ -5,7 +5,7 @@ useHead({
         { name: 'description', content: 'Understand the concept of fictitious forces and their role in certain scenarios.' }
     ]
 })
-import { reactive, watch, nextTick } from 'vue'
+import { reactive, watch } from 'vue'
 import { useUserStore } from '../../stores/user'
 import { useLessonShowingStore } from '../../stores/lessonShowing'
 import { storeToRefs } from 'pinia'
@@ -244,7 +244,9 @@ function setChecked(chek, qNum) {
             be
             a bit confusing, but think of the times when you've felt a force pushing you back into the car seat when
             someone hits the
-            gas pedal (even though the car is accelerating forward). Again, I want to emphasize that this force
+            gas pedal (even though the car is accelerating forward).
+            <br><br>
+             Again, I want to emphasize that this force
             technically
             does not actually exist and is sometimes compared to an "invisible hand". However, when you consider your
             reference frame this force is very
@@ -258,8 +260,8 @@ function setChecked(chek, qNum) {
                 <img src="/dynamics/Figure 36.png">
                 <figcaption>Figure 1: An extremely normal and fun elevator.</figcaption>
             </figure>
+            <br>
             <span v-show="level > 0">
-                <br><br>
                 <div class="problem">
                     Consider an elevator accelerating upward at $5.0~\textrm{m/s}^2$.
                     What is the apparent gravitational acceleration inside this elevator,
@@ -271,8 +273,8 @@ function setChecked(chek, qNum) {
                     force of $ma$ where $a= 5.0 ~\textrm{m/s}^2$. Doing some simple analysis, we can
                     conclude that objects inside the elevator experience an effective gravitational acceleration of
                     $g+a = 14.8 ~\textrm{m/s}^2$. The man’s effective weight, then, is:
-                    <br>
-                    $F_n=mg+ma=740 ~\textrm{N}$
+                    <br><br>
+                    $$F_n=mg+ma=740 ~\textrm{N}$$
                 </div>
                 <br><br>
                 This method can also be applied to FBDs. In our previous scenario, we had two downward forces, being the
@@ -287,12 +289,12 @@ function setChecked(chek, qNum) {
                             with your time.<br>
                             (I'm being lazy.)</figcaption>
                     </figure>
-                    <br><br>
+                    <br>
                     Well, then the fictitious force is simply
                     oppositely directed and we have effective gravitational acceleration $g-a = 4.8 m/s^2$.
                     This translates to a weight of:
-                    <br>
-                    $F_n=mg-ma=240 ~\textrm{N}$
+                    <br><br>
+                    $$F_n=mg-ma=240 ~\textrm{N}$$
                 </div>
                 <br><br>
                 This explains why you feel a force pushing down when the elevator begins to move upward and
@@ -300,6 +302,7 @@ function setChecked(chek, qNum) {
                 of the velocity of the elevator and only depend on the direction of acceleration.
                 This means that you feel the same fictitious force when moving up and slowing down as
                 when moving down and speeding up. (That's a bit verbose, but try to think about what I'm saying.)
+                <br><br>
                 Next time you’re on an elevator, pay attention to this and you will find that this is true
                 (if you don’t know this already from riding elevators). You can even use a scale to prove it to
                 yourself.
@@ -311,19 +314,20 @@ function setChecked(chek, qNum) {
                 <br><br>
                 Knowing that the elevator accelerates upwards at $a=5.0 ~\textrm{m/s}^2$
                 allows us work backwards by determining the net force with Newton’s second law:
-                <br>
-                $F_{net} = ma = 250 ~\textrm{N}$
                 <br><br>
+                $$F_{net} = ma = 250 ~\textrm{N}$$
+                <br>
                 We know that there are only two (real) forces acting on the system, being the gravitational and normal
                 forces.
                 Gravity points downwards and the normal force upward, We are going to consider the case where the
                 elevator
                 accelerates upwards, so we can write the expression:
-                <br>
-                $F_n - mg = F_net = ma$
                 <br><br>
-                At this point, we can just use simple algebra to get back to this expression:<br>
-                $F_n=mg+ma=740 ~\textrm{N}$
+                $$F_n - mg = F_net = ma$$
+                <br>
+                At this point, we can just use simple algebra to get back to this expression:
+                <br><br>
+                $$F_n=mg+ma=740 ~\textrm{N}$$
                 <br>
                 Similar logic can be used for the downwards elevator case.
                 <br><br>
@@ -340,14 +344,15 @@ function setChecked(chek, qNum) {
                     been in
                     an elevator that is accelerating upwards, whether that be speeding up on the way up or slowing down
                     on the way down, you feel
-                    yourself become heavier. Your mass isn't actually increasing since that's an intrinsic property and
+                    yourself become heavier. 
+                    <br><br>
+                    Your mass isn't actually increasing since that's an intrinsic property and
                     doesn't change so easily. You're
                     actually feeling your weight, which is the percieved gravitational force, change. This is because
                     you experience a downwards
                     fictitious force that allies itself with gravity to make you heavier (if only for a little bit). The
                     scale will also read a
                     greater value because it needs to support that extra weight.
-
                     <br><br>
                     Now we should consider the obvious other case: elevator accelerating down.
                     <br><br>
@@ -357,7 +362,7 @@ function setChecked(chek, qNum) {
                             with your time.<br>
                             (I'm being lazy.)</figcaption>
                     </figure>
-                    <br><br>
+                    <br>
                     The inverse is true if you're accelerating down. The fictitious force is instead upwards and opposed
                     to gravity, so you feel lighter.
                     There is an interesting bit to be said here. In free fall, you're essentially weightless because in
@@ -370,7 +375,8 @@ function setChecked(chek, qNum) {
             Now you know what fictitious forces are, but you’re probably wondering why this section is here. Well, now
             that I address it you either realize that I’m going to
             explain why this is helpful or (tsk tsk) you haven’t thought that it was out of place at all.
-            <br><br><h4 class="text-center">Centrifugal Force</h4>
+            <br><br>
+            <h4 class="text-center">Centrifugal Force</h4>
             Fictitious forces just so happen to be quite helpful in centripetal force problems.
             We can work in the accelerated reference frame of the object moving in a circle, which gives rise to a
             fictitious centrifugal force
@@ -422,18 +428,18 @@ function setChecked(chek, qNum) {
                     possible centripetal
                     acceleration is $a_c = g$. Therefore, we can write:
                     <br><br>
-                    $g = \dfrac{v^2}{R}$
-                    <br><br>
+                    $$g = \dfrac{v^2}{R}$$
+                    <br>
                     This simplifies to:
                     <br><br>
-                    $v = \sqrt{gR}$
-                    <br><br>
+                    $$v = \sqrt{gR}$$
+                    <br>
                     Technically, this is a maximum value since the normal force can vary and allow for other velocities.
                     If you
                     prefer, it is more accurate to write:
                     <br><br>
-                    $v \leq \sqrt{gR}$
-                    <br><br>
+                    $$v \leq \sqrt{gR}$$
+                    <br>
                     Now, this part did not require any invocation of fictitious forces, but the second part of the
                     problem is easier
                     if you invoke them. Think about how the fictitious centrifugal force would be directed. In the
@@ -466,14 +472,14 @@ function setChecked(chek, qNum) {
                         gravitational force is required to balance out the required centripetal force (or centrifugal
                         force). This gives us the equation (it's one of the only ones you'll see here, I promise!): <br>
                         <br>
-                        $m\dfrac{v^2}{R} = mg$
-                        <br><br>
+                        $$m\dfrac{v^2}{R} = mg$$
+                        <br>
                         Now, you can simplify this rather easily, but if you don't feel comfortable doing it, don't
                         worry!
                         You just need to know that the critical velocity where the normal force is zero is:
                         <br><br>
-                        $v = \sqrt{gR}$
-                        <br><br>
+                        $$v = \sqrt{gR}$$
+                        <br>
                         This is the maximum velocity at which circular motion is still possible. What happens if you go
                         faster than this? Well,
                         think of going over a speed bump really fast. Your car will go airborne momentarily. This
@@ -528,8 +534,8 @@ function setChecked(chek, qNum) {
                     information. Since the block must remain at rest vertically, the tension force $T$ must obey the
                     relation:
                     <br><br>
-                    $T = m_3g$
-                    <br><br>
+                    $$T = m_3g$$
+                    <br>
                     Now, you might be really confused. For a normal Atwood's machine in this setup, the tension force is
                     not this! However, this
                     is the only way the third block can stay at rest. This leads us to the conclusion that this tension
@@ -541,25 +547,24 @@ function setChecked(chek, qNum) {
                     magnitude $m_2a$ "applied" onto the second block, which must be balanced by the tension force. Thus,
                     we have:
                     <br><br>
-                    $T = m_2a$
-                    <br><br>
+                    $$T = m_2a$$
+                    <br>
                     This allows us to write:
                     <br><br>
-                    $m_2a = m_3g$
-                    <br><br>
-                    $a = \dfrac{m_3}{m_2}g$
-                    <br><br>
+                    $$m_2a = m_3g$$
+                    $$a = \dfrac{m_3}{m_2}g$$
+                    <br>
                     Now, we consider the force $F$. Since we have said that the system moves as a whole without any
                     relative motion,
                     we can treat it as one body and only consider the external forces on it (which is just $F$ in this
                     scenario):
                     <br><br>
-                    $F = (m_1+m_2+m_3)a$
-                    <br><br>
+                    $$F = (m_1+m_2+m_3)a$$
+                    <br>
                     Substituting in our value for $a$ gives us:
                     <br><br>
-                    $F = (m_1+m_2+m_3)\dfrac{m_3}{m_2}g$
-                    <br><br>
+                    $$F = (m_1+m_2+m_3)\dfrac{m_3}{m_2}g$$
+                    <br>
                     That was difficult, right? But it's also an interesting problem that raises some interesting
                     implications. Accelerated
                     reference frames can really mess with your usual intuitions, and postulates you held to be always

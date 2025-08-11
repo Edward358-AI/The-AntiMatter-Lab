@@ -790,7 +790,7 @@ onUnmounted(() => {
             </div>
         </div>
         <div v-show="page === 4">
-            <span v-show="level < 2">
+            <div v-show="level < 2">
                 While it is very easy to qualitatively tell what kind of equilibrium a system is in, mathematically
                 the exact analysis unfortunately requires calculus. <span v-show="level == 1">It's unavoidable, so we
                     will
@@ -799,7 +799,9 @@ onUnmounted(() => {
                 move on to doing a conceptual practice problem where you tell me whether each scenario is a stable,
                 unstable, or
                 neutral equilibrium.
-                <br><br>
+            </div>
+            <br><br>
+            <div v-show="level < 2">
                 <div class="problem">
                     Classify each of the following scenarios as a stable, unstable, or neutral equilibrium. Give
                     reasoning for your answers.
@@ -879,8 +881,8 @@ onUnmounted(() => {
                         </button>
                     </span>
                 </div>
-            </span>
-            <span v-show="level == 2">
+            </div>
+            <div v-show="level == 2">
                 Calculus is key to calculating whether a particular equilibrium is stable, unstable, or neutral, though
                 in most cases
                 qualitative analysis is good enough. We'll have two practice problems here: one to practice your
@@ -891,7 +893,9 @@ onUnmounted(() => {
                 calculation problem is just for you calculus students. (I bet you feel so special.) We'll start with the
                 conceptual questions to get
                 your neurons firing.
-                <br><br>
+            </div>
+            <br><br>
+            <div v-show="level == 2">
                 <div class="problem">
                     Classify each of the following scenarios as a stable, unstable, or neutral equilibrium. Give
                     reasoning for your answers.
@@ -1039,7 +1043,7 @@ onUnmounted(() => {
                     the work
                     I showed and directly arrived at the answer, but this method is certainly not immediately obvious.
                 </div>
-            </span>
+            </div>
             <br>
             That's it for types of equilibrium! You might have gone into this thinking it should have been in the forces
             unit, but hopefully you now understand how much it has to do with potential energy. This unit isn't too long

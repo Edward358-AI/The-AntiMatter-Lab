@@ -569,12 +569,14 @@ onUnmounted(() => {
                     b) What force supplies this centripetal force?
                     <br><br>
                     Part a) is a direct calculation and is quite simple to do.
-                    <br>
-                    $F_c= m\frac{v^2}{r}=672 ~\textrm{N}$
                     <br><br>
+                    $$F_c= m\frac{v^2}{r}=672 ~\textrm{N}$$
+                    <br>
                     Part b) is more conceptual. Consider the forces acting on the bicycle. The normal force and
                     gravitational acceleration are both directed vertically, so there can be no contribution from them.
-                    The only force that can act parallel to the surface is the force of friction! In fact, static
+                    The only force that can act parallel to the surface is the force of friction! 
+                    <br><br>
+                    In fact, static
                     friction is what propels a wheeled vehicle forward regardless of whether it is executing a turn or
                     not. The friction is static since the bottom of the wheel is momentarily at rest with the ground and
                     always tends to accelerate backwards with respect to the ground, so the force of static friction is

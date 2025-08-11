@@ -391,7 +391,7 @@ function setChecked(chek, qNum) {
                     &rarr;</button>
             </div>
             </div>
-            <div v-show="page===2">
+                          <div v-show="page===2">
                 Let's take a very simplified model of the airplane wing and do one practice problem with it.
                 <br><br>
                 <div class="problem">
