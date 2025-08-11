@@ -317,7 +317,7 @@ function setChecked(chek, qNum) {
                 You don’t need to remember any of this particle exchange stuff for the actual lesson, but Eric finds it
                 interesting, so it’s included in here. (Note from Eric: Edward just doesn’t understand it—at least not
                 yet). The bolded parts are what are actually important for you to remember for our lesson, and just
-                remember that all four of these forces are the the four fundamental forces in nature.<br><br>
+                remember that all four of these forces are the four fundamental forces in nature.<br><br>
                 IMPORTANT!! If a force does not fall under the category of any of those four forces, it does not exist
                 (Note
                 from Eric: sort of, but that will be taught later)!

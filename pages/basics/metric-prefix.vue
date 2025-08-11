@@ -269,7 +269,7 @@ function setChecked(chek, qNum) {
                 The kilogram is sort of unique in that it is the only base SI unit that has a metric prefix in its name, and that's because the gram is a very small unit of mass.
                 <br><br>
                 The metric prefixes are expressed as an extra part of the unit, such as "kilo" in "kilogram" or "centi" in "centimeter". In the abbreviations of the unit, they are usually expressed with a 
-                one or two letter abbrevation that is placed before the base unit, such as "k" for kilo (i.e. $\textrm{kg}$) or "c" for centi (i.e. $\textrm{cm}$). Here is a list of <b>all</b> metric prefixes used in the SI system:
+                one or two letter abbreviation that is placed before the base unit, such as "k" for kilo (i.e. $\textrm{kg}$) or "c" for centi (i.e. $\textrm{cm}$). Here is a list of <b>all</b> metric prefixes used in the SI system:
                 <br><br>
                 <table style="
                         outline: 4px solid #ccc;
@@ -414,7 +414,7 @@ function setChecked(chek, qNum) {
                 </table>
             <p>
                 <br>
-                Memorize all of these. It's absolutely essential to know them, and you should sacrificing some time to do so. It should only take two or three hours of constant and agonizing repetition.
+                Memorize all of these. It's absolutely essential to know them, and you should sacrifice some time to do so. It should only take two or three hours of constant and agonizing repetition.
                 <br><br>
                 I am joking. You definitely don't need all of these. After all, who's ever used the prefix "yotta-" in their life? There are a 
                 few common prefixes that you need to memorize, and that'll be it. Those are:

@@ -70,7 +70,7 @@ const questions = reactive(
             },
             {
                 number: 4,
-                question: "A train appraoches a station whuile cruising at 40 m/s. It has to stop in 300 meters. What is the required acceleration for this?",
+                question: "A train approaches a station while cruising at 40 m/s. It has to stop in 300 meters. What is the required acceleration for this?",
                 answers: [
                     ["$2.5~\\textrm{m/s}^2$", 0, false],
                     ["$7.5~\\textrm{m/s}^2$", 0, false],
@@ -91,7 +91,7 @@ const questions = reactive(
                 explain: "The second and third options are self-explanatory as to why they are accelerating. However, the first case is actually not zero acceleration because velocity is a vector, and the direction of velocity changes as you move in a circle. Tricky!"
             }
         ],
-        [ // algebra difficutly
+        [ // algebra difficulty
             {
                 number: 0,
                 question: "How long does it take for an object to fall from a 300-meter cliff, given that it is dropped?",
@@ -105,7 +105,7 @@ const questions = reactive(
             },
             {
                 number: 1,
-                question: "A ball is thrown straight up with some intial speed $v_0$. How long does it take for it to hit the ground again?",
+                question: "A ball is thrown straight up with some initial speed $v_0$. How long does it take for it to hit the ground again?",
                 answers: [
                     ["$\\frac{v_0}{g}$", 0, false],
                     ["$g{v_0}$", 0, false],
@@ -159,7 +159,7 @@ const questions = reactive(
                 explain: "The second and third options are self-explanatory as to why they are accelerating. However, the first case is actually not zero acceleration because velocity is a vector, and the direction of velocity changes as you move in a circle. Tricky!"
             }
         ],
-        [ // calculus difficutly
+        [ // calculus difficulty
             {
                 number: 0,
                 question: "How long does it take for an object to fall from a 300-meter cliff, given that it is dropped?",
@@ -173,7 +173,7 @@ const questions = reactive(
             },
             {
                 number: 1,
-                question: "A ball is thrown straight up with some intial speed $v_0$. How long does it take for it to hit the ground again?",
+                question: "A ball is thrown straight up with some initial speed $v_0$. How long does it take for it to hit the ground again?",
                 answers: [
                     ["$\\frac{v_0}{g}$", 0, false],
                     ["$g{v_0}$", 0, false],

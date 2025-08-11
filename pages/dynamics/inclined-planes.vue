@@ -56,7 +56,7 @@ const questions = reactive(
                     ["A massless wheel with friction", 0, false],
                     ["A massive wheel with friction", 1, false]
                 ],
-                explain: "The ideal pulley allows the string to pass over it without friction and does not affect the motion of the system as a whole. The first two would be ideal because the string passes over them with friction, but the third would also be ideal because the motion of a massless object wouldn't affect anything, even if it did have friction. Thus the correct answer is the fourth one."
+                explain: "The ideal pulley allows the string to pass over it without friction and does not affect the motion of the system as a whole. The first two would be ideal because the string passes over them without friction, but the third would also be ideal because the motion of a massless object wouldn't affect anything, even if it did have friction. Thus the correct answer is the fourth one."
             },
             {
                 number: 3,
@@ -493,8 +493,8 @@ onUnmounted(() => {
                         <figcaption>Figure 1: The inclined plane.</figcaption>
                     </figure>
                     <br><br>
-                    While this diagram may look nice and simple, it is unfortunatly not very useful for force analysis
-                    purposed, even
+                    While this diagram may look nice and simple, it is unfortunately not very useful for force analysis
+                    purposes, even
                     at a conceptual level. Thus, we should make a free-body diagram of the scenario. Technically, I made
                     a force-vector diagram (which places the vectors
                     on an illustration or representation of the scenario)

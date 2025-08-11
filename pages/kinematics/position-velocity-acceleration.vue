@@ -290,7 +290,7 @@ function setChecked(chek, qNum) {
                     Do you remember
                     when we just said that <i>displacement</i> is far more useful than just position by itself? Well,
                     given
-                    your original position and your final position as two seperate points, we can draw a vector
+                    your original position and your final position as two separate points, we can draw a vector
                     connecting
                     them. That vector is what is called displacement, and how it is calculated from your
                     original and final position. We can also do this mathematically, $$\Delta x = x_f-x_0$$Hold on! If
