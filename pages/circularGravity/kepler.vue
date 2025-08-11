@@ -17,212 +17,169 @@ const page = storeToRefs(useUserStore()).Kepler
 watch(page, () => window.scrollTo(0,0))
 watch(level, () => {if (!lessonShowing.value) nextTick(() => window.MathJax?.typeset())})
 
-const results = reactive([[0,0,0,0,0,0], [0,0,0,0,0,0], [0,0,0,0,0,0]]) // update as add more questions
-const explanations = reactive([[false,false,false,false,false,false], [false,false,false,false,false,false], [false,false,false,false,false,false]]) // keeps track of what explanations are visible
+const results = reactive([[0,0,0,0], [0,0,0,0,0], [0,0,0,0,0]]) // update as add more questions
+const explanations = reactive([[false,false,false,false], [false,false,false,false,false], [false,false,false,false,false]]) // keeps track of what explanations are visible
 const questions = reactive(
     [
         [ // conceptual difficulty
             {
                 number: 0,
-                question: "What is the proper format for a vector in component form?",
+                question: "Why are circular orbits possible if all orbits are elliptical?",
                 answers: [
-                    ["$\\{3, 5\\}$", 0, false],
-                    ["$\\langle 3, 5 \\rangle$", 1, false],
-                    ["$(3, 5)$", 0, false],
-                    ["$[3, 5]$", 0, false]
+                    ["Kepler's First Law has exceptions", 0, false],
+                    ["They are not actually circles", 0, false],
+                    ["Circular orbits are impossible", 0, false],
+                    ["Circles are ellipses", 1, false]
                 ],
-                explain: "Recall that a vector in component form is denoted by its component in the horizontal direction ($x$) and vertical direction ($y$), surrounded by angle brackets. Thus the second answer choice is the correct one."
+                explain: "Circles are just ellipses that are more \"rounded\". Therefore, circles are really just a special kind of ellipse, which is why they are possible."
             },
             {
                 number: 1,
-                question: "",
+                question: "When is the speed of a planet in an elliptical orbit the greatest?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["At the aphelion", 0, false],
+                    ["At the perihelion", 1, false],
+                    ["At the peak of its orbit", 0, false],
+                    ["It has the same speed", 0, false]
                 ],
-                explain: ""
+                explain: "The speed of the planet depends on the distance the planet is from the star. The perihelion is the point where it is closest to the star, so it is where the speed is greatest."
             },
             {
                 number: 2,
-                question: "",
+                question: "What does Kepler's Second Law say?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["The area of an ellipse is constant over time", 0, false],
+                    ["The planet's area over time is the same over equal time intervals", 0, false],
+                    ["The line connecting the planet and star sweeps out equal areas in equal times", 1, false],
+                    ["The second planet orbiting around the star has the same area as the first", 0, false]
                 ],
-                explain: ""
+                explain: "Kepler's Second Law states that the imaginary line connecting the planet and the star sweeps out equal areas in equal times as the planet orbits. The other options don't make any sense and are not statements of the law."
             },
             {
                 number: 3,
-                question: "",
+                question: "How is the orbital period of a planet related to its orbital radius?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["Directly", 0, false],
+                    ["Inversely", 0, false],
+                    ["Quadratically", 0, false],
+                    ["None of the above", 1, false]
                 ],
-                explain: ""
-            },
-            {
-                number: 4,
-                question: "",
-                answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
-                ],
-                explain: ""
-            },
-            {
-                number: 5,
-                question: "",
-                answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
-                ],
-                explain: ""
+                explain: "The square of the orbital period is directly proportional to the cube of the orbital radius, so it is not directly, inversely, or quadratically related. The relationship is very complex!"
             }
         ],
         [ // algebra difficulty
             {
                 number: 0,
-                question: "What is the proper format for a vector in component form?",
+                question: "Which of the following affects orbital period according to Kepler's Third Law?",
                 answers: [
-                    ["$\\{3, 5\\}$", 0, false],
-                    ["$\\langle 3, 5 \\rangle$", 1, false],
-                    ["$(3, 5)$", 0, false],
-                    ["$[3, 5]$", 0, false]
+                    ["Planetary radius", 0, false],
+                    ["Stellar radius", 0, false],
+                    ["Planetary mass", 0, false],
+                    ["Stellar mass", 1, false]
                 ],
-                explain: "Recall that a vector in component form is denoted by its component in the horizontal direction ($x$) and vertical direction ($y$), surrounded by angle brackets. Thus the second answer choice is the correct one."
+                explain: "Kepler's Third Law states $T = 2\\pi\\sqrt{\\frac{a^3}{GM_s}}$, where $T$ is the orbital period, $a$ is the semimajor axis of orbit, and $M_s$ is the mass of the star. You now see that the stellar mass is what matters here, since none of the other answer choices are in the equation."
             },
             {
                 number: 1,
-                question: "",
+                question: "The quantity $L = mvr$ is conserved in planetary orbits. Consider a planet that has a velocity of $v_1$ at a distance of $r_1$ from the star. If it moves to a distance of $r_2$, what will its new velocity be?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["$v_1$", 0, false],
+                    ["$v_1 \\frac{r_1}{r_2}$", 1, false],
+                    ["$v_1 \\frac{r_2}{r_1}$", 0, false],
+                    ["$v_1/2$", 0, false]
                 ],
-                explain: ""
+                explain: "The quantity $L$ is conserved, so we can set up the equation $L = m v_1 r_1 = m v_2 r_2$. Since the mass of the planet doesn't change, we can cancel it out, leading to $v_1 r_1 = v_2 r_2$. Rearranging gives us $v_2 = v_1 \\frac{r_1}{r_2}$, which is the second answer choice."
             },
             {
                 number: 2,
-                question: "",
+                question: "What does Kepler's Second Law say?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["The area of an ellipse is constant over time", 0, false],
+                    ["The planet's area over time is the same over equal time intervals", 0, false],
+                    ["The line connecting the planet and star sweeps out equal areas in equal times", 1, false],
+                    ["The second planet orbiting around the star has the same area as the first", 0, false]
                 ],
-                explain: ""
+                explain: "Kepler's Second Law states that the imaginary line connecting the planet and the star sweeps out equal areas in equal times as the planet orbits. The other options don't make any sense and are not statements of the law."
             },
             {
                 number: 3,
-                question: "",
+                question: "Mars is around 1.5 AU from the sun, where 1 AU is the orbital radius of Earth. How long does it take to orbit the sun?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["1.50 years", 0, false],
+                    ["3.00 years", 0, false],
+                    ["1.31 years", 0, false],
+                    ["1.83 years", 1, false]
                 ],
-                explain: ""
+                explain: "The square of the orbital period of Mars is equal to the cube of its orbital radius. We know Earth has an orbital period of one year, so we can set up the equation: $T_M^2 = T_E^2 \\left(\\frac{R_M}{R_E}\\right)^3$. Plugging in the values gives us $T_M = \\sqrt{3.375} \\approx 1.83$ years."
             },
             {
                 number: 4,
-                question: "",
+                question: "Why are circular orbits not a good approximation for planetary orbits?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["They are too ideal", 1, false],
+                    ["They are unstable", 0, false],
+                    ["They are approximations", 0, false],
+                    ["They do not obey proper laws", 0, false]
                 ],
-                explain: ""
-            },
-            {
-                number: 5,
-                question: "",
-                answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
-                ],
-                explain: ""
+                explain: "Circular orbits are too ideal, assuming constant speed across the entire orbital path. Thus, perfect initial conditions are necessary for circular orbits, which makes elliptical orbits a far better model. Circular orbits are therefore not a good approximation for planetary orbits."
             }
+            
         ],
         [ // calculus difficulty
             {
                 number: 0,
-                question: "What is the proper format for a vector in component form?",
+                question: "Which of the following affects orbital period according to Kepler's Third Law?",
                 answers: [
-                    ["$\\{3, 5\\}$", 0, false],
-                    ["$\\langle 3, 5 \\rangle$", 1, false],
-                    ["$(3, 5)$", 0, false],
-                    ["$[3, 5]$", 0, false]
+                    ["Planetary radius", 0, false],
+                    ["Stellar radius", 0, false],
+                    ["Planetary mass", 0, false],
+                    ["Stellar mass", 1, false]
                 ],
-                explain: "Recall that a vector in component form is denoted by its component in the horizontal direction ($x$) and vertical direction ($y$), surrounded by angle brackets. Thus the second answer choice is the correct one."
+                explain: "Kepler's Third Law states $T = 2\\pi\\sqrt{\\frac{a^3}{GM_s}}$, where $T$ is the orbital period, $a$ is the semimajor axis of orbit, and $M_s$ is the mass of the star. You now see that the stellar mass is what matters here, since none of the other answer choices are in the equation."
             },
             {
                 number: 1,
-                question: "",
+                question: "The quantity $L = mvr$ is conserved in planetary orbits. Consider a planet that has a velocity of $v_1$ at a distance of $r_1$ from the star. If it moves to a distance of $r_2$, what will its new velocity be?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["$v_1$", 0, false],
+                    ["$v_1 \\frac{r_1}{r_2}$", 1, false],
+                    ["$v_1 \\frac{r_2}{r_1}$", 0, false],
+                    ["$v_1/2$", 0, false]
                 ],
-                explain: ""
+                explain: "The quantity $L$ is conserved, so we can set up the equation $L = m v_1 r_1 = m v_2 r_2$. Since the mass of the planet doesn't change, we can cancel it out, leading to $v_1 r_1 = v_2 r_2$. Rearranging gives us $v_2 = v_1 \\frac{r_1}{r_2}$, which is the second answer choice."
             },
             {
                 number: 2,
-                question: "",
+                question: "What does Kepler's Second Law say?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["The area of an ellipse is constant over time", 0, false],
+                    ["The planet's area over time is the same over equal time intervals", 0, false],
+                    ["The line connecting the planet and star sweeps out equal areas in equal times", 1, false],
+                    ["The second planet orbiting around the star has the same area as the first", 0, false]
                 ],
-                explain: ""
+                explain: "Kepler's Second Law states that the imaginary line connecting the planet and the star sweeps out equal areas in equal times as the planet orbits. The other options don't make any sense and are not statements of the law."
             },
             {
                 number: 3,
-                question: "",
+                question: "Mars is around 1.5 AU from the sun, where 1 AU is the orbital radius of Earth. How long does it take to orbit the sun?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["1.50 years", 0, false],
+                    ["3.00 years", 0, false],
+                    ["1.31 years", 0, false],
+                    ["1.83 years", 1, false]
                 ],
-                explain: ""
+                explain: "The square of the orbital period of Mars is equal to the cube of its orbital radius. We know Earth has an orbital period of one year, so we can set up the equation: $T_M^2 = T_E^2 \\left(\\frac{R_M}{R_E}\\right)^3$. Plugging in the values gives us $T_M = \\sqrt{3.375} \\approx 1.83$ years."
             },
             {
                 number: 4,
-                question: "",
+                question: "Why are circular orbits not a good approximation for planetary orbits?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["They are too ideal", 1, false],
+                    ["They are unstable", 0, false],
+                    ["They are approximations", 0, false],
+                    ["They do not obey proper laws", 0, false]
                 ],
-                explain: ""
-            },
-            {
-                number: 5,
-                question: "",
-                answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
-                ],
-                explain: ""
+                explain: "Circular orbits are too ideal, assuming constant speed across the entire orbital path. Thus, perfect initial conditions are necessary for circular orbits, which makes elliptical orbits a far better model. Circular orbits are therefore not a good approximation for planetary orbits."
             }
         ]
     ]
@@ -315,7 +272,7 @@ function setChecked(chek, qNum) {
                 of an ellipse is the
                 ratio of its focal length $c$ to its semimajor axis length $a$. In mathematical terms, this means:
                 <br><br>
-                $e = \dfrac{c}{a}$
+                $$e = \dfrac{c}{a}$$
                 <br><br>
                 A circle, which has a focal length of zero, therefore has zero eccentricity. An ellipse will always have
                 an eccentricity
@@ -378,8 +335,8 @@ function setChecked(chek, qNum) {
                 this can be
                 written as:
                 <br><br>
-                $\dfrac{dA}{dt} = \textrm{const.}$
-                <br><br>
+                $$\dfrac{dA}{dt} = \textrm{const.}$$
+                <br>
                 When deriving this law later on, it is sufficient to prove this condition. However, the derivation of
                 this
                 law requires a number of concepts like energy and angular momentum which we have not covered, so it
@@ -424,13 +381,13 @@ function setChecked(chek, qNum) {
                 less daunting. In its most basic terms, Kepler's Third Law states:
                 <br><br>
                 $$T^2 \propto a^3$$
-                <br><br>
+                <br>
                 Here, $a$ is the length of the semimajor axis of orbit. In the cases where the orbit is circular, we can
                 simply
                 replace $a$ with the orbital radius $r$. The mass of the star is also a factor that isn't seen here, but
                 that doesn't matter
                 most of the time since we deal with the solar system or planets around the same star most of the time.
-                However, it's stil
+                However, it's still
                 important to remember. (I think it's not in the proportionality because we didn't know about other star
                 systems at the time of Kepler.)
                 <br><br>
@@ -444,8 +401,8 @@ function setChecked(chek, qNum) {
                 proportionality
                 form is as follows:
                 <br><br>
-                $T^2 \propto a^3$
-                <br><br>
+                $$T^2 \propto a^3$$
+                <br>
                 However, the exact form takes into account the mass of the star around which the planet is orbiting.
                 This makes
                 sense, as the only two factors that orbital period depends on are the orbital radius and the mass of
@@ -458,26 +415,26 @@ function setChecked(chek, qNum) {
                 a radius of $R$ is equal
                 to:
                 <br><br>
-                $v = \sqrt{G\dfrac{M_s}{R}}$
-                <br><br>
+                $$v = \sqrt{G\dfrac{M_s}{R}}$$
+                <br>
                 The orbital period is defined as the total distance travelled over the speed of travel, so we can write:
                 <br><br>
-                $ T = \dfrac{2\pi R}{v}$
-                <br><br>
+                $$ T = \dfrac{2\pi R}{v}$$
+                <br>
                 Substituting in $v$ gives us:
                 <br><br>
-                $ T = \dfrac{2 \pi R^{3/2}} {\sqrt{GM_s}}$
-                <br><br>
+                $$ T = \dfrac{2 \pi R^{3/2}} {\sqrt{GM_s}}$$
+                <br>
                 This form is more useful for finding the actual orbital period, but admittedly it doesn't look exactly
                 like the proportionality. To
                 restore the resemblance, we can simply square both sides:
                 <br><br>
-                $T^2 = \dfrac{4 \pi^2}{GM_s} R^3$
-                <br><br>
+                $$T^2 = \dfrac{4 \pi^2}{GM_s} R^3$$
+                <br>
                 And in the generalized form, $R$ is replaced with the semimajor axis length $a$:
                 <br><br>
                 $$T^2 = \dfrac{4 \pi^2}{GM_s} a^3$$
-                <br><br>
+                <br>
                 With the mathematical results established, let's try a simple practice problem.
                 <br><br>
             </span>
@@ -491,14 +448,14 @@ function setChecked(chek, qNum) {
                 enables us to simply use proportions rather than having to directly compute things. Kepler's Third Law
                 can be set up as a proportionality in this case, leading us to the equation:
                 <br><br>
-                $\left(\dfrac{T_J}{T_E} \right)^2= \left(\dfrac{R_J}{R_E}\right)^3$
-                <br><br>
+                $$\left(\dfrac{T_J}{T_E} \right)^2= \left(\dfrac{R_J}{R_E}\right)^3$$
+                <br>
                 The subscripts $J$ and $E$ denote Jupiter and Earth, respectively. Now, we can simply plug in known
                 values and
                 solve for $T_J$ to arrive at the result:
                 <br><br>
-                $T_J = T_E \left(\dfrac{R_J}{R_E}\right)^{3/2} = 11.86 ~\textrm{yr}$
-                <br><br>
+                $$T_J = T_E \left(\dfrac{R_J}{R_E}\right)^{3/2} = 11.86 ~\textrm{yr}$$
+                <br>
                 This matches the actual orbital period. See, you don't have to actually use the full equation to
                 do problems invloving this law, as long as you're clever and recognize things about the problem. Note
                 that
