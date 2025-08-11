@@ -273,7 +273,7 @@ function setChecked(chek, qNum) {
                 ratio of its focal length $c$ to its semimajor axis length $a$. In mathematical terms, this means:
                 <br><br>
                 $$e = \dfrac{c}{a}$$
-                <br><br>
+                <br>
                 A circle, which has a focal length of zero, therefore has zero eccentricity. An ellipse will always have
                 an eccentricity
                 less than one but greater than zero, with a higher eccentricity indicating a more flattened shape. When
