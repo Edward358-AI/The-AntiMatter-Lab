@@ -922,7 +922,7 @@ onUnmounted(() => {
                     Previous</button>
             </div>
             <div class="btn-contain-right">
-                <NuxtLink class="btn btn-dark" style="animation: scale 2s infinite;" @click="page=0" to="/circularGravity/fictious-forces">Next
+                <NuxtLink class="btn btn-dark" style="animation: scale 2s infinite;" @click="page=0" to="/circularGravity/fictitious-forces">Next
                     Lesson!
                     &rarr;</NuxtLink>
             </div>

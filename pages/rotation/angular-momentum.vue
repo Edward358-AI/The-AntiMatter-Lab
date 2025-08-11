@@ -540,7 +540,7 @@ watch(elasticity, (newVal) => {
             <br>
             I've defined $h$ as the "height" that the ball is from the center of rotation. Of course, we aren't always
             going to be dealing
-            with the y-direction, but it's just a more concrete way of visualizing the cross product. This essentialy
+            with the y-direction, but it's just a more concrete way of visualizing the cross product. This essentially
             states that the angular momentum
             is equal to angular momentum that the ball would have at the point of impact, if it were to rotate about
             that particular axis.
@@ -590,7 +590,7 @@ watch(elasticity, (newVal) => {
                 the page or into the
                 page.
                 <br><br>
-                The way we figure out the direction of angular angular velocity is actually a cross product (the strict
+                The way we figure out the direction of angular velocity is actually a cross product (the strict
                 definition is $v = \omega \times r$), but
                 it can be simplified because of the nature of rotation. To find the direction of the angular velocity,
                 we simply curl our right hand

@@ -458,7 +458,7 @@ function setChecked(chek, qNum) {
                     <br>
                     <span>
                         <div v-show="show" class='answer' style="width:fit-content">
-                            <strong>Answer:</strong> The cone cone is more aerodynamic, so it has less air resistance.
+                            <strong>Answer:</strong> The cone is more aerodynamic, so it has less air resistance.
                             <br>
                         </div>
                         <button class="btn btn-outline-primary" @click="show = !show">{{ show ? 'Hide' : 'Show' }}

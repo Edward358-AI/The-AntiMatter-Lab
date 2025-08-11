@@ -547,7 +547,7 @@ onMounted(() => {
                 $$ m_1v_{1i} - m_1 v_{1f} = m_2 v_{2f} - m_2 v_{2i} $$
                 <br>
                 Once we do some light algebra to both conservation equations, we can do a magical trick. I'm being
-                sarcastic, it's just slightly tricky algebra. Remeber the difference of squares?
+                sarcastic, it's just slightly tricky algebra. Remember the difference of squares?
                 Are you seeing the vision? We can divide the two equations to arrive at the result:
                 <br><br>
                 $$ v_{1i} + v_{1f} = v_{2f} + v_{2i} $$

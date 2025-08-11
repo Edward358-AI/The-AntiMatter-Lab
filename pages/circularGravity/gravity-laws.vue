@@ -628,7 +628,7 @@ onUnmounted(() => {
                 that
                 same force back on the Earth. However, the Earth has too much mass to really care, so we usually don't
                 think of ourselves
-                as exerting a gravitaional force on the Earth. It's important to remember this fact (which applies to
+                as exerting a gravitational force on the Earth. It's important to remember this fact (which applies to
                 any two objects that have mass), however.
                 <br><br><h4 class="text-center">Shell Theorem</h4>
                 Now, there is a theorem called the shell theorem that enables us to treat spheres as just point objects,
@@ -765,7 +765,7 @@ onUnmounted(() => {
                 distance from the center!
                 This is quite an interesting result. At the boundary point where $r = R$, the gravitational field from
                 this expression and from the
-                inverse-square law have to match up, and if you do all the math they indeed to. To top it all off,
+                inverse-square law have to match up, and if you do all the math they indeed do. To top it all off,
                 here's a generalized graph of the gravitational field as a function of the distance $r$ from the
                 center of the sphere:
                 <br><br>

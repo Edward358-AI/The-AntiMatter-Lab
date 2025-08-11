@@ -422,7 +422,7 @@ onUnmounted(() => {
                 The way we analyze equilibriums is not by looking at the forces (as one might expect), but rather
                 by looking at the potential energy of the system at and near the equilibrium point. We also won't even
                 be looking
-                much at the slope of the grpah, since we know it's going to be zero at the equilibrium. Specifically, we
+                much at the slope of the graph, since we know it's going to be zero at the equilibrium. Specifically, we
                 will be
                 looking at the concavity of the graph, which tells us about the nature of the equilibrium point. This
                 lets us
@@ -1003,7 +1003,7 @@ onUnmounted(() => {
                     <br>
                     Now, we can proceed to write the total potential energy of the system at this point, taking into
                     consideration that the body
-                    sits at rest a distance $x_0$ <b>below</b> the point where the the spring is unstretched.
+                    sits at rest a distance $x_0$ <b>below</b> the point where the spring is unstretched.
                     <br><br>
                     $$ U_0 = \dfrac12 k{x_0}^2 - mg x_0 $$
                     <br>

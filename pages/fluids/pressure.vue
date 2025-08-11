@@ -662,7 +662,7 @@ watch(multiplier, (newVal) => {
                 <figcaption>Figure 4: How the buoyant force works.</figcaption>
             </figure>
             <span v-show="level>0">
-                We're going to do the math for the buoyant force here. It's a good practice of your algebra skills, but not entirely essential to undesrtanding what 
+                We're going to do the math for the buoyant force here. It's a good practice of your algebra skills, but not entirely essential to understanding what 
                 buoyancy is or how to apply it. I find that many derivations are left out of physics lessons, so I thought it would be a good idea to include one here.
                 <br><br>
                 Let's say we have some arbitrarily sized object of volume $V$ submerged in a fluid of density $\rho_0$. Since the lateral pressures will cancel out regardless of 

@@ -24,7 +24,7 @@ export const useUserStore = defineStore('user', () => {
   const Kepler = ref(0)
   const GravityLaws = ref(0)
   const Centripetal = ref(0)
-  const Fictious = ref(0)
+  const Fictitious = ref(0)
   const DotProd = ref(0)
   const Energy = ref(0)
   const GravEnergy = ref(0)
@@ -75,7 +75,7 @@ export const useUserStore = defineStore('user', () => {
     Kepler,
     GravityLaws,
     Centripetal,
-    Fictious,
+    Fictitious,
     DotProd,
     Energy,
     GravEnergy,

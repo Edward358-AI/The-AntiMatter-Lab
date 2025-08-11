@@ -446,7 +446,7 @@ function newtonsCradle(xx, yy, number, size, length) {
                 <br><br>
                 We can use the idea of impulse to explain why internal interactions conserve momentum. According to
                 Newton's Third Law,
-                if one object exerts an impulse on another, it will recieve an oppositely directed and equal impulse
+                if one object exerts an impulse on another, it will receive an oppositely directed and equal impulse
                 from that object. This means
                 the total change in momentum of the two objects as a system will be zero!
             </span>

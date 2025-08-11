@@ -45,7 +45,7 @@ const lessons = reactive({
   ],
   circularGravity: [
     { name: "Centripetal Force/Acceleration", path: "/circularGravity/centripetal" },
-    { name: "Fictitious Forces", path: "/circularGravity/fictious-forces" },
+    { name: "Fictitious Forces", path: "/circularGravity/fictitious-forces" },
     { name: "Newton's Law of Universal Gravitation", path: "/circularGravity/gravity-laws" },
     { name: "Kepler's Laws", path: "/circularGravity/kepler" }
   ],

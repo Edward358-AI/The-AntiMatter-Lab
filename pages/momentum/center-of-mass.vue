@@ -339,7 +339,7 @@ function setChecked(chek, qNum) {
                 vector of that
                 object, and adds them together. The sum of these is then divided by the total mass of all objects we're
                 looking at.
-                The formula might look intimidiating, but really it's not too bad.
+                The formula might look intimidating, but really it's not too bad.
                 <br><br>
                 The formula I gave above was only for the x-dimension, but this formula can be generalized to all three
                 dimensions as well:

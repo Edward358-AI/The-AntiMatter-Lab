@@ -5,14 +5,14 @@ useHead({
         { name: 'description', content: 'Understand the concept of fictitious forces and their role in certain scenarios.' }
     ]
 })
-import { reactive, watch } from 'vue'
+import { reactive, watch, nextTick } from 'vue'
 import { useUserStore } from '../../stores/user'
 import { useLessonShowingStore } from '../../stores/lessonShowing'
 import { storeToRefs } from 'pinia'
 
 const lessonShowing = storeToRefs(useLessonShowingStore()).lessonShowing
 const level = storeToRefs(useUserStore()).difficulty
-const page = storeToRefs(useUserStore()).Fictious
+const page = storeToRefs(useUserStore()).Fictitious
 
 watch(page, () => window.scrollTo(0,0))
 watch(level, () => {if (!lessonShowing.value) nextTick(() => window.MathJax?.typeset())})
@@ -24,36 +24,36 @@ const questions = reactive(
         [ // conceptual difficulty
             {
                 number: 0,
-                question: "Why do ficticious forces arise?",
+                question: "Why do fictitious forces arise?",
                 answers: [
                     ["Because they are not real", 0, false],
                     ["Because they are mathematically helpful", 0, false],
                     ["Because you work in a noninertial frame", 1, false],
                     ["Because they are a result of acceleration", 0, false]
                 ],
-                explain: "Ficticious forces arise because you are working in a noninertial frame of reference. This means that the frame is accelerating, which leads to the appearance of forces that do not exist in a normal inertial frame."
+                explain: "Fictitious forces arise because you are working in a noninertial frame of reference. This means that the frame is accelerating, which leads to the appearance of forces that do not exist in a normal inertial frame."
             },
             {
                 number: 1,
-                question: "What is an example of a ficticious force?",
+                question: "What is an example of a fictitious force?",
                 answers: [
                     ["Gravitational force", 0, false],
                     ["Centrifugal force", 1, false],
                     ["Centripetal force", 0, false],
                     ["Friction force", 0, false]
                 ],
-                explain: "The centrifugal force is the ficticious counterpart to the centripetal force, which is felt by an observer in a rotating frame of reference. It appears to push objects outward, away from the center of rotation."
+                explain: "The centrifugal force is the fictitious counterpart to the centripetal force, which is felt by an observer in a rotating frame of reference. It appears to push objects outward, away from the center of rotation."
             },
             {
                 number: 2,
-                question: "Under which of these following scenarios would you feel a ficticious force?",
+                question: "Under which of these following scenarios would you feel a fictitious force?",
                 answers: [
                     ["Cruising along the freeway", 0, false],
                     ["Free falling or skydiving", 0, false],
                     ["Moving at constant speed in an elevator", 0, false],
                     ["Slowing down at a traffic light", 1, false]
                 ],
-                explain: "Slowing down at a traffic light is the only scenario here where there is acceleration, so it is the only one where you would feel a ficticious force. You do accelerate while falling, but when you free fall you feel no forces."
+                explain: "Slowing down at a traffic light is the only scenario here where there is acceleration, so it is the only one where you would feel a fictitious force. You do accelerate while falling, but when you free fall you feel no forces."
             },
             {
                 number: 3,
@@ -64,7 +64,7 @@ const questions = reactive(
                     ["It hangs at an angle to the right", 0, false],
                     ["It causes circular motion", 0, false]
                 ],
-                explain: "The ficticious force felt by the ball due to the train's acceleration causes it to hang at an angle to the left. This is because the ficticious force acts in the opposite direction of the train's acceleration, which is to the right."
+                explain: "The fictitious force felt by the ball due to the train's acceleration causes it to hang at an angle to the left. This is because the fictitious force acts in the opposite direction of the train's acceleration, which is to the right."
             }
         ],
         [ // algebra difficulty
@@ -77,7 +77,7 @@ const questions = reactive(
                     ["$0 \\degree$", 0, false],
                     ["$29.8\\degree$", 1, false]
                 ],
-                explain: "The angle can be found by comparing the vertical and horizontal components of the forces acting on the ball in the noninertial frame. The vertical component is the gravitational force, and the horizontal component is the ficticious centrifugal force. Using the inverse tangent function ($\\arctan(g/a_c)$), we find that the angle is approximately $29.8\\degree$."
+                explain: "The angle can be found by comparing the vertical and horizontal components of the forces acting on the ball in the noninertial frame. The vertical component is the gravitational force, and the horizontal component is the fictitious centrifugal force. Using the inverse tangent function ($\\arctan(g/a_c)$), we find that the angle is approximately $29.8\\degree$."
             },
             {
                 number: 1,
@@ -88,51 +88,51 @@ const questions = reactive(
                     ["$R$ remains constant", 0, false],
                     ["$R$ goes to zero", 0, false]
                 ],
-                explain: "Because the ficticious centrifugal force increases with speed, the string will lengthen to maintain the balance of forces. Thus, the radius $R$ increases as the speed of rotation increases."
+                explain: "Because the fictitious centrifugal force increases with speed, the string will lengthen to maintain the balance of forces. Thus, the radius $R$ increases as the speed of rotation increases."
             },
             {
                 number: 2,
-                question: "Do ficticious forces have reaction forces?",
+                question: "Do fictitious forces have reaction forces?",
                 answers: [
                     ["Yes, all forces do", 0, false],
                     ["No, they don't actually act on anything", 1, false],
                     ["No, because they are special cases", 0, false],
                     ["Yes, because they are applied by something", 0, false]
                 ],
-                explain: "Ficticious forces are mathematical conveniences that do not actually exist. They do not act on any physical object and exist only in frames where Newton's Laws do not apply (noninertial frames). Therefore, they do not have reaction forces."
+                explain: "fictitious forces are mathematical conveniences that do not actually exist. They do not act on any physical object and exist only in frames where Newton's Laws do not apply (noninertial frames). Therefore, they do not have reaction forces."
             },
             {
                 number: 3,
-                question: "How does the ficticious force relate to Newton's First Law?",
+                question: "How does the fictitious force relate to Newton's First Law?",
                 answers: [
                     ["It allows the first law to apply in a noninertial frame", 1, false],
                     ["It violates the first law, causing acceleration when forces are balanced", 0, false],
                     ["It doesn't have any relation to it", 0, false],
                     ["It prevents force balance by constantly being there", 0, false]
                 ],
-                explain: "The ficticious force balances out real forces in a noninertial frame, seeming to allow for no apparent acceleration. For instance, the ficticious centrifugal force balances the centripetal force in the rotating reference frame."
+                explain: "The fictitious force balances out real forces in a noninertial frame, seeming to allow for no apparent acceleration. For instance, the fictitious centrifugal force balances the centripetal force in the rotating reference frame."
             },
             {
                 number: 4,
-                question: "Consider the ficticious forces when you are free falling. What is the net force acting on you in your frame of reference?",
+                question: "Consider the fictitious forces when you are free falling. What is the net force acting on you in your frame of reference?",
                 answers: [
                     ["$mg$", 0, false],
                     ["$2mg$", 0, false],
                     ["$mg/2$", 0, false],
                     ["$0$", 1, false]
                 ],
-                explain: "When you are free falling, the ficticious force acting upward is equal in magnitude to the gravitational force acting downward. This means that the net force in your frame of reference is zero, as both forces cancel each other out. This is why you feel weightless in free fall."
+                explain: "When you are free falling, the fictitious force acting upward is equal in magnitude to the gravitational force acting downward. This means that the net force in your frame of reference is zero, as both forces cancel each other out. This is why you feel weightless in free fall."
             },
             {
                 number: 5,
-                question: "Which one of these best describes why ficticious forces arise?",
+                question: "Which one of these best describes why fictitious forces arise?",
                 answers: [
                     ["Noninertial reference frames are unconventional to deal with and require special methods", 0, false],
                     ["The inertia of an object makes it seem to accelerate with respect to its surroundings", 1, false],
                     ["The human body has a unique way of experiencing forces because we are sentient", 0, false],
                     ["None of the above", 0, false]
                 ],
-                explain: "The inertia of objects is the root cause behind the ficticious force. When you suddenly brake in the car, you feel something push you forward, but it is really your own inertia tending to remain in the state of motion it was before you decelerated and not an actual force pushing you."
+                explain: "The inertia of objects is the root cause behind the fictitious force. When you suddenly brake in the car, you feel something push you forward, but it is really your own inertia tending to remain in the state of motion it was before you decelerated and not an actual force pushing you."
             }
         ],
         [ // calculus difficulty
@@ -145,7 +145,7 @@ const questions = reactive(
                     ["$0 \\degree$", 0, false],
                     ["$29.8\\degree$", 1, false]
                 ],
-                explain: "The angle can be found by comparing the vertical and horizontal components of the forces acting on the ball in the noninertial frame. The vertical component is the gravitational force, and the horizontal component is the ficticious centrifugal force. Using the inverse tangent function ($\\arctan(g/a_c)$), we find that the angle is approximately $29.8\\degree$."
+                explain: "The angle can be found by comparing the vertical and horizontal components of the forces acting on the ball in the noninertial frame. The vertical component is the gravitational force, and the horizontal component is the fictitious centrifugal force. Using the inverse tangent function ($\\arctan(g/a_c)$), we find that the angle is approximately $29.8\\degree$."
             },
             {
                 number: 1,
@@ -156,51 +156,51 @@ const questions = reactive(
                     ["$R$ remains constant", 0, false],
                     ["$R$ goes to zero", 0, false]
                 ],
-                explain: "Because the ficticious centrifugal force increases with speed, the string will lengthen to maintain the balance of forces. Thus, the radius $R$ increases as the speed of rotation increases."
+                explain: "Because the fictitious centrifugal force increases with speed, the string will lengthen to maintain the balance of forces. Thus, the radius $R$ increases as the speed of rotation increases."
             },
             {
                 number: 2,
-                question: "Do ficticious forces have reaction forces?",
+                question: "Do fictitious forces have reaction forces?",
                 answers: [
                     ["Yes, all forces do", 0, false],
                     ["No, they don't actually act on anything", 1, false],
                     ["No, because they are special cases", 0, false],
                     ["Yes, because they are applied by something", 0, false]
                 ],
-                explain: "Ficticious forces are mathematical conveniences that do not actually exist. They do not act on any physical object and exist only in frames where Newton's Laws do not apply (noninertial frames). Therefore, they do not have reaction forces."
+                explain: "fictitious forces are mathematical conveniences that do not actually exist. They do not act on any physical object and exist only in frames where Newton's Laws do not apply (noninertial frames). Therefore, they do not have reaction forces."
             },
             {
                 number: 3,
-                question: "How does the ficticious force relate to Newton's First Law?",
+                question: "How does the fictitious force relate to Newton's First Law?",
                 answers: [
                     ["It allows the first law to apply in a noninertial frame", 1, false],
                     ["It violates the first law, causing acceleration when forces are balanced", 0, false],
                     ["It doesn't have any relation to it", 0, false],
                     ["It prevents force balance by constantly being there", 0, false]
                 ],
-                explain: "The ficticious force balances out real forces in a noninertial frame, seeming to allow for no apparent acceleration. For instance, the ficticious centrifugal force balances the centripetal force in the rotating reference frame."
+                explain: "The fictitious force balances out real forces in a noninertial frame, seeming to allow for no apparent acceleration. For instance, the fictitious centrifugal force balances the centripetal force in the rotating reference frame."
             },
             {
                 number: 4,
-                question: "Consider the ficticious forces when you are free falling. What is the net force acting on you in your frame of reference?",
+                question: "Consider the fictitious forces when you are free falling. What is the net force acting on you in your frame of reference?",
                 answers: [
                     ["$mg$", 0, false],
                     ["$2mg$", 0, false],
                     ["$mg/2$", 0, false],
                     ["$0$", 1, false]
                 ],
-                explain: "When you are free falling, the ficticious force acting upward is equal in magnitude to the gravitational force acting downward. This means that the net force in your frame of reference is zero, as both forces cancel each other out. This is why you feel weightless in free fall."
+                explain: "When you are free falling, the fictitious force acting upward is equal in magnitude to the gravitational force acting downward. This means that the net force in your frame of reference is zero, as both forces cancel each other out. This is why you feel weightless in free fall."
             },
             {
                 number: 5,
-                question: "Which one of these best describes why ficticious forces arise?",
+                question: "Which one of these best describes why fictitious forces arise?",
                 answers: [
                     ["Noninertial reference frames are unconventional to deal with and require special methods", 0, false],
                     ["The inertia of an object makes it seem to accelerate with respect to its surroundings", 1, false],
                     ["The human body has a unique way of experiencing forces because we are sentient", 0, false],
                     ["None of the above", 0, false]
                 ],
-                explain: "The inertia of objects is the root cause behind the ficticious force. When you suddenly brake in the car, you feel something push you forward, but it is really your own inertia tending to remain in the state of motion it was before you decelerated and not an actual force pushing you."
+                explain: "The inertia of objects is the root cause behind the fictitious force. When you suddenly brake in the car, you feel something push you forward, but it is really your own inertia tending to remain in the state of motion it was before you decelerated and not an actual force pushing you."
             }
         ]
     ]
@@ -276,7 +276,7 @@ function setChecked(chek, qNum) {
                 </div>
                 <br><br>
                 This method can also be applied to FBDs. In our previous scenario, we had two downward forces, being the
-                gravitational and ficticious forces. Thus, the normal force (which is directed upward) must be equal to
+                gravitational and fictitious forces. Thus, the normal force (which is directed upward) must be equal to
                 these two combined. (Which is sort of what we did with the calculation.)
                 <br><br>
                 <div class="problem">
@@ -344,7 +344,7 @@ function setChecked(chek, qNum) {
                     doesn't change so easily. You're
                     actually feeling your weight, which is the percieved gravitational force, change. This is because
                     you experience a downwards
-                    ficticious force that allies itself with gravity to make you heavier (if only for a little bit). The
+                    fictitious force that allies itself with gravity to make you heavier (if only for a little bit). The
                     scale will also read a
                     greater value because it needs to support that extra weight.
 
@@ -358,11 +358,11 @@ function setChecked(chek, qNum) {
                             (I'm being lazy.)</figcaption>
                     </figure>
                     <br><br>
-                    The inverse is true if you're accelerating down. The ficticious force is instead upwards and opposed
+                    The inverse is true if you're accelerating down. The fictitious force is instead upwards and opposed
                     to gravity, so you feel lighter.
                     There is an interesting bit to be said here. In free fall, you're essentially weightless because in
                     your reference frame (where you fall with the
-                    gravitational acceleration $g$ downwards), there is a ficticious force upwards that is equal to the
+                    gravitational acceleration $g$ downwards), there is a fictitious force upwards that is equal to the
                     gravitational force exerted on you.
                 </div>
                 <br><br>
@@ -380,7 +380,7 @@ function setChecked(chek, qNum) {
             force-vector diagram and treat it as a
             classic force-balance problem. This might seem simpler for some of you, but you might also find the method
             unnecessary in that case. Well, we are next
-            going to talk about a case where using ficticious forces is very helpful.
+            going to talk about a case where using fictitious forces is very helpful.
             <div class="btn-contain-right">
                 <button class="btn btn-dark" style="animation: scale1 2s infinite;" @click="page++">Next
                     &rarr;</button>
@@ -434,9 +434,9 @@ function setChecked(chek, qNum) {
                     <br><br>
                     $v \leq \sqrt{gR}$
                     <br><br>
-                    Now, this part did not require any invocation of ficticious forces, but the second part of the
+                    Now, this part did not require any invocation of fictitious forces, but the second part of the
                     problem is easier
-                    if you invoke them. Think about how the ficticious centrifugal force would be directed. In the
+                    if you invoke them. Think about how the fictitious centrifugal force would be directed. In the
                     critical case, it is
                     directed upwards and exactly equal in magnitude to the gravitational force. Exceeding this "speed
                     limit" would make it
@@ -477,7 +477,7 @@ function setChecked(chek, qNum) {
                         This is the maximum velocity at which circular motion is still possible. What happens if you go
                         faster than this? Well,
                         think of going over a speed bump really fast. Your car will go airborne momentarily. This
-                        happens because the ficticious
+                        happens because the fictitious
                         centrifugal force upward is larger than gravity, which causes the car to lift off the ground
                         from your perspective. In reality,
                         you're really just experiencing inertia as your car fails to accelerate enough to go on its
@@ -485,7 +485,7 @@ function setChecked(chek, qNum) {
                 </div>
                 <br><br>
             </span>
-            Next, we will go over a few difficult force-balance problems that are easier with the addition of ficticious
+            Next, we will go over a few difficult force-balance problems that are easier with the addition of fictitious
             forces. They
             will not be solely focused on centripetal forces, but I still believe they are good to know.
             <div class="btn-contain-left">
@@ -515,7 +515,7 @@ function setChecked(chek, qNum) {
                     possible
                     in the first place, since there is no friction. Most people see $m_3$ and conclude that it is
                     impossible
-                    for it to stay in place without any frictional forces. However, with ficticious forces things begin
+                    for it to stay in place without any frictional forces. However, with fictitious forces things begin
                     to
                     make sense.
                     <br><br>
@@ -534,9 +534,9 @@ function setChecked(chek, qNum) {
                     not this! However, this
                     is the only way the third block can stay at rest. This leads us to the conclusion that this tension
                     force also acts on
-                    the second block. Now is where we invoke the ficticious force. Since the cart accelerates to the
+                    the second block. Now is where we invoke the fictitious force. Since the cart accelerates to the
                     right due to a force
-                    being exerted on it, we can assume it must have some acceleration $a$. This leads to a ficticious
+                    being exerted on it, we can assume it must have some acceleration $a$. This leads to a fictitious
                     force to the left of
                     magnitude $m_2a$ "applied" onto the second block, which must be balanced by the tension force. Thus,
                     we have:
@@ -600,13 +600,13 @@ function setChecked(chek, qNum) {
                     <br><br>
                     Since there is a net external force represented by $F$ on the system, it will tend to accelerate to
                     the right. This
-                    means there will be a ficticious force to the left on each block. The only way block 3 can remain at
+                    means there will be a fictitious force to the left on each block. The only way block 3 can remain at
                     rest is if the
                     tension force is equal to its weight, so we can assume that. Next, we know that this tension force
                     is the only real
                     force acting in the horizontal direction on the second block. It is directed to the right, so we
                     know that it has to
-                    balance the ficticious force on the second block. This enables us to do force balance and makes the
+                    balance the fictitious force on the second block. This enables us to do force balance and makes the
                     scenario physically possible.
                     <br><br>
                     The result we get from calculations is that there is only one possible acceleration where the system
@@ -648,7 +648,7 @@ function setChecked(chek, qNum) {
     </div>
 
     <div v-show="!lessonShowing" class="container h100 pt-5">
-        <h1>Ficticious Force Problems</h1><br>
+        <h1>fictitious Force Problems</h1><br>
         <div class="question-container row justify-content-center mx-auto pb-5">
             <form @submit.prevent="checkAnswer(q.number)" style="height:fit-content"
                 class="question col-6 row justify-content-center my-5 mx-auto" v-for="q in questions[level]">
