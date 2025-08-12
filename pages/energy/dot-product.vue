@@ -24,205 +24,205 @@ const questions = reactive(
         [ // conceptual difficulty
             {
                 number: 0,
-                question: "What is the proper format for a vector in component form?",
+                question: "When is the dot product of two vectors equal to zero?",
                 answers: [
-                    ["$\\{3, 5\\}$", 0, false],
-                    ["$\\langle 3, 5 \\rangle$", 1, false],
-                    ["$(3, 5)$", 0, false],
-                    ["$[3, 5]$", 0, false]
+                    ["Never", 0, false],
+                    ["When the vectors are perpendicular", 1, false],
+                    ["When the vectors are parallel", 0, false],
+                    ["Always", 0, false]
                 ],
-                explain: "Recall that a vector in component form is denoted by its component in the horizontal direction ($x$) and vertical direction ($y$), surrounded by angle brackets. Thus the second answer choice is the correct one."
+                explain: "The dot product measures how parallel two vectors are. Two vectors are least parallel when they are perpendicular, which is when the dot product is zero. Thus, the second answer choice is correct."
             },
             {
                 number: 1,
-                question: "",
+                question: "What kind of quantity is the dot product of two vectors?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["Vector", 0, false],
+                    ["Scalar", 1, false],
+                    ["Numerical", 0, false],
+                    ["Directional", 0, false]
                 ],
-                explain: ""
+                explain: "The dot product of two vectors is actually a scalar quantity by definition. Therefore, the second answer choice is correct."
             },
             {
                 number: 2,
-                question: "",
+                question: "How do you denote the dot product of two vectors?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["$a \\cdot b$", 0, false],
+                    ["$ab$", 0, false],
+                    ["$\\vec{a}\\vec{b}$", 0, false],
+                    ["$\\vec{a} \\cdot \\vec{b}$", 1, false]
                 ],
-                explain: ""
+                explain: "The dot product is represented by a dot between the two vectors $(\\vec{a} \\cdot \\vec{b})$. The two quantities also must be vectors, so the last answer choice is the correct one."
             },
             {
                 number: 3,
-                question: "",
+                question: "When is the dot product of two vectors a maximum?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
-                ],
-                explain: ""
+                    ["Never", 0, false],
+                    ["When the vectors are perpendicular", 0, false],
+                    ["When the vectors are parallel", 1, false],
+                    ["Always", 0, false]
+            ],
+                explain: "The dot product measures how parallel two vectors are, so it makes sense that it would be maximum when the two vectors are parallel. Thus, the third answer choice is correct."
             },
             {
                 number: 4,
-                question: "",
+                question: "what is the dot product of two vectors that point in opposite directions?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["Zero", 0, false],
+                    ["Positive", 0, false],
+                    ["Negative", 1, false],
+                    ["Does not exist", 0, false]
                 ],
-                explain: ""
+                explain: "Recall that vectors that point in opposite directions (antiparallel) have a negative dot product. They don't actually even need to be perfectly antiparallel, they just have to point \"away\" from each other. Therefore, the third answer choice is correct."
             },
             {
                 number: 5,
-                question: "",
+                question: "Find the dot product of $a = \\langle 2,-4 \\rangle $ and $b = \\langle -3, 2 \\rangle$.",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["-14", 1, false],
+                    ["-2", 0, false],
+                    ["-8", 0, false],
+                    ["14", 0, false]
                 ],
-                explain: ""
+                explain: "The algebraic formula to compute the dot product is $a_xb_x + a_yb_y$. Therefore, we compute $2(-3) + (-4)(2) = -6 - 8 = -14$. Thus, the first answer choice is correct."
             }
         ],
         [ // algebra difficulty
             {
                 number: 0,
-                question: "What is the proper format for a vector in component form?",
+                question: "What is the dot product of a vector that points in the positive z-direction and a vector that points in the positive y-direction?",
                 answers: [
-                    ["$\\{3, 5\\}$", 0, false],
-                    ["$\\langle 3, 5 \\rangle$", 1, false],
-                    ["$(3, 5)$", 0, false],
-                    ["$[3, 5]$", 0, false]
+                    ["Positive", 0, false],
+                    ["Negative", 0, false],
+                    ["Zero", 1, false],
+                    ["Does not exist", 0, false]
                 ],
-                explain: "Recall that a vector in component form is denoted by its component in the horizontal direction ($x$) and vertical direction ($y$), surrounded by angle brackets. Thus the second answer choice is the correct one."
+                explain: "The positive z-direction and the positive y-direction are orthogonal to one another, meaning that the dot product of the two vectors is zero. It may be difficult to think about a 3D coordinate plane, but in general all axes are perpendicular to each other. Therefore, the third answer choice is correct."
             },
             {
                 number: 1,
-                question: "",
+                question: "How many dimensions can the dot product be computed in?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["Two", 0, false],
+                    ["Three", 0, false],
+                    ["Twelve", 0, false],
+                    ["Infinite", 1, false]
                 ],
-                explain: ""
+                explain: "The formula for the dot product can be generalized to any number of dimensions, so in theory the dot product can be computed for an infinite number of dimensions. In practice, we usually see two or three dimensions."
             },
             {
                 number: 2,
-                question: "",
+                question: "Compute the dot product of two unit vectors (vectors of length $1$) that have an angle of 45 degrees between them.",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["$\\sqrt2$", 0, false],
+                    ["$\\frac{1}{\\sqrt2}$", 1, false],
+                    ["$0$", 0, false],
+                    ["$1$", 0, false]
                 ],
-                explain: ""
+                explain: "Recall that the dot product can be defined as $\\vec{a} \\cdot \\vec{b} = |a||b|\\cos\\theta$. Since the two vectors are unit vectors, their magnitudes are both $1$. Therefore, we have $1 \\cdot 1 \\cdot \\cos(45^\\circ) = \\frac{1}{\\sqrt2}$. The second answer choice is correct."
             },
             {
                 number: 3,
-                question: "",
+                question: "What is the dot product of two vectors defined as such: $\\vec{a} = \\langle 1, 2, 3 \\rangle$ and $\\vec{b} = \\langle 4, 5, 12 \\rangle$?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["50", 1, false],
+                    ["29", 0, false],
+                    ["246", 0, false],
+                    ["27", 0, false]
                 ],
-                explain: ""
+                explain: "The dot product in three dimensions is algebraically computed with the formula $\\vec{a} \\cdot \\vec{b} = a_xb_x + a_yb_y + a_zb_z$. Therefore, we compute $1(4) + 2(5) + 3(12) = 4 + 10 + 36 = 50$. We can see that the first answer choice matches this."
             },
             {
                 number: 4,
-                question: "",
+                question: "Which of these vector pairs are orthogonal to each other?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["$\\langle 1, 2 \\rangle$ and $\\langle 2, 1 \\rangle$", 0, false],
+                    ["$\\langle 1, 3 \\rangle$ and $\\langle -1, -3 \\rangle$", 0, false],
+                    ["$\\langle 4, 2 \\rangle$ and $\\langle -2, 4 \\rangle$", 1, false],
+                    ["$\\langle 2, 8 \\rangle$ and $\\langle 16, -1 \\rangle$", 0, false]
                 ],
-                explain: ""
+                explain: "Two vectors are orthogonal if their dot product computes to zero. We can then just compute the dot product of each pair, and after doing so we find that the third pair is orthogonal."
             },
             {
                 number: 5,
-                question: "",
+                question: "Is this a valid notation?<br> $\\vec{a} \\cdot \\vec{b} \\cdot \\vec{c}$",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["Yes, the dot product is valid in infinite dimensions.", 0, false],
+                    ["Yes, the dot product is always valid.", 0, false],
+                    ["No, the dot product only applies in two dimensions.", 0, false],
+                    ["No, you cannot mathematically dot three vectors toegher.", 1, false]
                 ],
-                explain: ""
+                explain: "The dot product can only be used for two vectors at a time. If we interpret this as dotting the first two vectors then dotting the result with the third, the answer <b>does not make sense</b> because the first operation would give us a scalar. You <b>cannot</b> dot a scalar with a vector, so the operation is invalid. Therefore, the fourth answer choice is correct."
             }
         ],
         [ // calculus difficulty
             {
                 number: 0,
-                question: "What is the proper format for a vector in component form?",
+                question: "What is the dot product of a vector that points in the positive z-direction and a vector that points in the positive y-direction?",
                 answers: [
-                    ["$\\{3, 5\\}$", 0, false],
-                    ["$\\langle 3, 5 \\rangle$", 1, false],
-                    ["$(3, 5)$", 0, false],
-                    ["$[3, 5]$", 0, false]
+                    ["Positive", 0, false],
+                    ["Negative", 0, false],
+                    ["Zero", 1, false],
+                    ["Does not exist", 0, false]
                 ],
-                explain: "Recall that a vector in component form is denoted by its component in the horizontal direction ($x$) and vertical direction ($y$), surrounded by angle brackets. Thus the second answer choice is the correct one."
+                explain: "The positive z-direction and the positive y-direction are orthogonal to one another, meaning that the dot product of the two vectors is zero. It may be difficult to think about a 3D coordinate plane, but in general all axes are perpendicular to each other. Therefore, the third answer choice is correct."
             },
             {
                 number: 1,
-                question: "",
+                question: "How many dimensions can the dot product be computed in?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["Two", 0, false],
+                    ["Three", 0, false],
+                    ["Twelve", 0, false],
+                    ["Infinite", 1, false]
                 ],
-                explain: ""
+                explain: "The formula for the dot product can be generalized to any number of dimensions, so in theory the dot product can be computed for an infinite number of dimensions. In practice, we usually see two or three dimensions."
             },
             {
                 number: 2,
-                question: "",
+                question: "Compute the dot product of two unit vectors (vectors of length $1$) that have an angle of 45 degrees between them.",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["$\\sqrt2$", 0, false],
+                    ["$\\frac{1}{\\sqrt2}$", 1, false],
+                    ["$0$", 0, false],
+                    ["$1$", 0, false]
                 ],
-                explain: ""
+                explain: "Recall that the dot product can be defined as $\\vec{a} \\cdot \\vec{b} = |a||b|\\cos\\theta$. Since the two vectors are unit vectors, their magnitudes are both $1$. Therefore, we have $1 \\cdot 1 \\cdot \\cos(45^\\circ) = \\frac{1}{\\sqrt2}$. The second answer choice is correct."
             },
             {
                 number: 3,
-                question: "",
+                question: "What is the dot product of two vectors defined as such: $\\vec{a} = \\langle 1, 2, 3 \\rangle$ and $\\vec{b} = \\langle 4, 5, 12 \\rangle$?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["50", 1, false],
+                    ["29", 0, false],
+                    ["246", 0, false],
+                    ["27", 0, false]
                 ],
-                explain: ""
+                explain: "The dot product in three dimensions is algebraically computed with the formula $\\vec{a} \\cdot \\vec{b} = a_xb_x + a_yb_y + a_zb_z$. Therefore, we compute $1(4) + 2(5) + 3(12) = 4 + 10 + 36 = 50$. We can see that the first answer choice matches this."
             },
             {
                 number: 4,
-                question: "",
+                question: "Which of these vector pairs are orthogonal to each other?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["$\\langle 1, 2 \\rangle$ and $\\langle 2, 1 \\rangle$", 0, false],
+                    ["$\\langle 1, 3 \\rangle$ and $\\langle -1, -3 \\rangle$", 0, false],
+                    ["$\\langle 4, 2 \\rangle$ and $\\langle -2, 4 \\rangle$", 1, false],
+                    ["$\\langle 2, 8 \\rangle$ and $\\langle 16, -1 \\rangle$", 0, false]
                 ],
-                explain: ""
+                explain: "Two vectors are orthogonal if their dot product computes to zero. We can then just compute the dot product of each pair, and after doing so we find that the third pair is orthogonal."
             },
             {
                 number: 5,
-                question: "",
+                question: "Is this a valid notation?<br> $\\vec{a} \\cdot \\vec{b} \\cdot \\vec{c}$",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["Yes, the dot product is valid in infinite dimensions.", 0, false],
+                    ["Yes, the dot product is always valid.", 0, false],
+                    ["No, the dot product only applies in two dimensions.", 0, false],
+                    ["No, you cannot mathematically dot three vectors toegher.", 1, false]
                 ],
-                explain: ""
+                explain: "The dot product can only be used for two vectors at a time. If we interpret this as dotting the first two vectors then dotting the result with the third, the answer <b>does not make sense</b> because the first operation would give us a scalar. You <b>cannot</b> dot a scalar with a vector, so the operation is invalid. Therefore, the fourth answer choice is correct."
             }
         ]
     ]
@@ -288,7 +288,7 @@ function setChecked(chek, qNum) {
                 Let's break this down a little bit. I'm mainly just interested in the cosine part, since the two vectors
                 are arbitrary. Now, we know that cosine takes a range of values $-1 ~\leq \cos \theta ~\leq 1$. The
                 cosine is equal to
-                one and negative one when the vectors are parallel and antiparallel, repsectively. This matches up with
+                one and negative one when the vectors are parallel and antiparallel, respectively. This matches up with
                 what I talked about before. Additionally, if the
                 angle $\theta$ is a right angle, then the cosine is zero and the dot product evaluates to zero, which
                 matches the orthogonality
@@ -327,7 +327,7 @@ function setChecked(chek, qNum) {
                 <br>
                 Now, this part requires a bit of trig knowledge. Remember our vectors lesson, and the idea of
                 components.
-                To get the component of any of the two vectors on the other, the fucntion we want to use is the cosine.
+                To get the component of any of the two vectors on the other, the function we want to use is the cosine.
                 This allows us
                 to have an intuitive understanding of why the dot product formula is what it is. Enough suspense, here
                 it is:
@@ -363,7 +363,7 @@ function setChecked(chek, qNum) {
             dot product.
             <br><br>
             This form of the dot product is arguably simpler than the first. I'm going to use the standard notation for
-            componenets
+            components
             with subscripts that designate the dimension. In a 2D form, it can be written as:
             <br><br>
             $$\vec{a} \cdot \vec{b} = a_xb_x+a_yb_y$$
