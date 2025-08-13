@@ -117,7 +117,7 @@ const questions = reactive(
                 number: 4,
                 question: "Consider the graph below. When the object moves from $x=0$ to $x= 3$ m, what is the work done by the force?<br><br><img style='max-width: 400px;' src='/energy/Problem 9.png' class='rounded'>",
                 answers: [
-                    ["9.375 J", 0, false],
+                    ["9.375 J", 1, false],
                     ["31.13 J", 0, false],
                     ["12.50 J", 0, false],
                     ["32.50 J", 0, false]
@@ -174,7 +174,7 @@ const questions = reactive(
                 number: 4,
                 question: "Consider the graph below. When the object moves from $x=0$ to $x= 3$ m, what is the work done by the force?<br><br><img style='max-width: 400px;' src='/energy/Problem 9.png' class='rounded'>",
                 answers: [
-                    ["9.375 J", 0, false],
+                    ["9.375 J", 1, false],
                     ["31.13 J", 0, false],
                     ["12.50 J", 0, false],
                     ["32.50 J", 0, false]
