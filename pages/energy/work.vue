@@ -18,212 +18,168 @@ const page = storeToRefs(useUserStore()).Work
 watch(page, () => window.scrollTo(0,0))
 watch(level, () => {if (!lessonShowing.value) nextTick(() => window.MathJax?.typeset())})
 
-const results = reactive([[0,0,0,0,0,0], [0,0,0,0,0,0], [0,0,0,0,0,0]]) // update as add more questions
-const explanations = reactive([[false,false,false,false,false,false], [false,false,false,false,false,false], [false,false,false,false,false,false]]) // keeps track of what explanations are visible
+const results = reactive([[0,0,0,0], [0,0,0,0,0], [0,0,0,0,0]]) // update as add more questions
+const explanations = reactive([[false,false,false,false], [false,false,false,false,false], [false,false,false,false,false]]) // keeps track of what explanations are visible
 const questions = reactive(
     [
         [ // conceptual difficulty
             {
                 number: 0,
-                question: "",
+                question: "In which of these cases is the work done zero?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["Putting books on a shelf", 0, false],
+                    ["Pulling a lever", 0, false],
+                    ["Holding a heavy weight", 1, false],
+                    ["Throwing a baseball", 0, false]
                 ],
-                explain: ""
+                explain: "You do no work when you hold a heavy weight because there is zero displacement. In all other cases, you exert a force and have a displacement, so you do work."
             },
             {
                 number: 1,
-                question: "",
+                question: "What is the unit of work?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["Watt", 0, false],
+                    ["Woule", 0, false],
+                    ["Epervier", 0, false],
+                    ["Joule", 1, false]
                 ],
-                explain: ""
+                explain: "The unit of work is the joule, equivalent to a newton-meter. The other options do not describe work."
             },
             {
                 number: 2,
-                question: "",
+                question: "What is the work done by a person carrying a 10 kg box at a constant speed across a flat surface for 5 meters?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["50 J", 0, false],
+                    ["0 J", 1, false],
+                    ["500 J", 0, false],
+                    ["491 J", 0, false]
                 ],
-                explain: ""
+                explain: "You require no force to carry a box at constant speed across a flat surface, so the work done is zero. The only forces are the force of gravity, which is balanced by the normal force from your arms, and there is no displacement in the direction of that force."
             },
             {
                 number: 3,
-                question: "",
+                question: "What is the work done by a person lifting a 10 kg box straight up 2 meters at constant speed?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["196 J", 1, false],
+                    ["0 J", 0, false],
+                    ["20 J", 0, false],
+                    ["200 J", 0, false]
                 ],
-                explain: ""
-            },
-            {
-                number: 4,
-                question: "",
-                answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
-                ],
-                explain: ""
-            },
-            {
-                number: 5,
-                question: "",
-                answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
-                ],
-                explain: ""
+                explain: "Lifting something upwards does require a force, and the displacement in this case would be in the same direcition as the force. The work done is equal to the force times the displacement, so it is 196 J (always use $g = 9.81~\\textrm{N/kg}$)."
             }
         ],
         [ // algebra difficulty
             {
                 number: 0,
-                question: "",
+                question: "what is the work done by a force of 10 N pulling at a 30 degree angle to the horizontal on a box that slides 5 m horizontally?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["25 J", 0, false],
+                    ["43.3 J", 1, false],
+                    ["5.1 J", 0, false],
+                    ["25.5 J", 0, false]
                 ],
-                explain: ""
+                explain: "The component of the force parallel to the displacement is $F \\cos 30\\degree$. The work done is then $W = Fd\\cos30\\degree = 43.3~\\textrm{J}$."
             },
             {
                 number: 1,
-                question: "",
+                question: "A force changes uniformly from 0 N to 20 N over a distance of 10 m. What is the work done by this force?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["100 J", 1, false],
+                    ["0 J", 0, false],
+                    ["200 J", 0, false],
+                    ["Cannot determine", 0, false]
                 ],
-                explain: ""
+                explain: "The force changes uniformly, so we can just use the average force (which is 10 N) and multiply it by the distance (10 m). Thus, the work done is 100 J."
             },
             {
                 number: 2,
-                question: "",
+                question: "The following is based on a true story. Young Sheldon drops his computer down a flight of stairs while distracted during an online argument, which just happens to be a perfectly smooth inclined plane of 30 degrees and length 5 meters. If the computer has a mass of 2 kg, what is the work done by gravity on the computer as it slides down the stairs?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["10 J", 0, false],
+                    ["98.1 J", 0, false],
+                    ["85.0 J", 0, false],
+                    ["49.1 J", 1, false]
                 ],
-                explain: ""
+                explain: "The force of gravity down the incline is $F = mg\\sin30\\degree$, and the displacement is just 5 meters. The work done is then $W = \\vec{F} \\cdot \\vec{d} = mg\\sin30\\degree d = 49.1~\\textrm{J}$."
             },
             {
                 number: 3,
-                question: "",
+                question: "What is the required work for a rocket motor to lift a 500 kg payload straight up 1000 m at constant speed?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["$5 \\times 10^6~\\textrm{J}$", 0, false],
+                    ["$5 \\times 10^5~\\textrm{J}$", 0, false],
+                    ["$4.91 \\times 10^6~\\textrm{J}$", 1, false],
+                    ["$3.42 \\times 10^6~\\textrm{J}$", 0, false]
                 ],
-                explain: ""
+                explain: "The force exerted by the motor is equal to the gravitational force, since the rocket goes up at constant speed. The displacement and force are parallel, so the problem simplifies to $W = Fd = mgd= 4.91 \\times 10^6~\\textrm{J}$."
             },
             {
                 number: 4,
-                question: "",
+                question: "Consider the graph below. When the object moves from $x=0$ to $x= 3$ m, what is the work done by the force?<br><br><img style='max-width: 400px;' src='/energy/Problem 9.png' class='rounded'>",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["9.375 J", 0, false],
+                    ["31.13 J", 0, false],
+                    ["12.50 J", 0, false],
+                    ["32.50 J", 0, false]
                 ],
-                explain: ""
-            },
-            {
-                number: 5,
-                question: "",
-                answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
-                ],
-                explain: ""
+                explain: "The first section of the graph is a trapezoid with base lengths of 1 meter and 1.75 (be careful here!) meters and a height of 15 N, corresponding to a work of 20.625 J. The second section is another trapezoid <b>below the x-axis</b> with base lengths of 1.75 meters and 0.5 meters and a height of 10 N, coresponding to a work of -11.25 J. The total work done is then the sum of the two, which is 20.625 J + (-11.25 J) = 9.375 J."
             }
         ],
         [ // calculus difficulty
             {
                 number: 0,
-                question: "",
+                question: "what is the work done by a force of 10 N pulling at a 30 degree angle to the horizontal on a box that slides 5 m horizontally?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["25 J", 0, false],
+                    ["43.3 J", 1, false],
+                    ["5.1 J", 0, false],
+                    ["25.5 J", 0, false]
                 ],
-                explain: ""
+                explain: "The component of the force parallel to the displacement is $F \\cos 30\\degree$. The work done is then $W = Fd\\cos30\\degree = 43.3~\\textrm{J}$."
             },
             {
                 number: 1,
-                question: "",
+                question: "A force changes according to the formula $F(x) = 2x^3$, where $x$ is the displacement in meters. What is the work done by this force as it moves an object from $x=0$ to $x=10$ m?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["2500 J", 0, false],
+                    ["5000 J", 1, false],
+                    ["600 J", 0, false],
+                    ["Cannot determine", 0, false]
                 ],
-                explain: ""
+                explain: "We integrate the force function over the displacement because of the definition that $dW = F ~dx$: $$W = \\int_0^{10} 2x^3 ~ dx = \\left[\\frac{1}{2}x^4\\right]_0^{10} = \\frac{1}{2}(10^4) = 5000~\\textrm{J}$$ It's a simple polynomial integral, so it shouldn't be too hard to do as long as you know how to set it up."
             },
             {
                 number: 2,
-                question: "",
+                question: "The following is based on a true story. Young Sheldon drops his computer down a flight of stairs while distracted during an online argument, which just happens to be a perfectly smooth inclined plane of 30 degrees and length 5 meters. If the computer has a mass of 2 kg, what is the work done by gravity on the computer as it slides down the stairs?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["10 J", 0, false],
+                    ["98.1 J", 0, false],
+                    ["85.0 J", 0, false],
+                    ["49.1 J", 1, false]
                 ],
-                explain: ""
+                explain: "The force of gravity down the incline is $F = mg\\sin30\\degree$, and the displacement is just 5 meters. The work done is then $W = \\vec{F} \\cdot \\vec{d} = mg\\sin30\\degree d = 49.1~\\textrm{J}$."
             },
             {
                 number: 3,
-                question: "",
+                question: "What is the required work for a rocket motor to lift a 500 kg payload straight up 1000 m at constant speed?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["$5 \\times 10^6~\\textrm{J}$", 0, false],
+                    ["$5 \\times 10^5~\\textrm{J}$", 0, false],
+                    ["$4.91 \\times 10^6~\\textrm{J}$", 1, false],
+                    ["$3.42 \\times 10^6~\\textrm{J}$", 0, false]
                 ],
-                explain: ""
+                explain: "The force exerted by the motor is equal to the gravitational force, since the rocket goes up at constant speed. The displacement and force are parallel, so the problem simplifies to $W = Fd = mgd= 4.91 \\times 10^6~\\textrm{J}$."
             },
             {
                 number: 4,
-                question: "",
+                question: "Consider the graph below. When the object moves from $x=0$ to $x= 3$ m, what is the work done by the force?<br><br><img style='max-width: 400px;' src='/energy/Problem 9.png' class='rounded'>",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["9.375 J", 0, false],
+                    ["31.13 J", 0, false],
+                    ["12.50 J", 0, false],
+                    ["32.50 J", 0, false]
                 ],
-                explain: ""
-            },
-            {
-                number: 5,
-                question: "",
-                answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
-                ],
-                explain: ""
+                explain: "The first section of the graph is a trapezoid with base lengths of 1 meter and 1.75 (be careful here!) meters and a height of 15 N, corresponding to a work of 20.625 J. The second section is another trapezoid <b>below the x-axis</b> with base lengths of 1.75 meters and 0.5 meters and a height of 10 N, coresponding to a work of -11.25 J. The total work done is then the sum of the two, which is 20.625 J + (-11.25 J) = 9.375 J."
             }
         ]
     ]
@@ -323,6 +279,7 @@ function setChecked(chek, qNum) {
                 that the work done by typing on a keyboard is very little. (You should be able to understand why - the
                 force you press on the keyboard
                 is small, as is the displacement of the keys!)
+                <br><br>
             </span>
             <div class="problem">
                 What work is done by pressing on a keyboard key? Assume the key compresses down a distance of $x = 1.5
@@ -333,7 +290,7 @@ function setChecked(chek, qNum) {
                     <img src="/energy/sheldoncomputer.png" />
                     <figcaption>Figure 2: An accurate representation of the scenario. </figcaption>
                 </figure>
-                <br><br>
+                <br>
                 This is a pretty simple calculation. Now we do have to consider that these two are vectors and the dot
                 product is required, but since
                 both vectors point straight downwards the angle between them is zero and thus you just multiply their
@@ -392,6 +349,7 @@ function setChecked(chek, qNum) {
                 <figure>
                     <img src="/energy/Figure 51.png">
                 </figure>
+                <br>
                 This is quite simple. You find the area under the graph from $x=0$ to $x=6$, which is just simple
                 geometry. However,
                 there are two common errors that I've seen with this kind of graph. The first is to assume that the area
@@ -440,7 +398,7 @@ function setChecked(chek, qNum) {
                     <figcaption>Figure 3: A work of modern art, or a representation of three different possible paths
                         between two points? It's the latter.</figcaption>
                 </figure>
-                <br><br>
+                <br>
                 The <b>conservative</b> force is one that is path-independent. What that means is that the work it does
                 only depends on its displacement, not the exact path it traveled on. It doesn't matter if you took any
                 number of fancy
@@ -509,7 +467,7 @@ function setChecked(chek, qNum) {
                     <figcaption>Figure 3: A work of modern art, or a representation of three different possible paths
                         between two points? It's the latter.</figcaption>
                 </figure>
-                <br><br>
+                <br>
                 The first type of force is a <b>conservative</b> force, which does the same amount of work regardless of
                 the path taken. It doesn't matter if you took any number of fancy
                 turns or maneuvers during on your path. This includes most field forces like gravity, as well as a few
