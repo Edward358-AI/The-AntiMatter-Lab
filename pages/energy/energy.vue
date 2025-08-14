@@ -26,205 +26,205 @@ const questions = reactive(
         [ // conceptual difficulty
             {
                 number: 0,
-                question: "What is the proper format for a vector in component form?",
+                question: "Which of these is not a type of energy?",
                 answers: [
-                    ["$\\{3, 5\\}$", 0, false],
-                    ["$\\langle 3, 5 \\rangle$", 1, false],
-                    ["$(3, 5)$", 0, false],
-                    ["$[3, 5]$", 0, false]
+                    ["Strength", 1, false],
+                    ["Kinetic", 0, false],
+                    ["Potential", 0, false],
+                    ["Chemical", 0, false]
                 ],
-                explain: "Recall that a vector in component form is denoted by its component in the horizontal direction ($x$) and vertical direction ($y$), surrounded by angle brackets. Thus the second answer choice is the correct one."
+                explain: "Strength energy is not a type of energy. Kinetic, potential, and chemical are all recognized forms of energy in physics."
             },
             {
                 number: 1,
-                question: "",
+                question: "What happens in terms of energy as a rock free falls through the air?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["It speeds up", 0, false],
+                    ["It loses gravitational potential energy", 0, false],
+                    ["Gravitational potential energy converts to kinetic", 1, false],
+                    ["It gains kinetic energy", 0, false]
                 ],
-                explain: ""
+                explain: "As a rock falls through the air, its gravitational potential energy converts to kinetic energy, keeping its total energy the same. "
             },
             {
                 number: 2,
-                question: "",
+                question: "In which of these cases is mechanical energy conserved?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["A feather slowly falls to the ground", 0, false],
+                    ["A thrown ball lands in a pile of sand", 0, false],
+                    ["A blob of clay splats on an ice rink", 0, false],
+                    ["A ball rolling smoothly across a table",1, false]
                 ],
-                explain: ""
+                explain: "Only the smoothly rolling ball has its mechanical energy conserved, as it doesn't lose mechanical energy to friction. In all other cases, some of the mechanical energy is lost either through air resistance, impact (technically deformation), or friction."
             },
             {
                 number: 3,
-                question: "",
+                question: "What kind of energy does a human being use to do work?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["Mechanical", 0, false],
+                    ["Potential", 0, false],
+                    ["Chemical", 1, false],
+                    ["Kinetic", 0, false]
                 ],
-                explain: ""
+                explain: "Humans use the chemical energy stored in food to do work. It doesn't just come from nowhere! Usually, we use this energy to convert it into kinetic or potential energy, but the actual source of the energy is chemical."
             },
             {
                 number: 4,
-                question: "",
+                question: "Where does energy go if it is \"lost\" through friction?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["Dissapears", 0, false],
+                    ["Heat", 1, false],
+                    ["Potential", 0, false],
+                    ["It doesn't get lost", 0, false]
                 ],
-                explain: ""
+                explain: "Friction tends to make things heat up, indicating that the mechanical energy is being converted into thermal energy. Energy is still conserved, but some mechanical energy is \"lost\" to the system as heat, which is not recoverable in most cases."
             },
             {
                 number: 5,
-                question: "",
+                question: "What is the point of zero potential energy?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["Sea level", 0, false],
+                    ["Wherever you are standing", 0, false],
+                    ["Any level land", 0, false],
+                    ["Anywhere you want", 1, false]
                 ],
-                explain: ""
+                explain: "You can set the point of zero potential energy wherever convenient. It is not universally defined and you can choose it based on your own discretion/convenience."
             }
         ],
         [ // algebra difficulty
             {
                 number: 0,
-                question: "What is the proper format for a vector in component form?",
+                question: "A ball slides down a frictionless ramp of height 3.0 meters. The bottom of the ramp is horizontal and 1.5 meters above the ground. How far from the end of the ramp does the ball land?",
                 answers: [
-                    ["$\\{3, 5\\}$", 0, false],
-                    ["$\\langle 3, 5 \\rangle$", 1, false],
-                    ["$(3, 5)$", 0, false],
-                    ["$[3, 5]$", 0, false]
+                    ["7.67 m", 0, false],
+                    ["0.553 m", 0, false],
+                    ["4.24 m", 1, false],
+                    ["8.23 m", 0, false]
                 ],
-                explain: "Recall that a vector in component form is denoted by its component in the horizontal direction ($x$) and vertical direction ($y$), surrounded by angle brackets. Thus the second answer choice is the correct one."
+                explain: "The velocity that the ball gains after going downwards 3.0 meters can be found with conservation of mechanical energy. The initial energy is all potential and the final energy can be defined to be all kinetic, so we have the equation $mgh= \\frac12mv^2$, which gives us $v = \\sqrt{2gh} = 7.67~\\textrm{m/s}$. The horizontal distance traveled can be found by using the time it takes to fall 1.5 meters, which is $t = \\sqrt{2h/g} = 0.553~\\textrm{s}$. If you can't arrive at this result, I suggest reviewing kinematics a bit. The horizontal distance is then $x = vt = 4.24~\\textrm{m}$."
             },
             {
                 number: 1,
-                question: "",
+                question: "A car of mass 1200 kg crashes into a large spring with a spring constant of 5000 N/m. If the spring compresses 2.5 meters before the car is momentarily at rest, what was the initial velocity of the car? Assume no deformation of the car and no losses to friction.",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["1.02 m/s", 0, false],
+                    ["5.10 m/s", 1, false],
+                    ["2.08 m/s", 0, false],
+                    ["10.4 m/s", 0, false]
                 ],
-                explain: ""
+                explain: "The spring potential energy must equal the initial kinetic energy of the car, so we can write $\\frac12 kx^2 = \\frac12 mv^2$. Isolating for $v$ gives us $v = x \\sqrt{\\frac{k}{m}}$ which simplifies to $v = 5.10~\\textrm{m/s}$."
             },
             {
                 number: 2,
-                question: "",
+                question: "A 2.5 kg block is dropped on a spring of spring constant 700 N/m from a height of 1.2 meters. How far does the spring compress before the block is momentarily at rest?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["0.33 m", 1, false],
+                    ["0.08 m", 0, false],
+                    ["0.29 m", 0, false],
+                    ["0.10 m", 0, false]
                 ],
-                explain: ""
+                explain: "The intial mechanical energy is all potential and it ends up as all, so we might be tempted to write $mgh = \\frac12 kx^2$. However, we must remember that the spring is compressed by the distance $x$ and the block has fallen a distance of $h + x$. Thus, we can write $mgh = \\frac12 k(h+x)^2$. Solving this quadratic gives us $0.33~\\textrm{m}$."
             },
             {
                 number: 3,
-                question: "",
+                question: "A keyboard can be modelled as a bunch of identical springs, each with spring constant $k$. Let's say you type the word \"pneumonoultramicroscopicsilicovolcanoconiosis\" on your keyboard. Waht is the total work you have done on the keyboard, if each key press compresses the spring by a distance $x$? (There are 45 letters in the word.)",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["$45 kx$", 0, false],
+                    ["$45kx^2$", 0, false],
+                    ["$\\frac12 kx^2$", 0, false],
+                    ["$\\frac{45}{2}kx^2$", 1, false]
                 ],
-                explain: ""
+                explain: "Each key press is equivalent to the work done compressing a spring by a distance $x$, which is given by $\\frac12 kx^2$. Since there are 45 letters, the total work done is $W = 45\\left(\\frac12 kx^2\\right) = \\frac{45}{2}kx^2$."
             },
             {
                 number: 4,
-                question: "",
+                question: "A cannon converts chemical energy in the form of explosive propellant into kinetic energy of a projectile. Assume that a battleship operating in open ocean wants to hit a target 40 km away with a shell weighing 2500 kg, and the propellant has an energy per unit mass of 5 MJ/kg. What is the minimum amount of propellant in kg required to hit the target?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["84.1 kg", 0, false],
+                    ["98.1 kg", 1, false],
+                    ["49.0 kg", 0, false],
+                    ["29.4 kg", 0, false]
                 ],
-                explain: ""
+                explain: "The required velocity to hit the target can be given assuming that the launch angle is 45 degrees, since that is the optimal angle for range. This gives us $\\frac{v^2}{g}=R$, which gives us $v^2 = gR$. This can be plugged into the kinetic energy formula to give us $K = \\frac12 mv^2 = \\frac12 mgR$. The energy per unit mass of the propellant is given as 5 MJ/kg and we can find the total energy of the propellant, so we can divide the two to find the required amount of propellant in kilograms. This gives us 98.1 kg."
             },
             {
                 number: 5,
-                question: "",
+                question: "What kind of energy does the human body use to perform work?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["Chemical", 1, false],
+                    ["Kinetic", 0, false],
+                    ["Potential", 0, false],
+                    ["Spring", 0, false]
                 ],
-                explain: ""
+                explain: "The human body metabolizes food to process chemical energy, which is then converted by the cells into mechanical energy to perform work. It might seem like we use kinetic or potential energy, but the real source of energy is chemical."
             }
         ],
         [ // calculus difficulty
             {
                 number: 0,
-                question: "What is the proper format for a vector in component form?",
+                question: "A ball slides down a frictionless ramp of height 3.0 meters. The bottom of the ramp is horizontal and 1.5 meters above the ground. How far from the end of the ramp does the ball land?",
                 answers: [
-                    ["$\\{3, 5\\}$", 0, false],
-                    ["$\\langle 3, 5 \\rangle$", 1, false],
-                    ["$(3, 5)$", 0, false],
-                    ["$[3, 5]$", 0, false]
+                    ["7.67 m", 0, false],
+                    ["0.553 m", 0, false],
+                    ["4.24 m", 1, false],
+                    ["8.23 m", 0, false]
                 ],
-                explain: "Recall that a vector in component form is denoted by its component in the horizontal direction ($x$) and vertical direction ($y$), surrounded by angle brackets. Thus the second answer choice is the correct one."
+                explain: "The velocity that the ball gains after going downwards 3.0 meters can be found with conservation of mechanical energy. The initial energy is all potential and the final energy can be defined to be all kinetic, so we have the equation $mgh= \\frac12mv^2$, which gives us $v = \\sqrt{2gh} = 7.67~\\textrm{m/s}$. The horizontal distance traveled can be found by using the time it takes to fall 1.5 meters, which is $t = \\sqrt{2h/g} = 0.553~\\textrm{s}$. If you can't arrive at this result, I suggest reviewing kinematics a bit. The horizontal distance is then $x = vt = 4.24~\\textrm{m}$."
             },
             {
                 number: 1,
-                question: "",
+                question: "A car of mass 1200 kg crashes into a large spring with a spring constant of 5000 N/m. If the spring compresses 2.5 meters before the car is momentarily at rest, what was the initial velocity of the car? Assume no deformation of the car and no losses to friction.",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["1.02 m/s", 0, false],
+                    ["5.10 m/s", 1, false],
+                    ["2.08 m/s", 0, false],
+                    ["10.4 m/s", 0, false]
                 ],
-                explain: ""
+                explain: "The spring potential energy must equal the initial kinetic energy of the car, so we can write $\\frac12 kx^2 = \\frac12 mv^2$. Isolating for $v$ gives us $v = x \\sqrt{\\frac{k}{m}}$ which simplifies to $v = 5.10~\\textrm{m/s}$."
             },
             {
                 number: 2,
-                question: "",
+                question: "A 2.5 kg block is dropped on a spring of spring constant 700 N/m from a height of 1.2 meters. How far does the spring compress before the block is momentarily at rest?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["0.33 m", 1, false],
+                    ["0.08 m", 0, false],
+                    ["0.29 m", 0, false],
+                    ["0.10 m", 0, false]
                 ],
-                explain: ""
+                explain: "The intial mechanical energy is all potential and it ends up as all, so we might be tempted to write $mgh = \\frac12 kx^2$. However, we must remember that the spring is compressed by the distance $x$ and the block has fallen a distance of $h + x$. Thus, we can write $mgh = \\frac12 k(h+x)^2$. Solving this quadratic gives us $0.33~\\textrm{m}$."
             },
             {
                 number: 3,
-                question: "",
+                question: "A keyboard can be modelled as a bunch of identical springs, each with spring constant $k$. Let's say you type the word \"pneumonoultramicroscopicsilicovolcanoconiosis\" on your keyboard. Waht is the total work you have done on the keyboard, if each key press compresses the spring by a distance $x$? (There are 45 letters in the word.)",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["$45 kx$", 0, false],
+                    ["$45kx^2$", 0, false],
+                    ["$\\frac12 kx^2$", 0, false],
+                    ["$\\frac{45}{2}kx^2$", 1, false]
                 ],
-                explain: ""
+                explain: "Each key press is equivalent to the work done compressing a spring by a distance $x$, which is given by $\\frac12 kx^2$. Since there are 45 letters, the total work done is $W = 45\\left(\\frac12 kx^2\\right) = \\frac{45}{2}kx^2$."
             },
             {
                 number: 4,
-                question: "",
+                question: "A cannon converts chemical energy in the form of explosive propellant into kinetic energy of a projectile. Assume that a battleship operating in open ocean wants to hit a target 40 km away with a shell weighing 2500 kg, and the propellant has an energy per unit mass of 5 MJ/kg. What is the minimum amount of propellant in kg required to hit the target?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["84.1 kg", 0, false],
+                    ["98.1 kg", 1, false],
+                    ["49.0 kg", 0, false],
+                    ["29.4 kg", 0, false]
                 ],
-                explain: ""
+                explain: "The required velocity to hit the target can be given assuming that the launch angle is 45 degrees, since that is the optimal angle for range. This gives us $\\frac{v^2}{g}=R$, which gives us $v^2 = gR$. This can be plugged into the kinetic energy formula to give us $K = \\frac12 mv^2 = \\frac12 mgR$. The energy per unit mass of the propellant is given as 5 MJ/kg and we can find the total energy of the propellant, so we can divide the two to find the required amount of propellant in kilograms. This gives us 98.1 kg."
             },
             {
                 number: 5,
-                question: "",
+                question: "What kind of energy does the human body use to perform work?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["Chemical", 1, false],
+                    ["Kinetic", 0, false],
+                    ["Potential", 0, false],
+                    ["Spring", 0, false]
                 ],
-                explain: ""
+                explain: "The human body metabolizes food to process chemical energy, which is then converted by the cells into mechanical energy to perform work. It might seem like we use kinetic or potential energy, but the real source of energy is chemical."
             }
         ]
     ]
@@ -550,7 +550,7 @@ onUnmounted(() => {
                 <figcaption>Figure 1: Purple Guy has more gravitational potential energy than the red guy lying down.
                 </figcaption>
             </figure>
-            <br><br>
+            <br>
             The exact formula for gravitational potential energy is:
             <br><br>
             $$U_g = mgh$$
