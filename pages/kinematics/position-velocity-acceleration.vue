@@ -456,21 +456,12 @@ function setChecked(chek, qNum) {
                     one equation you can use to find the initial and final velocities, involving acceleration later
                     on.<br><br><h4 class="text-center">Speed vs Velocity</h4>As with distance and displacment, you may have heard of speed. Speed
                     and velocity are two non interchangeable terms as well. You might be able
-                    to predict, if velocity is displacement divided by time, then speed must be distance divided by
+                    to predict, if average velocity is displacement divided by time, then average speed must be distance divided by
                     time!
                     Let's go back to example of me running around the park. My average velocity is zero, since my final
                     and
                     initial positions are the same, but my average speed is not zero, since my distance traveled is the
-                    length of the path around the park!<br>However, unlike distance and displacement, speed can be
-                    <i>more</i> confusing sometimes. Speed is often used as a word in physics texts to describe the
-                    magnitude (or length) of the velocity vector (remember vectors?), so in a sense, speed is related to
-                    velocity. We will occasionally use speed to refer to the magnitude of velocity. Use your best
-                    judgement and decide based on the context of the problem whether that is actually speed or just a
-                    shorthand for the magnitude of velocity. But remember, without context, speed will
-                    always refer to $\frac{\Delta s}{\Delta
-                    t}$ and is always a nonnegative scalar, while velocity is $\frac{\Delta x}{\Delta t}$ and a vector,
-                    a
-                    quantity with a magnitude and direction!
+                    length of the path around the park!<br>However, unlike distance and displacement, speed can <i>technically</i> refer to velocity. Let me explain: Average velocity and average speed are calculated differently, but your instantaneous speed at any point in time is simply equivalent to the magnitude of your instantaneous velocity. Instantaneous speed in problems is usually stated as itself or just as "speed", while average speed is almost always stated as itself. Just keep this in mind whenever you encounter the word speed, to be able to distinguish which type it is referring to.
                 </span>
                 <span v-show="level > 0">
                     <h4 class="text-center">Velocity</h4>
@@ -511,11 +502,7 @@ function setChecked(chek, qNum) {
                     Let's go back to example of me running around the park. My average velocity is zero, since my final
                     and
                     initial positions are the same, but my average speed is not zero, since my distance traveled is the
-                    length of the path around the park!<br><br><h4 class="text-center">Speed vs Velocity</h4>However, unlike distance and displacement, speed can be
-                    <i>more</i> confusing sometimes. Speed is often used as a word in physics texts to describe the
-                    magnitude (or length) of the velocity vector (remember vectors?), so in a sense, speed is related to
-                    velocity (do not make the same mistake for distance! Distance is almost NEVER used to refer to the
-                    magnitude of the displacement vector).
+                    length of the path around the park!<br><br><h4 class="text-center">Speed vs Velocity</h4>However, unlike distance and displacement, speed can <i>technically</i> refer to velocity. Let me explain: Average velocity and average speed are calculated differently, but your instantaneous speed at any point in time is simply equivalent to the magnitude of your instantaneous velocity. Instantaneous speed in problems is usually stated as itself or just as "speed", while average speed is almost always stated as itself. Just keep this in mind whenever you encounter the word speed, to be able to distinguish which type it is referring to.
                     <br><br>
                     Thus, for the remainder of this unit, we will do our best to
                     refer
