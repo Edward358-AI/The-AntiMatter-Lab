@@ -19,212 +19,179 @@ const page = storeToRefs(useUserStore()).EqTypes
 watch(page, () => window.scrollTo(0,0))
 watch(level, () => {if (!lessonShowing.value) nextTick(() => window.MathJax?.typeset())})
 
-const results = reactive([[0,0,0,0,0,0], [0,0,0,0,0,0], [0,0,0,0,0,0]]) // update as add more questions
-const explanations = reactive([[false,false,false,false,false,false], [false,false,false,false,false,false], [false,false,false,false,false,false]]) // keeps track of what explanations are visible
+const results = reactive([[0,0,0,0], [0,0,0,0,0], [0,0,0,0,0,0]]) // update as add more questions
+const explanations = reactive([[false,false,false,false], [false,false,false,false,false], [false,false,false,false,false,false]]) // keeps track of what explanations are visible
 const questions = reactive(
     [
         [ // conceptual difficulty
             {
                 number: 0,
-                question: "",
+                question: "Which of these is a stable equilibrium?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["A long, thin rod standing upright", 0, false],
+                    ["A quarter-full glass of water on a table", 1, false],
+                    ["A ball on top of a bowl", 0, false],
+                    ["A car on the edge of a cliff", 0, false]
                 ],
-                explain: ""
+                explain: "The quarter-full glass of water is a stable equilibrium because it will return to its original position if disturbed slightly. This might seem unintuitive, but the water is only at the bottom of the glass, and the weight of the water makes the glass steady itself when tipped slightly. Try this with some bottled water to see how it works."
             },
             {
                 number: 1,
-                question: "",
+                question: "Which one of these accurately describes an unstable equilibrium?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["Has a restoring force", 0, false],
+                    ["Has no force acting on it", 0, false],
+                    ["Easily tends to leave equilibrium", 1, false],
+                    ["Is not very stable", 0, false]
                 ],
-                explain: ""
+                explain: "An unstable equilibrium is one where the system tends to \"fall\" away from the equilibrium point if disturbed. This is the definition of an unstable equilibrium, and so the correct answer choice is the third one."
             },
             {
                 number: 2,
-                question: "",
+                question: "What is the best example of a neutral equilibrium?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["Box on a flight of stairs", 0, false],
+                    ["Car parked on a slope", 1, false],
+                    ["Book on the edge of a table", 0, false],
+                    ["Rain falling on a roof", 0, false]
                 ],
-                explain: ""
+                explain: "The car parked on a slope is a good example of a neutral equilibrium because it will remain in its new position if disturbed. If the car is able to park, then we assume that the force of friction is sufficient to hold it in place, which means that even if it's moved slightly it will not roll down the slope. This is a neutral equilibrium because the car will not return to its original position, nor will it accelerate away from it."
             },
             {
                 number: 3,
-                question: "",
+                question: "Is the orbit of planets around the sun stable, unstable, or neutral equilibrium?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["Neutral", 0, false],
+                    ["Unstable", 0, false],
+                    ["Stable", 0, false],
+                    ["None of the above", 1, false]
                 ],
-                explain: ""
-            },
-            {
-                number: 4,
-                question: "",
-                answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
-                ],
-                explain: ""
-            },
-            {
-                number: 5,
-                question: "",
-                answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
-                ],
-                explain: ""
+                explain: "The orbit of planets is NOT AN EQUILIBRIUM! The planets are undergoing circular (more precisely elliptical) motion around the sun, and they are constantly accelerating. Therefore, we can't categorize this as any type of equilibrium."
             }
         ],
         [ // algebra difficulty
             {
                 number: 0,
-                question: "",
+                question: "Which one of these describes a stable equilibrium?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["Local minimum potential energy point", 1, false],
+                    ["Zero potential energy point", 0, false],
+                    ["Local maximum potential energy point", 0, false],
+                    ["None of the above", 0, false]
                 ],
-                explain: ""
+                explain: "The stable equilibrium is characterized by a local minimum in the potential energy graph. That means the first answer choice is correct."
             },
             {
                 number: 1,
-                question: "",
+                question: "What is necessary for a system to be in equilibrium",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["No forces act on it", 0, false],
+                    ["The potential energy is zero at that position", 0, false],
+                    ["The slope of the potential energy v. position graph is zero", 1, false],
+                    ["The slope of the potential energy v. position graph is nonzero", 0, false]
                 ],
-                explain: ""
+                explain: "An equilibrium is defined as a point where the slope of the potential energy versus position graph is zero. The slope of the potential energy versus position graph is equal to the magnitude of the net force acting on the system at that point, so if the slope is zero, then the net force is zero. That's the definition of equilibrium."
             },
             {
                 number: 2,
-                question: "",
+                question: "What is the best example of a neutral equilibrium?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["Box on a flight of stairs", 0, false],
+                    ["Car parked on a slope", 1, false],
+                    ["Book on the edge of a table", 0, false],
+                    ["Rain falling on a roof", 0, false]
                 ],
-                explain: ""
+                explain: "The car parked on a slope is a good example of a neutral equilibrium because it will remain in its new position if disturbed. If the car is able to park, then we assume that the force of friction is sufficient to hold it in place, which means that even if it's moved slightly it will not roll down the slope. This is a neutral equilibrium because the car will not return to its original position, nor will it accelerate away from it."
             },
             {
                 number: 3,
-                question: "",
+                question: "Is the orbit of planets around the sun stable, unstable, or neutral equilibrium?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["Neutral", 0, false],
+                    ["Unstable", 0, false],
+                    ["Stable", 0, false],
+                    ["None of the above", 1, false]
                 ],
-                explain: ""
+                explain: "The orbit of planets is NOT AN EQUILIBRIUM! The planets are undergoing circular (more precisely elliptical) motion around the sun, and they are constantly accelerating. Therefore, we can't categorize this as any type of equilibrium."
             },
             {
                 number: 4,
-                question: "",
+                question: "Analyze the graph below to describe the system at point A.<br><img style='max-width: 250px;' src='/energy/Problem 10.png' class='rounded'>",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["No equilibrium", 0, false],
+                    ["Neutral equilibrium", 0, false],
+                    ["Stable Equilibrium", 1, false],
+                    ["Unstable Equilibrium", 0, false]
                 ],
-                explain: ""
-            },
-            {
-                number: 5,
-                question: "",
-                answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
-                ],
-                explain: ""
+                explain: "The point appears to be a local minimum in the potential energy graph, which should indicate to us that it is a stable equilibrium. Therefore, the third answer choice is correct."
             }
         ],
         [ // calculus difficulty
             {
                 number: 0,
-                question: "",
+                question: "Which one of these describes a stable equilibrium?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["Local minimum potential energy point", 1, false],
+                    ["Zero potential energy point", 0, false],
+                    ["Local maximum potential energy point", 0, false],
+                    ["None of the above", 0, false]
                 ],
-                explain: ""
+                explain: "The stable equilibrium is characterized by a local minimum in the potential energy graph. That means the first answer choice is correct."
             },
             {
                 number: 1,
-                question: "",
+                question: "What is necessary for a system to be in equilibrium",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["No forces act on it", 0, false],
+                    ["The potential energy is zero at that position", 0, false],
+                    ["The slope of the potential energy v. position graph is zero", 1, false],
+                    ["The slope of the potential energy v. position graph is nonzero", 0, false]
                 ],
-                explain: ""
+                explain: "An equilibrium is defined as a point where the slope of the potential energy versus position graph is zero. The slope of the potential energy versus position graph is equal to the magnitude of the net force acting on the system at that point, so if the slope is zero, then the net force is zero. That's the definition of equilibrium."
             },
             {
                 number: 2,
-                question: "",
+                question: "What is the best example of a neutral equilibrium?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["Box on a flight of stairs", 0, false],
+                    ["Car parked on a slope", 1, false],
+                    ["Book on the edge of a table", 0, false],
+                    ["Rain falling on a roof", 0, false]
                 ],
-                explain: ""
+                explain: "The car parked on a slope is a good example of a neutral equilibrium because it will remain in its new position if disturbed. If the car is able to park, then we assume that the force of friction is sufficient to hold it in place, which means that even if it's moved slightly it will not roll down the slope. This is a neutral equilibrium because the car will not return to its original position, nor will it accelerate away from it."
             },
             {
                 number: 3,
-                question: "",
+                question: "Is the orbit of planets around the sun stable, unstable, or neutral equilibrium?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["Neutral", 0, false],
+                    ["Unstable", 0, false],
+                    ["Stable", 0, false],
+                    ["None of the above", 1, false]
                 ],
-                explain: ""
+                explain: "The orbit of planets is NOT AN EQUILIBRIUM! The planets are undergoing circular (more precisely elliptical) motion around the sun, and they are constantly accelerating. Therefore, we can't categorize this as any type of equilibrium."
             },
             {
                 number: 4,
-                question: "",
+                question: "Analyze the graph below to describe the system at point A.<br><img style='max-width: 250px;' src='/energy/Problem 10.png' class='rounded'>",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["No equilibrium", 0, false],
+                    ["Neutral equilibrium", 0, false],
+                    ["Stable Equilibrium", 1, false],
+                    ["Unstable Equilibrium", 0, false]
                 ],
-                explain: ""
+                explain: "The point appears to be a local minimum in the potential energy graph, which should indicate to us that it is a stable equilibrium. Therefore, the third answer choice is correct."
             },
             {
                 number: 5,
-                question: "",
+                question: "Where is the stable equilibrium in the system described by $U(x) = x^3 - 9x^2 + 16x + 1$?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["$x=3$", 0, false],
+                    ["$x=8$", 1, false],
+                    ["$x=-2$", 0, false],
+                    ["N/A", 0, false]
                 ],
-                explain: ""
+                explain: "The stable equilibrium is at the local minimum of the potential energy graph. To find this, we need to take the first derivative of the potential energy function and set it equal to zero. The first derivative is $U'(x) = 3x^2 - 18x + 16$. Setting this equal to zero and factoring the quadratic gives us $x=8$ and $x=-2$ as answers. We then need to check the concavity at these points, so we use the second derivative ($2x-6$) and plug the values of $x$ in to find which one has a positive concavity (and thus is a local minimum). Only $x=8$ satisfies this condition, so it is the stable equilibrium point."
             }
         ]
     ]
