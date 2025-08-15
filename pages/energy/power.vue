@@ -18,212 +18,168 @@ const page = storeToRefs(useUserStore()).Power
 watch(page, () => window.scrollTo(0,0))
 watch(level, () => {if (!lessonShowing.value) nextTick(() => window.MathJax?.typeset())})
 
-const results = reactive([[0,0,0,0,0,0], [0,0,0,0,0,0], [0,0,0,0,0,0]]) // update as add more questions
-const explanations = reactive([[false,false,false,false,false,false], [false,false,false,false,false,false], [false,false,false,false,false,false]]) // keeps track of what explanations are visible
+const results = reactive([[0,0,0,0], [0,0,0,0,0], [0,0,0,0,0]]) // update as add more questions
+const explanations = reactive([[false,false,false,false], [false,false,false,false,false], [false,false,false,false,false]]) // keeps track of what explanations are visible
 const questions = reactive(
     [
         [ // conceptual difficulty
             {
                 number: 0,
-                question: "",
+                question: "You carry a heavy weight up a flight of stairs. Does the work depend on how fast you carry it? Does the power?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["Yes, Yes", 0, false],
+                    ["Yes, No", 0, false],
+                    ["No, Yes", 1, false],
+                    ["No, No", 0, false]
                 ],
-                explain: ""
+                explain: "The work done only depends on the displacement of the object, which doesn't depend on your speed. However, the power does depend on how fast you carry it, as power is defined as the rate of work done over time."
             },
             {
                 number: 1,
-                question: "",
+                question: "What does a kilowatt-hour measure?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["Power", 0, false],
+                    ["Energy", 1, false],
+                    ["Heat", 0, false],
+                    ["Time", 0, false]
                 ],
-                explain: ""
+                explain: "The kilowatt-hour is actually a measure of <i>energy</i>. The first part of the unit, the kilowatt, is a measure of power, and the second part is a measure of time. When you multiply the two together (power by time), you get energy."
             },
             {
                 number: 2,
-                question: "",
+                question: "What does a higher power engine do for a car?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["More acceleration", 0, false],
+                    ["Less drag", 0, false],
+                    ["More maneuverability", 0, false],
+                    ["Higher max speed", 1, false]
                 ],
-                explain: ""
+                explain: "Higher power on a car allows it to reach a higher maximum speed. Power can be defined as the rate of work done, and follows the formula $ P = \\vec{F} \\cdot \\vec{v} $. A higher power means that the car can exert a greater force at a given speed in order to overcome drag and friction forces, allowing it to reach a higher maximum speed."
             },
             {
                 number: 3,
-                question: "",
+                question: "As the angle of the incline increases, what happens to the power required to maintain a constant speed?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["Increases", 1, false],
+                    ["Decreases", 0, false],
+                    ["Remains Constant", 0, false],
+                    ["Not applicable", 0, false]
                 ],
-                explain: ""
-            },
-            {
-                number: 4,
-                question: "",
-                answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
-                ],
-                explain: ""
-            },
-            {
-                number: 5,
-                question: "",
-                answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
-                ],
-                explain: ""
+                explain: "As the slope angle increases, the component of gravitational force acting down the incline increases, requiring more power to maintain the same speed."
             }
         ],
         [ // algebra difficulty
             {
                 number: 0,
-                question: "",
+                question: "What is the power required to push a 1000 kg object along a flat surface at a constant speed of 5 m/s, assuming it has a coefficient of kinetic friction of 0.1?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["5000 W", 0, false],
+                    ["49050 W", 0, false],
+                    ["4905 W", 1, false],
+                    ["50000 W", 0, false]
                 ],
-                explain: ""
+                explain: "The power is equivalent to $P = Fv$ for this scenario. The force of friction is given by $F = \\mu_k mg$ because on a flat surface, $F_N = mg$. Substituting in the values gives us the power: $P = Fv = 4905 ~\\textrm{W}$."
             },
             {
                 number: 1,
-                question: "",
+                question: "What does a kilowatt-hour measure?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["Power", 0, false],
+                    ["Energy", 1, false],
+                    ["Heat", 0, false],
+                    ["Time", 0, false]
                 ],
-                explain: ""
+                explain: "The kilowatt-hour is actually a measure of <i>energy</i>. The first part of the unit, the kilowatt, is a measure of power, and the second part is a measure of time. When you multiply the two together (power by time), you get energy."
             },
             {
                 number: 2,
-                question: "",
+                question: "An elevator lifts a 500 kg load to a height of 20 m in 10 seconds. What is the average power output of the elevator?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["980 W", 0, false],
+                    ["1500 W", 0, false],
+                    ["1000 W", 0, false],
+                    ["9810 W", 1, false]
                 ],
-                explain: ""
+                explain: "The work done is equal to the change in gravitational potential energy, which is $mgh$. The average power is the work divided by the time interval over which it was performed, so we have $P = \\frac{mgh}{\\Delta t} = 9810 ~\\textrm{W}$."
             },
             {
                 number: 3,
-                question: "",
+                question: "The same elevator from the previous problem now lifts the same load. At one instant, the upwards acceleration of the elevator is 2.5 m/s<sup>2</sup> and the elevator is moving upwards at 2 m/s. What is the instantaneous power output of the elevator at that moment?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["9810 W", 0, false],
+                    ["12310 W", 1, false],
+                    ["2500 W", 0, false],
+                    ["7310 W", 0, false]
                 ],
-                explain: ""
+                explain: "At the instant, the power on the elevator is due to the tension force in the cable. The acceleration is upwards, but we can't just directly use it to compute the tension force. Recall that there is also a gravitational force downwards, so the tension force is actually $F_T = mg + ma = m(g + a)$. (This is ficticious forces reasoning.) The power is then $P = F_T v = m(g + a)v$. Substituting in the values gives us $P = 12310 ~\\textrm{W}$."
             },
             {
                 number: 4,
-                question: "",
+                question: "Assume that a 1500 kg car driving at 100 kph has a constant engine power. There is a constant air resistance of 500 N acting on the car. What is the minimum possible engine power required to maintain this speed?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["6.7 kW", 0, false],
+                    ["139 kW", 0, false],
+                    ["409 kW", 0, false],
+                    ["13.9 kW", 1, false]
                 ],
-                explain: ""
-            },
-            {
-                number: 5,
-                question: "",
-                answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
-                ],
-                explain: ""
+                explain: "The power is equivalent to $P = Fv$. The force is the air resistance, which is 500 N, and the velocity is 100 kph, which can be converted to 27.78 m/s. Thus, $P = 13890 ~\\textrm{W} = 13.9 ~\\textrm{kW}$."
             }
         ],
         [ // calculus difficulty
             {
                 number: 0,
-                question: "",
+                question: "What is the power required to push a 1000 kg object along a flat surface at a constant speed of 5 m/s, assuming it has a coefficient of kinetic friction of 0.1?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["5000 W", 0, false],
+                    ["49050 W", 0, false],
+                    ["4905 W", 1, false],
+                    ["50000 W", 0, false]
                 ],
-                explain: ""
+                explain: "The power is equivalent to $P = Fv$ for this scenario. The force of friction is given by $F = \\mu_k mg$ because on a flat surface, $F_N = mg$. Substituting in the values gives us the power: $P = Fv = 4905 ~\\textrm{W}$."
             },
             {
                 number: 1,
-                question: "",
+                question: "What does a kilowatt-hour measure?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["Power", 0, false],
+                    ["Energy", 1, false],
+                    ["Heat", 0, false],
+                    ["Time", 0, false]
                 ],
-                explain: ""
+                explain: "The kilowatt-hour is actually a measure of <i>energy</i>. The first part of the unit, the kilowatt, is a measure of power, and the second part is a measure of time. When you multiply the two together (power by time), you get energy."
             },
             {
                 number: 2,
-                question: "",
+                question: "An elevator lifts a 500 kg load to a height of 20 m in 10 seconds. What is the average power output of the elevator?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["980 W", 0, false],
+                    ["1500 W", 0, false],
+                    ["1000 W", 0, false],
+                    ["9810 W", 1, false]
                 ],
-                explain: ""
+                explain: "The work done is equal to the change in gravitational potential energy, which is $mgh$. The average power is the work divided by the time interval over which it was performed, so we have $P = \\frac{mgh}{\\Delta t} = 9810 ~\\textrm{W}$."
             },
             {
                 number: 3,
-                question: "",
+                question: "The same elevator from the previous problem now lifts the same load. At one instant, the upwards acceleration of the elevator is 2.5 m/s<sup>2</sup> and the elevator is moving upwards at 2 m/s. What is the instantaneous power output of the elevator at that moment?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["9810 W", 0, false],
+                    ["12310 W", 1, false],
+                    ["2500 W", 0, false],
+                    ["7310 W", 0, false]
                 ],
-                explain: ""
+                explain: "At the instant, the power on the elevator is due to the tension force in the cable. The acceleration is upwards, but we can't just directly use it to compute the tension force. Recall that there is also a gravitational force downwards, so the tension force is actually $F_T = mg + ma = m(g + a)$. (This is ficticious forces reasoning.) The power is then $P = F_T v = m(g + a)v$. Substituting in the values gives us $P = 12310 ~\\textrm{W}$."
             },
             {
                 number: 4,
-                question: "",
+                question: "Assume that a 1500 kg car driving at 100 kph has a constant engine power. There is a constant air resistance of 500 N acting on the car. What is the minimum possible engine power required to maintain this speed?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["6.7 kW", 0, false],
+                    ["139 kW", 0, false],
+                    ["409 kW", 0, false],
+                    ["13.9 kW", 1, false]
                 ],
-                explain: ""
-            },
-            {
-                number: 5,
-                question: "",
-                answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
-                ],
-                explain: ""
+                explain: "The power is equivalent to $P = Fv$. The force is the air resistance, which is 500 N, and the velocity is 100 kph, which can be converted to 27.78 m/s. Thus, $P = 13890 ~\\textrm{W} = 13.9 ~\\textrm{kW}$."
             }
         ]
     ]
