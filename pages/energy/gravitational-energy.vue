@@ -18,212 +18,190 @@ const page = storeToRefs(useUserStore()).GravEnergy
 watch(page, () => window.scrollTo(0,0))
 watch(level, () => {if (!lessonShowing.value) nextTick(() => window.MathJax?.typeset())})
 
-const results = reactive([[0,0,0,0,0,0], [0,0,0,0,0,0], [0,0,0,0,0,0]]) // update as add more questions
-const explanations = reactive([[false,false,false,false,false,false], [false,false,false,false,false,false], [false,false,false,false,false,false]]) // keeps track of what explanations are visible
+const results = reactive([[0,0,0,0], [0,0,0,0,0,0], [0,0,0,0,0,0]]) // update as add more questions
+const explanations = reactive([[false,false,false,false], [false,false,false,false,false,false], [false,false,false,false,false,false]]) // keeps track of what explanations are visible
 const questions = reactive(
     [
         [ // conceptual difficulty
             {
                 number: 0,
-                question: "",
+                question: "Why does $U_g = mgh$ not work for universal gravitational potential energy?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["It is only for Earth gravity", 0, false],
+                    ["It only works when gravity is constant", 1, false],
+                    ["It is too precise", 0, false],
+                    ["The distances involved are too short", 0, false]
                 ],
-                explain: ""
+                explain: "The formula $U_g = mgh$ is only valid when the gravitational field is roughly constant, which is true near the surface of the Earth but not for larger distances like those between celestial bodies."
             },
             {
                 number: 1,
-                question: "",
+                question: "What is the maximum possible value of gravitational potential energy?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["Infinity", 0, false],
+                    ["Negative infinity", 0, false],
+                    ["Zero", 1, false],
+                    ["None of the above", 0, false]
                 ],
-                explain: ""
+                explain: "Gravitational potential energy is defined to be zero at infinite separation between two bodies, making it the maximum value. All other values are negative under the conventional definition that we have presented."
             },
             {
                 number: 2,
-                question: "",
+                question: "Three objects are in a system. How many terms are in the total gravitational potential energy expression?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["3", 1, false],
+                    ["4", 0, false],
+                    ["1", 0, false],
+                    ["2", 0, false]
                 ],
-                explain: ""
+                explain: "The gravitational potential energy is between each unique pair of objects. For three objects, there are three pairs: the first and second, the second and third, and the first and third. Thus, there are three terms in the total gravitational potential energy expression."
             },
             {
                 number: 3,
-                question: "",
+                question: "Consider the previous problem, but add another object to the system. Now how many terms are in the total gravitational potential energy expression?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["4", 0, false],
+                    ["5", 0, false],
+                    ["3", 0, false],
+                    ["6", 1, false]
                 ],
-                explain: ""
-            },
-            {
-                number: 4,
-                question: "",
-                answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
-                ],
-                explain: ""
-            },
-            {
-                number: 5,
-                question: "",
-                answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
-                ],
-                explain: ""
+                explain: "There are six unique pairs of objects in a system of four objects, so there are six terms in the total gravitational potential energy expression. This is easiest to see if you put four objects in a square pattern and count the pairs between them."
             }
         ],
         [ // algebra difficulty
             {
                 number: 0,
-                question: "",
+                question: "Determine the escape velocity from a small asteroid of mass $M = 5 \\cdot 10^{14} ~\\textrm{kg}$ and radius $R = 1.5 \\cdot 10^3 ~\\textrm{m}$.",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["6.67 m/s", 1, false],
+                    ["4.72 m/s", 0, false],
+                    ["0.17 m/s", 0, false],
+                    ["44.5 m/s", 0, false]
                 ],
-                explain: ""
+                explain: "We found that the escape velocity can be written in general as $v_e = \\sqrt{2G \\frac{M}{R}}$. This is found by finding the gravitational potential and kinetic energies at infinite separation, which should both be zero. Plugging in the values, we get $v_e = 6.67 ~\\textrm{m/s}$."
             },
             {
                 number: 1,
-                question: "",
+                question: "What is the total gravitational potential energy of orbit of a binary star system with two stars of mass $M = 2 \\cdot 10^{30} ~\\textrm{kg}$ each, separated by a distance of $R = 1.5 \\cdot 10^{11} ~\\textrm{m}$?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["$-8.89 \\times 10^8 \\textrm{J}$", 0, false],
+                    ["$1.78 \\times 10^{39} \\textrm{J}$", 0, false],
+                    ["$-1.78 \\times 10^{39} \\textrm{J}$", 1, false],
+                    ["$-3.56 \\times 10^{39} \\textrm{J}$", 0, false]
                 ],
-                explain: ""
+                explain: "The gravitational potential energy between two oobjects is given by $U_g = -G \\frac{Mm}{r}$. In this case, we have two stars of mass $M$ each, so we can write the total potential energy as $U = -G \\frac{M^2}{R}$. Plugging in the values, we find that $U = -1.78 \\times 10^{39} ~\\textrm{J}$. A very common error is double-counting. Remember, there is only one pair of objects!"
             },
             {
                 number: 2,
-                question: "",
+                question: "Three objects are in a system. How many terms are in the total gravitational potential energy expression?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["3", 1, false],
+                    ["4", 0, false],
+                    ["1", 0, false],
+                    ["2", 0, false]
                 ],
-                explain: ""
+                explain: "The gravitational potential energy is between each unique pair of objects. For three objects, there are three pairs: the first and second, the second and third, and the first and third. Thus, there are three terms in the total gravitational potential energy expression."
             },
             {
                 number: 3,
-                question: "",
+                question: "Consider the previous problem, but add another object to the system. Now how many terms are in the total gravitational potential energy expression?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["4", 0, false],
+                    ["5", 0, false],
+                    ["3", 0, false],
+                    ["6", 1, false]
                 ],
-                explain: ""
+                explain: "There are six unique pairs of objects in a system of four objects, so there are six terms in the total gravitational potential energy expression. This is easiest to see if you put four objects in a square pattern and count the pairs between them."
             },
             {
                 number: 4,
-                question: "",
+                question: "An object on a parabolic orbit has zero energy when it is infinitely separated from a star of mass $M$. When it approaches the star, it reaches a minimum distance of $R$ from the star. What is the velocity of the object at this point?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["$\\sqrt{G\\frac{M}{R}}$", 0, false],
+                    ["${G\\frac{M}{R}}$", 0, false],
+                    ["$\\sqrt{2G\\frac{M}{R}}$", 1, false],
+                    ["$\\sqrt{G\\frac{M}{2R}}$", 0, false]
                 ],
-                explain: ""
+                explain: "The total energy of the object is zero at all times. When it is a distance $R$ from the star, its potential energy is $U = -G\\frac{Mm}{R}$. The kinetic energy at this point must be equal to the potential energy in magnitude, so we have $K = \\frac12 mv^2 = G\\frac{Mm}{R}$. Solving for $v$ gives us $v = \\sqrt{2G\\frac{M}{R}}$."
             },
             {
                 number: 5,
-                question: "",
+                question: "A rocket is shot upwards with a speed of $6.7 ~\\textrm{km/s}$ from the surface of the Earth. What height does it reach? Earth's radius is $R_E = 6.38 \\times 10^6 ~\\textrm{m}$ and its mass is $M_E = 5.97 \\times 10^{24} ~\\textrm{kg}$.",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["$6.38 \\times 10^6~\\textrm{m}$", 0, false],
+                    ["$3.58 \\times 10^6~\\textrm{m}$", 1, false],
+                    ["$4.69 \\times 10^6~\\textrm{m}$", 0, false],
+                    ["$9.96 \\times 10^6~\\textrm{m}$", 0, false]
                 ],
-                explain: ""
+                explain: "We need to use the formula for universal gravitational potential energy because the launch speed is very high. The energy conservation equation takes the form $\\frac12mv^2 - G \\frac{Mm}{R_E} = -G \\frac{Mm}{R_E + h}$, where $h$ is the height we want to find. The algebra is a bit tough here, but we should ultimately arrive at the result that $h = 3.58 \\times 10^6 ~\\textrm{m}$."
             }
         ],
         [ // calculus difficulty
             {
                 number: 0,
-                question: "",
+                question: "Determine the escape velocity from a small asteroid of mass $M = 5 \\cdot 10^{14} ~\\textrm{kg}$ and radius $R = 1.5 \\cdot 10^3 ~\\textrm{m}$.",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["6.67 m/s", 1, false],
+                    ["4.72 m/s", 0, false],
+                    ["0.17 m/s", 0, false],
+                    ["44.5 m/s", 0, false]
                 ],
-                explain: ""
+                explain: "We found that the escape velocity can be written in general as $v_e = \\sqrt{2G \\frac{M}{R}}$. This is found by finding the gravitational potential and kinetic energies at infinite separation, which should both be zero. Plugging in the values, we get $v_e = 6.67 ~\\textrm{m/s}$."
             },
             {
                 number: 1,
-                question: "",
+                question: "What is the total gravitational potential energy of orbit of a binary star system with two stars of mass $M = 2 \\cdot 10^{30} ~\\textrm{kg}$ each, separated by a distance of $R = 1.5 \\cdot 10^{11} ~\\textrm{m}$?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["$-8.89 \\times 10^8 \\textrm{J}$", 0, false],
+                    ["$1.78 \\times 10^{39} \\textrm{J}$", 0, false],
+                    ["$-1.78 \\times 10^{39} \\textrm{J}$", 1, false],
+                    ["$-3.56 \\times 10^{39} \\textrm{J}$", 0, false]
                 ],
-                explain: ""
+                explain: "The gravitational potential energy between two oobjects is given by $U_g = -G \\frac{Mm}{r}$. In this case, we have two stars of mass $M$ each, so we can write the total potential energy as $U = -G \\frac{M^2}{R}$. Plugging in the values, we find that $U = -1.78 \\times 10^{39} ~\\textrm{J}$. A very common error is double-counting. Remember, there is only one pair of objects!"
             },
             {
                 number: 2,
-                question: "",
+                question: "Three objects are in a system. How many terms are in the total gravitational potential energy expression?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["3", 1, false],
+                    ["4", 0, false],
+                    ["1", 0, false],
+                    ["2", 0, false]
                 ],
-                explain: ""
+                explain: "The gravitational potential energy is between each unique pair of objects. For three objects, there are three pairs: the first and second, the second and third, and the first and third. Thus, there are three terms in the total gravitational potential energy expression."
             },
             {
                 number: 3,
-                question: "",
+                question: "Consider the previous problem, but add another object to the system. Now how many terms are in the total gravitational potential energy expression?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["4", 0, false],
+                    ["5", 0, false],
+                    ["3", 0, false],
+                    ["6", 1, false]
                 ],
-                explain: ""
+                explain: "There are six unique pairs of objects in a system of four objects, so there are six terms in the total gravitational potential energy expression. This is easiest to see if you put four objects in a square pattern and count the pairs between them."
             },
             {
                 number: 4,
-                question: "",
+                question: "An object on a parabolic orbit has zero energy when it is infinitely separated from a star of mass $M$. When it approaches the star, it reaches a minimum distance of $R$ from the star. What is the velocity of the object at this point?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["$\\sqrt{G\\frac{M}{R}}$", 0, false],
+                    ["${G\\frac{M}{R}}$", 0, false],
+                    ["$\\sqrt{2G\\frac{M}{R}}$", 1, false],
+                    ["$\\sqrt{G\\frac{M}{2R}}$", 0, false]
                 ],
-                explain: ""
+                explain: "The total energy of the object is zero at all times. When it is a distance $R$ from the star, its potential energy is $U = -G\\frac{Mm}{R}$. The kinetic energy at this point must be equal to the potential energy in magnitude, so we have $K = \\frac12 mv^2 = G\\frac{Mm}{R}$. Solving for $v$ gives us $v = \\sqrt{2G\\frac{M}{R}}$."
             },
             {
                 number: 5,
-                question: "",
+                question: "A rocket is shot upwards with a speed of $6.7 ~\\textrm{km/s}$ from the surface of the Earth. What height does it reach? Earth's radius is $R_E = 6.38 \\times 10^6 ~\\textrm{m}$ and its mass is $M_E = 5.97 \\times 10^{24} ~\\textrm{kg}$.",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["$6.38 \\times 10^6~\\textrm{m}$", 0, false],
+                    ["$3.58 \\times 10^6~\\textrm{m}$", 1, false],
+                    ["$4.69 \\times 10^6~\\textrm{m}$", 0, false],
+                    ["$9.96 \\times 10^6~\\textrm{m}$", 0, false]
                 ],
-                explain: ""
+                explain: "We need to use the formula for universal gravitational potential energy because the launch speed is very high. The energy conservation equation takes the form $\\frac12mv^2 - G \\frac{Mm}{R_E} = -G \\frac{Mm}{R_E + h}$, where $h$ is the height we want to find. The algebra is a bit tough here, but we should ultimately arrive at the result that $h = 3.58 \\times 10^6 ~\\textrm{m}$."
             }
         ]
     ]
