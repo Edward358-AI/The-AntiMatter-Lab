@@ -247,6 +247,12 @@ function setChecked(chek, qNum) {
     }
 }
 
+function setProblemVideoVolume() {
+    if (this.$refs.problemVideo) {
+        this.$refs.problemVideo.volume = 0.75; // Set volume to 75%
+    }
+}
+
 const inputValue = ref('')
 const viewportMsg = ref('')
 
@@ -631,7 +637,16 @@ onUnmounted(() => {
                         problem. Since the equation is already in the form of $x=...$, we can directly plug in the
                         values:
                         $$x=(0)(5)+\frac 1 2 (1.5)(5)^2=\bbox[3px, border: 0.5px solid white]{+18.75 ~\textrm m}$$
-                        This is our answer for part b.</div>
+                        This is our answer for part b.
+                        <br><br>
+                        Here is the video explanation for this problem, if you prefer that:
+                        <br>
+                        <div style="display: flex; justify-content: center; margin: 20px 0;">
+                            <video ref="problemVideo" controls style="max-width: 750px; width: 100%; height: auto;" @loadedmetadata="setProblemVideoVolume">
+                                <source src="/kinematics/kinematicsProblem1.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div></div>
                 </span>
             </p>
             <div class="btn-contain-left">
