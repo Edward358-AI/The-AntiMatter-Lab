@@ -426,7 +426,7 @@ function newtonsCradle(xx, yy, number, size, length) {
             <br><br>
             This indicates that the momentum carried by the balls coming in is the same as the momentum carried by the
             balls
-            leaving! This leads us to a new physics principle: the conservation of mechanical energy.
+            leaving! This leads us to a new physics principle: the conservation of linear momentum.
             <br><br>
             <span v-show="level > 0">
                 Like the conservation of energy principle, there are certain conditions that must be satisfied for
@@ -591,8 +591,8 @@ function newtonsCradle(xx, yy, number, size, length) {
                     <br><br>
                     The astronaut, unfortunately, was not conservative with her oxygen and now only has 5 minutes worth
                     of it left.
-                    She is stranded a distance of 3 kilometers from the spaceship. How fast must she throw the tool of
-                    boxes such
+                    She is stranded a distance of 3 kilometers from the spaceship. How fast must she throw the box of
+                    tools such
                     that she can make it back in time? She is stationary relative to the ship.
                     <br><br>
                     First, we can do the easy step and find the required velocity for the astronaut to just be able to
@@ -649,7 +649,7 @@ function newtonsCradle(xx, yy, number, size, length) {
                     doesn't have to
                     be a fluid!
                     <br><br>
-                    We can asume the total momentum of the combination of astronaut and toolbox is zero, and it will
+                    We can assume the total momentum of the combination of astronaut and toolbox is zero, and it will
                     remain zero no matter what
                     the astronaut does to the toolbox because there are no external forces in the vacuum of space.
                     Therefore, she can simply
