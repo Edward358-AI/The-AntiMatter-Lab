@@ -17,212 +17,190 @@ const page = storeToRefs(useUserStore()).Impulse
 watch(page, () => window.scrollTo(0,0))
 watch(level, () => {if (!lessonShowing.value) nextTick(() => window.MathJax?.typeset())})
 
-const results = reactive([[0,0,0,0,0,0], [0,0,0,0,0,0], [0,0,0,0,0,0]]) // update as add more questions
-const explanations = reactive([[false,false,false,false,false,false], [false,false,false,false,false,false], [false,false,false,false,false,false]]) // keeps track of what explanations are visible
+const results = reactive([[0,0,0,0], [0,0,0,0,0,0], [0,0,0,0,0,0]]) // update as add more questions
+const explanations = reactive([[false,false,false,false], [false,false,false,false,false,false], [false,false,false,false,false,false]]) // keeps track of what explanations are visible
 const questions = reactive(
     [
         [ // conceptual difficulty
             {
                 number: 0,
-                question: "",
+                question: "What kind of quantity is momentum?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["Linear", 0, false],
+                    ["Directional", 0, false],
+                    ["Scalar", 0, false],
+                    ["Vector", 1, false]
                 ],
-                explain: ""
+                explain: "Momentum is the product of mass (scalar) and velocity (vector), making it a vector quantity. This is important to remember as it affects calculations involving momentum later on!"
             },
             {
                 number: 1,
-                question: "",
+                question: "How does impulse relate to momentum?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["They are two names for the same quantity", 0, false],
+                    ["Impulse is the change in momentum", 1, false],
+                    ["Impulse is related to force and time", 0, false],
+                    ["They are not related", 0, false]
                 ],
-                explain: ""
+                explain: "Impulse is defined as the change in momentum by the impulse-momentum theorem. Therefore, the second answer is correct."
             },
             {
                 number: 2,
-                question: "",
+                question: "Gasoline leaks out of a car's fuel tank at a constant rate. What happens to the car's speed?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["Increases", 0, false],
+                    ["Decreases", 0, false],
+                    ["Stays the same", 1, false],
+                    ["Increases, then decreases", 0, false]
                 ],
-                explain: ""
+                explain: "The gasoline that leaks out does not have any horizontal velocity relative to the car, so it cannot affect the car's speed. The formula $F =\\Delta p/\\Delta t$ is zero because the leaking gasoline has the same momentum when it leaks out as when it was in the car."
             },
             {
                 number: 3,
-                question: "",
+                question: "Impulse is defined as the product of which two quantities?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["Force and time", 0, false],
+                    ["Average force and time", 1, false],
+                    ["Force and displacement", 0, false],
+                    ["Average force and distance", 0, false]
                 ],
-                explain: ""
-            },
-            {
-                number: 4,
-                question: "",
-                answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
-                ],
-                explain: ""
-            },
-            {
-                number: 5,
-                question: "",
-                answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
-                ],
-                explain: ""
+                explain: "Impulse is defined as the product of <b>average force</b> and time. Without calculus, we have to use the average force for the most precise definition, because we cannot assume that the force will be constant in general."
             }
         ],
         [ // algebra difficulty
             {
                 number: 0,
-                question: "",
+                question: "A force of 10 N acts on an object initially moving with a velocity of 2 m/s for 3 seconds. During that time period, the object's mass magically changes from 2 kg to 4 kg. What is the final speed of the object?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["8.5 m/s", 1, false],
+                    ["17 m/s", 0, false],
+                    ["9.5 m/s", 0, false],
+                    ["12 m/s", 0, false]
                 ],
-                explain: ""
+                explain: "Impulse is defined as the change in momentum, so we use the impulse-momentum theorem. The initial momentum is nonzero, so we need to account for that. The impulse given can be found relatively easily as $30 ~\\textrm{N} \\cdot \\textrm{s}$. This means that the final momentum is the sum of the initial momentum and the impulse, so we can solve for the final velocity as $v_f = 8.5 ~\\textrm{m/s}$."
             },
             {
                 number: 1,
-                question: "",
+                question: "A cargo ship is loaded with 10 containers, each weighing 2,000 kg. The containers are added with no horizontal speed relative to the water and do not slip on the deck. After the containers are added, the ship is moving at a speed of 10 m/s. If the ship's mass is 40,000 kg empty, what was the initial speed of the ship assuming no external forces act on it?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["10.5 m/s", 0, false],
+                    ["6.67 m/s", 0, false],
+                    ["15 m/s", 1, false],
+                    ["9.52 m/s", 0, false]
                 ],
-                explain: ""
+                explain: "The final and initial momentums of the ship must be equal. The final momentum is the total mass of the ship and containers multiplied by the final speed, and this is equal to the mass of the empty ship multiplied by the initial speed. We can then solve for the initial speed as $v_i = 15 ~\\textrm{m/s}$."
             },
             {
                 number: 2,
-                question: "",
+                question: "An object subjected to a varying force changes its velocity from 5 m/s to 15 m/s in 4 seconds. If the mass of the object is 3 kg, what must be the average force acting on it?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["15 N", 0, false],
+                    ["7.5 N", 1, false],
+                    ["13.3 N", 0, false],
+                    ["12.5 N", 0, false]
                 ],
-                explain: ""
+                explain: "The change in momentum in this case is easily found as $\\Delta p = m \\Delta v$ because the mass is constant. This is equal to the average force times the time interval by the impulse-momentum theorem, so we can solve for the average force as $F_{av} = 7.5 ~\\textrm{N}$."
             },
             {
                 number: 3,
-                question: "",
+                question: "A bullet of mass 0.05 kg is fired from a gun with a speed of 700 m/s. The bullet hits a wall and comes to a stop in 0.002 seconds. What is the average force exerted by the wall on the bullet?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["75000 N", 0, false],
+                    ["1750 N", 0, false],
+                    ["0.7 N", 0, false],
+                    ["17500 N", 1, false]
                 ],
-                explain: ""
+                explain: "The bullet has a momentum of $p = mv = 35 ~\\textrm{kg} \\cdot \\textrm{m/s}$. The bullet stops when it hits the wall, so change in momentum is equal to the initial momentum since the final momentum is zero. The average force can be found by dividing the change in momentum by the time interval according to the impulse-momentum theorem, giving us $F_{av} = 17500 ~\\textrm{N}$."
             },
             {
                 number: 4,
-                question: "",
+                question: "A basketball of mass 0.5 kg rebounds off the floor with a speed of 6.2 m/s after being dropped from a height of 3 m. If the basketball is in contact with the ground for 0.05 seconds, what is the average force exerted on it?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["200.7 N", 0, false],
+                    ["138.7 N", 1, false],
+                    ["153.4 N", 0, false],
+                    ["124.0 N", 0, false]
                 ],
-                explain: ""
+                explain: "First, we need to find the initial velocity of the basketball just before it hits the ground. Using kinematics or energy, we find that it is $v = \\sqrt{2gh}$, where $h$ is the initial height. The change in momentum is then $\\Delta p = m(v_f - v_i)$, where $v_f$ is the final velocity and $v_i$ is the initial velocity. However, in this case the initial and final velocities are in opposite directions, so we <b>add</b> their magnitudes in the formula for the momentum change. The average force is then found by dividing the change in momentum by the time interval, giving us $F_{av} = 138.7 ~\\textrm{N}$."
             },
             {
                 number: 5,
-                question: "",
+                question: "A force linearly increases from 25 N to 80 N over a time of 10 seconds. If this force acts on a 15 kg object from rest, what is the final speed of the object?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["26.7 m/s", 0, false],
+                    ["25 m/s", 0, false],
+                    ["35 m/s", 1, false],
+                    ["18.3 m/s", 0, false]
                 ],
-                explain: ""
+                explain: "The average force is the average of the two force values because the force is linearly increasing. We may then multiply this average force by the time interval to find the impulse. Alternatively, we can realize that the area under the force vs. time graph is a trapezoid and use geometry to find the area, which by definition is also equal to the impulse. In any case, we find that the impulse is $J = 525 ~\\textrm{N} \\cdot \\textrm{s}$. By the impulse-momentum theorem, this is equal to the change in momentum, or $J = m \\Delta v$. We can then solve for the final speed as $v_f = 35 ~\\textrm{m/s}$."
             }
         ],
         [ // calculus difficulty
             {
                 number: 0,
-                question: "",
+                question: "A force of 10 N acts on an object initially moving with a velocity of 2 m/s for 3 seconds. During that time period, the object's mass magically changes from 2 kg to 4 kg. What is the final speed of the object?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["8.5 m/s", 1, false],
+                    ["17 m/s", 0, false],
+                    ["9.5 m/s", 0, false],
+                    ["12 m/s", 0, false]
                 ],
-                explain: ""
+                explain: "Impulse is defined as the change in momentum, so we use the impulse-momentum theorem. The initial momentum is nonzero, so we need to account for that. The impulse given can be found relatively easily as $30 ~\\textrm{N} \\cdot \\textrm{s}$. This means that the final momentum is the sum of the initial momentum and the impulse, so we can solve for the final velocity as $v_f = 8.5 ~\\textrm{m/s}$."
             },
             {
                 number: 1,
-                question: "",
+                question: "A cargo ship is loaded with 10 containers, each weighing 2,000 kg. The containers are added with no horizontal speed relative to the water and do not slip on the deck. After the containers are added, the ship is moving at a speed of 10 m/s. If the ship's mass is 40,000 kg empty, what was the initial speed of the ship assuming no external forces act on it?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["10.5 m/s", 0, false],
+                    ["6.67 m/s", 0, false],
+                    ["15 m/s", 1, false],
+                    ["9.52 m/s", 0, false]
                 ],
-                explain: ""
+                explain: "The final and initial momentums of the ship must be equal. The final momentum is the total mass of the ship and containers multiplied by the final speed, and this is equal to the mass of the empty ship multiplied by the initial speed. We can then solve for the initial speed as $v_i = 15 ~\\textrm{m/s}$."
             },
             {
                 number: 2,
-                question: "",
+                question: "An object subjected to a varying force changes its velocity from 5 m/s to 15 m/s in 4 seconds. If the mass of the object is 3 kg, what must be the average force acting on it?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["15 N", 0, false],
+                    ["7.5 N", 1, false],
+                    ["13.3 N", 0, false],
+                    ["12.5 N", 0, false]
                 ],
-                explain: ""
+                explain: "The change in momentum in this case is easily found as $\\Delta p = m \\Delta v$ because the mass is constant. This is equal to the average force times the time interval by the impulse-momentum theorem, so we can solve for the average force as $F_{av} = 7.5 ~\\textrm{N}$."
             },
             {
                 number: 3,
-                question: "",
+                question: "A bullet of mass 0.05 kg is fired from a gun with a speed of 700 m/s. The bullet hits a wall and comes to a stop in 0.002 seconds. What is the average force exerted by the wall on the bullet?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["75000 N", 0, false],
+                    ["1750 N", 0, false],
+                    ["0.7 N", 0, false],
+                    ["17500 N", 1, false]
                 ],
-                explain: ""
+                explain: "The bullet has a momentum of $p = mv = 35 ~\\textrm{kg} \\cdot \\textrm{m/s}$. The bullet stops when it hits the wall, so change in momentum is equal to the initial momentum since the final momentum is zero. The average force can be found by dividing the change in momentum by the time interval according to the impulse-momentum theorem, giving us $F_{av} = 17500 ~\\textrm{N}$."
             },
             {
                 number: 4,
-                question: "",
+                question: "A basketball of mass 0.5 kg rebounds off the floor with a speed of 6.2 m/s after being dropped from a height of 3 m. If the basketball is in contact with the ground for 0.05 seconds, what is the average force exerted on it?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["200.7 N", 0, false],
+                    ["138.7 N", 1, false],
+                    ["153.4 N", 0, false],
+                    ["124.0 N", 0, false]
                 ],
-                explain: ""
+                explain: "First, we need to find the initial velocity of the basketball just before it hits the ground. Using kinematics or energy, we find that it is $v = \\sqrt{2gh}$, where $h$ is the initial height. The change in momentum is then $\\Delta p = m(v_f - v_i)$, where $v_f$ is the final velocity and $v_i$ is the initial velocity. However, in this case the initial and final velocities are in opposite directions, so we <b>add</b> their magnitudes in the formula for the momentum change. The average force is then found by dividing the change in momentum by the time interval, giving us $F_{av} = 138.7 ~\\textrm{N}$."
             },
             {
                 number: 5,
-                question: "",
+                question: "A force follows the formula $F(t) = 12t^3$. If this force acts on a 15 kg object from rest for 3.5 seconds, what is the final speed of the object?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["29.7 m/s", 0, false],
+                    ["21.6 m/s", 0, false],
+                    ["30.0 m/s", 1, false],
+                    ["29.4 m/s", 0, false]
                 ],
-                explain: ""
+                explain: "The impulse can be found as the area under the force v. time graph, which is the integral of the force vs. time function. We can easily evaluate this polynomial integral ($\\int 12t^3 = 3t^4$)to find that the impulse $ J = m \\Delta v = 450.2 ~\\textrm{N} \\cdot \\textrm{s}$. We can then use the impulse-momentum theorem to find the final speed as $v_f = 30.0 ~\\textrm{m/s}$."
             }
         ]
     ]
