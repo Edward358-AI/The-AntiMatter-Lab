@@ -3,7 +3,6 @@ import { ref, reactive, computed, watch } from 'vue'
 import { useUserStore } from '~/stores/user'
 import { useLessonShowingStore } from '~/stores/lessonShowing'
 import { storeToRefs } from 'pinia'
-import { Analytics } from '@vercel/analytics/nuxt'
 
 const user = useUserStore()
 const lessonShowing = useLessonShowingStore()
@@ -119,7 +118,6 @@ function resetScroll() {
 </script>
 
 <template>
-  <Analytics />
 
   <!-- MOBILE NAVBAR -->
   <nav class="navbar" id="mobile-nav"
