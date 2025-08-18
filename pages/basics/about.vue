@@ -12,7 +12,7 @@ useHead({
         <h1>About</h1><br>
         <p>This project was originally created in the summer of 2024 as a vision for an interactive and in-depth
             learning experience for physics. The website was a cooperative effort on the part of hobbyist web developer Edward Jiang and USAPhO silver medalist/3-time USAPhO qualifier
-            Hanyu Niu (you can obviously tell who's the more qualified individual here). As of currently the
+            Eric Hanyu Niu (you can obviously tell who's the more qualified individual here). As of currently the
             project has reached its original goal of completing all the major topics covered in AP Physics
             C: Mechanics (and bonus fluids section), and regular content updates/new functionalities will be
             pushed out in the near future.</p><br><br>
@@ -72,29 +72,23 @@ useHead({
         </p><br><br>
 
         <h1>Technicalities</h1><br>
-        <p>This project was built using HTML, CSS and JS.<br><br>The use of VueJS (<a class="link-underline-secondary"
-                href="https://vuejs.org" target="_blank">https://vuejs.org</a>) was incorporated to allow dynamic
-            rendering and much easier
-            implementation of certain functionalities over regular JS.<br><br>A CSS framework, Halfmoon CSS (<a
+        <p>This project was built primarily using <strong>Nuxt.js 4</strong>. (<a class="link-underline-secondary"
+                href="https://nuxt.com" target="_blank">https://nuxt.com</a>) For anyone interested, Nuxt is a framework that enables fullstack development with <a class="link-underline-secondary" href="https://vuejs.org" target="_blank">Vue.js</a> on the frontend, <a class="link-underline-secondary" href="https://nitro.build" target="_blank">Nitro</a> as a server engine, and <a class="link-underline-secondary" href="https://vitejs.dev" target="_blank">Vite</a> as a build tool.<br><br>This project also utilizes a CSS framework, <strong>Halfmoon CSS</strong> (<a
                 class="link-underline-secondary" href="https://www.gethalfmoon.com"
-                target="_blank">https://www.gethalfmoon.com</a>), was also used to
-            effortlessly create a (somewhat) nice looking layout and website.<br><br>MathJax (<a
-                class="link-underline-secondary" href="https://mathjax.org" target="_blank">https://mathjax.org</a>) and
-            Vue-MathJax-Next (<a class="link-underline-secondary" href="https://github.com/justforuse/vue-mathjax-next"
-                target="_blank">https://github.com/justforuse/vue-mathjax-next</a>) were implemented for clean looking
-            equations and math symbols.<br><br>Matter.js (<a class="link-underline-secondary"
+                target="_blank">https://www.gethalfmoon.com</a>), a drop-in Bootstrap replacement, which was used to
+            effortlessly create a (somewhat) nice looking layout and website.<br><br><strong>MathJax</strong> (<a
+                class="link-underline-secondary" href="https://mathjax.org" target="_blank">https://mathjax.org</a>)  were implemented for clean looking
+            equations and math symbols.<br><br><strong>Matter.js</strong> (<a class="link-underline-secondary"
                 href="https://brm.io/matter-js/" target="_blank">https://brm.io/matter-js</a>) is a rigid body 2d
             physics engine that runs on the web and is used to create the interactive demos found in some of our
-            lessons.<br><br>Vite (<a class="link-underline-secondary" href="https://vitejs.dev"
-                target="_blank">https://vitejs.dev</a>) was used during the development phase for convenience and is
-            included in the production build as well.</p><br><br>
+            lessons. It will be mentioned multiple times in future lessons but this engine isn't perfect, which limits its capabilities in certain cases where we try to demonstrate physical concepts.</p><br><br>
 
         <h1>Contact</h1><br>
         <p>If you have any questions, about physics or not, you can contact Edward via discord (edward.jiang_) or email
             (<a class="link-underline-secondary" href="mailto:edward456jiang@gmail.com"
                 target="_blank">edward456jiang@gmail.com</a>). 
                 <br><br>If the question is
-            physics related, you are most likely much better off asking Hanyu (email: <a
+            physics related, you are most likely much better off asking Eric (Hanyu) (email: <a
                 class="link-underline-secondary" href="mailto:antimatter5175@gmail.com"
                 target="_blank">antimatter5175@gmail.com</a>).</p><br><br>
 
