@@ -262,7 +262,7 @@ function setChecked(chek, qNum) {
             <br>
             This should remind you of our universl gravitation unit! We can see that there are two masses $M$ and $m$
             separated
-            by a distance $r$. If we look closely, we 'll see that <b>this formula only accounts for two bodies!</b> The
+            by a distance $r$. If we look closely, we'll see that <b>this formula only accounts for two bodies!</b> The
             odd thing is that there's a negative sign. We typically don't think of energy as being negative, but
             there's a good reason for this that I'll get into.
             <br><br>

@@ -19,212 +19,168 @@ const page = storeToRefs(useUserStore()).LinMomConsrv
 watch(page, () => window.scrollTo(0,0))
 watch(level, () => {if (!lessonShowing.value) nextTick(() => window.MathJax?.typeset())})
 
-const results = reactive([[0,0,0,0,0,0], [0,0,0,0,0,0], [0,0,0,0,0,0]]) // update as add more questions
-const explanations = reactive([[false,false,false,false,false,false], [false,false,false,false,false,false], [false,false,false,false,false,false]]) // keeps track of what explanations are visible
+const results = reactive([[0,0,0,0], [0,0,0,0,0], [0,0,0,0,0]]) // update as add more questions
+const explanations = reactive([[false,false,false,false], [false,false,false,false,false], [false,false,false,false,false]]) // keeps track of what explanations are visible
 const questions = reactive(
     [
         [ // conceptual difficulty
             {
                 number: 0,
-                question: "",
+                question: "What fundamental principle is behind the conservation of linear momentum?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["Conservation of energy", 0, false],
+                    ["Newton's Second Law", 0, false],
+                    ["Newton's Third Law", 1, false],
+                    ["Impulse-momentum theorem", 0, false]
                 ],
-                explain: ""
+                explain: "Newton's Third Law states that you have equal and opposite force pairs, which means that you have equal and opposite impulses exerted between two objects that interact with forces. This means that the total change in momentum of the two objects as a system will be zero, which is the essence of momentum conservation."
             },
             {
                 number: 1,
-                question: "",
+                question: "Can mechanical energy be conserved while linear momentum is not?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["Yes, because they are two different things", 0, false],
+                    ["No, because the conditions for conservation overlap", 1, false],
+                    ["Yes, because mechanical energy is more easily conserved", 0, false],
+                    ["No, because linear momentum is not conserved in general", 0, false]
                 ],
-                explain: ""
+                explain: "The condition for conservation of linear momentum is that there has to be no net external force on a system, while for conservation of mechanical energy it is no net external force and no nonconservative internal forces. This means that the conditions for conservation of mechanical energy are included within those for linear momentum."
             },
             {
                 number: 2,
-                question: "",
+                question: "How does a rocket engine work in the vacuum of space?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["It converts fuel into momentum", 0, false],
+                    ["It uses energy to maintain its speed", 0, false],
+                    ["It experiences no air resistance", 0, false],
+                    ["It propels hot gas backwards to accelerate", 1, false]
                 ],
-                explain: ""
+                explain: "Rocket engines propel hot gases out the back, which according to the conservation of linear momentum will result in the rocket gaining momentum in the opposite directions. This allows them to accelerate in the vacuum of space, where there is nothing they can push against."
             },
             {
                 number: 3,
-                question: "",
+                question: "Which of these best decsribes what Newton's Cradle is designed to demonstrate?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["Consevation of momentum", 0, false],
+                    ["Conservation of energy", 0, false],
+                    ["Conservation of mechanical energy", 0, false],
+                    ["Both the 1st and 3rd answer choice", 1, false]
                 ],
-                explain: ""
-            },
-            {
-                number: 4,
-                question: "",
-                answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
-                ],
-                explain: ""
-            },
-            {
-                number: 5,
-                question: "",
-                answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
-                ],
-                explain: ""
+                explain: "Newton's Cradle demonstrates both the conservation of momentum and the conservation of mechanical energy, at least under ideal conditions. The balls transfer momentum to each other, but conservation of mechanical energy ensures that the number of balls that pop up is equal to the number of balls that were initially set in motion."
             }
         ],
         [ // algebra difficulty
             {
                 number: 0,
-                question: "",
+                question: "A madman in a car decides to project a 30 kilogram suitcase backwards out of his 1000 kg car (that means an initial total mass of 1030 kg!), which is moving at $25~\\textrm{m/s}$. If the final speed of the car is $45~\\textrm{m/s}$ (!!), what speed was the suitcase thrown with?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["597 m/s", 0, false],
+                    ["642 m/s", 1, false],
+                    ["667 m/s", 0, false],
+                    ["692 m/s", 0, false]
                 ],
-                explain: ""
+                explain: "The total initial momentum of the system is $p = mv = 25750 ~\\textrm{kg} \\cdot \\textrm{m/s}$. The final momentum of the car is $p = 45000 ~\\textrm{kg m/s}$. The suitcase's momentum must then be $25750 - 45000 = -19250 ~\\textrm{kg m/s}$, which means that since the suitcase has a mass of 30 kg, its speed (we drop the negative sign for speed) is $v = p/m = 19250/30 = 642 ~\\textrm{m/s}$."
             },
             {
                 number: 1,
-                question: "",
+                question: "Can mechanical energy be conserved while linear momentum is not?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["Yes, because they are two different things", 0, false],
+                    ["No, because the conditions for conservation overlap", 1, false],
+                    ["Yes, because mechanical energy is more easily conserved", 0, false],
+                    ["No, because linear momentum is not conserved in general", 0, false]
                 ],
-                explain: ""
+                explain: "The condition for conservation of linear momentum is that there has to be no net external force on a system, while for conservation of mechanical energy it is no net external force and no nonconservative internal forces. This means that the conditions for conservation of mechanical energy are included within those for linear momentum."
             },
             {
                 number: 2,
-                question: "",
+                question: "A battleship fires fourteen 386 kg shells horizontally at a speed of 850 m/s. If the battleship has a mass of 31,360 metric tons (1 metric ton = 1000 kg), what is the recoil speed of the battleship?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["0.146 m/s", 1, false],
+                    ["0.0104 m/s", 0, false],
+                    ["0.172 m/s", 0, false],
+                    ["0.125 m/s", 0, false]
                 ],
-                explain: ""
+                explain: "The momentum carried by the fourteen shells is $p = 14 \\cdot 386 \\cdot 850 = 4,600,400 ~\\textrm{kg m/s}$. The battleship's mass is $31,360,000 ~\\textrm{kg}$, and the total momentum of the shells has to equal the momentum of the ship because the initial momentum of the system is zero and there is no net external force. Therefore, the recoil speed of the battleship is $v = 0.146 ~\\textrm{m/s}$."
             },
             {
                 number: 3,
-                question: "",
+                question: "A sharp 0.1 kg dart is thrown with a speed of 85 m/s at a block of wood that sits on a frictionless surface. The block has a mass of 0.5 kg, and the dart passes through the block. If the final velocity of the block is 2.5 m/s, what is the velocity of the dart after it passes through the block?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["18.5 m/s", 0, false],
+                    ["97.5 m/s", 0, false],
+                    ["12.5 m/s", 0, false],
+                    ["72.5 m/s", 1, false]
                 ],
-                explain: ""
+                explain: "The initial momentum of the system is equal to the initial momentum of the dart, which is $p = 0.1 \\cdot 85 = 8.5 ~\\textrm{kg m/s}$. The final momentum of the system is equal to the momentum of the block plus the momentum of the dart after it passes through, and we can completely solve for the final momentum of the block. Thus, we can take the difference of the initial momentum and the final momentum of the block to find the final momentum of the dart, which lets us find its velocity. Doing the calculations gives us $v = 72.5 ~\\textrm{m/s}$."
             },
             {
                 number: 4,
-                question: "",
+                question: "Find the recoil velocity of the Earth ($M_E = 5.97 \\times 10^{24}~\\textrm{kg}$) due to a 70 kg person jumping upwards with a velocity of 2 m/s.",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["$1.17 \\times 10^{-12} ~\\textrm{m/s}$", 0, false],
+                    ["$2.35 \\times 10^{-22} ~\\textrm{m/s}$", 0, false],
+                    ["$2.35 \\times 10^{-23} ~\\textrm{m/s}$", 1, false],
+                    ["$1.45 \\times 10^{-20} ~\\textrm{m/s}$", 0, false]
                 ],
-                explain: ""
-            },
-            {
-                number: 5,
-                question: "",
-                answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
-                ],
-                explain: ""
+                explain: "The initial momentum of the system is zero, so we know the final momentum of the Earth and person must be equal. We can easily find the momentum of the person, which is $p = 70 \\cdot 2 = 140 ~\\textrm{kg m/s}$. The Earth has a mass of $5.97 \\times 10^{24} ~\\textrm{kg}$, so we can find its recoil velocity by dividing the momentum by the mass: $v_E = p/M_E = 2.35 \\times 10^{-23} ~\\textrm{m/s}$. This number is so low that we usually just say that it's zero."
             }
         ],
         [ // calculus difficulty
             {
                 number: 0,
-                question: "",
+                question: "A madman in a car decides to project a 30 kilogram suitcase backwards out of his 1000 kg car (that means an initial total mass of 1030 kg!), which is moving at $25~\\textrm{m/s}$. If the final speed of the car is $45~\\textrm{m/s}$ (!!), what speed was the suitcase thrown with?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["597 m/s", 0, false],
+                    ["642 m/s", 1, false],
+                    ["667 m/s", 0, false],
+                    ["692 m/s", 0, false]
                 ],
-                explain: ""
+                explain: "The total initial momentum of the system is $p = mv = 25750 ~\\textrm{kg} \\cdot \\textrm{m/s}$. The final momentum of the car is $p = 45000 ~\\textrm{kg m/s}$. The suitcase's momentum must then be $25750 - 45000 = -19250 ~\\textrm{kg m/s}$, which means that since the suitcase has a mass of 30 kg, its speed (we drop the negative sign for speed) is $v = p/m = 19250/30 = 642 ~\\textrm{m/s}$."
             },
             {
                 number: 1,
-                question: "",
+                question: "Can mechanical energy be conserved while linear momentum is not?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["Yes, because they are two different things", 0, false],
+                    ["No, because the conditions for conservation overlap", 1, false],
+                    ["Yes, because mechanical energy is more easily conserved", 0, false],
+                    ["No, because linear momentum is not conserved in general", 0, false]
                 ],
-                explain: ""
+                explain: "The condition for conservation of linear momentum is that there has to be no net external force on a system, while for conservation of mechanical energy it is no net external force and no nonconservative internal forces. This means that the conditions for conservation of mechanical energy are included within those for linear momentum."
             },
             {
                 number: 2,
-                question: "",
+                question: "A battleship fires fourteen 386 kg shells horizontally at a speed of 850 m/s. If the battleship has a mass of 31,360 metric tons (1 metric ton = 1000 kg), what is the recoil speed of the battleship?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["0.146 m/s", 1, false],
+                    ["0.0104 m/s", 0, false],
+                    ["0.172 m/s", 0, false],
+                    ["0.125 m/s", 0, false]
                 ],
-                explain: ""
+                explain: "The momentum carried by the fourteen shells is $p = 14 \\cdot 386 \\cdot 850 = 4,600,400 ~\\textrm{kg m/s}$. The battleship's mass is $31,360,000 ~\\textrm{kg}$, and the total momentum of the shells has to equal the momentum of the ship because the initial momentum of the system is zero and there is no net external force. Therefore, the recoil speed of the battleship is $v = 0.146 ~\\textrm{m/s}$."
             },
             {
                 number: 3,
-                question: "",
+                question: "A sharp 0.1 kg dart is thrown with a speed of 85 m/s at a block of wood that sits on a frictionless surface. The block has a mass of 0.5 kg, and the dart passes through the block. If the final velocity of the block is 2.5 m/s, what is the velocity of the dart after it passes through the block?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["18.5 m/s", 0, false],
+                    ["97.5 m/s", 0, false],
+                    ["12.5 m/s", 0, false],
+                    ["72.5 m/s", 1, false]
                 ],
-                explain: ""
+                explain: "The initial momentum of the system is equal to the initial momentum of the dart, which is $p = 0.1 \\cdot 85 = 8.5 ~\\textrm{kg m/s}$. The final momentum of the system is equal to the momentum of the block plus the momentum of the dart after it passes through, and we can completely solve for the final momentum of the block. Thus, we can take the difference of the initial momentum and the final momentum of the block to find the final momentum of the dart, which lets us find its velocity. Doing the calculations gives us $v = 72.5 ~\\textrm{m/s}$."
             },
             {
                 number: 4,
-                question: "",
+                question: "Find the recoil velocity of the Earth ($M_E = 5.97 \\times 10^{24}~\\textrm{kg}$) due to a 70 kg person jumping upwards with a velocity of 2 m/s.",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["$1.17 \\times 10^{-12} ~\\textrm{m/s}$", 0, false],
+                    ["$2.35 \\times 10^{-22} ~\\textrm{m/s}$", 0, false],
+                    ["$2.35 \\times 10^{-23} ~\\textrm{m/s}$", 1, false],
+                    ["$1.45 \\times 10^{-20} ~\\textrm{m/s}$", 0, false]
                 ],
-                explain: ""
-            },
-            {
-                number: 5,
-                question: "",
-                answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
-                ],
-                explain: ""
+                explain: "The initial momentum of the system is zero, so we know the final momentum of the Earth and person must be equal. We can easily find the momentum of the person, which is $p = 70 \\cdot 2 = 140 ~\\textrm{kg m/s}$. The Earth has a mass of $5.97 \\times 10^{24} ~\\textrm{kg}$, so we can find its recoil velocity by dividing the momentum by the mass: $v_E = p/M_E = 2.35 \\times 10^{-23} ~\\textrm{m/s}$. This number is so low that we usually just say that it's zero."
             }
         ]
     ]
