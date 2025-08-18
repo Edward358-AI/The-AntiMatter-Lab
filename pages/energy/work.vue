@@ -1,6 +1,6 @@
 <script setup>
 useHead({
-    title: 'Defintion of "Work"',
+    title: 'Definition of "Work"',
     meta: [
         { name: 'description', content: 'Explore the concepts of work and energy in physics, including their definitions and applications.' }
     ]
@@ -66,7 +66,7 @@ const questions = reactive(
                     ["20 J", 0, false],
                     ["200 J", 0, false]
                 ],
-                explain: "Lifting something upwards does require a force, and the displacement in this case would be in the same direcition as the force. The work done is equal to the force times the displacement, so it is 196 J (always use $g = 9.81~\\textrm{N/kg}$)."
+                explain: "Lifting something upwards does require a force, and the displacement in this case would be in the same direction as the force. The work done is equal to the force times the displacement, so it is 196 J (always use $g = 9.81~\\textrm{N/kg}$)."
             }
         ],
         [ // algebra difficulty
@@ -123,7 +123,7 @@ const questions = reactive(
                     ["12.50 J", 0, false],
                     ["32.50 J", 0, false]
                 ],
-                explain: "The first section of the graph is a trapezoid with base lengths of 1 meter and 1.75 (be careful here!) meters and a height of 15 N, corresponding to a work of 20.625 J. The second section is another trapezoid <b>below the x-axis</b> with base lengths of 1.75 meters and 0.5 meters and a height of 10 N, coresponding to a work of -11.25 J. The total work done is then the sum of the two, which is 20.625 J + (-11.25 J) = 9.375 J."
+                explain: "The first section of the graph is a trapezoid with base lengths of 1 meter and 1.75 (be careful here!) meters and a height of 15 N, corresponding to a work of 20.625 J. The second section is another trapezoid <b>below the x-axis</b> with base lengths of 1.75 meters and 0.5 meters and a height of 10 N, corresponding to a work of -11.25 J. The total work done is then the sum of the two, which is 20.625 J + (-11.25 J) = 9.375 J."
             }
         ],
         [ // calculus difficulty
@@ -180,7 +180,7 @@ const questions = reactive(
                     ["12.50 J", 0, false],
                     ["32.50 J", 0, false]
                 ],
-                explain: "The first section of the graph is a trapezoid with base lengths of 1 meter and 1.75 (be careful here!) meters and a height of 15 N, corresponding to a work of 20.625 J. The second section is another trapezoid <b>below the x-axis</b> with base lengths of 1.75 meters and 0.5 meters and a height of 10 N, coresponding to a work of -11.25 J. The total work done is then the sum of the two, which is 20.625 J + (-11.25 J) = 9.375 J."
+                explain: "The first section of the graph is a trapezoid with base lengths of 1 meter and 1.75 (be careful here!) meters and a height of 15 N, corresponding to a work of 20.625 J. The second section is another trapezoid <b>below the x-axis</b> with base lengths of 1.75 meters and 0.5 meters and a height of 10 N, corresponding to a work of -11.25 J. The total work done is then the sum of the two, which is 20.625 J + (-11.25 J) = 9.375 J."
             }
         ]
     ]
