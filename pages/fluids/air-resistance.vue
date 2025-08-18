@@ -13,8 +13,9 @@ const lessonShowing = storeToRefs(useLessonShowingStore()).lessonShowing
 const level = storeToRefs(useUserStore()).difficulty
 const page = storeToRefs(useUserStore()).AirResistance
 
-watch(page, () => window.scrollTo(0,0))
-watch(level, () => {if (!lessonShowing.value) nextTick(() => window.MathJax?.typeset())})
+
+watch(page, () => { if (import.meta.client) window.scrollTo(0,0) })
+watch(level, () => { if (!lessonShowing.value && import.meta.client) nextTick(() => window.MathJax?.typeset()) })
 
 import { Engine, Render, Runner, Bodies, Composite, Mouse, MouseConstraint, Body} from 'matter-js'
 import {onMounted, ref, onUnmounted, watch, reactive} from 'vue'
@@ -354,10 +355,11 @@ onUnmounted(() => {
     }
 });
 
-function checkAnswer(form) {
-    const data = new FormData(document.querySelectorAll(".question")[form])
-    if (data.get("question") === "y") results[level.value][form] = 1
-    else results[level.value][form] = -1
+function checkAnswer(qIndex, evt) {
+  const formEl = evt?.target?.closest('form')
+  if (!formEl) return
+  const data = new FormData(formEl)
+  results[level.value][qIndex] = data.get('question') === 'y' ? 1 : -1
 }
 
 function setChecked(chek, qNum) {
@@ -627,7 +629,7 @@ function setChecked(chek, qNum) {
     <div v-show="!lessonShowing" class="container h100 pt-5">
         <h1>Air Resistance Problems</h1><br>
         <div class="question-container row justify-content-center mx-auto pb-5">
-            <form @submit.prevent="checkAnswer(q.number)" style="height:fit-content"
+            <form @submit.prevent="checkAnswer(q.number, $event)" style="height:fit-content"
                 class="question col-6 row justify-content-center my-5 mx-auto" v-for="q in questions[level]">
                 <div class="w-100">
                     <label class="form-label fs-5" v-html=" q.number + 1 + '. ' + q.question"></label><br>

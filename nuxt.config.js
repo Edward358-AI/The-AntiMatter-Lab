@@ -31,5 +31,5 @@ export default defineNuxtConfig({
     'pinia-plugin-persistedstate/nuxt',
   ],
   css: ['~/assets/style.css'],
-  ssr: false
+  ssr: true
 })

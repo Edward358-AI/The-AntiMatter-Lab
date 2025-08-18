@@ -11,12 +11,11 @@ const lessonShowingState = storeToRefs(lessonShowing).lessonShowing
 const theme = storeToRefs(user).theme
 const difficulty = storeToRefs(user).difficulty
 
-if (import.meta.client) {
-  watch(theme, (newTheme) => {
-    document.documentElement.setAttribute('data-bs-theme', newTheme)
-  }, { immediate: true }
-  )
-}
+
+watch(theme, (newTheme) => {
+  if (import.meta.client) document.documentElement.setAttribute('data-bs-theme', newTheme)
+}, { immediate: true }
+)
 
 
 const lessons = reactive({
@@ -92,16 +91,16 @@ const searchQuery = ref("")
 // Filters lessons based on search query
 
 const filteredLessons = computed(() => {
-    if (searchQuery.value.trim()) {
-      const filtered = reactive({})
-      for (let unit of Object.keys(lessons)) {
-        filtered[unit] = lessons[unit].filter(lesson =>
-          lesson.name.toLowerCase().includes(searchQuery.value.toLowerCase())
-        )
-      }
-      return filtered
+  if (searchQuery.value.trim()) {
+    const filtered = reactive({})
+    for (let unit of Object.keys(lessons)) {
+      filtered[unit] = lessons[unit].filter(lesson =>
+        lesson.name.toLowerCase().includes(searchQuery.value.toLowerCase())
+      )
     }
-    return lessons
+    return filtered
+  }
+  return lessons
 })
 
 function hideMobileBar() {
@@ -316,8 +315,10 @@ function resetScroll() {
           </select>
         </div>
       </div>
-      <span style="display:inline-block;margin-bottom:3px;margin-top:2px;" class="text-secondary-emphasis">© 2024 The AntiMatter Lab</span><br>
-      <NuxtLink @click="resetScroll(); hideMobileBar()" to="/basics/about" class="link-offset-1 info-link">About Us</NuxtLink>
+      <span style="display:inline-block;margin-bottom:3px;margin-top:2px;" class="text-secondary-emphasis">© 2024 The
+        AntiMatter Lab</span><br>
+      <NuxtLink @click="resetScroll(); hideMobileBar()" to="/basics/about" class="link-offset-1 info-link">About Us
+      </NuxtLink>
       &emsp;
       <a href="https://github.com/Edward358-AI/The-AntiMatter-Lab" target="_blank" class="link-offset-1 info-link"
         @click="hideMobileBar()">Github</a>
@@ -505,7 +506,8 @@ function resetScroll() {
         </div>
       </div>
       <span style="margin-bottom:5px;display:block" class="text-secondary-emphasis">© 2024 The AntiMatter Lab</span>
-      <NuxtLink @click="resetScroll(); hideMobileBar()" to="/basics/about" class="link-offset-1 info-link">About Us</NuxtLink>
+      <NuxtLink @click="resetScroll(); hideMobileBar()" to="/basics/about" class="link-offset-1 info-link">About Us
+      </NuxtLink>
       &emsp;
       <a href="https://github.com/Edward358-AI/The-AntiMatter-Lab" target="_blank"
         class="link-offset-1 info-link">Github</a>
