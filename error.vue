@@ -3,6 +3,7 @@ const error = useError()
 </script>
 
 <template>
+    <NuxtLayout></NuxtLayout>
     <div v-if="error.statusCode === 404" id="welcome" class="px-3">
         <img src="/logo.png" style="max-width: 210px;" width="45%" class="rounded" />
         <h1>404 - Not Found</h1>
