@@ -18,212 +18,146 @@ const page = storeToRefs(useUserStore()).CenterOfMass
 watch(page, () => { if (import.meta.client) window.scrollTo(0,0) })
 watch(level, () => { if (!lessonShowing.value && import.meta.client) nextTick(() => window.MathJax?.typeset()) })
 
-const results = reactive([[0,0,0,0,0,0], [0,0,0,0,0,0], [0,0,0,0,0,0]]) // update as add more questions
-const explanations = reactive([[false,false,false,false,false,false], [false,false,false,false,false,false], [false,false,false,false,false,false]]) // keeps track of what explanations are visible
+const results = reactive([[0,0,0,0], [0,0,0,0], [0,0,0,0]]) // update as add more questions
+const explanations = reactive([[false,false,false,false], [false,false,false,false,false,false], [false,false,false,false,false,false]]) // keeps track of what explanations are visible
 const questions = reactive(
     [
         [ // conceptual difficulty
             {
                 number: 0,
-                question: "",
+                question: "Where is the center of mass of a uniform rod?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["At its edge", 0, false],
+                    ["At its center", 1, false],
+                    ["Somewhere between the edge and center", 0, false],
+                    ["Center of mass is not defined", 0, false]
                 ],
-                explain: ""
+                explain: "The uniform rod is symmetrical about the point directly in the middle, so the center of mass is at its center."
             },
             {
                 number: 1,
-                question: "",
+                question: "Where is the center of mass of a system consisting of three blocks arranged in a line with equal mass?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["At the middle mass", 0, false],
+                    ["At the leftmost mass", 0, false],
+                    ["At the rightmost mass", 0, false],
+                    ["Not enough information", 1, false]
                 ],
-                explain: ""
+                explain: "We might jump to use symmetry to conclude that the center of mass is at the middle mass, but we don't know how the blocks are arranged. It would only be at the center mass if the blocks were all evenly spaced."
             },
             {
                 number: 2,
-                question: "",
+                question: "A gun is fired in space, with the bullet moving to the right. What happens to the center of mass of the gun-bullet system?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["Moves to the right", 0, false],
+                    ["Moves to the left", 0, false],
+                    ["Remains in place", 1, false],
+                    ["None of the above", 0, false]
                 ],
-                explain: ""
+                explain: "The gun-bullet system has no net external forces acting on it, so the center of mass does not accelerate. In this case, the initial velocity in our reference frame is zero, so the center of mass just remains in place."
             },
             {
                 number: 3,
-                question: "",
+                question: "Consider a system of two arbitrarily placed objects, A and B, with masses 2 kg and 3 kg respectively. We push on object A with a constant force of 30 N to the right. What is the acceleration of the center of mass of the system?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["$6.00 ~\\textrm{m/s}^2$", 1, false],
+                    ["$3.75 ~\\textrm{m/s}^2$", 0, false],
+                    ["$15.00 ~\\textrm{m/s}^2$", 0, false],
+                    ["$10.00 ~\\textrm{m/s}^2$", 0, false]
                 ],
-                explain: ""
-            },
-            {
-                number: 4,
-                question: "",
-                answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
-                ],
-                explain: ""
-            },
-            {
-                number: 5,
-                question: "",
-                answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
-                ],
-                explain: ""
+                explain: "The acceleration of the center of mass is related to the net external force by the equation $F_{net, ext} = M a_{cm}$, where $M$ is the total mass of the system. In this case, $M = 5 ~\\textrm{kg}$. Using this result in the equation previously and solving gives us $a_{cm} = 6.00 ~\\textrm{m/s}^2$."
             }
         ],
         [ // algebra difficulty
             {
                 number: 0,
-                question: "",
+                question: "The center of mass of a system of two objects is (2, 4). The first object has a mass of 3 kg and is located at (1, 2). The second object is located at (6,7). What is the mass of the second object? You can neglect units",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["0.75", 0, false],
+                    ["2", 0, false],
+                    ["1.38", 0, false],
+                    ["Not possible", 1, false]
                 ],
-                explain: ""
+                explain: "If we solve for the required mass of the second object using the center of mass formula, we find that we get a different value when using the x and y coordinates. This means that the center of mass cannot be at (2, 4) with the given first object and second object position."
             },
             {
                 number: 1,
-                question: "",
+                question: "The center of mass of a system of two objects is (-2, 3). The first object has a mass of 3 kg and is located at (0, 6). The second object has a mass of 12 kg. Where must it be located?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["$(2.5, 5.25)$", 0, false],
+                    ["$(-2.5, 2.25)$", 1, false],
+                    ["$(-2.5, -2.5)$", 0, false],
+                    ["$(2.5, -5.25)$", 0, false]
                 ],
-                explain: ""
+                explain: "The center of mass is given by the formula $r_{cm} = \\frac{m_1 r_1 + m_2 r_2}{m_1 + m_2}$. We can rearrange this to find the position of the second object, which gives us $r_2 = \\frac{(m_1+m_2) r_{cm} - (m_1 r_1)}{m_2}$. Plugging in the values for each dimension separately gives us $(-2.5, 2.25)$."
             },
             {
                 number: 2,
-                question: "",
+                question: "You have eight identical point masses on a coordinate plane. How many ways can you arrange them such that the center of mass is at the origin?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["One", 0, false],
+                    ["Three", 0, false],
+                    ["Four", 0, false],
+                    ["Infinite", 1, false]
                 ],
-                explain: ""
+                explain: "As long as you put the masses into an arrangement that is symmetric about the origin, the center of mass will be at the origin. This typically means placing them on the imaginary circle that is centered on the origin on both sides of an axis. For instance, you could make a circular arc of four masses above the x-axis and an identical arc of four masses below it."
             },
             {
                 number: 3,
-                question: "",
+                question: "Consider a system of two arbitrarily placed objects, A and B, with masses 8 kg and 14 kg respectively. We push on object A with a constant force of 30 N to the right. What is the acceleration of the center of mass of the system?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["$1.45 ~\\textrm{m/s}^2$", 0, false],
+                    ["$3.75 ~\\textrm{m/s}^2$", 0, false],
+                    ["$1.36 ~\\textrm{m/s}^2$", 1, false],
+                    ["$2.14 ~\\textrm{m/s}^2$", 0, false]
                 ],
-                explain: ""
-            },
-            {
-                number: 4,
-                question: "",
-                answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
-                ],
-                explain: ""
-            },
-            {
-                number: 5,
-                question: "",
-                answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
-                ],
-                explain: ""
+                explain: "The acceleration of the center of mass is related to the net external force by the equation $F_{net, ext} = M a_{cm}$, where $M$ is the total mass of the system. In this case, $M = 22 ~\\textrm{kg}$. Using this result in the equation previously and solving gives us $a_{cm} = 1.36 ~\\textrm{m/s}^2$."
             }
         ],
         [ // calculus difficulty
             {
                 number: 0,
-                question: "",
+                question: "The center of mass of a system of two objects is (2, 4). The first object has a mass of 3 kg and is located at (1, 2). The second object is located at (6,7). What is the mass of the second object? You can neglect units",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["0.75", 0, false],
+                    ["2", 0, false],
+                    ["1.38", 0, false],
+                    ["Not possible", 1, false]
                 ],
-                explain: ""
+                explain: "If we solve for the required mass of the second object using the center of mass formula, we find that we get a different value when using the x and y coordinates. This means that the center of mass cannot be at (2, 4) with the given first object and second object position."
             },
             {
                 number: 1,
-                question: "",
+                question: "The center of mass of a system of two objects is (-2, 3). The first object has a mass of 3 kg and is located at (0, 6). The second object has a mass of 12 kg. Where must it be located?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["$(2.5, 5.25)$", 0, false],
+                    ["$(-2.5, 2.25)$", 1, false],
+                    ["$(-2.5, -2.5)$", 0, false],
+                    ["$(2.5, -5.25)$", 0, false]
                 ],
-                explain: ""
+                explain: "The center of mass is given by the formula $r_{cm} = \\frac{m_1 r_1 + m_2 r_2}{m_1 + m_2}$. We can rearrange this to find the position of the second object, which gives us $r_2 = \\frac{(m_1+m_2) r_{cm} - (m_1 r_1)}{m_2}$. Plugging in the values for each dimension separately gives us $(-2.5, 2.25)$."
             },
             {
                 number: 2,
-                question: "",
+                question: "You have eight identical point masses on a coordinate plane. How many ways can you arrange them such that the center of mass is at the origin?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["One", 0, false],
+                    ["Three", 0, false],
+                    ["Four", 0, false],
+                    ["Infinite", 1, false]
                 ],
-                explain: ""
+                explain: "As long as you put the masses into an arrangement that is symmetric about the origin, the center of mass will be at the origin. This typically means placing them on the imaginary circle that is centered on the origin on both sides of an axis. For instance, you could make a circular arc of four masses above the x-axis and an identical arc of four masses below it."
             },
             {
                 number: 3,
-                question: "",
+                question: "Consider a system of two arbitrarily placed objects, A and B, with masses 8 kg and 14 kg respectively. We push on object A with a constant force of 30 N to the right. What is the acceleration of the center of mass of the system?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["$1.45 ~\\textrm{m/s}^2$", 0, false],
+                    ["$3.75 ~\\textrm{m/s}^2$", 0, false],
+                    ["$1.36 ~\\textrm{m/s}^2$", 1, false],
+                    ["$2.14 ~\\textrm{m/s}^2$", 0, false]
                 ],
-                explain: ""
-            },
-            {
-                number: 4,
-                question: "",
-                answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
-                ],
-                explain: ""
-            },
-            {
-                number: 5,
-                question: "",
-                answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
-                ],
-                explain: ""
+                explain: "The acceleration of the center of mass is related to the net external force by the equation $F_{net, ext} = M a_{cm}$, where $M$ is the total mass of the system. In this case, $M = 22 ~\\textrm{kg}$. Using this result in the equation previously and solving gives us $a_{cm} = 1.36 ~\\textrm{m/s}^2$."
             }
         ]
     ]
