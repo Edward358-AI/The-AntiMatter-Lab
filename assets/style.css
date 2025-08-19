@@ -4,6 +4,11 @@ body {
     height: 100%;
 }
 
+#__nuxt, html, body {
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
 #__nuxt {
     display: flex;
     flex-direction: column;
