@@ -36,42 +36,42 @@ const questions = reactive(
             },
             {
                 number: 1,
-                question: "",
+                question: "In an elastic collision, what is conserved?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["Energy", 0, false],
+                    ["Momentum", 0, false],
+                    ["Mechanical Energy", 0, false],
+                    ["Both the 2nd and 3rd choices are conserved", 1, false]
                 ],
-                explain: ""
+                explain: "In an elastic collision, both momentum and mechanical energy are conserved. It's how an elastic collision is defined!"
             },
             {
                 number: 2,
-                question: "",
+                question: "A linebacker tackes a quarterback from the side, and both of them stick together after the impact. What kind of collision is this?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["Elastic", 0, false],
+                    ["Inelastic", 0, false],
+                    ["Totally inelastic", 1, false],
+                    ["Semi-elastic", 0, false]
                 ],
-                explain: ""
+                explain: "The two football players stick together after the impact, which is a dead giveaway that this is a totally inelastic collision."
             },
             {
                 number: 3,
-                question: "",
+                question: "Suppose the linebacker from the previous problem is moving to the East and the quarterback is moving to the North. After the impact, what is the approximate direction that the two will be moving in?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["North", 0, false],
+                    ["Northeast", 1, false],
+                    ["Northwest", 0, false],
+                    ["West", 0, false]
                 ],
-                explain: ""
+                explain: "The collision is totally inelastic, but momentum is conserved. This means that we add up the momentum vectors of the two players. The linebacker is moving East, while the quarterback is moving North. The resultant vector will be somewhere in the Northeast direction, which is where they'll be approximately going."
             }
         ],
         [ // algebra difficulty
             {
                 number: 0,
-                question: "",
+                question: "A bullet is fired into a block of wood that has a mass of 1.5 kg. The bullet has an initial speed of 800 m/s, and it embeds perfectly in the block. If the block-bullet system has a speed of 15 m/s after collision, what was the bullet's mass?",
                 answers: [
                     ["", 0, false],
                     ["", 1, false],
@@ -348,9 +348,9 @@ onMounted(() => {
     <div v-show="lessonShowing" class="container h100 p-5">
         <h1>Collisions</h1><br>
         <div v-show="page === 0">
-            Play around with this one-dimensional collision demo for a bit to get a feel for what we're going to be
-            dealing with!
-            <br><br>
+            <p>Play around with this one-dimensional collision demo for a bit to get a feel for what we're going to be
+            dealing with!</p>
+            <br>
             <figure>
                 <h3>One-Dimensional Collision Demo</h3><br>
                 <div id="1dCollision"></div>
@@ -387,7 +387,7 @@ onMounted(() => {
                 <span class="warn">{{ viewportMsg }}</span>
             </figure>
             <br>
-            Now, to explain what's going on. Essentially, you have two balls that collide with each other, with many
+            <p>Now, to explain what's going on. Essentially, you have two balls that collide with each other, with many
             parameters
             you can adjust. You might have noticed that changing some of the parameters can cause something different to
             happen. However,
@@ -460,6 +460,7 @@ onMounted(() => {
                     white] { 0.491 ~\textrm{m/s} } $$
                 </div>
             </span>
+            
             <span v-show="level == 0">
                 There are actually three different types of collisions, classified based on energy conservation. Yes,
                 that
@@ -490,12 +491,14 @@ onMounted(() => {
                 If you want to see this case on the simulation, you can turn the "elasticity" slider all the way down to
                 zero.
             </span>
+            </p>
             <div class="btn-contain-right">
                 <button class="btn btn-dark" style="animation: scale1 2s infinite;" @click="page++">Next
                     &rarr;</button>
             </div>
         </div>
         <div v-show="page === 1">
+            <p>
             The next case we're going to talk about is the <b>elastic collision</b>, where both mechanical energy
             and momentum are going to be conserved.
             <br><br>
@@ -644,6 +647,7 @@ onMounted(() => {
                 there. It is
                 a bit algebraically heavy, though.
             </span>
+            </p>
             <div class="btn-contain-left">
                 <button class="btn btn-dark" style="animation: scale1 2s infinite;" @click="page--">&larr;
                     Previous</button>
@@ -654,6 +658,7 @@ onMounted(() => {
             </div>
         </div>
         <div v-show="page === 2">
+            <p>
             I'm just going to wrap up any loose ends and special things I think should be mentioned in this unit. First
             off,
             for collisions sometimes you are given more information than is strictly necessary. In those cases (such as
@@ -829,6 +834,7 @@ onMounted(() => {
                 approaches it
                 after impact! Did you expect that?
             </span>
+            </p>
             <div class="btn-contain-left">
                 <button class="btn btn-dark" style="animation: scale1 2s infinite;" @click="page--">&larr;
                     Previous</button>
@@ -839,6 +845,7 @@ onMounted(() => {
             </div>
         </div>
         <div v-show="page == 3">
+            <p>
             We know how to deal with collisions in one dimension, but what if we up that to two? (Or maybe even three?)
             It's actually not as bad as you would expect. Like many times before, we simply <b>treat each dimension
                 separately
@@ -1018,6 +1025,7 @@ onMounted(() => {
             you should be familiar with, as they have numerous variations on a basic archetype revolving around
             the conservation of linear momentum. The next specific scenario we'll talk about is much more
             limited in scope, but would hold a little more... appeal for some. Let's talk about explosions!
+        </p>
             <div class="btn-contain-left">
                 <button class="btn btn-dark" style="animation: scale1 2s infinite;" @click="page--">&larr;
                     Previous</button>
