@@ -1,8 +1,5 @@
 export default defineNuxtConfig({
   compatibilityDate: '2025-08-20',
-  nitro: {
-    preset: 'vercel-edge'
-  },
   app: {
     head: {
       title: 'The AntiMatter Lab',
