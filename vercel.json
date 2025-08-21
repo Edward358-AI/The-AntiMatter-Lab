@@ -2,5 +2,13 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "git": {
     "deploymentEnabled": true
+  },
+  "buildCommand": "npm run build",
+  "installCommand": "npm install",
+  "framework": "nuxtjs",
+  "functions": {
+    "pages/**": {
+      "maxDuration": 30
+    }
   }
 }

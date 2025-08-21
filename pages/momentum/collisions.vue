@@ -18,21 +18,21 @@ const page = storeToRefs(useUserStore()).Collisions
 watch(page, () => { if (import.meta.client) window.scrollTo(0,0) })
 watch(level, () => { if (!lessonShowing.value && import.meta.client) nextTick(() => window.MathJax?.typeset()) })
 
-const results = reactive([[0,0,0,0,0,0], [0,0,0,0,0,0], [0,0,0,0,0,0]]) // update as add more questions
-const explanations = reactive([[false,false,false,false,false,false], [false,false,false,false,false,false], [false,false,false,false,false,false]]) // keeps track of what explanations are visible
+const results = reactive([[0,0,0,0], [0,0,0,0,0,0], [0,0,0,0,0,0]]) // update as add more questions
+const explanations = reactive([[false,false,false,false], [false,false,false,false,false,false], [false,false,false,false,false,false]]) // keeps track of what explanations are visible
 const questions = reactive(
     [
         [ // conceptual difficulty
             {
                 number: 0,
-                question: "",
+                question: "Which of these collision scenarios is an example of a totally inelastic collision?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["A tennis ball collides with a basketball in midair", 0, false],
+                    ["A bullet ricochets off a steel plate", 0, false],
+                    ["A cannonball embeds itself inside a block of wood", 1, false],
+                    ["A basketball bounces off the floor", 0, false]
                 ],
-                explain: ""
+                explain: "The cannonball embedding itself inside the block of wood is an example of a totally inelastic collision, where the two objects stick together after the collision. This isn't exactly \"sticking\" together in the conventional sense, but both objects move together after the collision, which is the defining characteristic of a totally inelastic collision."
             },
             {
                 number: 1,
@@ -58,28 +58,6 @@ const questions = reactive(
             },
             {
                 number: 3,
-                question: "",
-                answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
-                ],
-                explain: ""
-            },
-            {
-                number: 4,
-                question: "",
-                answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
-                ],
-                explain: ""
-            },
-            {
-                number: 5,
                 question: "",
                 answers: [
                     ["", 0, false],
