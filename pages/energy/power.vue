@@ -227,7 +227,7 @@ function setChecked(chek, qNum) {
                     produces around $100 ~\textrm{kW}$.)
                 </figcaption>
             </figure>
-            <br><br>
+            <br><h4 class="text-center">Definition</h4>
             If we don't want to invoke calculus, we have to deal with the <b>average power</b> exerted on a system. This
             is much like
             the other average values we've dealt with before and involves the change in the energy in the system over

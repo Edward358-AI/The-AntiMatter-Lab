@@ -276,7 +276,7 @@ function setChecked(chek, qNum) {
                     <img src="/energy/Figure 49.png" />
                     <figcaption>Figure 1: Two unsuspecting vectors we'll use as our test subjects.</figcaption>
                 </figure>
-                <br>
+                <br><h4 class="text-center">Formula</h4>
                 Unlike adding or subtracting vectors, with the dot product there is no real way to perform it
                 graphically. (This makes
                 sense, since you're outputting a scalar and we don't typically represent scalars on graphs.) The first
@@ -326,7 +326,7 @@ function setChecked(chek, qNum) {
                     <img src="/energy/Figure 49.png" />
                     <figcaption>Figure 1: Two unsuspecting vectors we'll use as our test subjects.</figcaption>
                 </figure>
-                <br>
+                <br><h4 class="text-center">Formula</h4>
                 Now, this part requires a bit of trig knowledge. Remember our vectors lesson, and the idea of
                 components.
                 To get the component of any of the two vectors on the other, the function we want to use is the cosine.
@@ -363,7 +363,7 @@ function setChecked(chek, qNum) {
             Additionally,
             it's not unheard of to give vector components in physics, so it'll be good to know this second form of the
             dot product.
-            <br><br>
+            <br><br><h4 class="text-center">Alternative Methods</h4>
             This form of the dot product is arguably simpler than the first. I'm going to use the standard notation for
             components
             with subscripts that designate the dimension. In a 2D form, it can be written as:
@@ -411,7 +411,7 @@ function setChecked(chek, qNum) {
                 border: 0.5px solid
                 white]{-8}$$
             </div>
-            <br><br>
+            <br><h4 class="text-center">Conclusion</h4>
             This is definitely the easier of the two vector products, involving pretty straightforward calculations.
             This lesson
             was pretty short as a result, but you still need to make sure that you're clear on how the dot product

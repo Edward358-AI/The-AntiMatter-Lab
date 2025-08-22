@@ -255,7 +255,7 @@ function setChecked(chek, qNum) {
                     Figure 1: We typically only use this formula when talking about large, celestial objects.
                 </figcaption>
             </figure>
-            <br>
+            <br><h4 class="text-center">Formula</h4>
             Here's our brand-new formula for the gravitational potential energy. Our previously-used formula is actually
             the same
             as this, but converted into a more handy approximation for use near the surface of planets.
@@ -572,7 +572,7 @@ function setChecked(chek, qNum) {
                     &rarr;</button>
             </div>
         </div>
-        <div v-show="page === 3">
+        <div v-show="page === 3"><h4 class="text-center">Gravitational Potential Energy with 3 Bodies</h4>
             If you've been paying attention, you'll notice that
             we have only been dealing with systems that have two objects. What happens when there are more than two
             bodies in a system?
@@ -634,7 +634,7 @@ function setChecked(chek, qNum) {
             as a whole relies more on conceptual skills than mathematical ones, so if you get the concepts down the
             problems should be
             a piece of cake.
-            <br><br>
+            <br><br><h4 class="text-center">Conclusion</h4>
             Next, we're moving on to a mathematically heavy unit, though it also contains important concepts. Momentum
             is not a very
             difficult concept to cover, but it is important nonetheless because it, like energy, is a quanitity that is

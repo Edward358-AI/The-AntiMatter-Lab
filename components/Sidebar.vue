@@ -115,6 +115,12 @@ function hideMobileBar() {
 function resetScroll() {
   if (import.meta.client) window.scrollTo(0, 0)
 }
+
+if (import.meta.client) {
+  window.addEventListener("dragstart", (e) => {
+    if (e.target.nodeName === 'IMG') e.preventDefault()
+  })
+}
 </script>
 
 <template>

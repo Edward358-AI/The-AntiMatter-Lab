@@ -218,7 +218,7 @@ function setChecked(chek, qNum) {
             lesson is designed to teach you all about work and what it means to do work in a physics context. And no,
             doing
             problems actually isn't that much "work". I'll stop with the jokes now and get into the content.
-            <br><br>
+            <br><br><h4 class="text-center">Definition</h4>
             <span v-show="level > 0">
                 Work is defined as the dot product of force and displacement. Therefore, it has the unit of $N\cdot m$,
                 more commonly called joules ($J$). These are both vector quantities, but work itself is a
@@ -227,9 +227,7 @@ function setChecked(chek, qNum) {
                 be either positive or negative. Thus, work can "cancel out" in a way, much like vectors can, but it is
                 unltimately always going
                 to be a scalar quantity. Here's a mathematical description of what I just said:
-                <br><br>
                 $$W = \vec{F} \cdot \vec{x}$$
-                <br><br>
                 <span v-show="level == 2">
                     Now, this formula is only true if the force is constant. If we have a varying force (which we often
                     do in
@@ -244,7 +242,7 @@ function setChecked(chek, qNum) {
                     <img src="/energy/Figure 50.png" style="max-width:750px" />
                     <figcaption>Figure 1: Work in daily life versus work in physics. </figcaption>
                 </figure>
-                <br><br>
+                <br>
                 This formula tells us a lot of things, but most of those I've already mentioned or are pretty obvious.
                 However, it is
                 important to note that work can either be calculated for a single force or a net force. You can have
@@ -273,7 +271,7 @@ function setChecked(chek, qNum) {
                 <figure>
                     <img src="/energy/Figure 50.png" style="max-width:750px" />
                     <figcaption>Figure 1: Work in daily life versus work in physics. </figcaption>
-                </figure>
+                </figure><br>
                 Basically, the work is both dependent on the displacement of an object as well as the force exerted on
                 it. This formula
                 calculates the work done by a single force. Let's try an example, hearkening back to the beginning of
@@ -308,7 +306,7 @@ function setChecked(chek, qNum) {
                     &rarr;</button>
             </div>
         </div>
-        <div v-show="page === 1">
+        <div v-show="page === 1"><h4 class="text-center">Work and Displacement Graphs</h4>
             Technically, we have already covered the definition of work in detail. However, there is a lot of nuance
             to this, and there are other things that we need to cover in order to have a complete understanding of work.
             The first
@@ -387,7 +385,7 @@ function setChecked(chek, qNum) {
             Actually, we're not talking about directly, but rather talking about conservative and nonconservative
             forces. These
             are the two types of forces in general when it comes to work.
-            <br><br>
+            <br><br><h4 class="text-center">Conservative and Nonconservative Forces</h4>
             <span v-show="level > 0">
                 The key is to focus on the different possible paths that an object can take to go from one point to
                 another, and
@@ -469,14 +467,14 @@ function setChecked(chek, qNum) {
                     <figcaption>Figure 3: A work of modern art, or a representation of three different possible paths
                         between two points? It's the latter.</figcaption>
                 </figure>
-                <br>
+                <br><h4 class="text-center">Conservative</h4>
                 The first type of force is a <b>conservative</b> force, which does the same amount of work regardless of
                 the path taken. It doesn't matter if you took any number of fancy
                 turns or maneuvers during on your path. This includes most field forces like gravity, as well as a few
                 others. It's the easier of the two
                 to deal with, since you don't have to worry about complications caused by taking a complicated path.
                 (See what I did there?)
-                <br><br>
+                <br><br><h4 class="text-center">Nonconservative</h4>
                 The other type of force is a <b>nonconservative</b> force that does different
                 amounts of work depending on the path taken. These are usually forces like friction and air resistance.
                 Now for these forces, while it is possible to calculate the work
@@ -484,7 +482,7 @@ function setChecked(chek, qNum) {
                 problem exactly. If you want the formula for friction, you
                 can look at it in our Algebra-based and Caclulus-based levels, but no worries if you don't feel
                 confident. We won't be seeing these too much, so rest assured.
-                <br><br>
+                <br><br><h4 class="text-center">Conclusion</h4>
                 These two concepts conclude our discussion of work, but they lead perfectly into our discussion of
                 energy in the next lesson. So if you're ready, just hit that
                 button over there and let's move on!

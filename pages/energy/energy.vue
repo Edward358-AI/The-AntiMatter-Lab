@@ -437,7 +437,7 @@ onUnmounted(() => {
             vasy majority of cases energy will be positive, but there are some important cases where energy is more
             easily thought of as a
             negative quantity.
-            <br><br>
+            <br><br><h4 class="text-center">Kinetic Energy</h4>
             There are many different types of energy. The first important type is kinetic energy, which is the energy
             that moving objects have.
             It is defined quite simply as:
@@ -459,7 +459,7 @@ onUnmounted(() => {
             intutively have more energy than smaller ones. It is important to note that this energy scales with the
             <b>square</b> of the
             speed of an object, which explains why vehicle collisions become much more deadly as speeds get higher.
-            <br><br>
+            <br><br><h4 class="text-center">Work-Energy Theorem</h4>
             With this, we can present the <b>work-energy theorem</b>:
             <br><br>
             <figure>
@@ -523,7 +523,7 @@ onUnmounted(() => {
                     &rarr;</button>
             </div>
         </div>
-        <div v-show="page === 1">
+        <div v-show="page === 1"><h4 class="text-center">Potential Energy</h4>
             The next type of energy that is important is <b>potential energy</b>. Like the name suggests, it is energy
             that has
             the potential to turn into another type of energy, usually kinetic. It arises due to the configuration of
@@ -537,7 +537,7 @@ onUnmounted(() => {
             into a form like heat that is not completely recoverable. (Second Law of Thermodynamics!) Thus, you'll
             notice that all the
             potential energies we talk about are tied to some conservative force.
-            <br><br>
+            <br><br><h4 class="text-center">Gravitational Potential Energy</h4>
             There are actually many subcategories of potential energy, each denoted with a subscript. The first is
             <b>gravitational potential energy</b>, which arises from
             positioning of an object relative to the Earth. Essentially, the higher up an object is, the more
@@ -612,7 +612,7 @@ onUnmounted(() => {
                         </button>
                     </span>
                 </div>
-                <br><br>
+                <br><h4 class="text-center">Spring Potential Energy</h4>
                 Congratulations, you've understood gravitational potential energy! Now, I'll make a very cursory
                 introduction of the other
                 type of potential energy that's commonly seen, <b>spring potential energy.</b> As the name suggests, it
@@ -627,7 +627,7 @@ onUnmounted(() => {
             </span>
             <span v-show="level > 0">
                 It's more common to deal with the change in gravitational potential energy $\Delta U_g$.
-                <br><br>
+                <br><br><h4 class="text-center">Spring Potential Energy</h4>
                 The other type of potential energy I should mention for this unit is the <b>spring potential energy</b>,
                 the potential
                 energy stored in a compressed or stretched Hookean spring. This is described by the equation:
@@ -764,7 +764,7 @@ onUnmounted(() => {
                     &rarr;</button>
             </div>
         </div>
-        <div v-show="page === 2">
+        <div v-show="page === 2"><h4 class="text-center">Energy Conservation</h4>
             We are often asked to conserve energy. But, according to the law of conservation of energy, energy is always
             conserved.
             <br><br>
@@ -786,7 +786,7 @@ onUnmounted(() => {
             Under the specific conditions that <b>there are no dissipative forces in the system</b> and <b>no net
                 external force acts on the system</b>,
             we can turn the generalized form of the conservation of energy into the <b>conservation of mechanical
-                energy</b>.
+                energy</b>.<br><br>
             <div class="problem" style="text-align:center;font-size:1.05rem;width:fit-content;margin:auto;">
                 <b>The Law of Conservation of Mechanical Energy:</b>
                 <br><i>If no nonconservative forces and no net external force act within a system, total mechanical
@@ -870,7 +870,7 @@ onUnmounted(() => {
             </figure>
 
             <span v-show="level == 0">
-                <br><br>
+                <br>
                 You might have noticed that the ramp is not uniformly inclined; in other words, it's a curved ramp. This
                 means that we can't use
                 the result for an inclined plane we talked about earlier! However, the energy approach has no such
@@ -879,7 +879,7 @@ onUnmounted(() => {
                 earlier!
             </span>
             <span v-show="level > 0">
-                <br><br>
+                <br>
                 Do you notice anything special about the ramp? That's right. In all of our previous examples, we've
                 dealt with an inclined plane, which
                 is flat and has a constant incline angle $\theta$. This one, however, is curved. We cannot easily deal
@@ -889,7 +889,7 @@ onUnmounted(() => {
                 conservation solves this issue, allowing us to just consider the final and initial heights because
                 gravitational potential energy only cares
                 about the change in height. Conservative forces at it again!
-                <br><br>
+                <br><br><h4 class="text-center">Nonconservative Forces</h4>
                 We can actually deal with dissipative forces like friction. See, friction is relatively simple to deal
                 with because
                 it has a formula it invariably follows. The work done by friction always tends to take mechanical energy
@@ -1220,7 +1220,7 @@ onUnmounted(() => {
             We are so close to being done with this lesson! The last thing we need to talk about is how to
             add or remove energy from a system by doing work on it. This allows us to deal with situations
             where mechanical energy isn't conserved, but we know the work done on the system.
-            <br><br>
+            <br><br><h4 class="text-center">Work-Energy Theorem (revised)</h4>
             The work-energy theorem states that the work done on a system is equal to the change in
             <b>mechanical energy</b> of the system. (Previously, I introduced this
             as just the change in kinetic energy!) This means that if we know the work done on a system,
@@ -1272,7 +1272,7 @@ onUnmounted(() => {
                 nonconservative in nature. If a conservative force is an internal force, it will not act to change the
                 total mechanical energy of the system.
                 <br><br>
-            </span>
+            </span><h4 class="text-center">Conclusion</h4>
             That's all there is to energy and energy conservation! We can use this technique to solve many
             problems that we previously couldn't, saving ourselves a good amount of time and effort along the
             way as well. Next, we're going to sort of pivot to a topic that might seem unrelated, but is actually
