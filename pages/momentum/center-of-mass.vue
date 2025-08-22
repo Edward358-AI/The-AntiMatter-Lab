@@ -187,7 +187,7 @@ function setChecked(chek, qNum) {
     <div v-show="lessonShowing" class="container h100 p-5">
         <h1>Center of Mass</h1><br>
         <p>
-        <div v-show="page === 0">
+        <div v-show="page === 0"><h4 class="text-center">Introduction</h4>
             The <b>center of mass</b> is defined as the first moment of mass of an object or a collection
             of point masses. I know that definition makes about as much sense as Gen Alpha brainrot terms do to anyone
             over the
@@ -200,7 +200,7 @@ function setChecked(chek, qNum) {
                     gravity).
                 </figcaption>
             </figure>
-            <br>
+            <br><h4 class="text-center">Definition</h4>
             <span v-show="level > 0">
                 I talked very briefly about the center of mass earlier to just mention an interesting
                 result it had with conservation of momentum, so here I'll go into what it is in detail. We've seen
@@ -480,7 +480,7 @@ function setChecked(chek, qNum) {
                     &rarr;</button>
             </div>
         </div>
-        <div v-show="page === 2">
+        <div v-show="page === 2"><h4 class="text-center">Center of Mass Velocity and Acceleration</h4>
             There are two more quantities that have to do with center of mass: <b>center of mass velocity</b> and
             <b>center of mass
                 acceleration.</b> They are extremely similar to plain old center of mass (which is really just center of
@@ -631,7 +631,7 @@ function setChecked(chek, qNum) {
                 external force.
                 We've proved the theorem!
             </span>
-            <br><br>
+            <br><br><h4 class="text-center">Conclusion</h4>
             Now, you should know all you need to know about the center of mass for now. There are a few other results,
             but they
             are mathematical conveniences and not essential to know. Well, now we can apply this and the idea of

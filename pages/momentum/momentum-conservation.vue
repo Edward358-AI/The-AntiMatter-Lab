@@ -357,7 +357,7 @@ function newtonsCradle(xx, yy, number, size, length) {
     <div v-show="lessonShowing" class="container h100 p-5">
         <h1>Conservation of Linear Momentum</h1><br>
         <p>
-        <div v-show="page === 0">
+        <div v-show="page === 0"><h4 class="text-center">Introduction</h4>
             Have you ever heard of the Newton's Cradle? It's that one physics "toy" that many executives and businessmen
             have lying on their office desks, with metal balls hitting each other. Yeah, you know what I'm talking
             about. Even
@@ -429,7 +429,7 @@ function newtonsCradle(xx, yy, number, size, length) {
 
         </div>
         <div v-show="page === 1">
-            <span v-show="level > 0">
+            <span v-show="level > 0"><h4 class="text-center">Center of Mass Position, Velocity, Acceleration</h4>
                 There is another key idea that is associated with conservation of linear momentum. If all of the
                 previous
                 conditions are satisfied, we can conclude that another fact must be true. I'm going to introduce the
@@ -462,7 +462,7 @@ function newtonsCradle(xx, yy, number, size, length) {
                 of the bodies in the system is very chaotic, the center of mass remains moving in a straight line with
                 constant velocity. If you don't understand
                 this now, don't worry.
-                <br><br>
+                <br><br><h4 class="text-center">Conservation of Linear Momentum</h4>
                 With that little detour out of the way, we can finally express the Conservation of Linear Momentum in
                 words:
             </span>
@@ -489,7 +489,7 @@ function newtonsCradle(xx, yy, number, size, length) {
                 impulses are equal and oppositely directed! See, the old concepts we learned such a long time ago are
                 still coming to haunt &mdash; I mean help
                 &mdash; us!
-                <br><br>
+                <br><br><h4 class="text-center">Conservation of Linear Momentum</h4>
                 We can finally write the sentence that codifies the conservation of linear momentum:
             </span>
             <br><br>
@@ -624,7 +624,7 @@ function newtonsCradle(xx, yy, number, size, length) {
                     the toolbox is the same as the momentum that she gains.
                 </span>
             </div>
-            <br>
+            <br><h4 class="text-center">Conclusion</h4>
             Now, this lesson may not have been the longest, but its results will be the focal point of a lot of the
             later lessons in this unit. Remember
             the results we have derived here, because they will be useful later on! With that said, we can move on to

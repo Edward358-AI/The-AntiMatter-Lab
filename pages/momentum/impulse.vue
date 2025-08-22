@@ -231,7 +231,7 @@ function setChecked(chek, qNum) {
     <div v-show="lessonShowing" class="container h100 p-5">
         <h1>Impulse/Mometum Theorem</h1><br>
         <p>
-        <div v-show="page === 0">
+        <div v-show="page === 0"><h4 class="text-center">Introduction</h4>
             What is momentum? Well, like energy, it doesn't really have a good definition outside of a mathematical one.
             The best definition I can think of is that momentum describes how hard an object is to stop, but there are
             several problems with this definition. Most sources just cite the mathematical definition. We will only deal
@@ -273,7 +273,7 @@ function setChecked(chek, qNum) {
                     Figure 1: You are very cool if you get the reference.
                 </figcaption>
             </figure>
-            <br><br>
+            <br><h4 class="text-center">Impulse-Momentum Theorem</h4>
             Well, Minos Prime (that's the guy's name) isn't exactly correct here. You see, there's something called the
             <b>impulse-momentum theorem</b> that connects the concepts of impulse and momentum. It's actually an
             extremely simple
@@ -326,7 +326,7 @@ function setChecked(chek, qNum) {
             completely gone insane, but that was intentional. (I'm not going to comment about insanity.) The form we
             gave for Newton's
             Second Law is a generalized form for the cases where mass is constant.
-            <br><br>
+            <br><br><h4 class="text-center">Newton's 2nd Law and Momentum</h4>
             <span v-show="level == 2">
                 The form of this new second-law variant involves a derivative, as well as the concept of momentum.
                 <br><br>
@@ -569,7 +569,7 @@ function setChecked(chek, qNum) {
                 Now, you have a way to find the net force on any object at any point in time, provided you know
                 certain pieces of information.
                 <br><br>
-            </span>
+            </span><h4 class="text-center">Conclusion</h4>
             This lesson was short because it was introductory. The next few lessons will cover more serious and
             difficult topics relating to
             conservation and problems involving momentum. They are really the representative lessons of momentum, and

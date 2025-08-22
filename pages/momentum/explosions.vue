@@ -390,7 +390,7 @@ onUnmounted(() => {
 <template>
     <div v-show="lessonShowing" class="container h100 p-5">
         <h1>Explosions</h1><br>
-        <div v-show="page === 0">
+        <div v-show="page === 0"><h4 class="text-center">Introduction</h4>
         <p>
             A fair word of warning before I dissappoint you. This section is less about the flashy part of explosions
             and
@@ -404,7 +404,7 @@ onUnmounted(() => {
                     Figure 1: KA-BOOOOOOM! - Tavish Finnegan DeGroot
                 </figcaption>
             </figure>
-            <br>
+            <br><h4 class="text-center">Definition</h4>
             An explosion generally involves an object fragmenting into multiple pieces, with all of the pieces being
             shot
             off at some velocity. Rather than a collision, where multiple objects converge on each other and ricochet
@@ -560,7 +560,7 @@ onUnmounted(() => {
                     &rarr;</button>
             </div>
         </div>
-        <div v-show="page === 2">
+        <div v-show="page === 2"><h4 class="text-center">Two-Dimensional Explosions</h4>
             <p>
             Now, we bump it up to two dimensions. The approach here is very similar. You just
             employ the conservation of linear momentum for each dimension separately. This is
@@ -637,7 +637,7 @@ onUnmounted(() => {
                 roughly circular
                 once they fade out. They should! I bet you never noticed that.
             </div>
-            <br>
+            <br><h4 class="text-center">Conclusion</h4>
             This concludes our lesson on explosions. I'll bet that was just as exciting as seeing an explosion in
             theaters, or
             maybe even in the real world! (You'll never know if I'm being serious.) This is also the conclusion to our

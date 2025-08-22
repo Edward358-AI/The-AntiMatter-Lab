@@ -325,7 +325,7 @@ onMounted(() => {
 <template>
     <div v-show="lessonShowing" class="container h100 p-5">
         <h1>Collisions</h1><br>
-        <div v-show="page === 0">
+        <div v-show="page === 0"><h4 class="text-center">Introduction</h4>
             <p>Play around with this one-dimensional collision demo for a bit to get a feel for what we're going to be
             dealing with!</p>
             <br>
@@ -376,7 +376,7 @@ onMounted(() => {
             This means that we need to deal with this kind of situation as a momentum-conservation problem. The way we
             do that is by
             knowing that the total momentum of the system is zero. However, just knowing that isn't enough.
-            <br><br>
+            <br><br><h4 class="text-center">Types of Collisions</h4>
             <span v-show="level > 0">
                 There are actually three types of collisions, classified on the basis of energy conservation. Recall that
                 momentum
@@ -401,7 +401,7 @@ onMounted(() => {
                 the majority
                 of the spotlight because they are interesting both physically and mathematically, while inelastic
                 collisions get
-                sidelined a lot. I think this is for good reason, so I'll be perpetuating this trend. First, we'll work
+                sidelined a lot. I think this is for good reason, so I'll be perpetuating this trend.<br><br><h4 class="text-center">Totally Inelastic Collisions</h4> First, we'll work
                 on the totally
                 inelastic case.
                 <br><br>
@@ -475,7 +475,7 @@ onMounted(() => {
                     &rarr;</button>
             </div>
         </div>
-        <div v-show="page === 1">
+        <div v-show="page === 1"><h4 class="text-center">Elastic Collisions</h4>
             <p>
             The next case we're going to talk about is the <b>elastic collision</b>, where both mechanical energy
             and momentum are going to be conserved.
@@ -645,7 +645,7 @@ onMounted(() => {
             momentum balance
             as always. <span v-show='level > 0'>I won't go over such problems
                 because they are much simpler than what I've discussed previously.</span>
-            <br><br>
+            <br><br><h4 class="text-center">Extreme Cases</h4>
             With that little tidbit out of the way, I want to discuss a few special cases in the wild world of
             one-dimensional collisions before we go on to
             2D. These results
@@ -822,7 +822,7 @@ onMounted(() => {
                     &rarr;</button>
             </div>
         </div>
-        <div v-show="page == 3">
+        <div v-show="page == 3"><h4 class="text-center">Two-Dimensional Collisions</h4>
             <p>
             We know how to deal with collisions in one dimension, but what if we up that to two? (Or maybe even three?)
             It's actually not as bad as you would expect. Like many times before, we simply <b>treat each dimension
@@ -997,7 +997,7 @@ onMounted(() => {
                 </figure>
                 <br>
             </span>
-            <br>
+            <br><h4 class="text-center">Conclusion</h4>
             With that, a <span v-show="level > 0">long </span>lesson is concluded. Collisions are a very common type of
             momentum problem that
             you should be familiar with, as they have numerous variations on a basic archetype revolving around
