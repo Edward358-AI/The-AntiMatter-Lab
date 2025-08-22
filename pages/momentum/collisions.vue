@@ -18,8 +18,8 @@ const page = storeToRefs(useUserStore()).Collisions
 watch(page, () => { if (import.meta.client) window.scrollTo(0,0) })
 watch(level, () => { if (!lessonShowing.value && import.meta.client) nextTick(() => window.MathJax?.typeset()) })
 
-const results = reactive([[0,0,0,0], [0,0,0,0,0,0], [0,0,0,0,0,0]]) // update as add more questions
-const explanations = reactive([[false,false,false,false], [false,false,false,false,false,false], [false,false,false,false,false,false]]) // keeps track of what explanations are visible
+const results = reactive([[0,0,0,0], [0,0,0,0,0], [0,0,0,0,0]]) // update as add more questions
+const explanations = reactive([[false,false,false,false], [false,false,false,false,false], [false,false,false,false,false]]) // keeps track of what explanations are visible
 const questions = reactive(
     [
         [ // conceptual difficulty
@@ -73,135 +73,113 @@ const questions = reactive(
                 number: 0,
                 question: "A bullet is fired into a block of wood that has a mass of 1.5 kg. The bullet has an initial speed of 800 m/s, and it embeds perfectly in the block. If the block-bullet system has a speed of 15 m/s after collision, what was the bullet's mass?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["28.1 g", 0, false],
+                    ["28.7 g", 1, false],
+                    ["32.4 g", 0, false],
+                    ["15.0 g", 0, false]
                 ],
-                explain: ""
+                explain: "Denote the mass of the bullet as $m$ and the mass of the block as $M$. Conservation of linear momentum gives us the equation $mv_i = m+M)v_f$. We know the initial velocity of the bullet, the mass of the block, and the final velocity of the system. We have to just rearrange the equation to solve for $m$, which gives us $m = \\frac{Mv_f}{v_i-v_f}$. Plugging in the numbers, we get $m = 28.7 ~\\textrm{g}$."
             },
             {
                 number: 1,
-                question: "",
+                question: "Two balls collide head-on in an elastic collision. Ball A has a mass $m_A = 2.0 ~\\textrm{kg}$ and an initial speed of $v_{A} = 3.0 ~\\textrm{m/s}$. Ball B has a mass $m_B = 1.0 ~\\textrm{kg}$ and an initial speed of $v_{B} = 4.0 ~\\textrm{m/s}$. After the collision, what are the final speeds of the balls?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["1.2 m/s, 5.8 m/s", 0, false],
+                    ["0.33 m/s, 6.67 m/s", 0, false],
+                    ["1.67 m/s, 5.33 m/s", 1, false],
+                    ["1.0 m/s, 0 m/s", 0, false]
                 ],
-                explain: ""
+                explain: "First, we use the momentum conservation relation to write an equation. Depending on your choice of the balls' movement direction after the collision, the results may vary. I take the assumption that they bounce off each other, leading  to the equation $m_A v_A - m_B v_B = m_B v_{Bf} + m_A v_{Af}$. Then, we use the relative velocity formula, and solve the system of equations, remembering to keep your guess as to the final directions of motion consistent with the momentum relation. In my case, that would mean $v_A + v_B = v_{Bf} + v_{Af}$. The algebra is rather complex, but it is definitely solvable."
             },
             {
                 number: 2,
-                question: "",
+                question: "A 40,000 metric ton battleship slams into a small fishing boat with a mass of 1,000 kg. The battleship is moving at 10 m/s, while the fishing boat is stationary. Assume the collision is perfectly elastic. At what speed does the poor fishing boat get forward? (In real life, the fishing boat would be cut in half.)",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["10.0 m/s", 0, false],
+                    ["20.0 m/s", 1, false],
+                    ["19.8 m/s", 0, false],
+                    ["24.6 m/s", 0, false]
                 ],
-                explain: ""
+                explain: "The battleship is much, much more massive than the fishing vessel, so we can invoke the special case of a much more massive object colliding with a very light one at rest. This leads us to conclude that the boat should move off with double the initial speed of the battleship, which can be confirmed by directly calculating the values using the typical technique for an elastic collision. The final speed of the boat is $20.0 ~\\textrm{m/s}$."
             },
             {
                 number: 3,
-                question: "",
+                question: "Block A has a mass of 2.0 kg and block B has a mass of 4.0 kg. Block B is placed to the left of block A, and both are attached by a spring. Block B is given a velocity of 3.5 m/s to the right, while block A is stationary. When the spring is maximally compressed, what is the speed of block A?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["4.67 m/s", 0, false],
+                    ["1.17 m/s", 0, false],
+                    ["0.583 m/s", 0, false],
+                    ["2.33 m/s", 1, false]
                 ],
-                explain: ""
+                explain: "When the spring is maximally compressed, the two block must have the same velocity (otherwise the length of the spring would still be changing). Thus, this is equivalent to an inelastic collision where block B sticks to block A, leading to the equation $m_B v_B = (m_A + m_B) v_f$. We can rearrange this to find the final velocity of the two blocks, which is $v_f = \\frac{m_B v_B}{m_A + m_B} = 2.33 ~\\textrm{m/s}$."
             },
             {
                 number: 4,
-                question: "",
+                question: "What happens to the center-of-mass velocity of two objects undergoing a 2D collision?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["Remains at zero", 0, false],
+                    ["Instantaneously changes position when the collision occurs", 0, false],
+                    ["Remains at constant velocity", 1, false],
+                    ["Cannot be found", 0, false]
                 ],
-                explain: ""
-            },
-            {
-                number: 5,
-                question: "",
-                answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
-                ],
-                explain: ""
+                explain: "The center-of-mass velocity is constant in all interactions that conserve linear momentum, so it remains constant in a 2D collision."
             }
         ],
         [ // calculus difficulty
             {
                 number: 0,
-                question: "",
+                question: "A bullet is fired into a block of wood that has a mass of 1.5 kg. The bullet has an initial speed of 800 m/s, and it embeds perfectly in the block. If the block-bullet system has a speed of 15 m/s after collision, what was the bullet's mass?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["28.1 g", 0, false],
+                    ["28.7 g", 1, false],
+                    ["32.4 g", 0, false],
+                    ["15.0 g", 0, false]
                 ],
-                explain: ""
+                explain: "Denote the mass of the bullet as $m$ and the mass of the block as $M$. Conservation of linear momentum gives us the equation $mv_i = m+M)v_f$. We know the initial velocity of the bullet, the mass of the block, and the final velocity of the system. We have to just rearrange the equation to solve for $m$, which gives us $m = \\frac{Mv_f}{v_i-v_f}$. Plugging in the numbers, we get $m = 28.7 ~\\textrm{g}$."
             },
             {
                 number: 1,
-                question: "",
+                question: "Two balls collide head-on in an elastic collision. Ball A has a mass $m_A = 2.0 ~\\textrm{kg}$ and an initial speed of $v_{A} = 3.0 ~\\textrm{m/s}$. Ball B has a mass $m_B = 1.0 ~\\textrm{kg}$ and an initial speed of $v_{B} = 4.0 ~\\textrm{m/s}$. After the collision, what are the final speeds of the balls?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["1.2 m/s, 5.8 m/s", 0, false],
+                    ["0.33 m/s, 6.67 m/s", 0, false],
+                    ["1.67 m/s, 5.33 m/s", 1, false],
+                    ["1.0 m/s, 0 m/s", 0, false]
                 ],
-                explain: ""
+                explain: "First, we use the momentum conservation relation to write an equation. Depending on your choice of the balls' movement direction after the collision, the results may vary. I take the assumption that they bounce off each other, leading  to the equation $m_A v_A - m_B v_B = m_B v_{Bf} + m_A v_{Af}$. Then, we use the relative velocity formula, and solve the system of equations, remembering to keep your guess as to the final directions of motion consistent with the momentum relation. In my case, that would mean $v_A + v_B = v_{Bf} + v_{Af}$. The algebra is rather complex, but it is definitely solvable."
             },
             {
                 number: 2,
-                question: "",
+                question: "A 40,000 metric ton battleship slams into a small fishing boat with a mass of 1,000 kg. The battleship is moving at 10 m/s, while the fishing boat is stationary. Assume the collision is perfectly elastic. At what speed does the poor fishing boat get forward? (In real life, the fishing boat would be cut in half.)",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["10.0 m/s", 0, false],
+                    ["20.0 m/s", 1, false],
+                    ["19.8 m/s", 0, false],
+                    ["24.6 m/s", 0, false]
                 ],
-                explain: ""
+                explain: "The battleship is much, much more massive than the fishing vessel, so we can invoke the special case of a much more massive object colliding with a very light one at rest. This leads us to conclude that the boat should move off with double the initial speed of the battleship, which can be confirmed by directly calculating the values using the typical technique for an elastic collision. The final speed of the boat is $20.0 ~\\textrm{m/s}$."
             },
             {
                 number: 3,
-                question: "",
+                question: "Block A has a mass of 2.0 kg and block B has a mass of 4.0 kg. Block B is placed to the left of block A, and both are attached by a spring. Block B is given a velocity of 3.5 m/s to the right, while block A is stationary. When the spring is maximally compressed, what is the speed of block A?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["4.67 m/s", 0, false],
+                    ["1.17 m/s", 0, false],
+                    ["0.583 m/s", 0, false],
+                    ["2.33 m/s", 1, false]
                 ],
-                explain: ""
+                explain: "When the spring is maximally compressed, the two block must have the same velocity (otherwise the length of the spring would still be changing). Thus, this is equivalent to an inelastic collision where block B sticks to block A, leading to the equation $m_B v_B = (m_A + m_B) v_f$. We can rearrange this to find the final velocity of the two blocks, which is $v_f = \\frac{m_B v_B}{m_A + m_B} = 2.33 ~\\textrm{m/s}$."
             },
             {
                 number: 4,
-                question: "",
+                question: "What happens to the center-of-mass velocity of two objects undergoing a 2D collision?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["Remains at zero", 0, false],
+                    ["Instantaneously changes position when the collision occurs", 0, false],
+                    ["Remains at constant velocity", 1, false],
+                    ["Cannot be found", 0, false]
                 ],
-                explain: ""
-            },
-            {
-                number: 5,
-                question: "",
-                answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
-                ],
-                explain: ""
+                explain: "The center-of-mass velocity is constant in all interactions that conserve linear momentum, so it remains constant in a 2D collision."
             }
         ]
     ]

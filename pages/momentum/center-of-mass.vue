@@ -71,7 +71,7 @@ const questions = reactive(
         [ // algebra difficulty
             {
                 number: 0,
-                question: "The center of mass of a system of two objects is (2, 4). The first object has a mass of 3 kg and is located at (1, 2). The second object is located at (6,7). What is the mass of the second object? You can neglect units",
+                question: "The center of mass of a system of two objects is (2, 4). The first object has a mass of 3 kg and is located at (1, 2). The second object is located at (6,7). What is the mass of the second object? You can neglect units.",
                 answers: [
                     ["0.75", 0, false],
                     ["2", 0, false],
@@ -117,7 +117,7 @@ const questions = reactive(
         [ // calculus difficulty
             {
                 number: 0,
-                question: "The center of mass of a system of two objects is (2, 4). The first object has a mass of 3 kg and is located at (1, 2). The second object is located at (6,7). What is the mass of the second object? You can neglect units",
+                question: "The center of mass of a system of two objects is (2, 4). The first object has a mass of 3 kg and is located at (1, 2). The second object is located at (6,7). What is the mass of the second object? You can neglect units.",
                 answers: [
                     ["0.75", 0, false],
                     ["2", 0, false],

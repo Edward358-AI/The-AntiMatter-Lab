@@ -391,6 +391,7 @@ onUnmounted(() => {
     <div v-show="lessonShowing" class="container h100 p-5">
         <h1>Explosions</h1><br>
         <div v-show="page === 0">
+        <p>
             A fair word of warning before I dissappoint you. This section is less about the flashy part of explosions
             and
             more about how the pieces of something that explodes fly apart. So, we won't be talking about massive
@@ -516,12 +517,14 @@ onUnmounted(() => {
                     piece.
                 </div>
             </span>
+            </p>
             <div class="btn-contain-right">
                 <button class="btn btn-dark" style="animation: scale1 2s infinite;" @click="page++">Next
                     &rarr;</button>
             </div>
         </div>
         <div v-show="page === 1">
+            <p>
             I couldn't have a lesson on literal explosions without having a demo you can play with. It's not the kind
             of flashy, loud, and bright phenomenon you're used to, but it should suffice. Have fun, and also try to get
             some intuition for two-dimensional explosions out of this as well!
@@ -547,6 +550,7 @@ onUnmounted(() => {
             When you're done playing with this (you can trigger the explosion multiple times, by the way), just go on to
             the
             next page, where we're going to discuss two-dimensional explosions. This is probably more fun, though.
+            </p>
             <div class="btn-contain-left">
                 <button class="btn btn-dark" style="animation: scale1 2s infinite;" @click="page--">&larr;
                     Previous</button>
@@ -557,6 +561,7 @@ onUnmounted(() => {
             </div>
         </div>
         <div v-show="page === 2">
+            <p>
             Now, we bump it up to two dimensions. The approach here is very similar. You just
             employ the conservation of linear momentum for each dimension separately. This is
             actually much easier than doing two-dimensional collisions because the algebra works out much more
@@ -640,6 +645,7 @@ onUnmounted(() => {
             introduced us to a key concept of in physics. You'll see me invoke this idea in the future, just like I
             still invoke the concept
             of energy conservation long after we have passed that unit.
+            </p>
             <div class="btn-contain-left">
                 <button class="btn btn-dark" style="animation: scale1 2s infinite;" @click="page--">&larr;
                     Previous</button>
