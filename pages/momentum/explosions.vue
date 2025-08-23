@@ -18,212 +18,169 @@ const page = storeToRefs(useUserStore()).Explosions
 watch(page, () => { if (import.meta.client) window.scrollTo(0,0) })
 watch(level, () => { if (!lessonShowing.value && import.meta.client) nextTick(() => window.MathJax?.typeset()) })
 
-const results = reactive([[0,0,0,0,0,0], [0,0,0,0,0,0], [0,0,0,0,0,0]]) // update as add more questions
-const explanations = reactive([[false,false,false,false,false,false], [false,false,false,false,false,false], [false,false,false,false,false,false]]) // keeps track of what explanations are visible
+const results = reactive([[0,0,0,0], [0,0,0,0,0], [0,0,0,0,0]]) // update as add more questions
+const explanations = reactive([[false,false,false,false], [false,false,false,false,false], [false,false,false,false,false]]) // keeps track of what explanations are visible
 const questions = reactive(
     [
         [ // conceptual difficulty
             {
                 number: 0,
-                question: "",
+                question: "An explosion does <b>not</b> conserve which of the following quantities?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["Linear momentum", 0, false],
+                    ["Mechanical energy", 1, false],
+                    ["Energy", 0, false],
+                    ["None of the above", 0, false]
                 ],
-                explain: ""
+                explain: "Explosions never conserve mechanical energy because they always involve the release of energy from chemical potential energy. However, linear momentum and total energy are always conserved."
             },
             {
                 number: 1,
-                question: "",
+                question: "Which of these can be considered an explosion in the physics sense?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["A gun being fired", 1, false],
+                    ["A pendulum swinging", 0, false],
+                    ["Two cars colliding head-on", 0, false],
+                    ["A hammer falling on a piece of wood", 0, false]
                 ],
-                explain: ""
+                explain: "The firing of a gun ejects a small bullet at high speed in one direction, and the gun recoils backwards. This is essentially an explosion, where the total momentum is conserved but the energy is not."
             },
             {
                 number: 2,
-                question: "",
+                question: "An explosion sends two pieces of a broken object that is initially at rest flying apart. If one piece flies directly off to the right, which direction does the other piece go?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["Right", 0, false],
+                    ["Up", 0, false],
+                    ["Left", 1, false],
+                    ["Cannot be predicted", 0, false]
                 ],
-                explain: ""
+                explain: "Since the total initial momentum is zero, the total final momentum must also be zero. Therefore, if one piece goes to the right, the other piece must move to the left in order to balance the momentum."
             },
             {
                 number: 3,
-                question: "",
+                question: "When a firework explodes in the air, the pieces of the firework all experience an external force from gravity. Why can we still treat momentum as conserved?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["Explosions are special cases", 0, false],
+                    ["Mechanical energy is not conserved", 0, false],
+                    ["The force of gravity is small", 0, false],
+                    ["The explosive force is much greater than gravity", 1, false]
                 ],
-                explain: ""
-            },
-            {
-                number: 4,
-                question: "",
-                answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
-                ],
-                explain: ""
-            },
-            {
-                number: 5,
-                question: "",
-                answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
-                ],
-                explain: ""
+                explain: "Because the forces involved in the explosion are many orders of magnitude larger than gravity, we can treat momentum as still conserved because the effect by the external forces is very negligible."     
+                
             }
         ],
         [ // algebra difficulty
             {
                 number: 0,
-                question: "",
+                question: "Blocks A and B are placed on either side of a spring (but <b>not</b> attached to it). The spring is compressed and then released, pushing the blocks apart. If block A moves off with speed $v_A$ and block B moves off with speed $v_B$, what is the ratio of their masses $\\frac{m_A}{m_B}$?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["$\\frac{v_A}{v_B}$", 0, false],
+                    ["$v_A v_B$", 0, false],
+                    ["$\\frac12\\frac{v_A}{v_B}$", 0, false],
+                    ["$\\frac{v_B}{v_A}$", 1, false]
                 ],
-                explain: ""
+                explain: "This scenario is an explosion in a physics sense, and the initial momentum is zero. This means that the magnitudes of the final momenta of each block must be equal, so we get the equation $m_A v_A = m_B v_B$. Rearranging gives us the result $\\frac{m_A}{m_B} = \\frac{v_B}{v_A}$."
             },
             {
                 number: 1,
-                question: "",
+                question: "A firework star is shot straight up into the air and explodes at the peak of its trajectory into two identical pieces, 15.8 meters above the ground. One piece reaches the ground 1.3 seconds after the explosion. Setting $t=0$ when the explosion occurs, how long does it take the other piece to reach the ground?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["1.30 s", 0, false],
+                    ["1.18 s", 0, false],
+                    ["2.48 s", 1, false],
+                    ["1.89 s", 0, false]
                 ],
-                explain: ""
+                explain: "We know that both pieces must have the same speed after the explosion because they are identical and momentum must be conserved. We can find this speed with the fact that it takes the piece shot downwards 1.3 seconds to reach the ground, using the kinematics relation $y = v_0 t + \\frac12 a t^2$. We find that $v_0 = \\frac{y}{t}+\\frac{gt}{2} = 5.78~\\textrm{m/s}$. The other piece is shot upwards with the same speed, so we can find the time it takes to reach the ground. We can either brute force this, which would require solving a quadratic, or we can use clever reasoning. The time to fall back down to the explosion height can be found easily as $t_1 = \\frac{2v_0}{g}$. At this point, the speed is the same but downwards, which is an identical situation to the firework fragment that was ejected straight down. Thus, we add 1.3 seconds to the answer $t_1$ we get, obtaining $t = 2.48~\\textrm{s}$."
             },
             {
                 number: 2,
-                question: "",
+                question: "What quantity is not conserved in an explosion?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["Momentum", 0, false],
+                    ["Mechanical energy", 1, false],
+                    ["Energy", 0, false],
+                    ["None of the above", 0, false]
                 ],
-                explain: ""
+                explain: "The mechanical energy is not conserved, as the pieces gain kinetic energy after an explosion. This energy usually comes from chemical potential energy if it's a conventional explosion, but this is not a rule! The first problem is an explosion that uses a spring."
             },
             {
                 number: 3,
-                question: "",
+                question: "A 10 kg potato cannon malfunctions and causes the potato to explode as it is being fired. The potato breaks into two pieces, one of mass 0.3 kg and the other of mass 0.2 kg. The 0.3 kg piece is found to be moving at 60 m/s directly to the right, and the 0.2 kg piece is moving at 100 m/s at an angle $\\theta = 15 \\degree$ above the horizontal. With what speed does the launcher recoil?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["3.73 m/s", 0, false],
+                    ["0.518 m/s", 0, false],
+                    ["3.77 m/s", 1, false],
+                    ["4.25 m/s", 0, false]
                 ],
-                explain: ""
+                explain: "The momentum of the two pieces and launcher must sum to zero, as the initial momentum is zero. We can write the momentum conservation equations in both the x- and y-directions. In the x-direction, we have $m_1 v_1 + m_2 v_2 \\cos\\theta = m_L v_{Lx}$, and in the y-direction we have $m_2 v_2 \\sin\\theta  =  m_L v_{Ly}$. We then solve for the components of the launcher's velocity, which are $v_{Lx} = 3.73~\\textrm{m/s}$ and $v_{Ly} = 0.518~\\textrm{m/s}$. The magnitude of the velocity is then $v_L = \\sqrt{v_{Lx}^2 + v_{Ly}^2} = 3.77~\\textrm{m/s}$."
             },
             {
                 number: 4,
-                question: "",
+                question: "A typical explosive releases 3 MJ of energy. If a 1 kg firework explodes into some number of identical pieces, what is the speed of each piece immediately after the explosion, assuming all of the energy goes into kinetic energy?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["2449 m/s", 1, false],
+                    ["775 m/s", 0, false],
+                    ["1230 m/s", 0, false],
+                    ["Cannot be determined", 0, false]
                 ],
-                explain: ""
-            },
-            {
-                number: 5,
-                question: "",
-                answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
-                ],
-                explain: ""
+                explain: "Let's say there are an arbitrary number $N$ of pieces. Each piece has a mass of $m = \\frac{M}{N}$, and the total kinetic energy is $K = 3 \\times 10^6~\\textrm{J}$. The kinetic energy of all the pieces can also be written as $K = N \\frac12 \\frac{M}{N} v^2 = \\frac12 Mv^2$. Using this, we easily find that the velocity of each piece is $v = \\sqrt{\\frac{2K}{M}} = 2449~\\textrm{m/s}$."
             }
         ],
         [ // calculus difficulty
             {
                 number: 0,
-                question: "",
+                question: "Blocks A and B are placed on either side of a spring (but <b>not</b> attached to it). The spring is compressed and then released, pushing the blocks apart. If block A moves off with speed $v_A$ and block B moves off with speed $v_B$, what is the ratio of their masses $\\frac{m_A}{m_B}$?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["$\\frac{v_A}{v_B}$", 0, false],
+                    ["$v_A v_B$", 0, false],
+                    ["$\\frac12\\frac{v_A}{v_B}$", 0, false],
+                    ["$\\frac{v_B}{v_A}$", 1, false]
                 ],
-                explain: ""
+                explain: "This scenario is an explosion in a physics sense, and the initial momentum is zero. This means that the magnitudes of the final momenta of each block must be equal, so we get the equation $m_A v_A = m_B v_B$. Rearranging gives us the result $\\frac{m_A}{m_B} = \\frac{v_B}{v_A}$."
             },
             {
                 number: 1,
-                question: "",
+                question: "A firework star is shot straight up into the air and explodes at the peak of its trajectory into two identical pieces, 15.8 meters above the ground. One piece reaches the ground 1.3 seconds after the explosion. Setting $t=0$ when the explosion occurs, how long does it take the other piece to reach the ground?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["1.30 s", 0, false],
+                    ["1.18 s", 0, false],
+                    ["2.48 s", 1, false],
+                    ["1.89 s", 0, false]
                 ],
-                explain: ""
+                explain: "We know that both pieces must have the same speed after the explosion because they are identical and momentum must be conserved. We can find this speed with the fact that it takes the piece shot downwards 1.3 seconds to reach the ground, using the kinematics relation $y = v_0 t + \\frac12 a t^2$. We find that $v_0 = \\frac{y}{t}+\\frac{gt}{2} = 5.78~\\textrm{m/s}$. The other piece is shot upwards with the same speed, so we can find the time it takes to reach the ground. We can either brute force this, which would require solving a quadratic, or we can use clever reasoning. The time to fall back down to the explosion height can be found easily as $t_1 = \\frac{2v_0}{g}$. At this point, the speed is the same but downwards, which is an identical situation to the firework fragment that was ejected straight down. Thus, we add 1.3 seconds to the answer $t_1$ we get, obtaining $t = 2.48~\\textrm{s}$."
             },
             {
                 number: 2,
-                question: "",
+                question: "What quantity is not conserved in an explosion?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["Momentum", 0, false],
+                    ["Mechanical energy", 1, false],
+                    ["Energy", 0, false],
+                    ["None of the above", 0, false]
                 ],
-                explain: ""
+                explain: "The mechanical energy is not conserved, as the pieces gain kinetic energy after an explosion. This energy usually comes from chemical potential energy if it's a conventional explosion, but this is not a rule! The first problem is an explosion that uses a spring."
             },
             {
                 number: 3,
-                question: "",
+                question: "A 10 kg potato cannon malfunctions and causes the potato to explode as it is being fired. The potato breaks into two pieces, one of mass 0.3 kg and the other of mass 0.2 kg. The 0.3 kg piece is found to be moving at 60 m/s directly to the right, and the 0.2 kg piece is moving at 100 m/s at an angle $\\theta = 15 \\degree$ above the horizontal. With what speed does the launcher recoil?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["3.73 m/s", 0, false],
+                    ["0.518 m/s", 0, false],
+                    ["3.77 m/s", 1, false],
+                    ["4.25 m/s", 0, false]
                 ],
-                explain: ""
+                explain: "The momentum of the two pieces and launcher must sum to zero, as the initial momentum is zero. We can write the momentum conservation equations in both the x- and y-directions. In the x-direction, we have $m_1 v_1 + m_2 v_2 \\cos\\theta = m_L v_{Lx}$, and in the y-direction we have $m_2 v_2 \\sin\\theta  =  m_L v_{Ly}$. We then solve for the components of the launcher's velocity, which are $v_{Lx} = 3.73~\\textrm{m/s}$ and $v_{Ly} = 0.518~\\textrm{m/s}$. The magnitude of the velocity is then $v_L = \\sqrt{v_{Lx}^2 + v_{Ly}^2} = 3.77~\\textrm{m/s}$."
             },
             {
                 number: 4,
-                question: "",
+                question: "A typical explosive releases 3 MJ of energy. If a 1 kg firework explodes into some number of identical pieces, what is the speed of each piece immediately after the explosion, assuming all of the energy goes into kinetic energy?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["2449 m/s", 1, false],
+                    ["775 m/s", 0, false],
+                    ["1230 m/s", 0, false],
+                    ["Cannot be determined", 0, false]
                 ],
-                explain: ""
-            },
-            {
-                number: 5,
-                question: "",
-                answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
-                ],
-                explain: ""
+                explain: "Let's say there are an arbitrary number $N$ of pieces. Each piece has a mass of $m = \\frac{M}{N}$, and the total kinetic energy is $K = 3 \\times 10^6~\\textrm{J}$. The kinetic energy of all the pieces can also be written as $K = N \\frac12 \\frac{M}{N} v^2 = \\frac12 Mv^2$. Using this, we easily find that the velocity of each piece is $v = \\sqrt{\\frac{2K}{M}} = 2449~\\textrm{m/s}$."
             }
         ]
     ]
