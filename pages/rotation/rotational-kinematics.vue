@@ -253,7 +253,7 @@ function setChecked(chek, qNum) {
     <div v-show="lessonShowing" class="container h100 p-5">
         <h1>Rotational Kinematics</h1><br>
         <p>
-        <div v-show="page === 0">
+        <div v-show="page === 0"><h4 class="text-center">Introduction</h4>
             This unit might feel familiar, and that's because it will be! We are essentially taking in all the concepts
             we've covered previously
             and turning them into their <b>angular</b> (rotational) analogues. We've mostly dealt with linear motion
@@ -267,6 +267,7 @@ function setChecked(chek, qNum) {
             This rotation unit only deals with rigid bodies, and the results we'll find don't really apply to non-rigid
             bodies.
             <br><br>
+            <h4 class="text-center">Definitions</h4>
             With that said, we can jump into rotational kinematics. This is just like regular kinematics, but for
             rotating objects. At the beginning
             of this course, we talked about position, velocity, and acceleration. Now, we have angular counterparts to
@@ -378,6 +379,7 @@ function setChecked(chek, qNum) {
                     white] {10.8 ~\textrm{s} } $$
                 </div>
                 <br>
+                <h4 class="text-center">Relation to Linear Kinematics</h4>
                 Now, angular quantities are no good if they can't be connected to anything else. However, they actually
                 can! There is a way
                 to connect angular and linear quantities that revolves around the geometry of a circle and the
@@ -450,11 +452,13 @@ function setChecked(chek, qNum) {
                 a unit of $\textrm{rad/s}$, and angular acceleration has a unit of $\textrm{rad/s}^2$. Nothing too
                 crazy.
                 <br><br>
+                <h4 class="text-center">Relation to Linear Kinematics</h4>
                 I want you to turn your attention back to one paragraph before, where we estabished that arc length is
                 related to the angular position/displacement
-                and the radius. Well, all other angular quantities can be similarly related to their linear counterparts
+                and the radius. Well, the other angular quantities can be related to their linear counterparts
                 in the same way.
                 <br><br>
+                $$s = R \theta $$
                 $$ v = \omega R $$
                 $$ a = \alpha R $$
                 <br>
@@ -484,7 +488,7 @@ function setChecked(chek, qNum) {
                     &rarr;</button>
             </div>
         </div>
-        <div v-show="page === 2">
+        <div v-show="page === 2"><h4 class="text-center">Circular Motion Connection</h4>
             Circles. When have we talked about circles before? Hmm...
             <br><br>
             Yes, that's right! We dedicated (half) a unit to circular motion! It's only natural that circular motion has

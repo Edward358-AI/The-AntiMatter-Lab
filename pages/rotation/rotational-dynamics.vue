@@ -253,7 +253,7 @@ function setChecked(chek, qNum) {
     <div v-show="lessonShowing" class="container h100 p-5">
         <h1>Rotational Dynamics</h1><br>
         <p>
-        <div v-show="page === 0">
+        <div v-show="page === 0"><h4 class="text-center">Introduction</h4>
             Newton formulated some pretty cool and interesting (not to mention absolutely vital to the existence of
             physics) laws
             of motion. If you're following the new trend with rotation, you might guess that these laws can be turned
@@ -262,6 +262,7 @@ function setChecked(chek, qNum) {
             basic rotational
             dynamics scenarios.
             <br><br>
+            <h4 class="text-center">Newton's Laws in Rotational Form</h4>
             As you might imagine, these three laws for rotational motion have to do with torque instead of force. The
             expressions of the
             three laws are analogous to their normal counterparts.
@@ -325,7 +326,7 @@ function setChecked(chek, qNum) {
                     &rarr;</button>
             </div>
         </div>
-        <div v-show="page === 1">
+        <div v-show="page === 1"><h4 class="text-center">The Second Law in Rotational Form</h4>
             I just spent a while ironing out an idea which won't be important in calculations, but is still important to
             conceptually understand. Now, I want to go back and talk about the first two laws, which are really very
             similar
@@ -434,7 +435,7 @@ function setChecked(chek, qNum) {
             </div>
         </div>
         <div v-show="page === 2">
-            <span v-show="level > 0">
+            <span v-show="level > 0"><h4 class="text-center">Rotational and Static Equilibrium</h4>
                 The First Law in rotational form actually provides us plenty of insights into a new concept: rotational
                 equilibrium. The condition for this is analogous to that of translational equilibrium. I'll put the two
                 conditions right here:
@@ -470,7 +471,7 @@ function setChecked(chek, qNum) {
                 and it basically
                 is just when both equations above are satisfied simultaneously.
             </span>
-            <span v-show="level == 0">
+            <span v-show="level == 0"><h4 class="text-center">Rotational and Static Equilibrium</h4>
                 The rotational version of the First Law leads us to conclude that whenever torques sum to zero, the
                 angular
                 velocity doesn't change. That sounds simple enough, but this condition is an equilibrium condition. It
