@@ -405,7 +405,7 @@ watch(inputInertia, (newVal) => {
     <div v-show="lessonShowing" class="container h100 p-5">
         <h1>Moment of Inertia</h1><br>
         <p>
-        <div v-show="page === 0">
+        <div v-show="page === 0"><h4 class="text-center">Introduction</h4>
             What does the moment of inertia do? This demo with a virtual wheel should explain to you how it affects
             motion. I have it set up so there's a
             constant torque acting on the object, and you can move the slider to simulate the body's moment of inertia
@@ -428,6 +428,7 @@ watch(inputInertia, (newVal) => {
             both by mass itself and how that mass is distributed in a rigid body. Thus, two objects with the same mass
             may have different moments of inertia!
             <br><br>
+            <h4 class="text-center">Definition</h4>
             <span v-show="level > 0">
                 The most technical definition for the moment of inertia is that it is the second moment mass. You
                 probably don't remember this, but I
@@ -559,6 +560,7 @@ watch(inputInertia, (newVal) => {
             Before we talk about the moments of inertia of common objects, we should establish a solid conceptual
             baseline for what affects moment of inertia. We need to know how each part of the formula functions.
             <br><br>
+            <h4 class="text-center">Factors That Affect Moment of Inertia</h4>
             <span v-show="level > 0">
                 We have seen the definition of moment of inertia as being proportional to mass and radius squared. This
                 is
@@ -684,6 +686,7 @@ watch(inputInertia, (newVal) => {
             For the later chapters,
             I <b>will not</b> provide the moments of inertia of these objects.
             <br><br>
+            <h4 class="text-center">Common Moments of Inertia</h4>
             Let's start by diagramming the different shapes we're going to be dealing with, as well as the axes of
             rotation
             that we care about.
@@ -884,6 +887,7 @@ watch(inputInertia, (newVal) => {
             isn't the
             conventional one.
             <br><br>
+            <h4 class="text-center">Parallel Axis Theorem</h4>
             <span v-show="level > 0">
                 The first of these is the <b>parallel axis theorem</b>. This allows us to find the moment of inertia of
                 an object about
@@ -1000,6 +1004,7 @@ watch(inputInertia, (newVal) => {
                 just directly use the distance between the two axes, because neither of them is the center-of-mass axis
                 in that case.
                 <br><br>
+                <h4 class="text-center">Perpendicular Axis Theorem</h4>
                 There is another theorem, but it is a bit more advanced and much less common. It takes the name of
                 <b>perpendicular axis theorem</b>, and as
                 you might expect it describes axes that are perpendicular to each other.
@@ -1047,6 +1052,7 @@ watch(inputInertia, (newVal) => {
                 </div>
                 <br>
             </span>
+            <h4 class="text-center">Conclusion</h4>
             The moment of inertia should not be a foreign concept to us anymore. You might not have thought of it
             before, but with some
             experimentation and explanation it becomes obvious that it does exist and affects rotation. For instance, if

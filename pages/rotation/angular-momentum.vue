@@ -400,7 +400,7 @@ watch(elasticity, (newVal) => {
     <div v-show="lessonShowing" class="container h100 p-5">
         <h1>Rotational Kinetic Energy and Angular Momentum</h1><br>
         <p>
-        <div v-show="page === 0">
+        <div v-show="page === 0"><h4 class="text-center">Introduction</h4>
             Believe it or not, rotating objects have kinetic energy as well. This is the rotating counterpart to
             translational kinetic energy
             ($K = \frac12 mv^2$) <span v-show='level > 0'>and arises due to the kinetic energy of each individual point
@@ -408,10 +408,13 @@ watch(elasticity, (newVal) => {
                 a rotating object. This is
                 often hard to calculate however, so we just use a catch-all formula to describe the kinetic energy of
                 rotation.
-            </span> Something can have
-            both translational and rotational kinetic energy, as you might have expected. The basic equation for
-            rotational
-            kinetic energy is very simple:
+            </span> 
+            Something can have
+            both translational and rotational kinetic energy, as you might have expected. 
+            <br><br>
+            <h4 class="text-center">Rotational Kinetic Energy</h4>
+            The basic equation for
+            rotational kinetic energy is quite simply defined as:
             <br><br>
             $$ K = \dfrac12 I \omega^2 $$
             <br>
@@ -478,7 +481,7 @@ watch(elasticity, (newVal) => {
                     &rarr;</button>
             </div>
         </div>
-        <div v-show="page === 1">
+        <div v-show="page === 1"><h4 class="text-center">Angular Momentum</h4>
             Angular momentum is a kind of momentum of rotating objects. Unlike the energy concepts we covered
             previously, it is
             separate from linear momentum and follows its own rules. We also have a conservation law for angular
@@ -506,6 +509,7 @@ watch(elasticity, (newVal) => {
             is, we have to consider torque
             about a specific axis, since angular momentum is measured around a particular axis.
             <br><br>
+            <h4 class="text-center">Angular Momentum of Translating Objects</h4>
             But here's where it gets interesting! You can actually have angular momentum for objects moving in a line!
             Here's a demo to show
             that off. The ball moves in a line, but can give the rod some angular momentum (by causing it to spin) when
@@ -564,6 +568,7 @@ watch(elasticity, (newVal) => {
                 angular momentum is actually conserved.
                 <br><br>
             </span>
+            <h4 class="text-center">Direction of Angular Momentum</h4>
             Well, regular momentum has a direction, so angular momentum should have one as well, right? Well, yes, but
             it's not in the direction
             that you might expect! Instead of being in the plane of rotation, it points <b>out</b> of the plane of
@@ -617,6 +622,7 @@ watch(elasticity, (newVal) => {
             </div>
         </div>
         <div v-show="page === 2">
+            <h4 class="text-center">Key Examples</h4>
             Let's test our knowledge of angular momentum with a few practice problems. The concept can seem pretty
             abstract until
             we actually apply it. We start off by actually analyzing the situation we saw in the demo earlier.
@@ -733,6 +739,7 @@ watch(elasticity, (newVal) => {
             rather
             less commonly discussed.
             <br><br>
+            <h4 class="text-center">Angular Impulse</h4>
             Angular impulse is defined as the change in angular momentum, and is calculated by multiplying (average)
             torque
             by time. <span v-show="level == 2">The precise definition involves an integral.</span>
@@ -757,6 +764,7 @@ watch(elasticity, (newVal) => {
             nuanced
             topic.
             <br><br>
+            <h4 class="text-center">Conclusion</h4>
             That concludes our lesson on angular momentum (and rotational kinetic energy, I guess). This concept is
             actually a bit different
             from regular momentum and is a separate idea. Conservation of angular momentum is definitely more nuanced

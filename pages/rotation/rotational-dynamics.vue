@@ -679,6 +679,7 @@ function setChecked(chek, qNum) {
                 </span>
             </div>
             <br>
+            <h4 class="text-center">Conclusion</h4>
             These are the basic ideas behind rotational dynamics. If you have a good handle on torque and moment of
             inertia, this topic
             should be no issue. It's really a repeat of translational dynamics with a bit more nuance thrown in, so we

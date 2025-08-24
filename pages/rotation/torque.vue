@@ -425,7 +425,7 @@ onUnmounted(() => {
     <div v-show="lessonShowing" class="container h100 p-5">
         <h1>Torque</h1><br>
         <p>
-        <div v-show="page === 0">
+        <div v-show="page === 0"><h4 class="text-center">Introduction</h4>
             You might have heard the term "torque" when talking about engines, alongside horsepower. The second is just
             a
             measure of power, which we know how to deal with. But torque, on the other hand, determines how powerful the
@@ -437,6 +437,7 @@ onUnmounted(() => {
             operator
             that is required to understand torque and many other parts of this chapter, the cross product.
             <br><br>
+            <h4 class="text-center">Cross Product</h4>
             <span v-show="level > 0">
                 The cross product is represented with a multiplication sign, written as $ \vec{a}\times\vec{b}$. It
                 measures
@@ -530,7 +531,7 @@ onUnmounted(() => {
                     &rarr;</button>
             </div>
         </div>
-        <div v-show="page === 1">
+        <div v-show="page === 1"><h4 class="text-center">Definition</h4>
             Now, we can actually begin our discussion of torque. As you probably have guessed, the definition of torque
             contains a
             cross product.
@@ -676,6 +677,7 @@ onUnmounted(() => {
             as well as explain a
             few tips for this topic. It's complex!
             <br><br>
+            <h4 class="text-center">Lever Arm Method</h4>
             The most common method you'll see involves using a <b>lever arm</b>, which is the component of the radius
             vector that is
             perpendicular to the force. There's a good graphical method of finding it, which involves an imaginary line
@@ -725,6 +727,7 @@ onUnmounted(() => {
                 line of action and lever arm.
             </span>
             <br><br>
+            <h4 class="text-center">Conclusion</h4>
             This concludes our discussion of torque. Right now, there's not much we can do with it because it's just a
             small piece in a grander puzzle called
             rotational dynamics, but we'll definitely make good use of this quantity in the future. For now, make sure

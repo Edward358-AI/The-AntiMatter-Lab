@@ -612,6 +612,7 @@ function setChecked(chek, qNum) {
                 to $g$. Who knew we would glimpse futuristic technology in a kinematics chapter?
             </span>
             <br><br>
+            <h4 class="text-center">Conclusion</h4>
             This concludes our first lesson on rotation. This was basically just kinematics turned into a rotational
             form, so nothing groundbreaking
             was introduced here. However, just like linear kinematics before it, rotational kinematics forms the

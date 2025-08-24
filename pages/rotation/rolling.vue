@@ -392,7 +392,7 @@ onUnmounted(() => {
     <div v-show="lessonShowing" class="container h100 p-5">
         <h1>Rolling Without Slipping</h1><br>
         <p>
-        <div v-show="page === 0">
+        <div v-show="page === 0"><h4 class="text-center">Introduction</h4>
             What exactly causes something to roll? Well, with this demo we'll explore that. Go and put the wheel on the
             different surfaces
             and try to get it to start rolling. Change the slider parameters to see what happens. Hopefully you get an
@@ -422,6 +422,7 @@ onUnmounted(() => {
             the second is rolling with
             slipping. The first case is much more interesting, as it satisfies a number of interesting conditions.
             <br><br>
+            <h4 class="text-center">Characteristics of Rolling</h4>
             <span v-show="level > 0">
                 The rolling without slipping case involves smooth motion of the ball. It almost seems as if the
                 rotational and translational
@@ -464,6 +465,7 @@ onUnmounted(() => {
                 This is all probably very confusing to you right now, but I promise I'll talk more on this later. We
                 need some more ground rules first.
                 <br><br>
+                <h4 class="text-center">Connecting Linear and Rotational Aspects of Rolling</h4>
                 Anyway, this lets us write an equation that relates displacement $x$ of the object's center to the angle
                 it has rolled through.
                 <br><br>
@@ -500,6 +502,7 @@ onUnmounted(() => {
                     </figcaption>
                 </figure>
                 <br>
+                <h4 class="text-center">Connecting Linear and Rotational Aspects of Rolling</h4>
                 This is an essential part of rolling without slipping and only applies if that condition is satisfied.
                 Now that we know this
                 information, we can write a few things about the center of the object. These look like the equations
@@ -525,7 +528,7 @@ onUnmounted(() => {
                     &rarr;</button>
             </div>
         </div>
-        <div v-show="page === 1">
+        <div v-show="page === 1"><h4 class="text-center">The Axis of Rotation</h4>
             First, I want to pose an important question. How exactly does the ball roll? Which point does it rotate
             around? The answer is not
             what you might think at first, and is very deceptive. However, it's also the key to understanding rolling!
@@ -535,7 +538,7 @@ onUnmounted(() => {
             real world, so it should be familiar to you.
             <br><br>
             <figure>
-                <img src="/rotation/Figure 92.png" style="max-width:750px" />
+                <img src="/rotation/Figure 92.png" style="max-width:500px" />
                 <figcaption>Figure 2: So the ball rolls.</figcaption>
             </figure>
             <br>
@@ -563,7 +566,7 @@ onUnmounted(() => {
             deal with it.
             <br><br>
             <figure>
-                <img src="/rotation/Figure 93.png" style="max-width:750px" />
+                <img src="/rotation/Figure 93.png" style="max-width:500px" />
                 <figcaption>Figure 3: It's really spinning. Really.</figcaption>
             </figure>
             <br>
@@ -606,6 +609,7 @@ onUnmounted(() => {
             </div>
         </div>
         <div v-show="page === 2">
+            <h4 class="text-center">Practice Problems</h4>
             <div class="problem">
                 What is the speed at the top of a cylinder that rolls along the ground with a center-of-mass
                 velocity equal to $v$?
@@ -718,6 +722,7 @@ onUnmounted(() => {
                 </div>
                 <br>
             </span>
+            <h4 class="text-center">Conclusion</h4>
             That's it for this special case of rotational dynamics! Rolling is a very common type of motion, so it only
             makes sense
             that we analyzed it extensively here. If you prefer, you can treat the rotational axis as being at the
