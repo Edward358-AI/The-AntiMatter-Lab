@@ -379,7 +379,7 @@ function setChecked(chek, qNum) {
     <div v-show="lessonShowing" class="container h100 p-5">
         <h1>Air Resistance and Drag Forces</h1><br>
         <p>
-            <div v-show="page===0">
+            <div v-show="page===0"><h4 class="text-center">Introduction</h4>
                 We've ignored air resistance in all scenarios previously, so it's finally time to face it. But first, a bit of explanation as to why I put this 
                 in the fluids unit. Actually, I'll let you see for yourself with the interactive demo below.
                 <br><br>
@@ -406,6 +406,7 @@ function setChecked(chek, qNum) {
                 pressure works. Moreover, air resistance and drag forces really only exist if the object is going through a fluid. Therefore, it makes perfect 
                 sense to have air resistance here, even though it does concern itself more with forces.
                 <br><br>
+                <h4 class="text-center">Definition</h4>
                 <span v-show="level>0">
                     Air resistance is proportional to the relative velocity of the air and the object moving through it. In other words, the force of the wind pushing on you 
                     is air resistance, as is the wind that blows in your hair when you stick your head out of the car window. There are actually two common equations 
@@ -517,6 +518,7 @@ function setChecked(chek, qNum) {
                     </span>
                 </div>
                 <br>
+                <h4 class="text-center">Terminal Velocity</h4>
                 That last question leads us into our new concept: the <b>terminal velocity</b>. Basically, as something falls under gravity, it experiences an increasing 
                 drag force on it as it accelerates. However, at some point the drag force will equal the gravitational force pulling the object 
                 downwards, and the object will no longer accelerate. This velocity is called the <b>terminal velocity</b>.
@@ -555,7 +557,7 @@ function setChecked(chek, qNum) {
                     &rarr;</button>
             </div>
             </div>
-            <div v-show="page===2">
+            <div v-show="page===2"><h4 class="text-center">Description of Motion</h4>
                 Okay, so now we know what happens at the end of the falling motion when there is drag. But what about the in-between parts? Those are 
                 important as well. It is possible to get an exact formula for what happens, but this is often unnecessary and it is easier to think 
                 conceptually. We start off with the moment that the object is dropped, and we consider the motion to 
@@ -617,6 +619,7 @@ function setChecked(chek, qNum) {
                     <figcaption>Figure 2: The velocity-time graph for an object falling under air resistance.</figcaption>
                 </figure>
                 <br>
+                <h4 class="text-center">Conclusion</h4>
                 That's it for our exploration of air resistance! This topic can get pretty complex, but the introductory physics and the general concepts behind it 
                 are quite simple. This is also the end of our fluids unit, and the end of mechanics. I hope you enjoyed your journey with us thus far.
                 <div class="btn-contain-left">

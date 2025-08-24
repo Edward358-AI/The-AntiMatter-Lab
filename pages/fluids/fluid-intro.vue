@@ -253,7 +253,7 @@ function setChecked(chek, qNum) {
     <div v-show="lessonShowing" class="container h100 p-5">
         <h1>Properties of Fluids</h1><br>
         <p>
-        <div v-show="page===0">
+        <div v-show="page===0"><h4 class="text-center">Introduction</h4>
             What exactly is a fluid? Well, we typically think of fluids as liquids. Take, for example, lighter fluid. It's usually some kind of 
             oil, which is obviously a liquid. While we will mainly be talking about liquids in this fluids unit, technically gases like air are 
             also kinds of fluids that obey many of the same laws as liquids. 
@@ -287,6 +287,7 @@ function setChecked(chek, qNum) {
                 a massive effect on most of what we're going to talk about in this unit, but there are a few key counterexamples that I'll specify once we get there.
             </span>
             <br><br>
+            <h4 class="text-center">Model of Fluids</h4>
             Fluids can be thought of as a collection of a large number of individual point masses. <span v-show="level>0">These are actually just 
                 approximations for the molecules that make up the fluid.
             </span> Each individual molecule interacts in accordance to the physical laws we've learned before with the particles around it, kind of 
@@ -302,7 +303,7 @@ function setChecked(chek, qNum) {
                     &rarr;</button>
             </div>
         </div>
-        <div v-show="page===1">
+        <div v-show="page===1"><h4 class="text-center">Density</h4>
             The <b>density</b> of a fluid is an important factor in many calculations and laws involving them. Density isn't just restricted to fluids, but 
             rather can be applied to anything with mass and volume. It describes how much mass per unit volume an object contains, and is an intrinsic measure 
             of the object. Of course, the density of gases can change as they compress and expand, so it's not constant for those.
@@ -324,6 +325,7 @@ function setChecked(chek, qNum) {
             any internal resistance. Because it is incompressible, the density of such a fluid remains constant, making our mathematical lives much easier.
             Unless otherwise specified, the fluids we deal with are always going to be ideal. 
             <br><br>
+            <h4 class="text-center">The Ideal Fluid</h4>
             <span v-show="level>0">
                 The more precise definition for an ideal fluid is that it is incompressible and has no <b>viscosity</b>. Viscosity is a measure of how much 
                 resistance there is to flow within a liquid. Fluids like water have very low viscosity and can be approximated as an ideal fluid, but something like 
@@ -355,6 +357,7 @@ function setChecked(chek, qNum) {
                 white]{2000 ~\textrm{kg/m}^3 }$$
             </div>
             <br>
+            <h4 class="text-center">Conclusion</h4>
             This ends our very short introduction to fluids. In our next lesson, we will start talking about the crucial concept of pressure, which is 
             analogous to force but for fluids, much like density was analogous to mass. If you're ready to explore the roaring world of fluids, click the button below and let 
             the new information cascade over you. (No more puns for this unit...probably.)

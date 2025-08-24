@@ -253,11 +253,12 @@ function setChecked(chek, qNum) {
     <div v-show="lessonShowing" class="container h100 p-5">
         <h1>Fluid Flow</h1><br>
         <p>
-            <div v-show="page===0">
+            <div v-show="page===0"><h4 class="text-center">Introduction</h4>
                 How exactly does fluid flow through a pipe? Well, there's actually a lot of different ways it can do so, but 
                 some things must remain constant for all fluid flow. Here, we will only look at fluid that goes through a pipe 
                 or other container. This means we don't consider things such as the wind.
                 <br><br>
+                <h4 class="text-center">Laminar Flow</h4>
                 <span v-show="level>0">
                     We are not going to consider just any type of fluid flow, however. You definitely know what turbulence is, and you 
                     know how chaotic it is. Well, flow can very easily be chaotic, as can be evidenced by turbulent flow in rivers. 
@@ -298,6 +299,7 @@ function setChecked(chek, qNum) {
                 </div>
             </div>
             <div v-show="page===1">
+                <h4 class="text-center">Laws of Fluid Flow</h4>
                 What exactly causes fluid flow? Well, fluids are really just collections of many small particles each obeying Newton's Laws, and what causes particles to 
                 move according to Newton is a net force. Fluid flow, therefore, is caused by a pressure difference.
                 <br><br>
@@ -391,6 +393,7 @@ function setChecked(chek, qNum) {
                 </div>
                 <br>
             </span>
+            <h4 class="text-center">Conclusion</h4>
             Now that we know the basic, fundamental rules behind fluid flow (these apply to all kinds of fluid flow, not just 
             laminar flow) we can talk about more complicated results. If you're ready to tackle Bernoulli's principle, which is what keeps 
             planes in the air, move on to the next lesson!

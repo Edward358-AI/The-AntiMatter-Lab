@@ -252,7 +252,7 @@ function setChecked(chek, qNum) {
     <div v-show="lessonShowing" class="container h100 p-5">
         <h1>Bernoulli's Principle</h1><br>
         <p>
-            <div v-show="page===0">
+            <div v-show="page===0"><h4 class="text-center">Introduction</h4>
                 Bernoulli's Principle is responsible for many things, but the one I think you might have heard of is that it is 
                 responsible for keeping airplanes in the air. This is actually true, but it isn't the entire story. Bernoulli's principle is 
                 useful for many other things.
@@ -267,6 +267,7 @@ function setChecked(chek, qNum) {
                 the conservation of mechanical energy, as will become obvious when we look at the actual equation behind this principle. There are many effects that 
                 come from this principle, but first we should introduce it.
                 <br><br>
+                <h4 class="text-center">Formula</h4>
                 The principle takes the form of an equation describing the pressure in a pipe at two points, as well as the height difference and the flow velocities 
                 at those points.
                 <br><br>
@@ -290,7 +291,7 @@ function setChecked(chek, qNum) {
                     &rarr;</button>
                 </div>
             </div>
-            <div v-show="page===1">
+            <div v-show="page===1"><h4 class="text-center">The Venturi Effect</h4>
                 The <b>Venturi Effect</b> involves a pipe of variable width, with small projections upwards the thick and thin sections of the pipe in 
                 order to gauge pressure. At the narrow point, the liquid would flow faster than it had at the thick point because the volume flow rate has to 
                 remain constant. As a result, the water height in the thin pipe above the narrow section drops lower, indicating lower pressure where the 
@@ -362,6 +363,7 @@ function setChecked(chek, qNum) {
                     head over to our algebra-based level and take a gander for yourself.
                     <br><br>
                 </span>
+                <h4 class="text-center">Application to Aircraft</h4>
                 I promised I would talk about how this tied into airplanes, so let's do that now. The Venturi effect is actually the same principle that allows airplanes to fly.
                 The wings of airplanes are what we call <b>airfoils</b>, taking on a specific shape to guide wind flow around them. Specifically, the wing is shaped such that 
                 air flows over the top of the wing at a higher speed than it does below the wing.
@@ -427,6 +429,7 @@ function setChecked(chek, qNum) {
                     This is a pretty big area, which shows why larger planes generally will need larger wingspans.
                 </div>
                 <br>
+                <h4 class="text-center">Conclusion</h4>
                 That's the end of the Bernoulli's principle lesson! I obviously didn't cover every single use case of this formula, but I showed what I thought were very good 
                 examples showing how the principle applied to the real world. Next, we're going to pivot to something unrelated to what we have been doing before: air resistance 
                 and drag. We've been neglecting it and ignoring it, but it's finally time to face it. 

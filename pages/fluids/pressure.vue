@@ -401,21 +401,22 @@ watch(multiplier, (newVal) => {
     <div v-show="lessonShowing" class="container h100 p-5">
         <h1>Pressure</h1><br>
         <p>
-        <div v-show="page===0">
+        <div v-show="page===0"><h4 class="text-center">Introduction</h4>
             People often claim to feel a lot of pressure at work or at school, but the actual pressure they feel is constant throughout
             their entire lives. I'm of course talking about pressure in a physics context, which is very different from pressure used in a
             common context. Before the lesson is over, you'll understand what I meant by that quip.
             <br><br>
+            <h4 class="text-center">Definition</h4>
             <b>Pressure</b> is defined as the perpendicular force over the area which it is applied. Let's say you push on something with a uniform force. If you push with an open palm,
             the area of contact is larger and thus the pressure is smaller. However, if you push with just one finger, the contact area is much less and the pressure is
             higher, assuming you can push with the same force both times. This is why punching a balloon doesn't pop it, but pressing lightly on it with a pin
             does: the pin exerts a lot more pressure.
             <br><br>
             <figure>
-                <img src="/fluids/Figure 106.png"/>
+                <img src="/fluids/Figure 105.png"/>
                 <figcaption>Figure 1: Two sources of pressure on a balloon.</figcaption>
             </figure>
-            <br><br>
+            <br>
             The mathematical definition for pressure is exactly as you would expect:
             <br><br>
             $$ P = \dfrac{F}{A} $$
@@ -454,7 +455,7 @@ watch(multiplier, (newVal) => {
                     &rarr;</button>
             </div>
         </div>
-        <div v-show="page===1">
+        <div v-show="page===1"><h4 class="text-center">Pressure and Depth</h4>
             There is a formula that can easily be used to find the pressure due to a fluid, whether it be a liquid or gas. First, we have to
             recognize that the pressure usually is an addition on top of the regular atmospheric pressure. The pressure in this case would be due
             to the weight of the fluid, though pressure <b>does not exclusively act downwards on objects</b>.
@@ -495,6 +496,7 @@ watch(multiplier, (newVal) => {
                 <figcaption>Figure 2: It's not about the shape, but the height.</figcaption>
             </figure>
             <br>
+            <h4 class="text-center">Pascal's Law</h4>
             This gives us a revelation that is called <b>Pascal's Law</b>. The pressure in a column of fluid doesn't actually depend on 
             how much fluid is physically present, but rather only on the height of the fluid in the tube! Technically, the law more accurately states that any pressure
             change applied to a liquid is transferred to all other points in the liquid.
@@ -560,7 +562,7 @@ watch(multiplier, (newVal) => {
             </div>
         </div>
 
-        <div v-show="page===2">
+        <div v-show="page===2"><h4 class="text-center">Gas Pressure</h4>
             What about gases? Well, they're not too special, but the way they produce pressure is slightly different from liquids. See, gas particles move around 
             much faster than liquid or solid particles, and they will collide with the walls of whatever container they are in. <span v-show='level>0'>You might think 
                 that they would lose energy on collision, but won't happen because they're molecules and cannot lose energy to heat. Heat, after all, is just the random vibration of 
@@ -611,6 +613,7 @@ watch(multiplier, (newVal) => {
             objects can float in water, and also the reason why helium balloons will fly upwards into the sky. It all actually has to 
             do with pressure on the object.
             <br><br>
+            <h4 class="text-center">Buoyant Force</h4>
             The <b>buoyant force</b> is an upwards force that is exerted on all objects within a fluid, whether that fluid be liquid or 
             gaseous. It only exists when there is a gravitational field, otherwise there would be no weight of the object for the fluid to 
             buoy. 
@@ -663,7 +666,7 @@ watch(multiplier, (newVal) => {
                 <img src="/fluids/Figure 108.png"/>
                 <figcaption>Figure 4: How the buoyant force works.</figcaption>
             </figure>
-            <span v-show="level>0">
+            <span v-show="level>0"><h4 class="text-center">Derivation of Buoyant Force</h4>
                 We're going to do the math for the buoyant force here. It's a good practice of your algebra skills, but not entirely essential to understanding what 
                 buoyancy is or how to apply it. I find that many derivations are left out of physics lessons, so I thought it would be a good idea to include one here.
                 <br><br>
@@ -753,6 +756,7 @@ watch(multiplier, (newVal) => {
                 </div>
             </span>
             <br>
+            <h4 class="text-center">Conclusion</h4>
             This ends our lesson on pressure. There was quite a bit to talk about here, but I hope you remembered all of it. The key results of pressure 
             varying with depth, Pascal's Law, and buoyancy are all very important to understand. The other things I talked about are conceptually important, but  
             definitely not as important to know as the trio I just mentioned.
