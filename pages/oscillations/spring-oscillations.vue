@@ -471,6 +471,7 @@ watch(inputMass, (newVal) => {
         <h1>Spring-Block Oscillators</h1><br>
         <p>
         <div v-show="page === 0">
+            <h4 class="text-center">Introduction</h4>
             You should recall our previous discussion of the spring force and Hooke's Law, as well as our previous demo
             for that lesson. If you
             have a really good memory, you would remember I said that Matter.js does not have a built-in realistic
@@ -505,6 +506,7 @@ watch(inputMass, (newVal) => {
             characterizes spring-block
             oscillators.
             <br><br>
+            <h4 class="text-center">Proof of Simple Harmonic Nature</h4>
             We want to recall Hooke's Law from our previous discussion of springs. As we've stated, it is a restoring
             force that tends to pull objects
             back to equilibrium. I've put the definition here, but you remembered it, right? (Shameless guilt trip)
@@ -547,6 +549,7 @@ watch(inputMass, (newVal) => {
             </div>
         </div>
         <div v-show="page === 1">
+            <h4 class="text-center">Characteristics of Spring-Block Oscillators</h4>
             Of course, now that we have the angular frequency, we can also write the frequency and period of oscillation
             in terms of $m$ and $k$.
             This involves nothing more than a direct substitution into the equations we've been introduced to in the
@@ -619,6 +622,7 @@ watch(inputMass, (newVal) => {
             </span>
             <span v-show="level > 0">
                 <br><br>
+                <h4 class="text-center">Practice Problem</h4>
                 With this information having been fed to you, we are in a good position to attempt a practice problem.
                 I've decided to give you
                 a multi-stage aerobic capacity test &mdash; I mean mutli-part problem that progressively gets more
@@ -694,7 +698,7 @@ watch(inputMass, (newVal) => {
                 </button>
             </div>
         </div>
-        <div v-show="page === 2">
+        <div v-show="page === 2"><h4 class="text-center">Energy of Spring-Block Oscillators</h4>
             Of course, we need a discussion of energy in here as well. It's only going to be a very brief discussion,
             but it is important
             nonetheless.
@@ -776,7 +780,7 @@ watch(inputMass, (newVal) => {
                     &rarr;</button>
             </div>
         </div>
-        <div v-show="page === 3">
+        <div v-show="page === 3"><h4 class="text-center">Vertical Spring-Block Oscillator</h4>
             We have talked about horizontally oscilalting springs, but what about vertically oscillating ones? What
             changes in that case? Well,
             first off we have a force of gravity on the object which tends to pull it downwards. You might think that
@@ -851,6 +855,7 @@ watch(inputMass, (newVal) => {
                 white]{13.1 ~\textrm{rad/s} } $$
             </div>
             <br>
+            <h4 class="text-center">Conclusion</h4>
             That's the end of our discussion of spring-block oscillators! It's really just an extension of our springs
             lesson and overall
             not too complex. We are now primed and ready to move on to the next type of oscillator: the pendulum! It's

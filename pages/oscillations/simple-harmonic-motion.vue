@@ -252,7 +252,7 @@ function setChecked(chek, qNum) {
     <div v-show="lessonShowing" class="container h100 p-5">
         <h1>Simple Harmonic Motion</h1><br>
         <p>
-            <div v-show="page===0">
+            <div v-show="page===0"><h4 class="text-center">Introduction</h4>
                 Simple harmonic motion (SHM) is the simplest kind of periodic motion, which is motion that repeats itself
                 over regular intervals. Although other kinds of periodic motion exist, SHM is the most basic and the
                 easiest to deal with. That doesn't mean this unit is going to be easy, though!
@@ -261,6 +261,7 @@ function setChecked(chek, qNum) {
                 applying everything we've learned so far in order to analyze a type of complex motion. We don't just have things moving in
                 straight lines or circles anymore. They're now moving back and forth!
                 <br><br>
+                <h4 class="text-center">Characteristics of SHM</h4>
                 First, let's talk about what SHM looks like. SHM is a type of <b>oscillation</b>, which involves
                 some object moving back and forth in a regular pattern. What distinguishes SHM from other kinds of oscillation
                 is that it is very "smooth" and "regular". The exact reason for this will be revealed later.
@@ -294,6 +295,7 @@ function setChecked(chek, qNum) {
             </div>
             </div>
             <div v-show="page===1">
+                <h4 class="text-center">Mathematical Definition</h4>
                 The mathematical definition of simple harmonic motion is, well, pretty simple. The first condition is that the force has to be a
                 restoring force that points back towards the equilibrium. The second is that in general, the acceleration has to be directly proportional 
                 to the displacement from the origin and oppositely directed.
@@ -359,6 +361,7 @@ function setChecked(chek, qNum) {
             </div>
             </div>
             <div v-show="page===2">
+                <h4 class="text-center">Connection to Circular Motion</h4>
                 Consider an object uniformly moving in a horizontal circle. If we look at the object, it has the same velocity throughout 
                 all points in time. However, what's not the same is the distribution of that velocity into its components! 
                 <br><br>
@@ -414,6 +417,7 @@ function setChecked(chek, qNum) {
                     </span>
                 </span>
                 <br><br>
+                <h4 class="text-center">Conclusion</h4>
                 This is all there is behind SHM! It's a relatively simple definition that hinges on ideas we've talked about before. Now, we'll move to 
                 talking about the various different specific kinds of SHM, starting with the most simple. While we've only really talked about forces and kinematics 
                 here, do note that we are going to delve into other areas such as energy with each specific type of SHM.
