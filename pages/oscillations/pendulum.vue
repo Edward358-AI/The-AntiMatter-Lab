@@ -407,7 +407,7 @@ watch(gravity, (newVal) => {
     <div v-show="lessonShowing" class="container h100 p-5">
         <h1>Pendulums</h1><br>
         <p>
-            <div v-show="page===0">
+            <div v-show="page===0"><h4 class="text-center">Introduction</h4>
                 Do you know what a pendulum is? It's just a small object at the end of a string that oscillates back and forth due to gravity.
                 As you could probably guess, this is also a sort of simple harmonic motion, though only for certain cases. The oscillatory motion of a
                 pendulum is very similar to rotation, so we will be using techniques of torque rather than just force analysis.
@@ -420,6 +420,7 @@ watch(gravity, (newVal) => {
                     <figcaption>Figure 1: The existence of a simple pendulum implies the existence of a complex pendulum.</figcaption>
                 </figure>
                 <br>
+                <h4 class="text-center">Equations of motion</h4>
                 <span v-show="level>0">
                     The simple pendulum can be analyzed using forces. At each point in the pendulum's motion, the string will make some angle $\theta$
                     with the vertical. Gravity is the only force that causes a torque about the pivot point in the ceiling and causes the bob to rotate, so
@@ -477,6 +478,7 @@ watch(gravity, (newVal) => {
             </div>
 
             <div v-show="page===1">
+                <h4 class="text-center">Conceptual Questions</h4>
                 Let's see how well you understand pendulums now!
                 <br><br>
                 <div class="problem">
@@ -545,7 +547,7 @@ watch(gravity, (newVal) => {
                 I won't write the exact equations for the pendulum because they are not too important and follow the same form as the equations 
                 I presented previously in the spring-block oscillator lesson.
                 <br><br>
-                <span v-show="level>0">
+                <span v-show="level>0"><h4 class="text-center">Application</h4>
                     With that, let's try and apply our skills to an actual pendulum problem.
                     <br><br>
                     <div class="problem">
@@ -584,6 +586,7 @@ watch(gravity, (newVal) => {
                 </div>
             </div>
             <div v-show="page===2">
+                <h4 class="text-center">Physical Pendulums</h4>
                 What happens if we have entire objects acting as a pendulum instead of just having small bobs? Well, that sounds an awful lot like rigid bodies rotating, doesn't it?
                 That's exactly what the next kind of pendulum is: the <b>physical pendulum</b>. Try out this demo to see what happens, paying special attention to the 
                 moments of inertia of the objects here.
@@ -673,7 +676,7 @@ watch(gravity, (newVal) => {
                      &rarr;</button>
             </div>
             </div>
-            <div v-show="page===3">
+            <div v-show="page===3"><h4 class="text-center">Energy of Pendulums</h4>
                 We still need to talk about the energy behind the pendulum, don't we? The pendulum is a system that has gravitational potential energy 
                 and kinetic energy, so it can be analyzed using conservation of energy. The pendulum bob can be said to have zero potential energy at the lowest
                 point of its swing, which means it will have maximum kinetic energy there. At the highest points of the motion, all energy is potential.
@@ -702,6 +705,7 @@ watch(gravity, (newVal) => {
                     rather than translational kinetic energy. Those are the only changes; the rest of the analysis is very similar.
                     <br><br>
                 </span>
+                <h4 class="text-center">Conclusion</h4>
                 This concludes the pendulums lesson. Technically, there are more kinds of pendulums, but the ones that can be easily dealt with at our level 
                 are the simple and physical pendulums we analyzed. Next, we'll go over a few more kinds of oscillators that don't fit clearly into any 
                 category. If you're ready, let's move on!

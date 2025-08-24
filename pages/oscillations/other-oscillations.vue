@@ -391,12 +391,13 @@ watch(redMass, (newVal) => {
     <div v-show="lessonShowing" class="container h100 p-5">
         <h1>Other Oscillators</h1><br>
         <p>
-            <div v-show="page===0">
+            <div v-show="page===0"><h4 class="text-center">Introduction</h4>
                 The most common examples of SHM are the pendulums and spring-block oscillators, but there are others that lurk in the
                 shadows, undiscussed but still important. The one that is most different from the two we've already talked about yet
                 is still able to be analyzed easily is the <b>torsional pendulum</b>. This is a disk or other rigid object connected to a
                 cable which exerts torque whenever it is twisted.
                 <br><br>
+                <h4 class="text-center">Torsional Pendulums</h4>
                 These torsion cables act like the rotational analogue of springs, following a relation that looks very much like Hooke's law
                 but for torque. They relate torque to angular displacement from equilibrium and have a torsional strength instead of a
                 spring strength.
@@ -440,7 +441,7 @@ watch(redMass, (newVal) => {
                     &rarr;</button>
                 </div>
             </div>
-            <div v-show="page===1">
+            <div v-show="page===1"><h4 class="text-center">Waves</h4>
                 Simple harmonic motion forms the basis for many kinds of waves as well. We will not be talking too much in depth about 
                 these today because they are a spearate topic, but if you've ever seen waves on a string you will know that they make a 
                 sort of sinusoidal pattern, which is an indicator os simple harmonic motion.
@@ -489,7 +490,7 @@ watch(redMass, (newVal) => {
             </div>
             </div>
 
-            <div v-show="page===2">
+            <div v-show="page===2"><h4 class="text-center">Double Pendulum</h4>
                 The last type of oscillation I want to talk about is actually not simple harmonic in nature, but far more complex. It consists of two 
                 simple pendulums combined together in what is called a <b>double pendulum</b>.
                 <br><br>
@@ -533,6 +534,7 @@ watch(redMass, (newVal) => {
                         see, but it is definitely still a kind of oscillation. 
                     </span>
                     <br><br>
+                    <h4 class="text-center">Conclusion</h4>
                     This lesson wasn't as mathematical as the others, and was really just for fun. These new kinds of oscillators can be interesting, but are not 
                     fundamental to our understanding of simple harmonic motion. Still, I hope you took something away from this somewhat unconventional lesson.
                     <br><br>
