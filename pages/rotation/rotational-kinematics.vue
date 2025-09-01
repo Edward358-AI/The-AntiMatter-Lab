@@ -93,115 +93,115 @@ const questions = reactive(
             },
             {
                 number: 2,
-                question: "",
+                question: "A spinning top needs to spin at 3 revolutions per second in order to stay upright. If friction causes the top to have an angular acceleration of $-2.0~\\textrm{rad/s}^2$, how long will it take for the top to stop spinning assuming it starts spinning at 5 revolutions per second?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["1.00 s", 0, false],
+                    ["6.28 s", 1, false],
+                    ["3.14 s", 0, false],
+                    ["2.00 s", 0, false]
                 ],
-                explain: ""
+                explain: "We first need to convert from revolutions per second to radians per second. We can do this by multiplying each angular velocity value by $2\\pi$ to convert it into in radians per second. Then we can use the formula $\\omega_f = \\omega_0 + \\alpha t$ to solve for the time it takes to stop, which comes out to be $t = 6.28~\\textrm{s}$."
             },
             {
                 number: 3,
-                question: "",
+                question: "What is the centrifugal force that an ant weighing 0.5 N on the edge of a wheel of radius 0.5 m spinning with an angular velocity of 12.5 rad/s feels?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["4.88 N", 0, false],
+                    ["39.1 N", 0, false],
+                    ["7.96 N", 0, false],
+                    ["3.98 N", 1, false]
                 ],
-                explain: ""
+                explain: "The mass of the ant is found by dividing its weight by $g$. After this, we can use the formula $F_c = m\\omega^2 r$ to find the centrifugal force, which comes out to be $3.98~\\textrm{N}$."
             },
             {
                 number: 4,
-                question: "",
+                question: "A CD player needs to spin at 120 RPM (revolutions per minute) in order to play music. If the maximum possible angular acceleration that the machine can provide is $\\alpha = 2.5 \\textrm{rad/s}^2$, how many revolutions does the disk go through as it spins up to speed?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["5.02 rev", 1, false],
+                    ["31.6 rev", 0, false],
+                    ["49.6 rev", 0, false],
+                    ["10.1 rev", 0, false]
                 ],
-                explain: ""
+                explain: "we first convert 120 RPM to radians per second using dimensional analysis, then simply use the rotational kinematics formula ${\\omega_f}^2 = {\\omega_0}^2 + 2\\alpha\\Delta \\theta$ to solve for the angular displacement. We should get a value of $5.02~\\textrm{rev}$. A common mistake is forgetting to convert from radians into revolutions."
             },
             {
                 number: 5,
-                question: "",
+                question: "Angular acceleration is <b>not</b> directly associated via a formula with which of the following?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["Angular velocity", 0, false],
+                    ["Angular displacement", 0, false],
+                    ["Tangential acceleration", 0, false],
+                    ["Centripetal acceleration", 1, false]
                 ],
-                explain: ""
+                explain: "Only the centripetal acceleration formula does not take angular acceleration into account. The rest of the quantities have at least one equation that relates them to the angular acceleration."
             }
         ],
         [ // calculus difficulty
             {
                 number: 0,
-                question: "",
+                question: "A CD spins up from rest to an angular velocity of $34.0~\\textrm{rad/s}$. If it goes through 15 full revolutions as it spins up, what must its angular acceleration be?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["12.3 rad/s²", 0, false],
+                    ["6.13 rad/s²", 1, false],
+                    ["38.5 rad/s²", 0, false],
+                    ["9.63 rad/s²", 0, false]
                 ],
-                explain: ""
+                explain: "We use the formula $\\omega_f^2 = \\omega_0^2 + 2\\alpha\\Delta \\theta$, where $\\omega_0 = 0$. We then just substitute given values and evaluate, being careful to realize that we are given angular displacement in revolutions and not radians. Solving gives us $\\alpha = 6.13~\\textrm{rad/s}^2$."
             },
             {
                 number: 1,
-                question: "",
+                question: "A plate of radius $r=0.15~\\textrm{m}$ will break if any point on it experiences an acceleration over $7.0 \\textrm{m/s}^2$. At one instant, it has an angular acceleration of $34.5~\\textrm{rad/s}^2$. What is the maximum angular velocity it can have without breaking?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["3.81 rad/s", 0, false],
+                    ["4.71 rad/s", 0, false],
+                    ["5.61 rad/s", 1, false],
+                    ["1.83 rad/s", 0, false]
                 ],
-                explain: ""
+                explain: "The tangential acceleration of the plate can be determined as $a_t = \alpha r = 5.175 \\textrm{m/s}^2$. This is related to the total acceleration through the formula $a^2 = {a_t}^2 + {a_c}^2$, where $a_c = \omega^2 r$. We then want to solve for $\omega$ using both formulas, giving us $\omega = 5.61~\\textrm{rad/s}$."
             },
             {
                 number: 2,
-                question: "",
+                question: "A spinning top needs to spin at 3 revolutions per second in order to stay upright. If friction causes the top to have an angular acceleration of $-2.0~\\textrm{rad/s}^2$, how long will it take for the top to stop spinning assuming it starts spinning at 5 revolutions per second?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["1.00 s", 0, false],
+                    ["6.28 s", 1, false],
+                    ["3.14 s", 0, false],
+                    ["2.00 s", 0, false]
                 ],
-                explain: ""
+                explain: "We first need to convert from revolutions per second to radians per second. We can do this by multiplying each angular velocity value by $2\\pi$ to convert it into in radians per second. Then we can use the formula $\\omega_f = \\omega_0 + \\alpha t$ to solve for the time it takes to stop, which comes out to be $t = 6.28~\\textrm{s}$."
             },
             {
                 number: 3,
-                question: "",
+                question: "What is the centrifugal force that an ant weighing 0.5 N on the edge of a wheel of radius 0.5 m spinning with an angular velocity of 12.5 rad/s feels?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["4.88 N", 0, false],
+                    ["39.1 N", 0, false],
+                    ["7.96 N", 0, false],
+                    ["3.98 N", 1, false]
                 ],
-                explain: ""
+                explain: "The mass of the ant is found by dividing its weight by $g$. After this, we can use the formula $F_c = m\\omega^2 r$ to find the centrifugal force, which comes out to be $3.98~\\textrm{N}$."
             },
             {
                 number: 4,
-                question: "",
+                question: "A CD player needs to spin at 120 RPM (revolutions per minute) in order to play music. If the maximum possible angular acceleration that the machine can provide is $\\alpha = 2.5 \\textrm{rad/s}^2$, how many revolutions does the disk go through as it spins up to speed?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["5.02 rev", 1, false],
+                    ["31.6 rev", 0, false],
+                    ["49.6 rev", 0, false],
+                    ["10.1 rev", 0, false]
                 ],
-                explain: ""
+                explain: "we first convert 120 RPM to radians per second using dimensional analysis, then simply use the rotational kinematics formula ${\\omega_f}^2 = {\\omega_0}^2 + 2\\alpha\\Delta \\theta$ to solve for the angular displacement. We should get a value of $5.02~\\textrm{rev}$. A common mistake is forgetting to convert from radians into revolutions."
             },
             {
                 number: 5,
-                question: "",
+                question: "Angular acceleration is <b>not</b> directly associated via a formula with which of the following?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["Angular velocity", 0, false],
+                    ["Angular displacement", 0, false],
+                    ["Tangential acceleration", 0, false],
+                    ["Centripetal acceleration", 1, false]
                 ],
-                explain: ""
+                explain: "Only the centripetal acceleration formula does not take angular acceleration into account. The rest of the quantities have at least one equation that relates them to the angular acceleration."
             }
         ]
     ]
