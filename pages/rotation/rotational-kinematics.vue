@@ -18,100 +18,78 @@ const page = storeToRefs(useUserStore()).RotationalKinematics
 watch(page, () => { if (import.meta.client) window.scrollTo(0,0) })
 watch(level, () => { if (!lessonShowing.value && import.meta.client) nextTick(() => window.MathJax?.typeset()) })
 
-const results = reactive([[0,0,0,0,0,0], [0,0,0,0,0,0], [0,0,0,0,0,0]]) // update as add more questions
-const explanations = reactive([[false,false,false,false,false,false], [false,false,false,false,false,false], [false,false,false,false,false,false]]) // keeps track of what explanations are visible
+const results = reactive([[0,0,0,0], [0,0,0,0,0,0], [0,0,0,0,0,0]]) // update as add more questions
+const explanations = reactive([[false,false,false,false], [false,false,false,false,false,false], [false,false,false,false,false,false]]) // keeps track of what explanations are visible
 const questions = reactive(
     [
         [ // conceptual difficulty
             {
                 number: 0,
-                question: "",
+                question: "What is the rotational counterpart of linear displacement?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["Angular Displacement", 1, false],
+                    ["Angular Velocity", 0, false],
+                    ["Angular Acceleration", 0, false],
+                    ["Angular Position", 0, false]
                 ],
-                explain: ""
+                explain: "The counterpart of linear displacement is angular displacement, not to be confused with angular position."
             },
             {
                 number: 1,
-                question: "",
+                question: "Angular acceleration does not account for which of the following?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["Tangential Acceleration", 0, false],
+                    ["Centripetal Acceleration", 1, false],
+                    ["Angular Velocity", 0, false],
+                    ["Angular Displacement", 0, false]
                 ],
-                explain: ""
+                explain: "The angular acceleration is related to the tangential acceleration as $\\alpha = \\frac{a_t}{r}$. It cannot account for the centripetal acceleration, which is described by a different formula."
             },
             {
                 number: 2,
-                question: "",
+                question: "Which of these is the correct expression for the centripetal acceleration in terms of angular velocity?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["$a_c = \\frac{v^2}{r}$", 0, false],
+                    ["$a_c = \\frac{\\Delta v}{\\Delta t}$", 0, false],
+                    ["$a_c = \\omega^2 r$", 1, false],
+                    ["$a_c = \\frac{F_c}{m}$", 0, false]
                 ],
-                explain: ""
+                explain: "As you should recall from the lesson, $a_c = \omega^2 r$ in general. The others either do not use angular velocity as requested or do not represent centripetal acceleration."
             },
             {
                 number: 3,
-                question: "",
+                question: "An object moves in a line at a speed $v$. What is the angular velocity of the object as measured to a point a distance $r$ away?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["$vr$", 0, false],
+                    ["$\\frac{v}{r}$", 0, false],
+                    ["$\\frac{r}{v}$", 0, false],
+                    ["Cannot determine", 1, false]
                 ],
-                explain: ""
-            },
-            {
-                number: 4,
-                question: "",
-                answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
-                ],
-                explain: ""
-            },
-            {
-                number: 5,
-                question: "",
-                answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
-                ],
-                explain: ""
+                explain: "The object is moving in a straight line and therefore has <b>no angular velocity</b>. This is a trick question."
             }
         ],
         [ // algebra difficulty
             {
                 number: 0,
-                question: "",
+                question: "A CD spins up from rest to an angular velocity of $34.0~\\textrm{rad/s}$. If it goes through 15 full revolutions as it spins up, what must its angular acceleration be?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["12.3 rad/s²", 0, false],
+                    ["6.13 rad/s²", 1, false],
+                    ["38.5 rad/s²", 0, false],
+                    ["9.63 rad/s²", 0, false]
                 ],
-                explain: ""
+                explain: "We use the formula $\\omega_f^2 = \\omega_0^2 + 2\\alpha\\Delta \\theta$, where $\\omega_0 = 0$. We then just substitute given values and evaluate, being careful to realize that we are given angular displacement in revolutions and not radians. Solving gives us $\\alpha = 6.13~\\textrm{rad/s}^2$."
             },
             {
                 number: 1,
-                question: "",
+                question: "A plate of radius $r=0.15~\\textrm{m}$ will break if any point on it experiences an acceleration over $7.0 \\textrm{m/s}^2$. At one instant, it has an angular acceleration of $34.5~\\textrm{rad/s}^2$. What is the maximum angular velocity it can have without breaking?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["3.81 rad/s", 0, false],
+                    ["4.71 rad/s", 0, false],
+                    ["5.61 rad/s", 1, false],
+                    ["1.83 rad/s", 0, false]
                 ],
-                explain: ""
+                explain: "The tangential acceleration of the plate can be determined as $a_t = \alpha r = 5.175 \\textrm{m/s}^2$. This is related to the total acceleration through the formula $a^2 = {a_t}^2 + {a_c}^2$, where $a_c = \omega^2 r$. We then want to solve for $\omega$ using both formulas, giving us $\omega = 5.61~\\textrm{rad/s}$."
             },
             {
                 number: 2,
