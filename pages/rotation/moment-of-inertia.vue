@@ -25,69 +25,69 @@ const questions = reactive(
         [ // conceptual difficulty
             {
                 number: 0,
-                question: "",
+                question: "The moment of inertia of a solid cylinder about its central axis is:",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["$\\frac12 mr^2$", 1, false],
+                    ["$\\frac13 mr^2$", 0, false],
+                    ["$mr^2$", 0, false],
+                    ["$\\frac25 mr^2$", 0, false]
                 ],
-                explain: ""
+                explain: "As given in the lesson, the moment of inertia of a solid cylinder about its central axis is $\\frac12 mr^2$."
             },
             {
                 number: 1,
-                question: "",
+                question: "Which of these has the highest moment of inertia, assuming they have the same mass and radius?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["Solid cylinder", 0, false],
+                    ["Thin ring", 1, false],
+                    ["Hollow sphere", 0, false],
+                    ["Solid sphere", 0, false]
                 ],
-                explain: ""
+                explain: "The ring has the highest moment of inertia at $I = mr^2$. The other shapes all have a moment of inertia that is less."
             },
             {
                 number: 2,
-                question: "",
+                question: "What is the moment of inertia of a disk of mass $M$ and radius $R$ that is rotated about its edge?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["$\\frac{1}{2} MR^2$", 0, false],
+                    ["$\\frac{3}{2} MR^2$", 1, false],
+                    ["$MR^2$", 0, false],
+                    ["$\\frac{2}{5} MR^2$", 0, false]
                 ],
-                explain: ""
+                explain: "Using the parallel axis theorem, we can write $I = I_{cm} + MR^2$ since we have shifted the axis to the edge of the disk. This evaluates to $\\frac32 MR^2$."
             },
             {
                 number: 3,
-                question: "",
+                question: "Consider a horizontal rod that gets more dense as you go to the right. Which position should you rotate the rod about in order to maximize the moment of inertia?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["Left end", 1, false],
+                    ["Right end", 0, false],
+                    ["Center", 0, false],
+                    ["It doesn't matter", 0, false]
                 ],
-                explain: ""
+                explain: "Because the formula for the moment of inertia is given by $I = mr^2$, we have a greater moment of inertia when more of the rod's mass is distributed further from the pivot point. Thus, when we rotate this rod about its left end, the denser parts of the rod to the right contribute to a larger moment of inertia."
             },
             {
                 number: 4,
-                question: "",
+                question: "Which of these correctly ranks the magnitude of the moments of inertia of four objects through their central axes with the same mass and radius from greatest to least?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["hoop, disk, solid sphere, spherical shell", 0, false],
+                    ["disk, hoop, spherical shell, solid sphere", 0, false],
+                    ["hoop, spherical shell, solid sphere, disk", 0, false],
+                    ["hoop, spherical shell, disk, solid sphere", 1, false]
                 ],
-                explain: ""
+                explain: "Take a look at the table of the common moments of inertia. We should see that the correct ranking is hoop ($I = mr^2$), spherical shell ($I=\\frac23 mr^2$), disk ($I=\\frac12 mr^2$), and solid sphere ($I=\\frac25 mr^2$)."
             },
             {
                 number: 5,
-                question: "",
+                question: "What is the difference between the moment of inertia of a disk and a semicircle of the same mass and radius, both about their central axes?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["The disk has a greater inertia", 0, false],
+                    ["The semicircle has a greater inertia", 0, false],
+                    ["They have the same inertia", 1, false],
+                    ["Cannot be determined", 0, false]
                 ],
-                explain: ""
+                explain: "The moment of inertia only depends on the square of the distance between each point on the distribution and the rotational axis. In this case, the two are treated as identical distributions because this distance remains the same no matter how you cut the circle."
             }
         ],
         [ // algebra difficulty

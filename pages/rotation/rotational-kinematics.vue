@@ -93,7 +93,7 @@ const questions = reactive(
             },
             {
                 number: 2,
-                question: "A spinning top needs to spin at 3 revolutions per second in order to stay upright. If friction causes the top to have an angular acceleration of $-2.0~\\textrm{rad/s}^2$, how long will it take for the top to stop spinning assuming it starts spinning at 5 revolutions per second?",
+                question: "A spinning top needs to spin at 3 revolutions per second in order to stay upright. If friction causes the top to have an angular acceleration of $-2.0~\\textrm{rad/s}^2$, how long will it take for the top to fall over assuming it starts spinning at 5 revolutions per second?",
                 answers: [
                     ["1.00 s", 0, false],
                     ["6.28 s", 1, false],
@@ -161,7 +161,7 @@ const questions = reactive(
             },
             {
                 number: 2,
-                question: "A spinning top needs to spin at 3 revolutions per second in order to stay upright. If friction causes the top to have an angular acceleration of $-2.0~\\textrm{rad/s}^2$, how long will it take for the top to stop spinning assuming it starts spinning at 5 revolutions per second?",
+                question: "A spinning top needs to spin at 3 revolutions per second in order to stay upright. If friction causes the top to have an angular acceleration of $-2.0~\\textrm{rad/s}^2$, how long will it take for the top to fall over assuming it starts spinning at 5 revolutions per second?",
                 answers: [
                     ["1.00 s", 0, false],
                     ["6.28 s", 1, false],
