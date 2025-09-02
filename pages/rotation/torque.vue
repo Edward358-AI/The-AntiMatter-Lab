@@ -17,212 +17,201 @@ const page = storeToRefs(useUserStore()).Torque
 watch(page, () => { if (import.meta.client) window.scrollTo(0,0) })
 watch(level, () => { if (!lessonShowing.value && import.meta.client) nextTick(() => window.MathJax?.typeset()) })
 
-const results = reactive([[0,0,0,0,0,0], [0,0,0,0,0,0], [0,0,0,0,0,0]]) // update as add more questions
-const explanations = reactive([[false,false,false,false,false,false], [false,false,false,false,false,false], [false,false,false,false,false,false]]) // keeps track of what explanations are visible
+const results = reactive([[0,0,0,0,0], [0,0,0,0,0,0], [0,0,0,0,0,0]]) // update as add more questions
+const explanations = reactive([[false,false,false,false,false], [false,false,false,false,false,false], [false,false,false,false,false,false]]) // keeps track of what explanations are visible
 const questions = reactive(
     [
         [ // conceptual difficulty
             {
                 number: 0,
-                question: "",
+                question: "Torque uses which of the following operators?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["Cross product", 1, false],
+                    ["Dot product", 0, false],
+                    ["Scalar multiplication", 0, false],
+                    ["Vector addition", 0, false]
                 ],
-                explain: ""
+                explain: "Torque is defined as the cross product between the position vector measured to a pivot point and the force vector."
             },
             {
                 number: 1,
-                question: "",
+                question: "What is the SI unit of torque?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["Pascal", 0, false],
+                    ["Newton meter", 1, false],
+                    ["Joule", 0, false],
+                    ["Watt", 0, false]
                 ],
-                explain: ""
+                explain: "The SI unit of torque is the Newton meter (N·m). This is dimensionally identical to the joule (J), but we <b>never</b> use joules to describe torque. It is reserved for energy so that we do not confuse the two very different quantities."
             },
             {
                 number: 2,
-                question: "",
+                question: "Given a force $F$ applied at a position $r$ from a pivot point, under what conditions is torque maximized?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["When $F$ is applied perpendicular to $r$", 1, false],
+                    ["When $F$ is applied parallel to $r$", 0, false],
+                    ["When $F$ is applied at an angle of 45 degrees to $r$", 0, false],
+                    ["When $F$ is applied at an angle of 90 degrees to $r$", 0, false]
                 ],
-                explain: ""
+                explain: "The cross product is maximized when the two vectors it is operating on are perpendicular. Therefore, when $F$ and $r$ are perpendicular the torque is a maximum."
             },
             {
                 number: 3,
-                question: "",
+                question: "The lever arm is defined as the perpendicular distance between the force and what?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["The pivot point", 0, false],
+                    ["The position vector", 0, false],
+                    ["The line of action", 1, false],
+                    ["None of the above", 0, false]
                 ],
-                explain: ""
+                explain: "The lever arm is a mathematical convenience that allows us to simplify the calculation of torque. It is the perpendicular distance from the line of action of the force to the pivot point."
             },
             {
                 number: 4,
-                question: "",
+                question: "How do you find the torque given the lever arm and force?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["Take the cross product", 0, false],
+                    ["Take the dot product", 0, false],
+                    ["Sum them", 0, false],
+                    ["Multiply them", 1, false]
                 ],
-                explain: ""
-            },
-            {
-                number: 5,
-                question: "",
-                answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
-                ],
-                explain: ""
+                explain: "The lever arm is already the perpendicular component of the position vector, so we can simply take the product of it and the force in order to find the torque."
             }
         ],
         [ // algebra difficulty
             {
                 number: 0,
-                question: "",
+                question: "What is the torque due to the gravitational force on a sphere of radius 0.5 m and mass 2.5 kg in free fall?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["12.3 N·m", 0, false],
+                    ["9.81 N·m", 0, false],
+                    ["4.9 N·m", 0, false],
+                    ["0 N·m", 1, false]
                 ],
-                explain: ""
+                explain: "The gravitational force acts at the center of the sphere, meaning that the lever arm for this scenario is zero. The torque is also then zero. Note that we could have reasoned this, as an object in free fall does not rotate."
             },
             {
                 number: 1,
-                question: "",
+                question: "You push on a 0.6 meter long stick lodged into the ground with a force of 600 N directly downwards. The stick is stuck at an angle of 35 degrees to the vertical. What is the torque that you are exerting?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["206.5 N·m", 1, false],
+                    ["294.9 N·m", 0, false],
+                    ["360.0 N·m", 0, false],
+                    ["344.1 N·m", 0, false]
                 ],
-                explain: ""
+                explain: "The lever arm in this case is $L \\sin(35\\degree)$, where $L$ is the length of the stick. With this information, we can find the torque to be $206.5~\\textrm{N·m}$."
             },
             {
                 number: 2,
-                question: "",
+                question: "A 0.25 meter long stake will break if the torque on it exceeds 250 N·m. You hit the stake with a hammer at an angle of 8 degrees from the vertical. What is the maximum force you can apply?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["449.1 N", 0, false],
+                    ["7185 N", 1, false],
+                    ["1009 N", 0, false],
+                    ["2000 N", 0, false]
                 ],
-                explain: ""
+                explain: "The lever arm in this situation would be $0.0348~\\textrm{m}$. With this information, we can write the formula $\\tau = h \\cdot F$, where $h$ represents the lever arm. Solving for $F$ gives us a maximum force of $7185~\\textrm{N}$."
             },
             {
                 number: 3,
-                question: "",
+                question: "Is it possible for the net force on an object to be zero, but for it to still experience torque?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["No, the two are connected.", 0, false],
+                    ["Yes, rotation and translation are independent", 1, false],
+                    ["Only if there is no friction", 0, false],
+                    ["Only if there are more than two forces", 0, false]
                 ],
-                explain: ""
+                explain: "You can have a net force of zero but some net torque, because rotating objects have different definitions of direction. For instance, you can apply forces in opposite directions to the top and bottom of the wheel, which would cause it to rotate but have zero net force."
             },
             {
                 number: 4,
-                question: "",
+                question: "How can you push on a uniform horizontal disk such that it does not rotate?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["Apply a force at the edge", 0, false],
+                    ["Apply a force downwards", 0, false],
+                    ["Apply a force at the middle", 1, false],
+                    ["Apply a force at an angle", 0, false]
                 ],
-                explain: ""
+                explain: "To prevent rotation, the force applied must pass through the center of the horizontal disk, meaning you have to push at the middle of the disk."
             },
             {
                 number: 5,
-                question: "",
+                question: "What is the torque due to gravity on a rod of mass $M$ and length $L$ pivoted at its end when it is at an angle $\\theta$ below the horizontal?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["$MgL\\sin\\theta$", 0, false],
+                    ["$MgL\\cos\\theta$", 0, false],
+                    ["$\\frac12 MgL\\sin\\theta$", 0, false],
+                    ["$\\frac12 MgL\\cos\\theta$", 1, false]
                 ],
-                explain: ""
+                explain: "The gravitational force is applied at the center of mass of the object, which means we only take half of the rod into consideration when solving for the lever arm. If we do some geometry, we can find that the lever arm for a general angle $\\theta$ is $\\frac12 L \\cos \\theta$. Therefore, the torque is $\\frac12 MgL\\cos\\theta$."
             }
         ],
         [ // calculus difficulty
             {
                 number: 0,
-                question: "",
+                question: "What is the torque due to the gravitational force on a sphere of radius 0.5 m and mass 2.5 kg in free fall?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["12.3 N·m", 0, false],
+                    ["9.81 N·m", 0, false],
+                    ["4.9 N·m", 0, false],
+                    ["0 N·m", 1, false]
                 ],
-                explain: ""
+                explain: "The gravitational force acts at the center of the sphere, meaning that the lever arm for this scenario is zero. The torque is also then zero. Note that we could have reasoned this, as an object in free fall does not rotate."
             },
             {
                 number: 1,
-                question: "",
+                question: "You push on a 0.6 meter long stick lodged into the ground with a force of 600 N directly downwards. The stick is stuck at an angle of 35 degrees to the vertical. What is the torque that you are exerting?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["206.5 N·m", 1, false],
+                    ["294.9 N·m", 0, false],
+                    ["360.0 N·m", 0, false],
+                    ["344.1 N·m", 0, false]
                 ],
-                explain: ""
+                explain: "The lever arm in this case is $L \\sin(35\\degree)$, where $L$ is the length of the stick. With this information, we can find the torque to be $206.5~\\textrm{N·m}$."
             },
             {
                 number: 2,
-                question: "",
+                question: "A 0.25 meter long stake will break if the torque on it exceeds 250 N·m. You hit the stake with a hammer at an angle of 8 degrees from the vertical. What is the maximum force you can apply?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["449.1 N", 0, false],
+                    ["7185 N", 1, false],
+                    ["1009 N", 0, false],
+                    ["2000 N", 0, false]
                 ],
-                explain: ""
+                explain: "The lever arm in this situation would be $0.0348~\\textrm{m}$. With this information, we can write the formula $\\tau = h \\cdot F$, where $h$ represents the lever arm. Solving for $F$ gives us a maximum force of $7185~\\textrm{N}$."
             },
             {
                 number: 3,
-                question: "",
+                question: "Is it possible for the net force on an object to be zero, but for it to still experience torque?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["No, the two are connected.", 0, false],
+                    ["Yes, rotation and translation are independent", 1, false],
+                    ["Only if there is no friction", 0, false],
+                    ["Only if there are more than two forces", 0, false]
                 ],
-                explain: ""
+                explain: "You can have a net force of zero but some net torque, because rotating objects have different definitions of direction. For instance, you can apply forces in opposite directions to the top and bottom of the wheel, which would cause it to rotate but have zero net force."
             },
             {
                 number: 4,
-                question: "",
+                question: "How can you push on a uniform horizontal disk such that it does not rotate?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["Apply a force at the edge", 0, false],
+                    ["Apply a force downwards", 0, false],
+                    ["Apply a force at the middle", 1, false],
+                    ["Apply a force at an angle", 0, false]
                 ],
-                explain: ""
+                explain: "To prevent rotation, the force applied must pass through the center of the horizontal disk, meaning you have to push at the middle of the disk."
             },
             {
                 number: 5,
-                question: "",
+                question: "What is the torque due to gravity on a rod of mass $M$ and length $L$ pivoted at its end when it is at an angle $\\theta$ below the horizontal?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["$MgL\\sin\\theta$", 0, false],
+                    ["$MgL\\cos\\theta$", 0, false],
+                    ["$\\frac12 MgL\\sin\\theta$", 0, false],
+                    ["$\\frac12 MgL\\cos\\theta$", 1, false]
                 ],
-                explain: ""
+                explain: "The gravitational force is applied at the center of mass of the object, which means we only take half of the rod into consideration when solving for the lever arm. If we do some geometry, we can find that the lever arm for a general angle $\\theta$ is $\\frac12 L \\cos \\theta$. Therefore, the torque is $\\frac12 MgL\\cos\\theta$."
             }
         ]
     ]
@@ -750,7 +739,7 @@ onUnmounted(() => {
         </p>
     </div>
     <div v-show="!lessonShowing" class="container h100 pt-5">
-        <h1>Vectors Problems</h1><br>
+        <h1>Torque Problems</h1><br>
         <div class="question-container row justify-content-center mx-auto pb-5">
             <form @submit.prevent="checkAnswer(q.number, $event)" style="height:fit-content"
                 class="question col-6 row justify-content-center my-5 mx-auto" v-for="q in questions[level]">

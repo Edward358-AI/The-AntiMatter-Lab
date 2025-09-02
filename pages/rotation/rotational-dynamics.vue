@@ -704,7 +704,7 @@ function setChecked(chek, qNum) {
         </p>
     </div>
     <div v-show="!lessonShowing" class="container h100 pt-5">
-        <h1>Vectors Problems</h1><br>
+        <h1>Rotational Dynamics Problems</h1><br>
         <div class="question-container row justify-content-center mx-auto pb-5">
             <form @submit.prevent="checkAnswer(q.number, $event)" style="height:fit-content"
                 class="question col-6 row justify-content-center my-5 mx-auto" v-for="q in questions[level]">
