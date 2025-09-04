@@ -25,69 +25,69 @@ const questions = reactive(
         [ // conceptual difficulty
             {
                 number: 0,
-                question: "",
+                question: "A solid disk pivoted about its edge and placed vertically rotates because:",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["Gravity acts on it", 0, false],
+                    ["It is pushed from the side", 0, false],
+                    ["Gravity provides a torque", 1, false],
+                    ["Gravity is not real", 0, false]
                 ],
-                explain: ""
+                explain: "If a disk is pivioted about its edge, then the gravitational force acting at its center of mass will provide a torque about the pivot point. This torque will cause the disk to rotate according to Newton's Second Law in rotational form ($\\tau = I\\alpha$)."
             },
             {
                 number: 1,
-                question: "",
+                question: "Why will a block tip over if it is pushed too far?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["The center of mass moves past the support point", 1, false],
+                    ["It is pushed too hard", 0, false],
+                    ["Friction is not enough", 0, false],
+                    ["The wall pushes it", 0, false]
                 ],
-                explain: ""
+                explain: "A block will tip over if the gravitational force acting at the center of mass creates a torque that will tend to pull the block over, which occurs when the center of mass passes over the corner/edge of the block that is in contact with the ground. You can try this for yourself with anything that looks like a block."
             },
             {
                 number: 2,
-                question: "",
+                question: "Which of these forces is not necessarily required to be present for a ladder leaning against a wall to be in static equilibrium?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["the weight of the ladder", 0, false],
+                    ["the frictional force from the wall", 1, false],
+                    ["the normal force from the ground", 0, false],
+                    ["the normal force from the wall", 0, false]
                 ],
-                explain: ""
+                explain: "The frictional force from the wall is not required for static equilibrium, as we discussed in the lesson. We do need a frictional force from the ground to balance the normal force from the wall, however."
             },
             {
                 number: 3,
-                question: "",
+                question: "You hold on to the end of a spool of thread and let it unwind. Which force is causing the spool to rotate?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["the tension in the thread", 1, false],
+                    ["the weight of the spool", 1, false],
+                    ["the friction between the spool and the surface", 0, false],
+                    ["air resistance", 0, false]
                 ],
-                explain: ""
+                explain: "There are actually two possible answers, both of which are entirely correct. Most will say that the tension causes the spool to rotate about the center of mass, and this is a correct interpretation. However, the more technically correct explanation is that the spool rotates around the point where it contacts the string (because the string never moves at that point) and therefore gravity is what is causing a torque."
             },
             {
                 number: 4,
-                question: "",
+                question: "A hockey puck is simultaneously sliding and spinning on ice. How can you push on it to slow it down without changing its angular velocity?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["Push horizontally at the edge", 0, false],
+                    ["Push downwards", 0, false],
+                    ["Push horizontally at the middle", 1, false],
+                    ["This is not possible", 0, false]
                 ],
-                explain: ""
+                explain: "To slow down the puck without changing its angular velocity, you need to apply a force that does not create a torque about the center of mass. Pushing horizontally at the middle achieves this, as in this case the lever arm is zero because the force passes through the center of mass."
             },
             {
                 number: 5,
-                question: "",
+                question: "If no external pivot point is specified, an object will always rotate about its:",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["edge", 0, false],
+                    ["geometric center", 0, false],
+                    ["center of mass", 1, false],
+                    ["depends on the object", 0, false]
                 ],
-                explain: ""
+                explain: "If the object is not constrained to rotate a certain way, it will always tend to rotate around its center of mass."
             }
         ],
         [ // algebra difficulty
