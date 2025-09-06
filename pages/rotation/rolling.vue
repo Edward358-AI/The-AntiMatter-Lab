@@ -18,76 +18,65 @@ const page = storeToRefs(useUserStore()).Rolling
 watch(page, () => { if (import.meta.client) window.scrollTo(0,0) })
 watch(level, () => { if (!lessonShowing.value && import.meta.client) nextTick(() => window.MathJax?.typeset()) })
 
-const results = reactive([[0,0,0,0,0,0], [0,0,0,0,0,0], [0,0,0,0,0,0]]) // update as add more questions
-const explanations = reactive([[false,false,false,false,false,false], [false,false,false,false,false,false], [false,false,false,false,false,false]]) // keeps track of what explanations are visible
+const results = reactive([[0,0,0,0,0], [0,0,0,0,0,0], [0,0,0,0,0,0]]) // update as add more questions
+const explanations = reactive([[false,false,false,false,false], [false,false,false,false,false,false], [false,false,false,false,false,false]]) // keeps track of what explanations are visible
 const questions = reactive(
     [
         [ // conceptual difficulty
             {
                 number: 0,
-                question: "",
+                question: "Rolling without slipping requires:",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["Static friction", 1, false],
+                    ["Kinetic friction", 0, false],
+                    ["No friction", 0, false],
+                    ["Air resistance", 0, false]
                 ],
-                explain: ""
+                explain: "Rolling without slipping requires that theire is a force of static friction between the rolling object and the surface at the point of contact."
             },
             {
                 number: 1,
-                question: "",
+                question: "When an object rolls without slipping, it rotates about:",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["Its center of mass", 0, false],
+                    ["The point of contact with the surface", 1, false],
+                    ["The geometric center", 0, false],
+                    ["None of the above", 0, false]
                 ],
-                explain: ""
+                explain: "As discussed in the lesson, the actual point of rotation of an object that rolls without slipping is its contact point with the ground, since there is no other point it can feasibly rotate about."
             },
             {
                 number: 2,
-                question: "",
+                question: "Rolling objects move ______ than objects that slide without friction.",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["Faster", 0, false],
+                    ["Slower", 1, false],
+                    ["At the same speed", 0, false],
+                    ["Depends on the object", 0, false]
                 ],
-                explain: ""
+                explain: "Rolling objects move slower than objects that slide without friction because some of the gravitational potential energy is converted into rotational kinetic energy. You can also think of it as friction slowing the object down."
             },
             {
                 number: 3,
-                question: "",
+                question: "A hoop and a disk are both rolled down the same slope. Which one reaches the bottom first?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["Disk", 1, false],
+                    ["Hoop", 0, false],
+                    ["Same time", 0, false],
+                    ["Depends on mass", 0, false]
                 ],
-                explain: ""
+                explain: "The disk has a lower moment of inertia, which means less gravitational potential energy goes into"
             },
             {
                 number: 4,
-                question: "",
+                question: "These objects are all rolled down a frictionless incline. Which one reaches the bottom first?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["Solid sphere", 0, false],
+                    ["Hollow sphere", 0, false],
+                    ["Solid cylinder", 0, false],
+                    ["All of them reach the bottom at the same time", 1, false]
                 ],
-                explain: ""
-            },
-            {
-                number: 5,
-                question: "",
-                answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
-                ],
-                explain: ""
+                explain: "Since the incline is frictionless, rolling does not occur and all the objects are subject to the same acceleration. They reach the bottom of the incline at the same time."
             }
         ],
         [ // algebra difficulty
@@ -251,6 +240,21 @@ import { Engine, Render, Runner, Bodies, Body, Composite, Mouse, MouseConstraint
 const inputFriction = ref(0.05)
 const inputInertia = ref(20)
 const viewportMsg = ref('')
+let wheelRef = null
+let currentWidth = 0
+
+watch([inputFriction, inputInertia], () => {
+    if (wheelRef) {
+        // Update friction for all parts of the compound body
+        wheelRef.parts.forEach(part => {
+            part.friction = inputFriction.value
+            part.frictionStatic = inputFriction.value * 15
+        })
+        
+        // Update inertia with proper width scaling
+        Body.setInertia(wheelRef, 3000 * Math.pow(10, inputInertia.value / 20) / 1000 * currentWidth)
+    }
+})
 
 // Store engine and render references for cleanup
 let currentEngine = null
@@ -288,6 +292,7 @@ function runRolling() {
 
     var width = 0.5 * window.innerWidth > 1000 ? 1000 : window.innerWidth < 768 ? 0.65 * window.innerWidth : 0.5 * window.innerWidth;
     var height = 600 / 1000 * width
+    currentWidth = width  // Store width for inertia calculations
 
     // create a renderer
     var render = Render.create({
@@ -316,12 +321,12 @@ function runRolling() {
         Bodies.rectangle(500 / 1000 * width, 450 / 1000 * width, 5 / 1000 * width, 100 / 1000 * width, { render: { fillStyle: 'cyan' } }),
     ]
 
-    var wheel = Body.create({
+    wheelRef = Body.create({
         parts: [wheelrim, wheelcenter, ...spokes],
         restitution: 0.5,
         frictionAir: 0,
         friction: inputFriction.value,
-        frictionStatic: inputFriction * 15,
+        frictionStatic: inputFriction.value * 15,
         inertia: 3000 * Math.pow(10, inputInertia.value / 20) / 1000 * width
     })
 
@@ -336,7 +341,7 @@ function runRolling() {
     var leftramp = Bodies.polygon(0, 400 / 1000 * width, 3, 300 / 1000 * width, { render: { fillStyle: '#888' }, isStatic: true, angle: -Math.PI / 6 })
     var rightramp = Bodies.polygon(1000 / 1000 * width, 550 / 1000 * width, 3, 350 / 1000 * width, { render: { fillStyle: '#888' }, isStatic: true, angle: 2 * Math.PI / 3 })
 
-    Composite.add(engine.world, [wheel, ...walls, ground, leftramp, rightramp])
+    Composite.add(engine.world, [wheelRef, ...walls, ground, leftramp, rightramp])
     // create runner
     var runner = Runner.create()
     currentRunner = runner // Store reference for cleanup
@@ -406,7 +411,7 @@ onUnmounted(() => {
 
                 <div class="row justify-content-center m-auto" style="max-width:700px;">
                     <div class="col"><label>Moment of Inertia: {{ inputInertia }}</label><br><input type="range"
-                            class="form-range" v-model="inputInertia" min="10" max="75" step="1"
+                            class="form-range" v-model="inputInertia" min="20" max="75" step="1"
                             style="width:fit-content" /></div>
 
                     <div class="col"><label>Coefficient of Friction: {{ inputFriction
