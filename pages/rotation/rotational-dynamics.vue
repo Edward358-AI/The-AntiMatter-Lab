@@ -93,137 +93,137 @@ const questions = reactive(
         [ // algebra difficulty
             {
                 number: 0,
-                question: "",
+                question: "A spool, which can be approximated as a cylinder of mass $M$ and radius $R$ is held by a string wound around it. At some point, the spool is allowed to fall while unwinding the string. What is the linear acceleration of the center of mass of the spool as it falls?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["$\\frac{1}{2} g$", 0, false],
+                    ["$\\frac{2}{3} g$", 1, false],
+                    ["$\\frac{1}{3} g$", 0, false],
+                    ["$g$", 0, false]
                 ],
-                explain: ""
+                explain: "To start, we write force analysis equations. We have tension pulling upwards and the gravitational force downwards, letting us write $Mg - F_T = Ma$. We then employ torque analysis about the center of mass to write $TR = \\frac12 MR^2 \\alpha$. We can relate $a$ and $\\alpha$ using $a = \\alpha R$, and then solve the system of equations to get $a = \\frac{2}{3} g$. Another method is to consider the spool as rotating around the point where it contacts the string, which is technically the more correct and easier way to do it."
             },
             {
                 number: 1,
-                question: "",
+                question: "Write the torque exerted on a rod of length $L$ and mass $M$ that is pivoted about one end and located at an angle $\\theta$ from the vertical. Assume $\\theta < 90 \\degree$.",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["$\\frac{1}{2} MgL \\sin(\\theta)$", 1, false],
+                    ["$\\frac{1}{3} MgL \\sin(\\theta)$", 0, false],
+                    ["$MgL \\sin(\\theta)$", 0, false],
+                    ["$\\frac{2}{5} MgL \\sin(\\theta)$", 0, false]
                 ],
-                explain: ""
+                explain: "The center of mass of the rod is halfway along its length, so the lever arm is $\\frac{L}{2} \\sin(\\theta)$. The torque is then given by $\\tau = L F \\sin(\\theta)$ = $\\frac{1}{2} MgL \\sin(\\theta)$."
             },
             {
                 number: 2,
-                question: "",
+                question: "What is the maximum distance $d$ from the edge of a table that a book of length $L$ can be placed without falling off? Assume the book is uniform.",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["$\\frac{L}{2}$", 1, false],
+                    ["$\\frac{L}{3}$", 0, false],
+                    ["$\\frac{L}{4}$", 0, false],
+                    ["$\\frac{L}{5}$", 0, false]
                 ],
-                explain: ""
+                explain: "The torque due to the gravitational force will tend to rotate the book off the table if its center of mass passes the edge of the table. Since the book is uniform, this corresponds to $d = \\frac{L}{2}$."
             },
             {
                 number: 3,
-                question: "",
+                question: "A system of a pulley, which can be approximated as a solid sphere of mass $2m$ and radius $R$, and a block of mass $m$ is set up. The string does not slip on the pulley. What is the acceleration of the block as it falls?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["$\\frac{7}{10} g$", 0, false],
+                    ["$\\frac{5}{7} g$", 0, false],
+                    ["$\\frac{5}{9} g$", 1, false],
+                    ["$g$", 0, false]
                 ],
-                explain: ""
+                explain: "The forces on the block simplify to the equation $mg - F_T = ma$. The torques on the pulley simplify to $F_T R = \\frac{2}{5} (2m) R^2 \\alpha$. We can again relate $a$ and $\\alpha$ using $a = \\alpha R$, and then simplify the second equation and solve the system of equations as usual to get $a = \\frac{5}{9} g$."
             },
             {
                 number: 4,
-                question: "",
+                question: "An Atwood's Machine with two masses, $m_1$ and $m_2$ where $m_1 > m_2$, is set up with a massive pulley with a moment of inertia I. The string does not slip on the pulley. Find the acceleration of the blocks in terms of given variables and fundamental constants.",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["$\\frac{(m_1-m_2)g}{m_1+m_2}$", 0, false],
+                    ["$\\frac{(m_1-m_2)g}{m_1+m_2 + \\frac{2I}{R^2}}$", 0, false],
+                    ["$\\frac{(m_1-m_2)g}{m_1+m_2 - \\frac{I}{R^2}}$", 0, false],
+                    ["$\\frac{(m_1-m_2)g}{m_1+m_2 + \\frac{I}{R^2}}$", 1, false]
                 ],
-                explain: ""
+                explain: "For this case where the pulley has mass, the tensions on either side of it are not the same. We can write the force equations for the two blocks as $m_1 g - F_{T1} = m_1 a$ and $F_{T2} - m_2 g = m_2 a$. When we consider torques on the pulley, the equation for the pulley comes out to be $ (F_{T1} - F_{T2}) R = I \\alpha$. We can relate $a$ and $\\alpha$ using $a = \\alpha R$ as usual, and then solve the system of equations to get $a = \\frac{(m_1-m_2)g}{m_1+m_2 + \\frac{I}{R^2}}$. This kind of modified Atwood's setup is a common problem type."
             },
             {
                 number: 5,
-                question: "",
+                question: "Calculate the maximum speed that a large bus of height 2.5 meters, width 1.5 meters can execute a circular turn of radius 10 meters without tipping over. Assume the bus is a uniform rectangular prism.",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["$12.0 \\, \\textrm{m/s}$", 0, false],
+                    ["$7.67 \\, \\textrm{m/s}$", 1, false],
+                    ["$10.8 \\, \\textrm{m/s}$", 0, false],
+                    ["$12.5 \\, \\textrm{m/s}$", 0, false]
                 ],
-                explain: ""
+                explain: "The bus will experience a fictitious centrifugal force exerted at its center of mass, which will tend to try and tip it over. We can set up the torque equation $mg \\frac{w}{2} = m \\frac{v^2}{r} \\frac{h}{2}$, where $w$ is the width of the bus and $h$ is its height. Solving for $v$, we get $v = \\sqrt{gr\\frac{w}{h}} = 7.67 \\, \\textrm{m/s}$."
             }
         ],
         [ // calculus difficulty
             {
                 number: 0,
-                question: "",
+                question: "A spool, which can be approximated as a cylinder of mass $M$ and radius $R$ is held by a string wound around it. At some point, the spool is allowed to fall while unwinding the string. What is the linear acceleration of the center of mass of the spool as it falls?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["$\\frac{1}{2} g$", 0, false],
+                    ["$\\frac{2}{3} g$", 1, false],
+                    ["$\\frac{1}{3} g$", 0, false],
+                    ["$g$", 0, false]
                 ],
-                explain: ""
+                explain: "To start, we write force analysis equations. We have tension pulling upwards and the gravitational force downwards, letting us write $Mg - F_T = Ma$. We then employ torque analysis about the center of mass to write $TR = \\frac12 MR^2 \\alpha$. We can relate $a$ and $\\alpha$ using $a = \\alpha R$, and then solve the system of equations to get $a = \\frac{2}{3} g$. Another method is to consider the spool as rotating around the point where it contacts the string, which is technically the more correct and easier way to do it."
             },
             {
                 number: 1,
-                question: "",
+                question: "Write the torque exerted on a rod of length $L$ and mass $M$ that is pivoted about one end and located at an angle $\\theta$ from the vertical. Assume $\\theta < 90 \\degree$.",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["$\\frac{1}{2} MgL \\sin(\\theta)$", 1, false],
+                    ["$\\frac{1}{3} MgL \\sin(\\theta)$", 0, false],
+                    ["$MgL \\sin(\\theta)$", 0, false],
+                    ["$\\frac{2}{5} MgL \\sin(\\theta)$", 0, false]
                 ],
-                explain: ""
+                explain: "The center of mass of the rod is halfway along its length, so the lever arm is $\\frac{L}{2} \\sin(\\theta)$. The torque is then given by $\\tau = L F \\sin(\\theta)$ = $\\frac{1}{2} MgL \\sin(\\theta)$."
             },
             {
                 number: 2,
-                question: "",
+                question: "What is the maximum distance $d$ from the edge of a table that a book of length $L$ can be placed without falling off? Assume the book is uniform.",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["$\\frac{L}{2}$", 1, false],
+                    ["$\\frac{L}{3}$", 0, false],
+                    ["$\\frac{L}{4}$", 0, false],
+                    ["$\\frac{L}{5}$", 0, false]
                 ],
-                explain: ""
+                explain: "The torque due to the gravitational force will tend to rotate the book off the table if its center of mass passes the edge of the table. Since the book is uniform, this corresponds to $d = \\frac{L}{2}$."
             },
             {
                 number: 3,
-                question: "",
+                question: "A system of a pulley, which can be approximated as a solid sphere of mass $2m$ and radius $R$, and a block of mass $m$ is set up. The string does not slip on the pulley. What is the acceleration of the block as it falls?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["$\\frac{7}{10} g$", 0, false],
+                    ["$\\frac{5}{7} g$", 0, false],
+                    ["$\\frac{5}{9} g$", 1, false],
+                    ["$g$", 0, false]
                 ],
-                explain: ""
+                explain: "The forces on the block simplify to the equation $mg - F_T = ma$. The torques on the pulley simplify to $F_T R = \\frac{2}{5} (2m) R^2 \\alpha$. We can again relate $a$ and $\\alpha$ using $a = \\alpha R$, and then simplify the second equation and solve the system of equations as usual to get $a = \\frac{5}{9} g$."
             },
             {
                 number: 4,
-                question: "",
+                question: "An Atwood's Machine with two masses, $m_1$ and $m_2$ where $m_1 > m_2$, is set up with a massive pulley with a moment of inertia I. The string does not slip on the pulley. Find the acceleration of the blocks in terms of given variables and fundamental constants.",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["$\\frac{(m_1-m_2)g}{m_1+m_2}$", 0, false],
+                    ["$\\frac{(m_1-m_2)g}{m_1+m_2 + \\frac{2I}{R^2}}$", 0, false],
+                    ["$\\frac{(m_1-m_2)g}{m_1+m_2 - \\frac{I}{R^2}}$", 0, false],
+                    ["$\\frac{(m_1-m_2)g}{m_1+m_2 + \\frac{I}{R^2}}$", 1, false]
                 ],
-                explain: ""
+                explain: "For this case where the pulley has mass, the tensions on either side of it are not the same. We can write the force equations for the two blocks as $m_1 g - F_{T1} = m_1 a$ and $F_{T2} - m_2 g = m_2 a$. When we consider torques on the pulley, the equation for the pulley comes out to be $ (F_{T1} - F_{T2}) R = I \\alpha$. We can relate $a$ and $\\alpha$ using $a = \\alpha R$ as usual, and then solve the system of equations to get $a = \\frac{(m_1-m_2)g}{m_1+m_2 + \\frac{I}{R^2}}$. This kind of modified Atwood's setup is a common problem type."
             },
             {
                 number: 5,
-                question: "",
+                question: "Calculate the maximum speed that a large bus of height 2.5 meters, width 1.5 meters can execute a circular turn of radius 10 meters without tipping over. Assume the bus is a uniform rectangular prism.",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["$12.0 \\, \\textrm{m/s}$", 0, false],
+                    ["$7.67 \\, \\textrm{m/s}$", 1, false],
+                    ["$10.8 \\, \\textrm{m/s}$", 0, false],
+                    ["$12.5 \\, \\textrm{m/s}$", 0, false]
                 ],
-                explain: ""
+                explain: "The bus will experience a fictitious centrifugal force exerted at its center of mass, which will tend to try and tip it over. We can set up the torque equation $mg \\frac{w}{2} = m \\frac{v^2}{r} \\frac{h}{2}$, where $w$ is the width of the bus and $h$ is its height. Solving for $v$, we get $v = \\sqrt{gr\\frac{w}{h}} = 7.67 \\, \\textrm{m/s}$."
             }
         ]
     ]
