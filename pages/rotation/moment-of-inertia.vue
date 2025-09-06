@@ -93,139 +93,138 @@ const questions = reactive(
         [ // algebra difficulty
             {
                 number: 0,
-                question: "",
+                question: "What is the moment of inertia of a square (mass M, side length L) about an axis perpendicular to its surface and through its center?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["$\\frac{1}{6} ML^2$", 1, false],
+                    ["$\\frac{1}{12} ML^2$", 0, false],
+                    ["$\\frac{1}{4} ML^2$", 0, false],
+                    ["$\\frac{1}{3} ML^2$", 0, false]
                 ],
-                explain: ""
+                explain: "The moments of inertia about the x and y axes (horizontally rotated square) are both $\\frac{1}{12} ML^2$ because the square is equivalent to a rod when rotated that way. Using the perpendicular axis theorem, we can write $I_z = I_x + I_y = \\frac{1}{6} ML^2$."
             },
             {
                 number: 1,
-                question: "",
+                question: "What is the moment of inertia of a semicircle (mass M, radius R) about an axis parallel to its flat side and through its center?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["$\\frac{1}{8} MR^2$", 0, false],
+                    ["$\\frac{1}{4} MR^2$", 1, false],
+                    ["$\\frac{1}{2} MR^2$", 0, false],
+                    ["$\\frac{1}{3} MR^2$", 0, false]
                 ],
-                explain: ""
+                explain: "We first find the moment of inertia of a full circle through an axis parallel to its side with the perpendicular axis theorem, which is just half of the moment of inertia of an axis through the center and perpendicular to it. Since the mass distribution does not change relative to the axis if we remove half of the circle, the moment of inertia of a semicircle is the same as that of a full circle rotated about an axis parallel to its plane, or $\\frac{1}{4} MR^2$."
             },
             {
                 number: 2,
-                question: "",
+                question: "Which of these objects increases in moment of inertia as it rotates faster?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["A solid disk", 0, false],
+                    ["A hollow ring", 0, false],
+                    ["A horizontal spring", 1, false],
+                    ["This is not possible", 0, false]
                 ],
-                explain: ""
+                explain: "The horizontal spring will extend as it rotates faster due to the centrifugal force it feels, which increases its length. If we think of it like a uniform rod, the moment of inertia would then increase."
             },
             {
                 number: 3,
-                question: "",
+                question: "Three objects A, B, and C are stacked on top of each other. Object A is a disk and has a mass of 2.0 kg and a radius of 0.2 meters. Object B is a thin pipe of mass 1.5 kg and radius 0.1 m. Object C has a mass of 5.0 kg and a radius of 0.4 m. If the total moment of inertia of the configuration through each object's central axis is $I = 0.375 ~\\textrm{kg}\\cdot\\textrm{m}^2$, what shape must object C be?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["Hoop", 0, false],
+                    ["Disk", 0, false],
+                    ["Rod", 0, false],
+                    ["Sphere", 1, false]
                 ],
-                explain: ""
+                explain: "The total moment of inertia of the two known objects can be found rather easily, coming out to be $0.055~\\textrm{kg}\\cdot\\textrm{m}^2$. If we take the difference of this and then divide by $M_c {R_c}^2$, we get that the factor required in front is 0.4, or 2/5. This indicates that object C is a sphere."
             },
             {
                 number: 4,
-                question: "",
+                question: "Calculate the moment of inertia of a thick pipe with outer radius $r_1$ and inner radius $r_2$ that has a total mass $M$.",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["$\\frac12 M ({r_1}^2+{r_2}^2)$", 1, false],
+                    ["$\\frac{1}{2} M (r_1^2 - r_2^2)$", 0, false],
+                    ["$M (r_1^2 + r_2^2)$", 0, false],
+                    ["$M (r_1^2 - r_2^2)$", 0, false]
                 ],
-                explain: ""
+                explain: "The density of the pipe must be found first, and it is given by $\\rho = \\frac{M}{\\pi ({r_1}^2 - {r_2}^2)L}$. then, we consider the hollow pipe as a superposition of a large cylinder of radius $r_1$ and a small negative mass cylinder of radius $r_2$, being sure to account for their size when considering their mass. This lets us write the expression $I \\frac12 M \\frac{\\pi {r_1}^2}{\\pi ({r_1}^2 - {r_2}^2)} {r_1}^2 - \\frac12 M \\frac{\\pi {r_2}^2}{\\pi ({r_1}^2 - {r_2}^2)} {r_2}^2$, which simplifies to the answer of $\\frac12 M (r_1^2 + r_2^2)$ after some algebra."
             },
             {
                 number: 5,
-                question: "",
+                question: "Consider a horizontal rod that gets more dense as you go to the right. Which position should you rotate the rod about in order to maximize the moment of inertia?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["Left end", 1, false],
+                    ["Right end", 0, false],
+                    ["Center", 0, false],
+                    ["It doesn't matter", 0, false]
                 ],
-                explain: ""
+                explain: "Because the formula for the moment of inertia is given by $I = mr^2$, we have a greater moment of inertia when more of the rod's mass is distributed further from the pivot point. Thus, when we rotate this rod about its left end, the denser parts of the rod to the right contribute to a larger moment of inertia."
             }
         ],
         [ // calculus difficulty
             {
                 number: 0,
-                question: "",
+                question: "What is the moment of inertia of a square (mass M, side length L) about an axis perpendicular to its surface and through its center?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["$\\frac{1}{6} ML^2$", 1, false],
+                    ["$\\frac{1}{12} ML^2$", 0, false],
+                    ["$\\frac{1}{4} ML^2$", 0, false],
+                    ["$\\frac{1}{3} ML^2$", 0, false]
                 ],
-                explain: ""
+                explain: "The moments of inertia about the x and y axes (horizontally rotated square) are both $\\frac{1}{12} ML^2$ because the square is equivalent to a rod when rotated that way. Using the perpendicular axis theorem, we can write $I_z = I_x + I_y = \\frac{1}{6} ML^2$."
             },
             {
                 number: 1,
-                question: "",
+                question: "What is the moment of inertia of a semicircle (mass M, radius R) about an axis parallel to its flat side and through its center?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["$\\frac{1}{8} MR^2$", 0, false],
+                    ["$\\frac{1}{4} MR^2$", 1, false],
+                    ["$\\frac{1}{2} MR^2$", 0, false],
+                    ["$\\frac{1}{3} MR^2$", 0, false]
                 ],
-                explain: ""
+                explain: "We first find the moment of inertia of a full circle through an axis parallel to its side with the perpendicular axis theorem, which is just half of the moment of inertia of an axis through the center and perpendicular to it. Since the mass distribution does not change relative to the axis if we remove half of the circle, the moment of inertia of a semicircle is the same as that of a full circle rotated about an axis parallel to its plane, or $\\frac{1}{4} MR^2$."
             },
             {
                 number: 2,
-                question: "",
+                question: "Which of these objects increases in moment of inertia as it rotates faster?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["A solid disk", 0, false],
+                    ["A hollow ring", 0, false],
+                    ["A horizontal spring", 1, false],
+                    ["This is not possible", 0, false]
                 ],
-                explain: ""
+                explain: "The horizontal spring will extend as it rotates faster due to the centrifugal force it feels, which increases its length. If we think of it like a uniform rod, the moment of inertia would then increase."
             },
             {
                 number: 3,
-                question: "",
+                question: "Three objects A, B, and C are stacked on top of each other. Object A is a disk and has a mass of 2.0 kg and a radius of 0.2 meters. Object B is a thin pipe of mass 1.5 kg and radius 0.1 m. Object C has a mass of 5.0 kg and a radius of 0.4 m. If the total moment of inertia of the configuration through each object's central axis is $I = 0.375 ~\\textrm{kg}\\cdot\\textrm{m}^2$, what shape must object C be?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["Hoop", 0, false],
+                    ["Disk", 0, false],
+                    ["Rod", 0, false],
+                    ["Sphere", 1, false]
                 ],
-                explain: ""
+                explain: "The total moment of inertia of the two known objects can be found rather easily, coming out to be $0.055~\\textrm{kg}\\cdot\\textrm{m}^2$. If we take the difference of this and then divide by $M_c {R_c}^2$, we get that the factor required in front is 0.4, or 2/5. This indicates that object C is a sphere."
             },
             {
                 number: 4,
-                question: "",
+                question: "Calculate the moment of inertia of a thick pipe with outer radius $r_1$ and inner radius $r_2$ that has a total mass $M$.",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["$\\frac12 M ({r_1}^2+{r_2}^2)$", 1, false],
+                    ["$\\frac{1}{2} M (r_1^2 - r_2^2)$", 0, false],
+                    ["$M (r_1^2 + r_2^2)$", 0, false],
+                    ["$M (r_1^2 - r_2^2)$", 0, false]
                 ],
-                explain: ""
+                explain: "The density of the pipe must be found first, and it is given by $\\rho = \\frac{M}{\\pi ({r_1}^2 - {r_2}^2)L}$. then, we consider the hollow pipe as a superposition of a large cylinder of radius $r_1$ and a small negative mass cylinder of radius $r_2$, being sure to account for their size when considering their mass. This lets us write the expression $I \\frac12 M \\frac{\\pi {r_1}^2}{\\pi ({r_1}^2 - {r_2}^2)} {r_1}^2 - \\frac12 M \\frac{\\pi {r_2}^2}{\\pi ({r_1}^2 - {r_2}^2)} {r_2}^2$, which simplifies to the answer of $\\frac12 M (r_1^2 + r_2^2)$ after some algebra."
             },
             {
                 number: 5,
-                question: "",
+                question: "Consider a horizontal rod that gets more dense as you go to the right. Which position should you rotate the rod about in order to maximize the moment of inertia?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["Left end", 1, false],
+                    ["Right end", 0, false],
+                    ["Center", 0, false],
+                    ["It doesn't matter", 0, false]
                 ],
-                explain: ""
-            }
-        ]
+                explain: "Because the formula for the moment of inertia is given by $I = mr^2$, we have a greater moment of inertia when more of the rod's mass is distributed further from the pivot point. Thus, when we rotate this rod about its left end, the denser parts of the rod to the right contribute to a larger moment of inertia."
+        }]
     ]
 )
 
