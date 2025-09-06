@@ -49,10 +49,10 @@ const questions = reactive(
                 number: 2,
                 question: "Which of these forces is not necessarily required to be present for a ladder leaning against a wall to be in static equilibrium?",
                 answers: [
-                    ["the weight of the ladder", 0, false],
-                    ["the frictional force from the wall", 1, false],
-                    ["the normal force from the ground", 0, false],
-                    ["the normal force from the wall", 0, false]
+                    ["The weight of the ladder", 0, false],
+                    ["The frictional force from the wall", 1, false],
+                    ["The normal force from the ground", 0, false],
+                    ["The normal force from the wall", 0, false]
                 ],
                 explain: "The frictional force from the wall is not required for static equilibrium, as we discussed in the lesson. We do need a frictional force from the ground to balance the normal force from the wall, however."
             },
@@ -60,10 +60,10 @@ const questions = reactive(
                 number: 3,
                 question: "You hold on to the end of a spool of thread and let it unwind. Which force is causing the spool to rotate?",
                 answers: [
-                    ["the tension in the thread", 1, false],
-                    ["the weight of the spool", 1, false],
-                    ["the friction between the spool and the surface", 0, false],
-                    ["air resistance", 0, false]
+                    ["The tension in the thread", 1, false],
+                    ["The weight of the spool", 1, false],
+                    ["The friction between the spool and the surface", 0, false],
+                    ["Air resistance", 0, false]
                 ],
                 explain: "There are actually two possible answers, both of which are entirely correct. Most will say that the tension causes the spool to rotate about the center of mass, and this is a correct interpretation. However, the more technically correct explanation is that the spool rotates around the point where it contacts the string (because the string never moves at that point) and therefore gravity is what is causing a torque."
             },
