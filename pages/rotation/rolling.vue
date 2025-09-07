@@ -82,137 +82,137 @@ const questions = reactive(
         [ // algebra difficulty
             {
                 number: 0,
-                question: "",
+                question: "What is the acceleration of a solid sphere down an arbitrary incline with angle $\\theta$ if it rolls without slipping?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["$\\frac75 g \\sin \\theta$", 0, false],
+                    ["$\\frac{2}{5} g \\sin \\theta$", 0, false],
+                    ["$\\frac{1}{2} g \\sin \\theta$", 0, false],
+                    ["$\\frac{5}{7}g \\sin \\theta$", 1, false]
                 ],
-                explain: ""
+                explain: "If we use the method where we consider the sphere as spinning around its point of contact with the ground, we can more easily find the acceleration. The torque about that point is $mg \\sin \\theta \\cdot R = I \\alpha$. The moment of inertia about that point is $I = \\frac{2}{5}mR^2 + mR^2 = \\frac{7}{5}mR^2$. Therefore, we have $mg \\sin \\theta \\cdot R = \\frac{7}{5}mR^2 \\alpha$. Using the rolling without slipping condition $a = \\alpha R$, we can solve for $a$ to get $a = \\frac{5}{7}g \\sin \\theta$."
             },
             {
                 number: 1,
-                question: "",
+                question: "A cue ball is hit sharply so that it begins to slide without rolling with a linear velocity of $5.0~\\textrm{m/s}$. If the coefficient of kinetic friction between the ball and the table is $\\mu_k=0.2$, how long does it take for the ball to start rolling without slipping?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["1.02 s", 0, false],
+                    ["0.728 s", 1, false],
+                    ["1.82 s", 0, false],
+                    ["The ball stops before rolling", 0, false]
                 ],
-                explain: ""
+                explain: "The linear acceleration of the ball is equal to $\\mu_k g$. The angular acceleration can be found by analyzing the torque due to friction around the center of mass, which gives us the equation $\\mu_k mg R = \\frac25 mR^2 \\alpha$. We get the result that $\\alpha = \\frac{5}{2} \\frac{\\mu_k g}{R}$. The ball starts rolling without slipping when $v = \\omega R$. This lets us set up the following two equations: $v = v_0 - \\mu_k g t$ and $\\omega = \\alpha t$. Setting $v = \\omega R$ and substituting the required values into the equations gives us $t = 0.728~\\textrm{s}$."
             },
             {
                 number: 2,
-                question: "",
+                question: "A solid sphere, a solid cylinder, and a hoop all roll without slipping down an incline of height $h$ and angle $\\theta$. Which one reaches the bottom first?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["Hoop", 0, false],
+                    ["Solid sphere", 1, false],
+                    ["Solid cylinder", 0, false],
+                    ["Same time", 0, false]
                 ],
-                explain: ""
+                explain: "The solid sphere has the lowest moment of inertia (per unit mass and radius) of all the objects, which means that less of the gravitational potential energy goes into rotating the object. This means it accelerates faster and thus reaches the bottom of the slope first."
             },
             {
                 number: 3,
-                question: "",
+                question: "A hollow sphere is set to roll without slipping down an incline of 15 degrees. On another slope, a solid cylinder is set to roll without slipping. What must the incline angle be if the acceleration of the cylinder is to be the same as that of the hollow sphere?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["$13.5\\degree$", 1, false],
+                    ["$51.3\\degree$", 0, false],
+                    ["$76.5 \\degree$", 0, false],
+                    ["Not possible", 0, false]
                 ],
-                explain: ""
+                explain: "The accelerations of the two objects can be found using the formula $a = \\frac{g \\sin \\theta}{1 + \\frac{I}{mR^2}}$, which can be derived by employing the same technique that we used in problem 1. This gives us the accelerations of the two objects, and we can divide them to get the missing angle. Setting the accelerations equal to each other and solving for the angle gives us $\\theta = \\sin^{-1} \\left( \\frac{\\frac35 g}{\\frac23 g}} \\sin 15\\degree \\right) = 13.5\\degree$."
             },
             {
                 number: 4,
-                question: "",
+                question: "What is the maximum possible angle that a solid sphere can roll down a slope?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["$19.6 \\degree$", 0, false],
+                    ["$60.3 \\degree$", 0, false],
+                    ["$74.1 \\degree$", 1, false],
+                    ["There is no upper limit", 0, false]
                 ],
-                explain: ""
+                explain: "In general, we can solve for the required friction by seeing the conditions where the formula $a = \\alpha R$ is satisfied. First, we can solve for the linear acceleration in terms of $\\theta$, which gives us $a = g(\\sin \\theta - \\mu\\cos\\theta)$. The angular acceleration can be found by analyzing the torque about the point of contact, which gives us the equation $mg \\sin \\theta R = \\frac75 mR^2 \\alpha$, which gives us the equation $a = \\frac57 g \\sin \\theta$. Setting these two equations equal to each other and solving for $\\theta$ gives us $\\tan \\theta = \\frac{7\\mu}{2}$. Since we want the maximum possible angle, we take $\\mu = 1$ (the highest possible value of the coefficient of static friction) and get $\\theta = 74.1\\degree$."
             },
             {
                 number: 5,
-                question: "",
+                question: "A spool can be modelled as an object with an outer radius $R$ and an inner radius $r$. A light string is wound around the inner radius and pulled. What must be the angle $\\theta$ that the string makes with the horizontal if the spool translates without rotating? <br><img src=\"/rotation/Problem 11.png\" style=\"max-width:250px\" class='rounded'/>",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["$0\\degree$", 0, false],
+                    ["$\\arccos \\left( \\frac{r}{R} \\right)$", 1, false],
+                    ["$\\arctan \\left( \\frac{r}{R} \\right)$", 0, false],
+                    ["Not possible", 0, false]
                 ],
-                explain: ""
+                explain: "The tension force in the string must run directly through the point of contact of the spool with the ground in order to prevent rotation. This means that the angle $\\theta$ must satisfy $\\cos \\theta = \\frac{r}{R}$, which gives us $\\theta = \\arccos \\left( \\frac{r}{R} \\right)$."
             }
         ],
         [ // calculus difficulty
             {
                 number: 0,
-                question: "",
+                question: "What is the acceleration of a solid sphere down an arbitrary incline with angle $\\theta$ if it rolls without slipping?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["$\\frac75 g \\sin \\theta$", 0, false],
+                    ["$\\frac{2}{5} g \\sin \\theta$", 0, false],
+                    ["$\\frac{1}{2} g \\sin \\theta$", 0, false],
+                    ["$\\frac{5}{7}g \\sin \\theta$", 1, false]
                 ],
-                explain: ""
+                explain: "If we use the method where we consider the sphere as spinning around its point of contact with the ground, we can more easily find the acceleration. The torque about that point is $mg \\sin \\theta \\cdot R = I \\alpha$. The moment of inertia about that point is $I = \\frac{2}{5}mR^2 + mR^2 = \\frac{7}{5}mR^2$. Therefore, we have $mg \\sin \\theta \\cdot R = \\frac{7}{5}mR^2 \\alpha$. Using the rolling without slipping condition $a = \\alpha R$, we can solve for $a$ to get $a = \\frac{5}{7}g \\sin \\theta$."
             },
             {
                 number: 1,
-                question: "",
+                question: "A cue ball is hit sharply so that it begins to slide without rolling with a linear velocity of $5.0~\\textrm{m/s}$. If the coefficient of kinetic friction between the ball and the table is $\\mu_k=0.2$, how long does it take for the ball to start rolling without slipping?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["1.02 s", 0, false],
+                    ["0.728 s", 1, false],
+                    ["1.82 s", 0, false],
+                    ["The ball stops before rolling", 0, false]
                 ],
-                explain: ""
+                explain: "The linear acceleration of the ball is equal to $\\mu_k g$. The angular acceleration can be found by analyzing the torque due to friction around the center of mass, which gives us the equation $\\mu_k mg R = \\frac25 mR^2 \\alpha$. We get the result that $\\alpha = \\frac{5}{2} \\frac{\\mu_k g}{R}$. The ball starts rolling without slipping when $v = \\omega R$. This lets us set up the following two equations: $v = v_0 - \\mu_k g t$ and $\\omega = \\alpha t$. Setting $v = \\omega R$ and substituting the required values into the equations gives us $t = 0.728~\\textrm{s}$."
             },
             {
                 number: 2,
-                question: "",
+                question: "A solid sphere, a solid cylinder, and a hoop all roll without slipping down an incline of height $h$ and angle $\\theta$. Which one reaches the bottom first?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["Hoop", 0, false],
+                    ["Solid sphere", 1, false],
+                    ["Solid cylinder", 0, false],
+                    ["Same time", 0, false]
                 ],
-                explain: ""
+                explain: "The solid sphere has the lowest moment of inertia (per unit mass and radius) of all the objects, which means that less of the gravitational potential energy goes into rotating the object. This means it accelerates faster and thus reaches the bottom of the slope first."
             },
             {
                 number: 3,
-                question: "",
+                question: "A hollow sphere is set to roll without slipping down an incline of 15 degrees. On another slope, a solid cylinder is set to roll without slipping. What must the incline angle be if the acceleration of the cylinder is to be the same as that of the hollow sphere?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["$13.5\\degree$", 1, false],
+                    ["$51.3\\degree$", 0, false],
+                    ["$76.5 \\degree$", 0, false],
+                    ["Not possible", 0, false]
                 ],
-                explain: ""
+                explain: "The accelerations of the two objects can be found using the formula $a = \\frac{g \\sin \\theta}{1 + \\frac{I}{mR^2}}$, which can be derived by employing the same technique that we used in problem 1. This gives us the accelerations of the two objects, and we can divide them to get the missing angle. Setting the accelerations equal to each other and solving for the angle gives us $\\theta = \\sin^{-1} \\left( \\frac{\\frac35 g}{\\frac23 g}} \\sin 15\\degree \\right) = 13.5\\degree$."
             },
             {
                 number: 4,
-                question: "",
+                question: "What is the maximum possible angle that a solid sphere can roll down a slope?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["$19.6 \\degree$", 0, false],
+                    ["$60.3 \\degree$", 0, false],
+                    ["$74.1 \\degree$", 1, false],
+                    ["There is no upper limit", 0, false]
                 ],
-                explain: ""
+                explain: "In general, we can solve for the required friction by seeing the conditions where the formula $a = \\alpha R$ is satisfied. First, we can solve for the linear acceleration in terms of $\\theta$, which gives us $a = g(\\sin \\theta - \\mu\\cos\\theta)$. The angular acceleration can be found by analyzing the torque about the point of contact, which gives us the equation $mg \\sin \\theta R = \\frac75 mR^2 \\alpha$, which gives us the equation $a = \\frac57 g \\sin \\theta$. Setting these two equations equal to each other and solving for $\\theta$ gives us $\\tan \\theta = \\frac{7\\mu}{2}$. Since we want the maximum possible angle, we take $\\mu = 1$ (the highest possible value of the coefficient of static friction) and get $\\theta = 74.1\\degree$."
             },
             {
                 number: 5,
-                question: "",
+                question: "A spool can be modelled as an object with an outer radius $R$ and an inner radius $r$. A light string is wound around the inner radius and pulled. What must be the angle $\\theta$ that the string makes with the horizontal if the spool translates without rotating? <br><img src=\"/rotation/Problem 11.png\" style=\"max-width:250px\" class='rounded'/>",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["$0\\degree$", 0, false],
+                    ["$\\arccos \\left( \\frac{r}{R} \\right)$", 1, false],
+                    ["$\\arctan \\left( \\frac{r}{R} \\right)$", 0, false],
+                    ["Not possible", 0, false]
                 ],
-                explain: ""
+                explain: "The tension force in the string must run directly through the point of contact of the spool with the ground in order to prevent rotation. This means that the angle $\\theta$ must satisfy $\\cos \\theta = \\frac{r}{R}$, which gives us $\\theta = \\arccos \\left( \\frac{r}{R} \\right)$."
             }
         ]
     ]
