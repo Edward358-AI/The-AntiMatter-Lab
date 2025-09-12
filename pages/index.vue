@@ -17,6 +17,11 @@ definePageMeta({
         <p style="animation: slideUp 5s forwards 400ms;opacity:0;">Don't know where to
             go? Visit our <NuxtLink to="/basics/about">about page!</NuxtLink>
         </p>
+        <p style="animation: slideUp 5s forwards 400ms;opacity:0;">
+        <i>"If I have seen further, it is by standing on the shoulders of giants." - Isaac Newton</i>
+        </p>
+        
+
         <span class="warn">Note: This website is NOT optimized for smaller screens/viewport widths. While the website does work, some parts are best viewed on a larger screen.</span>
     </div>
 </template>
