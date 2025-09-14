@@ -25,205 +25,205 @@ const questions = reactive(
         [ // conceptual difficulty
             {
                 number: 0,
-                question: "",
+                question: "Angular momentum is conserved when:",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["There is no net force", 0, false],
+                    ["There is no net torque about the axis of rotation", 1, false],
+                    ["The system is isolated", 0, false],
+                    ["The angular velocity is constant", 0, false]
                 ],
-                explain: ""
+                explain: "The condition for the conservation of angular momentum is that there is no net external torque about the axis of rotation."
             },
             {
                 number: 1,
-                question: "",
+                question: "When a car's wheels begin spinning, what counteracts this increase in angular momentum?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["The gravitational attraction", 0, false],
+                    ["Rotation of the other tires", 0, false],
+                    ["Rotation of the Earth", 1, false],
+                    ["Nothing", 0, false]
                 ],
-                explain: ""
+                explain: "The Earth ever so slightly rotates the other way due to the torque exerted by the friction on the tires, which counteracts this increase of the angular momentum"
             },
             {
                 number: 2,
-                question: "",
+                question: "Which of these is the correct expression for the rotational kinetic energy of an object?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["$\\frac{1}{2} I \\omega^2$", 1, false],
+                    ["$\\frac{1}{2} m v^2$", 0, false],
+                    ["$I \\omega$", 0, false],
+                    ["$mgh$", 0, false]
                 ],
-                explain: ""
+                explain: "The rotational kinetic energy formula is given by $K = \\frac{1}{2} I \\omega^2$"
             },
             {
                 number: 3,
-                question: "",
+                question: "When an ice skater pulls their arms in, their angular velocity increases because:",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["Their moment of inertia decreases", 1, false],
+                    ["Their moment of inertia increases", 0, false],
+                    ["Angular momentum is not conserved", 0, false],
+                    ["They are pushing off the ice", 0, false]
                 ],
-                explain: ""
+                explain: "When the ice skater pulls their arms in, their moment of inertia decreases because their mass is now distributed closer to the axis of rotation. Since angular momentum is conserved, their angular velocity must increase to compensate."
             },
             {
                 number: 4,
-                question: "",
+                question: "The angular momentum vector points:",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["Along the direction of rotation", 0, false],
+                    ["Parallel to the plane of rotation", 0, false],
+                    ["Perpendicular to the plane of rotation", 1, false],
+                    ["Angular momentum is not a vector", 0, false]
                 ],
-                explain: ""
+                explain: "The angular momentum vector points perpendicular to the plane of rotation, as discussed in the lesson."
             },
             {
                 number: 5,
-                question: "",
+                question: "What is the formula for the angular momentum of a ball moving in a straight line?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["$L = mvr$", 0, false],
+                    ["$L = I \\omega$", 0, false],
+                    ["$L = \\frac{1}{2} mv^2$", 0, false],
+                    ["Not enough information", 1, false]
                 ],
-                explain: ""
+                explain: "The angular momentum of a ball moving in a straight line cannot be determined without additional information, such as the point about which the angular momentum is being calculated. This is a trick question."
             }
         ],
         [ // algebra difficulty
             {
                 number: 0,
-                question: "",
+                question: "Two identical disks are stacked on top of each other. The top disk is initially spinning with an angular velocity of $\\omega_0$, while the bottom disk spins in the opposite direction with an angular velocity of $-\\omega_0/3$. If the disks are then pressed together and allowed to spin freely, what is their final angular velocity?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["$\\frac{1}{3} \\omega_0$", 1, false],
+                    ["$\\frac{1}{2} \\omega_0$", 0, false],
+                    ["$\\frac{1}{4} \\omega_0$", 0, false],
+                    ["$\\omega_0$", 0, false]
                 ],
-                explain: ""
+                explain: "We can first compute the total initial angular momentum, being sure to account for direction. This gives us $L = I \\omega_0 + I(-\\omega_0/3) = \\frac{2}{3} I \\omega_0$. Since there is no net external torque, the final angular momentum must equal the initial angular momentum. The final moment of inertia is $2I$ (since the disks are identical and stacked), so we have $\\frac{2}{3} I \\omega_0 = 2I \\omega_f$. Solving for $\\omega_f$ gives us $\\omega_f = \\frac{1}{3} \\omega_0$."
             },
             {
                 number: 1,
-                question: "",
+                question: "A solid sphere of mass $M$ and radius $R$ rolls without slipping down an incline of height $H$. What is its speed at the bottom of the incline?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["$\\sqrt{\\frac{2}{5} gH}$", 0, false],
+                    ["$\\sqrt{\\frac{5}{7} gH}$", 0, false],
+                    ["$\\sqrt{\\frac{7}{10} gH}$", 0, false],
+                    ["$\\sqrt{\\frac{10}{7} gH}$", 1, false]
                 ],
-                explain: ""
+                explain: "The change in gravitational potential energy must be equal to the total change in kinetic energy, both linear and rotational. This gives us the relation $MgH = \\frac{1}{2} M v^2 + \\frac{1}{2} \\cdot \\frac{2}{5} MR^2 \\omega^2$. Since we have rolling without slipping, $v = \\omega R$. Substituting these into the equation gives $MgH = \\frac{1}{2} M v^2 + \\frac{1}{2} \\left( \\frac{2}{5} MR^2 \\right) \\left( v/R \\right)^2$. Simplifying this leads to $MgH = \\frac{7}{10} M v^2$, and solving for $v$ yields $v = \\sqrt{\\frac{10}{7} gH}$."
             },
             {
                 number: 2,
-                question: "",
+                question: "A disk has its edge coated with extra-strength glue and is launched at a hollow ring of equal mass and double radius. If the disk strikes the ring at its center and sticks to it with a final angular velocity of $\\omega_f = 2.35~\\textrm{rad/s}$, what was the initial angular velocity of the disk?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["$\\omega_0 = 3.755~\\textrm{rad/s}$", 0, false],
+                    ["$\\omega_0 = 21.15~\\textrm{rad/s}$", 1, false],
+                    ["$\\omega_0 = 11.75~\\textrm{rad/s}$", 0, false],
+                    ["$\\omega_0 = 12.00~\\textrm{rad/s}$", 0, false]
                 ],
-                explain: ""
+                explain: "The angular momentum of the system before and after the collision must be equal since there will be no net external torque. The ring has a moment of inertia of $I_r = 4MR^2$ and the disk has a moment of inertia of $I_d = \\frac{1}{2} MR^2$. The equation that relates the initial and final angular momenta is thus $\\frac{1}{2} MR^2 \\omega_0 = \\left( \\frac{1}{2} MR^2 + 4MR^2 \\right) 2.35$. Solving for $\\omega_0$ yields $\\omega_0 = 21.15~\\textrm{rad/s}$."
             },
             {
                 number: 3,
-                question: "",
+                question: "What is the kinetic energy of a hollow sphere of mass $m$ and radius $R$ rolling without slipping at a speed $v$ as compared to the kinetic energy $K_0$ of a block of the same mass translating without friction at the same speed? Express your answer in terms of $K_0$.",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["$\\frac56 K_0$", 0, false],
+                    ["$\\frac{7}{10} K_0$", 0, false],
+                    ["$\\frac53 K_0$", 1, false],
+                    ["$\\frac75 K_0$", 0, false]
                 ],
-                explain: ""
+                explain: "The expression for the kinetic energy of the sphere is $\\frac12 mv^2 + \\frac12 \\left( \\frac23 mR^2 \\right) \\left( v/R \\right)^2 = \\frac56 mv^2$. The kinetic energy of the block is simply $K_0 = \\frac12 mv^2$. Thus, the ratio of the two kinetic energies is $\\frac{K}{K_0} = \\frac{\\frac56 mv^2}{\\frac12 mv^2} = \\frac56$, meaning $K = \\frac53 K_0$."
             },
             {
                 number: 4,
-                question: "",
+                question: "Does the static friction force for an object rolling down an incline have any affect on the rolling object?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["Yes, it dissipates mechanical energy", 0, false],
+                    ["Yes, it decreases the acceleration", 1, false],
+                    ["No, it only acts as a pivot", 0, false],
+                    ["No, it is irrelevant", 0, false]
                 ],
-                explain: ""
+                explain: "The static friction force must slow down the object as according to Newton's Laws. Although it does not dissipate mechanical energy, it causes the object to accelerate at a slower pace, which can be seen because the object has both linear kinetic energy and rotational kinetic energy."
             },
             {
                 number: 5,
-                question: "",
+                question: "A disk spins clockwise and is oriented so that it faces you. Another disk is spinning counterclockwise and is oriented such that the perpendicular axis points to your right. What direction is the total angular momentum vector pointing?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["Toward you", 0, false],
+                    ["Away from you", 0, false],
+                    ["Away and to the right", 1, false],
+                    ["Toward you and to the right", 0, false]
                 ],
-                explain: ""
+                explain: "Using the right-hand rule, we can see that the first disk has an angular momentum vector that points away from you, while the second disk has an angular momentum vector that points to the right. The total angular momentum vector is thus pointing away and to the right, per the laws of vector addition."
             }
         ],
         [ // calculus difficulty
             {
                 number: 0,
-                question: "",
+                question: "Two identical disks are stacked on top of each other. The top disk is initially spinning with an angular velocity of $\\omega_0$, while the bottom disk spins in the opposite direction with an angular velocity of $-\\omega_0/3$. If the disks are then pressed together and allowed to spin freely, what is their final angular velocity?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["$\\frac{1}{3} \\omega_0$", 1, false],
+                    ["$\\frac{1}{2} \\omega_0$", 0, false],
+                    ["$\\frac{1}{4} \\omega_0$", 0, false],
+                    ["$\\omega_0$", 0, false]
                 ],
-                explain: ""
+                explain: "We can first compute the total initial angular momentum, being sure to account for direction. This gives us $L = I \\omega_0 + I(-\\omega_0/3) = \\frac{2}{3} I \\omega_0$. Since there is no net external torque, the final angular momentum must equal the initial angular momentum. The final moment of inertia is $2I$ (since the disks are identical and stacked), so we have $\\frac{2}{3} I \\omega_0 = 2I \\omega_f$. Solving for $\\omega_f$ gives us $\\omega_f = \\frac{1}{3} \\omega_0$."
             },
             {
                 number: 1,
-                question: "",
+                question: "A solid sphere of mass $M$ and radius $R$ rolls without slipping down an incline of height $H$. What is its speed at the bottom of the incline?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["$\\sqrt{\\frac{2}{5} gH}$", 0, false],
+                    ["$\\sqrt{\\frac{5}{7} gH}$", 0, false],
+                    ["$\\sqrt{\\frac{7}{10} gH}$", 0, false],
+                    ["$\\sqrt{\\frac{10}{7} gH}$", 1, false]
                 ],
-                explain: ""
+                explain: "The change in gravitational potential energy must be equal to the total change in kinetic energy, both linear and rotational. This gives us the relation $MgH = \\frac{1}{2} M v^2 + \\frac{1}{2} \\cdot \\frac{2}{5} MR^2 \\omega^2$. Since we have rolling without slipping, $v = \\omega R$. Substituting these into the equation gives $MgH = \\frac{1}{2} M v^2 + \\frac{1}{2} \\left( \\frac{2}{5} MR^2 \\right) \\left( v/R \\right)^2$. Simplifying this leads to $MgH = \\frac{7}{10} M v^2$, and solving for $v$ yields $v = \\sqrt{\\frac{10}{7} gH}$."
             },
             {
                 number: 2,
-                question: "",
+                question: "A disk has its edge coated with extra-strength glue and is launched at a hollow ring of equal mass and double radius. If the disk strikes the ring at its center and sticks to it with a final angular velocity of $\\omega_f = 2.35~\\textrm{rad/s}$, what was the initial angular velocity of the disk?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["$\\omega_0 = 3.755~\\textrm{rad/s}$", 0, false],
+                    ["$\\omega_0 = 21.15~\\textrm{rad/s}$", 1, false],
+                    ["$\\omega_0 = 11.75~\\textrm{rad/s}$", 0, false],
+                    ["$\\omega_0 = 12.00~\\textrm{rad/s}$", 0, false]
                 ],
-                explain: ""
+                explain: "The angular momentum of the system before and after the collision must be equal since there will be no net external torque. The ring has a moment of inertia of $I_r = 4MR^2$ and the disk has a moment of inertia of $I_d = \\frac{1}{2} MR^2$. The equation that relates the initial and final angular momenta is thus $\\frac{1}{2} MR^2 \\omega_0 = \\left( \\frac{1}{2} MR^2 + 4MR^2 \\right) 2.35$. Solving for $\\omega_0$ yields $\\omega_0 = 21.15~\\textrm{rad/s}$."
             },
             {
                 number: 3,
-                question: "",
+                question: "What is the kinetic energy of a hollow sphere of mass $m$ and radius $R$ rolling without slipping at a speed $v$ as compared to the kinetic energy $K_0$ of a block of the same mass translating without friction at the same speed? Express your answer in terms of $K_0$.",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["$\\frac56 K_0$", 0, false],
+                    ["$\\frac{7}{10} K_0$", 0, false],
+                    ["$\\frac53 K_0$", 1, false],
+                    ["$\\frac75 K_0$", 0, false]
                 ],
-                explain: ""
+                explain: "The expression for the kinetic energy of the sphere is $\\frac12 mv^2 + \\frac12 \\left( \\frac23 mR^2 \\right) \\left( v/R \\right)^2 = \\frac56 mv^2$. The kinetic energy of the block is simply $K_0 = \\frac12 mv^2$. Thus, the ratio of the two kinetic energies is $\\frac{K}{K_0} = \\frac{\\frac56 mv^2}{\\frac12 mv^2} = \\frac56$, meaning $K = \\frac53 K_0$."
             },
             {
                 number: 4,
-                question: "",
+                question: "Does the static friction force for an object rolling down an incline have any affect on the rolling object?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["Yes, it dissipates mechanical energy", 0, false],
+                    ["Yes, it decreases the acceleration", 1, false],
+                    ["No, it only acts as a pivot", 0, false],
+                    ["No, it is irrelevant", 0, false]
                 ],
-                explain: ""
+                explain: "The static friction force must slow down the object as according to Newton's Laws. Although it does not dissipate mechanical energy, it causes the object to accelerate at a slower pace, which can be seen because the object has both linear kinetic energy and rotational kinetic energy."
             },
             {
                 number: 5,
-                question: "",
+                question: "A disk spins clockwise and is oriented so that it faces you. Another disk is spinning counterclockwise and is oriented such that the perpendicular axis points to your right. What direction is the total angular momentum vector pointing?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["Toward you", 0, false],
+                    ["Away from you", 0, false],
+                    ["Away and to the right", 1, false],
+                    ["Toward you and to the right", 0, false]
                 ],
-                explain: ""
+                explain: "Using the right-hand rule, we can see that the first disk has an angular momentum vector that points away from you, while the second disk has an angular momentum vector that points to the right. The total angular momentum vector is thus pointing away and to the right, per the laws of vector addition."
             }
         ]
     ]
