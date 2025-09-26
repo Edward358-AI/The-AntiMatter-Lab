@@ -38,7 +38,7 @@ const sectionVisibility = reactive({
 function triggerAnimation(lesson) {
   if (import.meta.client) {
     const el = document.getElementById(lesson)
-    if (!el.style.display) el.style.display = lessonVisibility[lesson] ? 'block':'none'
+    if (!el.style.display) el.style.display = lessonVisibility[lesson] ? 'block' : 'none'
     if (el.style.display !== 'none') {
       el.style.animation = 'dropup 0.3s ease-in-out forwards'
       setTimeout(() => {
@@ -56,9 +56,11 @@ function triggerAnimation(lesson) {
 function expandBasics() {
   if (import.meta.client) {
     const el = document.getElementById("basics")
-    el.style.display = 'block'
-    el.style.animation = 'dropdown 0.3s ease-in-out forwards'
-    el.style.transformOrigin = 'top center'
+    if (el.style.display === 'none') {
+      el.style.display = 'block'
+      el.style.animation = 'dropdown 0.3s ease-in-out forwards'
+      el.style.transformOrigin = 'top center'
+    }
     lessonVisibility["basics"] = true
   }
 }
@@ -223,126 +225,169 @@ if (import.meta.client) {
     <div class="offcanvas-body">
       <ul class="sidebar-nav">
         <li>
-          <h6 class="sidebar-header"><b>Getting Started</b></h6>
+          <h6 class="sidebar-header big-section" @click="triggerAnimation('basics')"><b
+              v-html="lessonVisibility.basics ? 'Getting Started &#x1F783;' : 'Getting Started &#x1F782;'"></b></h6>
         </li>
-        
-        <li v-for="lesson in filteredLessons.basics">
-          <NuxtLink @click="resetScroll(); hideMobileBar()"
-            :class="$route.fullPath === lesson.path ? 'text-body-emphasis nav-link' : 'nav-link'"
-            :style="$route.fullPath === lesson.path ? 'text-decoration: underline' : ''" :to="lesson.path">{{
-              lesson.name }}
-          </NuxtLink>
-        </li>
-
-
-        
         <li>
-          <h6 class="sidebar-header"><b>Kinematics</b></h6>
+          <hr class="sidebar-divider">
         </li>
-        
-        <li v-for="lesson in filteredLessons.kinematics">
-          <NuxtLink @click="resetScroll(); hideMobileBar()"
-            :class="$route.fullPath === lesson.path ? 'text-body-emphasis nav-link' : 'nav-link'"
-            :style="$route.fullPath === lesson.path ? 'text-decoration: underline' : ''" :to="lesson.path">{{
-              lesson.name }}
-          </NuxtLink>
-        </li>
+        <span class="lesson-content mb-3" id="basics" style="display:block">
+          <li v-for="lesson in filteredLessons.basics">
+            <NuxtLink @click="resetScroll(); hideMobileBar()"
+              :class="$route.fullPath === lesson.path ? 'text-body-emphasis nav-link' : 'nav-link'"
+              :style="$route.fullPath === lesson.path ? 'text-decoration: underline' : ''" :to="lesson.path">{{
+                lesson.name }}
+            </NuxtLink>
+          </li>
+        </span>
 
-
-        
         <li>
-          <h6 class="sidebar-header"><b>Dynamics</b></h6>
+          <h6 @click="triggerSectionAnimation('mechanics')" class="sidebar-header big-section"><b
+              v-html="sectionVisibility.mechanics ? 'Mechanics &#x1F783;' : 'Mechanics &#x1F782;'"></b></h6>
         </li>
-        
-        <li v-for="lesson in filteredLessons.dynamics">
-          <NuxtLink @click="resetScroll(); hideMobileBar()"
-            :class="$route.fullPath === lesson.path ? 'text-body-emphasis nav-link' : 'nav-link'"
-            :style="$route.fullPath === lesson.path ? 'text-decoration: underline' : ''" :to="lesson.path">{{
-              lesson.name }}
-          </NuxtLink>
-        </li>
-
-
-        
         <li>
-          <h6 class="sidebar-header"><b>Circular Motion and Gravitation</b></h6>
-        </li>
-        
-        <li v-for="lesson in filteredLessons.circularGravity">
-          <NuxtLink @click="resetScroll(); hideMobileBar()"
-            :class="$route.fullPath === lesson.path ? 'text-body-emphasis nav-link' : 'nav-link'"
-            :style="$route.fullPath === lesson.path ? 'text-decoration: underline' : ''" :to="lesson.path">{{
-              lesson.name }}
-          </NuxtLink>
+          <hr class="sidebar-divider">
         </li>
 
+        <span id="mechanics" class="mb-3">
+          <li>
+            <h6 class="sidebar-header" @click="triggerAnimation('kinematics')"><b
+                v-html="lessonVisibility.kinematics ? 'Kinematics &#x1F783;' : 'Kinematics &#x1F782;'"></b></h6>
+          </li>
+          <span class="lesson-content mb-4" id="kinematics">
+            <li v-for="lesson in filteredLessons.kinematics">
+              <NuxtLink @click="resetScroll(); hideMobileBar()"
+                :class="$route.fullPath === lesson.path ? 'text-body-emphasis nav-link' : 'nav-link'"
+                :style="$route.fullPath === lesson.path ? 'text-decoration: underline' : ''" :to="lesson.path">{{
+                  lesson.name }}
+              </NuxtLink>
+            </li>
+          </span>
 
-        
+          <li>
+            <h6 class="sidebar-header" @click="triggerAnimation('dynamics')"><b
+                v-html="lessonVisibility.dynamics ? 'Dynamics &#x1F783;' : 'Dynamics &#x1F782;'"></b></h6>
+          </li>
+          <span class="lesson-content mb-4" id="dynamics">
+            <li v-for="lesson in filteredLessons.dynamics">
+              <NuxtLink @click="resetScroll(); hideMobileBar()"
+                :class="$route.fullPath === lesson.path ? 'text-body-emphasis nav-link' : 'nav-link'"
+                :style="$route.fullPath === lesson.path ? 'text-decoration: underline' : ''" :to="lesson.path">{{
+                  lesson.name }}
+              </NuxtLink>
+            </li>
+          </span>
+
+
+          <li>
+            <h6 class="sidebar-header" @click="triggerAnimation('circularGravity')"><b
+                v-html="lessonVisibility.circularGravity ? 'Circular Motion and Gravitation &#x1F783;' : 'Circular Motion and Gravitation &#x1F782;'"></b>
+            </h6>
+          </li>
+          <span class="lesson-content mb-4" id="circularGravity">
+            <li v-for="lesson in filteredLessons.circularGravity">
+              <NuxtLink @click="resetScroll(); hideMobileBar()"
+                :class="$route.fullPath === lesson.path ? 'text-body-emphasis nav-link' : 'nav-link'"
+                :style="$route.fullPath === lesson.path ? 'text-decoration: underline' : ''" :to="lesson.path">{{
+                  lesson.name }}
+              </NuxtLink>
+            </li>
+          </span>
+
+
+          <li>
+            <h6 class="sidebar-header" @click="triggerAnimation('energy')"><b
+                v-html="lessonVisibility.energy ? 'Energy &#x1F783;' : 'Energy &#x1F782;'"></b></h6>
+          </li>
+          <span class="lesson-content mb-4" id="energy">
+            <li v-for="lesson in filteredLessons.energy">
+              <NuxtLink @click="resetScroll(); hideMobileBar()"
+                :class="$route.fullPath === lesson.path ? 'text-body-emphasis nav-link' : 'nav-link'"
+                :style="$route.fullPath === lesson.path ? 'text-decoration: underline' : ''" :to="lesson.path">{{
+                  lesson.name }}
+              </NuxtLink>
+            </li>
+          </span>
+
+
+          <li>
+            <h6 class="sidebar-header" @click="triggerAnimation('momentum')"><b
+                v-html="lessonVisibility.momentum ? 'Momentum &#x1F783;' : 'Momentum &#x1F782;'"></b></h6>
+          </li>
+          <span class="lesson-content mb-4" id="momentum">
+            <li v-for="lesson in filteredLessons.momentum">
+              <NuxtLink @click="resetScroll(); hideMobileBar()"
+                :class="$route.fullPath === lesson.path ? 'text-body-emphasis nav-link' : 'nav-link'"
+                :style="$route.fullPath === lesson.path ? 'text-decoration: underline' : ''" :to="lesson.path">{{
+                  lesson.name }}
+              </NuxtLink>
+            </li>
+          </span>
+
+
+          <li>
+            <h6 class="sidebar-header" @click="triggerAnimation('rotation')"><b
+                v-html="lessonVisibility.rotation ? 'Rotation &#x1F783;' : 'Rotation &#x1F782;'"></b></h6>
+          </li>
+          <span class="lesson-content mb-4" id="rotation">
+            <li v-for="lesson in filteredLessons.rotation">
+              <NuxtLink @click="resetScroll(); hideMobileBar()"
+                :class="$route.fullPath === lesson.path ? 'text-body-emphasis nav-link' : 'nav-link'"
+                :style="$route.fullPath === lesson.path ? 'text-decoration: underline' : ''" :to="lesson.path">{{
+                  lesson.name }}
+              </NuxtLink>
+            </li>
+          </span>
+
+
+          <li>
+            <h6 class="sidebar-header" @click="triggerAnimation('oscillations')"><b
+                v-html="lessonVisibility.oscillations ? 'Oscillations &#x1F783;' : 'Oscillations &#x1F782;'"></b></h6>
+          </li>
+          <span class="lesson-content mb-4" id="oscillations">
+            <li v-for="lesson in filteredLessons.oscillations">
+              <NuxtLink @click="resetScroll(); hideMobileBar()"
+                :class="$route.fullPath === lesson.path ? 'text-body-emphasis nav-link' : 'nav-link'"
+                :style="$route.fullPath === lesson.path ? 'text-decoration: underline' : ''" :to="lesson.path">{{
+                  lesson.name }}
+              </NuxtLink>
+            </li>
+          </span>
+
+
+          <li>
+            <h6 class="sidebar-header" @click="triggerAnimation('fluids')"><b
+                v-html="lessonVisibility.fluids ? 'Fluids &#x1F783;' : 'Fluids &#x1F782;'"></b></h6>
+          </li>
+          <span class="lesson-content mb-4" id="fluids">
+            <li v-for="lesson in filteredLessons.fluids">
+              <NuxtLink @click="resetScroll(); hideMobileBar()"
+                :class="$route.fullPath === lesson.path ? 'text-body-emphasis nav-link' : 'nav-link'"
+                :style="$route.fullPath === lesson.path ? 'text-decoration: underline' : ''" :to="lesson.path">{{
+                  lesson.name }}
+              </NuxtLink>
+            </li>
+          </span>
+        </span>
+
         <li>
-          <h6 class="sidebar-header"><b>Energy</b></h6>
+          <h6 @click="triggerSectionAnimation('EM')" class="sidebar-header big-section"><b
+              v-html="sectionVisibility.EM ? 'Electricity & Magnetism &#x1F783;' : 'Electricity & Magnetism &#x1F782;'"></b>
+          </h6>
         </li>
-        
-        <li v-for="lesson in filteredLessons.energy">
-          <NuxtLink @click="resetScroll(); hideMobileBar()"
-            :class="$route.fullPath === lesson.path ? 'text-body-emphasis nav-link' : 'nav-link'"
-            :style="$route.fullPath === lesson.path ? 'text-decoration: underline' : ''" :to="lesson.path">{{
-              lesson.name }}
-          </NuxtLink>
-        </li>
-
-
-        
         <li>
-          <h6 class="sidebar-header"><b>Momentum</b></h6>
+          <hr class="sidebar-divider">
         </li>
-        
-        <li v-for="lesson in filteredLessons.momentum">
-          <NuxtLink @click="resetScroll(); hideMobileBar()"
-            :class="$route.fullPath === lesson.path ? 'text-body-emphasis nav-link' : 'nav-link'"
-            :style="$route.fullPath === lesson.path ? 'text-decoration: underline' : ''" :to="lesson.path">{{
-              lesson.name }}
-          </NuxtLink>
-        </li>
+        <span id="EM" class="mb-3"></span>
 
-
-        
         <li>
-          <h6 class="sidebar-header"><b>Rotation</b></h6>
+          <h6 @click="triggerSectionAnimation('thermo')" class="sidebar-header big-section"><b
+              v-html="sectionVisibility.thermo ? 'Thermodynamics &#x1F783;' : 'Thermodynamics &#x1F782;'"></b></h6>
         </li>
-        
-        <li v-for="lesson in filteredLessons.rotation">
-          <NuxtLink @click="resetScroll(); hideMobileBar()"
-            :class="$route.fullPath === lesson.path ? 'text-body-emphasis nav-link' : 'nav-link'"
-            :style="$route.fullPath === lesson.path ? 'text-decoration: underline' : ''" :to="lesson.path">{{
-              lesson.name }}
-          </NuxtLink>
-        </li>
-
-        
         <li>
-          <h6 class="sidebar-header"><b>Oscillations</b></h6>
+          <hr class="sidebar-divider">
         </li>
-        
-        <li v-for="lesson in filteredLessons.oscillations">
-          <NuxtLink @click="resetScroll(); hideMobileBar()"
-            :class="$route.fullPath === lesson.path ? 'text-body-emphasis nav-link' : 'nav-link'"
-            :style="$route.fullPath === lesson.path ? 'text-decoration: underline' : ''" :to="lesson.path">{{
-              lesson.name }}
-          </NuxtLink>
-        </li>
-
-        
-        <li>
-          <h6 class="sidebar-header"><b>Fluid Dynamics</b></h6>
-        </li>
-        
-        <li v-for="lesson in filteredLessons.fluids">
-          <NuxtLink @click="resetScroll(); hideMobileBar()"
-            :class="$route.fullPath === lesson.path ? 'text-body-emphasis nav-link' : 'nav-link'"
-            :style="$route.fullPath === lesson.path ? 'text-decoration: underline' : ''" :to="lesson.path">{{
-              lesson.name }}
-          </NuxtLink>
-        </li>
+        <span id="thermo" class="mb-3"></span>
 
       </ul>
     </div>
@@ -396,143 +441,156 @@ if (import.meta.client) {
     </div>
     <div class="offcanvas-body">
       <ul class="sidebar-nav">
-         <li>
-          <h6 class="sidebar-header big-section" @click="triggerAnimation('basics')"><b v-html="lessonVisibility.basics ? 'Getting Started &#x1F783;' : 'Getting Started &#x1F782;'"></b></h6>
+        <li>
+          <h6 class="sidebar-header big-section" @click="triggerAnimation('basics')"><b
+              v-html="lessonVisibility.basics ? 'Getting Started &#x1F783;' : 'Getting Started &#x1F782;'"></b></h6>
         </li>
         <li>
           <hr class="sidebar-divider">
         </li>
         <span class="lesson-content mb-3" id="basics" style="display:block">
-        <li v-for="lesson in filteredLessons.basics">
-          <NuxtLink @click="resetScroll(); hideMobileBar()"
-            :class="$route.fullPath === lesson.path ? 'text-body-emphasis nav-link' : 'nav-link'"
-            :style="$route.fullPath === lesson.path ? 'text-decoration: underline' : ''" :to="lesson.path">{{
-              lesson.name }}
-          </NuxtLink>
-        </li>
-      </span>
+          <li v-for="lesson in filteredLessons.basics">
+            <NuxtLink @click="resetScroll(); hideMobileBar()"
+              :class="$route.fullPath === lesson.path ? 'text-body-emphasis nav-link' : 'nav-link'"
+              :style="$route.fullPath === lesson.path ? 'text-decoration: underline' : ''" :to="lesson.path">{{
+                lesson.name }}
+            </NuxtLink>
+          </li>
+        </span>
 
         <li>
-          <h6 @click="triggerSectionAnimation('mechanics')" class="sidebar-header big-section"><b v-html="sectionVisibility.mechanics ? 'Mechanics &#x1F783;' : 'Mechanics &#x1F782;'"></b></h6>
+          <h6 @click="triggerSectionAnimation('mechanics')" class="sidebar-header big-section"><b
+              v-html="sectionVisibility.mechanics ? 'Mechanics &#x1F783;' : 'Mechanics &#x1F782;'"></b></h6>
         </li>
         <li>
           <hr class="sidebar-divider">
         </li>
 
         <span id="mechanics" class="mb-3">
-        <li>
-          <h6 class="sidebar-header" @click="triggerAnimation('kinematics')"><b v-html="lessonVisibility.kinematics ? 'Kinematics &#x1F783;' : 'Kinematics &#x1F782;'"></b></h6>
-        </li>
-        <span class="lesson-content mb-4" id="kinematics">
-        <li v-for="lesson in filteredLessons.kinematics">
-          <NuxtLink @click="resetScroll(); hideMobileBar()"
-            :class="$route.fullPath === lesson.path ? 'text-body-emphasis nav-link' : 'nav-link'"
-            :style="$route.fullPath === lesson.path ? 'text-decoration: underline' : ''" :to="lesson.path">{{
-              lesson.name }}
-          </NuxtLink>
-        </li>
+          <li>
+            <h6 class="sidebar-header" @click="triggerAnimation('kinematics')"><b
+                v-html="lessonVisibility.kinematics ? 'Kinematics &#x1F783;' : 'Kinematics &#x1F782;'"></b></h6>
+          </li>
+          <span class="lesson-content mb-4" id="kinematics">
+            <li v-for="lesson in filteredLessons.kinematics">
+              <NuxtLink @click="resetScroll(); hideMobileBar()"
+                :class="$route.fullPath === lesson.path ? 'text-body-emphasis nav-link' : 'nav-link'"
+                :style="$route.fullPath === lesson.path ? 'text-decoration: underline' : ''" :to="lesson.path">{{
+                  lesson.name }}
+              </NuxtLink>
+            </li>
+          </span>
+
+          <li>
+            <h6 class="sidebar-header" @click="triggerAnimation('dynamics')"><b
+                v-html="lessonVisibility.dynamics ? 'Dynamics &#x1F783;' : 'Dynamics &#x1F782;'"></b></h6>
+          </li>
+          <span class="lesson-content mb-4" id="dynamics">
+            <li v-for="lesson in filteredLessons.dynamics">
+              <NuxtLink @click="resetScroll(); hideMobileBar()"
+                :class="$route.fullPath === lesson.path ? 'text-body-emphasis nav-link' : 'nav-link'"
+                :style="$route.fullPath === lesson.path ? 'text-decoration: underline' : ''" :to="lesson.path">{{
+                  lesson.name }}
+              </NuxtLink>
+            </li>
+          </span>
+
+
+          <li>
+            <h6 class="sidebar-header" @click="triggerAnimation('circularGravity')"><b
+                v-html="lessonVisibility.circularGravity ? 'Circular Motion and Gravitation &#x1F783;' : 'Circular Motion and Gravitation &#x1F782;'"></b>
+            </h6>
+          </li>
+          <span class="lesson-content mb-4" id="circularGravity">
+            <li v-for="lesson in filteredLessons.circularGravity">
+              <NuxtLink @click="resetScroll(); hideMobileBar()"
+                :class="$route.fullPath === lesson.path ? 'text-body-emphasis nav-link' : 'nav-link'"
+                :style="$route.fullPath === lesson.path ? 'text-decoration: underline' : ''" :to="lesson.path">{{
+                  lesson.name }}
+              </NuxtLink>
+            </li>
+          </span>
+
+
+          <li>
+            <h6 class="sidebar-header" @click="triggerAnimation('energy')"><b
+                v-html="lessonVisibility.energy ? 'Energy &#x1F783;' : 'Energy &#x1F782;'"></b></h6>
+          </li>
+          <span class="lesson-content mb-4" id="energy">
+            <li v-for="lesson in filteredLessons.energy">
+              <NuxtLink @click="resetScroll(); hideMobileBar()"
+                :class="$route.fullPath === lesson.path ? 'text-body-emphasis nav-link' : 'nav-link'"
+                :style="$route.fullPath === lesson.path ? 'text-decoration: underline' : ''" :to="lesson.path">{{
+                  lesson.name }}
+              </NuxtLink>
+            </li>
+          </span>
+
+
+          <li>
+            <h6 class="sidebar-header" @click="triggerAnimation('momentum')"><b
+                v-html="lessonVisibility.momentum ? 'Momentum &#x1F783;' : 'Momentum &#x1F782;'"></b></h6>
+          </li>
+          <span class="lesson-content mb-4" id="momentum">
+            <li v-for="lesson in filteredLessons.momentum">
+              <NuxtLink @click="resetScroll(); hideMobileBar()"
+                :class="$route.fullPath === lesson.path ? 'text-body-emphasis nav-link' : 'nav-link'"
+                :style="$route.fullPath === lesson.path ? 'text-decoration: underline' : ''" :to="lesson.path">{{
+                  lesson.name }}
+              </NuxtLink>
+            </li>
+          </span>
+
+
+          <li>
+            <h6 class="sidebar-header" @click="triggerAnimation('rotation')"><b
+                v-html="lessonVisibility.rotation ? 'Rotation &#x1F783;' : 'Rotation &#x1F782;'"></b></h6>
+          </li>
+          <span class="lesson-content mb-4" id="rotation">
+            <li v-for="lesson in filteredLessons.rotation">
+              <NuxtLink @click="resetScroll(); hideMobileBar()"
+                :class="$route.fullPath === lesson.path ? 'text-body-emphasis nav-link' : 'nav-link'"
+                :style="$route.fullPath === lesson.path ? 'text-decoration: underline' : ''" :to="lesson.path">{{
+                  lesson.name }}
+              </NuxtLink>
+            </li>
+          </span>
+
+
+          <li>
+            <h6 class="sidebar-header" @click="triggerAnimation('oscillations')"><b
+                v-html="lessonVisibility.oscillations ? 'Oscillations &#x1F783;' : 'Oscillations &#x1F782;'"></b></h6>
+          </li>
+          <span class="lesson-content mb-4" id="oscillations">
+            <li v-for="lesson in filteredLessons.oscillations">
+              <NuxtLink @click="resetScroll(); hideMobileBar()"
+                :class="$route.fullPath === lesson.path ? 'text-body-emphasis nav-link' : 'nav-link'"
+                :style="$route.fullPath === lesson.path ? 'text-decoration: underline' : ''" :to="lesson.path">{{
+                  lesson.name }}
+              </NuxtLink>
+            </li>
+          </span>
+
+
+          <li>
+            <h6 class="sidebar-header" @click="triggerAnimation('fluids')"><b
+                v-html="lessonVisibility.fluids ? 'Fluids &#x1F783;' : 'Fluids &#x1F782;'"></b></h6>
+          </li>
+          <span class="lesson-content mb-4" id="fluids">
+            <li v-for="lesson in filteredLessons.fluids">
+              <NuxtLink @click="resetScroll(); hideMobileBar()"
+                :class="$route.fullPath === lesson.path ? 'text-body-emphasis nav-link' : 'nav-link'"
+                :style="$route.fullPath === lesson.path ? 'text-decoration: underline' : ''" :to="lesson.path">{{
+                  lesson.name }}
+              </NuxtLink>
+            </li>
+          </span>
         </span>
 
         <li>
-          <h6 class="sidebar-header" @click="triggerAnimation('dynamics')"><b v-html="lessonVisibility.dynamics ? 'Dynamics &#x1F783;' : 'Dynamics &#x1F782;'"></b></h6>
-        </li>
-        <span class="lesson-content mb-4" id="dynamics">
-        <li v-for="lesson in filteredLessons.dynamics">
-          <NuxtLink @click="resetScroll(); hideMobileBar()"
-            :class="$route.fullPath === lesson.path ? 'text-body-emphasis nav-link' : 'nav-link'"
-            :style="$route.fullPath === lesson.path ? 'text-decoration: underline' : ''" :to="lesson.path">{{
-              lesson.name }}
-          </NuxtLink>
-        </li>
-        </span>
-
-        
-        <li>
-          <h6 class="sidebar-header" @click="triggerAnimation('circularGravity')"><b v-html="lessonVisibility.circularGravity ? 'Circular Motion and Gravitation &#x1F783;' : 'Circular Motion and Gravitation &#x1F782;'"></b></h6>
-        </li>
-        <span class="lesson-content mb-4" id="circularGravity">
-        <li v-for="lesson in filteredLessons.circularGravity">
-          <NuxtLink @click="resetScroll(); hideMobileBar()"
-            :class="$route.fullPath === lesson.path ? 'text-body-emphasis nav-link' : 'nav-link'"
-            :style="$route.fullPath === lesson.path ? 'text-decoration: underline' : ''" :to="lesson.path">{{
-              lesson.name }}
-          </NuxtLink>
-        </li>
-        </span>
-
-        
-        <li>
-          <h6 class="sidebar-header" @click="triggerAnimation('energy')"><b v-html="lessonVisibility.energy ? 'Energy &#x1F783;' : 'Energy &#x1F782;'"></b></h6>
-        </li>
-        <span class="lesson-content mb-4" id="energy">
-        <li v-for="lesson in filteredLessons.energy">
-          <NuxtLink @click="resetScroll(); hideMobileBar()"
-            :class="$route.fullPath === lesson.path ? 'text-body-emphasis nav-link' : 'nav-link'"
-            :style="$route.fullPath === lesson.path ? 'text-decoration: underline' : ''" :to="lesson.path">{{
-              lesson.name }}
-          </NuxtLink>
-        </li>
-        </span>
-
-        
-        <li>
-          <h6 class="sidebar-header" @click="triggerAnimation('momentum')"><b v-html="lessonVisibility.momentum ? 'Momentum &#x1F783;' : 'Momentum &#x1F782;'"></b></h6>
-        </li>
-        <span class="lesson-content mb-4" id="momentum">
-        <li v-for="lesson in filteredLessons.momentum">
-          <NuxtLink @click="resetScroll(); hideMobileBar()"
-            :class="$route.fullPath === lesson.path ? 'text-body-emphasis nav-link' : 'nav-link'"
-            :style="$route.fullPath === lesson.path ? 'text-decoration: underline' : ''" :to="lesson.path">{{
-              lesson.name }}
-          </NuxtLink>
-        </li>
-        </span>
-
-        
-        <li>
-          <h6 class="sidebar-header" @click="triggerAnimation('rotation')"><b v-html="lessonVisibility.rotation ? 'Rotation &#x1F783;' : 'Rotation &#x1F782;'"></b></h6>
-        </li>
-        <span class="lesson-content mb-4" id="rotation">
-        <li v-for="lesson in filteredLessons.rotation">
-          <NuxtLink @click="resetScroll(); hideMobileBar()"
-            :class="$route.fullPath === lesson.path ? 'text-body-emphasis nav-link' : 'nav-link'"
-            :style="$route.fullPath === lesson.path ? 'text-decoration: underline' : ''" :to="lesson.path">{{
-              lesson.name }}
-          </NuxtLink>
-        </li>
-        </span>
-
-        
-        <li>
-          <h6 class="sidebar-header" @click="triggerAnimation('oscillations')"><b v-html="lessonVisibility.oscillations ? 'Oscillations &#x1F783;' : 'Oscillations &#x1F782;'"></b></h6>
-        </li>
-        <span class="lesson-content mb-4" id="oscillations">
-        <li v-for="lesson in filteredLessons.oscillations">
-          <NuxtLink @click="resetScroll(); hideMobileBar()"
-            :class="$route.fullPath === lesson.path ? 'text-body-emphasis nav-link' : 'nav-link'"
-            :style="$route.fullPath === lesson.path ? 'text-decoration: underline' : ''" :to="lesson.path">{{
-              lesson.name }}
-          </NuxtLink>
-        </li>
-        </span>
-
-        
-        <li>
-          <h6 class="sidebar-header" @click="triggerAnimation('fluids')"><b v-html="lessonVisibility.fluids ? 'Fluids &#x1F783;' : 'Fluids &#x1F782;'"></b></h6>
-        </li>
-        <span class="lesson-content mb-4" id="fluids">
-        <li v-for="lesson in filteredLessons.fluids">
-          <NuxtLink @click="resetScroll(); hideMobileBar()"
-            :class="$route.fullPath === lesson.path ? 'text-body-emphasis nav-link' : 'nav-link'"
-            :style="$route.fullPath === lesson.path ? 'text-decoration: underline' : ''" :to="lesson.path">{{
-              lesson.name }}
-          </NuxtLink>
-        </li>
-        </span>
-      </span>
-
-      <li>
-          <h6 @click="triggerSectionAnimation('EM')" class="sidebar-header big-section"><b v-html="sectionVisibility.EM ? 'Electricity & Magnetism &#x1F783;' : 'Electricity & Magnetism &#x1F782;'"></b></h6>
+          <h6 @click="triggerSectionAnimation('EM')" class="sidebar-header big-section"><b
+              v-html="sectionVisibility.EM ? 'Electricity & Magnetism &#x1F783;' : 'Electricity & Magnetism &#x1F782;'"></b>
+          </h6>
         </li>
         <li>
           <hr class="sidebar-divider">
@@ -540,13 +598,14 @@ if (import.meta.client) {
         <span id="EM" class="mb-3"></span>
 
         <li>
-          <h6 @click="triggerSectionAnimation('thermo')" class="sidebar-header big-section"><b v-html="sectionVisibility.thermo ? 'Thermodynamics &#x1F783;' : 'Thermodynamics &#x1F782;'"></b></h6>
+          <h6 @click="triggerSectionAnimation('thermo')" class="sidebar-header big-section"><b
+              v-html="sectionVisibility.thermo ? 'Thermodynamics &#x1F783;' : 'Thermodynamics &#x1F782;'"></b></h6>
         </li>
         <li>
           <hr class="sidebar-divider">
         </li>
         <span id="thermo" class="mb-3"></span>
-        
+
       </ul>
     </div>
     <div class="offcanvas-footer mb-2 pt-2 border-top border-secondary border-opacity-25">
@@ -575,7 +634,8 @@ if (import.meta.client) {
         class="link-offset-1 info-link">Github</a>
     </div>
   </div>
-  <span id="basics-trigger" style="display:none" @click="expandBasics()">this is designed for the about link on the homepage to auto expand</span>
+  <span id="basics-trigger" style="display:none" @click="expandBasics()">this is designed for the about link on the
+    homepage to auto expand</span>
 </template>
 
 <style scoped>
@@ -587,14 +647,14 @@ if (import.meta.client) {
   display: none;
 }
 
-li > .sidebar-header {
+li>.sidebar-header {
   cursor: pointer;
   width: fit-content;
   margin: auto;
   margin-top: 7px;
 }
 
-li > .sidebar-header:hover {
+li>.sidebar-header:hover {
   opacity: 0.85;
 }
 
