@@ -18,76 +18,54 @@ const page = storeToRefs(useUserStore()).SHM
 watch(page, () => { if (import.meta.client) window.scrollTo(0,0) })
 watch(level, () => { if (!lessonShowing.value && import.meta.client) nextTick(() => window.MathJax?.typeset()) })
 
-const results = reactive([[0,0,0,0,0,0], [0,0,0,0,0,0], [0,0,0,0,0,0]]) // update as add more questions
-const explanations = reactive([[false,false,false,false,false,false], [false,false,false,false,false,false], [false,false,false,false,false,false]]) // keeps track of what explanations are visible
+const results = reactive([[0,0,0,0], [0,0,0,0,0,0], [0,0,0,0,0,0]]) // update as add more questions
+const explanations = reactive([[false,false,false,false], [false,false,false,false,false,false], [false,false,false,false,false,false]]) // keeps track of what explanations are visible
 const questions = reactive(
     [
         [ // conceptual difficulty
             {
                 number: 0,
-                question: "",
+                question: "What is the defining characteristic of periodic motion?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["It is linear", 0, false],
+                    ["It always repeats itself", 0, false],
+                    ["It repeats itself over regular intervals", 1, false],
+                    ["It follows a pattern", 0, false]
                 ],
-                explain: ""
+                explain: "Periodic pattern is motion that repeats itself over regular, unchanging intervals. Simple harmonic motion is a type of periodic motion."
             },
             {
                 number: 1,
-                question: "",
+                question: "Simple harmonic motion can be described by:",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["A square wave", 0, false],
+                    ["A sine wave", 1, false],
+                    ["A sawtooth wave", 0, false],
+                    ["Any wave", 0, false]
                 ],
-                explain: ""
+                explain: "Simple harmonic motion is characterized by a sine wave when you plot some quantity against time. This is one of the key characteristics that distinguishes SHM from other types of oscillatory motion."
             },
             {
                 number: 2,
-                question: "",
+                question: "What is the best description of a restoring force?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["A force that increases in magnitude over time", 0, false],
+                    ["A force that always restores to a certain magnitude", 0, false],
+                    ["A force that always acts in the direction of motion", 0, false],
+                    ["A force that restores to the equilibrium position", 1, false]
                 ],
-                explain: ""
+                explain: "A restoring force is one that always tries to bring an object back to its equilibrium position, and it is closely associated with simple harmonic motion."
             },
             {
                 number: 3,
-                question: "",
+                question: "Which of the following is NOT true about angular frequency?",
                 answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
+                    ["It is related to the period of motion", 0, false],
+                    ["It is measured in radians per second", 0, false],
+                    ["It is the same as angular velocity", 1, false],
+                    ["It is always positive", 0, false]
                 ],
-                explain: ""
-            },
-            {
-                number: 4,
-                question: "",
-                answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
-                ],
-                explain: ""
-            },
-            {
-                number: 5,
-                question: "",
-                answers: [
-                    ["", 0, false],
-                    ["", 1, false],
-                    ["", 0, false],
-                    ["", 0, false]
-                ],
-                explain: ""
+                explain: "The angular frequency shares the same units with angular velocity, but the two are very distinct quantities. Angular frequency describes oscillatory motion, while angular velocity describes rotational motion."
             }
         ],
         [ // algebra difficulty
