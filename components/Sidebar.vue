@@ -1,8 +1,9 @@
 <script setup>
-import { ref, reactive, computed, watch, useTemplateRef } from 'vue'
+import { ref, reactive, computed, watch, useTemplateRef, onMounted } from 'vue'
 import { useUserStore } from '~/stores/user'
 import { useLessonShowingStore } from '~/stores/lessonShowing'
 import { storeToRefs } from 'pinia'
+import { OverlayScrollbarsComponent } from "overlayscrollbars-vue";
 
 const user = useUserStore()
 const lessonShowing = useLessonShowingStore()
@@ -13,9 +14,21 @@ const difficulty = storeToRefs(user).difficulty
 
 
 watch(theme, (newTheme) => {
-  if (import.meta.client) document.documentElement.setAttribute('data-bs-theme', newTheme)
+  if (import.meta.client) {
+    document.documentElement.setAttribute('data-bs-theme', newTheme)
+  }
 }, { immediate: true }
 )
+
+function changeScrollbarTheme() {
+  if (import.meta.client) {
+    const els = document.getElementsByClassName("os-scrollbar-vertical")
+    for (let el of els) {
+      el.classList.toggle("os-theme-light")
+      el.classList.toggle("os-theme-dark")
+    }
+  }
+}
 
 const lessonVisibility = reactive({
   basics: true,
@@ -51,7 +64,7 @@ function triggerAnimation(lesson) {
         el.style.animation = 'dropdown 0.3s ease-in-out forwards'
       }
       el.style.transformOrigin = 'top center'
-      
+
     }
   }
   lessonVisibility[lesson] = !lessonVisibility[lesson]
@@ -67,7 +80,7 @@ function expandBasics() {
         el.style.animation = 'dropdown 0.3s ease-in-out forwards'
         el.style.transformOrigin = 'top center'
       }
-      
+
     }
   }
   lessonVisibility["basics"] = true
@@ -89,7 +102,7 @@ function triggerSectionAnimation(section) {
         el.style.animation = 'dropdown 0.3s ease-in-out forwards'
       }
       el.style.transformOrigin = 'top center'
-      
+
     }
   }
   sectionVisibility[section] = !sectionVisibility[section]
@@ -204,6 +217,16 @@ if (import.meta.client) {
     if (e.target.nodeName === 'IMG') e.preventDefault()
   })
 }
+
+onMounted(() => {
+  if (import.meta.client && document.body.getAttribute("data-bs-theme") === "dark") {
+    const els = document.getElementsByClassName("os-scrollbar-vertical")
+    for (let el of els) {
+      el.classList.toggle("os-theme-light")
+      el.classList.toggle("os-theme-dark")
+    }
+  }
+})
 </script>
 
 <template>
@@ -240,7 +263,7 @@ if (import.meta.client) {
     <div class="offcanvas-header border-bottom border-secondary border-opacity-25" style="height: 55px;">
       <input v-model="searchQuery" type="text" class="form-control" placeholder="Type here to find a lesson...">
     </div>
-    <div class="offcanvas-body">
+    <OverlayScrollbarsComponent defer class="offcanvas-body">
       <ul class="sidebar-nav">
         <li>
           <h6 class="sidebar-header big-section" @click="triggerAnimation('basics')"><b
@@ -423,7 +446,7 @@ if (import.meta.client) {
         <span class="thermo mb-3"></span>
 
       </ul>
-    </div>
+    </OverlayScrollbarsComponent>
     <div class="offcanvas-footer mb-1 pt-1 border-top border-secondary border-opacity-25">
       <div class="row justify-content-center" style="margin-bottom:1px">
         <div class="col-6">
@@ -472,7 +495,7 @@ if (import.meta.client) {
     <div class="offcanvas-header border-bottom border-secondary border-opacity-25">
       <input v-model="searchQuery" type="text" class="form-control" placeholder="Type here to find a lesson...">
     </div>
-    <div class="offcanvas-body">
+    <OverlayScrollbarsComponent defer class="offcanvas-body">
       <ul class="sidebar-nav">
         <li>
           <h6 class="sidebar-header big-section" @click="triggerAnimation('basics')"><b
@@ -655,7 +678,7 @@ if (import.meta.client) {
         <span class="thermo mb-3"></span>
 
       </ul>
-    </div>
+    </OverlayScrollbarsComponent>
     <div class="offcanvas-footer mb-2 pt-2 border-top border-secondary border-opacity-25">
       <div class="row justify-content-center mb-2">
         <div class="col-6">
@@ -668,7 +691,7 @@ if (import.meta.client) {
         </div>
         <div class="col-4">
           <h6 class="sidebar-header">Theme</h6>
-          <select style="width: 70px;" class="mx-auto p-2 my-2 form-select" id="themeSelect" v-model="theme">
+          <select style="width: 70px;" class="mx-auto p-2 my-2 form-select" id="themeSelect" v-model="theme" @change="changeScrollbarTheme()">
             <option value="dark">Dark</option>
             <option value="light">Light</option>
           </select>
