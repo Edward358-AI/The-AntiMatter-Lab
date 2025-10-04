@@ -51,6 +51,10 @@ export const useUserStore = defineStore('user', () => {
   const FluidFlow = ref(0)
   const AirResistance = ref(0)
   const Bernoulli = ref(0)
+  const ElectricCharge = ref(0)
+  const ColoumbsLaw = ref(0)
+  const ElectricFields = ref(0)
+  const GaussLaw = ref(0)
 
   return {
     difficulty,
@@ -101,6 +105,10 @@ export const useUserStore = defineStore('user', () => {
     Pressure,
     FluidFlow,
     AirResistance,
-    Bernoulli
+    Bernoulli,
+    ElectricCharge,
+    ColoumbsLaw,
+    ElectricFields,
+    GaussLaw
   }
 }, { persist: true })

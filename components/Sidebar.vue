@@ -26,7 +26,8 @@ const lessonVisibility = reactive({
   momentum: false,
   rotation: false,
   oscillations: false,
-  fluids: false
+  fluids: false,
+  electrostatics: false
 })
 
 const sectionVisibility = reactive({
@@ -143,11 +144,17 @@ const lessons = reactive({
     { name: "Other Oscillators", path: "/oscillations/other-oscillations" }
   ],
   fluids: [
-    { name: "Properties of Fluids", path: "/fluids/fluid-intro" }, // Note: file is fluid-intro.vue, not fluidintro
+    { name: "Properties of Fluids", path: "/fluids/fluid-intro" },
     { name: "Pressure", path: "/fluids/pressure" },
-    { name: "Fluid Flow", path: "/fluids/fluid-flow" }, // Note: file is fluid-flow.vue, not flow
+    { name: "Fluid Flow", path: "/fluids/fluid-flow" },
     { name: "Bernoulli's Principle", path: "/fluids/bernoulli" },
     { name: "Air Resistance and Drag", path: "/fluids/air-resistance" }
+  ],
+  electrostatics: [
+    { name: "Electric Charge", path: "/electricityAndMagnetism/electrostatics/electric-charge" },
+    { name: "Coloumb's Law", path: "/electricityAndMagnetism/electrostatics/coloumbs-law" },
+    { name: "Electric Fields", path: "/electricityAndMagnetism/electrostatics/electric-fields" },
+    { name: "Gauss's Law", path: "/electricityAndMagnetism/electrostatics/gauss-law" }
   ]
 })
 
@@ -378,7 +385,21 @@ if (import.meta.client) {
         <li>
           <hr class="sidebar-divider">
         </li>
-        <span id="EM" class="mb-3"></span>
+        <span id="EM" class="mb-3">
+          <li>
+            <h6 class="sidebar-header" @click="triggerAnimation('electrostatics')"><b
+                v-html="lessonVisibility.electrostatics ? 'Electrostatics &#x1F783;' : 'Electrostatics &#x1F782;'"></b></h6>
+          </li>
+          <span class="lesson-content mb-4" id="electrostatics">
+            <li v-for="lesson in filteredLessons.electrostatics">
+              <NuxtLink @click="resetScroll(); hideMobileBar()"
+                :class="$route.fullPath === lesson.path ? 'text-body-emphasis nav-link' : 'nav-link'"
+                :style="$route.fullPath === lesson.path ? 'text-decoration: underline' : ''" :to="lesson.path">{{
+                  lesson.name }}
+              </NuxtLink>
+            </li>
+          </span>
+        </span>
 
         <li>
           <h6 @click="triggerSectionAnimation('thermo')" class="sidebar-header big-section"><b
@@ -595,7 +616,21 @@ if (import.meta.client) {
         <li>
           <hr class="sidebar-divider">
         </li>
-        <span id="EM" class="mb-3"></span>
+        <span id="EM" class="mb-3">
+          <li>
+            <h6 class="sidebar-header" @click="triggerAnimation('electrostatics')"><b
+                v-html="lessonVisibility.electrostatics ? 'Electrostatics &#x1F783;' : 'Electrostatics &#x1F782;'"></b></h6>
+          </li>
+          <span class="lesson-content mb-4" id="electrostatics">
+            <li v-for="lesson in filteredLessons.electrostatics">
+              <NuxtLink @click="resetScroll(); hideMobileBar()"
+                :class="$route.fullPath === lesson.path ? 'text-body-emphasis nav-link' : 'nav-link'"
+                :style="$route.fullPath === lesson.path ? 'text-decoration: underline' : ''" :to="lesson.path">{{
+                  lesson.name }}
+              </NuxtLink>
+            </li>
+          </span>
+        </span>
 
         <li>
           <h6 @click="triggerSectionAnimation('thermo')" class="sidebar-header big-section"><b
