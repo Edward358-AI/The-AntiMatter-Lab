@@ -38,50 +38,61 @@ const sectionVisibility = reactive({
 
 function triggerAnimation(lesson) {
   if (import.meta.client) {
-    const el = document.getElementById(lesson)
-    if (!el.style.display) el.style.display = lessonVisibility[lesson] ? 'block' : 'none'
-    if (el.style.display !== 'none') {
-      el.style.animation = 'dropup 0.3s ease-in-out forwards'
-      setTimeout(() => {
-        el.style.display = 'none'
-      }, 290)
-    } else {
-      el.style.display = 'block'
-      el.style.animation = 'dropdown 0.3s ease-in-out forwards'
+    const els = document.getElementsByClassName(lesson)
+    for (let el of els) {
+      if (!el.style.display) el.style.display = lessonVisibility[lesson] ? 'block' : 'none'
+      if (el.style.display !== 'none') {
+        el.style.animation = 'dropup 0.3s ease-in-out forwards'
+        setTimeout(() => {
+          el.style.display = 'none'
+        }, 290)
+      } else {
+        el.style.display = 'block'
+        el.style.animation = 'dropdown 0.3s ease-in-out forwards'
+      }
+      el.style.transformOrigin = 'top center'
+      
     }
-    el.style.transformOrigin = 'top center'
-    lessonVisibility[lesson] = !lessonVisibility[lesson]
   }
+  lessonVisibility[lesson] = !lessonVisibility[lesson]
 }
 
 function expandBasics() {
   if (import.meta.client) {
-    const el = document.getElementById("basics")
-    if (el.style.display === 'none') {
-      el.style.display = 'block'
-      el.style.animation = 'dropdown 0.3s ease-in-out forwards'
-      el.style.transformOrigin = 'top center'
+    const els = document.getElementsByClassName("basics")
+    for (let el of els) {
+      if (!el.style.display) el.style.display = lessonVisibility['basics'] ? 'block' : 'none'
+      if (el.style.display === 'none') {
+        el.style.display = 'block'
+        el.style.animation = 'dropdown 0.3s ease-in-out forwards'
+        el.style.transformOrigin = 'top center'
+      }
+      
     }
-    lessonVisibility["basics"] = true
   }
+  lessonVisibility["basics"] = true
 }
 
 function triggerSectionAnimation(section) {
   if (import.meta.client) {
-    const el = document.getElementById(section)
-    if (!el.style.display) el.style.display = 'block'
-    if (el.style.display !== 'none') {
-      el.style.animation = 'dropup 0.3s ease-in-out forwards'
-      setTimeout(() => {
-        el.style.display = 'none'
-      }, 290)
-    } else {
-      el.style.display = 'block'
-      el.style.animation = 'dropdown 0.3s ease-in-out forwards'
+    const els = document.getElementsByClassName(section)
+    for (let el of els) {
+      if (!el.style.display) el.style.display = sectionVisibility[section] ? 'block' : 'none'
+      if (!el.style.display) el.style.display = 'block'
+      if (el.style.display !== 'none') {
+        el.style.animation = 'dropup 0.3s ease-in-out forwards'
+        setTimeout(() => {
+          el.style.display = 'none'
+        }, 290)
+      } else {
+        el.style.display = 'block'
+        el.style.animation = 'dropdown 0.3s ease-in-out forwards'
+      }
+      el.style.transformOrigin = 'top center'
+      
     }
-    el.style.transformOrigin = 'top center'
-    sectionVisibility[section] = !sectionVisibility[section]
   }
+  sectionVisibility[section] = !sectionVisibility[section]
 }
 
 const lessons = reactive({
@@ -91,7 +102,7 @@ const lessons = reactive({
     { name: "Basic Algebra", path: "/basics/algebra" },
     { name: "Metric Prefixes", path: "/basics/metric-prefix" },
     { name: "Trigonometry", path: "/basics/trig" },
-    { name: "Index/Glossary", path: "/basics/references" } // This maps to basics/index.vue
+    { name: "Index/Glossary", path: "/basics/references" }
   ],
   kinematics: [
     { name: "Vectors", path: "/kinematics/vectors" },
@@ -238,7 +249,7 @@ if (import.meta.client) {
         <li>
           <hr class="sidebar-divider">
         </li>
-        <span class="lesson-content mb-3" id="basics" style="display:block">
+        <span class="lesson-content mb-3 basics" style="display:block">
           <li v-for="lesson in filteredLessons.basics">
             <NuxtLink @click="resetScroll(); hideMobileBar()"
               :class="$route.fullPath === lesson.path ? 'text-body-emphasis nav-link' : 'nav-link'"
@@ -256,12 +267,12 @@ if (import.meta.client) {
           <hr class="sidebar-divider">
         </li>
 
-        <span id="mechanics" class="mb-3">
+        <span class="mechanics mb-3">
           <li>
             <h6 class="sidebar-header" @click="triggerAnimation('kinematics')"><b
                 v-html="lessonVisibility.kinematics ? 'Kinematics &#x1F783;' : 'Kinematics &#x1F782;'"></b></h6>
           </li>
-          <span class="lesson-content mb-4" id="kinematics">
+          <span class="lesson-content mb-4 kinematics">
             <li v-for="lesson in filteredLessons.kinematics">
               <NuxtLink @click="resetScroll(); hideMobileBar()"
                 :class="$route.fullPath === lesson.path ? 'text-body-emphasis nav-link' : 'nav-link'"
@@ -275,7 +286,7 @@ if (import.meta.client) {
             <h6 class="sidebar-header" @click="triggerAnimation('dynamics')"><b
                 v-html="lessonVisibility.dynamics ? 'Dynamics &#x1F783;' : 'Dynamics &#x1F782;'"></b></h6>
           </li>
-          <span class="lesson-content mb-4" id="dynamics">
+          <span class="lesson-content mb-4 dynamics">
             <li v-for="lesson in filteredLessons.dynamics">
               <NuxtLink @click="resetScroll(); hideMobileBar()"
                 :class="$route.fullPath === lesson.path ? 'text-body-emphasis nav-link' : 'nav-link'"
@@ -291,7 +302,7 @@ if (import.meta.client) {
                 v-html="lessonVisibility.circularGravity ? 'Circular Motion and Gravitation &#x1F783;' : 'Circular Motion and Gravitation &#x1F782;'"></b>
             </h6>
           </li>
-          <span class="lesson-content mb-4" id="circularGravity">
+          <span class="lesson-content mb-4 circularGravity">
             <li v-for="lesson in filteredLessons.circularGravity">
               <NuxtLink @click="resetScroll(); hideMobileBar()"
                 :class="$route.fullPath === lesson.path ? 'text-body-emphasis nav-link' : 'nav-link'"
@@ -306,7 +317,7 @@ if (import.meta.client) {
             <h6 class="sidebar-header" @click="triggerAnimation('energy')"><b
                 v-html="lessonVisibility.energy ? 'Energy &#x1F783;' : 'Energy &#x1F782;'"></b></h6>
           </li>
-          <span class="lesson-content mb-4" id="energy">
+          <span class="lesson-content mb-4 energy">
             <li v-for="lesson in filteredLessons.energy">
               <NuxtLink @click="resetScroll(); hideMobileBar()"
                 :class="$route.fullPath === lesson.path ? 'text-body-emphasis nav-link' : 'nav-link'"
@@ -321,7 +332,7 @@ if (import.meta.client) {
             <h6 class="sidebar-header" @click="triggerAnimation('momentum')"><b
                 v-html="lessonVisibility.momentum ? 'Momentum &#x1F783;' : 'Momentum &#x1F782;'"></b></h6>
           </li>
-          <span class="lesson-content mb-4" id="momentum">
+          <span class="lesson-content mb-4 momentum">
             <li v-for="lesson in filteredLessons.momentum">
               <NuxtLink @click="resetScroll(); hideMobileBar()"
                 :class="$route.fullPath === lesson.path ? 'text-body-emphasis nav-link' : 'nav-link'"
@@ -336,7 +347,7 @@ if (import.meta.client) {
             <h6 class="sidebar-header" @click="triggerAnimation('rotation')"><b
                 v-html="lessonVisibility.rotation ? 'Rotation &#x1F783;' : 'Rotation &#x1F782;'"></b></h6>
           </li>
-          <span class="lesson-content mb-4" id="rotation">
+          <span class="lesson-content mb-4 rotation">
             <li v-for="lesson in filteredLessons.rotation">
               <NuxtLink @click="resetScroll(); hideMobileBar()"
                 :class="$route.fullPath === lesson.path ? 'text-body-emphasis nav-link' : 'nav-link'"
@@ -351,7 +362,7 @@ if (import.meta.client) {
             <h6 class="sidebar-header" @click="triggerAnimation('oscillations')"><b
                 v-html="lessonVisibility.oscillations ? 'Oscillations &#x1F783;' : 'Oscillations &#x1F782;'"></b></h6>
           </li>
-          <span class="lesson-content mb-4" id="oscillations">
+          <span class="lesson-content mb-4 oscillations">
             <li v-for="lesson in filteredLessons.oscillations">
               <NuxtLink @click="resetScroll(); hideMobileBar()"
                 :class="$route.fullPath === lesson.path ? 'text-body-emphasis nav-link' : 'nav-link'"
@@ -366,7 +377,7 @@ if (import.meta.client) {
             <h6 class="sidebar-header" @click="triggerAnimation('fluids')"><b
                 v-html="lessonVisibility.fluids ? 'Fluids &#x1F783;' : 'Fluids &#x1F782;'"></b></h6>
           </li>
-          <span class="lesson-content mb-4" id="fluids">
+          <span class="lesson-content mb-4 fluids">
             <li v-for="lesson in filteredLessons.fluids">
               <NuxtLink @click="resetScroll(); hideMobileBar()"
                 :class="$route.fullPath === lesson.path ? 'text-body-emphasis nav-link' : 'nav-link'"
@@ -385,12 +396,13 @@ if (import.meta.client) {
         <li>
           <hr class="sidebar-divider">
         </li>
-        <span id="EM" class="mb-3">
+        <span class="EM mb-3">
           <li>
             <h6 class="sidebar-header" @click="triggerAnimation('electrostatics')"><b
-                v-html="lessonVisibility.electrostatics ? 'Electrostatics &#x1F783;' : 'Electrostatics &#x1F782;'"></b></h6>
+                v-html="lessonVisibility.electrostatics ? 'Electrostatics &#x1F783;' : 'Electrostatics &#x1F782;'"></b>
+            </h6>
           </li>
-          <span class="lesson-content mb-4" id="electrostatics">
+          <span class="lesson-content mb-4 electrostatics">
             <li v-for="lesson in filteredLessons.electrostatics">
               <NuxtLink @click="resetScroll(); hideMobileBar()"
                 :class="$route.fullPath === lesson.path ? 'text-body-emphasis nav-link' : 'nav-link'"
@@ -408,7 +420,7 @@ if (import.meta.client) {
         <li>
           <hr class="sidebar-divider">
         </li>
-        <span id="thermo" class="mb-3"></span>
+        <span class="thermo mb-3"></span>
 
       </ul>
     </div>
@@ -469,7 +481,7 @@ if (import.meta.client) {
         <li>
           <hr class="sidebar-divider">
         </li>
-        <span class="lesson-content mb-3" id="basics" style="display:block">
+        <span class="lesson-content mb-3 basics" style="display:block">
           <li v-for="lesson in filteredLessons.basics">
             <NuxtLink @click="resetScroll(); hideMobileBar()"
               :class="$route.fullPath === lesson.path ? 'text-body-emphasis nav-link' : 'nav-link'"
@@ -487,12 +499,12 @@ if (import.meta.client) {
           <hr class="sidebar-divider">
         </li>
 
-        <span id="mechanics" class="mb-3">
+        <span class="mechanics mb-3">
           <li>
             <h6 class="sidebar-header" @click="triggerAnimation('kinematics')"><b
                 v-html="lessonVisibility.kinematics ? 'Kinematics &#x1F783;' : 'Kinematics &#x1F782;'"></b></h6>
           </li>
-          <span class="lesson-content mb-4" id="kinematics">
+          <span class="lesson-content mb-4 kinematics">
             <li v-for="lesson in filteredLessons.kinematics">
               <NuxtLink @click="resetScroll(); hideMobileBar()"
                 :class="$route.fullPath === lesson.path ? 'text-body-emphasis nav-link' : 'nav-link'"
@@ -506,7 +518,7 @@ if (import.meta.client) {
             <h6 class="sidebar-header" @click="triggerAnimation('dynamics')"><b
                 v-html="lessonVisibility.dynamics ? 'Dynamics &#x1F783;' : 'Dynamics &#x1F782;'"></b></h6>
           </li>
-          <span class="lesson-content mb-4" id="dynamics">
+          <span class="lesson-content mb-4 dynamics">
             <li v-for="lesson in filteredLessons.dynamics">
               <NuxtLink @click="resetScroll(); hideMobileBar()"
                 :class="$route.fullPath === lesson.path ? 'text-body-emphasis nav-link' : 'nav-link'"
@@ -522,7 +534,7 @@ if (import.meta.client) {
                 v-html="lessonVisibility.circularGravity ? 'Circular Motion and Gravitation &#x1F783;' : 'Circular Motion and Gravitation &#x1F782;'"></b>
             </h6>
           </li>
-          <span class="lesson-content mb-4" id="circularGravity">
+          <span class="lesson-content mb-4 circularGravity">
             <li v-for="lesson in filteredLessons.circularGravity">
               <NuxtLink @click="resetScroll(); hideMobileBar()"
                 :class="$route.fullPath === lesson.path ? 'text-body-emphasis nav-link' : 'nav-link'"
@@ -537,7 +549,7 @@ if (import.meta.client) {
             <h6 class="sidebar-header" @click="triggerAnimation('energy')"><b
                 v-html="lessonVisibility.energy ? 'Energy &#x1F783;' : 'Energy &#x1F782;'"></b></h6>
           </li>
-          <span class="lesson-content mb-4" id="energy">
+          <span class="lesson-content mb-4 energy">
             <li v-for="lesson in filteredLessons.energy">
               <NuxtLink @click="resetScroll(); hideMobileBar()"
                 :class="$route.fullPath === lesson.path ? 'text-body-emphasis nav-link' : 'nav-link'"
@@ -552,7 +564,7 @@ if (import.meta.client) {
             <h6 class="sidebar-header" @click="triggerAnimation('momentum')"><b
                 v-html="lessonVisibility.momentum ? 'Momentum &#x1F783;' : 'Momentum &#x1F782;'"></b></h6>
           </li>
-          <span class="lesson-content mb-4" id="momentum">
+          <span class="lesson-content mb-4 momentum">
             <li v-for="lesson in filteredLessons.momentum">
               <NuxtLink @click="resetScroll(); hideMobileBar()"
                 :class="$route.fullPath === lesson.path ? 'text-body-emphasis nav-link' : 'nav-link'"
@@ -567,7 +579,7 @@ if (import.meta.client) {
             <h6 class="sidebar-header" @click="triggerAnimation('rotation')"><b
                 v-html="lessonVisibility.rotation ? 'Rotation &#x1F783;' : 'Rotation &#x1F782;'"></b></h6>
           </li>
-          <span class="lesson-content mb-4" id="rotation">
+          <span class="lesson-content mb-4 rotation">
             <li v-for="lesson in filteredLessons.rotation">
               <NuxtLink @click="resetScroll(); hideMobileBar()"
                 :class="$route.fullPath === lesson.path ? 'text-body-emphasis nav-link' : 'nav-link'"
@@ -582,7 +594,7 @@ if (import.meta.client) {
             <h6 class="sidebar-header" @click="triggerAnimation('oscillations')"><b
                 v-html="lessonVisibility.oscillations ? 'Oscillations &#x1F783;' : 'Oscillations &#x1F782;'"></b></h6>
           </li>
-          <span class="lesson-content mb-4" id="oscillations">
+          <span class="lesson-content mb-4 oscillations">
             <li v-for="lesson in filteredLessons.oscillations">
               <NuxtLink @click="resetScroll(); hideMobileBar()"
                 :class="$route.fullPath === lesson.path ? 'text-body-emphasis nav-link' : 'nav-link'"
@@ -597,7 +609,7 @@ if (import.meta.client) {
             <h6 class="sidebar-header" @click="triggerAnimation('fluids')"><b
                 v-html="lessonVisibility.fluids ? 'Fluids &#x1F783;' : 'Fluids &#x1F782;'"></b></h6>
           </li>
-          <span class="lesson-content mb-4" id="fluids">
+          <span class="lesson-content mb-4 fluids">
             <li v-for="lesson in filteredLessons.fluids">
               <NuxtLink @click="resetScroll(); hideMobileBar()"
                 :class="$route.fullPath === lesson.path ? 'text-body-emphasis nav-link' : 'nav-link'"
@@ -616,12 +628,13 @@ if (import.meta.client) {
         <li>
           <hr class="sidebar-divider">
         </li>
-        <span id="EM" class="mb-3">
+        <span class="EM mb-3">
           <li>
             <h6 class="sidebar-header" @click="triggerAnimation('electrostatics')"><b
-                v-html="lessonVisibility.electrostatics ? 'Electrostatics &#x1F783;' : 'Electrostatics &#x1F782;'"></b></h6>
+                v-html="lessonVisibility.electrostatics ? 'Electrostatics &#x1F783;' : 'Electrostatics &#x1F782;'"></b>
+            </h6>
           </li>
-          <span class="lesson-content mb-4" id="electrostatics">
+          <span class="lesson-content mb-4 electrostatics">
             <li v-for="lesson in filteredLessons.electrostatics">
               <NuxtLink @click="resetScroll(); hideMobileBar()"
                 :class="$route.fullPath === lesson.path ? 'text-body-emphasis nav-link' : 'nav-link'"
@@ -639,7 +652,7 @@ if (import.meta.client) {
         <li>
           <hr class="sidebar-divider">
         </li>
-        <span id="thermo" class="mb-3"></span>
+        <span class="thermo mb-3"></span>
 
       </ul>
     </div>
