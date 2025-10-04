@@ -1,5 +1,5 @@
 <script setup>
-import { ref, reactive, computed, watch, useTemplateRef, onMounted } from 'vue'
+import { ref, reactive, computed, watch, useTemplateRef, onMounted, nextTick } from 'vue'
 import { useUserStore } from '~/stores/user'
 import { useLessonShowingStore } from '~/stores/lessonShowing'
 import { storeToRefs } from 'pinia'
@@ -219,7 +219,7 @@ if (import.meta.client) {
 }
 
 onMounted(() => {
-  if (import.meta.client && document.body.getAttribute("data-bs-theme") === "dark") {
+  if (import.meta.client && theme.value === "dark") {
     const els = document.getElementsByClassName("os-scrollbar-vertical")
     for (let el of els) {
       el.classList.toggle("os-theme-light")
@@ -263,7 +263,7 @@ onMounted(() => {
     <div class="offcanvas-header border-bottom border-secondary border-opacity-25" style="height: 55px;">
       <input v-model="searchQuery" type="text" class="form-control" placeholder="Type here to find a lesson...">
     </div>
-    <OverlayScrollbarsComponent defer class="offcanvas-body">
+    <OverlayScrollbarsComponent class="offcanvas-body">
       <ul class="sidebar-nav">
         <li>
           <h6 class="sidebar-header big-section" @click="triggerAnimation('basics')"><b
@@ -495,7 +495,7 @@ onMounted(() => {
     <div class="offcanvas-header border-bottom border-secondary border-opacity-25">
       <input v-model="searchQuery" type="text" class="form-control" placeholder="Type here to find a lesson...">
     </div>
-    <OverlayScrollbarsComponent defer class="offcanvas-body">
+    <OverlayScrollbarsComponent class="offcanvas-body">
       <ul class="sidebar-nav">
         <li>
           <h6 class="sidebar-header big-section" @click="triggerAnimation('basics')"><b
@@ -691,7 +691,8 @@ onMounted(() => {
         </div>
         <div class="col-4">
           <h6 class="sidebar-header">Theme</h6>
-          <select style="width: 70px;" class="mx-auto p-2 my-2 form-select" id="themeSelect" v-model="theme" @change="changeScrollbarTheme()">
+          <select style="width: 70px;" class="mx-auto p-2 my-2 form-select" id="themeSelect" v-model="theme"
+            @change="changeScrollbarTheme()">
             <option value="dark">Dark</option>
             <option value="light">Light</option>
           </select>
