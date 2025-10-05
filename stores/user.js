@@ -52,7 +52,7 @@ export const useUserStore = defineStore('user', () => {
   const AirResistance = ref(0)
   const Bernoulli = ref(0)
   const ElectricCharge = ref(0)
-  const ColoumbsLaw = ref(0)
+  const CoulombsLaw = ref(0)
   const ElectricFields = ref(0)
   const GaussLaw = ref(0)
 
@@ -107,7 +107,7 @@ export const useUserStore = defineStore('user', () => {
     AirResistance,
     Bernoulli,
     ElectricCharge,
-    ColoumbsLaw,
+    CoulombsLaw,
     ElectricFields,
     GaussLaw
   }

@@ -176,7 +176,7 @@ const lessons = reactive({
   ],
   electrostatics: [
     { name: "Electric Charge", path: "/electricityAndMagnetism/electrostatics/electric-charge" },
-    { name: "Coloumb's Law", path: "/electricityAndMagnetism/electrostatics/coloumbs-law" },
+    { name: "Coulomb's Law", path: "/electricityAndMagnetism/electrostatics/coulombs-law" },
     { name: "Electric Fields", path: "/electricityAndMagnetism/electrostatics/electric-fields" },
     { name: "Gauss's Law", path: "/electricityAndMagnetism/electrostatics/gauss-law" }
   ]

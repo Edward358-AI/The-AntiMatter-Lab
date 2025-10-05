@@ -1,8 +1,8 @@
 <script setup>
 useHead({
-    title: "Coloumb's Law",
+    title: "Coulomb's Law",
     meta: [
-        { name: 'description', content: "Understand Coloumb's Law and how to calculate electric forces between charged objects." }
+        { name: 'description', content: "Understand Coulomb's Law and how to calculate electric forces between charged objects." }
     ]
 })
 
@@ -13,7 +13,7 @@ import { storeToRefs } from 'pinia'
 
 const lessonShowing = storeToRefs(useLessonShowingStore()).lessonShowing
 const level = storeToRefs(useUserStore()).difficulty
-const page = storeToRefs(useUserStore()).ColoumbsLaw
+const page = storeToRefs(useUserStore()).CoulombsLaw
 
 watch(page, () => { if (import.meta.client) window.scrollTo(0,0) })
 watch(level, () => { if (!lessonShowing.value && import.meta.client) nextTick(() => window.MathJax?.typeset()) })
@@ -228,7 +228,7 @@ function setChecked(chek, qNum) {
 
 <template>
     <div v-show="lessonShowing" class="container h100 p-5">
-        <h1>Coloumb's Law</h1><br>
+        <h1>Coulomb's Law</h1><br>
         <p>
         <div v-show="page===0">
             <h4 class="text-center">Introduction</h4>
@@ -264,7 +264,7 @@ function setChecked(chek, qNum) {
     </div>
 
     <div v-show="!lessonShowing" class="container h100 pt-5">
-        <h1>Coloumb's Law Problems</h1><br>
+        <h1>Coulomb's Law Problems</h1><br>
         <div class="question-container row justify-content-center mx-auto pb-5">
             <form @submit.prevent="checkAnswer(q.number, $event)" style="height:fit-content"
                 class="question col-6 row justify-content-center my-5 mx-auto" v-for="q in questions[level]">
