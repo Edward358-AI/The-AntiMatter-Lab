@@ -266,8 +266,7 @@ onMounted(() => {
     <OverlayScrollbarsComponent class="offcanvas-body">
       <ul class="sidebar-nav">
         <li>
-          <h6 class="sidebar-header big-section" @click="triggerAnimation('basics')"><b
-              v-html="lessonVisibility.basics ? 'Getting Started &#x1F783;' : 'Getting Started &#x1F782;'"></b></h6>
+          <h6 class="sidebar-header big-section" @click="triggerAnimation('basics')"><b>Getting Started <CaretRight v-if="!lessonVisibility.basics" /><CaretDown v-else /></b></h6>
         </li>
         <li>
           <hr class="sidebar-divider">
@@ -283,8 +282,7 @@ onMounted(() => {
         </span>
 
         <li>
-          <h6 @click="triggerSectionAnimation('mechanics')" class="sidebar-header big-section"><b
-              v-html="sectionVisibility.mechanics ? 'Mechanics &#x1F783;' : 'Mechanics &#x1F782;'"></b></h6>
+      <h6 @click="triggerSectionAnimation('mechanics')" class="sidebar-header big-section"><b>Mechanics <CaretRight v-if="!sectionVisibility.mechanics" /><CaretDown v-else /></b></h6>
         </li>
         <li>
           <hr class="sidebar-divider">
@@ -292,8 +290,7 @@ onMounted(() => {
 
         <span class="mechanics mb-3">
           <li>
-            <h6 class="sidebar-header" @click="triggerAnimation('kinematics')"><b
-                v-html="lessonVisibility.kinematics ? 'Kinematics &#x1F783;' : 'Kinematics &#x1F782;'"></b></h6>
+            <h6 class="sidebar-header" @click="triggerAnimation('kinematics')"><b>Kinematics <CaretRight v-if="!lessonVisibility.kinematics" width="14" height="14" /><CaretDown v-else width="14" height="14" /></b></h6>
           </li>
           <span class="lesson-content mb-4 kinematics">
             <li v-for="lesson in filteredLessons.kinematics">
@@ -306,8 +303,7 @@ onMounted(() => {
           </span>
 
           <li>
-            <h6 class="sidebar-header" @click="triggerAnimation('dynamics')"><b
-                v-html="lessonVisibility.dynamics ? 'Dynamics &#x1F783;' : 'Dynamics &#x1F782;'"></b></h6>
+            <h6 class="sidebar-header" @click="triggerAnimation('dynamics')"><b>Dynamics <CaretRight v-if="!lessonVisibility.dynamics" width="14" height="14" /><CaretDown v-else width="14" height="14" /></b></h6>
           </li>
           <span class="lesson-content mb-4 dynamics">
             <li v-for="lesson in filteredLessons.dynamics">
@@ -321,9 +317,7 @@ onMounted(() => {
 
 
           <li>
-            <h6 class="sidebar-header" @click="triggerAnimation('circularGravity')"><b
-                v-html="lessonVisibility.circularGravity ? 'Circular Motion and Gravitation &#x1F783;' : 'Circular Motion and Gravitation &#x1F782;'"></b>
-            </h6>
+            <h6 class="sidebar-header" @click="triggerAnimation('circularGravity')"><b>Circular Motion and Gravitation <CaretRight v-if="!lessonVisibility.circularGravity" width="14" height="14" /><CaretDown v-else width="14" height="14" /></b></h6>
           </li>
           <span class="lesson-content mb-4 circularGravity">
             <li v-for="lesson in filteredLessons.circularGravity">
@@ -337,8 +331,7 @@ onMounted(() => {
 
 
           <li>
-            <h6 class="sidebar-header" @click="triggerAnimation('energy')"><b
-                v-html="lessonVisibility.energy ? 'Energy &#x1F783;' : 'Energy &#x1F782;'"></b></h6>
+            <h6 class="sidebar-header" @click="triggerAnimation('energy')"><b>Energy <CaretRight v-if="!lessonVisibility.energy" width="14" height="14" /><CaretDown v-else width="14" height="14" /></b></h6>
           </li>
           <span class="lesson-content mb-4 energy">
             <li v-for="lesson in filteredLessons.energy">
@@ -352,8 +345,7 @@ onMounted(() => {
 
 
           <li>
-            <h6 class="sidebar-header" @click="triggerAnimation('momentum')"><b
-                v-html="lessonVisibility.momentum ? 'Momentum &#x1F783;' : 'Momentum &#x1F782;'"></b></h6>
+            <h6 class="sidebar-header" @click="triggerAnimation('momentum')"><b>Momentum <CaretRight v-if="!lessonVisibility.momentum" width="14" height="14" /><CaretDown v-else width="14" height="14" /></b></h6>
           </li>
           <span class="lesson-content mb-4 momentum">
             <li v-for="lesson in filteredLessons.momentum">
@@ -367,8 +359,7 @@ onMounted(() => {
 
 
           <li>
-            <h6 class="sidebar-header" @click="triggerAnimation('rotation')"><b
-                v-html="lessonVisibility.rotation ? 'Rotation &#x1F783;' : 'Rotation &#x1F782;'"></b></h6>
+            <h6 class="sidebar-header" @click="triggerAnimation('rotation')"><b>Rotation <CaretRight v-if="!lessonVisibility.rotation" width="14" height="14" /><CaretDown v-else width="14" height="14" /></b></h6>
           </li>
           <span class="lesson-content mb-4 rotation">
             <li v-for="lesson in filteredLessons.rotation">
@@ -382,8 +373,7 @@ onMounted(() => {
 
 
           <li>
-            <h6 class="sidebar-header" @click="triggerAnimation('oscillations')"><b
-                v-html="lessonVisibility.oscillations ? 'Oscillations &#x1F783;' : 'Oscillations &#x1F782;'"></b></h6>
+            <h6 class="sidebar-header" @click="triggerAnimation('oscillations')"><b>Oscillations <CaretRight v-if="!lessonVisibility.oscillations" width="14" height="14" /><CaretDown v-else width="14" height="14" /></b></h6>
           </li>
           <span class="lesson-content mb-4 oscillations">
             <li v-for="lesson in filteredLessons.oscillations">
@@ -397,8 +387,7 @@ onMounted(() => {
 
 
           <li>
-            <h6 class="sidebar-header" @click="triggerAnimation('fluids')"><b
-                v-html="lessonVisibility.fluids ? 'Fluids &#x1F783;' : 'Fluids &#x1F782;'"></b></h6>
+            <h6 class="sidebar-header" @click="triggerAnimation('fluids')"><b>Fluids <CaretRight v-if="!lessonVisibility.fluids" width="14" height="14" /><CaretDown v-else width="14" height="14" /></b></h6>
           </li>
           <span class="lesson-content mb-4 fluids">
             <li v-for="lesson in filteredLessons.fluids">
@@ -412,18 +401,14 @@ onMounted(() => {
         </span>
 
         <li>
-          <h6 @click="triggerSectionAnimation('EM')" class="sidebar-header big-section"><b
-              v-html="sectionVisibility.EM ? 'Electricity & Magnetism &#x1F783;' : 'Electricity & Magnetism &#x1F782;'"></b>
-          </h6>
+      <h6 @click="triggerSectionAnimation('EM')" class="sidebar-header big-section"><b>Electricity & Magnetism <CaretRight v-if="!sectionVisibility.EM" /><CaretDown v-else /></b></h6>
         </li>
         <li>
           <hr class="sidebar-divider">
         </li>
         <span class="EM mb-3">
           <li>
-            <h6 class="sidebar-header" @click="triggerAnimation('electrostatics')"><b
-                v-html="lessonVisibility.electrostatics ? 'Electrostatics &#x1F783;' : 'Electrostatics &#x1F782;'"></b>
-            </h6>
+            <h6 class="sidebar-header" @click="triggerAnimation('electrostatics')"><b>Electrostatics <CaretRight v-if="!lessonVisibility.electrostatics" width="14" height="14" /><CaretDown v-else width="14" height="14" /></b></h6>
           </li>
           <span class="lesson-content mb-4 electrostatics">
             <li v-for="lesson in filteredLessons.electrostatics">
@@ -437,8 +422,7 @@ onMounted(() => {
         </span>
 
         <li>
-          <h6 @click="triggerSectionAnimation('thermo')" class="sidebar-header big-section"><b
-              v-html="sectionVisibility.thermo ? 'Thermodynamics &#x1F783;' : 'Thermodynamics &#x1F782;'"></b></h6>
+      <h6 @click="triggerSectionAnimation('thermo')" class="sidebar-header big-section"><b>Thermodynamics <CaretRight v-if="!sectionVisibility.thermo" /><CaretDown v-else /></b></h6>
         </li>
         <li>
           <hr class="sidebar-divider">
@@ -498,8 +482,7 @@ onMounted(() => {
     <OverlayScrollbarsComponent class="offcanvas-body">
       <ul class="sidebar-nav">
         <li>
-          <h6 class="sidebar-header big-section" @click="triggerAnimation('basics')"><b
-              v-html="lessonVisibility.basics ? 'Getting Started &#x1F783;' : 'Getting Started &#x1F782;'"></b></h6>
+  <h6 class="sidebar-header big-section" @click="triggerAnimation('basics')"><b>Getting Started <CaretRight v-if="!lessonVisibility.basics" /><CaretDown v-else /></b></h6>
         </li>
         <li>
           <hr class="sidebar-divider">
@@ -515,8 +498,7 @@ onMounted(() => {
         </span>
 
         <li>
-          <h6 @click="triggerSectionAnimation('mechanics')" class="sidebar-header big-section"><b
-              v-html="sectionVisibility.mechanics ? 'Mechanics &#x1F783;' : 'Mechanics &#x1F782;'"></b></h6>
+      <h6 @click="triggerSectionAnimation('mechanics')" class="sidebar-header big-section"><b>Mechanics <CaretRight v-if="!sectionVisibility.mechanics" /><CaretDown v-else /></b></h6>
         </li>
         <li>
           <hr class="sidebar-divider">
@@ -524,8 +506,7 @@ onMounted(() => {
 
         <span class="mechanics mb-3">
           <li>
-            <h6 class="sidebar-header" @click="triggerAnimation('kinematics')"><b
-                v-html="lessonVisibility.kinematics ? 'Kinematics &#x1F783;' : 'Kinematics &#x1F782;'"></b></h6>
+  <h6 class="sidebar-header" @click="triggerAnimation('kinematics')"><b>Kinematics <CaretRight v-if="!lessonVisibility.kinematics" width="14" height="14" /><CaretDown v-else width="14" height="14" /></b></h6>
           </li>
           <span class="lesson-content mb-4 kinematics">
             <li v-for="lesson in filteredLessons.kinematics">
@@ -538,8 +519,7 @@ onMounted(() => {
           </span>
 
           <li>
-            <h6 class="sidebar-header" @click="triggerAnimation('dynamics')"><b
-                v-html="lessonVisibility.dynamics ? 'Dynamics &#x1F783;' : 'Dynamics &#x1F782;'"></b></h6>
+  <h6 class="sidebar-header" @click="triggerAnimation('dynamics')"><b>Dynamics <CaretRight v-if="!lessonVisibility.dynamics" width="14" height="14" /><CaretDown v-else width="14" height="14" /></b></h6>
           </li>
           <span class="lesson-content mb-4 dynamics">
             <li v-for="lesson in filteredLessons.dynamics">
@@ -553,9 +533,7 @@ onMounted(() => {
 
 
           <li>
-            <h6 class="sidebar-header" @click="triggerAnimation('circularGravity')"><b
-                v-html="lessonVisibility.circularGravity ? 'Circular Motion and Gravitation &#x1F783;' : 'Circular Motion and Gravitation &#x1F782;'"></b>
-            </h6>
+  <h6 class="sidebar-header" @click="triggerAnimation('circularGravity')"><b>Circular Motion and Gravitation <CaretRight v-if="!lessonVisibility.circularGravity" width="14" height="14" /><CaretDown v-else width="14" height="14" /></b></h6>
           </li>
           <span class="lesson-content mb-4 circularGravity">
             <li v-for="lesson in filteredLessons.circularGravity">
@@ -569,8 +547,7 @@ onMounted(() => {
 
 
           <li>
-            <h6 class="sidebar-header" @click="triggerAnimation('energy')"><b
-                v-html="lessonVisibility.energy ? 'Energy &#x1F783;' : 'Energy &#x1F782;'"></b></h6>
+  <h6 class="sidebar-header" @click="triggerAnimation('energy')"><b>Energy <CaretRight v-if="!lessonVisibility.energy" width="14" height="14" /><CaretDown v-else width="14" height="14" /></b></h6>
           </li>
           <span class="lesson-content mb-4 energy">
             <li v-for="lesson in filteredLessons.energy">
@@ -584,8 +561,7 @@ onMounted(() => {
 
 
           <li>
-            <h6 class="sidebar-header" @click="triggerAnimation('momentum')"><b
-                v-html="lessonVisibility.momentum ? 'Momentum &#x1F783;' : 'Momentum &#x1F782;'"></b></h6>
+  <h6 class="sidebar-header" @click="triggerAnimation('momentum')"><b>Momentum <CaretRight v-if="!lessonVisibility.momentum" width="14" height="14" /><CaretDown v-else width="14" height="14" /></b></h6>
           </li>
           <span class="lesson-content mb-4 momentum">
             <li v-for="lesson in filteredLessons.momentum">
@@ -599,8 +575,7 @@ onMounted(() => {
 
 
           <li>
-            <h6 class="sidebar-header" @click="triggerAnimation('rotation')"><b
-                v-html="lessonVisibility.rotation ? 'Rotation &#x1F783;' : 'Rotation &#x1F782;'"></b></h6>
+  <h6 class="sidebar-header" @click="triggerAnimation('rotation')"><b>Rotation <CaretRight v-if="!lessonVisibility.rotation" width="14" height="14" /><CaretDown v-else width="14" height="14" /></b></h6>
           </li>
           <span class="lesson-content mb-4 rotation">
             <li v-for="lesson in filteredLessons.rotation">
@@ -614,8 +589,7 @@ onMounted(() => {
 
 
           <li>
-            <h6 class="sidebar-header" @click="triggerAnimation('oscillations')"><b
-                v-html="lessonVisibility.oscillations ? 'Oscillations &#x1F783;' : 'Oscillations &#x1F782;'"></b></h6>
+  <h6 class="sidebar-header" @click="triggerAnimation('oscillations')"><b>Oscillations <CaretRight v-if="!lessonVisibility.oscillations" width="14" height="14" /><CaretDown v-else width="14" height="14" /></b></h6>
           </li>
           <span class="lesson-content mb-4 oscillations">
             <li v-for="lesson in filteredLessons.oscillations">
@@ -629,8 +603,7 @@ onMounted(() => {
 
 
           <li>
-            <h6 class="sidebar-header" @click="triggerAnimation('fluids')"><b
-                v-html="lessonVisibility.fluids ? 'Fluids &#x1F783;' : 'Fluids &#x1F782;'"></b></h6>
+  <h6 class="sidebar-header" @click="triggerAnimation('fluids')"><b>Fluids <CaretRight v-if="!lessonVisibility.fluids" width="14" height="14" /><CaretDown v-else width="14" height="14" /></b></h6>
           </li>
           <span class="lesson-content mb-4 fluids">
             <li v-for="lesson in filteredLessons.fluids">
@@ -644,18 +617,14 @@ onMounted(() => {
         </span>
 
         <li>
-          <h6 @click="triggerSectionAnimation('EM')" class="sidebar-header big-section"><b
-              v-html="sectionVisibility.EM ? 'Electricity & Magnetism &#x1F783;' : 'Electricity & Magnetism &#x1F782;'"></b>
-          </h6>
+      <h6 @click="triggerSectionAnimation('EM')" class="sidebar-header big-section"><b>Electricity & Magnetism <CaretRight v-if="!sectionVisibility.EM" /><CaretDown v-else /></b></h6>
         </li>
         <li>
           <hr class="sidebar-divider">
         </li>
         <span class="EM mb-3">
           <li>
-            <h6 class="sidebar-header" @click="triggerAnimation('electrostatics')"><b
-                v-html="lessonVisibility.electrostatics ? 'Electrostatics &#x1F783;' : 'Electrostatics &#x1F782;'"></b>
-            </h6>
+  <h6 class="sidebar-header" @click="triggerAnimation('electrostatics')"><b>Electrostatics <CaretRight v-if="!lessonVisibility.electrostatics" width="14" height="14" /><CaretDown v-else width="14" height="14" /></b></h6>
           </li>
           <span class="lesson-content mb-4 electrostatics">
             <li v-for="lesson in filteredLessons.electrostatics">
@@ -669,8 +638,7 @@ onMounted(() => {
         </span>
 
         <li>
-          <h6 @click="triggerSectionAnimation('thermo')" class="sidebar-header big-section"><b
-              v-html="sectionVisibility.thermo ? 'Thermodynamics &#x1F783;' : 'Thermodynamics &#x1F782;'"></b></h6>
+      <h6 @click="triggerSectionAnimation('thermo')" class="sidebar-header big-section"><b>Thermodynamics <CaretRight v-if="!sectionVisibility.thermo" /><CaretDown v-else /></b></h6>
         </li>
         <li>
           <hr class="sidebar-divider">
