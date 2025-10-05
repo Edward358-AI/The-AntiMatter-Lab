@@ -257,7 +257,7 @@ function setChecked(chek, qNum) {
                 <button class="btn btn-dark" style="animation: scale1 2s infinite;" @click="page--">&larr; Previous</button>
             </div>
             <div class="btn-contain-right">
-                <NuxtLink class="btn btn-dark" style="animation: scale 2s infinite;" @click="page=0" to="/electricityAndMagnetism/electrostatics/gauss-law">Next Unit! &rarr;</NuxtLink>
+                <NuxtLink class="btn btn-dark" style="animation: scale 2s infinite;" @click="page=0" to="/electricityAndMagnetism/electrostatics/gauss-law">Next Lesson! &rarr;</NuxtLink>
             </div>
         </div>
         </p>

@@ -471,17 +471,32 @@ function setChecked(chek, qNum) {
             equal to the charge of an electron or proton, and we call it $e$.
             <br><br>
             $$ e = 1.602 \times 10^{-19}~\textrm{C} $$
-            <br><br>
+            <br>
             The unit of charge there is called the coulomb, named after Charles-Augustin de Coulomb who studied electric forces. One coulomb of charge is a very large amount, so 
             we usually deal with microcoulombs or nanocoulombs. On the topic of the fundamental charge again, every possible charge has to be an integer mutliple of this 
-            fundamental charge.
+            fundamental charge. That means not every amount of charge is possible!
             <br><br>
-            
+            With that, we can work on this concept with a very short practice problem.
+            <br><br>
+            <div class="problem">
+                Which of these is <b>NOT</b> a possible value of charge on an object? (You can approximate $e = 1.6 \times 10^{-19}~\textrm{C}$.)
+                <br>
+            A. $3.2 \times 10^{-19}~\textrm{C}$<br>
+            B. $2.4 \times 10^{-19}~\textrm{C}$<br>
+            C. $1.6 \times 10^{-19}~\textrm{C}$<br>
+            D. $6.4 \times 10^{-19}~\textrm{C}$<br>
+            <br>
+            The correct answer is B, because it is not an integer multiple of the fundamental charge. If we do the relatively simple calculations, we find that it is 1.5 times the fundamental charge. All the other answers are integer multiples of $1.6 \times 10^{-19}~\textrm{C}$.
+            </div>
+            <br>
+            Well, we just finished our very first lesson of electricity and magnetism! I know it might have seemed very simple, but I promise that the rest of this subject is not so easy. Do not let up on the simple things, because even though 
+            they might seem extremely easy they are foundational to understanding everything that comes after. With that, we're ready to talk about how charge attraction and repulsion works 
+            mathematically. If you're ready, just head on over to the next lesson!
             <div class="btn-contain-left">
                 <button class="btn btn-dark" style="animation: scale1 2s infinite;" @click="page--">&larr; Previous</button>
             </div>
             <div class="btn-contain-right">
-                <NuxtLink class="btn btn-dark" style="animation: scale 2s infinite;" @click="page=0" to="/electricityAndMagnetism/electrostatics/coulombs-law">Next Unit! &rarr;</NuxtLink>
+                <NuxtLink class="btn btn-dark" style="animation: scale 2s infinite;" @click="page=0" to="/electricityAndMagnetism/electrostatics/coulombs-law">Next Lesson! &rarr;</NuxtLink>
             </div>
         </div>
         </p>
