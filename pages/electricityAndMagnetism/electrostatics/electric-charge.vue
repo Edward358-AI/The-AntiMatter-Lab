@@ -467,8 +467,8 @@ function setChecked(chek, qNum) {
         </div>
         <div v-show="page===3">
             <h4 class="text-center">The Fundamental Charge</h4>
-            Charge is actually not infinitely divisible. There is a <b>fundamental charge</b> that every other charge has to be a multiple of. This just so happens to be 
-            equal to the charge of an electron or proton, and we call it $e$.
+            Charge is actually not infinitely divisible. There is a <b>fundamental charge</b> that every other charge has to be a multiple of. This happens to be 
+            equal to the charge of an electron or proton, and we call it $e$. Note that the proton is positive, and the electron is negative.
             <br><br>
             $$ e = 1.602 \times 10^{-19}~\textrm{C} $$
             <br>
